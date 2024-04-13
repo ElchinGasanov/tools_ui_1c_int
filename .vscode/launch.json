@@ -19,7 +19,7 @@
             "runtimeExecutable": null,
             "runtimeArgs": [],
             "debugPort": 2801,
-            "protocol": "tcp",
+            // "protocol": "tcp",
             "linux": {"runtimeExecutable": "/usr/bin/oscript"}
         },
         {
@@ -40,7 +40,7 @@
             "runtimeExecutable": null,
             "runtimeArgs": [],
             "debugPort": 2801,
-            "protocol": "tcp",
+            // "protocol": "tcp",
             "linux": {"runtimeExecutable": "/usr/bin/oscript"}
         },
         {
@@ -61,7 +61,7 @@
             "runtimeExecutable": null,
             "runtimeArgs": [],
             "debugPort": 2801,
-            "protocol": "tcp",
+            // "protocol": "tcp",
             "linux": {"runtimeExecutable": "/usr/bin/oscript"}
         },
         {
@@ -82,7 +82,7 @@
             "runtimeExecutable": null,
             "runtimeArgs": [],
             "debugPort": 2801,
-            "protocol": "tcp",
+            // "protocol": "tcp",
             "linux": {"runtimeExecutable": "/usr/bin/oscript"}
         },
         {
@@ -102,8 +102,95 @@
             "runtimeExecutable": null,
             "runtimeArgs": [],
             "debugPort": 2801,
-            "protocol": "tcp",
+            // "protocol": "tcp",
             "linux": {"runtimeExecutable": "/usr/bin/oscript"}
-        }
+        },
+        {
+            "name": "Int. total build (Default)",
+            "type": "oscript",
+            "request": "launch",
+            "program": "${workspaceRoot}/src/builder_int/build.os",
+            "args": [
+                "--versionEDT=edt@2023.2.4"
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "runtimeExecutable": null,
+            "runtimeArgs": [],
+            "debugPort": 2801
+        },
+        {
+            "name": "Int. source conversion",
+            "type": "oscript",
+            "request": "launch",
+            "program": "${workspaceRoot}/src/builder_int/build.os",
+            "args": [
+                "--versionEDT=edt@2023.2.4",
+                "--exportEDT=true",
+                "--cfe=false",
+                "--cf=false",
+                "--epf=false",
+                "--deleteSourse=false"
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "runtimeExecutable": null,
+            "runtimeArgs": [],
+            "debugPort": 2801
+        },
+        {
+            "name": "Int. build into extension (without sources)",
+            "type": "oscript",
+            "request": "launch",
+            "program": "${workspaceRoot}/src/builder_int/build.os",
+            "args": [
+                "--exportEDT=false",
+                "--cfe=true",
+                "--cf=false",
+                "--epf=false",
+                "--deleteSourse=false"
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "runtimeExecutable": null,
+            "runtimeArgs": [],
+            "debugPort": 2801
+        },
+        {
+            "name": "Int. build to configuration (without sources)",
+            "type": "oscript",
+            "request": "launch",
+            "program": "${workspaceRoot}/src/builder_int/build.os",
+            "args": [
+                "--exportEDT=false",
+                "--cfe=false",
+                "--cf=true",
+                "--epf=false",
+                "--deleteSourse=false"
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "runtimeExecutable": null,
+            "runtimeArgs": [],
+            "debugPort": 2801
+        },
+        {
+            "name": "Int. build for portable ext. processing (without sources)",
+            "type": "oscript",
+            "request": "launch",
+            "program": "${workspaceRoot}/src/builder_int/build.os",
+            "args": [
+                "--exportEDT=false",
+                "--cfe=false",
+                "--cf=false",
+                "--epf=true",
+                "--deleteSourse=false"
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "runtimeExecutable": null,
+            "runtimeArgs": [],
+            "debugPort": 2801
+        },
     ]
 }
