@@ -1,6 +1,6 @@
 //Module for quick access to debugging procedures
 
-#Region ProgrammingInterface
+#Region Public
 
 // Description
 // 

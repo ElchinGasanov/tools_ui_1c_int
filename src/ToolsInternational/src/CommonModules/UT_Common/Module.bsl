@@ -5,7 +5,7 @@
 // Текст лицензии доступен по ссылке:
 // https://creativecommons.org/licenses/by/4.0/legalcode
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-#Region ProgramInterface
+#Region Public
 
 // Returns the data separation mode flag (conditional separation).
 // 
