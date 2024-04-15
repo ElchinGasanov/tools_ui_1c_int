@@ -414,6 +414,87 @@
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
+          <items xsi:type="form:Button">
+            <name>InformationForSupportService</name>
+            <id>61</id>
+            <title>
+              <key>ru</key>
+              <value>Информация для техподдержки</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Information For Support Service</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>InformationForSupportServiceExtendedTooltip</name>
+              <id>62</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <type>Hyperlink</type>
+            <commandName>Form.Command.InformationForSupportService</commandName>
+            <representation>Auto</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
+          <items xsi:type="form:Button">
+            <name>CleanToolsCacheAtClient</name>
+            <id>63</id>
+            <title>
+              <key>ru</key>
+              <value>Очистить кэш инструментов на клиенте</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Clean tools cache at client</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>CleanToolsCacheAtClientExtendedTooltip</name>
+              <id>64</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <type>Hyperlink</type>
+            <commandName>Form.Command.CleanToolsCacheAtClient</commandName>
+            <representation>Auto</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <picture xsi:type="core:PictureRef">
+              <picture>StdPicture.InputFieldClear</picture>
+            </picture>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
           <items xsi:type="form:FormGroup">
             <name>GroupSupportToolsCommandsDebug</name>
             <id>36</id>
@@ -1005,6 +1086,10 @@
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
+  <handlers>
+    <event>BeforeClose</event>
+    <name>BeforeClose</name>
+  </handlers>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -1143,6 +1228,28 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>ClipBoardAddinBinaryDataURL</name>
+    <title>
+      <key>ru</key>
+      <value>Адрес двоичных данных компоненты работы с буфером обмена</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>ClipBoard Addin Binary Data URL</value>
+    </title>
+    <id>7</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <formCommands>
     <name>AskQuestionToDeveloper</name>
     <title>
@@ -1244,6 +1351,44 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>UT_Settings</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+  </formCommands>
+  <formCommands>
+    <name>InformationForSupportService</name>
+    <title>
+      <key>ru</key>
+      <value>Информация для тех поддержки</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Information for support service</value>
+    </title>
+    <id>8</id>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>InformationForSupportService</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+  </formCommands>
+  <formCommands>
+    <name>CleanToolsCacheAtClient</name>
+    <title>
+      <key>en</key>
+      <value>Clean tools cache at client</value>
+    </title>
+    <id>9</id>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>CleanToolsCacheAtClient</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>

@@ -1,5 +1,5 @@
 
-#Region ProgramInterface
+#Region Public
 
 // Create copy of value type of Structure, Recursively, according of types of properties. 
 // If  structure properties contains values of object types  (catalogref, DocumentRef,etc),
@@ -1861,7 +1861,36 @@ Function IsPortableDistribution() Export
 EndFunction
 #EndRegion
 #EndRegion
+// Описание ОСДля техподдержки.
+// 
+// Возвращаемое значение:
+//  Структура -  Описание ОСДля техподдержки:
+// * ВерсияОС - Строка - 
+// * Разрядность - Строка - 
+// * Процессор - Строка - 
+// * Память - Строка - 
+Функция ОписаниеОСДляТехподдержки() Экспорт
+	СистемнаяИнформация = Новый СистемнаяИнформация();
+	
+	Описание = Новый Структура;
+	Описание.Вставить("ВерсияОС", СистемнаяИнформация.ВерсияОС);
+	Описание.Вставить("Разрядность", Строка(СистемнаяИнформация.ТипПлатформы));
+	Описание.Вставить("Процессор", СистемнаяИнформация.Процессор);
+	Описание.Вставить("Память", Строка(СистемнаяИнформация.ОперативнаяПамять));
+	
+	Возврат Описание;	
+КонецФункции
 
+// Текущая версия платформы1 с предприятие.
+// 
+// Возвращаемое значение:
+//  Строка -  Текущая версия платформы 1С предприятие
+Функция ТекущаяВерсияПлатформы1СПредприятие() Экспорт
+
+	СистИнфо = Новый СистемнаяИнформация;
+	Возврат СистИнфо.ВерсияПриложения;
+
+КонецФункции
 #Region InternalProgramInterface
 // is intended for modules that are part of some functional subsystem. It should contain export procedures and functions that can only be called from other functional subsystems of the same library.
 #EndRegion

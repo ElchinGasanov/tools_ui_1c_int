@@ -1,4 +1,4 @@
-#Region ProgramInterface
+#Region Public
 // Session start parameters
 //
 // Return value:

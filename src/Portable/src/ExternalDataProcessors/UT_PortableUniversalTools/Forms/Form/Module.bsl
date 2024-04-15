@@ -15,15 +15,13 @@
 //   ApplicationParameters["StandardSubsystems.MessagesForEventLog"] = ...;
 &AtClient
 Var UT_ApplicationParameters_Portable Export;
-
-
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
-	
 	DataProcessorObject=FormAttributeToValue("Object");
 
 	File=New File (DataProcessorObject.UsedFileName);
 	ToolsDirectory=File.Path;
+    
     CreateToolsOpenCommandsOnForm();
 
 	Title=Version();
@@ -32,8 +30,10 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	AlgorithmForCallingDebuggingAtClient="GetForm(""ExternalDataProcessor.UT_.Form"")._Debug(DebugSettings)";
 	AlgorithmForCallingDebuggingThroughDataProcessor="ExternalDataProcessors.Create(""" + DataProcessorObject.UsedFileName
 		+ """, False)._Debug(Query)";
+	
+	ClipBoardAddinBinaryDataURL = PutToTempStorage(DataProcessorObject.GetTemplate(
+		"UT_ClipboardAddin"),UUID);	
 EndProcedure
-
 
 &AtClient
 Procedure OnOpen(Cancel)
@@ -41,8 +41,8 @@ Procedure OnOpen(Cancel)
 EndProcedure
 
 &AtClient
-Procedure OnClose(Exit)
-		UT_CommonClient.OnExit();
+Procedure BeforeClose(Cancel, Exit, WarningText, StandardProcessing)
+	//UT_CommonClient.OnFinishSystem
 EndProcedure
 
 &AtClientAtServerNoContext
@@ -79,6 +79,8 @@ Function ToolItemTitle(Name, Synonym, SearchText = "")
 	EndIf;
 	Return Title;
 EndFunction
+
+
 &AtClient
 Procedure ProcessSearch(InputSearchString)
 	SortedLust=SortedModulesListToolsForButtons();
@@ -98,6 +100,8 @@ Procedure ProcessSearch(InputSearchString)
 	EndDo;
 
 EndProcedure
+
+
 &AtClient
 Procedure SeacrhStringClearing(Item, StandardProcessing)
 	ProcessSearch("");
@@ -177,6 +181,17 @@ EndProcedure
 Procedure RunToolsUpdateCheck(Command)
 	UT_CommonClient.RunToolsUpdateCheck();
 EndProcedure
+
+&AtClient
+Procedure InformationForSupportService(Command)
+	UT_CommonClient.OpenInformationForSupportService()
+EndProcedure
+
+
+&НаКлиенте
+Процедура CleanToolsCacheAtClient(Command)
+	UT_CommonClient.BeginCleanToolsCacheAtClient();
+КонецПроцедуры
 
 &AtClientAtServerNoContext
 Function ModuleDesciptionNew() Export
@@ -259,8 +274,7 @@ Function ModuleFileName(ModuleDescription)
 	If ModuleDescription.Type = "CommonModule" Then
 		ModuleDirectory="CommonModules";
 	ElsIf ModuleDescription.Type = "CommonPicture" Then
-		Return ToolsDirectory + GetPathSeparator() + "Pictures" + GetPathSeparator()
-			+ ModuleDescription.FileName;
+		Return ToolsDirectory + GetPathSeparator() + "Pictures" + GetPathSeparator()+ ModuleDescription.FileName;
 	Else
 		ModuleDirectory="Tools";
 	EndIf;
@@ -320,8 +334,10 @@ Procedure ConnectExternalModulesOnEnd(PuttedFiles, AdditionalParameters) Export
 
 	ConnectExternalModulesAtServer(ModulesForConnectAtServer);
 	//Now we can use common modules
+	
 	LocalPicturesLibraryURL=PutToTempStorage(UT_PicturesLibrary, UUID);
 	WriteLocalPicturesLibraryURLToSettingsStorage(LocalPicturesLibraryURL);
+	
 	AttachIdleHandler("OnOpenRunHandlersOfToolsLaunch", 0.1, True);
 EndProcedure
 
@@ -334,9 +350,20 @@ EndProcedure
 
 &AtClient
 Procedure OnOpenRunHandlersOfToolsLaunch()
+	
 	UT_CommonClient.OnStart();
+	
+	UT_ApplicationParameters_Portable["CommonTemplate.UT_ClipboardAddin"] = ClipBoardAddinBinaryDataURL;	
+	
 	Items.GroupFormPages.CurrentPage=Items.GroupPageWorkWithTools;
+	
 EndProcedure
+
+&НаСервере
+Функция ПоместитьОбщийМакетВоВременноеХранилищеКомпонентуРаботыСБуферомОбмена()
+	ОбработкаОбъект = РеквизитФормыВЗначение("Объект");
+	
+КонецФункции
 
 &AtServer
 Function ConnectExternalDataProcessor(StorageURL, IsReport)
@@ -432,6 +459,8 @@ EndFunction
 Function Vendor() Export
 
 EndFunction
+
+
 
 
 
