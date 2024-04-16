@@ -83,7 +83,7 @@ EndFunction
 // f the request has a Manager temporary tables, the structure of the table was added Manager temporary tables query
 //
 // Parameters:
-// 	QueryORTempTablesManager- Type Query or TempTablesManager
+// QueryORTempTablesManager- Type Query or TempTablesManager
 // Return value:
 // Structure- Type Structure
 // Where

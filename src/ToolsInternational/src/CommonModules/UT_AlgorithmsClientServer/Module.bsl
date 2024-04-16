@@ -34,7 +34,7 @@ Function NormalizeText(Text, MarkEndOfText = True, WordsString = "") Export
 EndFunction
 
 Function ExcludedSymbolsArray() Export
-	mExcluding = StrSplit(";,+, = ,-,),(,.,[,],{,},|,/,\,>,<,$,@,#", ",");
+	MExcluding = StrSplit(";,+, = ,-,),(,.,[,],{,},|,/,\,>,<,$,@,#", ",");
 	mExcluding.Add(Chars.LF);
 	mExcluding.Add(Chars.Tab);
 	mExcluding.Add(Char(32));
@@ -45,7 +45,7 @@ EndFunction
 
 Function ConvertTextToAlgorithmCode(Text) Export
 	AlgorithmCode = NormalizeText(Text);
-	mExcluding = ExcludedSymbolsArray();
+	MExcluding = ExcludedSymbolsArray();
 	pReplacementInsert(AlgorithmCode, "@EvalFunction", "_37583_AlgorithmsServer.ExecuteFunction", "[""""Result""""]",
 		mExcluding);
 	pReplacementInsert(AlgorithmCode, "@FunctionResult", "_37583_AlgorithmsServer.ExecuteFunction", "[""Result""]",
