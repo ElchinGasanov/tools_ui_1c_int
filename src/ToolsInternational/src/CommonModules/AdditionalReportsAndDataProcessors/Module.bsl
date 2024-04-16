@@ -4,8 +4,7 @@ Function UT_AttachExternalDataProcessor(Ref) Export
 
 	HasDebug=False;
 	If DebugSettings.DebugEnabled And ValueIsFilled(DebugSettings.FileNameOnServer) Then
-		If DebugSettings.User=Undefined 
-			Or Not ValueIsFilled(DebugSettings.User) Then
+		If DebugSettings.User=Undefined Or Not ValueIsFilled(DebugSettings.User) Then
 				
 			HasDebug=True;
 		ElsIf DebugSettings.User=Users.CurrentUser() Then
@@ -34,13 +33,15 @@ Function UT_AttachExternalDataProcessor(Ref) Export
 		Else
 			Manager = ExternalDataProcessors;
 		EndIf;
-
-		DataProcessorObject = Manager.Create(DebugSettings.FileNameOnServer, False);
+		
+        UT_UnsafeOperationProtectionDescription = New UnsafeOperationProtectionDescription;
+		UT_UnsafeOperationProtectionDescription.UnsafeOperationWarnings = False; 
+		
+		DataProcessorObject = Manager.Create(DebugSettings.FileNameOnServer,
+											 False,
+											 UT_UnsafeOperationProtectionDescription);
 		
 		Return TrimAll(DataProcessorObject.Metadata().Name);
-
-
-		Return DebugSettings.FileNameOnServer;
 	EndIf;
 	
 EndFunction
