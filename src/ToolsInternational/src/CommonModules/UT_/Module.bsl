@@ -1,24 +1,61 @@
 //Module for quick access to debugging procedures
 
+
 #Region Public
 
 // Description
 // 
 // Runs the appropriate tool for a thick client or writes data to the database for further debugging// 
 //
-// If the debugging startup context is a thick client, the console form oppening immediately after the code call
-// is completed
-// If debugging is called in the context of a server or a thin or web client,
-//  the necessary information is stored in UT_DebugData
+// If the debugging startup context is a thick client, the console form oppening immediately after the code call is completed
+// If debugging is called in the context of a server or a thin or web client,the necessary information is stored in UT_DebugData
+// In this case, debugging is then called from the list of the "Debugging Data" catalog.
 // 
 // Parameters:
-// 	DebugObject - Object of Query type
+// 	ObjectForDebugging - Query,DataCompositionSchema,HTTPRequest,AnyRef,FormTable - Object of Query type
+// 	DcsSettingsOrHTTPConnection - HTTPConnection,DataCompositionSettings
+// 	ExternalDataSets - Structure - consisting of KeyAndValue:
+// 		* Key - String -
+// 		* Value - ValueTable -
+// 	Name - String - Name of Saved debugging object
 // Return value:
-// DebugDataRef- type String.
+// String- type DebugDataRef
 // The result of saving debugging data
 // 	
-Function _Debug(ObjectForDebugging, DcsSettingsOrHTTPConnection = Undefined, ExternalDataSets = Undefined) Export
-	Return UT_CommonClientServer.DebugObject(ObjectForDebugging, DcsSettingsOrHTTPConnection,ExternalDataSets);
+Function _Debug(ObjectForDebugging, DcsSettingsOrHTTPConnection = Undefined, ExternalDataSets = Undefined,
+	Name ="") Export
+	Return UT_CommonClientServer.DebugObject(ObjectForDebugging,
+	                                         DcsSettingsOrHTTPConnection,
+	                                         ExternalDataSets,
+	                                         False,
+	                                         Name);
+EndFunction
+
+// Runs the appropriate tool for a thick client or writes data to the file for further debugging// 
+// 
+// If the debugging startup context is a thick client, the console form oppening immediately after the code call is completed
+// If debugging is called in the context of a server or a thin or web client, the necessary information is stored in files in Universal Tools directory. 
+//In this case, debugging is then called from the list of the "Debugging Data" catalog..
+// 
+// Parameters:
+// 	ObjectForDebugging - Query,DataCompositionSchema,HTTPRequest,AnyRef,FormTable - Object of Query type
+// 	DcsSettingsOrHTTPConnection - HTTPConnection,DataCompositionSettings
+// 	ExternalDataSets - Structure - consisting of KeyAndValue:
+// 		* Key - String -
+// 		* Value - ValueTable -
+// 	Name - String - Name of Saved debugging object
+// 
+// Return value:
+// String- type DebugDataRef
+// The result of saving debugging data
+Function _DebugToFile(ObjectForDebugging, DcsSettingsOrHTTPConnection = Undefined, ExternalDataSets = Undefined,
+	Name = "") Export
+	Return UT_CommonClientServer.DebugObject(ObjectForDebugging,
+														   DcsSettingsOrHTTPConnection,
+														   ExternalDataSets,
+														   True,
+														   Name);
+	
 EndFunction
 
 #If Not WebClient Then
@@ -27,7 +64,7 @@ EndFunction
 // Description
 // 
 // Parameters:
-// 	ReadingPath - String, XMLReading, Stream - from where to read the XML 
+// 	ReadingPath - String, XMLReader, Stream - from where to read the XML 
 // 	SimplifyElements - Boolean - is it worth removing unnecessary elements of the structure when reading
 // Return value:
 // 	Map, Structure, Undefined - Result of xml data reading
@@ -46,7 +83,7 @@ EndFunction
 // f the request has a Manager temporary tables, the structure of the table was added Manager temporary tables query
 //
 // Parameters:
-// 	QueryORTempTablesManager- Type Query or TempTablesManager
+// QueryORTempTablesManager- Type Query or TempTablesManager
 // Return value:
 // Structure- Type Structure
 // Where

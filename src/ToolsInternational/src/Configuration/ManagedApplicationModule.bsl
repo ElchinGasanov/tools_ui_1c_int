@@ -13,7 +13,6 @@
 // Usage (as illustrated by MessagesForEventLog):
 //   ApplicationParameters["StandardSubsystems.MessagesForEventLog"].Add(...);
 //   ApplicationParameters["StandardSubsystems.MessagesForEventLog"] = ...;
-
 Var UT_ApplicationParameters Export;
 
 //@skip-warning
@@ -24,14 +23,5 @@ Procedure UT_OnStart()
 	#EndIf
 EndProcedure
 
-//@skip-warning
-&After("OnExit")
-Procedure UT_OnExit()
-	#If Not MobileClient Then
-	UT_CommonClient.OnExit();	
-	#EndIf
-EndProcedure
-
 
 UT_ApplicationParameters = New Map;
- 
