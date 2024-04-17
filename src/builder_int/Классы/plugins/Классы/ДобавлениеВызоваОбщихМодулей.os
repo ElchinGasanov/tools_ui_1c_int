@@ -74,10 +74,10 @@
 	УстановилиОбъявлениеСпискаПеременных=Истина;
 	
 	КодДляВставки = "
-	// |&НаКлиенте
-	// |Перем "+ПрефиксПеременных+"МестоположениеОбработки;
-	|"+?(ЭтоМодульФормы,"&НаКлиенте","")+"
-	|Перем "+ПрефиксПеременных+"КэшОбщихМодулей;
+	// |&AtClient
+	// |Var "+ПрефиксПеременных+"МестоположениеОбработки;
+	|" + ?(ЭтоМодульФормы,"&AtClient", "") + "
+	|Var " + ПрефиксПеременных + "CommonModuleCache;
 	|";
 	ПозицияВставки = Объявление.Начало.Позиция;
 	
@@ -113,163 +113,163 @@
 	Если ЭтоМодульФормы Тогда
 		ТекстПроцедур = "
 		|&AtClientAtServerNoContext
-		|Function " + ПрефиксПеременных + "ОбщийМодульПоИмени(ИмяМодуля, UT_GENERATION_КэшОбщихМодулей=Неопределено, Форма = Неопределено)
+		|Function " + ПрефиксПеременных + "CommonModulesByName(ModuleName, UT_GENERATION_CommonModuleCache=Undefined, Form = Undefined)
 		|";
 		
 	Иначе
 		ТекстПроцедур = "
-		|Function " + ПрефиксПеременных + "ОбщийМодульПоИмени(ИмяМодуля)
+		|Function " + ПрефиксПеременных + "CommonModulesByName(ModuleName)
 		|";
 		
 	КонецЕсли;
 	
-	ТекстПроцедур = ТекстПроцедур+ "
+	ТекстПроцедур = ТекстПроцедур + "
 	|
-	|	Если UT_GENERATION_КэшОбщихМодулей=Неопределено Тогда
-	|		UT_GENERATION_КэшОбщихМодулей=Новый Соответствие;
-	|	КонецЕсли;
+	|	If UT_GENERATION_CommonModuleCache=Undefined Then
+	|		UT_GENERATION_CommonModuleCache=New Map;
+	|	EndIf;
 	|
 	|";
 	Если ЭтоМодульФормы Тогда
 		ТекстПроцедур = ТекстПроцедур + "
-		|	#Если Клиент Тогда
-		|		Если UT_GENERATION_КэшОбщихМодулей[НРег(ИмяМодуля)]<>Неопределено Тогда
-		|			Return UT_GENERATION_КэшОбщихМодулей[НРег(ИмяМодуля)];
-		|		КонецЕсли;
-		|	#КонецЕсли
+		|	#If Client Then
+		|		If UT_GENERATION_CommonModuleCache[Lower(ModuleName)]<>Undefined Then
+		|			Return UT_GENERATION_CommonModuleCache[Lower(ModuleName)];
+		|		EndIf;
+		|	#EndIf
 		|
-		| 	#Если ТолстыйКлиентУправляемоеПриложение ИЛИ ТолстыйКлиентОбычноеПриложение  Тогда 
-		|	Если "+ПрефиксПеременных+"ЭтоФайловаяБаза() Тогда
-		|		ОбщийМодуль=ВнешниеОбработки.Создать(ИмяМодуля);
-		|	Иначе
-		|		ОбщийМодуль=ПолучитьФорму(""ВнешняяОбработка.""+ИмяМодуля+"".Форма"",,,Ложь);
-		|	КонецЕсли;
-		|	UT_GENERATION_КэшОбщихМодулей.Вставить(НРег(ИмяМодуля),ОбщийМодуль);
-		|	#ИначеЕсли Клиент Тогда
+		| 	#If ThickClientManagedApplication Or ThickClientOrdinaryApplication  Then 
+		|	If " + ПрефиксПеременных + "IsFileDatabse() Then
+		|		CommonModule=ExternalDataProcessors.Create(ModuleName);
+		|	Else
+		|		CommonModule=GetForm(""ExternalDataProcessor.""+ModuleName+"".Form"",,,False);
+		|	EndIf;
+		|	UT_GENERATION_CommonModuleCache.Insert(Lower(ModuleName),CommonModule);
+		|	#ElsIf Client Then
 		|
-		|	ОбщийМодуль=ПолучитьФорму(""ВнешняяОбработка.""+ИмяМодуля+"".Форма"",,,Ложь);
-		|	UT_GENERATION_КэшОбщихМодулей.Вставить(НРег(ИмяМодуля),ОбщийМодуль);
-		|	#Иначе
-		|	ОбщийМодуль=ВнешниеОбработки.Создать(ИмяМодуля);
-		|	#КонецЕсли";
+		|	CommonModule=ПолучитьФорму(""ExternalDataProcessor.""+ModuleName+"".Form"",,,False);
+		|	UT_GENERATION_CommonModuleCache.Insert(Lower(ModuleName),CommonModule);
+		|	#Else
+		|	CommonModule=ExternalDataProcessors.Create(ModuleName);
+		|	#EndIf";
 	Иначе
 		
 		Если ЭтоГлавнаяОбработка Тогда
 			ТекстПроцедур = ТекстПроцедур + "
-			|	Если Не ЭтоАдресВременногоХранилища(ЭтотОбъект.ИспользуемоеИмяФайла) Тогда
-			|		Попытка
-			|			ОбщийМодуль=ВнешниеОбработки.Создать(ИмяМодуля);
-			|		Исключение
-			|			"+ПрефиксПеременных+"ПодключитьОбщиеМодули();
-			|		КонецПопытки;
-			|	КонецЕсли;
+			|	If Не IsTempStorageURL(ThisObject.ИспользуемоеИмяФайла) Then
+			|		Try
+			|			CommonModule=ExternalDataProcessors.Create(ModuleName);
+			|		Except
+			|			" + ПрефиксПеременных + "ConnectCommonModules();
+			|		EndTry;
+			|	EndIf;
 			|";
 		КонецЕсли;
-		ТекстПроцедур=ТекстПроцедур+"
-		| 	ОбщийМодуль=ВнешниеОбработки.Создать(ИмяМодуля);
-		|	UT_GENERATION_КэшОбщихМодулей.Вставить(НРег(ИмяМодуля),ОбщийМодуль);
+		ТекстПроцедур = ТекстПроцедур + "
+		| 	CommonModule = ExternalDataProcessors.Create(ModuleName);
+		|	UT_GENERATION_CommonModuleCache.Insert(Lower(ModuleName), CommonModule);
 		|";
 	КонецЕсли;
 	ТекстПроцедур = ТекстПроцедур + "
 	|
-	|	Return ОбщийМодуль;
+	|	Return CommonModule;
 	|EndFunction
 	|
-	|"+?(ЭтоМодульФормы,"&НаСервереБезКонтекста","")+"
-	|Function "+ПрефиксПеременных+"УИ_БиблиотекаКартинок()
-	|	АдресБиблиотеки = UT_Common.CommonSettingsStorageLoad(UT_CommonClientServer.ObjectKeyInSettingsStorage(), ""АдресЛокальнойБиблиотекиКартинок"", , , 
-	|		ИмяПользователя());
+	|" + ?(ЭтоМодульФормы, "&AtServerNoContext", "") + "
+	|Function " + ПрефиксПеременных + "UT_LibraryPictures()
+	|	LibraryAddress = UT_Common.CommonSettingsStorageLoad(UT_CommonClientServer.ObjectKeyInSettingsStorage(), ""LocalImageLibraryAddress"", , , 
+	|		UserName());
 	|
-	|	Return ПолучитьИзВременногоХранилища(АдресБиблиотеки);
+	|	Return GetFromTempStorage(LibraryAddress);
 	|EndFunction
 	|
-	|// Возвращает флаг того, что работа происходит в файловой базе
-	|"+?(ЭтоМодульФормы,"&НаКлиентеНаСервереБезКонтекста","")+"
-	|Function "+ПрефиксПеременных+"ЭтоФайловаяБаза() Экспорт
-	|	Return Найти(СтрокаСоединенияИнформационнойБазы(), ""File="") > 0;
+	|// Returns a flag that the work is happening in the file database
+	|" + ?(ЭтоМодульФормы,"&AtClientAtServerNoContext","") + "
+	|Function " + ПрефиксПеременных + "IsFileDatabse() Export
+	|	Return StrFind(InfoBaseConnectionString(), ""File="") > 0;
 	|EndFunction
 	|";
 	
-	ТекстПроцедур=ТекстПроцедур+ТекстСтроковыхФункцийРежимСовместимости+Символы.ПС;
+	ТекстПроцедур = ТекстПроцедур+ТекстСтроковыхФункцийРежимСовместимости + Символы.ПС;
 	
 	Если ЭтоМодульФормы Или ЭтоКлиентскийОбщийМодуль Тогда
 		Если ЭтоМодульФормы Тогда
-			ТекстПроцедур=ТекстПроцедур+"
+			ТекстПроцедур = ТекстПроцедур+"
 			|&AtClient";
 		ИначеЕсли ЭтоКлиентскийОбщийМодуль Тогда
-			ТекстПроцедур=ТекстПроцедур+"
-			|#Если Клиент Тогда";
+			ТекстПроцедур = ТекстПроцедур+"
+			|#If Client Then";
 		КонецЕсли;
 		
 		ТекстПроцедур = ТекстПроцедур + "
-		|Function "+ПрефиксПеременных+"УИ_ПараметрыПриложения()
-		|Окна=ПолучитьОкна();
+		|Function " + ПрефиксПеременных + "UT_ApplicationParameters()
+		|Windows = GetWindows();
 		|
-		|Для Каждого ТекОкно ИЗ Окна Цикл
-		|	Для Каждого Форма ИЗ ТекОкно.Содержимое Цикл
-		|		Если ТипЗнч(Форма)<>UT_CommonClientServer.ManagedFormType() Тогда
-		|			Продолжить;
-		|		КонецЕсли;
+		|For Each ТекОкно In Windows Do
+		|	For Each Form In ТекОкно.Содержимое Do
+		|		If TypeOf(Form) <> UT_CommonClientServer.ManagedFormType() Then
+		|			Continue;
+		|		EndIf;
 		|
-		|		Если Форма.ИмяФормы=""ВнешняяОбработка.УИ_ПортативныеУниверсальныеИнструменты.Форма.Форма"" Тогда
-		|			Return Форма.УИ_ПараметрыПриложения_Портативные;
-		|		КонецЕсли;
-		|	КонецЦикла;
-		|КонецЦикла;
+		|		If Form.ИмяФормы = ""ExternalDataProcessor.UT_PortableUniversalTools.Form.Form"" Then
+		|			Return Form.UT_ApplicationParameters_Portable;
+		|		EndIf;
+		|	EndDo;
+		|EndDo;
 		|
-		|Return Новый Соответствие;
+		|Return New Map;
 		|
 		|EndFunction
 		|
 		|";
 		
 		Если ЭтоКлиентскийОбщийМодуль Тогда
-			ТекстПроцедур=ТекстПроцедур+"
-			|#КонецЕсли";
+			ТекстПроцедур = ТекстПроцедур + "
+			|#EndIf";
 		КонецЕсли;
 	КонецЕсли;
 	
 	Если Не ЭтоМодульФормы И ЭтоГлавнаяОбработка Тогда
-		ТекстПроцедур=ТекстПроцедур+"
-		|	Function "+ПрефиксПеременных+"СтруктураОбщихМодулей()
-		|		Структура=Новый Структура;
+		ТекстПроцедур = ТекстПроцедур + "
+		|	Function " + ПрефиксПеременных + "StructureOfCommonModules()
+		|		Structure=New Structure;
 		|";
 		
 		Для Каждого ОбщийМодуль Из ОписаниеРасширения.ОбщиеМодули Цикл
 			ТекстПроцедур=ТекстПроцедур+"
-			|		Структура.Вставить("""+ОбщийМодуль.Имя+""","""+ОбщийМодуль.Имя+".epf"");";
+			|		Structure.Insert(""" + ОбщийМодуль.Имя + """,""" + ОбщийМодуль.Имя + ".epf"");";
 		КонецЦикла;
 		
-		ТекстПроцедур=ТекстПроцедур+"
-		|		Return Структура;
+		ТекстПроцедур = ТекстПроцедур + "
+		|		Return Structure;
 		|	EndFunction
 		|
-		|	Procedure "+ПрефиксПеременных+"ПодключитьОбщиеМодули()
-		|		РазделительПути=ПолучитьРазделительПути();
+		|	Procedure " + ПрефиксПеременных + "ConnectCommonModules()
+		|		PathSeparator=GetPathSeparator();
 		|
-		|		МассивИмени=_СтрРазделить(ЭтотОбъект.ИспользуемоеИмяФайла,ПолучитьРазделительПути());
-		|		МассивИмени.Удалить(МассивИмени.Количество()-1);
-		|		МассивИмени.Добавить(""ОбщиеМодули"");
+		|		ArrayName = _СтрРазделить(ThisObject.ИспользуемоеИмяФайла, GetPathSeparator());
+		|		ArrayName.Delete(ArrayName.Count()-1);
+		|		ArrayName.Add(""CommonModules"");
 		|		
-		|		ОписаниеЗащитыОтОпасныхДействиях=Новый ОписаниеЗащитыОтОпасныхДействий;
-		|		ОписаниеЗащитыОтОпасныхДействиях.ПредупреждатьОбОпасныхДействиях=Ложь;
+		|		UnsafeOperationProtectionDescription = New UnsafeOperationProtectionDescription;
+		|		UnsafeOperationProtectionDescription.UnsafeOperationWarnings = False;
 		|		
-		|		ИмяКаталогаОбщихМодулей= _СтрСоединить(МассивИмени, РазделительПути);
-		|		СтруктураОбщихМодулей="+ПрефиксПеременных+"СтруктураОбщихМодулей();
+		|		CommonModulesDirectoryName = _СтрСоединить(ArrayName, PathSeparator);
+		|		StructureOfCommonModules =" + ПрефиксПеременных + "StructureOfCommonModules();
 		|		
-		|		Для каждого КлючЗначение Из СтруктураОбщихМодулей Цикл
-		|			ИмяФайлаМодуля=ИмяКаталогаОбщихМодулей+РазделительПути+КлючЗначение.Значение;
-		|			ДД=Новый ДвоичныеДанные(ИмяФайлаМодуля);
-		|			Адрес=ПоместитьВоВременноеХранилище(ДД);
-		|			ВнешниеОбработки.Подключить(Адрес, ,Ложь, ОписаниеЗащитыОтОпасныхДействиях);
-		|		КонецЦикла;
+		|		For Each KeyValue In StructureOfCommonModules Do
+		|			ModuleFileName = CommonModulesDirectoryName + PathSeparator+KeyValue.Value;
+		|			BinaryData = New BinaryData(ModuleFileName);
+		|			Address = PutToTempStorage(BinaryData);
+		|			ExternalDataProcessors.Connect(Address, ,False, UnsafeOperationProtectionDescription);
+		|		EndDo;
 		|
 		|
 		|	EndProcedure
 		|";
 	КонецЕсли;
 	
-	ТекстПроцедур=Символы.ПС+ТекстПроцедур+Символы.ПС;
+	ТекстПроцедур = Символы.ПС + ТекстПроцедур+Символы.ПС;
 	Возврат ТекстПроцедур;
 КонецФункции
 
