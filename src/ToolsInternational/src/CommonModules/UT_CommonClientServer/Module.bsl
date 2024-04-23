@@ -1845,7 +1845,7 @@ Function DownloadFileName() Export
 EndFunction
 
 Function DistributionType() Export
-	Return "Extension";
+	Return "Portable";
 EndFunction
 
 Function PortableDistributionType() Export

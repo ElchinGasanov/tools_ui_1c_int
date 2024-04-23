@@ -416,9 +416,9 @@ Procedure CompareSpreadsheetDocuments(SpreadsheetDocumentAddressInTempStorage1,
 EndProcedure
 
 Function OpenInformationForSupportService() Export
-	Инфо = ИнформацияДляПоддержки();
+	Info = InformationForSupportService();
 	
-	OutputString = ИнформацияДляПоддержкиСтрокой(Инфо);
+	OutputString = InformationForSupportServiceAsString(Info);
     OpenTextEditingForm(OutputString,Undefined ,NStr("ru = 'Информация для тех поддержки';en = 'Information for Support Service'", ));
 EndFunction
 
@@ -1041,14 +1041,14 @@ Procedure AttachFileSystemExtensionWithPossibleInstallationOnEndExtensionConnect
 		If SessionFileVariablesStructure = Undefined Then
 			ReadMainSessionFileVariablesToApplicationParameters(
 				New NotifyDescription("AttachFileSystemExtensionWithPossibleInstallationOnEndSessionFileVariablesReading",
-				ЭтотОбъект, AdditionalParameters));
+				ThisObject, AdditionalParameters));
 		Else
 			ExecuteNotifyProcessing(AdditionalParameters.OnEndNotifyDescription, True);
 		EndIf;
 	ElsIf Not AdditionalParameters.AfterInstall Then
 		BeginInstallFileSystemExtension(
 			New NotifyDescription("AttachFileSystemExtensionWithPossibleInstallationOnEndExtensionInstallation",
-			ЭтотОбъект, AdditionalParameters));
+			ThisObject, AdditionalParameters));
 	Else
 		ExecuteNotifyProcessing(AdditionalParameters.OnEndNotifyDescription, False);
 	EndIf;
@@ -1241,95 +1241,95 @@ Procedure Run1CSessionEndLaunch(ReturnCode, AdditionalParameters) Export
 EndProcedure
 
 #EndRegion
-Функция ИнформацияДляПоддержки() 
-	СтруктураИнформации = Новый Структура;
-	СтруктураИнформации.Вставить("ВариантПоставки", UT_CommonClientServer.DistributionType());
-	СтруктураИнформации.Вставить("ВерсияИнструментов", UT_CommonClientServer.Version());
+Function InformationForSupportService() 
+	InformationStructure = New Structure;
+	InformationStructure.Insert("OptionSupplies", UT_CommonClientServer.DistributionType());
+	InformationStructure.Insert("ToolsVersion", UT_CommonClientServer.Version());
 	
 	
-	СистемнаяИнформация = Новый СистемнаяИнформация;
+	SystemInformation = New SystemInfo;
 	
-	СтруктураИнформации.Вставить("Платформа", СистемнаяИнформация.ВерсияПриложения);
-	СтруктураИнформации.Вставить("Клиент", UT_CommonClientServer.ОписаниеОСДляТехподдержки());
-	#Если ВебКлиент Тогда
-		СтруктураИнформации.Вставить("ТипКлиента", "ВебКлиент");
-	#ИначеЕсли ТонкийКлиент Тогда
-		СтруктураИнформации.Вставить("ТипКлиента", "ТонкийКлиент");
-	#ИначеЕсли МобильноеПриложениеКлиент Тогда
-		СтруктураИнформации.Вставить("ТипКлиента", "МобильноеПриложениеКлиент");
-	#ИначеЕсли ТолстыйКлиентОбычноеПриложение Тогда
-		СтруктураИнформации.Вставить("ТипКлиента", "ТолстыйКлиентОбычноеПриложение");
-	#ИначеЕсли ТолстыйКлиентУправляемоеПриложение Тогда
-		СтруктураИнформации.Вставить("ТипКлиента", "ТолстыйКлиентУправляемоеПриложение");
-	#ИначеЕсли МобильныйКлиент Тогда
-		СтруктураИнформации.Вставить("ТипКлиента", "МобильныйКлиент");
-	#Иначе
+	InformationStructure.Insert("Platform", SystemInformation.AppVersion);
+	InformationStructure.Insert("Client", UT_CommonClientServer.ОписаниеОСДляТехподдержки());
+	#If WebClient Then
+		InformationStructure.Insert("ClientType", "WebClient");
+	#ElsIf ThinClient Then
+		InformationStructure.Insert("ClientType", "ThinClient");
+	#ElsIf MobileAppClient Then
+		InformationStructure.Insert("ClientType", "MobileAppClient");
+	#ElsIf ThickClientOrdinaryApplication Then
+		InformationStructure.Insert("ClientType", "ThickClientOrdinaryApplication");
+	#ElsIf ThickClientManagedApplication Then
+		InformationStructure.Insert("ClientType", "ThickClientManagedApplication");
+	#ElsIf MobileClient Then
+		InformationStructure.Insert("ClientType", "MobileClient");
+	#Else
 		//@skip-check code-never-compilied
-		СтруктураИнформации.Вставить("ТипКлиента", "НеОпределен");
-	#КонецЕсли	
+		InformationStructure.Insert("ClientType", "Undefined");
+	#EndIf	
 	
-	УИ_ОбщегоНазначенияВызовСервера.ДополнитьИнформациюДляПоддержкиНаСервере(СтруктураИнформации);
+	UT_CommonServerCall.ДополнитьИнформациюДляПоддержкиНаСервере(InformationStructure);
 	
-	Возврат СтруктураИнформации;
-КонецФункции
+	Return InformationStructure;
+EndFunction
 
-Функция ИнформацияДляПоддержкиСтрокой(Инфо,Префикс = "") 
-	СтрокаПоддержки = "";
+Function InformationForSupportServiceAsString(Info, Prefix = "") 
+	SupportAsString = "";
 	
-	Для Каждого Итератор Из Инфо Цикл
-		Если ТипЗнч(Итератор) = Тип("КлючИЗначение") Тогда
-			Если ТипЗнч(Итератор.Значение) = Тип("Структура") Или ТипЗнч(Итератор.Значение) = Тип("Массив") Тогда
-				СтрокаПоддержки = СтрокаПоддержки + ИнформацияДляПоддержкиСтрокой(Итератор.Значение,
-																				  ?(ЗначениеЗаполнено(Префикс),
-																					Префикс + ".",
-																					"") + Итератор.Ключ);
-			Иначе
-				СтрокаПоддержки = СтрокаПоддержки
-								  + ?(ЗначениеЗаполнено(Префикс), Префикс + ".", "")
-								  + Итератор.Ключ
+	For Each Iterator In Info Do
+		If TypeOf(Iterator) = Type("KeyAndValue") Then
+			If TypeOf(Iterator.Value) = Type("Structure") OR TypeOf(Iterator.Value) = Type("Array") Then
+				SupportAsString = SupportAsString + InformationForSupportServiceAsString(Iterator.Value,
+																				  ?(ValueIsFilled(Prefix),
+																					Prefix + ".",
+																					"") + Iterator.Key);
+			Else
+				SupportAsString = SupportAsString
+								  + ?(ValueIsFilled(Prefix), Prefix + ".", "")
+								  + Iterator.Key
 								  + "="
-								  + Итератор.Значение
+								  + Iterator.Value
 								  + ";"
-								  + Символы.ПС;
-			КонецЕсли;
-		ИначеЕсли ТипЗнч(Итератор) = Тип("Структура") Тогда
-			СтрокаПоддержки = СтрокаПоддержки + ИнформацияДляПоддержкиСтрокой(Итератор, Префикс);
-		Иначе
-			СтрокаПоддержки = СтрокаПоддержки
-							  + ?(ЗначениеЗаполнено(Префикс), Префикс + ".", "")
-							  + Итератор
+								  + Chars.LF;
+			EndIf;
+		ElsIf TypeOf(Iterator) = Type("Structure") Then
+			SupportAsString = SupportAsString + InformationForSupportServiceAsString(Iterator, Prefix);
+		Else
+			SupportAsString = SupportAsString
+							  + ?(ValueIsFilled(Prefix), Prefix + ".", "")
+							  + Iterator
 							  + ";"
-							  + Символы.ПС;
-		КонецЕсли;
-	КонецЦикла;
+							  + Chars.LF;
+		EndIf;
+	EndDo;
 		
-	Возврат СтрокаПоддержки;
-КонецФункции
+	Return SupportAsString;
+EndFunction
 #EndRegion
 
-Процедура BeginCleanToolsCacheAtClient(ОписаниеОповещенияОЗавершении = Неопределено) Экспорт
+Procedure BeginCleanToolsCacheAtClient(ОписаниеОповещенияОЗавершении = Неопределено) Export
 	КаталогВспомогательныхБиблиотекИнструментов=КаталогВспомогательныхБиблиотекИнструментов();
-	Если Не ЗначениеЗаполнено(КаталогВспомогательныхБиблиотекИнструментов) Тогда
-		Возврат;
+	Если Не ValueIsFilled(КаталогВспомогательныхБиблиотекИнструментов) Тогда
+		Return;
 	КонецЕсли;
 	//@skip-check empty-except-statement
-	Попытка
-		НачатьУдалениеФайлов(,КаталогВспомогательныхБиблиотекИнструментов);
-	Исключение
+	Try
+		BeginDeletingFiles(,КаталогВспомогательныхБиблиотекИнструментов);
+	Except
 		
-	КонецПопытки;
+EndTry;
 	
-КонецПроцедуры
+EndProcedure
 // Каталог вспомогательных библиотек инструментов.
 // 
 // Возвращаемое значение:
 //  Строка - Каталог вспомогательных библиотек инструментов
-Функция КаталогВспомогательныхБиблиотекИнструментов() Экспорт
-	СтруктураФайловыхПеременных=СтруктураФайловыхПеременныхСеанса();
-	Если Не СтруктураФайловыхПеременных.Свойство("РабочийКаталогДанныхПользователя") Тогда
-		Возврат "";
-	КонецЕсли;
+Function КаталогВспомогательныхБиблиотекИнструментов() Export
+	FileVariablesStructure=SessionFileVariablesStructure();
+	If Не FileVariablesStructure.Property("UserDataWorkingDirectory") Then
+		Return "";
+	EndIf;
 	
-	Возврат УИ_ОбщегоНазначенияКлиентСервер.КаталогВспомогательныхБиблиотекИнструментов(
-	СтруктураФайловыхПеременных.РабочийКаталогДанныхПользователя);
-КонецФункции
+	Return UT_CommonClientServer.КаталогВспомогательныхБиблиотекИнструментов(
+	FileVariablesStructure.UserDataWorkingDirectory);
+EndFunction
