@@ -1280,19 +1280,19 @@
 		МестаПоиска.Добавить("UT_CodeEditorServer");
 
 		МассивЗамен.Добавить(Новый Структура("МестаПоиска, ПодстрокаПоиска, ПодстрокаЗамены",
-			Неопределено,
+			МестаПоиска,
 			"GetCommonTemplate(""UT_MonacoEditorWindows"")",
 			"ExternalDataProcessors.Create(""UT_PortableUniversalTools"").GetTemplate(""UT_MonacoEditorWindows"")")
 		);
 
 		МассивЗамен.Добавить(Новый Структура("МестаПоиска, ПодстрокаПоиска, ПодстрокаЗамены",
-			Неопределено,
+			МестаПоиска,
 			"GetCommonTemplate(""UT_MonacoEditor"")",
 			"ExternalDataProcessors.Create(""UT_PortableUniversalTools"").GetTemplate(""UT_MonacoEditor"")")
 		);
 
 		МассивЗамен.Добавить(Новый Структура("МестаПоиска, ПодстрокаПоиска, ПодстрокаЗамены",
-			Неопределено,
+			МестаПоиска,
 			"GetCommonTemplate(""UT_Ace"")",
 			"ExternalDataProcessors.Create(""UT_PortableUniversalTools"").GetTemplate(""UT_Ace"")")
 		);
