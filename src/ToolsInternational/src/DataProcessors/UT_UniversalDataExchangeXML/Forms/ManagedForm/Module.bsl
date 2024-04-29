@@ -45,7 +45,7 @@ Procedure OnOpen(Cancel)
 	
 	ClearDataImportFileData();
 	
-	DirectExport = ?(Object.DirectReadingFromDestinationIB, 1, 0);
+	DirectExport = ?(Object.DirectReadFromDestinationIB, 1, 0);
 
 	SavedImportMode = (Object.ExchangeMode = "Import");
 
