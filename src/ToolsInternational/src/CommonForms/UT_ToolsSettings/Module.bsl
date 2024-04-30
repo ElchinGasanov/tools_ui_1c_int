@@ -150,7 +150,7 @@ Procedure ReadCodeEditorSettings()
 	HideLineNumbers = EditorSettings.Monaco.HideLineNumbers;
 	LinesHeight = EditorSettings.Monaco.LinesHeight;
 	DisplaySpacesAndTabs = EditorSettings.Monaco.DisplaySpacesAndTabs;
-	UseCodeStandardTemplates = EditorSettings.Monaco.UseCodeStandardTemplates;
+	UseStandartCodeTemplates = EditorSettings.Monaco.UseStandartCodeTemplates;
 
 	ConfigurationSourceFilesDirectories.Clear();
 	Items.ConfigurationSourceFilesDirectoriesSource.ChoiceList.Clear();
@@ -276,7 +276,7 @@ Procedure ApplyAtServer()
 	CodeEditorParameters.Monaco.UseScriptMap = UseScriptMap;
 	CodeEditorParameters.Monaco.HideLineNumbers = HideLineNumbers;
 	CodeEditorParameters.Monaco.LinesHeight = LinesHeight;
-	CodeEditorParameters.Monaco.UseCodeStandardTemplates = UseCodeStandardTemplates;
+	CodeEditorParameters.Monaco.UseStandartCodeTemplates = UseStandartCodeTemplates;
 	For Each CurrentRow In ConfigurationSourceFilesDirectories Do
 		If Not ValueIsFilled(CurrentRow.Directory) Then
 			Continue;
