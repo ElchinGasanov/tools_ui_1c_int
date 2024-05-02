@@ -5070,3 +5070,23 @@ Function CollectionToValueTable(Collection) Export
 EndFunction
 
 #EndRegion
+
+Function SSLVersion() Export
+	
+	Var SSLVersion;
+	
+	SetSafeMode(True);
+	
+	Try
+		Execute("SSLVersion = StandardSubsystemsServer.LibraryVersion()");
+	Except
+		Try
+			Execute("SSLVersion = StandardSubsystemsServerOverridable.LibraryVersion()");
+		Except
+			SSLVersion = "0.0.0.0";	
+		EndTry;
+	EndTry;
+	
+	Return SSLVersion;
+	
+EndFunction

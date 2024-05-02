@@ -1250,7 +1250,7 @@ Function InformationForSupportService()
 	SystemInformation = New SystemInfo;
 	
 	InformationStructure.Insert("Platform", SystemInformation.AppVersion);
-	InformationStructure.Insert("Client", UT_CommonClientServer.ОписаниеОСДляТехподдержки());
+	InformationStructure.Insert("Client", UT_CommonClientServer.DescriptionOSForTechnicalSupport());
 	#If WebClient Then
 		InformationStructure.Insert("ClientType", "WebClient");
 	#ElsIf ThinClient Then
@@ -1268,7 +1268,7 @@ Function InformationForSupportService()
 		InformationStructure.Insert("ClientType", "Undefined");
 	#EndIf	
 	
-	UT_CommonServerCall.ДополнитьИнформациюДляПоддержкиНаСервере(InformationStructure);
+	UT_CommonServerCall.AddInformationForSupportOnTheServer(InformationStructure);
 	
 	Return InformationStructure;
 EndFunction
