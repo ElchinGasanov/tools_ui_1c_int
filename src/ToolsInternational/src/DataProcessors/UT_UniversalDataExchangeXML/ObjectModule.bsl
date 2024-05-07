@@ -13947,7 +13947,7 @@ Procedure InitAttributesAndModuleVariables()
 	mDataProcessingModes.Insert("ExchangeRulesImport",       2);
 	mDataProcessingModes.Insert("EventHandlersExport", 3);
 
-	DataProcessingMode = mDataProcessingModes.DataExported;
+	DataProcessingMode = mDataProcessingModes.Export;
 	
 	mAlgorithmDebugModes = New Structure;
 	mAlgorithmDebugModes.Insert("DontUse",   0);

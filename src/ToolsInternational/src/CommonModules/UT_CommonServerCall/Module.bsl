@@ -700,3 +700,40 @@ Function ConsolePreparedDataForFileWriting(ConsoleName, FileName, SaveDataPath,
 EndFunction
 
 #EndRegion
+
+#Region Internal
+
+// Add information for support on the server.
+// 
+// Options:
+//  InformationStructure - Structure - Information structure
+Procedure AddInformationForSupportOnTheServer(InformationStructure) Export
+	
+	InformationStructure.Insert("Server", UT_CommonClientServer.DescriptionOSForTechnicalSupport());
+	InformationStructure.Insert("IsFileBase", 
+		Format(UT_Common.FileInfobase(),"BF=False; BT=True"));
+	InformationStructure.Insert("SSLVersion", UT_Common.SSLVersion());
+	InformationStructure.Insert("Configuration", New Structure);
+	InformationStructure.Configuration.Insert("Name", MetaData.Name);
+	InformationStructure.Configuration.Insert("CompatibilityMode", String(MetaData.CompatibilityMode));
+	InformationStructure.Configuration.Insert("Version", MetaData.Version);
+	InformationStructure.Configuration.Insert("DefaultRunMode", String(MetaData.DefaultRunMode));
+	InformationStructure.Configuration.Insert("ModalityUseMode", String(MetaData.ModalityUseMode));
+	InformationStructure.Configuration.Insert("SynchronousPlatformExtensionAndAddInCallUseMode",
+											  String(MetaData.SynchronousPlatformExtensionAndAddInCallUseMode));
+	InformationStructure.Configuration.Insert("InterfaceCompatibilityMode",
+											  String(MetaData.InterfaceCompatibilityMode));
+	InformationStructure.Configuration.Insert("DataLockControlMode",
+											  String(MetaData.DataLockControlMode));
+	InformationStructure.Insert("Extensions", New Array);
+
+	For Each CurrentExpansion In ConfigurationExtensions.Get() Do
+		InformationStructure.Extensions.Add(""
+			+ CurrentExpansion.Name
+			+ "(" + CurrentExpansion.Version 
+			+ ")");
+	EndDo;
+
+EndProcedure
+
+#EndRegion

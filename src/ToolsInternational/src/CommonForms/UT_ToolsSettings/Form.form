@@ -457,7 +457,7 @@
           <name>GroupMonacoCodeEditorCodeTemplates</name>
           <id>56</id>
           <items xsi:type="form:FormField">
-            <name>UseCodeStandardTemplates</name>
+            <name>UseStandartCodeTemplates</name>
             <id>58</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -465,10 +465,10 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>UseCodeStandardTemplates</segments>
+              <segments>UseStandartCodeTemplates</segments>
             </dataPath>
             <extendedTooltip>
-              <name>UseCodeStandardTemplatesExtendedTooltip</name>
+              <name>UseStandartCodeTemplatesExtendedTooltip</name>
               <id>60</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -483,7 +483,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>UseCodeStandardTemplatesContextMenu</name>
+              <name>UseStandartCodeTemplatesContextMenu</name>
               <id>59</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1637,7 +1637,7 @@
     <savedData>true</savedData>
   </attributes>
   <attributes>
-    <name>UseCodeStandardTemplates</name>
+    <name>UseStandartCodeTemplates</name>
     <title>
       <key>en</key>
       <value>Use code standard templates</value>

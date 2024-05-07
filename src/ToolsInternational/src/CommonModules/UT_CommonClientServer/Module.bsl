@@ -1861,36 +1861,40 @@ Function IsPortableDistribution() Export
 EndFunction
 #EndRegion
 #EndRegion
-// Описание ОСДля техподдержки.
+
+// Description OS for Technical support().
 // 
-// Возвращаемое значение:
-//  Структура -  Описание ОСДля техподдержки:
-// * ВерсияОС - Строка - 
-// * Разрядность - Строка - 
-// * Процессор - Строка - 
-// * Память - Строка - 
-Функция ОписаниеОСДляТехподдержки() Экспорт
-	СистемнаяИнформация = Новый СистемнаяИнформация();
-	
-	Описание = Новый Структура;
-	Описание.Вставить("ВерсияОС", СистемнаяИнформация.ВерсияОС);
-	Описание.Вставить("Разрядность", Строка(СистемнаяИнформация.ТипПлатформы));
-	Описание.Вставить("Процессор", СистемнаяИнформация.Процессор);
-	Описание.Вставить("Память", Строка(СистемнаяИнформация.ОперативнаяПамять));
-	
-	Возврат Описание;	
-КонецФункции
+// Return value:
+//  Structure -  Description OS for Technical support:
+// * OSVersion - String - 
+// * PlatformType - String - 
+// * Processor - String - 
+// * RAM - String - 
+Function DescriptionOSForTechnicalSupport() Export
 
-// Текущая версия платформы1 с предприятие.
+	SystemInfo = New SystemInfo;
+	
+	Description = New Structure;
+	Description.Вставить("OSVersion",		SystemInfo.OSVersion);
+	Description.Вставить("PlatformType", 	String(SystemInfo.PlatformType));
+	Description.Вставить("Processor", 		SystemInfo.Processor);
+	Description.Вставить("RAM", 			String(SystemInfo.RAM));
+	
+	Return Description;	
+
+EndFunction
+
+// Current 1C Enterprise platform version.
 // 
-// Возвращаемое значение:
-//  Строка -  Текущая версия платформы 1С предприятие
-Функция ТекущаяВерсияПлатформы1СПредприятие() Экспорт
+// Return value:
+//  String -  Current 1C Enterprise platform version
+Function CurrentPlatform1CEnterpriseVersion() Export
 
-	СистИнфо = Новый СистемнаяИнформация;
-	Возврат СистИнфо.ВерсияПриложения;
+	SystemInfo = New SystemInfo;
+	Return SystemInfo.AppVersion;
 
-КонецФункции
+EndFunction
+
 #Region InternalProgramInterface
 // is intended for modules that are part of some functional subsystem. It should contain export procedures and functions that can only be called from other functional subsystems of the same library.
 #EndRegion
