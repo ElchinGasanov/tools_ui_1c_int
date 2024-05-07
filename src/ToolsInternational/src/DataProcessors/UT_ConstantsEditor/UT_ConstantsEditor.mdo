@@ -13,6 +13,7 @@
     <key>ru</key>
     <value>Редактор констант [УИ]</value>
   </synonym>
+  <comment>_</comment>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_ConstantsEditor.Form.ConstanstList</defaultForm>
   <extendedPresentation>
