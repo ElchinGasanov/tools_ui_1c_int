@@ -1,6 +1,63 @@
 
 #Region Public
 
+#Region ScheduledJobsSchedule
+
+// Converts  JobSchedule to Structure.
+//
+// Parameters:
+//  Schedule - JobSchedule - original schedule.
+// 
+// Return value:
+//  Structure - schedule as structure.
+//
+Function ScheduleToStructure (Val Schedule) Export
+
+	ScheduleValue = Schedule;
+	If ScheduleValue = Undefined Then
+		ScheduleValue = New JobSchedule;
+	EndIf;
+	KeysList = "CompletionTime,EndTime,BeginTime,EndDate,BeginDate,DayInMonth,WeekDayInMonth,"
+		+ "WeekDays,CompletionInterval,Months,RepeatPause,WeeksPeriod,RepeatPeriodInDay,DaysRepeatPeriod";
+	Result = New Structure(KeysList);
+	FillPropertyValues(Result, ScheduleValue, KeysList);
+	DetailedDailySchedules = New Array;
+	For Each DailySchedule In Schedule.DetailedDailySchedules Do
+		DetailedDailySchedules.Add(ScheduleToStructure(DailySchedule));
+	EndDo;
+	Result.Вставить("DetailedDailySchedules", DetailedDailySchedules);
+	Return Result;
+
+EndFunction
+
+// Converts  Structure to JobSchedule  .
+// 
+// Parameters:
+//  ScheduleStructure - Structure - Schedule in Structure form.
+// 
+// Return value:
+//  JobSchedule - Schedule.
+//
+Function StructureToSchedule(Val ScheduleStructure) Export
+
+	If ScheduleStructure = UNdefined Then
+		Return New JobSchedule;
+	EndIf;
+	KeysList = "CompletionTime,EndTime,BeginTime,EndDate,BeginDate,DayInMonth,WeekDayInMonth,"
+		+ "WeekDays,CompletionInterval,Months,RepeatPause,WeeksPeriod,RepeatPeriodInDay,DaysRepeatPeriod";
+	Result = New JobSchedule;
+	FillPropertyValues(Result, ScheduleStructure, KeysList);
+	DetailedDailySchedules = New Array;
+	For Each Schedule In ScheduleStructure.DetailedDailySchedules Do
+		DetailedDailySchedules.Add(StructureToSchedule(Schedule));
+	EndDo;
+	Result.DetailedDailySchedules = DetailedDailySchedules;
+	Return Result;
+
+EndFunction
+
+
+#EndRegion
 // Create copy of value type of Structure, Recursively, according of types of properties. 
 // If  structure properties contains values of object types  (catalogref, DocumentRef,etc),
 //  their contents are not copied, but references to the source object are returned..
@@ -153,60 +210,6 @@ Function CopyValueList(SourceValueList) Export
 	Return ValueListResult;
 
 EndFunction
-
-// Converts  JobSchedule to Structure.
-//
-// Parameters:
-//  Schedule - JobSchedule - original schedule.
-// 
-// Return value:
-//  Structure - schedule as structure.
-//
-Function ScheduleToStructure (Val Schedule) Export
-
-	ScheduleValue = Schedule;
-	If ScheduleValue = Undefined Then
-		ScheduleValue = New JobSchedule;
-	EndIf;
-	KeysList = "CompletionTime,EndTime,BeginTime,EndDate,BeginDate,DayInMonth,WeekDayInMonth,"
-		+ "WeekDays,CompletionInterval,Months,RepeatPause,WeeksPeriod,RepeatPeriodInDay,DaysRepeatPeriod";
-	Result = New Structure(KeysList);
-	FillPropertyValues(Result, ScheduleValue, KeysList);
-	DetailedDailySchedules = New Array;
-	For Each DailySchedule In Schedule.DetailedDailySchedules Do
-		DetailedDailySchedules.Add(ScheduleToStructure(DailySchedule));
-	EndDo;
-	Result.Вставить("DetailedDailySchedules", DetailedDailySchedules);
-	Return Result;
-
-EndFunction
-
-// Converts  Structure to JobSchedule  .
-// 
-// Parameters:
-//  ScheduleStructure - Structure - Schedule in Structure form.
-// 
-// Return value:
-//  JobSchedule - Schedule.
-//
-Function StructureToSchedule(Val ScheduleStructure) Export
-
-	If ScheduleStructure = UNdefined Then
-		Return New JobSchedule;
-	EndIf;
-	KeysList = "CompletionTime,EndTime,BeginTime,EndDate,BeginDate,DayInMonth,WeekDayInMonth,"
-		+ "WeekDays,CompletionInterval,Months,RepeatPause,WeeksPeriod,RepeatPeriodInDay,DaysRepeatPeriod";
-	Result = New JobSchedule;
-	FillPropertyValues(Result, ScheduleStructure, KeysList);
-	DetailedDailySchedules = New Array;
-	For Each Schedule In ScheduleStructure.DetailedDailySchedules Do
-		DetailedDailySchedules.Add(StructureToSchedule(Schedule));
-	EndDo;
-	Result.DetailedDailySchedules = DetailedDailySchedules;
-	Return Result;
-
-EndFunction
-
 // Raises an exception if the ParameterName parameter value type of the ProcedureOrFunctionName 
 // procedure or function does not match the excepted one.
 // For validating types of parameters passed to the interface procedures and functions.
@@ -1868,9 +1871,7 @@ Function Version() Export
 	Return "2.4.14";	
 EndFunction
 
-Function IsPortableDistribution() Export
-	Return DistributionType() = PortableDistributionType();	
-EndFunction
+
 #EndRegion
 #EndRegion
 
@@ -1907,10 +1908,10 @@ Function CurrentPlatform1CEnterpriseVersion() Export
 
 EndFunction
 
-#Region InternalProgramInterface
+#Region Internal
 // is intended for modules that are part of some functional subsystem. It should contain export procedures and functions that can only be called from other functional subsystems of the same library.
 #EndRegion
 
-#Region InternalProceduresAndFunctions
+#Region Private
 // contains procedures and functions that make up the internal implementation of a common module. In cases where a common module is part of some functional subsystem that includes several metadata objects, this section can also contain service export procedures and functions intended only for calling from other objects of this subsystem.
 #EndRegion
