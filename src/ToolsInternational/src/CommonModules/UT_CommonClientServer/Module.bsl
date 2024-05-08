@@ -1807,6 +1807,18 @@ Function GetFileIconIndex(val FileExtention) Export
 	EndIf;
 EndFunction
 
+Function DistributionOption() Export
+	Return "Extension";
+EndFunction
+
+Function DistributionOptionPortable() Export
+	Return "Portable";
+EndFunction
+
+Function IsPortableDistribution() Export
+	Return DistributionOption() = DistributionOptionPortable();	
+EndFunction
+
 // Convert File Extension to lower case without Dot character
 //
 // Parameters:
