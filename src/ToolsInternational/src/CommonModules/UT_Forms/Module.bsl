@@ -36,7 +36,7 @@ Function AttributePropertiesNew()
 
 EndFunction
 
-Function ButtonCommandNewDescription () export
+Function ButtonCommandNewDescription () Export
 	Structure = New Structure;
 
 	Structure.Insert("CreateCommand", True);
@@ -54,7 +54,7 @@ Function ButtonCommandNewDescription () export
 	Structure.Insert("Picture", Undefined);
 	Structure.Insert("Representation", Undefined);
 
-	Возврат Structure;
+	Return Structure;
 EndFunction
 
 Function FormGroupNewDescription() Export
@@ -75,10 +75,10 @@ EndFunction
 
 #EndRegion
 
-#Region FormItemsProgramingCreation  
+#Region FormItemsProgrammingCreation  
 
 Function CreateCommandByDescription(Form, CommandDescription) Export
-	If Не CommandDescription.CreateCommand Then
+	If Not CommandDescription.CreateCommand Then
 		Return Undefined;
 	EndIf;
 	Command = Form.Commands.Add(CommandDescription.Name);
@@ -86,11 +86,11 @@ Function CreateCommandByDescription(Form, CommandDescription) Export
 	Command.ToolTip = CommandDescription.ToolTip;
 	Command.Action = CommandDescription.Action;
 	If CommandDescription.Picture<>Undefined Then
-		if not UT_CommonClientServer.IsPortableDistribution()
-			or CommandDescription.Picture.Type = PictureType.FromLib
-			or CommandDescription.Picture.Type = PictureType.Empty then
+		If Not UT_CommonClientServer.IsPortableDistribution()
+			Or CommandDescription.Picture.Type = PictureType.FromLib
+			Or CommandDescription.Picture.Type = PictureType.Empty Then
 			Command.Picture = CommandDescription.Picture;
-		endif;
+		EndIf;
 	EndIf;
 	If CommandDescription.Shortcut <> Undefined Then
 		Command.Shortcut = CommandDescription.Shortcut;
@@ -103,7 +103,7 @@ Function CreateCommandByDescription(Form, CommandDescription) Export
 EndFunction
 
 Function CreateItemByDescription(Form, ItemDescription) Export
-	If  NOT ItemDescription.CreateItem Then
+	If not ItemDescription.CreateItem Then
 		Return Undefined;
 	EndIf;
 
@@ -138,7 +138,7 @@ Function CreateItemByDescription(Form, ItemDescription) Export
 
 	FillPropertyValues(FormItem, ItemDescription.Properties);
 
-	If Тип(FormItem) = Тип("FormField") Then
+	If Type(FormItem) = Type("FormField") Then
 		If ValueIsFilled(ItemDescription.DataPath) Then
 			FormItem.DataPath = ItemDescription.DataPath;
 		Else
@@ -151,7 +151,12 @@ Function CreateItemByDescription(Form, ItemDescription) Export
 		If ItemDescription.ExtendedEdit <> Undefined Then
 			FormItem.ExtendedEdit = ItemDescription.ExtendedEdit;
 		EndIf;
-
+	ElsIf Type(FormItem) = Type("FormTable") Then
+		If ValueIsFilled(ItemDescription.DataPath) Then
+			FormItem.DataPath = ItemDescription.DataPath;
+		Else
+			FormItem.DataPath = ItemDescription.Name;
+		EndIf;
 	EndIf;
 	If ItemDescription.HorizontalStretch <> Undefined Then
 		FormItem.HorizontalStretch = ItemDescription.HorizontalStretch;
@@ -173,7 +178,7 @@ Function CreateButtonByDescription(Form, ButtonDescription) Export
 
 	Button = Form.Items.Insert(ButtonDescription.Name, Type("FormButton"), FormItem(Form,
 		ButtonDescription.ItemParent), FormItem(Form, ButtonDescription.BeforeItem));
-	IF Not ButtonDescription.CreateCommand Then
+	If Not ButtonDescription.CreateCommand Then
 		Button.Title = ButtonDescription.Title;
 	EndIf;
 	If ButtonDescription.IsHyperlink = False Then
@@ -205,8 +210,10 @@ Function CreateGroupByDescription(Form, Description) Export
 
 	FormGroup.Title = Description.Title;
 
-	FillPropertyValues(FormGroup, Description, "Type,ShowTitle");
-
+	If FormGroup.Type = FormGroupType.Popup Then
+		FillPropertyValues(FormGroup, Description, "GroupType,ShowTitle");
+	EndIf;
+	
 	If FormGroup.Type = FormGroupType.UsualGroup Then
 		FillPropertyValues(FormGroup, Description, "Behavior,Representation");
 	EndIf;
@@ -221,11 +228,11 @@ EndFunction
 
 Function IsCommandBarButton(Form, Val ButtonParent)
 //@skip-warning
-	if ButtonParent = Undefined then
-		Return Ложь;
-	ElsIf ButtonParent = Form.CommandBar then
+	If ButtonParent = Undefined Then
+		Return False;
+	ElsIf ButtonParent = Form.CommandBar Then
 		Return True;
-	ElsIf TypeOf(ButtonParent) = UT_CommonClientServer.ManagedFormType() then
+	ElsIf TypeOf(ButtonParent) = UT_CommonClientServer.ManagedFormType() Then
 		Return False;
 	Else
 		ButtonParent = FormItem(Form, ButtonParent);
@@ -281,7 +288,7 @@ EndFunction
 Procedure AddColumnNL(Form, Val ColumnName, ColumnTypeDescription, FormTable) Export
 	AddedAttributesArray = New Array;
 	AddedAttributesArray.Add(
-		New FormAttribute(ColumnName, ColumnTypeDescription, Formtable, ColumnName));
+		New FormAttribute(ColumnName, ColumnTypeDescription, FormTable, ColumnName));
 	Form.ChangeAttributes(AddedAttributesArray);
 	NewElement = Form.Items.Add(ColumnName, Type("FormField"), Form.Items[FormTable]);
 	NewElement.Title = ColumnName;
@@ -327,7 +334,7 @@ EndProcedure
 
 	ParameterPrefix="WriteParameter_";
 
-	AddedAtributesArray=New Array;
+	AddedAttributesArray=New Array;
 
 	For Each KeyValue In WriteSettings Do
 		AttributeType=TypeOf(KeyValue.Value.Value);
@@ -341,13 +348,13 @@ EndProcedure
 		TypesArray.Add(AttributeType);
 		NewAttribute=New FormAttribute(ParameterPrefix + KeyValue.Key, New TypeDescription(TypesArray), "",
 			KeyValue.Value.Title, False);
-		AddedAtributesArray.Add(NewAttribute);
+		AddedAttributesArray.Add(NewAttribute);
 	EndDo;
 
-	Form.ChangeAttributes(AddedAtributesArray);
+	Form.ChangeAttributes(AddedAttributesArray);
 
-	AddedAtributesArray.Clear();
-	AddedAtributesArray.Add(New FormAttribute("Key", New TypeDescription("String"), ParameterPrefix
+	AddedAttributesArray.Clear();
+	AddedAttributesArray.Add(New FormAttribute("Key", New TypeDescription("String"), ParameterPrefix
 		+ "AdditionalProperties", "Key", False));
 
 	ValueTypesArray=New Массив;
@@ -357,9 +364,9 @@ EndProcedure
 	ValueTypesArray.Add("Date");
 	ValueTypesArray.Add("UUID");
 	ValueTypesArray.Add("AnyRef");
-	AddedAtributesArray.Add(New FormAttribute("Value", New TypeDescription(ValueTypesArray),
+	AddedAttributesArray.Add(New FormAttribute("Value", New TypeDescription(ValueTypesArray),
 		ParameterPrefix + "AdditionalProperties", "Value", False));
-	Form.ChangeAttributes(AddedAtributesArray);
+	Form.ChangeAttributes(AddedAttributesArray);
 
 	CreatingAttributesArray=UT_CommonClientServer.ToolsFormOutputWriteSettings();
 
