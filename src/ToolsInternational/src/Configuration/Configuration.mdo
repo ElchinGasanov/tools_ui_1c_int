@@ -121,6 +121,8 @@
   <commonModules>CommonModule.UT_StringFunctionsClientServer</commonModules>
   <commonModules>CommonModule.UT_FormsClient</commonModules>
   <commonModules>CommonModule.UT_FormsServer</commonModules>
+  <commonModules>CommonModule.UT_Paste1CAPI</commonModules>
+  <commonModules>CommonModule.UT_AlgorithmsClient</commonModules>
   <httpServices>HTTPService.UT_PublishedFunctions</httpServices>
   <commonCommands>CommonCommand.UT_Settings</commonCommands>
   <commonForms>CommonForm.UT_TimeConsumingOperation</commonForms>

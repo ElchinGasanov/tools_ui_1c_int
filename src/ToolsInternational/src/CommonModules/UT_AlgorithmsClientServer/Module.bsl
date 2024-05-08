@@ -1,3 +1,170 @@
+
+#Region Public
+
+#Region StorageOfAlgorithms
+
+// New description of algorithm headers.
+// 
+// Return values:
+//  Structure -  Новый описание шапки алгоритма:
+// * ID - String - 
+// * Name - String - 
+// * Code - String - 
+// * Comment - String - 
+// * Cache - Boolean - 
+// * AtClient - Boolean - 
+// * ThrowException - Boolean - 
+// * ExecuteInTransaction - Boolean - 
+// * RecordErrorsORL - Boolean - 
+// * IDHTTP - String - 
+// * RegularTaskID - String - 
+// * ExecuteOnSchedule - Boolean - 
+// * InSettingsStorage - Boolean - Если установлено Истина, сохранение происходит в хранилище общих настроек в базе
+Function NewDescriptionOfAlgorithmHeaders() Export
+	Description = New Structure;
+	Description.Insert("ID","");
+	Description.Insert("Name", "");
+	Description.Insert("Code", "");
+	Description.Insert("Comment","");
+	Description.Insert("Cache", False);
+	Description.Insert("AtClient", False);
+	Description.Insert("ThrowException", False);
+	Description.Insert("ExecuteInTransaction", False);
+	Description.Insert("RecordErrorsORL", False);
+	Description.Insert("IDHTTP", "");
+	Description.Insert("RegularTaskID", "");
+	Description.Insert("ExecuteOnSchedule", False);
+	Description.Insert("InSettingsStorage", False);
+	
+	Return Description;
+EndFunction
+
+// New description of an algorithm.
+// 
+// Return values:
+//  Structure -  New description of an algorithm:
+// * ID - String - 
+// * Name - String - 
+// * Code - String - 
+// * Comment - String - 
+// * Cache - Boolean - 
+// * AtClient - Boolean - 
+// * ThrowException - Boolean - 
+// * ExecuteInTransaction - Boolean - 
+// * RecordErrorsORL - Boolean - 
+// * IDHTTP - String - 
+// * RegularTaskID - String - 
+// * ExecuteOnSchedule - Boolean - 
+// * InSettingsStorage - Boolean - If set to True, saving occurs in the general settings storage in the database
+// * TextOfTheAlgorithm - String - 
+// * Options - Array from look NewAlgorithmParameterDescription - 
+Function NewDescriptionOfAlgorithm() Export
+	Description = NewDescriptionOfAlgorithmHeaders();
+	Description.Insert("TextOfTheAlgorithm","");
+	Description.Insert("Options", New Array);
+	
+	Return Description;
+EndFunction
+
+// New algorithm parameter description.
+// 
+// Return values:
+//  Structure -  New algorithm parameter description:
+// * Entrance - Boolean - 
+// * Name - String - 
+// * ParameterType - String - 
+// * Default - String - 
+Function NewAlgorithmParameterDescription() Export
+	Description = New Structure;
+	Description.Insert("Entrance", False);
+	Description.Insert("Name", "");
+	Description.Insert("ParameterType", "");
+	Description.Insert("Default", "");
+	
+	Return Description;	
+EndFunction
+
+#EndRegion
+
+#Region ExecutionOfAlgorithms
+
+Function ExecuteAlgorithm(Algorithm, IncomingParameters = Undefined, ExecutionError = False, ErrorMessage = "") Export
+	AlgorithmRef = UT_CommonServerCall.GetRefCatalogAlgorithms(Algorithm);
+	If AlgorithmRef = Undefined Or Not ValueIsFilled(AlgorithmRef) Then
+		ErrorMessage = "Algorithms : Error function execution(no script defined " + Algorithm + " )";
+		If IncomingParameters = Undefined Then
+			IncomingParameters = New Structure;
+		EndIf;
+		IncomingParameters.Insert("Cancel", True);
+		IncomingParameters.Insert("ErrorMessage", ErrorMessage);
+		//        WriteToEventLog(,ErrorMessage);
+		Return New Map;
+	EndIf;
+
+	If TypeOf(IncomingParameters) = Type("Structure") Then
+		If IncomingParameters.Property("this") Then
+			this = IncomingParameters.this;
+		Else
+			this = New Map;
+		EndIf;
+	Else
+		IncomingParameters = New Structure;
+		this = New Map;
+	EndIf;
+
+	//	For Each StoredParameter In StoredParameters Do
+	//		If Not Parameters.Property(StoredParameter.Key) Then 
+	//			Parameters.Insert(StoredParameter.Key,StoredParameter.Value);
+	//		EndIf;
+	//	EndDo;
+
+	PropertiesForAlgorithmAttributes = "Ref,AlgorithmText,ThrowException,WriteErrorsToEventLog,ExecuteInTransaction";
+
+	AlgorithmProperties = UT_CommonServerCall.ObjectAttributesValues(AlgorithmRef,
+		PropertiesForAlgorithmAttributes);
+
+	ExecutableCode = ConvertTextToAlgorithmCode(AlgorithmProperties.AlgorithmText);
+
+#If Server Then
+	If AlgorithmProperties.ExecuteInTransaction Then
+		BeginTransaction();
+	EndIf;
+#EndIf
+	Try
+		Execute (ExecutableCode);
+
+#If Server Then
+		If AlgorithmProperties.ExecuteInTransaction Then
+			CommitTransaction();
+		EndIf;
+#EndIf
+
+	Except
+#If Server Then
+		If AlgorithmProperties.ExecuteInTransaction Then
+			If TransactionActive() Then
+				RollbackTransaction();
+			EndIf;
+		EndIf;
+#EndIf
+
+		ErrorMessage = ErrorMessage + " Error: " + ErrorDescription() + ";";
+		ExecutionError = True;
+		If AlgorithmProperties.WriteErrorsToEventLog Then
+//			WriteLogEvent("Execute procedures "
+//				+ AlgorithmRef,Parameters.ErrorMessage);
+		EndIf;
+		If AlgorithmProperties.ThrowException Then
+			Raise ErrorDescription();
+		EndIf;
+	EndTry
+	;
+///	Object = Algorithm.GetObject();
+////	Return Object.ExecuteFunction(AdditionalParameters);
+EndFunction
+
+#EndRegion
+
 #Region Private
 
 Function NormalizeText(Text, MarkEndOfText = True, WordsString = "") Export
@@ -121,83 +288,37 @@ Function GetWordFirstOccurrenceWithOutPrefix(String, Pref, Excluding = ";,+, = ,
 	Return Word;
 EndFunction
 
-#EndRegion
-
-#Region ExecutionOfAlgorithms
-
-Function ExecuteAlgorithm(Algorithm, IncomingParameters = Undefined, ExecutionError = False, ErrorMessage = "") Export
-	AlgorithmRef = UT_CommonServerCall.GetRefCatalogAlgorithms(Algorithm);
-	If AlgorithmRef = Undefined Or Not ValueIsFilled(AlgorithmRef) Then
-		ErrorMessage = "Algorithms : Error function execution(no script defined " + Algorithm + " )";
-		If IncomingParameters = Undefined Then
-			IncomingParameters = New Structure;
-		EndIf;
-		IncomingParameters.Insert("Cancel", True);
-		IncomingParameters.Insert("ErrorMessage", ErrorMessage);
-		//        WriteToEventLog(,ErrorMessage);
-		Return New Map;
-	EndIf;
-
-	If TypeOf(IncomingParameters) = Type("Structure") Then
-		If IncomingParameters.Property("this") Then
-			this = IncomingParameters.this;
-		Else
-			this = New Map;
-		EndIf;
-	Else
-		IncomingParameters = New Structure;
-		this = New Map;
-	EndIf;
-
-	//	For Each StoredParameter In StoredParameters Do
-	//		If Not Parameters.Property(StoredParameter.Key) Then 
-	//			Parameters.Insert(StoredParameter.Key,StoredParameter.Value);
-	//		EndIf;
-	//	EndDo;
-
-	PropertiesForAlgorithmAttributes = "Ref,AlgorithmText,ThrowException,WriteErrorsToEventLog,ExecuteInTransaction";
-
-	AlgorithmProperties = UT_CommonServerCall.ObjectAttributesValues(AlgorithmRef,
-		PropertiesForAlgorithmAttributes);
-
-	ExecutableCode = ConvertTextToAlgorithmCode(AlgorithmProperties.AlgorithmText);
-
-#If Server Then
-	If AlgorithmProperties.ExecuteInTransaction Then
-		BeginTransaction();
-	EndIf;
-#EndIf
-	Try
-		Execute (ExecutableCode);
-
-#If Server Then
-		If AlgorithmProperties.ExecuteInTransaction Then
-			CommitTransaction();
-		EndIf;
-#EndIf
-
-	Except
-#If Server Then
-		If AlgorithmProperties.ExecuteInTransaction Then
-			If TransactionActive() Then
-				RollbackTransaction();
-			EndIf;
-		EndIf;
-#EndIf
-
-		ErrorMessage = ErrorMessage + " Error: " + ErrorDescription() + ";";
-		ExecutionError = True;
-		If AlgorithmProperties.WriteErrorsToEventLog Then
-//			WriteLogEvent("Execute procedures "
-//				+ AlgorithmRef,Parameters.ErrorMessage);
-		EndIf;
-		If AlgorithmProperties.ThrowException Then
-			Raise ErrorDescription();
-		EndIf;
-	EndTry
-	;
-///	Object = Algorithm.GetObject();
-////	Return Object.ExecuteFunction(AdditionalParameters);
+// Algorithm text file name DBF.
+// 
+// Return values:
+//  String -  Algorithm text file name DBF
+Function AlgorithmTextFileNameDBF() Export
+	Return "TextOfTheAlgorithm.txt";
 EndFunction
 
 #EndRegion
+
+
+#EndRegion
+
+#Region Internal
+
+// Code of procedures and functions
+
+#EndRegion
+
+#Region Private
+
+// Code of procedures and functions
+
+#EndRegion
+
+
+
+
+
+
+
+
+
+
