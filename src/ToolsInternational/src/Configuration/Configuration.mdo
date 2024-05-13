@@ -110,6 +110,7 @@
   <commonModules>CommonModule.UT_CommonCached</commonModules>
   <commonModules>CommonModule.UT_XMLParcer</commonModules>
   <commonModules>CommonModule.UT_Users</commonModules>
+  <commonModules>CommonModule.UT_Code</commonModules>
   <commonModules>CommonModule.UT_Forms</commonModules>
   <commonModules>CommonModule.UT_ScheduledJobsServer</commonModules>
   <commonModules>CommonModule.UT_ScheduledJobsInternal</commonModules>
