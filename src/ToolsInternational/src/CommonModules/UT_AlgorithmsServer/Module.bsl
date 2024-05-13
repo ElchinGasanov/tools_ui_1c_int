@@ -5,27 +5,27 @@
 
 // Algorithm data.
 // 
-// Параметры:
-//  ID - Строка - Identifier
+// Parameters:
+//  ID - String - Identifier
 // 
-// Возвращаемое значение:
+// Return values:
 //  look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
-// Возвращаемое значение: 
+// Return values: 
 // 	Undefined - Алгоритм не найден
 Function AlgorithmData(ID) Export
-	//Сначала ищем в ДБФ
-	БазаАлгоритмов = AlgorithmStorageBase();
+	// First we look in DBF
+	AlgorithmsDatabase = AlgorithmStorageBase();
 	
-	БазаАлгоритмов.ТекущийИндекс = БазаАлгоритмов.Индексы.IDXID;
-	Найдено = БазаАлгоритмов.Найти(ID, "=");
+	AlgorithmsDatabase.CurrentIndex = AlgorithmsDatabase.Индексы.IDXID;
+	Found = AlgorithmsDatabase.Find(ID, "=");
 	
 	AlgorithmDescription = Undefined;
-	If Найдено Then
+	If Found Then
 		AlgorithmDescription = UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm();
-		FillAlgorithmHeaderByStorageBase(AlgorithmDescription, БазаАлгоритмов);
+		FillAlgorithmHeaderByStorageBase(AlgorithmDescription, AlgorithmsDatabase);
 		FillDescriptionAlgorithmAfterReadingHeader(AlgorithmDescription);
 	EndIf;
-	БазаАлгоритмов.ЗакрытьФайл();
+	AlgorithmsDatabase.CloseFile();
 
 	If AlgorithmDescription <> Undefined Then
 		Return AlgorithmDescription;
@@ -36,49 +36,49 @@ Function AlgorithmData(ID) Export
 	Return AlgorithmDescription;
 EndFunction
 
-// Список алгоритмов.
+// List of algorithms.
 // 
-// Возвращаемое значение:
-//  Массив из look УИ_АлгоритмыКлиентСервер.НовыйОписаниеШапкиАлгоритма
-Function СписокАлгоритмов() Export
-	МассивАлгоритмов = Новый Массив;//Массив из look УИ_АлгоритмыКлиентСервер.НовыйОписаниеШапкиАлгоритма
+// Return values:
+// Array of look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
+Function ListOfAlgorithms() Export
+	AlgorithmsArray = New Array;//Array of look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
 	
-	ДополнитьСписокАлгоритмовИзДБФ(МассивАлгоритмов);
-	ДополнитьСписокАлгоритмовИзХранилищаОбщихНастроек(МассивАлгоритмов);	
+	AddToListOfAlgorithmsFromDBF(AlgorithmsArray);
+	AddToListOfAlgorithmsFromTheGeneralSettingsStorage(AlgorithmsArray);	
 	
-	Return МассивАлгоритмов;
+	Return AlgorithmsArray;
 EndFunction
 
-// Записать алгоритм.
+// Write algorithm.
 // 
-// Параметры:
+// Parameters:
 //  AlgorithmData - look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
-//  Отказ - Булево
-Procedure ЗаписатьАлгоритм(AlgorithmData, Отказ) Export
-	If AlgorithmData.ВХранилищеНастроек Then
-		ЗаписатьАлгоритмВХранилищеНастроек(AlgorithmData, Отказ);
+//  Refusal - Boolean
+Procedure WriteAlgorithm(AlgorithmData, Refusal) Export
+	If AlgorithmData.InSettingsStorage Then
+		WriteAlgorithmToSettingsStorage(AlgorithmData, Refusal);
 	Иначе
-		ЗаписатьАлгоритмВДБФ(AlgorithmData, Отказ);
+		WriteAlgorithmToDBF(AlgorithmData, Refusal);
 	EndIf;
 EndProcedure
 
-// Удалить алгоритм.
+// Remove algorithm.
 // 
-// Параметры:
-//  ID - Строка - Identifier
-Procedure УдалитьАлгоритм(ID) Export
+// Parameters:
+//  ID - String - Identifier
+Procedure RemoveAlgorithm(ID) Export
 	
 EndProcedure
 
-Procedure АлгоритмыНайтиПоНаименованию(Наименование) Export
+Procedure AlgorithmsFindByName(Name) Export
 	
 EndProcedure
 
-Procedure АлгоритмыНайтиПоКоду(Код) Export
+Procedure AlgorithmsFindByCode(Code) Export
 	
 EndProcedure
 
-Function АлгоритмыПустаяСсылка() Export
+Function AlgorithmsEmptyLink() Export
 	
 EndFunction
 
@@ -87,7 +87,7 @@ EndFunction
 // Description
 // 
 // Parametrs:
-// 	AlgorithmName - String -  Algoritms catalog item name , searched by name 
+// 	AlgorithmName - String - Algoritms catalog item name , searched by name 
 // 	AlgorithmText - String - Attribute "AlgorithmText" value
 // 	ParameterN - Value of any type
 // Return value:
@@ -129,7 +129,7 @@ Function CreatingOfAlgorithm(AlgorithmName, AlgorithmText = "", Val Parameter1 =
 	Try
 		AlgorithmsObject.Записать();
 	Except
-		Return NSTR("ru = 'Ошибка выполнения записи ';en = 'Writing execution error'") + ErrorDescription();
+		Return NStr("ru = 'Ошибка выполнения записи ';en = 'Writing execution error'") + ErrorDescription();
 	Endtry;
 	
 	Return NStr("ru = 'Успешно сохранено';en = 'Successfully saved'");
@@ -161,13 +161,13 @@ EndFunction
 #Region Internal
 
 
-// Каталог хранения алгоритмов.
+// Algorithm storage directory.
 // 
-// Возвращаемое значение:
-//  Строка -  Каталог хранения алгоритмов
-Function КаталогХраненияАлгоритмов() Export
+// Return values:
+//  String -  Algorithm storage directory
+Function DirectoryStorageAlgorithms() Export
 	Return УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначения.КаталогДанныхИнструментовНаСервере(),
-														   "Алгоритмы");
+														   "Algorithms");
 EndFunction
 #EndRegion
 
@@ -177,281 +177,281 @@ EndFunction
 
 #Region StorageOfAlgorithmsStorageOfGeneralSettings
 
-Function КлючДанныхОбъектаАлгоритмовВХранилищеНастроек() Export
-	Return "УИ_УниверсальныеИнструменты_ХранилищеАлгоритмов";
+Function DataKeyOfAlgorithmObjectInSettingsStorage() Export
+	Return "UT_UniversalTools_StorageOfAlgorithms";
 EndFunction
 
-// Список алгоритмов.
+// List of algorithms.
 // 
-// Параметры:
-//  МассивАлгоритмов - Массив из lookУИ_АлгоритмыКлиентСервер.НовыйОписаниеШапкиАлгоритма 
+// Parameters:
+//  AlgorithmsArray - Array from look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders 
 // 
-Procedure ДополнитьСписокАлгоритмовИзХранилищаОбщихНастроек(МассивАлгоритмов) 
-	УстановитьПривилегированныйРежим(Истина);
+Procedure AddToListOfAlgorithmsFromTheGeneralSettingsStorage(AlgorithmsArray) 
+	SetPrivilegedMode(True);
 	
-	СтруктураПоиска=Новый Структура;
-	СтруктураПоиска.Вставить("КлючОбъекта", КлючДанныхОбъектаАлгоритмовВХранилищеНастроек());
+	SearchStructure = New Structure;
+	SearchStructure.Insert("ObjectKey", DataKeyOfAlgorithmObjectInSettingsStorage());
 
-	Выборка=ХранилищеСистемныхНастроек.Выбрать(СтруктураПоиска);
+	Selection = SystemSettingsStorage.Select(SearchStructure);
 
-	Пока Выборка.Следующий() Цикл
-		ОписаниеШапки = УИ_АлгоритмыКлиентСервер.НовыйОписаниеШапкиАлгоритма();
-		ДанныеНастройки = Выборка.Настройки;
-		Попытка
-			ЗаполнитьЗначенияСвойств(ОписаниеШапки, ДанныеНастройки);
-		Исключение
-		КонецПопытки;
+	While Selection.Next() Do
+		HeaderDescription = UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders();
+		DataSettings = Selection.Настройки;
+		Try
+			FillPropertyValues(HeaderDescription, DataSettings);
+		Except
+		EndTry;
 		
-		МассивАлгоритмов.Добавить(ОписаниеШапки);
-	КонецЦикла;
+		AlgorithmsArray.Добавить(HeaderDescription);
+	EndDo;
 	
 EndProcedure
 
-// Записать алгоритм в хранилище настроек.
+// Write algorithm to settings storage.
 // 
-// Параметры:
+// Parameters:
 //  AlgorithmData - look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
-//  Отказ - Булево -
-Procedure ЗаписатьАлгоритмВХранилищеНастроек(AlgorithmData, Отказ)
-	КлючНастроек = AlgorithmData.ID;// + "/" + ИмяПользователя() + "/" + Формат(ТекущаяДата(), "ДФ=yyyyMMddHHmmss;");
+//  Refusal - Boolean -
+Procedure WriteAlgorithmToSettingsStorage(AlgorithmData, Refusal)
+	SettingsKey = AlgorithmData.ID;// + "/" + UserName() + "/" + Format(CurrentDate(), "DF=yyyyMMddHHmmss;");
 
-//		If ЗначениеЗаполнено(Наименование) Then
-//			КлючНастроек = КлючНастроек + "/" + Наименование;
+//		If ValueIsFilled(Name) Then
+//			SettingsKey = SettingsKey + "/" + Name;
 //		EndIf;
 
-	КлючОбъектаАлгоритмов=КлючДанныхОбъектаАлгоритмовВХранилищеНастроек();
+	AlgorithmObjectKey = DataKeyOfAlgorithmObjectInSettingsStorage();
 
-	Попытка
-		УИ_ОбщегоНазначения.ХранилищеСистемныхНастроекСохранить(КлючОбъектаАлгоритмов, КлючНастроек, AlgorithmData);
-	Исключение
-		Отказ = Истина;
-	КонецПопытки;
+	Try
+		УИ_ОбщегоНазначения.ХранилищеСистемныхНастроекСохранить(AlgorithmObjectKey, SettingsKey, AlgorithmData);
+	Except
+		Refusal = True;
+	EndTry;
 EndProcedure
 
 #EndRegion
 
-#Region ДБФХранениеАлгоритма
+#Region DBFStorageAlgorithm
 
-// Каталог хранения доп данных алгоритма.
+// Directory storage additional data algorithm.
 // 
-// Параметры:
-//  ID - Строка - Identifier
+// Parameters:
+//  ID - String - Identifier
 // 
-// Возвращаемое значение:
-//  Строка
-Function КаталогХраненияДопДанныхАлгоритма(ID)
-	Return УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(UT_CommonCached.КаталогХраненияАлгоритмов(),
-														   "ДанныеАлгоритмов",
+// Return values:
+//  String
+Function DirectoryStorageAdditionalDataAlgorithm(ID)
+	Return УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначенияПовтИсп.КаталогХраненияАлгоритмов(),
+														   "AlgorithmData",
 														   ID);
 EndFunction
 
-// Записать алгоритм ВДБФ.
+// Write algorithm to the DBF.
 // 
-// Параметры:
+// Parameters:
 //  AlgorithmData - look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
-//  Отказ - Булево -
-Procedure ЗаписатьАлгоритмВДБФ(AlgorithmData, Отказ)
-	БазаАлгоритмов = AlgorithmStorageBase(Истина);
+//  Refusal - Boolean -
+Procedure WriteAlgorithmToDBF(AlgorithmData, Refusal)
+	AlgorithmsDatabase = AlgorithmStorageBase(True);
 	
-	БазаАлгоритмов.ТекущийИндекс = БазаАлгоритмов.Индексы.IDXID;
-	Найдено = БазаАлгоритмов.Найти(AlgorithmData.ID, "=");
+	AlgorithmsDatabase.CurrentIndex = AlgorithmsDatabase.Indexes.IDXID;
+	Found = AlgorithmsDatabase.Find(AlgorithmData.ID, "=");
 	
-	If Не Найдено Then
-		БазаАлгоритмов.Добавить();
+	If Not Found Then
+		AlgorithmsDatabase.Add();
 	EndIf;
 	
-	If Не ЗначениеЗаполнено(AlgorithmData.ID) Then
-		AlgorithmData.ID = Строка(Новый УникальныйИдентификатор);
+	If Not ValueIsFilled(AlgorithmData.ID) Then
+		AlgorithmData.ID = String(New UUID);
 	EndIf;
-	БазаАлгоритмов.id = AlgorithmData.ID;
-	БазаАлгоритмов.name = AlgorithmData.Наименование;
-	БазаАлгоритмов.comment = AlgorithmData.Комментарий;
-	БазаАлгоритмов.cashed = AlgorithmData.Кэшировать;
-	БазаАлгоритмов.catch = AlgorithmData.ВыбрасыватьИсключение;
-	БазаАлгоритмов.transact = AlgorithmData.ВыполнятьВТранзакции;
-	БазаАлгоритмов.savejour = AlgorithmData.ЗаписыватьОшибкиВЖР;
-	БазаАлгоритмов.httpid = AlgorithmData.ИдентификаторHTTP;
-	БазаАлгоритмов.shedid = AlgorithmData.ИдентификаторРегламентногоЗадания;
-	БазаАлгоритмов.sheduled = AlgorithmData.ВыполнятьПоРасписанию;
-	БазаАлгоритмов.onclient = AlgorithmData.НаКлиенте;
-	БазаАлгоритмов.CODE = AlgorithmData.Код;
+	AlgorithmsDatabase.id 		= AlgorithmData.ID;
+	AlgorithmsDatabase.name 	= AlgorithmData.Name;
+	AlgorithmsDatabase.comment 	= AlgorithmData.Comment;
+	AlgorithmsDatabase.cashed 	= AlgorithmData.Cache;
+	AlgorithmsDatabase.catch 	= AlgorithmData.ThrowException;
+	AlgorithmsDatabase.transact = AlgorithmData.ExecuteInTransaction;
+	AlgorithmsDatabase.savejour = AlgorithmData.RecordErrorsORL;
+	AlgorithmsDatabase.httpid 	= AlgorithmData.HTTPID;
+	AlgorithmsDatabase.shedid 	= AlgorithmData.RegularTaskID;
+	AlgorithmsDatabase.sheduled = AlgorithmData.ExecuteOnSchedule;
+	AlgorithmsDatabase.onclient = AlgorithmData.AtClient;
+	AlgorithmsDatabase.CODE 	= AlgorithmData.Code;
 	
-	БазаАлгоритмов.Записать();
-	БазаАлгоритмов.ЗакрытьФайл();
+	AlgorithmsDatabase.Save();
+	AlgorithmsDatabase.CloseFile();
 	
-	КаталогХраненияДопДанныхАлгоритма = КаталогХраненияДопДанныхАлгоритма(AlgorithmData.ID);
-	УИ_ОбщегоНазначения.ОбеспечитьКаталог(КаталогХраненияДопДанныхАлгоритма);
+	DirectoryStorageAdditionalDataAlgorithm = DirectoryStorageAdditionalDataAlgorithm(AlgorithmData.ID);
+	УИ_ОбщегоНазначения.ОбеспечитьКаталог(DirectoryStorageAdditionalDataAlgorithm);
 
-	ИмяФайлаТекста = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(КаталогХраненияДопДанныхАлгоритма,
-																	УИ_АлгоритмыКлиентСервер.ИмяФайлаТекстаАлгоритмаDBF());
+	FileNameText = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(DirectoryStorageAdditionalDataAlgorithm,
+																	UT_AlgorithmsClientServer.AlgorithmTextFileNameDBF());
 	
-	Текст = Новый ТекстовыйДокумент();
-	Текст.УстановитьТекст(AlgorithmData.ТекстАлгоритма);
-	Текст.Записать(ИмяФайлаТекста, КодировкаТекста.UTF8);
+	Text = New TextDocument();
+	Text.SetText(AlgorithmData.TextOfTheAlgorithm);
+	Text.Write(FileNameText, TextEncoding.UTF8);
 EndProcedure
 
 
-// Шапка алгоритма из базы хранения.
+// Algorithm header from the storage database.
 // 
-// Параметры:
-// 	ОписаниеШапки - look УИ_АлгоритмыКлиентСервер.НовыйОписаниеШапкиАлгоритма
-//  БазаХранения - XBase -База хранения
-Procedure FillAlgorithmHeaderByStorageBase(ОписаниеШапки,БазаХранения)
-	ОписаниеШапки.ID = СокрЛП(БазаХранения.id);
-	ОписаниеШапки.Наименование = СокрЛП(БазаХранения.name);
-	ОписаниеШапки.Комментарий = СокрЛП(БазаХранения.comment);
-	ОписаниеШапки.Кэшировать = БазаХранения.cashed;
-	ОписаниеШапки.ВыбрасыватьИсключение = БазаХранения.catch;
-	ОписаниеШапки.ВыполнятьВТранзакции = БазаХранения.transact;
-	ОписаниеШапки.ЗаписыватьОшибкиВЖР = БазаХранения.savejour;
-	ОписаниеШапки.ИдентификаторHTTP = СокрЛП(БазаХранения.httpid);
-	ОписаниеШапки.ИдентификаторРегламентногоЗадания = СокрЛП(БазаХранения.shedid);
-	ОписаниеШапки.ВыполнятьПоРасписанию = БазаХранения.sheduled;
-	ОписаниеШапки.НаКлиенте = БазаХранения.onclient;
-	ОписаниеШапки.Код = СокрЛП(БазаХранения.CODE);
+// Parameters:
+// 	HeaderDescription - look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
+//  StorageBase - XBase - Storage Base
+Procedure FillAlgorithmHeaderByStorageBase(HeaderDescription,StorageBase)
+	HeaderDescription.ID 					= TrimAll(StorageBase.id);
+	HeaderDescription.Name 					= TrimAll(StorageBase.name);
+	HeaderDescription.Comment 				= TrimAll(StorageBase.comment);
+	HeaderDescription.Cache 				= StorageBase.cashed;
+	HeaderDescription.ThrowException 		= StorageBase.catch;
+	HeaderDescription.ExecuteInTransaction 	= StorageBase.transact;
+	HeaderDescription.RecordErrorsORL 		= StorageBase.savejour;
+	HeaderDescription.HTTPID 				= TrimAll(StorageBase.httpid);
+	HeaderDescription.RegularTaskID 		= TrimAll(StorageBase.shedid);
+	HeaderDescription.ExecuteOnSchedule 	= StorageBase.sheduled;
+	HeaderDescription.AtClient 				= StorageBase.onclient;
+	HeaderDescription.Code 					= TrimAll(StorageBase.CODE);
 
 EndProcedure
 
 Procedure FillDescriptionAlgorithmAfterReadingHeader(AlgorithmDescription) Export
-	КаталогДОпДанныхАлгоритма = КаталогХраненияДопДанныхАлгоритма(AlgorithmDescription.Идентификатор);
-	ИмяФайлаАлгоритма = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(КаталогДОпДанныхАлгоритма,
-																	   УИ_АлгоритмыКлиентСервер.ИмяФайлаТекстаАлгоритмаDBF());
+	CatalogAlgorithmsAdditionalData = DirectoryStorageAdditionalDataAlgorithm(AlgorithmDescription.ID);
+	AlgorithmFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(CatalogAlgorithmsAdditionalData,
+																	   UT_AlgorithmsClientServer.AlgorithmTextFileNameDBF());
 	
-	Текст = Новый ТекстовыйДокумент();
-	Текст.Прочитать(ИмяФайлаАлгоритма, КодировкаТекста.UTF8);
+	Text = New TextDocument();
+	Text.Read(AlgorithmFileName, TextEncoding.UTF8);
 	
-	AlgorithmDescription.ТекстАлгоритма = Текст.ПолучитьТекст();
+	AlgorithmDescription.TextOfTheAlgorithm = Text.GetText();
 EndProcedure
 
-// Список алгоритмов.
+// List of algorithms.
 // 
-// Параметры:
-//  МассивАлгоритмов - Массив из look УИ_АлгоритмыКлиентСервер.НовыйОписаниеШапкиАлгоритма 
+// Parameters:
+//  AlgorithmsArray - Массив из look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders 
 // 
-Procedure ДополнитьСписокАлгоритмовИзДБФ(МассивАлгоритмов) 
-	БазаАлгоритмов = AlgorithmStorageBase();
-	ЕстьЗаписи = БазаАлгоритмов.Первая();
-	If Не ЕстьЗаписи Then
+Procedure AddToListOfAlgorithmsFromDBF(AlgorithmsArray) 
+	AlgorithmsDatabase = AlgorithmStorageBase();
+	ThereIsRecords = AlgorithmsDatabase.First();
+	If Not ThereIsRecords Then
 		Return;
 	EndIf;
 	
-	Пока Истина Цикл
-		ОписаниеШапки = УИ_АлгоритмыКлиентСервер.НовыйОписаниеШапкиАлгоритма();
-		FillAlgorithmHeaderByStorageBase(ОписаниеШапки, БазаАлгоритмов);
+	While True Do
+		HeaderDescription = UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders();
+		FillAlgorithmHeaderByStorageBase(HeaderDescription, AlgorithmsDatabase);
 		
-		МассивАлгоритмов.Добавить(ОписаниеШапки);
+		AlgorithmsArray.Add(HeaderDescription);
 
-		If Не БазаАлгоритмов.Следующая() Then
-			Прервать;
+		If Not AlgorithmsDatabase.Next() Then
+			Break;
 		EndIf;
-	КонецЦикла;
-	БазаАлгоритмов.ЗакрытьФайл();
+	EndDo;
+	AlgorithmsDatabase.CloseFile();
 	
 EndProcedure
 
-// Создать базу хранения алгоритмов.
+// Create a storage database of algorithms.
 // 
-// Параметры:
-//  ИмяФайлаХранения - Строка -  Имя файла хранения
-//  ИмяФайлаИндексов - Строка -  Имя файла индексов
-Procedure СоздатьБазуХраненияАлгоритмов(ИмяФайлаХранения, ИмяФайлаИндексов) 
-	ДБФ = ОбъектXBaseХраненияАлгоритмов();
-	UpdateStorageStructureHeader(ДБФ);
-	ДБФ.СоздатьФайл(ИмяФайлаХранения);
-	//ДБФ.СоздатьИндексныйФайл(ИмяФайлаИндексов);
-	ДБФ.ЗакрытьФайл();
+// Parameters:
+//  FileNameStorage - String - File name of storage
+//  IndexFileName - String - Name of index file 
+Procedure CreateStorageDatabaseOfAlgorithms(FileNameStorage, IndexFileName) 
+	DBF = AlgorithmsXBaseStorageObject();
+	UpdateStorageStructureHeader(DBF);
+	DBF.CreateFile(FileNameStorage);
+	//DBF.CreateIndex(IndexFileName);
+	DBF.CloseFile();
 EndProcedure
 
 // Algorithm storage base.
 // 
-// Параметры:
-//  ДляИзменения - Булево -  Для изменения
+// Parameters:
+//  ForChange - Boolean -  For change
 // 
-// Возвращаемое значение:
+// Return values:
 //  XBase -  Algorithm storage base
-Function AlgorithmStorageBase(ДляИзменения = False) 
-	КаталогХранения = UT_CommonCached.КаталогХраненияАлгоритмов();
-	УИ_ОбщегоНазначения.ОбеспечитьКаталог(КаталогХранения);
+Function AlgorithmStorageBase(ForChange = False) 
+	StorageCatalog = ОбщегоНазначенияПовтИсп.КаталогХраненияАлгоритмов();
+	УИ_ОбщегоНазначения.ОбеспечитьКаталог(StorageCatalog);
 
-	ИмяФайлов = ИмяФайлаХранилищаАлгоритмов();
+	FileName = FileNameStorageAlgorithms();
 	
-	ИмяФайлаХранения = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(КаталогХранения, ИмяФайлов+".DBF");
-	ИмяФайлаИндексов = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(КаталогХранения, ИмяФайлов+".CDX");
+	FileNameStorage = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(StorageCatalog, FileName + ".DBF");
+	IndexFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(StorageCatalog, FileName + ".CDX");
 		
-	File = New File(ИмяФайлаХранения);
-	If не File.Exists() Then
-		СоздатьБазуХраненияАлгоритмов(ИмяФайлаХранения, ИмяФайлаИндексов);
+	File = New File(FileNameStorage);
+	If Not File.Exists() Then
+		CreateStorageDatabaseOfAlgorithms(FileNameStorage, IndexFileName);
 	EndIf;
 		
-	ДБФ = ОбъектXBaseХраненияАлгоритмов();
-	ДБФ.ОткрытьФайл(ИмяФайлаХранения, ИмяФайлаИндексов, Не ДляИзменения);
+	DBF = AlgorithmsXBaseStorageObject();
+	DBF.OpenFile(FileNameStorage, IndexFileName, Not ForChange);
 		
-	Return ДБФ;	
+	Return DBF;	
 EndFunction
 
-// Обновить структуру хранения шапки.
+// Update storage structure header.
 // 
-// Параметры:
-//  ДБФ -XBase-ДБФ
-Procedure UpdateStorageStructureHeader(ДБФ)
-	ДобавитьПолеХранения(ДБФ, "ID", "S", 40);
-	ДобавитьПолеХранения(ДБФ, "NAME", "S", 150);
-	ДобавитьПолеХранения(ДБФ, "CODE", "S", 9);
-	ДобавитьПолеХранения(ДБФ, "COMMENT", "S", 150);
-	ДобавитьПолеХранения(ДБФ, "CASHED", "L");
-	ДобавитьПолеХранения(ДБФ, "CATCH", "L");
-	ДобавитьПолеХранения(ДБФ, "TRANSACT", "L");
-	ДобавитьПолеХранения(ДБФ, "SAVEJOUR", "L");
-	ДобавитьПолеХранения(ДБФ, "HTTPID", "S", 25);
-	ДобавитьПолеХранения(ДБФ, "SHEDID", "S", 50);
-	ДобавитьПолеХранения(ДБФ, "SHEDULED", "L");
-	ДобавитьПолеХранения(ДБФ, "ONCLIENT", "L");
+// Parameters:
+//  DBF - XBase - DBF
+Procedure UpdateStorageStructureHeader(DBF)
+	AddStorageField(DBF, "ID", 			"S", 40);
+	AddStorageField(DBF, "NAME", 		"S", 150);
+	AddStorageField(DBF, "CODE", 		"S", 9);
+	AddStorageField(DBF, "COMMENT", 	"S", 150);
+	AddStorageField(DBF, "CASHED", 		"L");
+	AddStorageField(DBF, "CATCH", 		"L");
+	AddStorageField(DBF, "TRANSACT", 	"L");
+	AddStorageField(DBF, "SAVEJOUR", 	"L");
+	AddStorageField(DBF, "HTTPID", 		"S", 25);
+	AddStorageField(DBF, "SHEDID", 		"S", 50);
+	AddStorageField(DBF, "SHEDULED", 	"L");
+	AddStorageField(DBF, "ONCLIENT", 	"L");
 	
-	ДобавитьИндексПоПолюХранения(ДБФ, "IDXID", "ID", Истина);
-	ДобавитьИндексПоПолюХранения(ДБФ, "IDXNAME", "NAME", Ложь);
-	ДобавитьИндексПоПолюХранения(ДБФ, "IDXHTTPID", "HTTPID", Ложь);
-	ДобавитьИндексПоПолюХранения(ДБФ, "IDXSHEDID", "SHEDID", Ложь);
+	AddIndexByStorageField(DBF, "IDXID", 		"ID", 		True);
+	AddIndexByStorageField(DBF, "IDXNAME", 		"NAME", 	False);
+	AddIndexByStorageField(DBF, "IDXHTTPID", 	"HTTPID", 	False);
+	AddIndexByStorageField(DBF, "IDXSHEDID", 	"SHEDID", 	False);
 EndProcedure
 
-// Добавить индекс по полю хранения.
+// Add index by storage field.
 // 
-// Параметры:
-//  ДБФ - XBase - ДБФ
-//  Имя - Строка - Имя
-//  Выражение - Строка- Выражение
-//  Уникальность - Булево -Уникальность
-Procedure ДобавитьИндексПоПолюХранения(ДБФ, Имя, Выражение, Уникальность)
-	Индекс = ДБФ.Индексы.Найти(Имя);
-	If Индекс <> Undefined Then
+// Parameters:
+//  DBF - XBase - DBF
+//  Name - String - Имя
+//  Expression - String - Expression
+//  Uniqueness - Boolean - Uniqueness
+Procedure AddIndexByStorageField(DBF, Name, Expression, Uniqueness)
+	Index = DBF.Indexes.Find(Name);
+	If Index <> Undefined Then
 		Return;
 	EndIf;
 	
-	ДБФ.Индексы.Добавить(Имя, Выражение, Уникальность);
+	DBF.Indexes.Add(Name, Expression, Uniqueness);
 EndProcedure
 
-Procedure ДобавитьПолеХранения(ДБФ, Имя, Тип, Длина = 0, Точность = 0)
-	Поле = ДБФ.Поля.Найти(Имя);
-	If Поле <> Undefined Then
+Procedure AddStorageField(DBF, Name, Type, Length = 0, Precision = 0)
+	Fild = DBF.Fields.Find(Name);
+	If Fild <> Undefined Then
 		Return;
 	EndIf;
 	
-	ДБФ.Поля.Добавить(Имя, Тип, Длина, Точность);
+	DBF.Fields.Add(Name, Type, Length, Precision);
 EndProcedure
 
-Function ИмяФайлаХранилищаАлгоритмов()
+Function FileNameStorageAlgorithms()
 	Return "ALGO";
 EndFunction
 
-// Объект x base хранения алгоритмов.
+// Object XBase for storing algorithms.
 // 
-// Возвращаемое значение:
-//  XBase -  Объект x base хранения алгоритмов
-Function ОбъектXBaseХраненияАлгоритмов() 
-	ДБФ = Новый XBase;
-	ДБФ.Кодировка = КодировкаXBase.ANSI;
-	ДБФ.ОтображатьУдаленные = Ложь;
+// Return values:
+//  XBase -  Object XBase for storing algorithms.
+Function AlgorithmsXBaseStorageObject() 
+	DBF = New XBase;
+	DBF.Encoding = XBaseEncoding.ANSI;
+	DBF.ShowDeleted = False;
 		
-	Return ДБФ;
+	Return DBF;
 EndFunction
 
 #EndRegion
