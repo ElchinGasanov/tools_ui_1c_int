@@ -1,198 +1,198 @@
 
-#Область ПрограммныйИнтерфейс
+#Region Public
 
-// Заменить переменные в тексте.
+// Replace variables in a text.
 // 
-// Параметры:
-//  Исходник - Строка - Исходник
-//  ЗаменяемыеПеременные -Структура Из КлючИЗначение:
-//  	* Ключ - Строка - текущее имя переменной
-//  	* Значение - Строка - Новое имя переменной
+// Parameters:
+//  Source - String - Source
+//  ReplaceableVariables - Structure from KeyAndValue:
+//  	* Key - String - current variable name
+//  	* Value - String - New variable name
 // 
-// Возвращаемое значение:
-//  Строка
-Функция ЗаменитьПеременныеВТексте(Исходник, ЗаменяемыеПеременные) Экспорт
-	ПараметрыПлагинов = Новый Структура;
-	ПараметрыПлагинов.Вставить("ПереименованиеПеременных", ЗаменяемыеПеременные);
-	Возврат РезультатИзмененияТекста(Исходник, ПараметрыПлагинов);
+// Return values:
+//  String
+Function ReplaceVariablesInText(Source, ReplaceableVariables) Export
+	PluginOptions = New Structure;
+	PluginOptions.Вставить("RenamingVariables", ReplaceableVariables);
+	Return ResultChangesText(Source, PluginOptions);
 
-КонецФункции
+EndFunction
 
-// Установить директивы компиляции у методов модуля.
+// Set compilation directives for module methods.
 // 
-// Параметры:
-//  Исходник - Строка -Исходник
-//  Директива - Строка - Директива. &НаКлиенте, &НаСервере и т.п.
+// Parameters:
+//  Source - String - Source
+//  Директива - String - Директива. &AtClient, &AtServer и т.п.
 // 
-// Возвращаемое значение:
-//  Строка - Установить директивы компиляции у методов модуля
-Функция УстановитьДирективыКомпиляцииУМетодовМодуля(Исходник, Директива) Экспорт
-	ПараметрыПлагинов = Новый Структура;
-	ПараметрыПлагинов.Вставить("УстановкаДирективКомпиляцииУМетодовМодуля", Директива);
-	Возврат РезультатИзмененияТекста(Исходник, ПараметрыПлагинов);
-КонецФункции
+// Return values:
+//  String - Set compilation directives for module methods
+Function SetCompilationDirectivesUMethodsModule(Source, Directive) Export
+	PluginOptions = New Structure;
+	PluginOptions.Вставить("InstallationOfCompilationDirectivesModuleMethods", Directive);
+	Return ResultChangesText(Source, PluginOptions);
+EndFunction
 
-// Выполнить изменение текста.
+// Change text.
 // 
-// Параметры:
-//  Исходник -Строка -Исходник
-//  ПараметрыПлагинов - Структура Из КлючИЗначение:
-//  	* Ключ - Строка - Имя плагина
-//  	* Значение - Произвольный - Параметры плагина
+// Parameters:
+//  Source - String - Source
+//  PluginOptions - Структура Из KeyAndValue:
+//  	* Key - String - Plugin name
+//  	* Value - Произвольный - Plugin options
 // 
-// Возвращаемое значение:
-//  Строка
-Функция РезультатИзмененияТекста(Исходник, ПараметрыПлагинов) Экспорт
-	РезультатОбработки = ОбработатьМодульСИспользованиемПлагинов(Исходник, ПараметрыПлагинов);
+// Return values:
+//  String
+Function ResultChangesText(Source, PluginOptions) Export
+	ProcessingResult = ProcessModuleUsingPlugins(Source, PluginOptions);
 	
-	Замены = РезультатОбработки.Парсер.ТаблицаЗамен();
-	Если Замены.Количество() > 0 Тогда
-		Возврат РезультатОбработки.Парсер.ВыполнитьЗамены();
-	КонецЕсли;
+	Substitutions = ProcessingResult.Parser.ТаблицаЗамен();
+	Если Substitutions.Количество() > 0 Then
+		Return ProcessingResult.Parser.ВыполнитьЗамены();
+	EndIf;
 	
-	Возврат Исходник;	
-КонецФункции
+	Return Source;	
+EndFunction
 
-// Результаты обработки текста.
+// Text Processing Results.
 // 
-// Параметры:
-//  Исходник - Строка - Исходник
-//  ПараметрыПлагинов - Структура Из КлючИЗначение:
-//  	* Ключ - Строка - Имя плагина
-//  	* Значение - Произвольный - Параметры плагина
+// Parameters:
+//  Source - String - Source
+//  PluginOptions - Structure from KeyAndValue:
+//  	* Key - String - Plugin name
+//  	* Value - Произвольный - Plugin options
 // 
-// Возвращаемое значение:
-//  Массив из Произвольный - Результаты обработки текста
-Функция РезультатыОбработкиТекста(Исходник, ПараметрыПлагинов) Экспорт
-	РезультатОбработки = ОбработатьМодульСИспользованиемПлагинов(Исходник, ПараметрыПлагинов);
+// Return values:
+//  Array of Произвольный - Results обработки текста
+Function TextProcessingResults(Source, PluginOptions) Export
+	ProcessingResult = ProcessModuleUsingPlugins(Source, PluginOptions);
 
-	Возврат РезультатОбработки.РезультатыОбработки;	
-КонецФункции
+	Return ProcessingResult.ProcessingResults;	
+EndFunction
 
-Функция СтруктураМодуля(Исходник) Экспорт
-	ПараметрыПлагинов = Новый Структура;
-	ПараметрыПлагинов.Вставить("ПолучениеСтруктурыМодуля", Неопределено);
+Function ModuleStructure(Source) Export
+	PluginOptions = New Structure;
+	PluginOptions.Insert("GettingModuleStructure", Undefined);
 
-	Результаты = РезультатыОбработкиТекста(Исходник, ПараметрыПлагинов);
+	Results = TextProcessingResults(Source, PluginOptions);
 
-	Возврат Результаты[0];
-КонецФункции
+	Return Results[0];
+EndFunction
 
-// Текст модуля обработк исполнения алгоритма.
+// Text of algorithm execution processing module.
 // 
-// Параметры:
-//  ТекстАлгорритма - Строка -
-//  ИменаПредустановленныхПеременных - Массив из Строка -
-//  ИсполнениеНаКлиенте - Булево - Исполнение на клиенте. Если истина будет сгенерирован код модуля формы, 
-//  	иначе код модуля обработки
+// Parameters:
+//  AlgorithmText - String -
+//  NamesOfPredefinedVariables - Array of String -
+//  ExecutionOnClient - Boolean - Execution on the client. If true, the form module code will be generated, 
+//  	otherwise processing module code
 // 
-// Возвращаемое значение:
-//  Строка
-Функция TextOfAlgorithmExecutionProcessingModule(ТекстАлгорритма, ИменаПредустановленныхПеременных ,ИсполнениеНаКлиенте) Экспорт
-	ПараметрыПлагинов = Новый Структура;
-	Если ИсполнениеНаКлиенте Тогда
-		ПараметрыПлагинов.Вставить("УстановкаДирективКомпиляцииУМетодовМодуля", "&НаКлиенте");
-	КонецЕсли;
+// Return values:
+//  String
+Function TextOfAlgorithmExecutionProcessingModule(AlgorithmText, NamesOfPredefinedVariables ,ExecutionOnClient) Export
+	PluginOptions = New Structure;
+	If ExecutionOnClient Then
+		PluginOptions.Insert("InstallationOfCompilationDirectivesModuleMethods", "&AtClient");
+	EndIf;
 	
-	ПараметрыПлагинаДоработкиТекстаАлгоритма = Новый Структура;
-	ПараметрыПлагинаДоработкиТекстаАлгоритма.Вставить("ИсполнениеНаКлиенте", ИсполнениеНаКлиенте);
-	ПараметрыПлагинаДоработкиТекстаАлгоритма.Вставить("ИменаПеременных", ИменаПредустановленныхПеременных);
-	ПараметрыПлагинов.Вставить("ДоработкаТекстаАлгоритмаДляОбработки", ПараметрыПлагинаДоработкиТекстаАлгоритма);
+	PluginParametersTextModificationsOfTheAlgorithm = New Structure;
+	PluginParametersTextModificationsOfTheAlgorithm.Insert("ExecutionOnClient", ExecutionOnClient);
+	PluginParametersTextModificationsOfTheAlgorithm.Insert("VariableNames", NamesOfPredefinedVariables);
+	PluginOptions.Insert("RefinementOfTheTextOfTheAlgorithmForProcessing", PluginParametersTextModificationsOfTheAlgorithm);
 	
-	Возврат РезультатИзмененияТекста(ТекстАлгорритма, ПараметрыПлагинов);
+	Return ResultChangesText(AlgorithmText, PluginOptions);
 	
-КонецФункции
+EndFunction
 
-#КонецОбласти
+#EndRegion
 
-#Область СлужебныйПрограммныйИнтерфейс
+#Region Internal
 
 
-#КонецОбласти
+#EndRegion
 
-#Область СлужебныеПроцедурыИФункции
+#Region Private
 
-// Обработать модуль с использованием плагинов.
+// Process module using plugins.
 // 
-// Параметры:
-//  Исходник - Строка - Исходник
-//  ПараметрыПлагинов - Структура Из КлючИЗначение:
-//  	* Ключ - Строка - Имя плагина
-//  	* Значение - Произвольный - Параметры плагина
+// Parameters:
+//  Source - String - Source
+//  PluginOptions - Structure of KeyAndValue:
+//  	* Key - String - Plugin name
+//  	* Value - Произвольный - Plugin options
 // 
-// Возвращаемое значение:
-//  Структура - Обработать модуль с использованием плагинов:
-// * РезультатыОбработки - Массив из Произвольный -
-// * Парсер - ОбработкаОбъект.УИ_ПарсерВстроенногоЯзыка -
-Функция ОбработатьМодульСИспользованиемПлагинов(Исходник, ПараметрыПлагинов)
-	Парсер = Обработки.УИ_ПарсерВстроенногоЯзыка.Создать();
+// Return values:
+//  Structure - Process a module using plugins:
+// * ProcessingResults - Array of Произвольный -
+// * Parser - ОбработкаОбъект.УИ_ПарсерВстроенногоЯзыка -
+Function ProcessModuleUsingPlugins(Source, PluginOptions)
+	Parser = Обработки.УИ_ПарсерВстроенногоЯзыка.Создать();
 	
-	Плагины = Новый Массив();
-	ПараметрыПлагиновИсполнения = Новый Соответствие;
+	Plugins = New Array();
+	PluginOptionsExecution = New Map;
 
-	Для Каждого КлючЗначение Из ПараметрыПлагинов Цикл
-		ТекПлагин = НовыйПлагинПарсераВстроенногоЯзыка(КлючЗначение.Ключ);
+	For Each KeyAndValue In PluginOptions Do
+		CurrentPlugin = NewParserPluginBuiltInLanguage(KeyAndValue.Key);
 		
-		Плагины.Добавить(ТекПлагин);
-		ПараметрыПлагиновИсполнения[ТекПлагин.ЭтотОбъект] = КлючЗначение.Значение;
-	КонецЦикла;
+		Plugins.Add(CurrentPlugin);
+		PluginOptionsExecution[CurrentPlugin.ЭтотОбъект] = KeyAndValue.Value;
+	EndDo;
 
-	РезультатыОбработки = Парсер.Пуск(Исходник, Плагины, ПараметрыПлагиновИсполнения);
+	ProcessingResults = Parser.Пуск(Source, Plugins, PluginOptionsExecution);
 		
-	СтруктураРезультатаОбработки = Новый Структура;
-	СтруктураРезультатаОбработки.Вставить("РезультатыОбработки", РезультатыОбработки);
-	СтруктураРезультатаОбработки.Вставить("Парсер", Парсер);
+	ProcessingResultStructure = New Structure;
+	ProcessingResultStructure.Вставить("ProcessingResults", ProcessingResults);
+	ProcessingResultStructure.Вставить("Parser", Parser);
 	
-	Возврат СтруктураРезультатаОбработки;	
+	Return ProcessingResultStructure;	
 	
-КонецФункции
+EndFunction
 
-// Новый плагин парсера встроенного языка.
+// New parser plugin built-in language.
 // 
-// Параметры:
-//  ИмяПлагина - Строка - Имя плагина
+// Parameters:
+//  PluginName - String - Plugin name
 // 
-// Возвращаемое значение:
-//  ВнешняяОбработка
-// Возвращаемое значение:
-//  Неопределено - Не удалось подключить плагин
-Функция НовыйПлагинПарсераВстроенногоЯзыка(ИмяПлагина)
-	ИмяПодключаемойОбработки = ИмяПодключаемойОбработкиПлагинаПарсераВстроенногоЯзыка(ИмяПлагина);
-	Если Метаданные.Обработки.Найти(ИмяПодключаемойОбработки) <> Неопределено Тогда
-		Возврат Обработки[ИмяПодключаемойОбработки].Создать();
-	КонецЕсли;
+// Return values:
+//  ExternalDataProcessor
+// Return values:
+//  Undefined - Failed to connect plugin
+Function NewParserPluginBuiltInLanguage(PluginName)
+	ConnectedProcessingName = NameOfPlugInProcessingParserPlugInBuiltInLanguage(PluginName);
+	If Metadata.DataProcessors.Find(ConnectedProcessingName) <> Undefined Then
+		Return DataProcessors[ConnectedProcessingName].Create();
+	EndIf;
 	
-	Попытка
-		Возврат ВнешниеОбработки.Создать(ИмяПодключаемойОбработки);
-	Исключение
-		Попытка
-			ПодключитьПлагинКСеансу(ИмяПлагина);
-			Возврат ВнешниеОбработки.Создать(ИмяПодключаемойОбработки);
-		Исключение
-			Возврат Неопределено;
-		КонецПопытки;
-	КонецПопытки;
-КонецФункции
+	Try
+		Return ExternalDataProcessors.Create(ConnectedProcessingName);
+	Except
+		Try
+			ConnectPluginToSession(PluginName);
+			Return ExternalDataProcessors.Create(ConnectedProcessingName);
+		Except
+			Return Undefined;
+		EndTry;
+	EndTry;
+EndFunction
 
-// Подключить плагин к сеансу.
+// Connect a plugin to a session.
 // 
-// Параметры:
-//  ИмяПлагина -Строка -Имя плагина
-Процедура ПодключитьПлагинКСеансу(ИмяПлагина)
-	ДвоичныеДанныеПлагина = Обработки.УИ_ПарсерВстроенногоЯзыка.ПолучитьМакет("Плагин_" + ИмяПлагина);
-	АдресПлагинаВоВременномХранилище = ПоместитьВоВременноеХранилище(ДвоичныеДанныеПлагина);
+// Parameters:
+//  PluginName - String - Plugin name
+Procedure ConnectPluginToSession(PluginName)
+	BinaryDataPlugin = Обработки.УИ_ПарсерВстроенногоЯзыка.GetTemplate("Plugin_" + PluginName);
+	PluginAddressInTemporaryStorage = PutToTempStorage(BinaryDataPlugin);
 
-	УИ_ОбщегоНазначения.ПодключитьВнешнююОбработкуКСеансу(АдресПлагинаВоВременномХранилище,
-														  ИмяПодключаемойОбработкиПлагинаПарсераВстроенногоЯзыка(ИмяПлагина));
+	УИ_ОбщегоНазначения.ПодключитьВнешнююОбработкуКСеансу(PluginAddressInTemporaryStorage,
+														  NameOfPlugInProcessingParserPlugInBuiltInLanguage(PluginName));
 
-КонецПроцедуры
+EndProcedure
 
-Функция ИмяПодключаемойОбработкиПлагинаПарсераВстроенногоЯзыка(ИмяПлагина)
-	Возврат ПрефиксПодключаемойОбработкиПлагина()+"_"+ВРег(ИмяПлагина);	
-КонецФункции
+Function NameOfPlugInProcessingParserPlugInBuiltInLanguage(PluginName)
+	Return PrefixOfPluginProcessing() + "_" + Upper(PluginName);	
+EndFunction
 
-Функция ПрефиксПодключаемойОбработкиПлагина()
-	Возврат "УИ_ПлагинПарсераВстроенногоЯзыка";
-КонецФункции
+Function PrefixOfPluginProcessing()
+	Return "PluginParserBuiltInLanguage";
+EndFunction
 
-#КонецОбласти
+#EndRegion

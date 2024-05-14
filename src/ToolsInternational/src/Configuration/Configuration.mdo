@@ -73,6 +73,7 @@
   <commonPictures>CommonPicture.UT_QuestionToDeveloper</commonPictures>
   <commonPictures>CommonPicture.UT_Repository</commonPictures>
   <commonPictures>CommonPicture.UT_Semaphore</commonPictures>
+  <commonPictures>CommonPicture.UT_Share</commonPictures>
   <commonPictures>CommonPicture.UT_String</commonPictures>
   <commonPictures>CommonPicture.UT_Type</commonPictures>
   <commonPictures>CommonPicture.UT_UniversalToolsSybsystem</commonPictures>
@@ -90,6 +91,7 @@
   <commonTemplates>CommonTemplate.UT_ClipboardAddin</commonTemplates>
   <commonTemplates>CommonTemplate.UT_MonacoEditor</commonTemplates>
   <commonTemplates>CommonTemplate.UT_MonacoEditorWindows</commonTemplates>
+  <commonTemplates>CommonTemplate.UT_AceColaborator</commonTemplates>
   <commonModules>CommonModule.AdditionalReportsAndDataProcessors</commonModules>
   <commonModules>CommonModule.AttachableCommandsOverridable</commonModules>
   <commonModules>CommonModule.UT_</commonModules>

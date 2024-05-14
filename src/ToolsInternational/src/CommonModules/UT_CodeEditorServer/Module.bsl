@@ -49,25 +49,25 @@ Procedure FormOnCreateAtServer(Form, EditorType = Undefined) Export
 	AttributesArray.Add(New FormAttribute(AttributeNameCodeEditorFormCodeEditors, New TypeDescription, 
 		"", "", True));	
 	AttributesArray.Add(New FormAttribute(AttributeNameCodeEditorInitialInitializationPassed, New TypeDescription("Boolean"),
-		"", "", Истина));
+		"", "", True));
 
 	Form.ChangeAttributes(AttributesArray);
 	
-	Form[AttributeNameEditorType]=EditorType;
-	Форма[ИмяРеквизитаРедактораКодаСписокРедакторовФормы] = New Structure;
-	Форма[ИмяРеквизитаДанныеБиблиотекРедакторов] = New Structure;
+	Form[AttributeNameEditorType] = EditorType;
+	Form[AttributeNameCodeEditorFormCodeEditors] = New Structure;
+	Form[AttributeNameLibraryURL] = New Structure;
 
-	Форма[ИмяРеквизитаДанныеБиблиотекРедакторов].Вставить(EditorType,
-														  DataLibraryEditor(Форма.УникальныйИдентификатор,
+	Form[AttributeNameLibraryURL].Insert(EditorType,
+														  DataLibraryEditor(Form.UUID,
 																					IsWindowsClient,
 																					IsWebClient,
 																					EditorType));
 	
-	КлючДанныхБиблиотекиВзаимодействия = УИ_РедакторКодаКлиентСервер.ИмяБиблиотекиВзаимодействияДляДанныхФормы(EditorType);
-	If EditorType = EditorOptions.Ace Then
-		Форма[ИмяРеквизитаДанныеБиблиотекРедакторов].Вставить(КлючДанныхБиблиотекиВзаимодействия,
-															  DataLibraryCommonTemplate("УИ_AceColaborator",
-																						   Форма.УникальныйИдентификатор));
+	LibraryDataKeyInteractions = UT_CodeEditorClientServer.LibraryNameInteractionForDataForms(EditorType);
+	If EditorType = EditorVariants.Ace Then
+		Form[AttributeNameLibraryURL].Insert(LibraryDataKeyInteractions,
+															  DataLibraryCommonTemplate("UT_AceColaborator",
+																						   Form.UUID));
 	EndIf;
 	
 EndProcedure
@@ -85,9 +85,9 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 	EditorLanguage = "bsl", CommandBarGroup = Undefined) Export
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 	
-	ДанныеРедактора = УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораФормы();
-	ДанныеРедактора.Идентификатор = ИдентификаторРедактора;
-	ДанныеРедактора.СобытияРедактора= СобытияРедактора;
+	EditorData = UT_CodeEditorClientServer.NewEditorFormData();
+	EditorData.ID = EditorID;
+	EditorData.EditorEvents = EditorEvents;
 	If EditorData.EditorEvents = Undefined Then 
 		EditorData.EditorEvents = NewEditorEventsParameters();
 	EndIf;
@@ -101,21 +101,21 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 
 	Else
 		EditorField.Type = FormFieldType.TextDocumentField;
-		EditorData.Insert("Initialized", True);
+		EditorData.Initialized = True;
 		
 		If ValueIsFilled(EditorData.EditorEvents.OnChange) Then 
 			EditorField.SetAction("OnChange",EditorData.EditorEvents.OnChange);
 		Endif;	
 	EndIf;
 	
-	ДанныеРедактора.Язык = ЯзыкРедактора;
-	ДанныеРедактора.ПолеРедактора= ПолеРедактора.Имя;
-	ДанныеРедактора.ИмяРеквизита = ПолеРедактора.ПутьКДанным;
+	EditorData.Language = EditorLanguage;
+	EditorData.EditorField= EditorField.Name;
+	EditorData.PropsName = EditorField.DataPath;
 	
 	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
 
 	EditorSettings = CodeEditorCurrentSettings();
-	ДанныеРедактора.ПараметрыРедактора = EditorSettings;
+	EditorData.EditorOptions = EditorSettings;
 
 	If EditorType = EditorVariants.Monaco Then
 		For Each KeyValue In EditorSettings.Monaco Do
@@ -127,112 +127,112 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 	   EditorID,  EditorData);
 	
 	
-	If EditorType = EditorOptions.Ace Then
-		ДанныеБиблиотекРедакторов = Форма[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаДанныеБиблиотекРедакторов()];
-		Форма[ДанныеРедактора.ИмяРеквизита] = TextFieldsHTMLEditorAce(ДанныеБиблиотекРедакторов[EditorOptions.Ace]);
+	If EditorType = EditorVariants.Ace Then
+		DataLibrariesEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorLibraryURL()];
+		Form[EditorData.PropsName] = TextFieldsHTMLEditorAce(DataLibrariesEditors[EditorVariants.Ace]);
 	EndIf;
 	
 	If CommandBarGroup = Undefined Then 
 		Return;
 	EndIf;
-	ДанныеРедактора.ИмяКоманднойПанелиРедактора = ГруппаКомманднойПанели.Имя;
+	EditorData.EditorCommandBarName = CommandBarGroup.Name;
 	
-	If ЯзыкРедактора = "bsl" Then
-		ОписаниеКнопки = УИ_РаботаСФормами.НовыйОписаниеКомандыКнопки();
-		ОписаниеКнопки.Имя = УИ_РедакторКодаКлиентСервер.ИмяКнопкиКоманднойПанели(УИ_РедакторКодаКлиентСервер.ИмяКомандыРежимВыполненияЧерезОбработку(),
-																				  ИдентификаторРедактора);
-		ОписаниеКнопки.ИмяКоманды = ОписаниеКнопки.Имя;
-		ОписаниеКнопки.Заголовок = "Через обработку";
-		ОписаниеКнопки.РодительЭлемента = ГруппаКомманднойПанели;
-		ОписаниеКнопки.Действие = "Подключаемый_ВыполнитьКомандуРедактораКода";
-		ОписаниеКнопки.Картинка = БиблиотекаКартинок.Обработка;
-		ОписаниеКнопки.Подсказка = "Режим выполнения кода через обработку. Позволяет использовать свои процедуры и функции";
-		ОписаниеКнопки.Отображение = ОтображениеКнопки.Картинка;
-		УИ_РаботаСФормами.СоздатьКомандуПоОписанию(Форма, ОписаниеКнопки);
-		УИ_РаботаСФормами.СоздатьКнопкуПоОписанию(Форма, ОписаниеКнопки);
+	If EditorLanguage = "bsl" Then
+		DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing(),
+																				  EditorID);
+		DescriptionButtons.CommandName = DescriptionButtons.Name;
+		DescriptionButtons.Title = NStr("ru = 'Через обработку'; en = 'Through processing'");
+		DescriptionButtons.ItemParent = CommandBarGroup;
+		DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+		DescriptionButtons.Picture = PictureLib.DataProcessor;
+		DescriptionButtons.ToolTip = NStr("ru = 'Режим выполнения кода через обработку. Позволяет использовать свои процедуры и функции'; en = 'Code execution mode through processing. Allows you to use your own procedures and functions'");
+		DescriptionButtons.Representation = ButtonRepresentation.Picture;
+		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);
 	EndIf;
 	
-	ОписаниеПодменюИнтеграцииСPaste1C = УИ_РаботаСФормами.НовыйОписаниеГруппыФормы();
-	ОписаниеПодменюИнтеграцииСPaste1C.Родитель = ГруппаКомманднойПанели;
-	ОписаниеПодменюИнтеграцииСPaste1C.Вид = ВидГруппыФормы.Подменю;
-	ОписаниеПодменюИнтеграцииСPaste1C.Имя = ГруппаКомманднойПанели.Имя +"_ПодменюИнтеграцииССервисомХраненияКода_"+ИдентификаторРедактора;
-	ОписаниеПодменюИнтеграцииСPaste1C.ОтображатьЗаголовок = Ложь;
-	ОписаниеПодменюИнтеграцииСPaste1C.Заголовок = "Paste 1C";
+	DescriptionSubmenuIntegrationsPaste1C = UT_Forms.FormGroupNewDescription();
+	DescriptionSubmenuIntegrationsPaste1C.Parent = CommandBarGroup;
+	DescriptionSubmenuIntegrationsPaste1C.Type = FormGroupType.Popup;
+	DescriptionSubmenuIntegrationsPaste1C.Name = CommandBarGroup.Name +"_SubmenuIntegrationWithCodeStorageService_" + EditorID;
+	DescriptionSubmenuIntegrationsPaste1C.ShowTitle = False;
+	DescriptionSubmenuIntegrationsPaste1C.Title = "Paste 1C";
 
-//	ОписаниеПодменюИнтеграцииСPaste1C.Отображение = ОтображениеОбычнойГруппы.Нет;
-	Подменю = УИ_РаботаСФормами.СоздатьГруппуПоОписанию(Форма, ОписаниеПодменюИнтеграцииСPaste1C);
-	If Не УИ_ОбщегоНазначенияКлиентСервер.ЭтоПортативнаяПоставка() Then
-		Подменю.Картинка = БиблиотекаКартинок.УИ_Поделиться;
+//	DescriptionSubmenuIntegrationsPaste1C.Representation = UsualGroupRepresentation.None;
+	Submenu = UT_Forms.CreateGroupByDescription(Form, DescriptionSubmenuIntegrationsPaste1C);
+	If Не UT_CommonClientServer.IsPortableDistribution() Then
+		Submenu.Картинка = PictureLib.UT_Share;
 	EndIf;
 	
-	ОписаниеКнопки = УИ_РаботаСФормами.НовыйОписаниеКомандыКнопки();
-	ОписаниеКнопки.Имя = УИ_РедакторКодаКлиентСервер.ИмяКнопкиКоманднойПанели(УИ_РедакторКодаКлиентСервер.ИмяКомандыПоделитьсяАлгоритмом(),
-																			  ИдентификаторРедактора);
-	ОписаниеКнопки.ИмяКоманды = ОписаниеКнопки.Имя;
-	ОписаниеКнопки.Заголовок = "Поделиться алгоритмом";
-	ОписаниеКнопки.РодительЭлемента = Подменю;
-	ОписаниеКнопки.Действие = "Подключаемый_ВыполнитьКомандуРедактораКода";
-	//ОписаниеКнопки.Картинка = БиблиотекаКартинок.Обработка;
-	ОписаниеКнопки.Подсказка = "Поделиться кодом алгоритма";
-	//ОписаниеКнопки.Отображение = ОтображениеКнопки.Картинка;
-	УИ_РаботаСФормами.СоздатьКомандуПоОписанию(Форма, ОписаниеКнопки);
-	УИ_РаботаСФормами.СоздатьКнопкуПоОписанию(Форма, ОписаниеКнопки);		
+	DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+	DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameShareAlgorithm(),
+																			  EditorID);
+	DescriptionButtons.CommandName = DescriptionButtons.Name;
+	DescriptionButtons.Title = NStr("ru = 'Поделиться алгоритмом'; en = 'Share algorithm'");
+	DescriptionButtons.ItemParent = Submenu;
+	DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+	//DescriptionButtons.Picture = PictureLib.DataProcessor;
+	DescriptionButtons.ToolTip = NStr("ru = 'Поделиться кодом алгоритма'; en = 'Share algorithm code'");
+	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
+	UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+	UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);		
 	
-	ОписаниеКнопки = УИ_РаботаСФормами.НовыйОписаниеКомандыКнопки();
-	ОписаниеКнопки.Имя = УИ_РедакторКодаКлиентСервер.ИмяКнопкиКоманднойПанели(УИ_РедакторКодаКлиентСервер.ИмяКомандыЗагрузитьАлгоритм(),
-																			  ИдентификаторРедактора);
-	ОписаниеКнопки.ИмяКоманды = ОписаниеКнопки.Имя;
-	ОписаниеКнопки.Заголовок = "Загрузить алгоритм";
-	ОписаниеКнопки.РодительЭлемента = Подменю;
-	ОписаниеКнопки.Действие = "Подключаемый_ВыполнитьКомандуРедактораКода";
-	//ОписаниеКнопки.Картинка = БиблиотекаКартинок.Обработка;
-	ОписаниеКнопки.Подсказка = "Загрузить расшаренный код";
-	//ОписаниеКнопки.Отображение = ОтображениеКнопки.Картинка;
-	УИ_РаботаСФормами.СоздатьКомандуПоОписанию(Форма, ОписаниеКнопки);
-	УИ_РаботаСФормами.СоздатьКнопкуПоОписанию(Форма, ОписаниеКнопки);		
+	DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+	DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameLoadAlgorithm(),
+																			  EditorID);
+	DescriptionButtons.CommandName = DescriptionButtons.Name;
+	DescriptionButtons.Title =  NStr("ru = 'Загрузить алгоритм'; en = 'Download algorithm'");
+	DescriptionButtons.ItemParent = Submenu;
+	DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+	//DescriptionButtons.Picture = PictureLib.DataProcessor;
+	DescriptionButtons.ToolTip = NStr("ru = 'Загрузить расшаренный код'; en = 'Download shared code'");
+	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
+	UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+	UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);		
 	
-	If EditorType = EditorOptions.Ace Then
-	// Взаимодействие
-		ОписаниеПодменюСессииВзаимодействия = УИ_РаботаСФормами.НовыйОписаниеГруппыФормы();
-		ОписаниеПодменюСессииВзаимодействия.Родитель = ГруппаКомманднойПанели;
-		ОписаниеПодменюСессииВзаимодействия.Вид = ВидГруппыФормы.Подменю;
-		ОписаниеПодменюСессииВзаимодействия.Имя = ГруппаКомманднойПанели.Имя
-												  + "_ПодменюИнтеграцииССерверомКолаборации_"
-												  + ИдентификаторРедактора;
-		ОписаниеПодменюСессииВзаимодействия.ОтображатьЗаголовок = Ложь;
-		ОписаниеПодменюСессииВзаимодействия.Заголовок = "";
+	If EditorType = EditorVariants.Ace Then
+	// Interaction
+		DescriptionSubmenuSessionsInteractions = UT_Forms.FormGroupNewDescription();
+		DescriptionSubmenuSessionsInteractions.Parent = CommandBarGroup;
+		DescriptionSubmenuSessionsInteractions.Type = FormGroupType.Popup;
+		DescriptionSubmenuSessionsInteractions.Name = CommandBarGroup.Имя
+												  + "_SubmenuIntegrationWithServerCollaborations_"
+												  + EditorID;
+		DescriptionSubmenuSessionsInteractions.ShowTitle = False;
+		DescriptionSubmenuSessionsInteractions.Title = "";
 
-//	ОписаниеПодменюИнтеграцииСPaste1C.Отображение = ОтображениеОбычнойГруппы.Нет;
-		Подменю = УИ_РаботаСФормами.СоздатьГруппуПоОписанию(Форма, ОписаниеПодменюСессииВзаимодействия);
-		If Не УИ_ОбщегоНазначенияКлиентСервер.ЭтоПортативнаяПоставка() Then
-			Подменю.Картинка = БиблиотекаКартинок.АктивныеПользователи;
+//	DescriptionSubmenuIntegrationsPaste1C.Representation = UsualGroupRepresentation.None;
+		Submenu = UT_Forms.CreateGroupByDescription(Form, DescriptionSubmenuSessionsInteractions);
+		If Not UT_CommonClientServer.IsPortableDistribution() Then
+			Submenu.Картинка = PictureLib.ActiveUsers;
 		EndIf;
 		
-		ОписаниеКнопки = УИ_РаботаСФормами.НовыйОписаниеКомандыКнопки();
-		ОписаниеКнопки.Имя = УИ_РедакторКодаКлиентСервер.ИмяКнопкиКоманднойПанели(УИ_РедакторКодаКлиентСервер.ИмяКомандыНачатьСессиюВзаимодействия(),
-																				  ИдентификаторРедактора);
-		ОписаниеКнопки.ИмяКоманды = ОписаниеКнопки.Имя;
-		ОписаниеКнопки.Заголовок = "Начать сессию взаимодейтсвия";
-		ОписаниеКнопки.РодительЭлемента = Подменю;
-		ОписаниеКнопки.Действие = "Подключаемый_ВыполнитьКомандуРедактораКода";
-	//ОписаниеКнопки.Картинка = БиблиотекаКартинок.Обработка;
-		ОписаниеКнопки.Подсказка = "Начать сессию совместного кодинга";
-	//ОписаниеКнопки.Отображение = ОтображениеКнопки.Картинка;
-		УИ_РаботаСФормами.СоздатьКомандуПоОписанию(Форма, ОписаниеКнопки);
-		УИ_РаботаСФормами.СоздатьКнопкуПоОписанию(Форма, ОписаниеКнопки);
+		DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameStartSessionInteractions(),
+																				  EditorID);
+		DescriptionButtons.CommandName = DescriptionButtons.Name;
+		DescriptionButtons.Title = NStr("ru = 'Начать сессию взаимодейтсвия'; en = 'Start an interaction session'");
+		DescriptionButtons.ItemParent = Submenu;
+		DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+	//DescriptionButtons.Picture = PictureLib.DataProcessor;
+		DescriptionButtons.ToolTip = NStr("ru = 'Начать сессию совместного кодинга'; en = 'Start a co-coding session'");
+	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
+		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);
 
-		ОписаниеКнопки = УИ_РаботаСФормами.НовыйОписаниеКомандыКнопки();
-		ОписаниеКнопки.Имя = УИ_РедакторКодаКлиентСервер.ИмяКнопкиКоманднойПанели(УИ_РедакторКодаКлиентСервер.ИмяКомандыЗакончитьСессиюВзаимодействия(),
-																				  ИдентификаторРедактора);
-		ОписаниеКнопки.ИмяКоманды = ОписаниеКнопки.Имя;
-		ОписаниеКнопки.Заголовок = "Завершить сессию взаимодейтсвия";
-		ОписаниеКнопки.РодительЭлемента = Подменю;
-		ОписаниеКнопки.Действие = "Подключаемый_ВыполнитьКомандуРедактораКода";
-	//ОписаниеКнопки.Картинка = БиблиотекаКартинок.Обработка;
-		ОписаниеКнопки.Подсказка = "Завершить сессию совместного кодинга";
-	//ОписаниеКнопки.Отображение = ОтображениеКнопки.Картинка;
-		УИ_РаботаСФормами.СоздатьКомандуПоОписанию(Форма, ОписаниеКнопки);
-		УИ_РаботаСФормами.СоздатьКнопкуПоОписанию(Форма, ОписаниеКнопки);
+		DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameFinishSessionInteractions(),
+																				  EditorID);
+		DescriptionButtons.CommandName = DescriptionButtons.Name;
+		DescriptionButtons.Title =  NStr("ru = 'Завершить сессию взаимодейтсвия'; en = 'Finish interaction session'");
+		DescriptionButtons.ItemParent = Submenu;
+		DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+	//DescriptionButtons.Picture = PictureLib.DataProcessor;
+		DescriptionButtons.ToolTip = NStr("ru = 'Завершить сессию совместного кодинга'; en = 'Finish a co-coding session'");
+	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
+		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);
 
 	EndIf;
 
@@ -240,17 +240,17 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 //
 //
 //		
-//	ОписаниеКнопки = УИ_РаботаСФормами.НовыйОписаниеКомандыКнопки();
-//	ОписаниеКнопки.Имя = УИ_РедакторКодаКлиентСервер.ИмяКнопкиКоманднойПанели(УИ_РедакторКодаКлиентСервер.ИмяКомандыКонструкторЗапроса(),
-//																			  ИдентификаторРедактора);
-//	ОписаниеКнопки.ИмяКоманды = ОписаниеКнопки.Имя;
-//	ОписаниеКнопки.Заголовок = "Конструктор запроса";
-//	ОписаниеКнопки.РодительЭлемента = ГруппаКомманднойПанели;
-//	ОписаниеКнопки.Действие = "Подключаемый_ВыполнитьКомандуРедактораКода";
-//	ОписаниеКнопки.Картинка = БиблиотекаКартинок.КонструкторЗапроса;
-//	ОписаниеКнопки.Отображение = ОтображениеКнопки.Картинка;
-//	УИ_РаботаСФормами.СоздатьКомандуПоОписанию(Форма, ОписаниеКнопки);
-//	УИ_РаботаСФормами.СоздатьКнопкуПоОписанию(Форма, ОписаниеКнопки);	
+//	DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+//	DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(УИ_РедакторКодаКлиентСервер.ИмяКомандыКонструкторЗапроса(),
+//																			  EditorID);
+//	DescriptionButtons.CommandName = DescriptionButtons.Name;
+//	DescriptionButtons.Title = NStr("ru = 'Конструктор запроса'; en = 'Query constructor'");
+//	DescriptionButtons.ItemParent = CommandBarGroup;
+//	DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+//	DescriptionButtons.Picture = PictureLib.QueryWizard;
+//	DescriptionButtons.Representation = ButtonRepresentation.Picture;
+//	UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+//	UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);	
 			
 //Buttons
 //1 - Query wizard
@@ -687,8 +687,8 @@ EndFunction
 // Data library common template(.
 // 
 // Parameters:
-//  LayoutName - Строка -Имя макета
-//  FormId - УникальныйИдентификатор
+//  LayoutName - String - Layout name
+//  FormId - UUID
 // 
 // Return values:
 //  look UT_CodeEditorClientServer.NewDataLibraryEditor
@@ -737,9 +737,9 @@ EndFunction
 // Data library editor.
 // 
 // Parameters:
-//  FormId - UUID - Идентификатор формы
-//  IsWindowsClient - Boolean - Это windows клиент
-//  IsWebClient - Boolean - Это веб клиент
+//  FormId - UUID - Form ID
+//  IsWindowsClient - Boolean - This is a windows client
+//  IsWebClient - Boolean - This is a web client
 //  EditorType - String , Undefined -  Editor type
 // 
 // Return values:
@@ -752,9 +752,9 @@ Function DataLibraryEditor(FormId, IsWindowsClient, IsWebClient, EditorType = Un
 	If EditorType = Undefined Then
 		EditorType = CodeEditor1CCurrentVariant();
 	EndIf;
-	EditorOptions = UT_CodeEditorClientServer.CodeEditorVariants();
+	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
 	
-	If EditorType <> EditorOptions.Ace Then
+	If EditorType <> EditorVariants.Ace Then
 		Return PutLibraryInTemporaryStorage(FormId,
 			IsWindowsClient,
 			IsWebClient,
@@ -770,15 +770,15 @@ Function PutLibraryInTemporaryStorage(FormId, IsWindowsClient, IsWebClient,
 	If EditorType = Undefined Then
 		EditorType = CodeEditor1CCurrentVariant();
 	EndIf;
-	EditorOptions = UT_CodeEditorClientServer.CodeEditorVariants();
+	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
 
-	If EditorType = EditorOptions.Monaco Then
+	If EditorType = EditorVariants.Monaco Then
 		If IsWindowsClient Then
 			BinaryDataLibraries = GetCommonTemplate("UT_MonacoEditorWindows");
 		Else
 			BinaryDataLibraries = GetCommonTemplate("UT_MonacoEditor");
 		EndIf;
-	ElsIf EditorType = EditorOptions.Ace Then
+	ElsIf EditorType = EditorVariants.Ace Then
 		BinaryDataLibraries = GetCommonTemplate("UT_Ace");
 	Else
 		Return Undefined;
@@ -846,7 +846,7 @@ Function TextFieldsHTMLEditorAce(LibraryData)
 		|</style>";
 	EndDo;	
 	
-	TextHTML = TextHTML+"
+	TextHTML = TextHTML + "
 	|</head>
 	|
 	|<body>

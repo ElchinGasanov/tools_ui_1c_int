@@ -20,76 +20,76 @@ Function ReferenceTypesMap() Export
 	Return UT_CodeEditorServer.ReferenceTypesMap();
 EndFunction
 
-// Редакторы для сборки с преобразованным текстом модуля.
+// Editors for assembly with converted module text.
 // 
-// Параметры:
-//  РедакторыДляСборки - Массив из см. УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораДляСборкиОбработки - Редакторы для сборки
+// Parameters:
+//  EditorsForAssembly - Массив из look UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing - Editors for assembly
 // 
-// Возвращаемое значение:
-// Массив из см. УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораДляСборкиОбработки 
-Function РедакторыДляСборкиСПреобразованнымТекстомМодуля(РедакторыДляСборки) Export
-	Возврат УИ_РедакторКодаСервер.РедакторыДляСборкиСПреобразованнымТекстомМодуля(РедакторыДляСборки);	
+// Return values:
+// Массив из look UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing 
+Function EditorsForAssemblyWithConvertedTextModule(EditorsForAssembly) Export
+	Return UT_CodeEditorServer.EditorsForAssemblyWithConvertedTextModule(EditorsForAssembly);	
 EndFunction
 
-// Ссылка на код в сервисе после загрузки.
+// Link to the code in the service after downloading.
 // 
-// Параметры:
-//  ТекстАлгоритма -Строка-Текст алгоритма
-//  РежимЗапроса -Булево -Режим запроса
+// Parameters:
+//  TextOfAlgorithm - String - Текст алгоритма
+//  QueryMode - Boolean - Режим запроса
 // 
-// Возвращаемое значение:
-//  Строка -  Ссылка на код в сервисе после загрузки
-Function СсылкаНаКодВСервисеПослеЗагрузки(ТекстАлгоритма, РежимЗапроса) Export
-	РезультатОтправки = УИ_Paste1CAPI.РезультатЗагрузкиАлгоритмаВСервис(ТекстАлгоритма, РежимЗапроса);
-	Если РезультатОтправки = Неопределено Тогда
-		УИ_ОбщегоНазначенияКлиентСервер.СообщитьПользователю("Не удалось загрузить алгоритм в сервис");
-		Возврат "";
-	КонецЕсли;
+// Return values:
+//  String -  Link to the code in the service after downloading
+Function СсылкаНаКодВСервисеПослеЗагрузки(TextOfAlgorithm, QueryMode) Export
+	ResultOfSubmission = UT_Paste1CAPI.LoadingResultAlgorithmIntoService(TextOfAlgorithm, QueryMode);
+	If ResultOfSubmission = Undefined Then
+		UT_CommonClientServer.MesageToUser(NStr("ru = 'Не удалось загрузить алгоритм в сервис'; en = 'Failed to load the algorithm into the service'"));
+		Return "";
+	EndIf;
 	
-	Если Не РезультатОтправки.Успешно Тогда
-		УИ_ОбщегоНазначенияКлиентСервер.СообщитьПользователю("Не удалось загрузить алгоритм в сервис: "
-															 + РезультатОтправки.Ошибки);
-		Возврат "";
+	If Not ResultOfSubmission.Successfully Then
+		UT_CommonClientServer.MesageToUser(NStr("ru = 'Не удалось загрузить алгоритм в сервис: '; en = 'Failed to load the algorithm into the service'")
+															 + ResultOfSubmission.Errors);
+		Return "";
 
-	КонецЕсли;
+	EndIf;
 
-	Возврат РезультатОтправки.Ссылка;
+	Return ResultOfSubmission.Link;
 EndFunction
 
-// Данные алгоритма в сервисе.
+// Algorithm data in service.
 // 
-// Параметры:
-//  Ссылка -Строка- Ссылка
+// Parameters:
+//  Link - String - Link
 // 
-// Возвращаемое значение:
-// см. УИ_Paste1CAPI.НовыйДанныеАлгоритма
-// Возвращаемое значение:
-// Неопределено - Получить данные из сервиса не удалось
-Function ДанныеАлгоритмаВСервисе(Ссылка) Export
-	СтруктураСсылки = УИ_КоннекторHTTP.РазобратьURL(Ссылка);	
+// Return values:
+// look UT_Paste1CAPI.NewAlgorithmData
+// Return values:
+// Undefined - Failed to receive data from the service
+Function AlgorithmDataInService(Link) Export
+	StructureLinks = УИ_КоннекторHTTP.РазобратьURL(Link);	
 	
-	МассивПути = СтрРазделить(СтруктураСсылки.Путь, "/", Ложь);
-	Если МассивПути.Количество() = 0 Тогда
-		УИ_ОбщегоНазначенияКлиентСервер.СообщитьПользователю("Указан невалидный адрес кода");
-		Возврат Неопределено;
-	КонецЕсли;
+	ArrayPaths = StrSplit(StructureLinks.Путь, "/", False);
+	If ArrayPaths.Count() = 0 Then
+		UT_CommonClientServer.MesageToUser(NStr("ru = 'Указан невалидный адрес кода'; en = 'Invalid code address specified'"));
+		Return Undefined;
+	EndIf;
 		
-	ИдентификаторАлгоритма = МассивПути[МассивПути.Количество()-1];	
+	AlgorithmID = ArrayPaths[ArrayPaths.Count()-1];	
 	
-	Возврат  УИ_Paste1CAPI.ДанныеАлгоритмаСервиса(ИдентификаторАлгоритма);
+	Return  UT_Paste1CAPI.ServiceAlgorithmData(AlgorithmID);
 	
 EndFunction
 
-// Данные библиотеки общего макета.
+// Data library general layout.
 // 
-// Параметры:
-//  ИмяМакета - Строка -Имя макета
-//  ИдентификаторФормы - УникальныйИдентификатор
+// Parameters:
+//  LayoutName - String - Layout name
+//  FormID - UUID
 // 
-// Возвращаемое значение:
-//  см. УИ_РедакторКодаКлиентСервер.НовыйДанныеБиблиотекиРедактора
-Function ДанныеБиблиотекиОбщегоМакета(ИмяМакета, ИдентификаторФормы) Export
-	Возврат УИ_РедакторКодаСервер.ДанныеБиблиотекиОбщегоМакета(ИмяМакета, ИдентификаторФормы);
+// Return values:
+//  look UT_CodeEditorClientServer.NewDataLibraryEditor
+Function DataLibraryGeneralLayout(LayoutName, FormID) Export
+	Return UT_CodeEditorServer.DataLibraryCommonTemplate(LayoutName, FormID);
 EndFunction
 
 #EndRegion

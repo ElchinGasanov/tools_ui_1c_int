@@ -2,30 +2,30 @@
 
 #Region Public
 
-// Новый данные библиотеки редактора.
+// New data library editor.
 // 
-// Возвращаемое значение:
-//  Структура -  Новый данные библиотеки редактора:
-//  	* Скрипты - Массив из Строка - Массив адресов файлов библиотеки во временном хранилище
-//  	* Стили - Массив из Строка- Массив адресов файлов библиотеки во временном хранилище
-Функция NewDataLibraryEditor() Экспорт
-	ДанныеБиблиотеки = New Structure;
-	ДанныеБиблиотеки.Вставить("Скрипты", New Array);
-	ДанныеБиблиотеки.Вставить("Стили", New Array);
+// Return values:
+//  Structure -  New data library editor
+//  	* Scripts - Array of Strings - Array of library file addresses in temporary storage
+//  	* Styles - Array of Strings - Array of library file addresses in temporary storage
+Function NewDataLibraryEditor() Export
+	LibraryData = New Structure;
+	LibraryData.Insert("Scripts", New Array);
+	LibraryData.Insert("Styles", New Array);
 	
-	Возврат ДанныеБиблиотеки;
-КонецФункции
+	Return LibraryData;
+EndFunction
 
-// Имя подключаемой обработки для исполнения кода редактора.
+// Name of connected processing for execution code editor.
 // 
-// Параметры:
-//  Идентификатор -Строка- Идентификатор
+// Parameters:
+//  Идентификатор - String - Идентификатор
 // 
-// Возвращаемое значение:
-//  Строка
-Функция ИмяПодключаемойОбработкиДляИсполненияКодаРедактора(Идентификатор) Экспорт
-	Возврат "УИ_РедакторКода_ОбработкаИсполнения_"+Идентификатор;
-КонецФункции
+// Return values:
+//  String
+Function NameOfConnectedProcessingForExecutionCodeEditor(ID) Export
+	Return "UT_CodeEditorа_ProcessingExecution_" + ID;
+EndFunction
 
 Function CodeEditorItemsPrefix() Export
 	Return "CodeEditor1C";
@@ -39,10 +39,10 @@ Function AttributeNameCodeEditorTypeOfEditor() Export
 	Return CodeEditorItemsPrefix() + "_EditorType";
 EndFunction
 
-// Имя реквизита редактора кода библиотеки редакторов.
+// Attribute name code editor library.
 // 
-// Возвращаемое значение:
-//  Строка -  Имя реквизита редактора кода библиотеки редакторов
+// Return values:
+//  String - Attribute name code editor library
 Function AttributeNameCodeEditorLibraryURL() Export
 	Return CodeEditorItemsPrefix() + "_LibraryUrlInTempStorage";
 EndFunction
@@ -63,9 +63,9 @@ Function AttributeNameCodeEditorFormEditors(EditorID) Export
 	Return CodeEditorItemsPrefix()+"_FormEditors";
 EndFunction
 
-Функция ИмяКнопкиКоманднойПанели(ИмяКоманды, ИдентификаторРедактора) Экспорт
-	Возврат ПрефиксЭлементовРедактораКода() + "_" + ИмяКоманды + "_" + ИдентификаторРедактора;
-КонецФункции
+Function CommandBarButtonName(CommandName, EditorID) Export
+	Return CodeEditorItemsPrefix() + "_" + CommandName + "_" + EditorID;
+EndFunction
 
 Function CodeEditorVariants() Export
 	Variants = New Structure;
@@ -80,15 +80,15 @@ Function EditorVariantByDefault() Export
 	Return CodeEditorVariants().Monaco;
 EndFunction
 
-// Редактор кода использует поле HTML.
+// Code editor uses HTML field.
 // 
-// Параметры:
-//  ВидРедактора -Строка- Вид редактора
+// Parameters:
+//  EditorType - String - Editor type
 // 
-// Возвращаемое значение:
-//  Булево -  Редактор кода использует поле HTML
+// Return values:
+//  Boolean -  Code editor uses HTML field
 Function CodeEditorUsesHTMLField(EditorType) Export
-	Variants=CodeEditorVariants();
+	Variants = CodeEditorVariants();
 	Return EditorType = Variants.Ace
 		Or EditorType = Variants.Monaco;
 EndFunction
@@ -108,7 +108,7 @@ EndFunction
 // 
 // Parameters:
 //  Form - ClientApplicationForm
-//  InitializationPassed - Булево
+//  InitializationPassed - Boolean
 Procedure SetFlagCodeEditorsInitialInitializationPassed(Form, InitializationPassed) Export
 	Form[AttributeNameCodeEditorInitialInitializationPassed()] = InitializationPassed;
 EndProcedure
@@ -116,87 +116,87 @@ EndProcedure
 Function EditorIDByFormItem(Form, Item) Export
 	FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
 
-	For Each KeyValue In FormEditors Do
-		If KeyValue.Value.EditorField = Item.Name Then
-			Return KeyValue.Key;
+	For Each KeyAndValue In FormEditors Do
+		If KeyAndValue.Value.EditorField = Item.Name Then
+			Return KeyAndValue.Key;
 		EndIf;
 	EndDo;
 
 	Return Undefined;
 EndFunction
 
-Функция СтруктураИмениКомандыФормы(ИмяКоманды) Экспорт
-	МассивИмени = СтрРазделить(ИмяКоманды, "_");
+Function StructureNameCommandForms(CommandName) Export
+	ArrayName = StrSplit(CommandName, "_");
 
-	СтруктураИмени = New Structure;
-	СтруктураИмени.Вставить("ИмяКоманды", МассивИмени[1]);
-	СтруктураИмени.Вставить("ИдентификаторРедактора", МассивИмени[2]);
+	StructureName = New Structure;
+	StructureName.Insert("CommandName", ArrayName[1]);
+	StructureName.Insert("EditorID", ArrayName[2]);
 
-	Возврат СтруктураИмени;
-КонецФункции
+	Return StructureName;
+EndFunction
 
-Function ExecuteAlgorithm(__AlgorithmText__, __Context__, ИсполнениеНаКлиенте = Ложь, Форма = Неопределено,
-	ИдентификаторРедактора = Неопределено) Export
-	УИ__Успешно__ = Истина;
-	УИ__ОписаниеОшибки__ = "";
-	УИ__НачалоВыполнения__ = ТекущаяУниверсальнаяДатаВМиллисекундах();
+Function ExecuteAlgorithm(__AlgorithmText__, __Context__, ExecutionOnClient = False, Form = Undefined,
+	EditorID = Undefined) Export
+	UT__Successfully__ = True;
+	UT__DescriptionErrors__ = "";
+	UT__StartOfExecution__ = CurrentUniversalDateInMilliseconds();
 
-	Если ЗначениеЗаполнено(__ТекстАлготима__) Тогда
-		ВыполнятьЧерезОбработку = Ложь;
-		Если Форма <> Неопределено И ИдентификаторРедактора <> Неопределено Тогда
-			РедакторыФормы = РедакторыФормы(Форма);
-			ДанныеРедактора = РедакторыФормы[ИдентификаторРедактора];
-			ВыполнятьЧерезОбработку = ДанныеРедактора.ИспользоватьОбработкуДляВыполненияКода;
-		КонецЕсли;
+	If ValueIsFilled(__AlgorithmText__) Then
+		ExecuteThroughProcessing = False;
+		If Form <> Undefined And EditorID <> Undefined Then
+			EditorsForms = EditorsForms(Form);
+			EditorData = EditorsForms[EditorID];
+			ExecuteThroughProcessing = EditorData.UseProcessingToExecuteCode;
+		EndIf;
 
-		Если ВыполнятьЧерезОбработку Тогда
-			Попытка
-				Если ИсполнениеНаКлиенте Тогда
-#Если НаКлиенте Тогда
+		If ExecuteThroughProcessing Then
+			Try
+				If ExecutionOnClient Then
+#If AtClient Then
 					//@skip-check use-non-recommended-method
-					ИсполнительОбработка = ПолучитьФорму("ВнешняяОбработка."
-														 + ИмяПодключаемойОбработкиДляИсполненияКодаРедактора(ИдентификаторРедактора)
-														 + ".Форма");
-#КонецЕсли
-				Иначе
-#Если Не НаКлиенте Или ТолстыйКлиентОбычноеПриложение Или ТолстыйКлиентУправляемоеПриложение Тогда
-					ИсполнительОбработка = ВнешниеОбработки.Создать(ИмяПодключаемойОбработкиДляИсполненияКодаРедактора(ИдентификаторРедактора));
-#КонецЕсли
-				КонецЕсли;
-				ИсполнительОбработка.УИ_ИнициализироватьПеременные(__Контекст__);
-				ИсполнительОбработка.УИ_ВыполнитьАлгоритм();
+					PerformerProcessing = GetForm("ExternalDataProcessor."
+														 + NameOfConnectedProcessingForExecutionCodeEditor(EditorID)
+														 + ".Form");
+#EndIf
+				Else
+#If Not AtClient Or ThickClientOrdinaryApplication Or ThickClientManagedApplication Then
+					PerformerProcessing = ExternalDataProcessors.Create(NameOfConnectedProcessingForExecutionCodeEditor(EditorID));
+#EndIf
+				EndIf;
+				PerformerProcessing.UT_InitializeVariables(__Context__);
+				PerformerProcessing.UT_RunAlgorithm();
 
-			Исключение
-				УИ__Успешно__ = Ложь;
-				УИ__ОписаниеОшибки__ = ОписаниеОшибки();
-				Сообщить(УИ__ОписаниеОшибки__);
-			КонецПопытки;
-		Иначе
-			ВыполняемыйТекстАлгоритма = ДополненныйКонтекстомКодАлгоритма(__ТекстАлготима__, __Контекст__);
+			Except
+				UT__Successfully__ = False;
+				UT__DescriptionErrors__ = ErrorDescription();
+				Message(UT__DescriptionErrors__);
+			EndTry;
+		Else
+			ExecutableTextAlgorithm = AlgorithmCodeSupplementedWithContext(__AlgorithmText__, __Context__);
 
-			Попытка
+			Try
 				//@skip-check unsupported-operator
-				Выполнить (ВыполняемыйТекстАлгоритма);
-			Исключение
-				УИ__Успешно__ = Ложь;
-				УИ__ОписаниеОшибки__ = ОписаниеОшибки();
-				Сообщить(УИ__ОписаниеОшибки__);
-			КонецПопытки;
-		КонецЕсли;
-	КонецЕсли;
+				Execute (ExecutableTextAlgorithm);
+			Except
+				UT__Successfully__ = False;
+				UT__DescriptionErrors__ = ErrorDescription();
+				Message(UT__DescriptionErrors__);
+			EndTry;
+		EndIf;
+	EndIf;
 
-	ОкончаниеВыполнения = ТекущаяУниверсальнаяДатаВМиллисекундах();
+	FinishOfExecution = CurrentUniversalDateInMilliseconds();
 
-	РезультатВыполнения = New Structure;
-	РезультатВыполнения.Вставить("Успешно", УИ__Успешно__);
-	РезультатВыполнения.Вставить("ВремяВыполнения", ОкончаниеВыполнения - УИ__НачалоВыполнения__);
-	РезультатВыполнения.Вставить("ОписаниеОшибки", УИ__ОписаниеОшибки__);
+	ExecutionResult = New Structure;
+	ExecutionResult.Insert("Successfully", UT__Successfully__);
+	ExecutionResult.Insert("ExecutionTime", FinishOfExecution - UT__StartOfExecution__);
+	ExecutionResult.Insert("ErrorDescription", UT__DescriptionErrors__);
 
-	Возврат РезультатВыполнения;
+	Return ExecutionResult;
 EndFunction
 
 Function FormCodeEditorType(Form) Export
-	Return Form[UT_CodeEditorClientServer.AttributeNameCodeEditorTypeOfEditor()];
+	Return Form[AttributeNameCodeEditorTypeOfEditor()];
 EndFunction
 
 // New Text Cache Of Editor.
@@ -213,127 +213,127 @@ Function NewTextCacheOfEditor() Export
 	Return Structure;
 EndFunction
 
-#Область ИменаКомандКоманднойПанели
+#Область CommandBarCommandNames
 
 
-// Имя команды режим выполнения через обработку.
+// Command name execution mode through processing
 // 
-// Возвращаемое значение:
-//  Строка -  Имя команды режим выполнения через обработку
-Функция ИмяКомандыРежимВыполненияЧерезОбработку() Экспорт
-	Возврат "РежимВыполненияЧерезОбработку";
-КонецФункции
+// Return values:
+//  String - Command name execution mode through processing
+Function CommandNameExecutionModeThroughProcessing() Export
+	Return "ExecutionModeThroughProcessing";
+EndFunction
 
-// Имя команды конструктор запроса.
+// Command name query constructor.
 // 
-// Возвращаемое значение:
-//  Строка -  Имя команды конструктор запроса
-Функция ИмяКомандыКонструкторЗапроса() Экспорт
-	Возврат "КонструкторЗапроса";
-КонецФункции
+// Return values:
+//  String - Command name query constructor
+Function CommandNameQueryConstructor() Export
+	Return "QueryConstructor";
+EndFunction
 
-// Имя команды поделиться алгоритмом.
+// Command name share algorithm.
 // 
-// Возвращаемое значение:
-//  Строка -  Имя команды поделиться алгоритмом
-Функция ИмяКомандыПоделитьсяАлгоритмом() Экспорт
-	Возврат "ПоделитьсяАлгоритмом";
-КонецФункции
+// Return values:
+//  String - Command name share algorithm
+Function CommandNameShareAlgorithm() Export
+	Return "ShareAlgorithm";
+EndFunction
 
-// Имя команды загрузить алгоритм.
+// Command name load algorithm.
 // 
-// Возвращаемое значение:
-//  Строка -  Имя команды загрузить алгоритм
-Функция ИмяКомандыЗагрузитьАлгоритм() Экспорт
-	Возврат "ЗагрузитьАлгоритм";
-КонецФункции
+// Return values:
+//  String - Имя команды загрузить алгоритм
+Function CommandNameLoadAlgorithm() Export
+	Return "LoadAlgorithm";
+EndFunction
 
-// Имя команды начать сессию взаимодействия.
+// Command name start session interactions.
 // 
-// Возвращаемое значение:
-//  Строка -  Имя команды начать сессию взаимодействия
-Функция ИмяКомандыНачатьСессиюВзаимодействия() Экспорт
-	Возврат "НачатьСессиюВзаимодействия";
-КонецФункции
+// Return values:
+//  String - Command name start session interactions
+Function CommandNameStartSessionInteractions() Export
+	Return "StartSessionInteractions";
+EndFunction
 
-// Имя команды закончить сессию взаимодействия.
+// Command name finish session interactions.
 // 
-// Возвращаемое значение:
-//  Строка -  Имя команды закончить сессию взаимодействия
-Функция ИмяКомандыЗакончитьСессиюВзаимодействия() Экспорт
-	Возврат "ЗакончитьСессиюВзаимодействия";
-КонецФункции
+// Return values:
+//  String - Command name finish session interactions
+Function CommandNameFinishSessionInteractions() Export
+	Return "FinishSessionInteractions";
+EndFunction
 
 
-#КонецОбласти
+#EndRegion
 
-// Имя библиотеки взаимодействия для данных формы.
+// Library name interaction for data forms.
 // 
-// Параметры:
-//  ВидРедактора - Строка- Вид редактора
+// Parameters:
+//  EditorType - String - Editor type
 // 
-// Возвращаемое значение:
-//  Строка - Имя библиотеки взаимодействия для данных формы
-Функция ИмяБиблиотекиВзаимодействияДляДанныхФормы(ВидРедактора) Экспорт
-	Возврат "БиблиотекаВзаимодействия"+ВидРедактора;
-КонецФункции
+// Return values:
+//  String - Library name interaction for data forms
+Function LibraryNameInteractionForDataForms(EditorType) Export
+	Return "LibraryInteractions" + EditorType;
+EndFunction
 
-// Редакторы формы.
+// Editors forms.
 // 
-// Параметры:
-//  Форма - ФормаКлиентскогоПриложения-Форма
+// Parameters:
+//  Form - ClientApplicationForm - Form
 // 
-// Возвращаемое значение:
-//  Структура из КлючИЗначение:
-//  	* Ключ - Строка - Идентификатор редактора
-//  	* Значение - см. НовыйДанныеРедактораФормы
-Функция РедакторыФормы(Форма) Экспорт
-	Возврат Форма[ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
-КонецФункции
+// Return values:
+//  Structure of KeyAndValue:
+//  	* Key - String - Editor ID
+//  	* Value - см. NewEditorFormData
+Function EditorsForms(Form) Export
+	Return Form[AttributeNameCodeEditorFormCodeEditors()];
+EndFunction
 
 // Новый данные редактора формы.
 // 
-// Возвращаемое значение:
-//  Структура - Новый данные редактора формы:
+// Return values:
+//  Structure - Новый данные редактора формы:
 // * СобытияРедактора - см. NewEditorEventOptions
-// * Инициализирован - Булево -
-// * Видимость - Булево -
-// * ТолькоПросмотр - Булево -
-// * КэшТекстаРедактора - см. УИ_РедакторКодаКлиентСервер.НовыйКэшТекстовРедактора
-// * Язык - Строка -
-// * ПолеРедактора - Строка -
-// * ИмяРеквизита - Строка -
-// * ИмяКоманднойПанелиРедактора - Строка -
-// * Идентификатор - Строка -
-// * ИспользоватьОбработкуДляВыполненияКода - Булево -
+// * Инициализирован - Boolean -
+// * Видимость - Boolean -
+// * ViewOnly - Boolean -
+// * TextEditorCache - см. УИ_РедакторКодаКлиентСервер.НовыйКэшТекстовРедактора
+// * Язык - String -
+// * ПолеРедактора - String -
+// * ИмяРеквизита - String -
+// * ИмяКоманднойПанелиРедактора - String -
+// * Идентификатор - String -
+// * UseProcessingToExecuteCode - Boolean -
 // * ПараметрыРедактора - см. ПараметрыРедактораКодаПоУмолчанию
-// * КэшРезультатовПодключенияОбработкиИсполнения -  см. НовыйКэшРезультатовИсполненияЧерезОбработку 
-// * ПараметрыСессииВзаимодействия - см. НовыйПараметрыСессииВзаимодействия
-Функция НовыйДанныеРедактораФормы() Экспорт
-	ДанныеРедактора = New Structure;
-	ДанныеРедактора.Вставить("Идентификатор", "");
-	ДанныеРедактора.Вставить("СобытияРедактора", Неопределено);
-	ДанныеРедактора.Вставить("Инициализирован", Ложь);
-	ДанныеРедактора.Вставить("Видимость", Истина);
-	ДанныеРедактора.Вставить("ТолькоПросмотр", Ложь);
-	ДанныеРедактора.Вставить("КэшТекстаРедактора", Неопределено);
-	ДанныеРедактора.Вставить("Язык", "bsl");
-	ДанныеРедактора.Вставить("ПолеРедактора", "");
-	ДанныеРедактора.Вставить("ИмяКоманднойПанелиРедактора", "");
-	ДанныеРедактора.Вставить("ИмяРеквизита", "");
-	ДанныеРедактора.Вставить("ИспользоватьОбработкуДляВыполненияКода", Ложь);
-	ДанныеРедактора.Вставить("ПараметрыРедактора", Неопределено);
-	ДанныеРедактора.Вставить("КэшРезультатовПодключенияОбработкиИсполнения", Неопределено);
-	ДанныеРедактора.Вставить("ПараметрыСессииВзаимодействия", Неопределено);
+// * CacheResultsConnectionsProcessingExecution -  см. НовыйКэшРезультатовИсполненияЧерезОбработку 
+// * SettingsSessionsInteractions - см. НовыйSettingsSessionsInteractions
+Function NewEditorFormData() Export
+	EditorData = New Structure;
+	EditorData.Insert("ID", "");
+	EditorData.Insert("EditorEvents", Undefined);
+	EditorData.Insert("Initialized", False);
+	EditorData.Insert("Visibility", True);
+	EditorData.Insert("ViewOnly", False);
+	EditorData.Insert("TextEditorCache", Undefined);
+	EditorData.Insert("Language", "bsl");
+	EditorData.Insert("EditorField", "");
+	EditorData.Insert("EditorCommandBarName", "");
+	EditorData.Insert("PropsName", "");
+	EditorData.Insert("UseProcessingToExecuteCode", False);
+	EditorData.Insert("EditorOptions", Undefined);
+	EditorData.Insert("CacheResultsConnectionsProcessingExecution", Undefined);
+	EditorData.Insert("SettingsSessionsInteractions", Undefined);
 	
-	Возврат ДанныеРедактора;
-КонецФункции
+	Return EditorData;
+EndFunction
 
-// Новый параметры событий редактора.
+// New editor event options.
 // 
-// Возвращаемое значение:
-//  Структура - Новый параметры событий редактора:
-// * OnChange - Строка -
+// Return values:
+//  Structure - New editor event options:
+// * OnChange - String -
 Function NewEditorEventOptions() Export
 	EditorEvents = New Structure;
 	EditorEvents.Insert("OnChange", "");
@@ -341,59 +341,59 @@ Function NewEditorEventOptions() Export
 	Return EditorEvents;
 EndFunction
  
-// Новый данные редактора для сборки обработки.
+// New editor data for assembly processing.
 // 
-// Возвращаемое значение:
-//  Структура - Новый данные редактора для сборки обработки:
-// * Идентификатор - Строка -
-// * ИменаПредустановленныхПеременных - Массив из Строка -
-// * ТекстРедактора - Строка -
-// * ТекстРедактораДляОбработки - Строка -
-// * ИсполнениеНаКлиенте - Булево -
-// * ИмяПодключаемойОбработки - Строка -
+// Return values:
+//  Structure - New editor data for assembly processing:
+// * Идентификатор - String -
+// * NamesOfPredefinedVariables - Array of String -
+// * TextEditor - String -
+// * ТекстРедактораДляОбработки - String -
+// * ExecutionOnClient - Boolean -
+// * ИмяПодключаемойОбработки - String -
 Function NewEditorDataForAssemblyProcessing() Export
 	Data = New Structure;
-	Data.Вставить("ID", "");
-	Data.Вставить("NamesOfPredefinedVariables", New Array);
-	Data.Вставить("TextEditor", "");
-	Data.Вставить("TextEditorForProcessing", "");
-	Data.Вставить("ExecutionOnClient", False);
-	Data.Вставить("ConnectedProcessingName", "");
+	Data.Insert("ID", "");
+	Data.Insert("NamesOfPredefinedVariables", New Array);
+	Data.Insert("TextEditor", "");
+	Data.Insert("TextEditorForProcessing", "");
+	Data.Insert("ExecutionOnClient", False);
+	Data.Insert("ConnectedProcessingName", "");
 		
 	Return Data;
 EndFunction
 
-// Новый кэш результатов исполнения через обработку.
+// New cache results connections processing execution.
 // 
-// Возвращаемое значение:
-//  Структура - Новый кэш результатов исполнения через обработку:
-// * ИсполнениеНаКлиенте - Булево -
-// * ТекстРедактора - Строка -
-// * ИменаПредустановленныхПеременных - Массив Из Строка-
-Функция НовыйКэшРезультатовПодключенияОбработкиИсполнения() Экспорт
-	Кэш = New Structure;
-	Кэш.Вставить("ИсполнениеНаКлиенте", Ложь);
-	Кэш.Вставить("ТекстРедактора", "");
-	Кэш.Вставить("ИменаПредустановленныхПеременных", New Array);
+// Return values:
+//  Structure - New cache results connections processing execution:
+// * ExecutionOnClient - Boolean -
+// * TextEditor - String -
+// * NamesOfPredefinedVariables - Array of Строка-
+Function NewCacheResultsConnectionsProcessingExecution() Export
+	Cache = New Structure;
+	Cache.Insert("ExecutionOnClient", False);
+	Cache.Insert("TextEditor", "");
+	Cache.Insert("NamesOfPredefinedVariables", New Array);
 	
-	Возврат Кэш;
-КонецФункции
+	Return Cache;
+EndFunction
 
-// Новый параметры сессии взаимодействия.
+// New options session interactions.
 // 
-// Возвращаемое значение:
-//  Структура -  Новый параметры сессии взаимодействия:
-// * ИмяПользователя - Строка - 
-// * Идентификатор - Строка - 
-// * URLВзаимодействия - Строка - 
-Функция НовыйПараметрыСессииВзаимодействия() Экспорт
-	ПараметрыСессииВзаимодействия = New Structure;
-	ПараметрыСессииВзаимодействия.Вставить("ИмяПользователя", "");
-	ПараметрыСессииВзаимодействия.Вставить("Идентификатор","");
-	ПараметрыСессииВзаимодействия.Вставить("URLВзаимодействия","");
+// Return values:
+//  Structure - New options session interactions:
+// * UserName - String - 
+// * ID - String - 
+// * URLInteractions - String - 
+Function NewOptionsSessionInteractions() Export
+	SettingsSessionsInteractions = New Structure;
+	SettingsSessionsInteractions.Insert("UserName", "");
+	SettingsSessionsInteractions.Insert("ID","");
+	SettingsSessionsInteractions.Insert("URLInteractions","");
 	
-	Возврат ПараметрыСессииВзаимодействия;
-КонецФункции
+	Return SettingsSessionsInteractions;
+EndFunction
 
 #EndRegion
 
@@ -430,18 +430,18 @@ EndFunction
 
 // Параметры редактора monaco по умолчанию.
 // 
-// Возвращаемое значение:
-//  Структура -  Параметры редактора monaco по умолчанию:
-// * ВысотаСтрок - Число - 
-// * Тема - Строка - 
-// * ЯзыкСинтаксиса - Строка - 
-// * ИспользоватьКартуКода - Булево - 
-// * СкрытьНомераСтрок - Булево - 
-// * ОтображатьПробелыИТабуляции - Булево - 
-// * КаталогиИсходныхФайлов - Массив Из Строка - 
-// * ФайлыШаблоновКода - Массив из Строка- 
-// * ИспользоватьСтандартныеШаблоныКода - Булево - 
-// * ИспользоватьКомандыРаботыСБуферомВКонтекстномМеню - Булево - 
+// Return values:
+//  Structure -  Параметры редактора monaco по умолчанию:
+// * ВысотаСтрок - Number - 
+// * Тема - String - 
+// * ЯзыкСинтаксиса - String - 
+// * ИспользоватьКартуКода - Boolean - 
+// * СкрытьНомераСтрок - Boolean - 
+// * ОтображатьПробелыИТабуляции - Boolean - 
+// * КаталогиИсходныхФайлов - Array of String -
+// * ФайлыШаблоновКода - Array of String - 
+// * ИспользоватьСтандартныеШаблоныКода - Boolean - 
+// * UseCommandsForWorkingWithBufferInContextMenu - Boolean - 
 Function  MonacoEditorParametersByDefault() Export
 	EditorSettings = New Structure;
 	EditorSettings.Insert("LinesHeight", 0);
@@ -453,7 +453,7 @@ Function  MonacoEditorParametersByDefault() Export
 	EditorSettings.Insert("SourceFilesDirectories", New Array);
 	EditorSettings.Insert("CodeTemplatesFiles", New Array);
 	EditorSettings.Insert("UseStandartCodeTemplates", True);
-	ПараметрыРедактора.Вставить("ИспользоватьКомандыРаботыСБуферомВКонтекстномМеню", Ложь);
+	EditorSettings.Insert("UseCommandsForWorkingWithBufferInContextMenu", False);
 	
 	Return EditorSettings;
 EndFunction
@@ -475,19 +475,20 @@ Function NewDescriptionOfConfigurationSourceFilesDirectory() Export
 	Return Description;
 EndFunction
 
+
 #EndRegion
 
 #Region Private
 
 Function AlgorithmCodeSupplementedWithContext(AlgorithmText, Context)
-	PreparedCode="";
+	PreparedCode = "";
 
-	For Each KeyValue In Context Do
+	For Each KeyAndValue In Context Do
 		PreparedCode = PreparedCode +"
-		|"+KeyValue.Key+"=__Context__."+KeyValue.Key+";";
+		|" + KeyAndValue.Key + "=__Context__." + KeyAndValue.Key + ";";
 	EndDo;
 
-	PreparedCode=PreparedCode + Chars.LF + AlgorithmText;
+	PreparedCode = PreparedCode + Chars.LF + AlgorithmText;
 
 	Return PreparedCode;
 EndFunction
