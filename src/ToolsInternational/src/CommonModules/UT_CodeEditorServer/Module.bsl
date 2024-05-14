@@ -8,11 +8,12 @@
 //  Form - ClientApplicationForm
 //  EditorType - String - Editor type, to add to form details at UT_CodeEditorClientServer.CodeEditorVariants()
 Procedure FormOnCreateAtServer(Form, EditorType = Undefined) Export
+	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
+	
 	If EditorType = Undefined Then
 		EditorSettings = CodeEditorCurrentSettings();
 		EditorType = EditorSettings.Variant;
 	EndIf;
-	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
 	
 	IsWindowsClient = False;
 	IsWebClient = True;
@@ -48,14 +49,27 @@ Procedure FormOnCreateAtServer(Form, EditorType = Undefined) Export
 	AttributesArray.Add(New FormAttribute(AttributeNameCodeEditorFormCodeEditors, New TypeDescription, 
 		"", "", True));	
 	AttributesArray.Add(New FormAttribute(AttributeNameCodeEditorInitialInitializationPassed, New TypeDescription("Boolean"),
-		"", "", Истина));
+		"", "", True));
 
 	Form.ChangeAttributes(AttributesArray);
 	
-	Form[AttributeNameEditorType]=EditorType;
-	Form[AttributeNameLibraryURL] = PutLibraryToTempStorage(Form.UUID, 
-		IsWindowsClient, IsWebClient, EditorType);
+	Form[AttributeNameEditorType] = EditorType;
 	Form[AttributeNameCodeEditorFormCodeEditors] = New Structure;
+	Form[AttributeNameLibraryURL] = New Structure;
+
+	Form[AttributeNameLibraryURL].Insert(EditorType,
+														  DataLibraryEditor(Form.UUID,
+																					IsWindowsClient,
+																					IsWebClient,
+																					EditorType));
+	
+	LibraryDataKeyInteractions = UT_CodeEditorClientServer.LibraryNameInteractionForDataForms(EditorType);
+	If EditorType = EditorVariants.Ace Then
+		Form[AttributeNameLibraryURL].Insert(LibraryDataKeyInteractions,
+															  DataLibraryCommonTemplate("UT_AceColaborator",
+																						   Form.UUID));
+	EndIf;
+	
 EndProcedure
 
 // Create code editor items.
@@ -67,12 +81,13 @@ EndProcedure
 //  EditorEvents - Undefined, Structure - Names of form procedures for processing editor events. List of supported events in method UT_CodeEditorServer.NewEditorEventsParameters
 //  EditorLanguage - String -Code editor language . By default "bsl". 
 //  CommandBarGroup - FormGroup - Command bar group to add  buttons . Still in development
-Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Undefined, EditorLanguage = "bsl",
-	CommandBarGroup = Undefined) Export
+Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Undefined, 
+	EditorLanguage = "bsl", CommandBarGroup = Undefined) Export
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 	
-	EditorData = New Structure;
-	EditorData.Insert("EditorEvents",EditorEvents);
+	EditorData = UT_CodeEditorClientServer.NewEditorFormData();
+	EditorData.ID = EditorID;
+	EditorData.EditorEvents = EditorEvents;
 	If EditorData.EditorEvents = Undefined Then 
 		EditorData.EditorEvents = NewEditorEventsParameters();
 	EndIf;
@@ -84,27 +99,23 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 		EditorField.SetAction("DocumentComplete", "Attachable_EditorFieldDocumentGenerated");
 		EditorField.SetAction("OnClick", "Attachable_EditorFieldOnClick");
 
-		EditorData.Insert("Initialized", False);
-
 	Else
 		EditorField.Type = FormFieldType.TextDocumentField;
-		EditorData.Insert("Initialized", True);
+		EditorData.Initialized = True;
 		
 		If ValueIsFilled(EditorData.EditorEvents.OnChange) Then 
 			EditorField.SetAction("OnChange",EditorData.EditorEvents.OnChange);
 		Endif;	
 	EndIf;
 	
-	EditorData.Insert("Visible", True);
-	EditorData.Insert("EditorTextCache", Undefined);
-	EditorData.Insert("EditorLanguage", EditorLanguage);
-	EditorData.Insert("EditorField", EditorField.Name);
-	EditorData.Insert("AttributeName", EditorField.DataPath);
+	EditorData.Language = EditorLanguage;
+	EditorData.EditorField= EditorField.Name;
+	EditorData.PropsName = EditorField.DataPath;
 	
 	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
 
 	EditorSettings = CodeEditorCurrentSettings();
-	EditorData.Insert("EditorSettings", EditorSettings);
+	EditorData.EditorOptions = EditorSettings;
 
 	If EditorType = EditorVariants.Monaco Then
 		For Each KeyValue In EditorSettings.Monaco Do
@@ -115,10 +126,132 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 	Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()].Insert(
 	   EditorID,  EditorData);
 	
+	
+	If EditorType = EditorVariants.Ace Then
+		DataLibrariesEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorLibraryURL()];
+		Form[EditorData.PropsName] = TextFieldsHTMLEditorAce(DataLibrariesEditors[EditorVariants.Ace]);
+	EndIf;
+	
 	If CommandBarGroup = Undefined Then 
 		Return;
 	EndIf;
+	EditorData.EditorCommandBarName = CommandBarGroup.Name;
 	
+	If EditorLanguage = "bsl" Then
+		DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing(),
+																				  EditorID);
+		DescriptionButtons.CommandName = DescriptionButtons.Name;
+		DescriptionButtons.Title = NStr("ru = 'Через обработку'; en = 'Through processing'");
+		DescriptionButtons.ItemParent = CommandBarGroup;
+		DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+		DescriptionButtons.Picture = PictureLib.DataProcessor;
+		DescriptionButtons.ToolTip = NStr("ru = 'Режим выполнения кода через обработку. Позволяет использовать свои процедуры и функции'; en = 'Code execution mode through processing. Allows you to use your own procedures and functions'");
+		DescriptionButtons.Representation = ButtonRepresentation.Picture;
+		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);
+	EndIf;
+	
+	DescriptionSubmenuIntegrationsPaste1C = UT_Forms.FormGroupNewDescription();
+	DescriptionSubmenuIntegrationsPaste1C.Parent = CommandBarGroup;
+	DescriptionSubmenuIntegrationsPaste1C.Type = FormGroupType.Popup;
+	DescriptionSubmenuIntegrationsPaste1C.Name = CommandBarGroup.Name +"_SubmenuIntegrationWithCodeStorageService_" + EditorID;
+	DescriptionSubmenuIntegrationsPaste1C.ShowTitle = False;
+	DescriptionSubmenuIntegrationsPaste1C.Title = "Paste 1C";
+
+//	DescriptionSubmenuIntegrationsPaste1C.Representation = UsualGroupRepresentation.None;
+	Submenu = UT_Forms.CreateGroupByDescription(Form, DescriptionSubmenuIntegrationsPaste1C);
+	If Не UT_CommonClientServer.IsPortableDistribution() Then
+		Submenu.Картинка = PictureLib.UT_Share;
+	EndIf;
+	
+	DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+	DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameShareAlgorithm(),
+																			  EditorID);
+	DescriptionButtons.CommandName = DescriptionButtons.Name;
+	DescriptionButtons.Title = NStr("ru = 'Поделиться алгоритмом'; en = 'Share algorithm'");
+	DescriptionButtons.ItemParent = Submenu;
+	DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+	//DescriptionButtons.Picture = PictureLib.DataProcessor;
+	DescriptionButtons.ToolTip = NStr("ru = 'Поделиться кодом алгоритма'; en = 'Share algorithm code'");
+	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
+	UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+	UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);		
+	
+	DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+	DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameLoadAlgorithm(),
+																			  EditorID);
+	DescriptionButtons.CommandName = DescriptionButtons.Name;
+	DescriptionButtons.Title =  NStr("ru = 'Загрузить алгоритм'; en = 'Download algorithm'");
+	DescriptionButtons.ItemParent = Submenu;
+	DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+	//DescriptionButtons.Picture = PictureLib.DataProcessor;
+	DescriptionButtons.ToolTip = NStr("ru = 'Загрузить расшаренный код'; en = 'Download shared code'");
+	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
+	UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+	UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);		
+	
+	If EditorType = EditorVariants.Ace Then
+	// Interaction
+		DescriptionSubmenuSessionsInteractions = UT_Forms.FormGroupNewDescription();
+		DescriptionSubmenuSessionsInteractions.Parent = CommandBarGroup;
+		DescriptionSubmenuSessionsInteractions.Type = FormGroupType.Popup;
+		DescriptionSubmenuSessionsInteractions.Name = CommandBarGroup.Имя
+												  + "_SubmenuIntegrationWithServerCollaborations_"
+												  + EditorID;
+		DescriptionSubmenuSessionsInteractions.ShowTitle = False;
+		DescriptionSubmenuSessionsInteractions.Title = "";
+
+//	DescriptionSubmenuIntegrationsPaste1C.Representation = UsualGroupRepresentation.None;
+		Submenu = UT_Forms.CreateGroupByDescription(Form, DescriptionSubmenuSessionsInteractions);
+		If Not UT_CommonClientServer.IsPortableDistribution() Then
+			Submenu.Картинка = PictureLib.ActiveUsers;
+		EndIf;
+		
+		DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameStartSessionInteractions(),
+																				  EditorID);
+		DescriptionButtons.CommandName = DescriptionButtons.Name;
+		DescriptionButtons.Title = NStr("ru = 'Начать сессию взаимодейтсвия'; en = 'Start an interaction session'");
+		DescriptionButtons.ItemParent = Submenu;
+		DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+	//DescriptionButtons.Picture = PictureLib.DataProcessor;
+		DescriptionButtons.ToolTip = NStr("ru = 'Начать сессию совместного кодинга'; en = 'Start a co-coding session'");
+	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
+		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);
+
+		DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameFinishSessionInteractions(),
+																				  EditorID);
+		DescriptionButtons.CommandName = DescriptionButtons.Name;
+		DescriptionButtons.Title =  NStr("ru = 'Завершить сессию взаимодейтсвия'; en = 'Finish interaction session'");
+		DescriptionButtons.ItemParent = Submenu;
+		DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+	//DescriptionButtons.Picture = PictureLib.DataProcessor;
+		DescriptionButtons.ToolTip = NStr("ru = 'Завершить сессию совместного кодинга'; en = 'Finish a co-coding session'");
+	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
+		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);
+
+	EndIf;
+
+	
+//
+//
+//		
+//	DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
+//	DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(УИ_РедакторКодаКлиентСервер.ИмяКомандыКонструкторЗапроса(),
+//																			  EditorID);
+//	DescriptionButtons.CommandName = DescriptionButtons.Name;
+//	DescriptionButtons.Title = NStr("ru = 'Конструктор запроса'; en = 'Query constructor'");
+//	DescriptionButtons.ItemParent = CommandBarGroup;
+//	DescriptionButtons.Action = "Подключаемый_ВыполнитьКомандуРедактораКода";
+//	DescriptionButtons.Picture = PictureLib.QueryWizard;
+//	DescriptionButtons.Representation = ButtonRepresentation.Picture;
+//	UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
+//	UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);	
+			
 //Buttons
 //1 - Query wizard
 //2 - Format string wizard
@@ -146,68 +279,10 @@ EndProcedure
 //  Structure - new parameters of editor events .:
 // * OnChange - String -
 Function NewEditorEventsParameters() Export
-	EditorEvents = New Structure;
-	EditorEvents.Insert("OnChange", "");
-	
-	Return EditorEvents;
+	Return UT_CodeEditorClientServer.NewEditorEventOptions();
 EndFunction
 
 #EndRegion
-
-Function PutLibraryToTempStorage(FormID, IsWindowsClient, IsWebClient, 
-    EditorType=Undefined) Export
-	If EditorType = Undefined Then
-		EditorType = CodeEditor1CCurrentVariant();
-	EndIf;
-	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
-	
-	If EditorType = EditorVariants.Monaco Then
-		If IsWindowsClient Then
-			LibraryBinaryData=GetCommonTemplate("UT_MonacoEditorWindows");
-		Else
-			LibraryBinaryData=GetCommonTemplate("UT_MonacoEditor");
-		EndIf;
-	ElsIf EditorType = EditorVariants.Ace Then
-		LibraryBinaryData=GetCommonTemplate("UT_Ace");
-	Else
-		Return Undefined;
-	EndIf;
-	
-	LibraryStructure=New Map;
-
-	If Not IsWebClient Then
-		LibraryStructure.Insert("editor.zip",LibraryBinaryData);
-
-		Return PutToTempStorage(LibraryStructure, FormID);
-	EndIf;
-	
-	DirectoryAtServer=GetTempFileName();
-	CreateDirectory(DirectoryAtServer);
-
-	Stream=LibraryBinaryData.OpenStreamForRead();
-
-	ZipReader=New ZipFileReader(Stream);
-	ZipReader.ExtractAll(DirectoryAtServer, ZIPRestoreFilePathsMode.Restore);
-	ArchiveFiles=FindFiles(DirectoryAtServer, "*", True);
-	For Each LibraryFile In ArchiveFiles Do
-		FileKey=StrReplace(LibraryFile.FullName, DirectoryAtServer + GetPathSeparator(), "");
-		If LibraryFile.IsDirectory() Then
-			Continue;
-		EndIf;
-
-		LibraryStructure.Insert(FileKey, New BinaryData(LibraryFile.FullName));
-	EndDo;
-
-	LibraryUrl=PutToTempStorage(LibraryStructure, FormID);
-
-	Try
-		DeleteFiles(DirectoryAtServer);
-	Except
-		// TODO:
-	EndTry;
-
-	Return LibraryUrl;
-EndFunction
 
 #Region ToolsSettings
 Function CodeEditor1CCurrentVariant() Export
@@ -563,6 +638,23 @@ Function ReferenceTypesMap() Export
 EndFunction
 
 #EndRegion
+
+// Editors for assembly with converted text module.
+// 
+// Parameters:
+//  EditorsForAssembly - Array from look UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing - Editors for assembly
+// 
+// Return values:
+// Array from look UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing 
+Function EditorsForAssemblyWithConvertedTextModule(EditorsForAssembly) Export
+	For Each CurrentEditor In EditorsForAssembly Do
+		CurrentEditor.ТекстРедактораДляОбработки = UT_Code.TextOfAlgorithmExecutionProcessingModule(CurrentEditor.TextEditor,
+																									CurrentEditor.NamesOfPredefinedVariables,
+																									CurrentEditor.ExecutionOnClient);
+	EndDo;
+	Return EditorsForAssembly;
+EndFunction
+
 #EndRegion
 
 #Region Internal
@@ -591,8 +683,190 @@ Function AvailableSourceCodeSources() Export
 	Return Array;
 EndFunction
 
+
+// Data library common template(.
+// 
+// Parameters:
+//  LayoutName - String - Layout name
+//  FormId - UUID
+// 
+// Return values:
+//  look UT_CodeEditorClientServer.NewDataLibraryEditor
+Function DataLibraryCommonTemplate(LayoutName, FormId) Export
+	LibraryData = UT_CodeEditorClientServer.NewDataLibraryEditor();
+
+	BinaryDataLibraries = GetCommonTemplate(LayoutName);
+
+	CatalogOnServer = GetTempFileName();
+	CreateDirectory(CatalogOnServer);
+
+	Stream = BinaryDataLibraries.ОткрытьПотокДляЧтения();
+
+	ZipFileReader = New ZipFileReader(Stream);
+	ZipFileReader.ExtractAll(CatalogOnServer, ZIPRestoreFilePathsMode.Restore);
+
+	ArchiveFiles = FindFiles(CatalogOnServer, GetAllFilesMask(), True);
+	For Each  LibraryFile In ArchiveFiles Do
+		If LibraryFile.IsDirectory() Then
+			Continue;
+		EndIf;
+		
+		If Lower(LibraryFile.Extension) = ".js" Then
+			BinaryData = New BinaryData(LibraryFile.FullName);
+			LibraryData.Scripts.Add(PutToTempStorage(BinaryData, FormId));
+		ElsIf Lower(LibraryFile.Extension) = ".css" Then
+			Text = New TextDocument();
+			Text.Read(LibraryFile.FullName);
+			LibraryData.Styles.Add(Text.GetText());
+		EndIf;
+	EndDo;
+
+	//@skip-check empty-except-statement
+	Try
+		DeleteFiles(CatalogOnServer);
+	Except
+	EndTry;
+
+	Return LibraryData;	
+EndFunction
+
 #EndRegion
 
 #Region Private
+
+// Data library editor.
+// 
+// Parameters:
+//  FormId - UUID - Form ID
+//  IsWindowsClient - Boolean - This is a windows client
+//  IsWebClient - Boolean - This is a web client
+//  EditorType - String , Undefined -  Editor type
+// 
+// Return values:
+//  Undefined -  Editor library data
+// Return values:
+//  String -  Library address in temporary storage
+// Return values:
+//  look UT_CodeEditorClientServer.NewDataLibraryEditor
+Function DataLibraryEditor(FormId, IsWindowsClient, IsWebClient, EditorType = Undefined)
+	If EditorType = Undefined Then
+		EditorType = CodeEditor1CCurrentVariant();
+	EndIf;
+	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
+	
+	If EditorType <> EditorVariants.Ace Then
+		Return PutLibraryInTemporaryStorage(FormId,
+			IsWindowsClient,
+			IsWebClient,
+			EditorType);
+	EndIf; 
+	
+	Return DataLibraryCommonTemplate("UT_Ace", FormId);
+
+EndFunction
+
+Function PutLibraryInTemporaryStorage(FormId, IsWindowsClient, IsWebClient,
+	EditorType = Undefined) 
+	If EditorType = Undefined Then
+		EditorType = CodeEditor1CCurrentVariant();
+	EndIf;
+	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
+
+	If EditorType = EditorVariants.Monaco Then
+		If IsWindowsClient Then
+			BinaryDataLibraries = GetCommonTemplate("UT_MonacoEditorWindows");
+		Else
+			BinaryDataLibraries = GetCommonTemplate("UT_MonacoEditor");
+		EndIf;
+	ElsIf EditorType = EditorVariants.Ace Then
+		BinaryDataLibraries = GetCommonTemplate("UT_Ace");
+	Else
+		Return Undefined;
+	EndIf;
+
+	LibraryStructure = New Map;
+
+	If Not IsWebClient Then
+		LibraryStructure.Insert("editor.zip", BinaryDataLibraries);
+
+		Return PutToTempStorage(LibraryStructure, FormId);
+	EndIf;
+
+	CatalogOnServer = GetTempFileName();
+	CreateDirectory(CatalogOnServer);
+
+	Stream = BinaryDataLibraries.ОткрытьПотокДляЧтения();
+
+	ZipFileReader = Новый ZipFileReader(Stream);
+	ZipFileReader.ExtractAll(CatalogOnServer, ZIPRestoreFilePathsMode.Restore);
+	ArchiveFiles = FindFiles(CatalogOnServer, "*", True);
+	For Each LibraryFile In ArchiveFiles Do
+		FileKey = StrReplace(LibraryFile.FullName, CatalogOnServer + GetPathSeparator(), "");
+		If LibraryFile.IsDirectory() Then
+			Continue;
+		EndIf;
+
+		LibraryStructure.Insert(FileKey, New BinaryData(LibraryFile.FullName));
+	EndDo;
+
+	LibraryAddress = PutToTempStorage(LibraryStructure, FormId);
+
+	Try
+		DeleteFiles(CatalogOnServer);
+	Except
+		// TODO:
+	EndTry;
+
+	Return LibraryAddress;
+EndFunction
+
+// Text fields HTML editor Ace.
+// 
+// Parameters:
+//  LibraryData - look UT_CodeEditorClientServer.NewLibraryDataРедактора
+// 
+// Return values:
+//  String
+Function TextFieldsHTMLEditorAce(LibraryData)
+	TextHTML =
+	"<!doctype html>
+	|<html lang=""ru"">
+	|
+	|<head>
+	|  <meta charset=""UTF-8"" />
+	|  <meta name=""viewport"" content=""width=device-width,initial-scale=1"" />
+	|  <meta http-equiv=""X-UA-Compatible"" content=""ie=edge"" />
+	|  <title>Ace editor for 1C</title>
+	|";
+	
+	For Each  CurrentStyle In LibraryData.Styles Do
+		TextHTML = TextHTML + "
+		|<style>
+		|" + CurrentStyle + "
+		|</style>";
+	EndDo;	
+	
+	TextHTML = TextHTML + "
+	|</head>
+	|
+	|<body>
+	|  <div id=""editor""></div>
+	|  <div id=""statusBar""></div>
+	|";
+
+
+	For Each  CurrentScript In LibraryData.Scripts Do
+		TextHTML = TextHTML + "
+							  |  <script src=""" + CurrentScript + """ defer></script>";
+	EndDo;
+
+	TextHTML = TextHTML + "
+						   |</body>
+						   |
+						   |</html>";
+
+	Return TextHTML;
+EndFunction
+
 
 #EndRegion
