@@ -355,7 +355,7 @@ Procedure InsertNodeElement(RootNode, Val NewNodeName, NodeMap)
 			EndDo;
 			ElementsArray.Add(CurrentElementMap);
 
-			//@skip-warning 
+			//@skip-warning
 			RootNode._Elements  = ElementsArray;
 
 		Else
