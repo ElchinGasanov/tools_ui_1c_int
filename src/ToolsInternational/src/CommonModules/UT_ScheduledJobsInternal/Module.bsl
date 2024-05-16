@@ -8,29 +8,29 @@
 Function NewBackgroundJobsProperties()
 	
 	NewTable = New ValueTable;
-	NewTable.Columns.Add("ID",                     New TypeDescription("String"));
-	NewTable.Columns.Add("Description",                      New TypeDescription("String"));
-	NewTable.Columns.Add("Key",                              New TypeDescription("String"));
-	NewTable.Columns.Add("Begin",                            New TypeDescription("Date"));
-	NewTable.Columns.Add("End",                             New TypeDescription("Date"));
-	NewTable.Columns.Add("ScheduledJobID", New TypeDescription("String"));
-	NewTable.Columns.Add("State",                         New TypeDescription("BackgroundJobState"));
-	NewTable.Columns.Add("MethodName",                         New TypeDescription("String"));
-	NewTable.Columns.Add("Location",                      New TypeDescription("String"));
-	NewTable.Columns.Add("ErrorDescription",        New TypeDescription("String"));
-	NewTable.Columns.Add("StartAttempt",                    New TypeDescription("Number"));
-	NewTable.Columns.Add("UserMessages",             New TypeDescription("Array"));
-	NewTable.Columns.Add("SessionNumber",                       New TypeDescription("Number"));
-	NewTable.Columns.Add("SessionStarted",                      New TypeDescription("Date"));
+	NewTable.Columns.Add("ID",               New TypeDescription("String"));
+	NewTable.Columns.Add("Description",      New TypeDescription("String"));
+	NewTable.Columns.Add("Key",              New TypeDescription("String"));
+	NewTable.Columns.Add("Begin",            New TypeDescription("Date"));
+	NewTable.Columns.Add("End",              New TypeDescription("Date"));
+	NewTable.Columns.Add("ScheduledJobID",   New TypeDescription("String"));
+	NewTable.Columns.Add("State",            New TypeDescription("BackgroundJobState"));
+	NewTable.Columns.Add("MethodName",       New TypeDescription("String"));
+	NewTable.Columns.Add("Location",         New TypeDescription("String"));
+	NewTable.Columns.Add("ErrorDescription", New TypeDescription("String"));
+	NewTable.Columns.Add("StartAttempt",     New TypeDescription("Number"));
+	NewTable.Columns.Add("UserMessages",     New TypeDescription("Array"));
+	NewTable.Columns.Add("SessionNumber",    New TypeDescription("Number"));
+	NewTable.Columns.Add("SessionStarted",   New TypeDescription("Date"));
 	NewTable.Indexes.Add("ID, Begin");
 	
 	Return NewTable;
 	
 EndFunction
 
-Function LastBackgroundJobInArray(BackgroundJobArray, LastBackgroundJob = Undefined)
+Function LastBackgroundJobInArray(BackgroundJobsArray, LastBackgroundJob = Undefined)
 	
-	For each CurrentBackgroundJob In BackgroundJobArray Do
+	For each CurrentBackgroundJob In BackgroundJobsArray Do
 		If LastBackgroundJob = Undefined Then
 			LastBackgroundJob = CurrentBackgroundJob;
 			Continue;
@@ -52,12 +52,12 @@ Function LastBackgroundJobInArray(BackgroundJobArray, LastBackgroundJob = Undefi
 	
 EndFunction
 
-Procedure AddBackgroundJobProperties(Val BackgroundJobArray, Val BackgroundJobPropertyTable)
+Procedure AddBackgroundJobProperties(Val BackgroundJobsArray, Val BackgroundJobsPropertyTable)
 	
-	Index = BackgroundJobArray.Count() - 1;
+	Index = BackgroundJobsArray.Count() - 1;
 	While Index >= 0 Do
-		BackgroundJob = BackgroundJobArray[Index];
-		Row = BackgroundJobPropertyTable.Add();
+		BackgroundJob = BackgroundJobsArray[Index];
+		Row = BackgroundJobsPropertyTable.Add();
 		FillPropertyValues(Row, BackgroundJob);
 		Row.ID = BackgroundJob.UUID;
 		ScheduledJob = BackgroundJob.ScheduledJob;
@@ -80,8 +80,8 @@ Procedure AddBackgroundJobProperties(Val BackgroundJobArray, Val BackgroundJobPr
 	
 EndProcedure
 
-// Returns a background job property table.
-//  See the table structure in the EmptyBackgroundJobPropertyTable() function.
+// Returns a background jobs property table.
+//  See the table structure in the EmptyBackgroundJobsPropertyTable() function.
 // 
 // Parameters:
 //  Filter - Structure - valid fields:
@@ -130,16 +130,16 @@ Function BackgroundJobsProperties(Filter = Undefined) Export
 					BackgroundJobsStartedManually, LastBackgroundJob);
 				
 				If LastBackgroundJob <> Undefined Then
-					BackgroundJobArray = New Array;
-					BackgroundJobArray.Add(LastBackgroundJob);
-					AddBackgroundJobProperties(BackgroundJobArray, Table);
+					BackgroundJobsArray = New Array;
+					BackgroundJobsArray.Add(LastBackgroundJob);
+					AddBackgroundJobProperties(BackgroundJobsArray, Table);
 				EndIf;
 				Return Table;
 			EndIf;
 			AddBackgroundJobProperties(BackgroundJobsStartedManually, Table);
 			AddBackgroundJobProperties(AutomaticBackgroundJobs, Table);
 		Else
-			BackgroundJobArray = New Array;
+			BackgroundJobsArray = New Array;
 			AllScheduledJobIDs = New Map;
 			For each CurrentJob In ScheduledJobs.GetScheduledJobs() Do
 				AllScheduledJobIDs.Insert(
@@ -150,26 +150,26 @@ Function BackgroundJobsProperties(Filter = Undefined) Export
 				If CurrentJob.ScheduledJob = Undefined
 				   AND AllScheduledJobIDs[CurrentJob.Key] = Undefined Then
 				
-					BackgroundJobArray.Add(CurrentJob);
+					BackgroundJobsArray.Add(CurrentJob);
 				EndIf;
 			EndDo;
-			AddBackgroundJobProperties(BackgroundJobArray, Table);
+			AddBackgroundJobProperties(BackgroundJobsArray, Table);
 		EndIf;
 	Else
 		If NOT ValueIsFilled(Filter) Then
-			BackgroundJobArray = BackgroundJobs.GetBackgroundJobs();
+			BackgroundJobsArray = BackgroundJobs.GetBackgroundJobs();
 		Else
 			If Filter.Property("ID") Then
 				Filter.Insert("UUID", New UUID(Filter.ID));
 				Filter.Delete("ID");
 			EndIf;
-			BackgroundJobArray = BackgroundJobs.GetBackgroundJobs(Filter);
+			BackgroundJobsArray = BackgroundJobs.GetBackgroundJobs(Filter);
 			If Filter.Property("UUID") Then
 				Filter.Insert("ID", String(Filter.UUID));
 				Filter.Delete("UUID");
 			EndIf;
 		EndIf;
-		AddBackgroundJobProperties(BackgroundJobArray, Table);
+		AddBackgroundJobProperties(BackgroundJobsArray, Table);
 	EndIf;
 	
 	If ValueIsFilled(Filter) AND Filter.Property("ScheduledJobID") Then
@@ -217,8 +217,8 @@ Function BackgroundJobsProperties(Filter = Undefined) Export
 		// Performing additional filter by period and state (if the filter is defined).
 		ItemNumber = Rows.Count() - 1;
 		While ItemNumber >= 0 Do
-			If Start    <> Undefined AND Start > Rows[ItemNumber].Begin
-				Or End     <> Undefined AND End  < ?(ValueIsFilled(Rows[ItemNumber].End), Rows[ItemNumber].End, CurrentSessionDate())
+			If Start <> Undefined AND Start > Rows[ItemNumber].Begin Or End <> Undefined 
+				AND End < ?(ValueIsFilled(Rows[ItemNumber].End), Rows[ItemNumber].End, CurrentSessionDate())
 				Or State <> Undefined AND State.Find(Rows[ItemNumber].State) = Undefined Then
 				Rows.Delete(ItemNumber);
 			EndIf;
@@ -244,7 +244,7 @@ EndFunction
 //
 // Parameters:
 //  ID - String - BackgroundJob UUID.
-//  PropertyNames - string, if filled, returns a structure with the specified properties.
+//  PropertiesNames - string, if filled, returns a structure with the specified properties.
 // 
 // Returns:
 //  ValueTableRow, Structure - BackgroundJob properties.
@@ -255,14 +255,14 @@ Function GetBackgroundJobProperties(ID, PropertiesNames = "") Export
 	SetPrivilegedMode(True);
 	
 	Filter = New Structure("ID", ID);
-	BackgroundJobPropertyTable = BackgroundJobsProperties(Filter);
+	BackgroundJobsPropertyTable = BackgroundJobsProperties(Filter);
 	
-	If BackgroundJobPropertyTable.Count() > 0 Then
+	If BackgroundJobsPropertyTable.Count() > 0 Then
 		If ValueIsFilled(PropertiesNames) Then
 			Result = New Structure(PropertiesNames);
-			FillPropertyValues(Result, BackgroundJobPropertyTable[0]);
+			FillPropertyValues(Result, BackgroundJobsPropertyTable[0]);
 		Else
-			Result = BackgroundJobPropertyTable[0];
+			Result = BackgroundJobsPropertyTable[0];
 		EndIf;
 	Else
 		Result = Undefined;
@@ -384,15 +384,15 @@ Function LastBackgroundJobScheduledJobExecutionProperties(ScheduledJob)
 	Filter = New Structure;
 	Filter.Insert("ScheduledJobID", ScheduledJobID);
 	Filter.Insert("GetLastScheduledJobBackgroundJob");
-	BackgroundJobPropertyTable = BackgroundJobsProperties(Filter);
-	BackgroundJobPropertyTable.Sort("End Asc");
+	BackgroundJobsPropertyTable = BackgroundJobsProperties(Filter);
+	BackgroundJobsPropertyTable.Sort("End Asc");
 	
-	If BackgroundJobPropertyTable.Count() = 0 Then
+	If BackgroundJobsPropertyTable.Count() = 0 Then
 		BackgroundJobProperties = Undefined;
-	ElsIf NOT ValueIsFilled(BackgroundJobPropertyTable[0].End) Then
-		BackgroundJobProperties = BackgroundJobPropertyTable[0];
+	ElsIf NOT ValueIsFilled(BackgroundJobsPropertyTable[0].End) Then
+		BackgroundJobProperties = BackgroundJobsPropertyTable[0];
 	Else
-		BackgroundJobProperties = BackgroundJobPropertyTable[BackgroundJobPropertyTable.Count()-1];
+		BackgroundJobProperties = BackgroundJobsPropertyTable[BackgroundJobsPropertyTable.Count()-1];
 	EndIf;
 	
 	Return BackgroundJobProperties;
@@ -427,11 +427,10 @@ Function BackgroundJobMessagesAndErrorDescriptions(ID, BackgroundJobProperties =
 			                    |") + Message.Text;
 		EndDo;
 		If ValueIsFilled(BackgroundJobProperties.ErrorDescription) Then
-			Row = Row + ?(Row = "",
-			                    BackgroundJobProperties.ErrorDescription,
-			                    "
+			Row = Row + ?(Row = "", BackgroundJobProperties.ErrorDescription, "
 			                    |
-			                    |" + BackgroundJobProperties.ErrorDescription);
+			                    |" 
+			                    + BackgroundJobProperties.ErrorDescription);
 		EndIf;
 	EndIf;
 	
@@ -460,6 +459,7 @@ Function ScheduledJobPresentation(Val Job) Export
 		ScheduledJob = ScheduledJobs.FindByUUID(New UUID(Job));
 	EndIf;
 	
+	
 	If ScheduledJob <> Undefined Then
 		Presentation = ScheduledJob.Description;
 		
@@ -473,6 +473,7 @@ Function ScheduledJobPresentation(Val Job) Export
 	Else
 		Presentation = TextUndefined();
 	EndIf;
+	
 	
 	Return Presentation;
 	
@@ -498,9 +499,9 @@ Procedure CancelBackgroundJob(ID) Export
 	NewUUID = New UUID(ID);
 	Filter = New Structure;
 	Filter.Insert("UUID", NewUUID);
-	BackgroundJobArray = BackgroundJobs.GetBackgroundJobs(Filter);
-	If BackgroundJobArray.Count() = 1 Then
-		BackgroundJob = BackgroundJobArray[0];
+	BackgroundJobsArray = BackgroundJobs.GetBackgroundJobs(Filter);
+	If BackgroundJobsArray.Count() = 1 Then
+		BackgroundJob = BackgroundJobsArray[0];
 	Else
 		Raise NStr("ru = 'Фоновое задание не найдено на сервере.'; en = 'The background job is not found on the server.'");
 	EndIf;
@@ -553,12 +554,15 @@ Function ExecuteScheduledJobManually(Val Job) Export
 			ExecutionParameters.BackgroundJobPresentation = ScheduledJobPresentation(Job);
 		EndIf;
 	Else
-		BackgroundJobDescription = StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Запуск вручную: %1'; en = 'Manual start: %1'"), ScheduledJobPresentation(Job));
+		BackgroundJobDescription = StrTemplate(NStr("ru = 'Запуск вручную: %1'; en = 'Manual start: %1'"), 
+			ScheduledJobPresentation(Job));
 		// Time-consuming operations are not used, because the method of the scheduled job is called.
-		BackgroundJob = BackgroundJobs.Execute(Job.Metadata.MethodName, Job.Parameters, String(Job.UUID), BackgroundJobDescription);
+		BackgroundJob = BackgroundJobs.Execute(Job.Metadata.MethodName, Job.Parameters, String(Job.UUID), 
+			BackgroundJobDescription);
 		ExecutionParameters.BackgroundJobID = String(BackgroundJob.UUID);
 		ExecutionParameters.StartedAt = BackgroundJobs.FindByUUID(BackgroundJob.UUID).Begin;
 		ExecutionParameters.Started = True;
+	
 	EndIf;
 
 	ExecutionParameters.ProcedureAlreadyExecuting = NOT ExecutionParameters.Started;
@@ -589,7 +593,7 @@ Procedure UpdatedScheduledJobsTable(Parameters, StorageURL) Export
 	DisabledJobs.Clear();
 
 	ScheduledJobsParameters = ScheduledJobsDependentOnFunctionalOptions();
-	FilterParameters        = New Structure;
+	FilterParameters   = New Structure;
 	ParametrizableJobs = New Array;
 	FilterParameters.Insert("Parameterized", True);
 	SearchResult = ScheduledJobsParameters.FindRows(FilterParameters);
@@ -600,17 +604,17 @@ Procedure UpdatedScheduledJobsTable(Parameters, StorageURL) Export
 	JobsSaaS = New Map;
 	SaaSSubSystemExists = UT_Common.SubsystemExists(
 		"StandardSubsystems.SaaS");
-	SaaSSubsystem=Undefined;
+	SaaSSubsystem = Undefined;
 	If SaaSSubSystemExists Then
 		//@skip-warning
-		SaaSSubsystem=Metadata.Subsystems.StandardSubsystems.Subsystems.SaaS;
+		SaaSSubsystem = Metadata.Subsystems.StandardSubsystems.Subsystems.SaaS;
 	EndIf;
 	For each MetadataObject In Metadata.ScheduledJobs Do
 		If Not ScheduledJobAvailableByFunctionalOptions(MetadataObject, ScheduledJobsParameters) Then
 			DisabledJobs.Add(MetadataObject.Name);
 			Continue;
 		EndIf;
-		If Not UT_Common.DataSeparationEnabled() and SaaSSubSystemExists Then
+		If Not UT_Common.DataSeparationEnabled() And SaaSSubSystemExists Then
 			If SaaSSubsystem.Content.Contains(MetadataObject) Then
 				JobsSaaS.Insert(MetadataObject.Name, True);
 				Continue;
@@ -630,6 +634,7 @@ Procedure UpdatedScheduledJobsTable(Parameters, StorageURL) Export
 		For each Job In CurrentJobs Do
 			If Not UT_Common.DataSeparationEnabled() And JobsSaaS[Job.Metadata.Name]
 				<> Undefined Then
+				
 				Continue;
 			EndIf;
 
@@ -644,7 +649,7 @@ Procedure UpdatedScheduledJobsTable(Parameters, StorageURL) Export
 				Updated.ID = ID;
 			Else
 				Updated = Table[Index];
-			EndIF;
+			EndIf;
 
 			If ParametrizableJobs.Find(Job.Metadata) <> Undefined Then
 				Updated.Parameterizable = True;
@@ -703,7 +708,7 @@ Function ScheduledJobAvailableByFunctionalOptions(Job, JobDependencies = Undefin
 	DisableInSubordinateDIBNode = False;
 	DisableInStandaloneWorkplace = False;
 	Usage                = Undefined;
-	IsSubordinateDIBNode        = UT_Common.IsSubordinateDIBNode();
+	IsSubordinateDIBNode     = UT_Common.IsSubordinateDIBNode();
 	IsSeparatedMode          = UT_Common.DataSeparationEnabled();
 	IsStandaloneWorkplace 	 = UT_Common.IsStandaloneWorkplace();
 
@@ -715,7 +720,8 @@ Function ScheduledJobAvailableByFunctionalOptions(Job, JobDependencies = Undefin
 		EndIf;
 		
 		DisableInSubordinateDIBNode = (DependencyString.AvailableInSubordinateDIBNode = False) AND IsSubordinateDIBNode;
-		DisableInStandaloneWorkplace = (DependencyString.AvailableAtStandaloneWorkstation = False) AND IsStandaloneWorkplace;
+		DisableInStandaloneWorkplace = (DependencyString.AvailableAtStandaloneWorkstation = False) 
+			AND IsStandaloneWorkplace;
 		
 		If DisableInSubordinateDIBNode Or DisableInStandaloneWorkplace Then
 			Return False;
@@ -743,7 +749,6 @@ Function ScheduledJobAvailableByFunctionalOptions(Job, JobDependencies = Undefin
 	EndIf;
 	
 EndFunction
-
 Procedure UpdateRowOfScheduledJobsTable(Row, Job)
 
 	FillPropertyValues(Row, Job);
@@ -752,18 +757,18 @@ Procedure UpdateRowOfScheduledJobsTable(Row, Job)
 	Row.Name = ScheduledJobPresentation(Job);
 	
 	// Setting the Completion Date and Completion Status for the last background procedure.
-	LastBackgroundJobProperties = UT_ScheduledJobsInternal.LastBackgroundJobScheduledJobExecutionProperties(
+	LastBackgroundJobProperties = LastBackgroundJobScheduledJobExecutionProperties(
 		Job);
 
 	Row.JobName = Job.Metadata.Name;
 	If LastBackgroundJobProperties = Undefined Then
-		Row.BeginDate          = TextUndefined();
+		Row.BeginDate     = TextUndefined();
 		Row.EndDate       = TextUndefined();
 		Row.ExecutionStatus = TextUndefined();
 	Else
-		Row.BeginDate          = ?(ValueIsFilled(LastBackgroundJobProperties.Begin),
+		Row.BeginDate       = ?(ValueIsFilled(LastBackgroundJobProperties.Begin),
 			LastBackgroundJobProperties.Begin, "<>");
-		Row.EndDate       = ?(ValueIsFilled(LastBackgroundJobProperties.End),
+		Row.EndDate         = ?(ValueIsFilled(LastBackgroundJobProperties.End),
 			LastBackgroundJobProperties.End, "<>");
 		Row.ExecutionStatus = LastBackgroundJobProperties.State;
 	EndIf;
@@ -771,6 +776,7 @@ Procedure UpdateRowOfScheduledJobsTable(Row, Job)
 EndProcedure
 
 // Only for internal use.
+
 Procedure BackgroundJobsPropertiesTableInBackground(Parameters, StorageURL) Export
 
 	PropertiesTable = BackgroundJobsProperties(Parameters.Filter);

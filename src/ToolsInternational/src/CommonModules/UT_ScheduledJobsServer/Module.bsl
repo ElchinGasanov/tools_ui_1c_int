@@ -73,7 +73,7 @@ Function AddJob(Parameters) Export
 
 	RaiseIfNoAdministrationRights();
 	
-	JobParameters = Common.CopyRecursive(Parameters);
+	JobParameters = UT_CommonClientServer.CopyStructure(Parameters);
 
 	//if UT_Common.DataSeparationEnabled() Then
 

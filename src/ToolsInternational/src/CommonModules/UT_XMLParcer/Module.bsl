@@ -21,7 +21,7 @@
 //
 // Return value:
 // Map, Structure - result of reading xml data
-
+//
 Function mRead(Val ReaderPath, SimplifyElements = True) Export
 #If WebClient Then
 	Return Undefined;
@@ -54,7 +54,7 @@ EndFunction
 //   FilePath - Строка - String - path to the xml data
 //   WriteXMLDeclaration - Boolean - a sign of adding an XML declaration record
 //
-Procedure ЗаписатьВФайл(XMLWriterData, Val FilePath, Val WriteXMLDeclaration = False) Export
+Procedure WriteToFile(XMLWriterData, Val FilePath, Val WriteXMLDeclaration = False) Export
 #If ThinClient Or WebClient Then
 
 #Else
@@ -74,13 +74,13 @@ Procedure ЗаписатьВФайл(XMLWriterData, Val FilePath, Val WriteXMLDe
 EndProcedure
 
 #If Not ThinClient And Not WebClient Then
-#Region Write_Data_XML
+#Region Write_XML_Data
 
 //  Performs data serialization in XML
 //
 // Parameters:
 //   XMLWriter - XMLWriter - prepared recird of XMLWriter
-//   XMLWriterData - Map, Array, Structure, Number, String. Date - data for serialization in XML
+//   XMLWriterData - Map, Array, Structure, Number, String, Date - data for serialization in XML
 //
 Procedure WriteXMLSection(Val XMLWriter, Val XMLWriterData)
 
@@ -210,7 +210,7 @@ EndProcedure
 #EndIf
 
 #If Not WebClient Then
-#Region read_Data_XML
+#Region Read_XML_Data
 
 
 // Reads and deserializes data from XML
@@ -239,7 +239,7 @@ Function ReadXMLSection(Val XMLReader, Val SimplifyElements, Val RootNodeName = 
 		ReadNodes(XMLReader, ReaderResult, SimplifyElements, RootNodeName);
 	EndIf;
 
-	 SimplifyReaderResult(ReaderResult, SimplifyElements);
+	SimplifyReaderResult(ReaderResult, SimplifyElements);
 
 //	Log.Debug("Reading  node <%1> finished.", XMLReader.LocalName);
 
