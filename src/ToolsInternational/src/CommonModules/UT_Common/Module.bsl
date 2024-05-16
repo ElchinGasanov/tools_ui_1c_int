@@ -1,11 +1,15 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // Copyright (c) 2019, ООО 1С-Софт
-// Все права защищены. Эта программа и сопроводительные материалы предоставляются 
-// в соответствии с условиями лицензии Attribution 4.0 International (CC BY 4.0)
-// Текст лицензии доступен по ссылке:
+// All rights reserved. This program and accompanying materials are provided 
+// under the terms of the Attribution 4.0 International (CC BY 4.0) license.
+// The text of the license is available here:
 // https://creativecommons.org/licenses/by/4.0/legalcode
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 #Region Public
+
+#Region ContainerValuesForStorageOnForm
+
+#Region StorageContainerValues
 
 // Returns the data separation mode flag (conditional separation).
 // 
