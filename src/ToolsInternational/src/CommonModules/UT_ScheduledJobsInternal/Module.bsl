@@ -697,7 +697,7 @@ EndProcedure
 //    If it is not specified, it is generated automatically.
 //
 // Returns:
-//  Usage - Boolean - True if the scheduled job is used.
+//   Usage - Boolean - True if the scheduled job is used.
 //
 Function ScheduledJobAvailableByFunctionalOptions(Job, JobDependencies = Undefined) Export
 	

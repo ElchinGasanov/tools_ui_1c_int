@@ -324,7 +324,7 @@ Procedure ReadNodes(Val XMLReader, RootNode, SimplifyElements, Val RootNodeName)
 
 		ElsIf XMLReader.NodeType = XMLNodeType.CDATASection Then
 			XMLValue = XMLReader.Value;
-//			Log.Debug("CDATA  Section readed" + XMLValue);
+//			Log.Debug("CDATA Section readed" + XMLValue);
 			RootNode.Insert("_CDATA", XMLValue);
 
 		EndIf;

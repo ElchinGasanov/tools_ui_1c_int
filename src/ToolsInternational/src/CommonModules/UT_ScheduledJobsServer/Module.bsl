@@ -197,7 +197,7 @@ EndFunction
 //                - String - a scheduled job UUID string.
 //                - ScheduledJob - a scheduled job.
 //
-//  Schedule    - JobSchedule - a schedule.
+//  Schedule     - JobSchedule - a schedule.
 //                - Structure - the value returned by the ScheduleToStructure function of the 
 //                  CommonClientServer common module.
 //  
