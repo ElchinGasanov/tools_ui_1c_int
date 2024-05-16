@@ -16,15 +16,15 @@ Function NewDataLibraryEditor() Export
 	Return LibraryData;
 EndFunction
 
-// Name of connected processing for execution code editor.
+// Name of connected DataProcessor for execution code editor.
 // 
 // Parameters:
 //  Идентификатор - String - Идентификатор
 // 
 // Return values:
 //  String
-Function NameOfConnectedProcessingForExecutionCodeEditor(ID) Export
-	Return "UT_CodeEditorа_ProcessingExecution_" + ID;
+Function NameOfConnectedDataProcessorForExecutionCodeEditor(ID) Export
+	Return "UT_CodeEditorа_DataProcessorExecution_" + ID;
 EndFunction
 
 Function CodeEditorItemsPrefix() Export
@@ -135,36 +135,36 @@ Function StructureNameCommandForms(CommandName) Export
 	Return StructureName;
 EndFunction
 
-Function ExecuteAlgorithm(__AlgorithmText__, __Context__, ExecutionOnClient = False, Form = Undefined,
+Function ExecuteAlgorithm(__AlgorithmText__, __Context__, ExecutionAtClient = False, Form = Undefined,
 	EditorID = Undefined) Export
 	UT__Successfully__ = True;
 	UT__DescriptionErrors__ = "";
 	UT__StartOfExecution__ = CurrentUniversalDateInMilliseconds();
 
 	If ValueIsFilled(__AlgorithmText__) Then
-		ExecuteThroughProcessing = False;
+		ExecuteThroughDataProcessor = False;
 		If Form <> Undefined And EditorID <> Undefined Then
-			EditorsForms = EditorsForms(Form);
-			EditorData = EditorsForms[EditorID];
-			ExecuteThroughProcessing = EditorData.UseProcessingToExecuteCode;
+			FormEditors = FormEditors(Form);
+			EditorData = FormEditors[EditorID];
+			ExecuteThroughDataProcessor = EditorData.UseDataProcessorToExecuteCode;
 		EndIf;
 
-		If ExecuteThroughProcessing Then
+		If ExecuteThroughDataProcessor Then
 			Try
-				If ExecutionOnClient Then
+				If ExecutionAtClient Then
 #If AtClient Then
 					//@skip-check use-non-recommended-method
-					PerformerProcessing = GetForm("ExternalDataProcessor."
-														 + NameOfConnectedProcessingForExecutionCodeEditor(EditorID)
+					PerformerDataProcessor = GetForm("ExternalDataProcessor."
+														 + NameOfConnectedDataProcessorForExecutionCodeEditor(EditorID)
 														 + ".Form");
 #EndIf
 				Else
 #If Not AtClient Or ThickClientOrdinaryApplication Or ThickClientManagedApplication Then
-					PerformerProcessing = ExternalDataProcessors.Create(NameOfConnectedProcessingForExecutionCodeEditor(EditorID));
+					PerformerDataProcessor = ExternalDataProcessors.Create(NameOfConnectedDataProcessorForExecutionCodeEditor(EditorID));
 #EndIf
 				EndIf;
-				PerformerProcessing.UT_InitializeVariables(__Context__);
-				PerformerProcessing.UT_RunAlgorithm();
+				PerformerDataProcessor.UT_InitializeVariables(__Context__);
+				PerformerDataProcessor.UT_RunAlgorithm();
 
 			Except
 				UT__Successfully__ = False;
@@ -216,12 +216,12 @@ EndFunction
 #Область CommandBarCommandNames
 
 
-// Command name execution mode through processing
+// Command name execution mode through DataProcessor
 // 
 // Return values:
-//  String - Command name execution mode through processing
-Function CommandNameExecutionModeThroughProcessing() Export
-	Return "ExecutionModeThroughProcessing";
+//  String - Command name execution mode through DataProcessor
+Function CommandNameExecutionModeThroughDataProcessor() Export
+	Return "ExecutionModeThroughDataProcessor";
 EndFunction
 
 // Command name query constructor.
@@ -287,7 +287,7 @@ EndFunction
 //  Structure of KeyAndValue:
 //  	* Key - String - Editor ID
 //  	* Value - см. NewEditorFormData
-Function EditorsForms(Form) Export
+Function FormEditors(Form) Export
 	Return Form[AttributeNameCodeEditorFormCodeEditors()];
 EndFunction
 
@@ -305,9 +305,9 @@ EndFunction
 // * ИмяРеквизита - String -
 // * ИмяКоманднойПанелиРедактора - String -
 // * Идентификатор - String -
-// * UseProcessingToExecuteCode - Boolean -
+// * UseDataProcessorToExecuteCode - Boolean -
 // * ПараметрыРедактора - см. ПараметрыРедактораКодаПоУмолчанию
-// * CacheResultsConnectionsProcessingExecution -  см. НовыйКэшРезультатовИсполненияЧерезОбработку 
+// * CacheResultsConnectionsDataProcessorExecution -  см. НовыйКэшРезультатовИсполненияЧерезОбработку 
 // * SettingsSessionsInteractions - см. НовыйSettingsSessionsInteractions
 Function NewEditorFormData() Export
 	EditorData = New Structure;
@@ -321,9 +321,9 @@ Function NewEditorFormData() Export
 	EditorData.Insert("EditorField", "");
 	EditorData.Insert("EditorCommandBarName", "");
 	EditorData.Insert("PropsName", "");
-	EditorData.Insert("UseProcessingToExecuteCode", False);
+	EditorData.Insert("UseDataProcessorToExecuteCode", False);
 	EditorData.Insert("EditorOptions", Undefined);
-	EditorData.Insert("CacheResultsConnectionsProcessingExecution", Undefined);
+	EditorData.Insert("CacheResultsConnectionsDataProcessorExecution", Undefined);
 	EditorData.Insert("SettingsSessionsInteractions", Undefined);
 	
 	Return EditorData;
@@ -341,38 +341,38 @@ Function NewEditorEventOptions() Export
 	Return EditorEvents;
 EndFunction
  
-// New editor data for assembly processing.
+// New editor data for assembly DataProcessor.
 // 
 // Return values:
-//  Structure - New editor data for assembly processing:
+//  Structure - New editor data for assembly DataProcessor:
 // * Идентификатор - String -
 // * NamesOfPredefinedVariables - Array of String -
 // * TextEditor - String -
 // * ТекстРедактораДляОбработки - String -
-// * ExecutionOnClient - Boolean -
+// * ExecutionAtClient - Boolean -
 // * ИмяПодключаемойОбработки - String -
-Function NewEditorDataForAssemblyProcessing() Export
+Function NewEditorDataForBuildDataProcessor() Export
 	Data = New Structure;
 	Data.Insert("ID", "");
 	Data.Insert("NamesOfPredefinedVariables", New Array);
 	Data.Insert("TextEditor", "");
-	Data.Insert("TextEditorForProcessing", "");
-	Data.Insert("ExecutionOnClient", False);
-	Data.Insert("ConnectedProcessingName", "");
+	Data.Insert("TextEditorForDataProcessor", "");
+	Data.Insert("ExecutionAtClient", False);
+	Data.Insert("ConnectedDataProcessorName", "");
 		
 	Return Data;
 EndFunction
 
-// New cache results connections processing execution.
+// New cache results connections DataProcessor execution.
 // 
 // Return values:
-//  Structure - New cache results connections processing execution:
-// * ExecutionOnClient - Boolean -
+//  Structure - New cache results connections DataProcessor execution:
+// * ExecutionAtClient - Boolean -
 // * TextEditor - String -
 // * NamesOfPredefinedVariables - Array of Строка-
-Function NewCacheResultsConnectionsProcessingExecution() Export
+Function NewCacheResultsConnectionsDataProcessorExecution() Export
 	Cache = New Structure;
-	Cache.Insert("ExecutionOnClient", False);
+	Cache.Insert("ExecutionAtClient", False);
 	Cache.Insert("TextEditor", "");
 	Cache.Insert("NamesOfPredefinedVariables", New Array);
 	

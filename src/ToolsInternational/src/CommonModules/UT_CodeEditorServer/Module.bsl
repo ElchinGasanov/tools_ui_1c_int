@@ -642,10 +642,10 @@ EndFunction
 // Editors for assembly with converted text module.
 // 
 // Parameters:
-//  EditorsForAssembly - Array from look UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing - Editors for assembly
+//  EditorsForAssembly - Array from look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor - Editors for assembly
 // 
 // Return values:
-// Array from look UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing 
+// Array from look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor 
 Function EditorsForAssemblyWithConvertedTextModule(EditorsForAssembly) Export
 	For Each CurrentEditor In EditorsForAssembly Do
 		CurrentEditor.ТекстРедактораДляОбработки = UT_Code.TextOfAlgorithmExecutionProcessingModule(CurrentEditor.TextEditor,
