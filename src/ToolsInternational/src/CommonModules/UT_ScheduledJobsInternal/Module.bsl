@@ -757,8 +757,8 @@ Procedure UpdateRowOfScheduledJobsTable(Row, Job)
 	Row.Name = ScheduledJobPresentation(Job);
 	
 	// Setting the Completion Date and Completion Status for the last background procedure.
-	LastBackgroundJobProperties = LastBackgroundJobScheduledJobExecutionProperties(
-		Job);
+	LastBackgroundJobProperties = LastBackgroundJobScheduledJobExecutionProperties(Job);
+
 
 	Row.JobName = Job.Metadata.Name;
 	If LastBackgroundJobProperties = Undefined Then

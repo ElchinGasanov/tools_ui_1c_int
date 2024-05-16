@@ -186,7 +186,7 @@ Function JobSchedule(Val ID, Val InStructure = False) Export
 	
 EndFunction
 
-// Sets the scheduled job schedule.
+// Sets the scheduled job schedule. 
 // Before calling, it is required to have the administrator rights or SetPrivilegedMode.
 // Cannot be used in SaaS mode.
 //
