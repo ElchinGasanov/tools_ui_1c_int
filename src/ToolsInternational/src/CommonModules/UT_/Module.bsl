@@ -156,16 +156,27 @@ EndFunction
 // Parameters:
 //  AlgorithmName - String - Catalog's "Algorithms" element's name, search by description 
 //  AlgorithmText - String - Attribute "AlgorithmText" value
-//  ParameterN - Any value
+//  Parameter1 - Any value
+//  Parameter2 - Any value
+//  Parameter3 - Any value
+//  Parameter4 - Any value
+//  Parameter5 - Any value
+//  Parameter6 - Any value
+//  Parameter7 - Any value
+//  Parameter8 - Any value
+//  Parameter9 - Any value
+//  ParametersNamesArray - String - Comma separated parameter names
 // Return value:
 //  String - Algorithm saving result
+//@skip-check method-too-many-params
 Function _Alg(AlgorithmName, AlgorithmText = "", Val Parameter1 = Undefined, Val Parameter2 = Undefined, 
 	Val Parameter3 = Undefined, Val Parameter4 = Undefined, Val Parameter5 = Undefined, 
 	Val Parameter6 = Undefined, Val Parameter7 = Undefined, Val Parameter8 = Undefined, 
 	Val Parameter9 = Undefined, Val ParametersNamesArray = Undefined) Export
 	
 	Return UT_AlgorithmsServerCall.CreatingOfAlgorithm(AlgorithmName, AlgorithmText, Parameter1, Parameter2,
-		Parameter3, Parameter4, Parameter5, Parameter6, Parameter7, Parameter8, Parameter9, StrSplit(ParametersNamesArray, ",", False));
+		Parameter3, Parameter4, Parameter5, Parameter6, Parameter7, Parameter8, Parameter9, StrSplit(ParametersNamesArray, 
+		",", False));
 		
 EndFunction
 
@@ -194,7 +205,6 @@ Function _Alg2(AlgorithmText) Export
 EndFunction
 
 #EndIf
-
 
 #EndRegion
 
