@@ -20,15 +20,15 @@ Function ReferenceTypesMap() Export
 	Return UT_CodeEditorServer.ReferenceTypesMap();
 EndFunction
 
-// Editors for assembly with converted module text.
+// Editors for Build with converted module text.
 // 
 // Parameters:
-//  EditorsForAssembly - Массив из look UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing - Editors for assembly
+//  EditorsForBuild - Массив из look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor - Editors for Build
 // 
 // Return values:
-// Массив из look UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing 
-Function EditorsForAssemblyWithConvertedTextModule(EditorsForAssembly) Export
-	Return UT_CodeEditorServer.EditorsForAssemblyWithConvertedTextModule(EditorsForAssembly);	
+// Массив из look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor 
+Function EditorsForBuildWithConvertedTextModule(EditorsForBuild) Export
+	Return UT_CodeEditorServer.EditorsForBuildWithConvertedTextModule(EditorsForBuild);	
 EndFunction
 
 // Link to the code in the service after downloading.
@@ -39,7 +39,7 @@ EndFunction
 // 
 // Return values:
 //  String -  Link to the code in the service after downloading
-Function СсылкаНаКодВСервисеПослеЗагрузки(TextOfAlgorithm, QueryMode) Export
+Function LinkToCodeInServiceAfterDownload(TextOfAlgorithm, QueryMode) Export
 	ResultOfSubmission = UT_Paste1CAPI.LoadingResultAlgorithmIntoService(TextOfAlgorithm, QueryMode);
 	If ResultOfSubmission = Undefined Then
 		UT_CommonClientServer.MesageToUser(NStr("ru = 'Не удалось загрузить алгоритм в сервис'; en = 'Failed to load the algorithm into the service'"));
