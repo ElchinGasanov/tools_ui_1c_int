@@ -1,0 +1,409 @@
+Folder PATH listing for volume Database
+Volume serial number is 2226-49FA
+D:.
++---Catalogs
+|   +---AdditionalReportsAndDataProcessors
+|   |   \---Commands
+|   |       \---UT_DebugSettings
+|   \---UT_Algorithms
+|       +---Forms
+|       |   +---EditorForm
+|       |   +---ItemForm
+|       |   +---ListForm
+|       |   |   \---Attributes
+|       |   |       \---List
+|       |   |           \---ExtInfo
+|       |   \---ParameterForm
+|       \---Help
++---CommonCommands
+|   \---UT_Settings
++---CommonForms
+|   +---UT_AdditionalDataProcessorDebugSettings
+|   +---UT_ConfigurationSourseFilesSaveSettings
+|   +---UT_DynamicListSettings
+|   |   \---Help
+|   +---UT_MetadataSelectionForm
+|   +---UT_SpecialValueForm
+|   +---UT_SpreadsheetDocumentEditor
+|   |   \---Help
+|   +---UT_SpreadsheetDocumentsComparison
+|   |   \---Attributes
+|   |       +---SpreadsheetDocumentLeft
+|   |       |   \---ExtInfo
+|   |       \---SpreadsheetDocumentRight
+|   |           \---ExtInfo
+|   +---UT_TextEditingForm
+|   +---UT_TimeConsumingOperation
+|   +---UT_ToolsSettings
+|   +---UT_ValueListEditingForm
+|   +---UT_ValueStorageForm
+|   +---UT_ValueTableEditor
+|   +---UT_ValueTableForm
+|   +---UT_ValueTypeEditor
+|   \---UT_WriteSettings
++---CommonModules
+|   +---AdditionalReportsAndDataProcessors
+|   +---AttachableCommandsOverridable
+|   +---UT_
+|   +---UT_AlgorithmsClient
+|   +---UT_AlgorithmsClientServer
+|   +---UT_AlgorithmsServer
+|   +---UT_AlgorithmsServerCall
+|   +---UT_ClipboardClient
+|   +---UT_Code
+|   +---UT_CodeEditorClient
+|   +---UT_CodeEditorClientServer
+|   +---UT_CodeEditorServer
+|   +---UT_CodeEditorServerCall
+|   +---UT_Common
+|   +---UT_CommonCached
+|   +---UT_CommonClient
+|   +---UT_CommonClientCached
+|   +---UT_CommonClientServer
+|   +---UT_CommonServerCall
+|   +---UT_Forms
+|   +---UT_FormsClient
+|   +---UT_FormsServer
+|   +---UT_HTTPConnector
+|   +---UT_Paste1CAPI
+|   +---UT_RegexpsClientServer
+|   +---UT_ScheduledJobsInternal
+|   +---UT_ScheduledJobsServer
+|   +---UT_StringFunctionsClientServer
+|   +---UT_TimeConsumingOperations
+|   +---UT_TimeConsumingOperationsClient
+|   +---UT_TimeConsumingOperationsGlobal
+|   +---UT_TimeConsumingOperationsServerCall
+|   +---UT_Users
+|   \---UT_XMLParcer
++---CommonPictures
+|   +---UT_AccumulationRecordType
+|   +---UT_ArbitraryType
+|   +---UT_Array
+|   +---UT_AutoRegistrationStatus
+|   +---UT_Boolean
+|   +---UT_Boundary
+|   +---UT_DatabaseObjectEditor
+|   +---UT_DataSetDCSObject
+|   +---UT_DataSetDCSQuery
+|   +---UT_DataSetDCSUnion
+|   +---UT_Date
+|   +---UT_Debug
+|   +---UT_ExchangePlanStates
+|   +---UT_ExecuteScheduledJobManually
+|   +---UT_FilesPictogramsCollection
+|   +---UT_FilesPictogramsCollection48
+|   +---UT_Information
+|   +---UT_Information32
+|   +---UT_JSON
+|   +---UT_MacroColumn
+|   +---UT_MetadataObjectsTypes
+|   +---UT_NewForm
+|   +---UT_Null
+|   +---UT_Number
+|   +---UT_PointInTime
+|   +---UT_QueryResult
+|   +---UT_Question32
+|   +---UT_QuestionToDeveloper
+|   +---UT_Repository
+|   +---UT_Semaphore
+|   +---UT_Share
+|   +---UT_String
+|   +---UT_Type
+|   +---UT_UniversalToolsSybsystem
+|   +---UT_UploadingResult
+|   +---UT_UUID
+|   +---UT_ValueList
+|   \---UT_ValueTable
++---CommonTemplates
+|   +---UT_Ace
+|   +---UT_AceColaborator
+|   +---UT_ClipboardAddin
+|   +---UT_MonacoEditor
+|   +---UT_MonacoEditorWindows
+|   +---UT_RegularExpressionsAddinRegEx
+|   +---UT_RegularExpressionsAddInRegExBrowsers
+|   \---UT_StringSearchComponent
++---Configuration
++---DataProcessors
+|   +---UT_CodeConsole
+|   |   \---Forms
+|   |       \---Form
+|   +---UT_ComparisonDataConsole
+|   |   +---Forms
+|   |   |   +---Form
+|   |   |   \---SortingSettingsForm
+|   |   +---Help
+|   |   \---Templates
+|   |       +---PictureActiveOperation1
+|   |       +---PictureActiveOperation2
+|   |       +---PictureActiveOperation3
+|   |       +---PictureActiveOperation4
+|   |       +---PictureActiveOperation5
+|   |       +---PictureActiveOperation6
+|   |       +---PictureActiveOperation7
+|   |       +---PictureActiveOperationA1
+|   |       +---PictureActiveOperationA2
+|   |       +---PictureActiveOperationA3
+|   |       +---PictureActiveOperationA4
+|   |       +---PictureActiveOperationA5
+|   |       +---PictureInactiveOperation1
+|   |       +---PictureInactiveOperation2
+|   |       +---PictureInactiveOperation3
+|   |       +---PictureInactiveOperation4
+|   |       +---PictureInactiveOperation5
+|   |       +---PictureInactiveOperation6
+|   |       +---PictureInactiveOperation7
+|   |       \---PreviewForm
+|   +---UT_ConfigurationNavigator
+|   |   +---Forms
+|   |   |   +---DisplayScaleSelectionForm
+|   |   |   +---Form
+|   |   |   +---InfoBaseUserForm
+|   |   |   +---Launch1CForm
+|   |   |   +---PropertiesForm
+|   |   |   \---SessionLockForm
+|   |   +---Help
+|   |   \---Templates
+|   |       \---ServiceTemplate
+|   +---UT_ConsoleWebServices
+|   |   \---Forms
+|   |       +---Form
+|   |       \---FormInputStructures
+|   +---UT_ConstantsEditor
+|   |   \---Forms
+|   |       \---ConstanstList
+|   +---UT_DatabaseStorageStructure
+|   |   +---Forms
+|   |   |   \---ManagedForm
+|   |   \---Help
+|   +---UT_DCSEditor
+|   |   \---Forms
+|   |       +---EditDataSetFieldRole
+|   |       +---EditExpression
+|   |       \---Form
+|   +---UT_DebugData
+|   |   +---Commands
+|   |   |   \---DebugData
+|   |   \---Forms
+|   |       \---Form
+|   +---UT_DuplicateObjectDetection
+|   |   +---Forms
+|   |   |   +---DuplicatesSearchArea
+|   |   |   +---FilterRules
+|   |   |   |   \---Help
+|   |   |   +---SearchForDuplicates
+|   |   |   |   \---Items
+|   |   |   |       +---Attention16
+|   |   |   |       +---Decoration5
+|   |   |   |       +---Information16
+|   |   |   |       +---TimeConsumingOperation48
+|   |   |   |       +---Warning32
+|   |   |   |       \---WarningPicture32
+|   |   |   \---SearchRules
+|   |   \---Help
+|   +---UT_DynamicList
+|   |   \---Forms
+|   |       \---Form
+|   +---UT_ExportImportDataXMLWithFilters
+|   |   +---Forms
+|   |   |   +---Form
+|   |   |   |   \---Items
+|   |   |   |       \---MetadataTree
+|   |   |   +---QueryConsoleSettings
+|   |   |   \---SelectFromQuery
+|   |   \---Help
+|   +---UT_FileManager
+|   |   \---Forms
+|   |       \---Form
+|   +---UT_GroupProcessingCatalogsAndDocuments
+|   |   +---Forms
+|   |   |   +---ArbitraryAlgorithm
+|   |   |   |   \---Help
+|   |   |   +---CancelPostingDocuments
+|   |   |   |   \---Help
+|   |   |   +---ChangeAmountOperation
+|   |   |   |   \---Help
+|   |   |   +---ChangeTimeDocuments
+|   |   |   |   \---Help
+|   |   |   +---Delete
+|   |   |   |   \---Help
+|   |   |   +---FormSelection
+|   |   |   +---FormSelectionTables
+|   |   |   +---MarkToDelete
+|   |   |   |   \---Help
+|   |   |   +---PostTheDocuments
+|   |   |   |   \---Help
+|   |   |   +---RenumberingObjects
+|   |   |   |   \---Help
+|   |   |   +---SelectionAndProcessing
+|   |   |   +---SettingAttributes
+|   |   |   |   \---Help
+|   |   |   +---TemplateProcessing
+|   |   |   |   \---Help
+|   |   |   \---UnmarkDeletion
+|   |   |       \---Help
+|   |   \---Help
+|   +---UT_HTMLEditor
+|   |   \---Forms
+|   |       \---Form
+|   +---UT_HTTPRequestConsole
+|   |   \---Forms
+|   |       \---Form
+|   +---UT_ImportDataFromSpreadsheetDocument
+|   |   +---Forms
+|   |   |   +---EditEventsForm
+|   |   |   +---EditExpressionForm
+|   |   |   +---EditLinkForm
+|   |   |   +---Form
+|   |   |   +---SaveSettingForm
+|   |   |   \---SelectSettingForm
+|   |   +---Help
+|   |   \---Templates
+|   |       \---SaveSettingsTemplate
+|   +---UT_JobsConsole
+|   |   +---Forms
+|   |   |   +---BackgroundJobDialog
+|   |   |   +---BackgroundJobFilterDialog
+|   |   |   +---Form
+|   |   |   +---ListSettingsDialog
+|   |   |   +---ScheduledJobDialog
+|   |   |   \---ScheduledJobFilterDialog
+|   |   \---Help
+|   +---UT_JSONEditor
+|   |   +---Forms
+|   |   |   \---Form
+|   |   \---Templates
+|   |       \---jsoneditor
+|   +---UT_LicenseInformation1C
+|   |   \---Forms
+|   |       +---Form
+|   |       \---FormLicenseActivation
+|   +---UT_MarkedObjectsDeletion
+|   |   +---Forms
+|   |   |   \---Form
+|   |   \---Help
+|   +---UT_ObjectReferencesSearch
+|   |   +---Forms
+|   |   |   \---Form
+|   |   \---Help
+|   +---UT_ObjectsAttributesEditor
+|   |   \---Forms
+|   |       +---ObjectForm
+|   |       +---RecordsEditorAdditionalForm
+|   |       \---RecordsEditorForm
+|   +---UT_ObjectsComparison
+|   |   +---Forms
+|   |   |   \---Form
+|   |   \---Templates
+|   |       \---PF_MXL_ComparisonObjects
+|   +---UT_PerformingSheduledJobsOnTheClient
+|   |   +---Forms
+|   |   |   +---Form
+|   |   |   \---PerformingSheduledJobsOnTheClient
+|   |   \---Templates
+|   |       \---Template
+|   +---UT_QueryConsole
+|   |   +---Forms
+|   |   |   +---ChoicePredefined
+|   |   |   +---CodeForm
+|   |   |   +---EditPointInTimeBoundary
+|   |   |   +---EditTable
+|   |   |   +---EditType
+|   |   |   +---EditUUID
+|   |   |   +---Form
+|   |   |   |   \---Items
+|   |   |   |       +---AddCommentsToQueryText
+|   |   |   |       +---AddCommentsToQueryText1
+|   |   |   |       +---AddLineFeedsToQueryText
+|   |   |   |       +---AddLineFeedsToQueryText1
+|   |   |   |       +---ExecuteDataProcessor
+|   |   |   |       +---FormatQueryText
+|   |   |   |       +---InsertPredefinedValue
+|   |   |   |       +---Picture_ChooseType
+|   |   |   |       +---QueryParametersForm
+|   |   |   |       +---QueryResultBatch
+|   |   |   |       +---QueryTextContextMenuFormatQueryText
+|   |   |   |       +---RemoveCommentsFromQueryText
+|   |   |   |       +---RemoveCommentsFromQueryText1
+|   |   |   |       +---RemoveLineFeedsFromQueryText
+|   |   |   |       +---RemoveLineFeedsFromQueryText1
+|   |   |   |       \---ShowHideResultPanelTotals
+|   |   |   +---Help
+|   |   |   +---Info
+|   |   |   |   \---Items
+|   |   |   |       \---Copy_Picture
+|   |   |   +---MacroColumnChoice
+|   |   |   +---PickupToList
+|   |   |   +---QueryPlanForm
+|   |   |   \---SpreadsheetDocumentForm
+|   |   +---Help
+|   |   \---Templates
+|   |       +---AlgorithmHelp_EN
+|   |       +---AlgorithmHelp_RU
+|   |       +---Pictures
+|   |       \---TLConfigTemplate
+|   +---UT_RegisterChangesForDataExchange
+|   |   \---Forms
+|   |       +---ExchangePlanNodeMessageNumbers
+|   |       +---Form
+|   |       |   \---Attributes
+|   |       |       +---ConstantsList
+|   |       |       |   \---ExtInfo
+|   |       |       +---RecordSetsList
+|   |       |       |   \---ExtInfo
+|   |       |       \---RefsList
+|   |       |           \---ExtInfo
+|   |       +---ObjectRegistrationNodes
+|   |       |   \---Items
+|   |       |       \---ExchangeNodesTree
+|   |       +---SelectConstant
+|   |       |   \---Items
+|   |       |       +---ConstantsList
+|   |       |       \---Decoration1
+|   |       +---SelectExchangePlanNode
+|   |       +---SelectObjectsUsingFilter
+|   |       |   \---Attributes
+|   |       |       \---DataList
+|   |       |           \---ExtInfo
+|   |       \---Settings
+|   +---UT_SettingsStoragesManager
+|   |   \---Forms
+|   |       \---Form
+|   +---UT_Support
+|   |   +---Commands
+|   |   |   +---AboutPage
+|   |   |   +---CheckUpdate
+|   |   |   \---QuestionToDeveloper
+|   |   \---Forms
+|   |       +---TasksList
+|   |       \---UpdateTools
+|   \---UT_UniversalDataExchangeXML
+|       +---Forms
+|       |   +---HandlerDebugSetupManagedForm
+|       |   \---ManagedForm
+|       +---Help
+|       \---Templates
+|           +---CommonProceduresFunctions
+|           \---HandlersParameters
++---HTTPServices
+|   \---UT_PublishedFunctions
++---Reports
+|   +---UT_ReportsConsole
+|   |   +---Forms
+|   |   |   +---DetailsForm
+|   |   |   +---Form
+|   |   |   |   \---Items
+|   |   |   |       \---ReportsTree
+|   |   |   \---VariantForm
+|   |   \---Templates
+|   |       \---MainDataCompositionSchema
+|   \---УИ_КонсольОтчетов
+|       \---Help
++---Roles
+|   \---UT_UniversalTools
+\---Subsystems
+    \---UT_UniversalTools
+        \---Subsystems
+            +---UT_Debug
+            \---UT_Support
