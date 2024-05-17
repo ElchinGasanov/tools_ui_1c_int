@@ -207,7 +207,8 @@ EndFunction
 // 
 Procedure UpdateIdleHandlerParameters(IdleHandlerParameters) Export
 	
-	IdleHandlerParameters.CurrentInterval = IdleHandlerParameters.CurrentInterval * IdleHandlerParameters.IntervalIncreaseCoefficient;
+	IdleHandlerParameters.CurrentInterval = IdleHandlerParameters.CurrentInterval 
+		* IdleHandlerParameters.IntervalIncreaseCoefficient;
 	If IdleHandlerParameters.CurrentInterval > IdleHandlerParameters.MaxInterval Then
 		IdleHandlerParameters.CurrentInterval = IdleHandlerParameters.MaxInterval;
 	EndIf;
