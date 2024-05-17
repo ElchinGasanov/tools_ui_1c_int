@@ -341,10 +341,10 @@ Function NewEditorEventOptions() Export
 	Return EditorEvents;
 EndFunction
  
-// New editor data for assembly DataProcessor.
+// New editor data for build DataProcessor.
 // 
 // Return values:
-//  Structure - New editor data for assembly DataProcessor:
+//  Structure - New editor data for build DataProcessor:
 // * Идентификатор - String -
 // * NamesOfPredefinedVariables - Array of String -
 // * TextEditor - String -
