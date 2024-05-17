@@ -127,6 +127,7 @@ EndFunction
 //   UT_StringFunctionsClientServer.SplitStringIntoWordsArray("one-@#two2_!three") will return an array of values: "one",
 //  "two2_", "three";  UT_StringFunctionsClientServer.SplitStringIntoWordsArray("one-@#two2_!three", 
 //  "#@!_") wil return an array of values: "one-", "two2", "three".
+
 Function SplitStringIntoWordArray(Val Value, WordSeparators = Undefined) Export
 	
 	Words = New Array;
@@ -171,15 +172,9 @@ Function SubstituteParametersToString(Val StringPattern,
 	Val Parameter4 = Undefined, Val Parameter5 = Undefined, Val Parameter6 = Undefined,
 	Val Parameter7 = Undefined, Val Parameter8 = Undefined, Val Parameter9 = Undefined) Export
 	
-	HasParametersWithPercentageChar = StrFind(Parameter1, "%")
-		Or StrFind(Parameter2, "%")
-		Or StrFind(Parameter3, "%")
-		Or StrFind(Parameter4, "%")
-		Or StrFind(Parameter5, "%")
-		Or StrFind(Parameter6, "%")
-		Or StrFind(Parameter7, "%")
-		Or StrFind(Parameter8, "%")
-		Or StrFind(Parameter9, "%");
+	HasParametersWithPercentageChar = StrFind(Parameter1, "%") Or StrFind(Parameter2, "%") Or StrFind(Parameter3, "%")
+		Or StrFind(Parameter4, "%") Or StrFind(Parameter5, "%") Or StrFind(Parameter6, "%") Or StrFind(Parameter7, "%")
+		Or StrFind(Parameter8, "%") Or StrFind(Parameter9, "%");
 		
 	If HasParametersWithPercentageChar Then
 		Return SubstituteParametersWithPercentageChar(StringPattern, Parameter1,
@@ -345,7 +340,8 @@ Function OnlyNumbersInString(Val Value, Val Obsolete = True, Val SpacesProhibite
 	Return StrLen(
 		StrReplace( StrReplace( StrReplace( StrReplace( StrReplace(
 		StrReplace( StrReplace( StrReplace( StrReplace( StrReplace( 
-			Value, "0", ""), "1", ""), "2", ""), "3", ""), "4", ""), "5", ""), "6", ""), "7", ""), "8", ""), "9", "")) = 0;
+			Value, "0", ""), "1", ""), "2", ""), "3", ""), "4", ""), "5", ""), "6", ""), "7", ""), "8", ""), "9", 
+		"")) = 0;
 	
 EndFunction
 
@@ -380,8 +376,7 @@ Function OnlyCyrillicInString(Val CheckString, Val WithWordSeparators = True, Al
 
 	For Index = 1 To StrLen(CheckString) Do
 		CharCode = CharCode(Mid(CheckString, Index, 1));
-		If ((CharCode < 1040) Or (CharCode > 1103)) 
-			AND (ValidCharCodes.Find(CharCode) = Undefined) 
+		If ((CharCode < 1040) Or (CharCode > 1103)) AND (ValidCharCodes.Find(CharCode) = Undefined) 
 			AND Not (Not WithWordSeparators AND IsWordSeparator(CharCode)) Then
 			Return False;
 		EndIf;
@@ -484,11 +479,15 @@ Function IsUUID(Val Value) Export
 	EndIf;
 	For Position = 1 To StrLen(Value) Do
 		If CharCode(Template, Position) = 88 // X
+		
 			AND ((CharCode(Value, Position) < 48 Or CharCode(Value, Position) > 57) // 0..9
+			
 			AND (CharCode(Value, Position) < 97 Or CharCode(Value, Position) > 102) // a..f
+			
 			AND (CharCode(Value, Position) < 65 Or CharCode(Value, Position) > 70)) // A..F
+			
 			Or CharCode(Template, Position) = 45 AND CharCode(Value, Position) <> 45 Then // -
-				Return False;
+			Return False;
 		EndIf;
 	EndDo;
 	
@@ -605,7 +604,8 @@ Function ReplaceCharsWithOther(CharsToReplace, Value, ReplacementChars) Export
 	Result = Value;
 	
 	For CharNumber = 1 To StrLen(CharsToReplace) Do
-		Result = StrReplace(Result, Mid(CharsToReplace, CharNumber, 1), Mid(ReplacementChars, CharNumber, 1));
+		Result = StrReplace(Result, Mid(CharsToReplace, CharNumber, 1), Mid(ReplacementChars, CharNumber, 
+			1));
 	EndDo;
 	
 	Return Result;
@@ -722,7 +722,8 @@ Function ConvertNumberIntoArabicNotation(RomanNumber, UseLatinChars = True) Expo
 		ElsIf Mid(RomanNumber,Cnt,1) = c5 Then
 			ArabicNumber = ArabicNumber+5;
 		ElsIf Mid(RomanNumber,Cnt,1) = c1 Then
-			If (Cnt < CountOfChars) AND ((Mid(RomanNumber,Cnt+1,1) = c5) Or (Mid(RomanNumber,Cnt+1,1) = c10)) Then
+			If (Cnt < CountOfChars) AND ((Mid(RomanNumber,Cnt+1,1) = c5) Or (Mid(RomanNumber,Cnt+1,1) 
+				= c10)) Then
 				ArabicNumber = ArabicNumber-1;
 			Else
 				ArabicNumber = ArabicNumber+1;
@@ -820,8 +821,7 @@ EndFunction
 // Returns:
 //  String - a string where Cyrillic is replaced by transliteration.
 //
-Function LatinString(Val Value) Export
-	
+Function LatinString(Val Value) Export	
 	Result = "";
 
 	Map = MapOfCyrillicAndLatinAlphabets();
@@ -1057,6 +1057,9 @@ EndFunction
 //
 // Parameters:
 // Identifier - String -
+// 
+// Returns:
+//   - String -
 //
 Function IdentifierPresentation(Identifier) Export
 	
@@ -1088,7 +1091,6 @@ Function NumberAtStringEnd(Val Value) Export
 	
 	CurrentValue=Value;
 	CharsAmountOnRight=0;
-	
 	While OnlyNumbersInString(Right(CurrentValue, 1)) Do
 		CharsAmountOnRight=CharsAmountOnRight + 1;
 		DeleteLastCharInString(CurrentValue, 1);
@@ -1157,6 +1159,8 @@ Function FindCharFromEnd(Val Row, Val Char) Export
 		
 EndFunction
 
+
+
 #EndRegion
 
 #Region Internal
@@ -1178,7 +1182,8 @@ Function ConvertFigureIntoRomanNotation(Figure, RomanOne, RomanFive, RomanTen)
 	RomanFigure="";
 	If Figure = 1 Then
 		RomanFigure = RomanOne
-	ElsIf Figure = 2 Then
+	ElsIf
+	Figure = 2 Then
 		RomanFigure = RomanOne + RomanOne;
 	ElsIf Figure = 3 Then
 		RomanFigure = RomanOne + RomanOne + RomanOne;
@@ -1225,7 +1230,8 @@ Function SubstituteParametersWithPercentageChar(Val SubstitutionString,
 			ParameterToSubstitute = Parameter6;
 		ElsIf CharAfterPercentage = "7" Then
 			ParameterToSubstitute = Parameter7
-		ElsIf CharAfterPercentage = "8" Then
+		ElsIf 
+		CharAfterPercentage = "8" Then
 			ParameterToSubstitute = Parameter8;
 		ElsIf CharAfterPercentage = "9" Then
 			ParameterToSubstitute = Parameter9;
