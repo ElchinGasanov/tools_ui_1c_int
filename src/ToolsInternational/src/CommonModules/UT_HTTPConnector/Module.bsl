@@ -17,7 +17,7 @@
 //
 // URL:    https://github.com/vbondarevsky/Connector
 // e-mail: vbondarevsky@gmail.com
-// Version: 2.3.1
+// Version: 2.5.0
 //
 // Requirements: 1C:Enterprise platform version **8.3.10** and higher.
 
