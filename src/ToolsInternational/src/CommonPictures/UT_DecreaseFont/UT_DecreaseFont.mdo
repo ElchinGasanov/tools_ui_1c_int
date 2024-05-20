@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a5728140-64cd-4669-80e8-cdca33899501">
+  <name>UT_DecreaseFont</name>
+  <synonym>
+    <key>ru</key>
+    <value>Decrease Font</value>
+  </synonym>
+</mdclass:CommonPicture>
