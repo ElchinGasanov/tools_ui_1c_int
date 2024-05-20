@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="42ba4b66-1010-4656-a6b3-61fa08eca45a">
+  <name>UT_FixedArray</name>
+  <synonym>
+    <key>ru</key>
+    <value>Fixed array</value>
+  </synonym>
+</mdclass:CommonPicture>
