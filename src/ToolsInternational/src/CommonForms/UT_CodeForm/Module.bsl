@@ -75,7 +75,7 @@ EndProcedure
 // 
 // Parameters:
 //  Result - Булево - Result
-//  CallOptions - Произвольный -
+//  CallOptions - Arbitrary -
 //  ExtraParameters - Undefined - Extra parameters
 &AtClient
 Procedure CopyToClipboardFinish(Result, CallOptions, ExtraParameters) Export
