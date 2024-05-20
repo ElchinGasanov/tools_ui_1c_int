@@ -97,6 +97,7 @@
   <commonModules>CommonModule.AttachableCommandsOverridable</commonModules>
   <commonModules>CommonModule.UT_</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsServerCall</commonModules>
+  <commonModules>CommonModule.UT_AlgorithmsClient</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsClientServer</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsServer</commonModules>
   <commonModules>CommonModule.UT_ClipboardClient</commonModules>
@@ -126,7 +127,9 @@
   <commonModules>CommonModule.UT_FormsClient</commonModules>
   <commonModules>CommonModule.UT_FormsServer</commonModules>
   <commonModules>CommonModule.UT_Paste1CAPI</commonModules>
-  <commonModules>CommonModule.UT_AlgorithmsClient</commonModules>
+  <commonModules>CommonModule.UT_CodeGenerator</commonModules>
+  <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_21_ClientServer</commonModules>
+  <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_18_Client</commonModules>
   <httpServices>HTTPService.UT_PublishedFunctions</httpServices>
   <commonCommands>CommonCommand.UT_Settings</commonCommands>
   <commonForms>CommonForm.UT_TimeConsumingOperation</commonForms>
