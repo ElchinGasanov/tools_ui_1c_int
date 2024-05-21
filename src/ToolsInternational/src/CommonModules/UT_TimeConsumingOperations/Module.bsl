@@ -154,8 +154,9 @@ Function ActionCompleted(Val JobID, Val ExceptionOnError = False, Val OutputProg
 	Job = FindJobByID(JobID);
 	If Job = Undefined Then
 		WriteLogEvent(NStr("ru = 'Длительные операции'; en = 'Time-consuming operations'", UT_CommonClientServer.DefaultLanguageCode()),
-			EventLogLevel.Error, , , NStr("ru = 'Фоновое задание не найдено:'; en = 'The background job is not found'") + " " + String(JobID));
-			If ExceptionOnError Then
+			EventLogLevel.Error, , , NStr("ru = 'Фоновое задание не найдено:'; en = 'The background job is not found'") + " " + String(
+			JobID));
+		If ExceptionOnError Then
 			Raise(NStr("ru = 'Не удалось выполнить данную операцию.'; en = 'Cannot perform the operation.'"));
 		EndIf;
 		Result.Status = "Error";
@@ -163,12 +164,13 @@ Function ActionCompleted(Val JobID, Val ExceptionOnError = False, Val OutputProg
 	EndIf;
 
 	If OutputProgressBar Then
-		ProgressAndMessages = ReadProgressAndMessages(JobID, ?(OutputMessages, "ProgressAndMessages", "Progress"));
+		ProgressAndMessages = ReadProgressAndMessages(JobID, ?(OutputMessages, 
+			"ProgressAndMessages", "Progress"));
 		Result.Progress = ProgressAndMessages.Progress;
 		If OutputMessages Then
 			Result.Messages = ProgressAndMessages.Messages;
 		EndIf;
-		ElsIf OutputMessages Then
+	ElsIf OutputMessages Then
 		Result.Messages = Job.GetUserMessages(True);
 	EndIf;
 
@@ -341,13 +343,11 @@ Procedure ExecuteProcedure(ProcedureName, ProcedureParameters)
 	EndIf;
 
 	Raise StrTemplate(
-		NStr("ru = 'Неверный формат параметра ИмяПроцедуры (переданное значение: %1)'; 
-		|	  en = 'Invalid format of ProcedureName parameter (passed value: %1)'"), ProcedureName);
+		NStr("ru = 'Неверный формат параметра ИмяПроцедуры (переданное значение: %1)'; 	  en = 'Invalid format of ProcedureName parameter (passed value: %1)'"), ProcedureName);
 
 EndProcedure
 
-Function RunBackgroundJobWithClientContext(ProcedureName,
-	ExecutionParameters, ProcedureParameters = Undefined) Export
+Function RunBackgroundJobWithClientContext(ProcedureName, ExecutionParameters, ProcedureParameters = Undefined) Export
 
 	BackgroundJobKey = ExecutionParameters.BackgroundJobKey;
 	BackgroundJobDescription = ?(IsBlankString(ExecutionParameters.BackgroundJobDescription),
@@ -386,9 +386,11 @@ Function RunBackgroundJob(ExecutionParameters, MethodName, Parameters, varKey, D
 
 		Session = GetCurrentInfoBaseSession();
 		If ExecutionParameters.WaitForCompletion = Undefined AND Session.ApplicationName = "BackgroundJob" Then
-			Raise NStr("ru = 'В файловой информационной базе невозможно одновременно выполнять более одного фонового задания'; en = 'In a file infobase, only one background job can run at a time.'");
+			Raise NStr(
+				"ru = 'В файловой информационной базе невозможно одновременно выполнять более одного фонового задания'; en = 'In a file infobase, only one background job can run at a time.'");
 		ElsIf Session.ApplicationName = "COMConnection" Then
-			Raise NStr("ru = 'В файловой информационной базе можно запустить фоновое задание только из клиентского приложения'; en = 'In a file infobase, background jobs can only be started from the client application.'");
+			Raise NStr(
+				"ru = 'В файловой информационной базе можно запустить фоновое задание только из клиентского приложения'; en = 'In a file infobase, background jobs can only be started from the client application.'");
 		EndIf;
 		
 	EndIf;
@@ -450,7 +452,8 @@ Function BackgroundExecutionParameters(Val FormID) Export
 	Result = New Structure;
 	Result.Insert("FormID", FormID); 
 	Result.Insert("AdditionalResult", False);
-	Result.Insert("WaitForCompletion", ?(GetClientConnectionSpeed() = ClientConnectionSpeed.Low, 4, 0.8));
+	Result.Insert("WaitForCompletion", ?(GetClientConnectionSpeed() 
+		= ClientConnectionSpeed.Low, 4, 0.8));
 	Result.Insert("BackgroundJobDescription", "");
 	Result.Insert("BackgroundJobKey", "");
 	Result.Insert("ResultAddress", Undefined);
@@ -482,6 +485,7 @@ Procedure CancelJobExecution(Val JobID) Export
 
 	Job = FindJobByID(JobID);
 	If Job = Undefined	Or Job.State <> BackgroundJobState.Active Then
+		
 		Return;
 	EndIf;
 
@@ -515,7 +519,8 @@ EndFunction
 //  AdditionalParameters - Arbitrary - any additional information that must be passed to the client.
 //                                           The value must be serialized into the XML string.
 //
-Процедура ReportProgress(Val Percent = Undefined, Val Text = Undefined, Val AdditionalParameters = Undefined) Export
+Процедура ReportProgress(Val Percent = Undefined, Val Text = Undefined, 
+	Val AdditionalParameters = Undefined) Export
 	
 	If GetCurrentInfoBaseSession().GetBackgroundJob() = Undefined Then
 		Return;
@@ -543,10 +548,7 @@ EndProcedure
 // 
 // Parameters:
 //  DeleteReceived    - Boolean                  - the flag indicates whether the received messages need to be deleted.
-//  JobID - UUID - the ID of the background job corresponding to a time-consuming operation that 
-//                                                   generates messages intended for the user.
-//                                                   If not set, the messages intended for the user 
-//                                                   are returned from the current user session.
+//  JobID - UUID - the ID of the background job corresponding to a time-consuming operation that generates messages intended for the user. If not set, the messages intended for the user are returned from the current user session.
 // 
 // Returns:
 //  FixedArray - UserMessage objects that were generated in the background job.
@@ -579,8 +581,7 @@ Function UserMessages(DeleteReceived = False, JobID = Undefined) Export
 EndFunction
 
 // Checks background job state by the passed ID.
-// If the job terminates abnormally, raises the exception that was generated or a common exception 
-// "Cannot perform the operation. See the event log for details.
+// If the job terminates abnormally, raises the exception that was generated or a common exception "Cannot perform the operation. See the event log for details.
 //
 // Parameters:
 //  JobID - UUID - the background job ID.
@@ -592,8 +593,7 @@ Function JobCompleted(Val JobID) Export
 	
 	Job = FindJobByID(JobID);
 	
-	If Job <> Undefined
-		AND Job.State = BackgroundJobState.Active Then
+	If Job <> Undefined AND Job.State = BackgroundJobState.Active Then
 		Return False;
 	EndIf;
 	
@@ -611,11 +611,8 @@ Function JobCompleted(Val JobID) Export
 			EndIf;
 		ElsIf Job.State = BackgroundJobState.Canceled Then
 			WriteLogEvent(
-				NStr("ru = 'Длительные операции.Фоновое задание отменено администратором'; 
-				|en = 'Time-consuming operations.Background job canceled by administrator'",
-				UT_CommonClientServer.DefaultLanguageCode()), EventLogLevel.Error,
-				,
-				,
+				NStr("ru = 'Длительные операции.Фоновое задание отменено администратором'; en = 'Time-consuming operations.Background job canceled by administrator'",
+				UT_CommonClientServer.DefaultLanguageCode()), EventLogLevel.Error,,,
 				NStr("ru = 'Задание завершилось с неизвестной ошибкой.'; en = 'The job completed with an unknown error.'"));
 		Else
 			Return True;
@@ -627,9 +624,7 @@ Function JobCompleted(Val JobID) Export
 		Raise(ErrorText);
 	ElsIf ActionNotExecuted Then
 		Raise(NStr("ru = 'Не удалось выполнить данную операцию. 
-		                             |Подробности см. в Журнале регистрации.'; 
-		                             |en = 'Cannot perform the operation. 
-		                             |For more information, see the event log.'"));
+		                             |Подробности см. в Журнале регистрации.'; en = 'Cannot perform the operation. For more information, see the event log.'"));
 	EndIf;
 	
 EndFunction

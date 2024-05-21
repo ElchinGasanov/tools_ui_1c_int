@@ -5,79 +5,79 @@
 // Начать сборку обработок для исполнения кода.
 // 
 // Parameters:
-//  Form - ClientApplicationForm- Form
-//  DescriptionCompleteAlerts -ОписаниеОповещения-Описание оповещения о завершении
-//  ИменаПредустановленныхПеременных - Структура, Undefined -
-//  ИдентификаторыРедакторовДляИсполненияНаКлиенте - Массив In Строка, Undefined -
-Procedure НачатьСборкуОбработокДляИсполненияКода(Form, DescriptionCompleteAlerts,
-	ИменаПредустановленныхПеременных = Undefined, ИдентификаторыРедакторовДляИсполненияНаКлиенте = Undefined) Export
-	РедакторыКода = УИ_РедакторКодаКлиентСервер.РедакторыФормы(Form);
+//  Form - ClientApplicationForm - Form
+//  CallbackDescriptionAboutCompletion - CallbackDescription - Description of the completion alert
+//  NamesOfPredefinedVariables - Structure, Undefined -
+//  EditorsIDForExecutionAtClient - Array of Строка, Undefined -
+Procedure StartBuildDataProcessorForCodeExecution(Form, CallbackDescriptionAboutCompletion,
+	NamesOfPredefinedVariables = Undefined, EditorsIDForExecutionAtClient = Undefined) Export
+	CodeEditors = UT_CodeEditorClientServer.FormEditors(Form);
 
-	EditorsForAssembly = New Array;
-	For Each  КлючЗначение In РедакторыКода Do
-		If Not КлючЗначение.Значение.ИспользоватьОбработкуДляВыполненияКода Then
-			Продолжить;
+	EditorsForBuild = New Array;
+	For Each  KeyAndValue In CodeEditors Do
+		If Not KeyAndValue.Value.UseProcessingToExecuteCode Then
+			Continue;
 		EndIf;
 
-		ДанныеРедактораДляСборки = UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing();
-		ДанныеРедактораДляСборки.Идентификатор = КлючЗначение.Ключ;
-		If ИдентификаторыРедакторовДляИсполненияНаКлиенте <> Undefined Then
-			ДанныеРедактораДляСборки.ИсполнениеНаКлиенте = ИдентификаторыРедакторовДляИсполненияНаКлиенте.Найти(КлючЗначение.Ключ) <> Undefined;
+		EditorDataForBuild = UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor();
+		EditorDataForBuild.ID = KeyAndValue.Key;
+		If EditorsIDForExecutionAtClient <> Undefined Then
+			EditorDataForBuild.ExecutionAtClient = EditorsIDForExecutionAtClient.Find(KeyAndValue.Key) <> Undefined;
 		EndIf;
-		ДанныеРедактораДляСборки.ТекстРедактора = ТекстКодаРедактора(Form, КлючЗначение.Ключ);
-		ДанныеРедактораДляСборки.ИмяПодключаемойОбработки = УИ_РедакторКодаКлиентСервер.ИмяПодключаемойОбработкиДляИсполненияКодаРедактора(КлючЗначение.Ключ);
+		EditorDataForBuild.TextEditor = EditorCodeText(Form, KeyAndValue.Key);
+		EditorDataForBuild.ИмяПодключаемойОбработки = UT_CodeEditorClientServer.NameOfConnectedDataProcessorForExecutionCodeEditor(KeyAndValue.Key);
 
-		If ИменаПредустановленныхПеременных <> Undefined Then
-			If ИменаПредустановленныхПеременных.Свойство(КлючЗначение.Ключ) Then
-				ДанныеРедактораДляСборки.ИменаПредустановленныхПеременных = ИменаПредустановленныхПеременных[КлючЗначение.Ключ];
+		If NamesOfPredefinedVariables <> Undefined Then
+			If NamesOfPredefinedVariables.Property(KeyAndValue.Key) Then
+				EditorDataForBuild.NamesOfPredefinedVariables = NamesOfPredefinedVariables[KeyAndValue.Key];
 			EndIf;
 		EndIf;
 
-		НужнаСборка	= Истина;
+		NeedBuild	= True;
 
-		КэшСборкиОбработкиРедактора = КлючЗначение.Значение.КэшРезультатовПодключенияОбработкиИсполнения; //см. УИ_РедакторКодаКлиентСервер.НовыйКэшРезультатовПодключенияОбработкиИсполнения
-		If КэшСборкиОбработкиРедактора <> Undefined Then
-			ВсеПеременныеЕстьВСобраннойОбработке = Истина;
+		EditorDataProcessorCache = KeyAndValue.Value.CacheResultsConnectionsProcessingExecution; //см. UT_CodeEditorClientServer.NewCacheResultsConnectionsProcessingExecution
+		If EditorDataProcessorCache <> Undefined Then
+			ВсеПеременныеЕстьВСобраннойОбработке = True;
 			
-			For Each  Стр In ДанныеРедактораДляСборки.ИменаПредустановленныхПеременных Do
-				If КэшСборкиОбработкиРедактора.ИменаПредустановленныхПеременных.Найти(НРег(Стр)) = Undefined Then
-					ВсеПеременныеЕстьВСобраннойОбработке = Ложь;
+			For Each Str In EditorDataForBuild.NamesOfPredefinedVariables Do
+				If EditorDataProcessorCache.NamesOfPredefinedVariables.Найти(Lower(Str)) = Undefined Then
+					ВсеПеременныеЕстьВСобраннойОбработке = False;
 					Прервать;
 				EndIf;
 			EndDo;
 
-			НужнаСборка = ДанныеРедактораДляСборки.ИсполнениеНаКлиенте <> КэшСборкиОбработкиРедактора.ИсполнениеНаКлиенте
-						  Или ДанныеРедактораДляСборки.ТекстРедактора <> КэшСборкиОбработкиРедактора.ТекстРедактора
-						  Или Не ВсеПеременныеЕстьВСобраннойОбработке;
+			NeedBuild = EditorDataForBuild.ExecutionAtClient <> EditorDataProcessorCache.ExecutionAtClient
+						  Or EditorDataForBuild.TextEditor <> EditorDataProcessorCache.TextEditor
+						  Or Not ВсеПеременныеЕстьВСобраннойОбработке;
 		EndIf;
 
-		If Not НужнаСборка Then
-			Продолжить;
+		If Not NeedBuild Then
+			Continue;
 		EndIf;
 		
-		If Not ValueIsFilled(ДанныеРедактораДляСборки.ТекстРедактора) Then
-			Продолжить;
+		If Not ValueIsFilled(EditorDataForBuild.TextEditor) Then
+			Continue;
 		EndIf;
 		
-		EditorsForAssembly.Добавить(ДанныеРедактораДляСборки);
+		EditorsForBuild.Add(EditorDataForBuild);
 
 	EndDo;
 	
-	If EditorsForAssembly.Количество() = 0 Then
-		ВыполнитьОбработкуОповещения(DescriptionCompleteAlerts, Истина);
+	If EditorsForBuild.Count() = 0 Then
+		ВыполнитьОбработкуОповещения(CallbackDescriptionAboutCompletion, True);
 		Return;
 	EndIf;
 
-	ПараметрыСборкиОбработок = NewAssemblyParametersProcessingForEditors();
-	ПараметрыСборкиОбработок.Form = Form;
-	ПараметрыСборкиОбработок.EditorsForAssembly = УИ_РедакторКодаВызовСервера.EditorsForAssemblyСПреобразованнымТекстомМодуля(EditorsForAssembly);
-	ПараметрыСборкиОбработок.DescriptionCompleteAlerts = DescriptionCompleteAlerts;
-	ПараметрыСборкиОбработок.CatalogTemplateProcessing = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначенияКлиент.КаталогВспомогательныхБиблиотекИнструментов(),
-																									  "ШаблонОбработки");
+	DataProcessorsBuildOptions = NewBuildParametersDataProcessorsForEditors();
+	DataProcessorsBuildOptions.Form = Form;
+	DataProcessorsBuildOptions.EditorsForBuild = UT_CodeEditorServerCall.EditorsForBuildWithConvertedTextModule(EditorsForBuild);
+	DataProcessorsBuildOptions.CallbackDescriptionAboutCompletion = CallbackDescriptionAboutCompletion;
+	DataProcessorsBuildOptions.CatalogTemplateProcessing = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначенияКлиент.КаталогВспомогательныхБиблиотекИнструментов(),
+																									  "DataProcessorTemplate");
 
-	НачатьСохранениеШаблонаОбработкиНаДиск(ПараметрыСборкиОбработок.CatalogTemplateProcessing,
-										   Новый ОписаниеОповещения("НачатьСборкуОбработокДляИсполненияКодаЗавершениеСохраненияШаблонаОбработки",
-		ЭтотОбъект, ПараметрыСборкиОбработок));
+	StartSavingProcessingTemplateToDisk(DataProcessorsBuildOptions.CatalogTemplateProcessing,
+										   New CallbackDescription("StartBuildDataProcessorForCodeExecutionDataProcessorsCompletingSavingTemplate",
+		ThisObject, DataProcessorsBuildOptions));
 
 EndProcedure
 
@@ -116,20 +116,20 @@ Procedure HTMLEditorFieldOnClick(Form, Item, EventData, StandardProcessing) Expo
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 	EditorTypes = UT_CodeEditorClientServer.CodeEditorVariants();
 	
-	Событие = Undefined;
+	Event = Undefined;
 
 	If EditorType = EditorTypes.Monaco Then
-		Событие = HTMLEditorFieldOnClickMonaco(Form, Item, EventData, StandardProcessing);
-	ElsIf EditorType = ВидыРедактора.Ace Then 
-		Событие = EventToHandleWhenClickedAce(Form, Element, ДанныеСобытия)		
+		Event = HTMLEditorFieldOnClickMonaco(Form, Item, EventData, StandardProcessing);
+	ElsIf EditorType = EditorType.Ace Then 
+		Event = EventToHandleWhenClickedAce(Form, Item, EventData)		
 	EndIf;
 
-	If Событие = Undefined Then
+	If Event = Undefined Then
 		Return;
 	EndIf;
-	Form.УИ_РедакторКодаКлиентскиеДанные.События.Добавить(Событие);
+	Form.УИ_РедакторКодаКлиентскиеДанные.События.Добавить(Event);
 
-	Form.ПодключитьОбработчикОжидания("Подключаемый_РедакторКодаОтложеннаяОбработкаСобытийРедактора", 0.1, Истина);
+	Form.AttachIdleHandler("Подключаемый_РедакторКодаОтложеннаяОбработкаСобытийРедактора", 0.1, True);
 
 	
 EndProcedure
@@ -161,7 +161,7 @@ Procedure EditorEventsDeferProcessing(Form) Export
 				
 			EndIf;
 		Elsif CurrentEvent.EventName = "EVENT_CONTENT_CHANGED" 
-			Или ТекущееСобытие.ИмяСобытия = "ACE_EVENT_CONTENT_CHANGED" Then
+			Или CurrentEvent.ИмяСобытия = "ACE_EVENT_CONTENT_CHANGED" Then
 			FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
 			EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form,
 				CurrentEvent.Item);		
@@ -173,44 +173,44 @@ Procedure EditorEventsDeferProcessing(Form) Export
 			EndIf;
 		ElsIf CurrentEvent.EventName = "INSERT_MACRO_COLUMN" Then
 			InsertFormItemQueryEditorMacroColumn(Form, CurrentEvent.Item);
-		ElsIf ТекущееСобытие.ИмяСобытия = "EVENT_GET_DEFINITION" Then
-			If ValueIsFilled(ТекущееСобытие.ДанныеСобытия.Модуль) Then
-				ИмяМодуля = "module." + ТекущееСобытие.ДанныеСобытия.Модуль;
+		ElsIf CurrentEvent.EventName = "EVENT_GET_DEFINITION" Then
+			If ValueIsFilled(CurrentEvent.EventData.Module) Then
+				ModuleName = "module." + CurrentEvent.EventData.Module;
 
-				ОткрытыеФормыПросмотраОпределений = УИ_ОбщегоНазначенияКлиент.ФормыПоКлючуУникальности(ВРег(ТекущееСобытие.ДанныеСобытия.Модуль),
+				OpenFormsViewDefinitions = УИ_ОбщегоНазначенияКлиент.ФормыПоКлючуУникальности(Upper(CurrentEvent.EventData.Module),
 																									   "ОбщаяФорма.УИ_ФормаКода");
-				If ОткрытыеФормыПросмотраОпределений.Количество() > 0 Then
-					ФормаКода = ОткрытыеФормыПросмотраОпределений[0];
-					ПерейтиКОпределениюМетодаРедактора(ФормаКода, "Код", ТекущееСобытие.ДанныеСобытия.Слово);
-					ФормаКода.Активизировать();
-				Иначе
+				If OpenFormsViewDefinitions.Count() > 0 Then
+					CodeForm = OpenFormsViewDefinitions[0];
+					GotoEditorMethodDefinition(CodeForm, "Код", CurrentEvent.EventData.Word);
+					CodeForm.Activate();
+				Else
 
-					РедакторыФормы = ДополнительныеПараметры.Form[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
-					ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form,
-																											   ТекущееСобытие.Элемент);
-					EditorOptions = РедакторыФормы[ИдентификаторРедактора];
+					FormEditors = AdditionalParameters.Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
+					EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form,
+																											   CurrentEvent.Элемент);
+					EditorOptions = FormEditors[EditorID];
 
-					ПараметрыОповещения = New Structure;
-					ПараметрыОповещения.Вставить("ИдентификаторРедактора", ИдентификаторРедактора);
-					ПараметрыОповещения.Вставить("Form", Form);
-					ПараметрыОповещения.Вставить("ТекущееСобытие", ТекущееСобытие);
+					CallbackSettings = New Structure;
+					CallbackSettings.Вставить("EditorID", EditorID);
+					CallbackSettings.Вставить("Form", Form);
+					CallbackSettings.Вставить("CurrentEvent", CurrentEvent);
 
-					НачатьПолучениеТекстаМодуляИзИсходныхФайлов(ИмяМодуля,
-																EditorOptions.EditorOptions.КаталогиИсходныхФайлов,
-																Новый ОписаниеОповещения("ОткрытьОпределениеПроцедурыМодуляЗавершениеПолученияТекстаМодуля",
-						ЭтотОбъект, ПараметрыОповещения));
+					StartGettingModuleTextFromSourceFiles(ModuleName,
+																EditorOptions.EditorOptions.DirectoriesOfSourceFiles,
+																New CallbackDescription("OpenModuleProcedureDefinitionCompletionOfReceivingTextModule",
+						ThisObject, CallbackSettings));
 				EndIf;
 			EndIf;
-		ElsIf ТекущееСобытие.ИмяСобытия = "TOOLS_UI_1C_COPY_TO_CLIPBOARD" Then
-			ВыделенныйТекст = ВыделенныйТекстРедактораЭлементаФормы(Form, ТекущееСобытие.Элемент);
-			УИ_БуферОбменаКлиент.НачатьКопированиеСтрокиВБуфер(ВыделенныйТекст,
-															   Новый ОписаниеОповещения("НачатьКопированиеВыделенногоТекстаВБуферОбменаЗавершение",
-				ЭтотОбъект, ДополнительныеПараметры));
-		ElsIf ТекущееСобытие.ИмяСобытия = "TOOLS_UI_1C_PASTE_FROM_CLIPBOARD" Then
-			УИ_БуферОбменаКлиент.НачатьПолучениеСтрокиИзБуфера(Новый ОписаниеОповещения("НачатьВставкуИзБуферОбменаЗавершениеПолученияТекста",
-				ЭтотОбъект, ДополнительныеПараметры));
-		ElsIf ТекущееСобытие.ИмяСобытия = "COLABORATOR_READY" Then 
-			НачатьСессиюВзаимодействияРедактораКодаЭлементаФормы(Form, ТекущееСобытие.Элемент);
+		ElsIf CurrentEvent.EventName = "TOOLS_UI_1C_COPY_TO_CLIPBOARD" Then
+			ВыделенныйТекст = EditorSelectedTextFormItem(Form, CurrentEvent.Item);
+			UT_ClipboardClient.BeginCopyTextToClipboard(ВыделенныйТекст,
+															   New CallbackDescription("StartCopyingSelectedTextToClipboardFinish",
+				ThisObject, AdditionalParameters));
+		ElsIf CurrentEvent.EventName = "TOOLS_UI_1C_PASTE_FROM_CLIPBOARD" Then
+			UT_ClipboardClient.BeginGettingTextFormClipboard(New CallbackDescription("StartPastingFromClipboardCompletingReceiveText",
+				ThisObject, AdditionalParameters));
+		ElsIf CurrentEvent.EventName = "COLABORATOR_READY" Then 
+			ItemFormStartCodeEditorInteractionSession(Form, CurrentEvent.Item);
 		EndIf;
 		
 	EndDo;
@@ -221,34 +221,34 @@ EndProcedure
 // Выполнить команду редактора кода.
 // 
 // Parameters:
-//  Form -ClientApplicationForm-Form
-//  Команда -КомандаФормы-Команда
-Procedure ВыполнитьКомандуРедактораКода(Form, Команда) Export
-	СтруктураКоманды = УИ_РедакторКодаКлиентСервер.СтруктураИмениКомандыФормы(Команда.Имя);
+//  Form - ClientApplicationForm - Form
+//  Сommand - FormCommand - Сommand
+Procedure ExecuteCodeEditorCommand(Form, Сommand) Export
+	CommandStructure = UT_CodeEditorClientServer.StructureNameCommandForms(Сommand.Name);
 
-	РедакторыФормы =  УИ_РедакторКодаКлиентСервер.РедакторыФормы(Form);
-	EditorOptions = РедакторыФормы[СтруктураКоманды.ИдентификаторРедактора];
+	FormEditors =  UT_CodeEditorClientServer.FormEditors(Form);
+	EditorOptions = FormEditors[CommandStructure.EditorID];
 	
-	If СтруктураКоманды.ИмяКоманды = УИ_РедакторКодаКлиентСервер.ИмяКомандыРежимВыполненияЧерезОбработку() Then
-		EditorOptions.ИспользоватьОбработкуДляВыполненияКода = Не EditorOptions.ИспользоватьОбработкуДляВыполненияКода;
-		Form.Элементы[Команда.Имя].Пометка = EditorOptions.ИспользоватьОбработкуДляВыполненияКода;
-	ElsIf СтруктураКоманды.ИмяКоманды = УИ_РедакторКодаКлиентСервер.ИмяКомандыПоделитьсяАлгоритмом() Then
-		ТекстАлгоритма = ТекстКодаРедактора(Form, СтруктураКоманды.ИдентификаторРедактора);
-		ЭтоЗапрос = EditorOptions.Язык = "bsl_query";
+	If CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing() Then
+		EditorOptions.UseProcessingToExecuteCode = Not EditorOptions.UseProcessingToExecuteCode;
+		Form.Items[Сommand.Name].Mark = EditorOptions.UseProcessingToExecuteCode;
+	ElsIf CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameShareAlgorithm() Then
+		TextOfAlgorithm = EditorCodeText(Form, CommandStructure.EditorID);
+		isRequest = EditorOptions.Language = "bsl_query";
 
-		ПоделитьсяКодом(ТекстАлгоритма, ЭтоЗапрос, Form);
-	ElsIf СтруктураКоманды.ИмяКоманды = УИ_РедакторКодаКлиентСервер.ИмяКомандыЗагрузитьАлгоритм() Then
-		ПараметрыОповещения = New Structure;
-		ПараметрыОповещения.Вставить("Form", Form);
-		ПараметрыОповещения.Вставить("ИдентификаторРедактора", СтруктураКоманды.ИдентификаторРедактора);
+		ShareCode(TextOfAlgorithm, isRequest, Form);
+	ElsIf CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameLoadAlgorithm() Then
+		CallbackSettings = New Structure;
+		CallbackSettings.Вставить("Form", Form);
+		CallbackSettings.Вставить("EditorID", CommandStructure.EditorID);
 
-		НачатьЗагрузкуКодаИзСервиса(Новый ОписаниеОповещения("НачатьЗагрузкуКодаИзСервисаЗавершение", ЭтотОбъект,
-			ПараметрыОповещения));
-	ElsIf СтруктураКоманды.ИмяКоманды = УИ_РедакторКодаКлиентСервер.ИмяКомандыКонструкторЗапроса() Then
-	ElsIf СтруктураКоманды.ИмяКоманды = УИ_РедакторКодаКлиентСервер.ИмяКомандыНачатьСессиюВзаимодействия() Then
-		 НачатьСессиюВзаимодействияСЗапросомПараметровРедактораКода(Form, СтруктураКоманды.ИдентификаторРедактора);
-	ElsIf СтруктураКоманды.ИмяКоманды = УИ_РедакторКодаКлиентСервер.ИмяКомандыЗакончитьСессиюВзаимодействия() Then
-		 ЗавершитьСессиюВзаимодействияРедактораКода(Form, СтруктураКоманды.ИдентификаторРедактора);
+		StartLoadingCodeFromService(New CallbackDescription("StartLoadingCodeFromServiceCompletion", ThisObject,
+			CallbackSettings));
+	ElsIf CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameQueryConstructor() Then
+	ElsIf CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameStartSessionInteractions() Then
+		 StartSessionInteractionWithCodeEditorParametersRequest(Form, CommandStructure.EditorID);
+	ElsIf CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameFinishSessionInteractions() Then
+		 FinishCodeEditorInteractionSession(Form, CommandStructure.EditorID);
 	EndIf;
 EndProcedure
 
@@ -285,18 +285,18 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 			If ValueIsFilled(EditorSettings.EditorSettings.FontSize) Then
 				DocumentView.editor.setFontSize(EditorSettings.EditorSettings.FontSize);
 			EndIf;
- 			DocumentView.editor.setAutoScrollEditorIntoView(Истина);
+ 			DocumentView.editor.setAutoScrollEditorIntoView(True);
 			DocumentView.editor.resize();
 			
-			ТекЯзык=НРег(EditorOptions.Язык);
-			If ТекЯзык = "bsl" Then
-				ТекЯзык="_1c";
+			CurrentLanguage = Lower(EditorSettings.Language);
+			If CurrentLanguage = "bsl" Then
+				CurrentLanguage="_1c";
 			EndIf;
 			
-			DocumentView.appTo1C.setMode(ТекЯзык);
+			DocumentView.appTo1C.setMode(CurrentLanguage);
 			
-			If ValueIsFilled(EditorOptions.СобытияРедактора.ПриИзменении) Then
-				DocumentView.appTo1C.setGenerateModificationEvent(Истина);
+			If ValueIsFilled(EditorSettings.СобытияРедактора.ПриИзменении) Then
+				DocumentView.appTo1C.setGenerateModificationEvent(True);
 			EndIf;
 						
 		ElsIf EditorType = EditorTypes.Monaco Then
@@ -332,7 +332,7 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 			DocumentView.disableKeyBinding(9);//esc
 //			DocumentView.disableKeyBinding(2081); //ctrl+c
 			DocumentView.setOption("generateDefinitionEvent", True);
-			DocumentView.setOption("disableDefinitionMessage", Истина);
+			DocumentView.setOption("disableDefinitionMessage", True);
 //			DocumentView.setOption("generateSnippetEvent", True);
 			DocumentView.setOption("autoResizeEditorLayout", True);
 			
@@ -378,7 +378,7 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 				DocumentView.setOption("generateModificationEvent", True);
 			EndIf;
 						
-			If EditorOptions.EditorOptions.ИспользоватьКомандыРаботыСБуферомВКонтекстномМеню Then
+			If EditorSettings.EditorSettings.ИспользоватьКомандыРаботыСБуферомВКонтекстномМеню Then
 				AddMenuItem(DocumentView,
 								  ThereAreAddedCommandsForEditorContextMenuMonaco,
 								  "TOOLS_UI_1C_COPY_TO_CLIPBOARD",
@@ -408,8 +408,8 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 			EditorSettings.EditorTextCache = Undefined;
 		EndIf;
 		
-		If EditorOptions.ТолькоПросмотр Then
-			УстановитьРежимТолькоПросмотрРедактора(Form, КлючЗначение.Ключ, Истина);
+		If EditorSettings.ViewOnly Then
+			SetEditorViewOnlyMode(Form, KeyValue.Key, True);
 		EndIf;		
 	EndDo;
 EndProcedure
@@ -638,7 +638,7 @@ Function CodeEditorOriginalText(Form, EditorID) Export
 	Endif;
 	
 	If EditorType = EditorsTypes.Monaco Then
-		HTMLDocument=Form.Элементы[EditorParameters.EditorField].Document.defaultView;
+		HTMLDocument=Form.Items[EditorParameters.EditorField].Document.defaultView;
 		Return HTMLDocument.getOriginalText();
 	Else 
 		Return "";
@@ -980,7 +980,7 @@ Procedure DeleteEditorLinesComments(Form, EditorID) Export
 		Return;
 	EndIf;
 
-	If EditorType = EditorsTypes.Текст Then
+	If EditorType = EditorsTypes.Text Then
 		CodeText = Form[EditorSettings.AttributeName];
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
 
@@ -1112,7 +1112,7 @@ Procedure DeleteEditorLineBreaks(Form, EditorID) Export
 		Return;
 	EndIf;
 
-	If EditorType = EditorsTypes.Текст Then
+	If EditorType = EditorsTypes.Text Then
 		CodeText = Form[EditorSettings.AttributeName];
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
 
@@ -1219,34 +1219,34 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm-
-//  ИдентификаторРедактора - String - Идентификатор редактора
+//  EditorID - String - Идентификатор редактора
 // 
 // Return values:
 // Булево 
-Function РежимТолькоПросмотрРедактора(Form, ИдентификаторРедактора) Export
+Function EditorViewOnlyMode(Form, EditorID) Export
 	TypesOfEditors = UT_CodeEditorClientServer.CodeEditorVariants();
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 
-	РедакторыФормы = Form[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
+	FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
 
-	EditorOptions = РедакторыФормы[ИдентификаторРедактора];
-	If Not EditorOptions.Инициализирован Then
-		If Not EditorOptions.Видимость Then
+	EditorOptions = FormEditors[EditorID];
+	If Not EditorOptions.Initialized Then
+		If Not EditorOptions.Visibility Then
 				
-			Return EditorOptions.ТолькоПросмотр;
+			Return EditorOptions.ViewOnly;
 		EndIf;
 	
-		Return Ложь;
+		Return False;
 	EndIf;
 	
 	If EditorType = TypesOfEditors.Monaco Then
-		DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
+		DocumentHTML=Form.Items[EditorOptions.EditorField].Document.defaultView;
 		Return DocumentHTML.getReadOnly();
 	ElsIf EditorType = TypesOfEditors.Ace Then
-		DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
+		DocumentHTML=Form.Items[EditorOptions.EditorField].Document.defaultView;
 		Return DocumentHTML.editor.getOption("readOnly");
 	Иначе 
-		Return Form.Элементы[EditorOptions.ПолеРедактора].ТолькоПросмотр;
+		Return Form.Items[EditorOptions.EditorField].ViewOnly;
 	EndIf;
 	
 	
@@ -1256,50 +1256,50 @@ EndFunction
 // 
 // Parameters:
 //  Form - ClientApplicationForm-
-//  Элемент - ПолеФормы -
+//  Элемент - FormField -
 // 
 // Return values:
 // Булево 
-Function РежимТолькоПросмотрРедактораЭлементаФормы(Form, Элемент) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
-		Return Ложь;
+Function FormItemEditorViewOnlyMode(Form, Элемент) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Элемент);
+	If EditorID = Undefined Then
+		Return False;
 	EndIf;
 
-	Return РежимТолькоПросмотрРедактора(Form, ИдентификаторРедактора);
+	Return EditorViewOnlyMode(Form, EditorID);
 EndFunction
 
 // Установить режим только просмотр редактора.
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  ИдентификаторРедактора - String - Идентификатор редактора
-//  Режим - Boolean -
-Procedure УстановитьРежимТолькоПросмотрРедактора(Form, ИдентификаторРедактора, Режим) Export
+//  EditorID - String - Идентификатор редактора
+//  Mode - Boolean -
+Procedure SetEditorViewOnlyMode(Form, EditorID, Mode) Export
 	TypesOfEditors = UT_CodeEditorClientServer.CodeEditorVariants();
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 
-	РедакторыФормы = Form[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
+	FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
 
-	EditorOptions = РедакторыФормы[ИдентификаторРедактора];
-	EditorOptions.ТолькоПросмотр = Режим;
+	EditorOptions = FormEditors[EditorID];
+	EditorOptions.ViewOnly = Mode;
 	
-	If Not EditorOptions.Инициализирован Then
+	If Not EditorOptions.Initialized Then
 		Return;
 	EndIf;
 	
-	If Not EditorOptions.Видимость Then
+	If Not EditorOptions.Visibility Then
 		Return;
 	EndIf;
 	
 	If EditorType = TypesOfEditors.Monaco Then
-		DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
-		DocumentHTML.setReadOnly(Режим);
+		DocumentHTML = Form.Items[EditorOptions.EditorField].Document.defaultView;
+		DocumentHTML.setReadOnly(Mode);
 	ElsIf EditorType = TypesOfEditors.Ace Then
-		DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
-		DocumentHTML.editor.setOption("readOnly", Режим);
+		DocumentHTML = Form.Items[EditorOptions.EditorField].Document.defaultView;
+		DocumentHTML.editor.setOption("readOnly", Mode);
 	Иначе 
-		Form.Элементы[EditorOptions.ПолеРедактора].ТолькоПросмотр = Режим;
+		Form.Items[EditorOptions.EditorField].ViewOnly = Mode;
 	EndIf;
 	
 EndProcedure
@@ -1308,41 +1308,41 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы
-//  Режим - Boolean -
-Procedure УстановитьРежимТолькоПросмотрРедактораЭлементаФормы(Form, Элемент, Режим) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
+//  Item - FormField -
+//  Mode - Boolean -
+Procedure FormItemSetEditorViewOnlyMode(Form, Item, Mode) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
+	If EditorID = Undefined Then
 		Return;
 	EndIf;
 
-	УстановитьРежимТолькоПросмотрРедактора(Form, ИдентификаторРедактора, Режим);
+	SetEditorViewOnlyMode(Form, EditorID, Mode);
 EndProcedure
 
 // Перейти к определению метода редактора.
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  ИдентификаторРедактора - String - Идентификатор редактора
-//  ИмяМетода - String -Имя метода
-Procedure ПерейтиКОпределениюМетодаРедактора(Form, ИдентификаторРедактора, ИмяМетода) Export
+//  EditorID - String - Идентификатор редактора
+//  MethodName - String - Имя метода
+Procedure GotoEditorMethodDefinition(Form, EditorID, MethodName) Export
 	TypesOfEditors = UT_CodeEditorClientServer.CodeEditorVariants();
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 
-	РедакторыФормы = Form[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
+	FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
 
-	EditorOptions = РедакторыФормы[ИдентификаторРедактора];
+	EditorOptions = FormEditors[EditorID];
 	
-	If Not EditorOptions.Инициализирован Или Не EditorOptions.Видимость Then
+	If Not EditorOptions.Initialized Или Не EditorOptions.Visibility Then
 		Return;
 	EndIf;
 
 	If EditorType = TypesOfEditors.Monaco Then
-		DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
-		DocumentHTML.goToFuncDefinition(ИмяМетода);
+		DocumentHTML = Form.Items[EditorOptions.EditorField].Document.defaultView;
+		DocumentHTML.goToFuncDefinition(MethodName);
 		
 //	ElsIf EditorType = TypesOfEditors.Ace Then
-//		DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
+//		DocumentHTML=Form.Items[EditorOptions.EditorField].Document.defaultView;
 //		DocumentHTML.editor.setOption("readOnly", Режим);
 	EndIf;
 	
@@ -1353,15 +1353,15 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы
-//  ИмяМетода - String -Имя метода
-Procedure ПерейтиКОпределениюМетодаРедактораЭлементаФормы(Form, Элемент, ИмяМетода) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
+//  Item - FormField
+//  MethodName - String - Имя метода
+Procedure FormItemGotoEditorMethodDefinition(Form, Item, MethodName) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
+	If EditorID = Undefined Then
 		Return;
 	EndIf;
 
-	ПерейтиКОпределениюМетодаРедактора(Form, ИдентификаторРедактора, ИмяМетода);
+	GotoEditorMethodDefinition(Form, EditorID, MethodName);
 	
 EndProcedure
 
@@ -1369,51 +1369,51 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  ИдентификаторРедактора - String - Идентификатор редактора
+//  EditorID - String - Идентификатор редактора
 // 
 // Return values:
 //  Булево
-Function РежимИспользованияОбработкиДляВыполненияКодаРедактора(Form, ИдентификаторРедактора) Export
-	РедакторыФормы = УИ_РедакторКодаКлиентСервер.РедакторыФормы(Form);
+Function UsageModeDataProcessorToExecuteEditorCode(Form, EditorID) Export
+	FormEditors = UT_CodeEditorClientServer.FormEditors(Form);
 	
-	EditorOptions = РедакторыФормы[ИдентификаторРедактора];
+	EditorOptions = FormEditors[EditorID];
 	
-	Return EditorOptions.ИспользоватьОбработкуДляВыполненияКода;
+	Return EditorOptions.UseProcessingToExecuteCode;
 EndFunction
 
 // Режим использования обработки для выполнения кода редактора.
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы
+//  Item - FormField
 // 
 // Return values:
 //  Булево
-Function РежимИспользованияОбработкиДляВыполненияКодаРедактораЭлементаФормы(Form, Элемент) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
-		Return Ложь;
+Function FormItemUsageModeDataProcessorToExecuteEditorCode(Form, Item) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
+	If EditorID = Undefined Then
+		Return False;
 	EndIf;
 
-	Return РежимИспользованияОбработкиДляВыполненияКодаРедактора(Form, ИдентификаторРедактора);
+	Return UsageModeDataProcessorToExecuteEditorCode(Form, EditorID);
 EndFunction
 
 // Установить режим использования обработки для выполнения кода редактора.
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  ИдентификаторРедактора - String - Идентификатор редактора
-//  Режим - Boolean -
-Procedure УстановитьРежимИспользованияОбработкиДляВыполненияКодаРедактора(Form, ИдентификаторРедактора, Режим) Export
-	РедакторыФормы = УИ_РедакторКодаКлиентСервер.РедакторыФормы(Form);
+//  EditorID - String - Идентификатор редактора
+//  Mode - Boolean -
+Procedure SetUseModeDataProcessorToExecuteEditorCode(Form, EditorID, Mode) Export
+	FormEditors = UT_CodeEditorClientServer.FormEditors(Form);
 	
-	EditorOptions = РедакторыФормы[ИдентификаторРедактора];
-	EditorOptions.ИспользоватьОбработкуДляВыполненияКода = Режим;
+	EditorOptions = FormEditors[EditorID];
+	EditorOptions.UseProcessingToExecuteCode = Mode;
 
-	ИмяКнопки = УИ_РедакторКодаКлиентСервер.ИмяКнопкиКоманднойПанели(УИ_РедакторКодаКлиентСервер.ИмяКомандыРежимВыполненияЧерезОбработку(),
-																			  ИдентификаторРедактора);
+	ButtonName = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing(),
+																			  EditorID);
 																			  
-	Form.Элементы[ИмяКнопки].Пометка = Режим;
+	Form.Items[ButtonName].Mark = Mode;
 
 EndProcedure
 
@@ -1421,37 +1421,37 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы
-//  Режим - Boolean -
-Procedure УстановитьРежимИспользованияОбработкиДляВыполненияКодаРедактораЭлементаФормы(Form, Элемент, Режим) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
+//  Item - FormField
+//  Mode - Boolean -
+Procedure FormItemSetUseModeDataProcessorToExecuteEditorCode(Form, Item, Mode) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
+	If EditorID = Undefined Then
 		Return;
 	EndIf;
 
-	УстановитьРежимИспользованияОбработкиДляВыполненияКодаРедактора(Form, ИдентификаторРедактора, Режим);
+	SetUseModeDataProcessorToExecuteEditorCode(Form, EditorID, Mode);
 EndProcedure
 
 // Начать сессию взаимодействия редактора кода.
 // 
 // Parameters:
-//  Form - ClientApplicationForm- Form
-//  ИдентификаторРедактора -Строка -Идентификатор редактора
-Procedure НачатьСессиюВзаимодействияРедактораКода(Form, ИдентификаторРедактора) Export
+//  Form - ClientApplicationForm - Form
+//  EditorID - String - Идентификатор редактора
+Procedure StartCodeEditorInteractionSession(Form, EditorID) Export
 	TypesOfEditors = UT_CodeEditorClientServer.CodeEditorVariants();
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 
-	If EditorType = TypesOfEditors.Текст Then
+	If EditorType = TypesOfEditors.Text Then
 		Return;
 	EndIf;
 	
-	РедакторыФормы = Form[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
-	If Not ВсеРедакторыФормыИнициализированы(РедакторыФормы) Then
+	FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
+	If Not AllFormEditorsInitialized(FormEditors) Then
 		Return;
 	EndIf;
 
-	EditorOptions = РедакторыФормы[ИдентификаторРедактора]; //см. УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораФормы
-	If Not EditorOptions.Инициализирован Then
+	EditorOptions = FormEditors[EditorID]; //см. УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораФормы
+	If Not EditorOptions.Initialized Then
 		Return;
 	EndIf;
 	
@@ -1459,36 +1459,36 @@ Procedure НачатьСессиюВзаимодействияРедактора
 		Return;
 	EndIf;
 
-	DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
+	DocumentHTML = Form.Items[EditorOptions.EditorField].Document.defaultView;
 	
 	If Not ToFieldHTMLEditorConnectedInteractionScript(DocumentHTML) Then
 		ConnectToFieldHTMLScriptInteraction(Form, EditorOptions, DocumentHTML);	
 		Return;			
 	EndIf;
 	
-	ПараметрыСессии = EditorOptions.ПараметрыСессииВзаимодействия;
-	If ПараметрыСессии = Undefined Then
-		ПараметрыСессии = УИ_РедакторКодаКлиентСервер.НовыйПараметрыСессииВзаимодействия();
-		EditorOptions.ПараметрыСессииВзаимодействия = ПараметрыСессии;
+	SesParameters = EditorOptions.InteractionSessionParameters;
+	If SesParameters = Undefined Then
+		SesParameters = UT_CodeEditorClientServer.NewOptionsSessionInteractions();
+		EditorOptions.InteractionSessionParameters = SesParameters;
 	EndIf;
 
-	If Not ValueIsFilled(ПараметрыСессии.Идентификатор) Then
-		ПараметрыСессии.Идентификатор = Формат(ТекущаяУниверсальнаяДатаВМиллисекундах(), "ЧГ=0;")
+	If Not ValueIsFilled(SesParameters.ID) Then
+		SesParameters.ID = Format(CurrentUniversalDateInMilliseconds(), "ЧГ=0;")
 										+ Form.UUID;
 	EndIf;
 	
-	If ValueIsFilled(ПараметрыСессии.ИмяПользователя) Then
-		DocumentHTML.colaborator.setUserName(ПараметрыСессии.ИмяПользователя);
+	If ValueIsFilled(SesParameters.Username) Then
+		DocumentHTML.colaborator.setUserName(SesParameters.Username);
 	EndIf;
 	
-	If ValueIsFilled(ПараметрыСессии.URLВзаимодействия) Then
-		DocumentHTML.colaborator.setColaborationUrl(ПараметрыСессии.URLВзаимодействия);
+	If ValueIsFilled(SesParameters.InteractionsURL) Then
+		DocumentHTML.colaborator.setColaborationUrl(SesParameters.InteractionsURL);
 	EndIf;
 
 	If EditorType = TypesOfEditors.Ace Then
-		DocumentHTML.colaborator.start(ПараметрыСессии.Идентификатор);
+		DocumentHTML.colaborator.start(SesParameters.ID);
 	ElsIf EditorType = TypesOfEditors.Monaco Then
-//		DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
+//		DocumentHTML=Form.Items[EditorOptions.EditorField].Document.defaultView;
 //		DocumentHTML.updateText(Текст);
 //		If УстанавливатьОригинальныйТекст Then
 //			DocumentHTML.setOriginalText(Текст);
@@ -1501,36 +1501,36 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы - Элемент формы редактора
-Procedure НачатьСессиюВзаимодействияРедактораКодаЭлементаФормы(Form, Элемент) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
+//  Элемент - FormField - Элемент формы редактора
+Procedure ItemFormStartCodeEditorInteractionSession(Form, Элемент) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Элемент);
+	If EditorID = Undefined Then
 		Return;
 	EndIf;
 
-	НачатьСессиюВзаимодействияРедактораКода(Form, ИдентификаторРедактора);
+	StartCodeEditorInteractionSession(Form, EditorID);
 EndProcedure
 
 // Завершить сессию взаимодействия редактора кода.
 // 
 // Parameters:
 //  Form - ClientApplicationForm
-//  ИдентификаторРедактора -Строка -Идентификатор редактора
-Procedure ЗавершитьСессиюВзаимодействияРедактораКода(Form, ИдентификаторРедактора) Export
+//  EditorID -String -Идентификатор редактора
+Procedure FinishCodeEditorInteractionSession(Form, EditorID) Export
 	TypesOfEditors = UT_CodeEditorClientServer.CodeEditorVariants();
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 
-	If EditorType = TypesOfEditors.Текст Then
+	If EditorType = TypesOfEditors.Text Then
 		Return;
 	EndIf;
 	
-	РедакторыФормы = Form[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
-	If Not ВсеРедакторыФормыИнициализированы(РедакторыФормы) Then
+	FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
+	If Not AllFormEditorsInitialized(FormEditors) Then
 		Return;
 	EndIf;
 
-	EditorOptions = РедакторыФормы[ИдентификаторРедактора];
-	If Not EditorOptions.Инициализирован Then
+	EditorOptions = FormEditors[EditorID];
+	If Not EditorOptions.Initialized Then
 		Return;
 	EndIf;
 	
@@ -1538,7 +1538,7 @@ Procedure ЗавершитьСессиюВзаимодействияРедакт
 		Return;
 	EndIf;
 
-	DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
+	DocumentHTML = Form.Items[EditorOptions.EditorField].Document.defaultView;
 	
 	If Not ToFieldHTMLEditorConnectedInteractionScript(DocumentHTML) Then
 		Return;			
@@ -1547,7 +1547,7 @@ Procedure ЗавершитьСессиюВзаимодействияРедакт
 	If EditorType = TypesOfEditors.Ace Then
 		DocumentHTML.colaborator.close();
 	ElsIf EditorType = TypesOfEditors.Monaco Then
-//		DocumentHTML=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
+//		DocumentHTML=Form.Items[EditorOptions.EditorField].Document.defaultView;
 //		DocumentHTML.updateText(Текст);
 //		If УстанавливатьОригинальныйТекст Then
 //			DocumentHTML.setOriginalText(Текст);
@@ -1561,14 +1561,14 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы - Элемент формы редактора
-Procedure ЗавершитьСессиюВзаимодействияРедактораКодаЭлементаФормы(Form, Элемент) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
+//  Item - FormField - Элемент формы редактора
+Procedure FormItemFinishCodeEditorInteractionSession(Form, Item) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
+	If EditorID = Undefined Then
 		Return;
 	EndIf;
 
-	ЗавершитьСессиюВзаимодействияРедактораКода(Form, ИдентификаторРедактора);
+	FinishCodeEditorInteractionSession(Form, EditorID);
 	
 EndProcedure
 
@@ -1576,23 +1576,23 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm
-//  ИдентификаторРедактора -Строка-Идентификатор редактора
-//  Язык -Строка -Язык
-Procedure УстановитьЯзыкРедактораКода(Form, ИдентификаторРедактора, Язык) Export
+//  EditorID - Строка - Идентификатор редактора
+//  Language - String - Language
+Procedure SetCodeEditorLanguage(Form, EditorID, Language) Export
 	TypesOfEditors = UT_CodeEditorClientServer.CodeEditorVariants();
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
 
-	If EditorType = TypesOfEditors.Текст Then
+	If EditorType = TypesOfEditors.Text Then
 		Return;
 	EndIf;
 	
-	РедакторыФормы = Form[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
-	If Not ВсеРедакторыФормыИнициализированы(РедакторыФормы) Then
+	FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
+	If Not AllFormEditorsInitialized(FormEditors) Then
 		Return;
 	EndIf;
 
-	EditorOptions = РедакторыФормы[ИдентификаторРедактора];
-	If Not EditorOptions.Инициализирован Then
+	EditorOptions = FormEditors[EditorID];
+	If Not EditorOptions.Initialized Then
 		Return;
 	EndIf;
 	
@@ -1600,18 +1600,18 @@ Procedure УстановитьЯзыкРедактораКода(Form, Иден�
 		Return;
 	EndIf;
 
-	DocumentView=Form.Элементы[EditorOptions.ПолеРедактора].Документ.defaultView;
+	DocumentView=Form.Items[EditorOptions.EditorField].Document.defaultView;
 
-	EditorOptions.Язык = Язык;
+	EditorOptions.Language = Language;
 	If EditorType = TypesOfEditors.Ace Then
-		ТекЯзык = Язык;
-		If ТекЯзык = "bsl" Then
-			ТекЯзык="_1c";
+		CurrentLanguage = Language;
+		If CurrentLanguage = "bsl" Then
+			CurrentLanguage = "_1c";
 		EndIf;
 		
-		DocumentView.appTo1C.setMode(ТекЯзык);
+		DocumentView.appTo1C.setMode(CurrentLanguage);
 	ElsIf EditorType = TypesOfEditors.Monaco Then
-		DocumentView.setLanguageMode(Язык);
+		DocumentView.setLanguageMode(Language);
 	EndIf;
 	
 EndProcedure
@@ -1620,122 +1620,122 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы - Элемент формы редактора
-//  Язык - Строка
-Procedure УстановитьЯзыкРедактораКодаЭлементаФормы(Form, Элемент, Язык) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
+//  Item - FormField - Элемент формы редактора
+//  Language - String
+Procedure FormItemSetCodeEditorLanguage(Form, Item, Language) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
+	If EditorID = Undefined Then
 		Return;
 	EndIf;
 
-	УстановитьЯзыкРедактораКода(Form, ИдентификаторРедактора, Язык);
+	SetCodeEditorLanguage(Form, EditorID, Language);
 EndProcedure
 
 #EndRegion
 
-// Преобразовать текст запроса In выражения встроенного языка редактора кода.
+// Преобразовать текст запроса из выражения встроенного языка редактора кода.
 // 
 // Parameters:
-//  Form -ClientApplicationForm-Form
-//  ИдентификаторРедактора -Строка-Идентификатор редактора
-Procedure ПреобразоватьТекстЗапросаИзВыраженияВстроенногоЯзыкаРедактораКода(Form, ИдентификаторРедактора) Export
-	ПараметрыОповещения = New Structure;
-	ПараметрыОповещения.Вставить("Form", Form);
-	ПараметрыОповещения.Вставить("ИдентификаторРедактора", ИдентификаторРедактора);
+//  Form - ClientApplicationForm - Form
+//  EditorID - String - Идентификатор редактора
+Procedure ConvertQueryTextFromExpressionBuiltInLanguageCodeEditor(Form, EditorID) Export
+	CallbackSettings = New Structure;
+	CallbackSettings.Insert("Form", Form);
+	CallbackSettings.Insert("EditorID", EditorID);
 	
-	ТекстРедактора = ТекстКодаРедактора(Form, ИдентификаторРедактора);
+	TextEditor = EditorCodeText(Form, EditorID);
 	
-	НезначащиеСимволы = New Array;
-	НезначащиеСимволы.Добавить(" ");
-	НезначащиеСимволы.Добавить(Символы.НПП);
-	НезначащиеСимволы.Добавить(Символы.Таб);
-	НезначащиеСимволы.Добавить("|");
+	MinorSymbols = New Array;
+	MinorSymbols.Add(" ");
+	MinorSymbols.Add(Chars.NBSp);
+	MinorSymbols.Add(Chars.Tab);
+	MinorSymbols.Add("|");
 
-	ТекстовыйДокументРедактора = Новый ТекстовыйДокумент();
-	ТекстовыйДокументРедактора.УстановитьТекст(ТекстРедактора);
+	EditorTextDocument = New TextDocument();
+	EditorTextDocument.SetText(TextEditor);
 
-	НашлиНачало = Ложь;
-	НомерПоследнейЗначащейСтроки = 0;
-	Для НомерСтроки =1 По ТекстовыйДокументРедактора.КоличествоСтрок() Do
-		ТекСтрокаКода = ТекстовыйДокументРедактора.ПолучитьСтроку(НомерСтроки);
+	FoundStart = False;
+	LastSignificantLineNumber = 0;
+	For LineNumber = 1 По EditorTextDocument.LineCount() Do
+		CurrentCodeLine = EditorTextDocument.GetLine(LineNumber);
 		
-		For Each  ТекСимвол In НезначащиеСимволы Do
-			Пока СтрНачинаетсяС(ТекСтрокаКода, ТекСимвол) Do
-				ТекСтрокаКода = Сред(ТекСтрокаКода,2);				
+		For Each  CurrentSymbol In MinorSymbols Do
+			While StrStartsWith(CurrentCodeLine, CurrentSymbol) Do
+				CurrentCodeLine = Mid(CurrentCodeLine,2);				
 			EndDo;
 		EndDo;
 
-		If НашлиНачало Then
-			ТекСтрокаКода = СтрЗаменить(ТекСтрокаКода, """""", """");
+		If FoundStart Then
+			CurrentCodeLine = StrReplace(CurrentCodeLine, """""", """");
 		EndIf;
 
-		If СтрНачинаетсяС(ТекСтрокаКода, """") Then
-			ТекСтрокаКода = Сред(ТекСтрокаКода, 2);
+		If StrStartsWith(CurrentCodeLine, """") Then
+			CurrentCodeLine = Mid(CurrentCodeLine, 2);
 		EndIf;
 
-		ТекстовыйДокументРедактора.ЗаменитьСтроку(НомерСтроки,ТекСтрокаКода);	
-		If Not ValueIsFilled(ТекСтрокаКода) И Не НашлиНачало Then
-			Продолжить;
+		EditorTextDocument.ReplaceLine(LineNumber,CurrentCodeLine);	
+		If Not ValueIsFilled(CurrentCodeLine) And Not FoundStart Then
+			Continue;
 		EndIf;
 		
-		НашлиНачало = Истина;
+		FoundStart = True;
 
-		If ValueIsFilled(ТекСтрокаКода) Then
-			НомерПоследнейЗначащейСтроки = НомерСтроки;
+		If ValueIsFilled(CurrentCodeLine) Then
+			LastSignificantLineNumber = LineNumber;
 		EndIf;
 	EndDo;
 	
-	If НомерПоследнейЗначащейСтроки > 0 Then
-		ТекСтрокаКода = ТекстовыйДокументРедактора.ПолучитьСтроку(НомерПоследнейЗначащейСтроки);
-		If СтрЗаканчиваетсяНа(ТекСтрокаКода, """;") Then
-			ТекСтрокаКода = Лев(ТекСтрокаКода, СтрДлина(ТекСтрокаКода) - 2);
-		ElsIf СтрЗаканчиваетсяНа(ТекСтрокаКода, """") Или СтрЗаканчиваетсяНа(ТекСтрокаКода, ";") Then
-			ТекСтрокаКода = Лев(ТекСтрокаКода, СтрДлина(ТекСтрокаКода) - 1);
+	If LastSignificantLineNumber > 0 Then
+		CurrentCodeLine = EditorTextDocument.GetLine(LastSignificantLineNumber);
+		If StrEndsWith(CurrentCodeLine, """;") Then
+			CurrentCodeLine = Лев(CurrentCodeLine, StrLen(CurrentCodeLine) - 2);
+		ElsIf StrEndsWith(CurrentCodeLine, """") Or StrEndsWith(CurrentCodeLine, ";") Then
+			CurrentCodeLine = Лев(CurrentCodeLine, StrLen(CurrentCodeLine) - 1);
 		EndIf;
 		
-		ТекстовыйДокументРедактора.ЗаменитьСтроку(НомерПоследнейЗначащейСтроки,ТекСтрокаКода);	
+		EditorTextDocument.ReplaceLine(LastSignificantLineNumber,CurrentCodeLine);	
 			
 	EndIf;
 	
-	УстановитьТекстРедактора(Form, ИдентификаторРедактора, ТекстовыйДокументРедактора.ПолучитьТекст());
+	SetEditorText(Form, EditorID, EditorTextDocument.GetText());
 EndProcedure
 
 // Преобразовать текст запроса In выражения встроенного языка редактора кода.
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы - Элемент формы редактора
-Procedure ПреобразоватьТекстЗапросаИзВыраженияВстроенногоЯзыкаРедактораЭлементаФормы(Form, Элемент) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
+//  Item - FormField - Элемент формы редактора
+Procedure ПреобразоватьТекстЗапросаИзВыраженияВстроенногоЯзыкаРедактораЭлементаФормы(Form, Item) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
+	If EditorID = Undefined Then
 		Return;
 	EndIf;
 
-	ПреобразоватьТекстЗапросаИзВыраженияВстроенногоЯзыкаРедактораКода(Form, ИдентификаторРедактора);
+	ConvertQueryTextFromExpressionBuiltInLanguageCodeEditor(Form, EditorID);
 
 EndProcedure
 
 // Начать сессию взаимодействия с запросом параметров.
 // 
 // Parameters:
-//  Form -ClientApplicationForm-Form
-//  ИдентификаторРедактора -Строка-Идентификатор редактора
-Procedure НачатьСессиюВзаимодействияСЗапросомПараметровРедактораКода(Form, ИдентификаторРедактора) Export
-	ПараметрыОповещения = New Structure;
-	ПараметрыОповещения.Вставить("Form", Form);
-	ПараметрыОповещения.Вставить("ИдентификаторРедактора", ИдентификаторРедактора);
+//  Form - ClientApplicationForm - Form
+//  EditorID - String - Идентификатор редактора
+Procedure StartSessionInteractionWithCodeEditorParametersRequest(Form, EditorID) Export
+	CallbackSettings = New Structure;
+	CallbackSettings.Вставить("Form", Form);
+	CallbackSettings.Вставить("EditorID", EditorID);
 
-	ПараметрыФормы = New Structure;
+	FormOptions = New Structure;
 
-	ОткрытьФорму("ОбщаяФорма.УИ_ПараметрыСессииВзаимодействияРедактораКода",
-				 ПараметрыФормы,
+	OpenForm("ОбщаяФорма.УИ_InteractionSessionParametersРедактораКода",
+				 FormOptions,
 				 Form,
-				 "" + Form.UUID + ИдентификаторРедактора,
+				 "" + Form.UUID + EditorID,
 				 ,
 				 ,
-				 Новый ОписаниеОповещения("НачатьСессиюВзаимодействияСЗапросомПараметровРедактораКодаЗавершениеВводаПараметров",
-		ЭтотОбъект, ПараметрыОповещения),
-				 РежимОткрытияОкнаФормы.БлокироватьОкноВладельца);
+				 New CallbackDescription("StartSessionInteractionWithCodeEditorParametersRequestCompletionOfParameterEntry",
+		ThisObject, CallbackSettings),
+				 FormWindowOpeningMode.LockOwnerWindow);
 
 EndProcedure
 
@@ -1743,14 +1743,14 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -
-//  Элемент - ПолеФормы - Элемент формы редактора
-Procedure НачатьСессиюВзаимодействияСЗапросомПараметровРедактораЭлементаФормы(Form, Элемент) Export
-	ИдентификаторРедактора = УИ_РедакторКодаКлиентСервер.ИдентификаторРедактораПоЭлементуФормы(Form, Элемент);
-	If ИдентификаторРедактора = Undefined Then
+//  Item - FormField - Элемент формы редактора
+Procedure StartSessionInteractionWithFormItemEditorParametersRequest(Form, Item) Export
+	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
+	If EditorID = Undefined Then
 		Return;
 	EndIf;
 
-	НачатьСессиюВзаимодействияСЗапросомПараметровРедактораКода(Form, ИдентификаторРедактора);
+	StartSessionInteractionWithCodeEditorParametersRequest(Form, EditorID);
 	
 EndProcedure
 
@@ -1852,47 +1852,47 @@ EndProcedure
 // Поделиться кодом.
 // 
 // Parameters:
-//  Код -Строка-Код
-//  ЭтоЗапрос -Булево-Это запрос
-//  ВладелецФормы - ClientApplicationForm -
-Procedure ПоделитьсяКодом(Код, ЭтоЗапрос, ВладелецФормы = Undefined) Export
-	СсылкаНаКод = УИ_РедакторКодаВызовСервера.СсылкаНаКодВСервисеПослеЗагрузки(Код, ЭтоЗапрос);
-	If Not ValueIsFilled(СсылкаНаКод) Then
+//  Code - String - Код
+//  isRequest - Boolean - Это запрос
+//  FormOwner - ClientApplicationForm -
+Procedure ShareCode(Code, isRequest, FormOwner = Undefined) Export
+	LinkToCode = UT_CodeEditorServerCall.LinkToCodeInServiceAfterDownload(Code, isRequest);
+	If Not ValueIsFilled(LinkToCode) Then
 		Return;
 	EndIf;
 	
-	ПараметрыФормы = New Structure;
-	ПараметрыФормы.Вставить("Ссылка", СсылкаНаКод);
-	ОткрытьФорму("ОбщаяФорма.УИ_ФормаСсылкиНаКод",
-				 ПараметрыФормы,
-				 ВладелецФормы,
+	FormOptions = New Structure;
+	FormOptions.Вставить("Link", LinkToCode);
+	OpenForm("ОбщаяФорма.УИ_ФормаСсылкиНаКод",
+				 FormOptions,
+				 FormOwner,
 				 ,
 				 ,
 				 ,
 				 ,
-				 РежимОткрытияОкнаФормы.БлокироватьОкноВладельца);
+				 FormWindowOpeningMode.LockOwnerWindow);
 EndProcedure
 
 // Начать загрузку кода In сервиса.
 // 
 // Parameters:
-//  ОписаниеОповещения - ОписаниеОповещения -  Описание оповещения
-Procedure НачатьЗагрузкуКодаИзСервиса(ОписаниеОповещения, ВладелецФормы = Undefined) Export
-	ПараметрыОповещения = New Structure;
-	ПараметрыОповещения.Вставить("ОповещениеОЗавершении", ОписаниеОповещения);
+//  CallbackDescription - CallbackDescription -  Описание оповещения
+Procedure StartLoadingCodeFromService(CallbackDescription, FormOwner = Undefined) Export
+	CallbackSettings = New Structure;
+	CallbackSettings.Insert("CallbackDescriptionAboutCompletion", CallbackDescription);
 
-	ПараметрыФормы = New Structure;
-	ПараметрыФормы.Вставить("РежимВставки", Истина);
+	FormOptions = New Structure;
+	FormOptions.Insert("InsertMode", True);
 	
-	ОткрытьФорму("ОбщаяФорма.УИ_ФормаСсылкиНаКод",
-				 ПараметрыФормы,
-				 ВладелецФормы,
+	OpenForm("ОбщаяФорма.УИ_ФормаСсылкиНаКод",
+				 FormOptions,
+				 FormOwner,
 				 ,
 				 ,
 				 ,
-				 Новый ОписаниеОповещения("НачатьЗагрузкуКодаИзСервисаЗавершениеВводаСсылки", ЭтотОбъект,
-		ПараметрыОповещения),
-				 РежимОткрытияОкнаФормы.БлокироватьОкноВладельца);
+				 New CallbackDescription("StartLoadingCodeFromServiceLinksInputCompletion", ThisObject,
+		CallbackSettings),
+				 FormWindowOpeningMode.LockOwnerWindow);
 EndProcedure
 
 
@@ -1904,100 +1904,100 @@ EndProcedure
 // Начать сессию взаимодействия с запросом параметров редактора кода завершение ввода параметров.
 // 
 // Parameters:
-//  Результат - см. УИ_РедакторКодаКлиентСервер.НовыйПараметрыСессииВзаимодействия
-//  ДополнительныеПараметры - Структура :
+//  Result - см. UT_CodeEditorClientServer.NewOptionsSessionInteractions
+//  AdditionalParameters - Structure :
 //  	* Form - ClientApplicationForm
-//  	* ИдентификаторРедактора - Строка
-Procedure НачатьСессиюВзаимодействияСЗапросомПараметровРедактораКодаЗавершениеВводаПараметров(Результат,
-	ДополнительныеПараметры) Export
-	If Результат = Undefined Then
+//  	* EditorID - String
+Procedure StartSessionInteractionWithCodeEditorParametersRequestCompletionOfParameterEntry(Result,
+	AdditionalParameters) Export
+	If Result = Undefined Then
 		Return;
 	EndIf;
 
-	РедакторыФормы = ДополнительныеПараметры.Form[УИ_РедакторКодаКлиентСервер.ИмяРеквизитаРедактораКодаСписокРедакторовФормы()];
-	EditorOptions = РедакторыФормы[ДополнительныеПараметры.ИдентификаторРедактора]; //см. УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораФормы
+	FormEditors = AdditionalParameters.Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
+	EditorOptions = FormEditors[AdditionalParameters.EditorID]; //см. УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораФормы
 	
-	EditorOptions.ПараметрыСессииВзаимодействия = Результат;
+	EditorOptions.InteractionSessionParameters = Result;
 	
 
-	НачатьСессиюВзаимодействияРедактораКода(ДополнительныеПараметры.Form,
-											ДополнительныеПараметры.ИдентификаторРедактора);
+	StartCodeEditorInteractionSession(AdditionalParameters.Form,
+											AdditionalParameters.EditorID);
 EndProcedure
 
-// Начать вставку In буфер обмена завершение получения текста.
+// Начать вставку из буфер обмена завершение получения текста.
 // 
 // Parameters:
-//  Результат - String - Результат
-//  ДополнительныеПараметры - Structure -Дополнительные Parameters:
+//  Result - String - Result
+//  AdditionalParameters - Structure -Дополнительные Parameters:
 //  	* Form - ClientApplicationForm
-//  	* Элемент - ПолеФормы
-Procedure НачатьВставкуИзБуферОбменаЗавершениеПолученияТекста(Результат, ДополнительныеПараметры) Export
-	If Результат = Undefined Then
+//  	* Item - FormField
+Procedure StartPastingFromClipboardCompletingReceiveText(Result, AdditionalParameters) Export
+	If Result = Undefined Then
 		Return;
 	EndIf;
 	
-	ВставитьТекстПоПозицииКурсораЭлементаФормы(ДополнительныеПараметры.Form, ДополнительныеПараметры.Элемент, Результат);
+	InsertTextInCursorLocationFormItem(AdditionalParameters.Form, AdditionalParameters.Item, Result);
 EndProcedure
 
-Procedure НачатьКопированиеВыделенногоТекстаВБуферОбменаЗавершение(Результат, ПараметрыВызова, ДополнительныеПараметры) Export
+Procedure StartCopyingSelectedTextToClipboardFinish(Result, CallOptions, AdditionalParameters) Export
 
 EndProcedure
 
-// Начать загрузку кода In сервиса завершение ввода ссылки.
+// Начать загрузку кода из сервиса завершение ввода ссылки.
 // 
 // Parameters:
-//  Результат - Строка, Undefined- Результат
-//  ДополнительныеПараметры - Structure - Дополнительные Parameters:
-//  	* ОповещениеОЗавершении - ОписаниеОповещения -
-Procedure НачатьЗагрузкуКодаИзСервисаЗавершениеВводаСсылки(Результат, ДополнительныеПараметры) Export
-	If Результат = Undefined Then
+//  Result - String, Undefined - Result
+//  AdditionalParameters - Structure - Дополнительные Parameters:
+//  	* CallbackDescriptionAboutCompletion - CallbackDescription -
+Procedure StartLoadingCodeFromServiceLinksInputCompletion(Result, AdditionalParameters) Export
+	If Result = Undefined Then
 		Return;
 	EndIf;
 	
-	If Not ValueIsFilled(Результат) Then
+	If Not ValueIsFilled(Result) Then
 		Return;
 	EndIf;
 	
-	ДанныеСсылки = УИ_РедакторКодаВызовСервера.ДанныеАлгоритмаВСервисе(Результат);
+	LinksData = UT_CodeEditorServerCall.AlgorithmDataInService(Result);
 	
-	If ДанныеСсылки = Undefined Then
+	If LinksData = Undefined Then
 		Return;
 	EndIf;
 	
-	ВыполнитьОбработкуОповещения(ДополнительныеПараметры.ОповещениеОЗавершении, ДанныеСсылки);
+	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, LinksData);
 EndProcedure
 
 // Начать загрузку кода In сервиса завершение.
 // 
 // Parameters:
-//  Результат - см. УИ_Paste1CAPI.НовыйДанныеАлгоритма
-//  ДополнительныеПараметры - Structure -Дополнительные Parameters:
+//  Result - см. УИ_Paste1CAPI.НовыйДанныеАлгоритма
+//  AdditionalParameters - Structure -Дополнительные Parameters:
 //  	* Form - ClientApplicationForm
-//  	* ИдентификаторРедактора - Строка
-Procedure НачатьЗагрузкуКодаИзСервисаЗавершение(Результат, ДополнительныеПараметры) Export
-	If Результат = Undefined Then
+//  	* EditorID - String
+Procedure StartLoadingCodeFromServiceCompletion(Result, AdditionalParameters) Export
+	If Result = Undefined Then
 		Return;
 	EndIf;
 
-	УстановитьТекстРедактора(ДополнительныеПараметры.Form,
-							 ДополнительныеПараметры.ИдентификаторРедактора,
-							 Результат.Текст);
+	SetEditorText(AdditionalParameters.Form,
+							 AdditionalParameters.EditorID,
+							 Result.Text);
 EndProcedure
 
 // Начать сборку обработок для исполнения кода завершение сохранения шаблона обработки.
 // 
 // Parameters:
-//  Успешно - Boolean- Результат
-//  ДополнительныеПараметры - см. NewAssemblyParametersProcessingForEditors
-Procedure НачатьСборкуОбработокДляИсполненияКодаЗавершениеСохраненияШаблонаОбработки(Успешно,
-	ДополнительныеПараметры) Export
+//  Successfully - Boolean - Result
+//  AdditionalParameters - см. NewBuildParametersDataProcessorsForEditors
+Procedure StartBuildDataProcessorForCodeExecutionDataProcessorsCompletingSavingTemplate(Successfully,
+	AdditionalParameters) Export
 	
-	If Not Успешно Then
+	If Not Successfully Then
 		Return;
 	EndIf;
 	
-	УИ_УправлениеКонфигураторомКлиент.НачатьПолучениеКонтекстаКомандыКонфигуратора(Новый ОписаниеОповещения("НачатьСборкуОбработокДляИсполненияКодаЗавершениеПолученияКонтекстаРедактора",
-		ЭтотОбъект, ДополнительныеПараметры));
+	УИ_УправлениеКонфигураторомКлиент.НачатьПолучениеКонтекстаКомандыКонфигуратора(New CallbackDescription("StartBuildDataProcessorForCodeExecutionCompletingGetContextEditor",
+		ThisObject, AdditionalParameters));
 
 
 EndProcedure
@@ -2005,167 +2005,167 @@ EndProcedure
 // Начать сборку обработок для исполнения кода сборка обработки для очередного редактора.
 // 
 // Parameters:
-//  ПараметрыСборкиОбработок - см. NewAssemblyParametersProcessingForEditors
-//  DescriptionCompleteAlerts -ОписаниеОповещения -Описание оповещения о завершении
-Procedure НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактора(ПараметрыСборкиОбработок,
-	DescriptionCompleteAlerts) Export
+//  DataProcessorsBuildOptions - см. NewBuildParametersDataProcessorsForEditors
+//  CallbackDescriptionAboutCompletion -CallbackDescription -Description of the completion alert
+Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditor(DataProcessorsBuildOptions,
+	CallbackDescriptionAboutCompletion) Export
 
-	РедакторДляСборки = ПараметрыСборкиОбработок.EditorsForAssembly[ПараметрыСборкиОбработок.EditorIndexForAssembly];
+	EditorForBuild = DataProcessorsBuildOptions.EditorsForBuild[DataProcessorsBuildOptions.EditorIndexForBuild];
 
-	ИмяФайлаМодуля = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(ПараметрыСборкиОбработок.CatalogTemplateProcessing,
-																	"ШаблонОбработки",
+	ModuleFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(DataProcessorsBuildOptions.CatalogTemplateProcessing,
+																	"DataProcessorTemplate",
 																	"Ext",
 																	"ObjectModule.bsl");
 	
-	//Текст модуля
-	Текст = Новый ТекстовыйДокумент;
-	If РедакторДляСборки.ИсполнениеНаКлиенте Then
-		Текст.УстановитьТекст("");
+	// Module text
+	Text = New TextDocument;
+	If EditorForBuild.ExecutionAtClient Then
+		Text.SetText("");
 	Иначе
-		Текст.УстановитьТекст(РедакторДляСборки.ТекстРедактораДляОбработки);
+		Text.SetText(EditorForBuild.TextEditorForProcessing);
 	EndIf;
 	
-	ПараметрыОповещения = New Structure;
-	ПараметрыОповещения.Вставить("ПараметрыСборкиОбработок", ПараметрыСборкиОбработок);
-	ПараметрыОповещения.Вставить("DescriptionCompleteAlerts", DescriptionCompleteAlerts);
-	ПараметрыОповещения.Вставить("РедакторДляСборки", РедакторДляСборки);
+	CallbackSettings = New Structure;
+	CallbackSettings.Вставить("DataProcessorsBuildOptions", DataProcessorsBuildOptions);
+	CallbackSettings.Вставить("CallbackDescriptionAboutCompletion", CallbackDescriptionAboutCompletion);
+	CallbackSettings.Вставить("EditorForBuild", EditorForBuild);
 
-	Текст.НачатьЗапись(Новый ОписаниеОповещения("НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактораЗавершениеЗаписиМодуляОбработки",
-		ЭтотОбъект, ПараметрыОповещения), ИмяФайлаМодуля, "UTF8");
+	Text.BeginWriting(New CallbackDescription("StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletionOfModuleRecordProcessing",
+		ThisObject, CallbackSettings), ModuleFileName, "UTF8");
 EndProcedure
 
 // Начать сборку обработок для исполнения кода сборка обработки для очередного редактора завершение записи модуля обработки.
 // 
 // Parameters:
-//  Результат - Boolean, Undefined -Результат
-//  ДополнительныеПараметры - Структура- Дополнительные Parameters:
-//  	* ПараметрыСборкиОбработок - см. NewAssemblyParametersProcessingForEditors
-//  	* DescriptionCompleteAlerts - ОписаниеОповещения
-//  	* РедакторДляСборки - см. UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing
-Procedure НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактораЗавершениеЗаписиМодуляОбработки(Результат,
-	ДополнительныеПараметры) Export
+//  Result - Boolean, Undefined -Result
+//  AdditionalParameters - Structure- Дополнительные Parameters:
+//  	* DataProcessorsBuildOptions - см. NewBuildParametersDataProcessorsForEditors
+//  	* CallbackDescriptionAboutCompletion - CallbackDescription
+//  	* EditorForBuild - см. UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor
+Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletionOfModuleRecordProcessing(Result,
+	AdditionalParameters) Export
 
-	If Результат <> Истина Then
+	If Result <> True Then
 		Return;
 	EndIf;
 
-	ИмяФайлаМодуля = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(ДополнительныеПараметры.ПараметрыСборкиОбработок.CatalogTemplateProcessing,
-																												   "ШаблонОбработки",
+	ModuleFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
+																												   "DataProcessorTemplate",
 																												   "Forms",
 																												   "Form"),
 																	"Ext", "Form", "Module.bsl");
 	
-	//Текст формы
-	Текст = Новый ТекстовыйДокумент;
-	If ДополнительныеПараметры.РедакторДляСборки.ИсполнениеНаКлиенте Then
-		Текст.УстановитьТекст(ДополнительныеПараметры.РедакторДляСборки.ТекстРедактораДляОбработки);
+	// Form text
+	Text = New TextDocument;
+	If AdditionalParameters.EditorForBuild.ExecutionAtClient Then
+		Text.SetText(AdditionalParameters.EditorForBuild.TextEditorForProcessing);
 	Иначе
-		Текст.УстановитьТекст("");
+		Text.SetText("");
 	EndIf;
-	Текст.НачатьЗапись(Новый ОписаниеОповещения("НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактораЗавершениеЗаписиМодуляФормы",
-		ЭтотОбъект, ДополнительныеПараметры), ИмяФайлаМодуля, "UTF8");
+	Text.BeginWriting(New CallbackDescription("StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletingModuleFormRecord",
+		ThisObject, AdditionalParameters), ModuleFileName, "UTF8");
 	
 EndProcedure
 
 // Начать сборку обработок для исполнения кода сборка обработки для очередного редактора завершение записи модуля обработки.
 // 
 // Parameters:
-//  Результат - Boolean, Undefined -Результат
-//  ДополнительныеПараметры - Структура- Дополнительные Parameters:
-//  	* ПараметрыСборкиОбработок - см. NewAssemblyParametersProcessingForEditors
-//  	* DescriptionCompleteAlerts - ОписаниеОповещения
-//  	* РедакторДляСборки - см. UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing
-Procedure НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактораЗавершениеЗаписиМодуляФормы(Результат,
-	ДополнительныеПараметры) Export
+//  Result - Boolean, Undefined - Result
+//  AdditionalParameters - Structure- Дополнительные Parameters:
+//  	* DataProcessorsBuildOptions - см. NewBuildParametersDataProcessorsForEditors
+//  	* CallbackDescriptionAboutCompletion - CallbackDescription
+//  	* EditorForBuild - см. UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor
+Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletingModuleFormRecord(Result,
+	AdditionalParameters) Export
 
-	If Результат <> Истина Then
+	If Result <> True Then
 		Return;
 	EndIf;
 
-	ИмяФайлаОбработки = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(ДополнительныеПараметры.ПараметрыСборкиОбработок.CatalogTemplateProcessing,
-																	   "ОбработкаДляРедактора.epf");
-	ИмяИсходногоФайлаОбработки = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(ДополнительныеПараметры.ПараметрыСборкиОбработок.CatalogTemplateProcessing,
-																				"ШаблонОбработки.xml");
-	ДополнительныеПараметры.Вставить("ИмяФайлаОбработки", ИмяФайлаОбработки);
+	DataProcessorFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
+																	   "DataProcessorForEditor.epf");
+	DataProcessorSourceFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
+																				"DataProcessorTemplate.xml");
+	AdditionalParameters.Insert("DataProcessorFileName", DataProcessorFileName);
 
-	УИ_УправлениеКонфигураторомКлиент.НачатьСборкуОбработкиИзФайлов(ДополнительныеПараметры.ПараметрыСборкиОбработок.ConfiguratorCommandContext,
-																	ИмяИсходногоФайлаОбработки,
-																	ИмяФайлаОбработки,
-																	Новый ОписаниеОповещения("НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактораЗавершениеФормированияФайлаОбработки",
-		ЭтотОбъект, ДополнительныеПараметры));
+	УИ_УправлениеКонфигураторомКлиент.НачатьСборкуОбработкиИзФайлов(AdditionalParameters.DataProcessorsBuildOptions.ConfiguratorCommandContext,
+																	DataProcessorSourceFileName,
+																	DataProcessorFileName,
+																	New CallbackDescription("StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletionOfFileFormationProcessing",
+		ThisObject, AdditionalParameters));
 
 EndProcedure
 
 // Начать сборку обработок для исполнения кода сборка обработки для очередного редактора завершение формирования файла обработки.
 // 
 // Parameters:
-//  Результат - Boolean -Результат
-//  ДополнительныеПараметры - Структура- Дополнительные Parameters:
-//  	* ПараметрыСборкиОбработок - см. NewAssemblyParametersProcessingForEditors
-//  	* DescriptionCompleteAlerts - ОписаниеОповещения
-//  	* РедакторДляСборки - см. UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing
-//  	* ИмяФайлаОбработки - Строка
-Procedure НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактораЗавершениеФормированияФайлаОбработки(Результат,
-	ДополнительныеПараметры) Export
-	If Результат <> Истина Then
+//  Result - Boolean -Result
+//  AdditionalParameters - Structure- Дополнительные Parameters:
+//  	* DataProcessorsBuildOptions - см. NewBuildParametersDataProcessorsForEditors
+//  	* CallbackDescriptionAboutCompletion - CallbackDescription
+//  	* EditorForBuild - см. UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor
+//  	* DataProcessorFileName - String
+Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletionOfFileFormationProcessing(Result,
+	AdditionalParameters) Export
+	If Result <> True Then
 		Return;
 	EndIf;
 
-	НачатьСозданиеДвоичныхДанныхИзФайла(Новый ОписаниеОповещения("НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактораЗавершениеПолученияДвоичныхДанныхОбработки",
-		ЭтотОбъект, ДополнительныеПараметры), ДополнительныеПараметры.ИмяФайлаОбработки);
+	BeginCreateBinaryDataFromFile(New CallbackDescription("StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletionOfReceivingBinaryDataProcessing",
+		ThisObject, AdditionalParameters), AdditionalParameters.DataProcessorFileName);
 EndProcedure
 
 // Начать сборку обработок для исполнения кода сборка обработки для очередного редактора завершение получения двоичных данных обработки.
 // 
 // Parameters:
-//  ДвоичныеДанные - ДвоичныеДанные- Результат
-//  ДополнительныеПараметры - Структура- Дополнительные Parameters:
-//  	* ПараметрыСборкиОбработок - см. NewAssemblyParametersProcessingForEditors
-//  	* DescriptionCompleteAlerts - ОписаниеОповещения
-//  	* РедакторДляСборки - см. UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing
-//  	* ИмяФайлаОбработки - Строка
-Procedure НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактораЗавершениеПолученияДвоичныхДанныхОбработки(ДвоичныеДанные,
-	ДополнительныеПараметры) Export
+//  BinaryData - BinaryData- Result
+//  AdditionalParameters - Structure- Дополнительные Parameters:
+//  	* DataProcessorsBuildOptions - см. NewBuildParametersDataProcessorsForEditors
+//  	* CallbackDescriptionAboutCompletion - CallbackDescription
+//  	* EditorForBuild - см. UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor
+//  	* DataProcessorFileName - String
+Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletionOfReceivingBinaryDataProcessing(BinaryData,
+	AdditionalParameters) Export
 
-	АдресДвоичныхДанныхВоВременномХранилище = ПоместитьВоВременноеХранилище(ДвоичныеДанные,
-																			ДополнительныеПараметры.ПараметрыСборкиОбработок.Form.UUID);
-	УИ_ОбщегоНазначенияВызовСервера.ПодключитьВнешнююОбработкуКСеансу(АдресДвоичныхДанныхВоВременномХранилище,
-																	  ДополнительныеПараметры.РедакторДляСборки.ИмяПодключаемойОбработки);
+	AddressOfBinaryDataInTemporaryStorage = PutToTempStorage(BinaryData,
+																			AdditionalParameters.DataProcessorsBuildOptions.Form.UUID);
+	УИ_ОбщегоНазначенияВызовСервера.ПодключитьВнешнююОбработкуКСеансу(AddressOfBinaryDataInTemporaryStorage,
+																	  AdditionalParameters.EditorForBuild.ИмяПодключаемойОбработки);
 																	  
 		
-	РедакторыФормы = УИ_РедакторКодаКлиентСервер.РедакторыФормы(ДополнительныеПараметры.ПараметрыСборкиОбработок.Form);
-	EditorOptions = РедакторыФормы[ДополнительныеПараметры.РедакторДляСборки.Идентификатор]; //см. УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораФормы
+	FormEditors = UT_CodeEditorClientServer.FormEditors(AdditionalParameters.DataProcessorsBuildOptions.Form);
+	EditorOptions = FormEditors[AdditionalParameters.EditorForBuild.ID]; //см. УИ_РедакторКодаКлиентСервер.НовыйДанныеРедактораФормы
 
-	КэшРезультатовПодключенияОбработкиИсполнения = УИ_РедакторКодаКлиентСервер.НовыйКэшРезультатовПодключенияОбработкиИсполнения();
-	КэшРезультатовПодключенияОбработкиИсполнения.ТекстРедактора = ДополнительныеПараметры.РедакторДляСборки.ТекстРедактора;
-	КэшРезультатовПодключенияОбработкиИсполнения.ИсполнениеНаКлиенте = ДополнительныеПараметры.РедакторДляСборки.ИсполнениеНаКлиенте;
+	CacheResultsConnectionsProcessingExecution = UT_CodeEditorClientServer.NewCacheResultsConnectionsProcessingExecution();
+	CacheResultsConnectionsProcessingExecution.TextEditor = AdditionalParameters.EditorForBuild.TextEditor;
+	CacheResultsConnectionsProcessingExecution.ExecutionAtClient = AdditionalParameters.EditorForBuild.ExecutionAtClient;
 
-	For Each  Стр In ДополнительныеПараметры.РедакторДляСборки.ИменаПредустановленныхПеременных Do
-		КэшРезультатовПодключенияОбработкиИсполнения.ИменаПредустановленныхПеременных.Добавить(НРег(Стр));
+	For Each Str In AdditionalParameters.EditorForBuild.NamesOfPredefinedVariables Do
+		CacheResultsConnectionsProcessingExecution.NamesOfPredefinedVariables.Add(Lower(Str));
 	EndDo;
-	EditorOptions.КэшРезультатовПодключенияОбработкиИсполнения = КэшРезультатовПодключенияОбработкиИсполнения;
+	EditorOptions.CacheResultsConnectionsProcessingExecution = CacheResultsConnectionsProcessingExecution;
 
-	ВыполнитьОбработкуОповещения(ДополнительныеПараметры.DescriptionCompleteAlerts, Истина);
+	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
 EndProcedure
 
 // Начать сборку обработок для исполнения кода завершение сборки обработки для очередного редактора.
 // 
 // Parameters:
-//  Результат -Булево-Результат
-//  ДополнительныеПараметры - см. NewAssemblyParametersProcessingForEditors
-Procedure НачатьСборкуОбработокДляИсполненияКодаЗавершениеСборкиОбработкиДляОчередногоРедактора(Результат,
-	ДополнительныеПараметры) Export
-	If Результат <> Истина Then
+//  Result -Булево-Result
+//  AdditionalParameters - см. NewBuildParametersDataProcessorsForEditors
+Procedure StartBuildDataProcessorForCodeExecutionCompletionOfBuildProcessingForNextEditor(Result,
+	AdditionalParameters) Export
+	If Result <> True Then
 		Return;
 	EndIf;
 	
-	ДополнительныеПараметры.EditorIndexForAssembly = ДополнительныеПараметры.EditorIndexForAssembly + 1;
-	If ДополнительныеПараметры.EditorIndexForAssembly >= ДополнительныеПараметры.EditorsForAssembly.Количество() Then
-		ВыполнитьОбработкуОповещения(ДополнительныеПараметры.DescriptionCompleteAlerts, Истина);
+	AdditionalParameters.EditorIndexForBuild = AdditionalParameters.EditorIndexForBuild + 1;
+	If AdditionalParameters.EditorIndexForBuild >= AdditionalParameters.EditorsForBuild.Количество() Then
+		ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
 	Иначе
-		НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактора(ДополнительныеПараметры,
-																					Новый ОписаниеОповещения("НачатьСборкуОбработокДляИсполненияКодаЗавершениеСборкиОбработкиДляОчередногоРедактора",
-			ЭтотОбъект, ДополнительныеПараметры));
+		StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditor(AdditionalParameters,
+																					New CallbackDescription("StartBuildDataProcessorForCodeExecutionCompletionOfBuildProcessingForNextEditor",
+			ThisObject, AdditionalParameters));
 	EndIf;
 		
 EndProcedure
@@ -2173,58 +2173,58 @@ EndProcedure
 // Начать сохранение шаблона обработки на диск завершение обеспечения каталога.
 // 
 // Parameters:
-//  Успешно - Boolean - Успешно
-//  ДополнительныеПараметры - Структура:
-//  	* DescriptionCompleteAlerts-ОписаниеОповещения
-//  	* Каталог - Строка
-Procedure НачатьСохранениеШаблонаОбработкиНаДискЗавершениеОбеспеченияКаталога(Успешно, ДополнительныеПараметры) Export
-	If Not Успешно Then
+//  Successfully - Boolean - Successfully
+//  AdditionalParameters - Structure:
+//  	* CallbackDescriptionAboutCompletion-CallbackDescription
+//  	* Directory - String
+Procedure StartSavingProcessingTemplateToDiskFinishProvidingDirectory(Successfully, AdditionalParameters) Export
+	If Not Successfully Then
 		Return;
 	EndIf;
 
-	Файл = Новый Файл(УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(ДополнительныеПараметры.Каталог,
-																	 "ШаблонОбработки.xml"));
-	Файл.НачатьПроверкуСуществования(Новый ОписаниеОповещения("НачатьСохранениеШаблонаОбработкиНаДискЗавершениеПроверкиСуществованияСохраненногоШаблона",
-		ЭтотОбъект, ДополнительныеПараметры));
+	File = New File(УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.Directory,
+																	 "TemplateProcessing.xml"));
+	File.BeginCheckingExistence(New CallbackDescription("StartSavingProcessingTemplateToDiskCompletingExistenceCheckOfSavedTemplate",
+		ThisObject, AdditionalParameters));
 EndProcedure
 
 // Начать сохранение шаблона обработки на диск завершение проверки существования сохраненного шаблона.
 // 
 // Parameters:
-//  Существует - Boolean - Существует
-//  ДополнительныеПараметры - Структура:
-//  	* DescriptionCompleteAlerts-ОписаниеОповещения
-//  	* Каталог - Строка
-Procedure НачатьСохранениеШаблонаОбработкиНаДискЗавершениеПроверкиСуществованияСохраненногоШаблона(Существует,
-	ДополнительныеПараметры) Export
-	If Существует Then
-		ВыполнитьОбработкуОповещения(ДополнительныеПараметры.DescriptionCompleteAlerts, Истина);
-	Иначе
-		АдресШаблонаОбработкиДляСохранения = УИ_ОбщегоНазначенияВызовСервера.АдресДвоичныхДанныхОбщегоМакета("УИ_ШаблонОбработки");
+//  Exists - Boolean - Exists
+//  AdditionalParameters - Structure:
+//  	* CallbackDescriptionAboutCompletion-CallbackDescription
+//  	* Directory - String
+Procedure StartSavingProcessingTemplateToDiskCompletingExistenceCheckOfSavedTemplate(Exists,
+	AdditionalParameters) Export
+	If Exists Then
+		ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
+	Else
+		AddressTemplateProcessingForSaving = УИ_ОбщегоНазначенияВызовСервера.АдресДвоичныхДанныхОбщегоМакета("UT_TemplateProcessing");
 
-		ИмяФайлаАрхива = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(ДополнительныеПараметры.Каталог, "шаблон.zip");
-		ДополнительныеПараметры.Вставить("ИмяФайлаАрхива", ИмяФайлаАрхива);
+		ArchiveFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.Directory, "template.zip");
+		AdditionalParameters.Insert("ArchiveFileName", ArchiveFileName);
 
-		Двоичные = ПолучитьИзВременногоХранилища(АдресШаблонаОбработкиДляСохранения); //ДвоичныеДанные
-		Двоичные.НачатьЗапись(Новый ОписаниеОповещения("НачатьСохранениеШаблонаОбработкиНаДискЗавершениеСохраненияАрхиваШаблона",
-			ЭтотОбъект, ДополнительныеПараметры), ИмяФайлаАрхива);
+		BinaryData = GetFromTempStorage(AddressTemplateProcessingForSaving); //BinaryData
+		BinaryData.BeginWrite(New CallbackDescription("StartSavingProcessingTemplateToDiskCompletingSavingArchiveTemplate",
+			ThisObject, AdditionalParameters), ArchiveFileName);
 	EndIf;
 EndProcedure
 
 // Начать сохранение шаблона обработки на диск завершение сохранения архива шаблона.
 // 
 // Parameters:
-//  ДополнительныеПараметры - Структура:
-//  	* DescriptionCompleteAlerts-ОписаниеОповещения
-//  	* Каталог - Строка
-//  	* ИмяФайлаАрхива - Строка
-Procedure НачатьСохранениеШаблонаОбработкиНаДискЗавершениеСохраненияАрхиваШаблона(ДополнительныеПараметры) Export
-#If Not ВебКлиент И Не МобильныйКлиент Then
-	ЧтениеZIP = Новый ЧтениеZipФайла(ДополнительныеПараметры.ИмяФайлаАрхива);
-	ЧтениеZIP.ИзвлечьВсе(ДополнительныеПараметры.Каталог, РежимВосстановленияПутейФайловZIP.Восстанавливать);
-	ВыполнитьОбработкуОповещения(ДополнительныеПараметры.DescriptionCompleteAlerts, Истина);
+//  AdditionalParameters - Structure:
+//  	* CallbackDescriptionAboutCompletion-CallbackDescription
+//  	* Каталог - String
+//  	* ArchiveFileName - String
+Procedure StartSavingProcessingTemplateToDiskCompletingSavingArchiveTemplate(AdditionalParameters) Export
+#If Not WebClient And Not MobileClient Then
+	ReadingZIP = New ZipFileReader(AdditionalParameters.ArchiveFileName);
+	ReadingZIP.ExtractAll(AdditionalParameters.Directory, ZIPRestoreFilePathsMode.Restore);
+	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
 #Иначе
-	ВыполнитьОбработкуОповещения(ДополнительныеПараметры.DescriptionCompleteAlerts, Ложь);
+	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, False);
 #EndIf
 
 EndProcedure
@@ -2233,48 +2233,48 @@ EndProcedure
 // Начать сборку обработок для исполнения кода завершение получения контекста редактора.
 // 
 // Parameters:
-//  КонтекстКонфигуратора - см. УИ_УправлениеКонфигураторомКлиент.НовыйConfiguratorCommandContext, Undefined -Контекст конфигуратора
-//  ПараметрыСборки - см. NewAssemblyParametersProcessingForEditors - Параметры сборки
-Procedure НачатьСборкуОбработокДляИсполненияКодаЗавершениеПолученияКонтекстаРедактора(КонтекстКонфигуратора,
-	ПараметрыСборки) Export
+//  ConfiguratorContext - см. УИ_УправлениеКонфигураторомКлиент.НовыйConfiguratorCommandContext, Undefined -Контекст конфигуратора
+//  BuildOptions - см. NewBuildParametersDataProcessorsForEditors - Параметры сборки
+Procedure StartBuildDataProcessorForCodeExecutionCompletingGetContextEditor(ConfiguratorContext,
+	BuildOptions) Export
 
-	If КонтекстКонфигуратора = Undefined Then
+	If ConfiguratorContext = Undefined Then
 		Return;
 	EndIf;
 
-	ПараметрыСборки.ConfiguratorCommandContext = КонтекстКонфигуратора;
-	НачатьСборкуОбработокДляИсполненияКодаСборкаОбработкиДляОчередногоРедактора(ПараметрыСборки,
-																				Новый ОписаниеОповещения("НачатьСборкуОбработокДляИсполненияКодаЗавершениеСборкиОбработкиДляОчередногоРедактора",
-		ЭтотОбъект, ПараметрыСборки));
+	BuildOptions.ConfiguratorCommandContext = ConfiguratorContext;
+	StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditor(BuildOptions,
+																				New CallbackDescription("StartBuildDataProcessorForCodeExecutionCompletionOfBuildProcessingForNextEditor",
+		ThisObject, BuildOptions));
 EndProcedure
 
-Procedure ОткрытьОпределениеПроцедурыМодуляЗавершениеПолученияТекстаМодуля(ТекстМодуля, ДополнительныеПараметры) Export
-	ПараметрыФормы = New Structure;
-	ПараметрыФормы.Вставить("Код", ТекстМодуля);
-	ПараметрыФормы.Вставить("ИмяМодуля", ДополнительныеПараметры.ТекущееСобытие.ДанныеСобытия.Модуль);
-	ПараметрыФормы.Вставить("ИмяМетодаДляПереходаКОпределению",
-							ДополнительныеПараметры.ТекущееСобытие.ДанныеСобытия.Слово);
+Procedure OpenModuleProcedureDefinitionCompletionOfReceivingTextModule(ModuleText, AdditionalParameters) Export
+	FormOptions = New Structure;
+	FormOptions.Insert("Code", ModuleText);
+	FormOptions.Insert("ModuleName", AdditionalParameters.CurrentEvent.EventData.Module);
+	FormOptions.Insert("MethodNameToGoToDefinition",
+							AdditionalParameters.CurrentEvent.EventData.Word);
 
-	ОткрытьФорму("ОбщаяФорма.УИ_ФормаКода",
-				 ПараметрыФормы,
+	OpenForm("ОбщаяФорма.УИ_ФормаКода",
+				 FormOptions,
 				 ,
-				 ВРег(ДополнительныеПараметры.ТекущееСобытие.ДанныеСобытия.Модуль));
+				 Upper(AdditionalParameters.CurrentEvent.EventData.Module));
 EndProcedure
 
 Procedure FormOnOpenEndAttachFileSystemExtension(Result, AdditionalParameters) Export
-	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(ДополнительныеПараметры.Form);
-	DataLibrariesEditors =  ДополнительныеПараметры.Form[UT_CodeEditorClientServer.AttributeNameCodeEditorLibraryURL()];
+	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(AdditionalParameters.Form);
+	DataLibrariesEditors =  AdditionalParameters.Form[UT_CodeEditorClientServer.AttributeNameCodeEditorLibraryURL()];
 	
 	LibraryData = DataLibrariesEditors[EditorType];
 	If LibraryData = Undefined
-		 Или Не ValueIsFilled(LibraryData)
-		 Или ТипЗнч(LibraryData) = Тип("Структура") Then
-		ФормаПриОткрытииЗавершениеСохраненияБиблиотекиРедактора(Истина, ДополнительныеПараметры);
+		 Or Not ValueIsFilled(LibraryData)
+		 Or TypeOf(LibraryData) = Type("Structure") Then
+		FormOnOpenEndEditorLibrarySaving(True, AdditionalParameters);
 	Иначе
-		СохранитьБиблиотекуРедактораНаДиск(LibraryData,
+		SaveEditorLibraryToDisk(LibraryData,
 										   EditorType,
-										   Новый ОписаниеОповещения("ФормаПриОткрытииЗавершениеСохраненияБиблиотекиРедактора",
-			ЭтотОбъект, ДополнительныеПараметры));
+										   New CallbackDescription("FormOnOpenEndEditorLibrarySaving",
+			ThisObject, AdditionalParameters));
 	EndIf;
 EndProcedure
 
@@ -2290,8 +2290,8 @@ Procedure FormOnOpenEndEditorLibrarySaving(Result, AdditionalParameters) Export
 			If EditorType = EditorsTypes.Monaco Then
 				Form[KeyValue.Value.AttributeName] = EditorSaveDirectory(EditorType) 
 				+ GetPathSeparator() + "index.html";
-			ElsIf EditorType = EditorsTypes.Ace Then
-				Form[KeyValue.Value.AttributeName] = AceEditorFileNameForLanguage(KeyValue.Value.EditorLanguage);
+//			ElsIf EditorType = EditorsTypes.Ace Then
+//				Form[KeyValue.Value.AttributeName] = AceEditorFileNameForLanguage(KeyValue.Value.EditorLanguage);
 			EndIf;
 		EndDo;
 	Else
@@ -2311,11 +2311,11 @@ Procedure SaveEditorLibraryToDiskEndLibraryDirectoryCreation(DirectoryName, Addi
 
 	LibraryURL = AdditionalParameters.LibraryURL;
 	
-	МассивСохраненныхФайлов = New Array;
-	СоответствиеФайловБиблиотеки=ПолучитьИзВременногоХранилища(АдресБиблиотеки);
+	ArrayOfSavedFiles = New Array;
+	MapOfLibraryFile = GetFromTempStorage(LibraryURL);
 
-	ДополнительныеПараметры.Вставить("МассивСохраненныхФайлов", МассивСохраненныхФайлов);
-	ДополнительныеПараметры.Вставить("СоответствиеФайловБиблиотеки", СоответствиеФайловБиблиотеки);
+	AdditionalParameters.Вставить("ArrayOfSavedFiles", ArrayOfSavedFiles);
+	AdditionalParameters.Вставить("MapOfLibraryFile", MapOfLibraryFile);
 
 	SaveEditorLibraryWriteBeginWritingNextFile(AdditionalParameters);
 EndProcedure
@@ -2325,7 +2325,7 @@ Procedure SaveEditorLibraryUnpackEditorLibraryToDirectory(AdditionalParameters,
 #If Not WebClient And Not MobileClient Then
 	Stream=AdditionalParameters.LibraryFilesMap[AdditionalParameters.CurrentFileKey].OpenStreamForRead();
 
-	ZipReader=New ZipFileReader(Stream);
+	ZipReader = New ZipFileReader(Stream);
 	ZipReader.ExtractAll(AdditionalParameters.LibrarySavingDirectory, 
 		ZIPRestoreFilePathsMode.Restore);
 
@@ -2660,74 +2660,74 @@ Procedure InsertQueryEditorMacroColumnCompletion(Result, AdditionalParameters) E
 	
 EndProcedure
 
-// Начать поиск файла модуля каталогах исходных файлов завершение поиска файлов.
+// Start searching for a module file in the source file directories. Finish searching for files..
 // 
 // Parameters:
-//  НайденныеФайлы -Массив In Файл -Найденные файлы
-//  ПараметрыПоиска - Structure - Параметры поиска:
-// 		* ОповещениеОЗавершении - ОписаниеОповещения -
-// 		* КаталогиИсходников - Массив In см. УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
-// 		* ИндексКаталогаИсходников - Number -
-// 		* ИмяМодуля - String -
-// 		* МассивИменМодуля - Массив In Строка -
-// 		* КаталогМодуля - String -
-// 		* ИмяФайла - String -
-// 		* ЭтоОбщийМодуль - Boolean -
-// 		* ИмяКаталогаПоискаФайла - String -
-// 		* ОписаниеОповещениеЗавершенияПоискаФайла - ОписаниеОповещения -
-Procedure НачатьПоискФайлаМодуляКаталогахИсходныхФайловЗавершениеПоискаФайлов(НайденныеФайлы, ПараметрыПоиска) Export
-	If НайденныеФайлы = Undefined Then
-		ПараметрыПоиска.ИндексКаталогаИсходников = ПараметрыПоиска.ИндексКаталогаИсходников + 1;
-		НачатьПоискФайлаМодуляКаталогахИсходныхФайлов(ПараметрыПоиска,
-													  ПараметрыПоиска.ОписаниеОповещениеЗавершенияПоискаФайла);
-		Return;
-	EndIf;
+//  FoundFiles -Array of Файл -Найденные файлы
+//  SearchOptions - Structure - Параметры поиска:
+// 		* CallbackDescriptionAboutCompletion - CallbackDescription -
+// 		* SourcesDirectories - Array of см. УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
+// 		* SourcesDirectoryIndex - Number -
+// 		* ModuleName - String -
+// 		* ArrayOfModuleNames - Array of String -
+// 		* ModuleDirectory - String -
+// 		* FileName - String -
+// 		* IsCommonModule - Boolean -
+// 		* SearchFileDirectoryName - String -
+// 		* CallbackDescriptionCompleteSearchFile - CallbackDescription -
+Procedure StartSearchingForModuleFileInSourceFileDirectoriesCompletingFileSearch(FoundFiles, SearchOptions) Export
+	Если FoundFiles = Неопределено Тогда
+		SearchOptions.SourcesDirectoryIndex = SearchOptions.SourcesDirectoryIndex + 1;
+		StartSearchingForModuleFilesInSourceFileDirectories(SearchOptions,
+													  SearchOptions.CallbackDescriptionCompleteSearchFile);
+		Возврат;
+	КонецЕсли;
 
-	If НайденныеФайлы.Количество() = 0 Then
-		ПараметрыПоиска.ИндексКаталогаИсходников = ПараметрыПоиска.ИндексКаталогаИсходников + 1;
-		НачатьПоискФайлаМодуляКаталогахИсходныхФайлов(ПараметрыПоиска,
-													  ПараметрыПоиска.ОписаниеОповещениеЗавершенияПоискаФайла);
-		Return;
-	EndIf;
+	Если FoundFiles.Count() = 0 Тогда
+		SearchOptions.SourcesDirectoryIndex = SearchOptions.SourcesDirectoryIndex + 1;
+		StartSearchingForModuleFilesInSourceFileDirectories(SearchOptions,
+													  SearchOptions.CallbackDescriptionCompleteSearchFile);
+		Возврат;
+	КонецЕсли;
 
-	ИмяФайла = НайденныеФайлы[0].ПолноеИмя;
-	ВыполнитьОбработкуОповещения(ПараметрыПоиска.ОписаниеОповещениеЗавершенияПоискаФайла, ИмяФайла);
+	FileName = FoundFiles[0].FullName;
+	ВыполнитьОбработкуОповещения(SearchOptions.CallbackDescriptionCompleteSearchFile, FileName);
 	
 EndProcedure
 
-// Начать получение текста модуля In исходных файлов завершение поиска файлов.
+// Start retrieving module text In source files finish searching for files.
 // 
 // Parameters:
-//  ИмяФайла -Строка-Имя файла
-//  ДополнительныеПараметры - Structure - Параметры поиска:
-// 		* ОповещениеОЗавершении - ОписаниеОповещения -
-// 		* КаталогиИсходников - Массив In см. УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
-// 		* ИндексКаталогаИсходников - Number -
-// 		* ИмяМодуля - String -
-// 		* МассивИменМодуля - Массив In Строка -
-// 		* КаталогМодуля - String -
-// 		* ИмяФайла - String -
-// 		* ЭтоОбщийМодуль - Boolean -
-// 		* ИмяКаталогаПоискаФайла - String -
-// 		* ОписаниеОповещениеЗавершенияПоискаФайла - ОписаниеОповещения -
-Procedure НачатьПолучениеТекстаМодуляИзИсходныхФайловЗавершениеПоискаФайлов(ИмяФайла, ДополнительныеПараметры) Export
-	ТекстовыйДокумент = Новый ТекстовыйДокумент;
+//  FileName -Строка-Имя файла
+//  AdditionalParameters - Structure - Параметры поиска:
+// 		* CallbackDescriptionAboutCompletion - CallbackDescription -
+// 		* SourcesDirectories - Array of см. УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
+// 		* SourcesDirectoryIndex - Number -
+// 		* ModuleName - String -
+// 		* ArrayOfModuleNames - Array of String -
+// 		* ModuleDirectory - String -
+// 		* FileName - String -
+// 		* IsCommonModule - Boolean -
+// 		* SearchFileDirectoryName - String -
+// 		* CallbackDescriptionCompleteSearchFile - CallbackDescription -
+Procedure StartGettingModuleTextFromSourceFilesCompletingFileSearch(FileName, AdditionalParameters) Export
+	TextDocument = New TextDocument;
 
-	ДополнительныеПараметры.Вставить("ТекстовыйДокумент", ТекстовыйДокумент);
-	ТекстовыйДокумент.НачатьЧтение(Новый ОписаниеОповещения("НачатьПолучениеТекстаМодуляИзИсходныхФайловЗавершениеЧтениеТекстаМодуляИзФайла",
-		ЭтотОбъект, ДополнительныеПараметры), ИмяФайла, "UTF8");
+	AdditionalParameters.Вставить("TextDocument", TextDocument);
+	TextDocument.BeginReading(New CallbackDescription("StartGettingModuleTextFromSourceFilesCompletingReadingModuleTextFromFile",
+		ThisObject, AdditionalParameters), FileName, "UTF8");
 
 EndProcedure
 
-// Начать получение текста модуля In исходных файлов завершение чтение текста модуля In файла.
+// Start getting module text from source files finish reading module text from file.
 // 
 // Parameters:
-//  ДополнительныеПараметры -Structure -Дополнительные Parameters:
-//  	* ТекстовыйДокумент - ТекстовыйДокумент
-//  	* ОповещениеОЗавершении - ОписаниеОповещения
-Procedure НачатьПолучениеТекстаМодуляИзИсходныхФайловЗавершениеЧтениеТекстаМодуляИзФайла(ДополнительныеПараметры) Export
-	ТекстМодуля = ДополнительныеПараметры.ТекстовыйДокумент.ПолучитьТекст();
-	ВыполнитьОбработкуОповещения(ДополнительныеПараметры.ОповещениеОЗавершении, ТекстМодуля);
+//  AdditionalParameters -Structure -Дополнительные Parameters:
+//  	* TextDocument - TextDocument
+//  	* CallbackDescriptionAboutCompletion - CallbackDescription
+Procedure StartGettingModuleTextFromSourceFilesCompletingReadingModuleTextFromFile(AdditionalParameters) Export
+	ModuleText = AdditionalParameters.TextDocument.GetText();
+	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, ModuleText);
 EndProcedure
 
 #Region Monaco
@@ -2808,14 +2808,14 @@ EndProcedure
 
 #Region Private
 
-Procedure НачатьСохранениеШаблонаОбработкиНаДиск(Каталог, DescriptionCompleteAlerts)
-	ПараметрыОповещения = New Structure;
-	ПараметрыОповещения.Вставить("DescriptionCompleteAlerts", DescriptionCompleteAlerts);
-	ПараметрыОповещения.Вставить("Каталог", Каталог);
+Procedure StartSavingProcessingTemplateToDisk(Directory, CallbackDescriptionAboutCompletion)
+	SettingsCallback = New Structure;
+	SettingsCallback.Вставить("CallbackDescriptionAboutCompletion", CallbackDescriptionAboutCompletion);
+	SettingsCallback.Вставить("Directory", Directory);
 
-	УИ_ОбщегоНазначенияКлиент.НачатьОбеспечениеКаталога(Каталог,
-														Новый ОписаниеОповещения("НачатьСохранениеШаблонаОбработкиНаДискЗавершениеОбеспеченияКаталога",
-		ЭтотОбъект, ПараметрыОповещения));
+	УИ_ОбщегоНазначенияКлиент.НачатьОбеспечениеКаталога(Directory,
+														New CallbackDescription("StartSavingProcessingTemplateToDiskFinishProvidingDirectory",
+		ThisObject, SettingsCallback));
 EndProcedure
 
 
@@ -2864,20 +2864,20 @@ Procedure AddAdditionToTextAtLineBeginningBySelectionBorders(CodeText, Selection
 	Text = New TextDocument;
 	Text.SetText(CodeText);
 
-	If ГраницыВыделения = Undefined Then
-		НачалоСтроки = 1;
-		КонецСтроки = Текст.КоличествоСтрок();
-	Иначе
+	If SelectionBorders = Undefined Then
+		RowBeginning = 1;
+		RowEnd = Text.Count();
+	Else
 			
 		If Not ValueIsFilled(SelectionBorders.RowBeginning) And Not ValueIsFilled(SelectionBorders.RowEnd) Then
 			Return;
 		EndIf;
-		НачалоСтроки = ГраницыВыделения.НачалоСтроки;
-		КонецСтроки = ГраницыВыделения.КонецСтроки;
+		RowBeginning = SelectionBorders.RowBeginning;
+		RowEnd = SelectionBorders.RowEnd;
 				
 	EndIf;
 
-	For LineNumber = SelectionBorders.RowBeginning To SelectionBorders.RowEnd Do
+	For LineNumber = RowBeginning To RowEnd Do
 		TextLine = Text.GetLine(LineNumber);
 		Text.ReplaceLine(LineNumber, Addition + TextLine);
 	EndDo;
@@ -2888,20 +2888,20 @@ Procedure DeleteTextAdditionInLineBeginningBySelectionBorders(CodeText, Selectio
 	Text = New TextDocument;
 	Text.SetText(CodeText);
 	
-	If ГраницыВыделения = Undefined Then
-		НачалоСтроки = 1;
-		КонецСтроки = Текст.КоличествоСтрок();
-	Иначе
+	If SelectionBorders = Undefined Then
+		RowBeginning = 1;
+		RowEnd = Text.Count();
+	Else
 
 		If Not ValueIsFilled(SelectionBorders.RowBeginning) And Not ValueIsFilled(SelectionBorders.RowEnd) Then
 			Return;
 		EndIf;
-		НачалоСтроки = ГраницыВыделения.НачалоСтроки;
-		КонецСтроки = ГраницыВыделения.КонецСтроки;
+		RowBeginning = SelectionBorders.RowBeginning;
+		RowEnd = SelectionBorders.RowEnd;
 
 	EndIf;
 	
-	For LineNumber = SelectionBorders.RowBeginning To SelectionBorders.RowEnd Do
+	For LineNumber = RowBeginning To RowEnd Do
 		TextLine = Text.GetLine(LineNumber);
 		If StrStartsWith(TextLine, Addition) Then
 			TextLine = Mid(TextLine, StrLen(Addition) + 1);
@@ -2971,7 +2971,7 @@ Procedure FillMonacoCodeEditorContextStructure(AddingObjects, AddedContext, Type
 			TypeName = KeyValue.Value;
 		EndIf;
 		AddedObject.ref = MonacoEditorTypeBy1CTypeAsString(TypeName, TypesMap);
-		AddingObjects.Insert(KeyValue.Ключ, AddedObject);
+		AddingObjects.Insert(KeyValue.Key, AddedObject);
 	EndDo;
 
 EndProcedure
@@ -3052,11 +3052,11 @@ EndProcedure
 // 
 // Parameters:
 //  Form - ClientApplicationForm -Form
-//  Элемент - ПолеФормы-Элемент
-//  ДанныеСобытия  -ФиксированнаяСтруктура- Данные события
+//  Item - FormField - Item
+//  EventData  -ФиксированнаяСтруктура- Данные события
 // 
 // Return values:
-//  см. НовыйСобытиеРедактораКодаДляОбработки
+//  см. CodeEditorNewEventForProcessing
 // Return values:
 //  Undefined - Событие не требует обработки
 Function HTMLEditorFieldOnClickMonaco(Form, Item, EventData, StandardProcessing)
@@ -3122,13 +3122,13 @@ Function HTMLEditorFieldOnClickMonaco(Form, Item, EventData, StandardProcessing)
 		Endif;
 	ElsIf Event.event = "EVENT_GET_DEFINITION" Then 
 		DataOfEventForProcessing = New Structure;
-		DataOfEventForProcessing.Вставить("Слово", Событие.params.word);
-		DataOfEventForProcessing.Вставить("ПолноеВыражение", Событие.params.expression);
-		DataOfEventForProcessing.Вставить("Модуль", Событие.params.module);
-		DataOfEventForProcessing.Вставить("ИмяОбъекта", Событие.params.class);
-		DataOfEventForProcessing.Вставить("НомерСтроки", Событие.params.line);
-		DataOfEventForProcessing.Вставить("НомерКолонки", Событие.params.column);
-		//DataOfEventForProcessing.Вставить("МассивВыражения", Событие.params.expression_array);
+		DataOfEventForProcessing.Insert("Слово", Event.params.word);
+		DataOfEventForProcessing.Insert("ПолноеВыражение", Event.params.expression);
+		DataOfEventForProcessing.Insert("Модуль", Event.params.module);
+		DataOfEventForProcessing.Insert("ИмяОбъекта", Event.params.class);
+		DataOfEventForProcessing.Insert("НомерСтроки", Event.params.line);
+		DataOfEventForProcessing.Insert("НомерКолонки", Event.params.column);
+		//DataOfEventForProcessing.Insert("МассивВыражения", Event.params.expression_array);
 			
 	Endif;	
 	
@@ -3174,119 +3174,119 @@ Function MetadataTypeDirectoryName(MetadataObjectType)
 
 EndFunction
 
-// Начать получение текста модуля In исходных файлов.
+// Start retrieving module text from source files.
 // 
 // Parameters:
-//  ИмяМодуля - String - Имя модуля. module.УИ_ОбщегоНазначения, module.manager.документы.авансовыйотчет, module.object.документы.авансовыйотчет
-//  КаталогиИсходныхФайлов -Массив In см. УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
-//  DescriptionCompleteAlerts -ОписаниеОповещения -Описание оповещения о завершении
-Procedure НачатьПолучениеТекстаМодуляИзИсходныхФайлов(ИмяМодуля, КаталогиИсходныхФайлов, DescriptionCompleteAlerts)
-	If КаталогиИсходныхФайлов.Количество() = 0 Then
+//  ModuleName - String - Module name. module.УИ_ОбщегоНазначения, module.manager.документы.авансовыйотчет, module.object.документы.авансовыйотчет
+//  DirectoriesOfSourceFiles - Array of look УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
+//  CallbackDescriptionAboutCompletion - CallbackDescription - Description of the completion alert
+Procedure StartGettingModuleTextFromSourceFiles(ModuleName, DirectoriesOfSourceFiles, CallbackDescriptionAboutCompletion)
+	If DirectoriesOfSourceFiles.Count() = 0 Then
 		Return;
 	EndIf;
 	
-	МассивИменМодуля = СтрРазделить(ИмяМодуля, ".");
+	ArrayOfModuleNames = StrSplit(ModuleName, ".");
 
-	If МассивИменМодуля.Количество() < 2 Then
+	If ArrayOfModuleNames.Count() < 2 Then
 		Return;
 	EndIf;
 	
-	ПараметрыПоиска = New Structure;
-	ПараметрыПоиска.Вставить("ОповещениеОЗавершении", DescriptionCompleteAlerts);
-	ПараметрыПоиска.Вставить("КаталогиИсходников", КаталогиИсходныхФайлов);
-	ПараметрыПоиска.Вставить("ИндексКаталогаИсходников", 0);
-	ПараметрыПоиска.Вставить("ИмяМодуля", ИмяМодуля);
-	ПараметрыПоиска.Вставить("МассивИменМодуля", МассивИменМодуля);
+	SearchOptions = New Structure;
+	SearchOptions.Insert("CallbackDescriptionAboutCompletion", CallbackDescriptionAboutCompletion);
+	SearchOptions.Insert("SourcesDirectories", DirectoriesOfSourceFiles);
+	SearchOptions.Insert("SourcesDirectoryIndex", 0);
+	SearchOptions.Insert("ModuleName", ModuleName);
+	SearchOptions.Insert("ArrayOfModuleNames", ArrayOfModuleNames);
 	
-	ВидМодуля = МассивИменМодуля[1];
+	ModuleType = ArrayOfModuleNames[1];
 
-	If ВидМодуля = "manager" Then
-		ПараметрыПоиска.Вставить("ОписаниеОбъектаМетаданных",
-								 УИ_РедакторКодаВызовСервера.ОписаниеОбъектаМетаданныхКонфигурацииПоИмени(МассивИменМодуля[2],
-																										  МассивИменМодуля[3]));
-		ПараметрыПоиска.Вставить("КаталогМодуля", ИмяКаталогаВидаМетаданных(МассивИменМодуля[2]));
-		ПараметрыПоиска.Вставить("ИмяФайла", "ManagerModule.bsl");
+	If ModuleType = "manager" Then
+		SearchOptions.Insert("MetadataObjectDescription",
+								 UT_CodeEditorServerCall.ConfigurationMetadataObjectDescriptionByName(ArrayOfModuleNames[2],
+																										  ArrayOfModuleNames[3]));
+		SearchOptions.Insert("ModuleDirectory", MetadataTypeDirectoryName(ArrayOfModuleNames[2]));
+		SearchOptions.Insert("FileName", "ManagerModule.bsl");
 
-		ПараметрыПоиска.Вставить("ЭтоОбщийМодуль", Ложь);
+		SearchOptions.Insert("IsCommonModule", False);
 
-	ElsIf ВидМодуля = "object" Then
-		ПараметрыПоиска.Вставить("ОписаниеОбъектаМетаданных",
-								 УИ_РедакторКодаВызовСервера.ОписаниеОбъектаМетаданныхКонфигурацииПоИмени(МассивИменМодуля[2],
-																										  МассивИменМодуля[3]));
-		ПараметрыПоиска.Вставить("КаталогМодуля", ИмяКаталогаВидаМетаданных(МассивИменМодуля[2]));
-		ПараметрыПоиска.Вставить("ИмяФайла", "ObjectModule.bsl");
+	ElsIf ModuleType = "object" Then
+		SearchOptions.Insert("MetadataObjectDescription",
+								 UT_CodeEditorServerCall.ConfigurationMetadataObjectDescriptionByName(ArrayOfModuleNames[2],
+																										  ArrayOfModuleNames[3]));
+		SearchOptions.Insert("ModuleDirectory", MetadataTypeDirectoryName(ArrayOfModuleNames[2]));
+		SearchOptions.Insert("FileName", "ObjectModule.bsl");
 
-		ПараметрыПоиска.Вставить("ЭтоОбщийМодуль", Ложь);
+		SearchOptions.Insert("IsCommonModule", False);
 	Иначе
-		ПараметрыПоиска.Вставить("ОписаниеОбъектаМетаданных",
-								 УИ_РедакторКодаВызовСервера.ОписаниеОбъектаМетаданныхКонфигурацииПоИмени("ОбщиеМодули",
-																										  МассивИменМодуля[1]));
-		ПараметрыПоиска.Вставить("КаталогМодуля", "CommonModules");
-		ПараметрыПоиска.Вставить("ИмяФайла", "Module.bsl");
+		SearchOptions.Insert("MetadataObjectDescription",
+								 UT_CodeEditorServerCall.ConfigurationMetadataObjectDescriptionByName("CommonModules",
+																										  ArrayOfModuleNames[1]));
+		SearchOptions.Insert("ModuleDirectory", "CommonModules");
+		SearchOptions.Insert("FileName", "Module.bsl");
 
-		ПараметрыПоиска.Вставить("ЭтоОбщийМодуль", Истина);
+		SearchOptions.Insert("IsCommonModule", True);
 	EndIf;
 
-	НачатьПоискФайлаМодуляКаталогахИсходныхФайлов(ПараметрыПоиска,
-												  Новый ОписаниеОповещения("НачатьПолучениеТекстаМодуляИзИсходныхФайловЗавершениеПоискаФайлов",
-		ЭтотОбъект, ПараметрыПоиска));
+	StartSearchingForModuleFilesInSourceFileDirectories(SearchOptions,
+												  New CallbackDescription("StartGettingModuleTextFromSourceFilesCompletingFileSearch",
+		ThisObject, SearchOptions));
 EndProcedure
 
-// Начать поиск файла модуля каталогах исходных файлов.
+// Start searching for the module file in the source file directories.
 // 
 // Parameters:
-//  ПараметрыПоиска - Structure - Параметры поиска:
-// 		* ОповещениеОЗавершении - ОписаниеОповещения -
-// 		* КаталогиИсходников - Массив In см. УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
-// 		* ИндексКаталогаИсходников - Number -
-// 		* ИмяМодуля - String -
-// 		* МассивИменМодуля - Массив In Строка -
-// 		* КаталогМодуля - String -
-// 		* ИмяФайла - String -
-// 		* ЭтоОбщийМодуль - Boolean -
-//  DescriptionCompleteAlerts - ОписаниеОповещения - Описание оповещения о завершении
-Procedure StartSearchOfModuleFileInSourceFilesDirectory(ПараметрыПоиска, DescriptionCompleteAlerts)
-	If ПараметрыПоиска.КаталогиИсходников.Количество() <= ПараметрыПоиска.ИндексКаталогаИсходников Then
+//  SearchOptions - Structure - Параметры поиска:
+// 		* CallbackDescriptionAboutCompletion - CallbackDescription -
+// 		* SourcesDirectories - Array of см. УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
+// 		* SourcesDirectoryIndex - Number -
+// 		* ModuleName - String -
+// 		* ArrayOfModuleNames - Array of String -
+// 		* ModuleDirectory - String -
+// 		* FileName - String -
+// 		* IsCommonModule - Boolean -
+//  CallbackDescriptionAboutCompletion - CallbackDescription - Description of the completion alert
+Procedure StartSearchingForModuleFilesInSourceFileDirectories(SearchOptions, CallbackDescriptionAboutCompletion)
+	If SearchOptions.SourcesDirectories.Count() <= SearchOptions.SourcesDirectoryIndex Then
 		Return;
 	EndIf;
 	
-	КаталогИсходныхФайлов = ПараметрыПоиска.КаталогиИсходников[ПараметрыПоиска.ИндексКаталогаИсходников].Каталог;
+	SourceFilesDirectory = SearchOptions.SourcesDirectories[SearchOptions.SourcesDirectoryIndex].Directory;
 
-	If Not ValueIsFilled(КаталогИсходныхФайлов) Then
-		ПараметрыПоиска.ИндексКаталогаИсходников = ПараметрыПоиска.ИндексКаталогаИсходников + 1;
-		НачатьПоискФайлаМодуляКаталогахИсходныхФайлов(ПараметрыПоиска, DescriptionCompleteAlerts);
+	If Not ValueIsFilled(SourceFilesDirectory) Then
+		SearchOptions.SourcesDirectoryIndex = SearchOptions.SourcesDirectoryIndex + 1;
+		StartSearchingForModuleFilesInSourceFileDirectories(SearchOptions, CallbackDescriptionAboutCompletion);
 		Return;
 	EndIf;
 
-	ИмяКаталогаПоискаФайла = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(КаталогИсходныхФайлов,
-																			ПараметрыПоиска.КаталогМодуля,
-																			ПараметрыПоиска.ОписаниеОбъектаМетаданных.Имя);
-	ПараметрыПоиска.Вставить("ИмяКаталогаПоискаФайла", ИмяКаталогаПоискаФайла);
-	ПараметрыПоиска.Вставить("ОписаниеОповещениеЗавершенияПоискаФайла", DescriptionCompleteAlerts);
+	SearchFileDirectoryName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(SourceFilesDirectory,
+																			SearchOptions.ModuleDirectory,
+																			SearchOptions.MetadataObjectDescription.Name);
+	SearchOptions.Insert("SearchFileDirectoryName", SearchFileDirectoryName);
+	SearchOptions.Insert("CallbackDescriptionCompleteSearchFile", CallbackDescriptionAboutCompletion);
 
-	BeginFindingFiles(New NotifyDescription("SetModuleDescriptionForMonacoEditorOnEndModuleFilesSeacrh", 
-	ThisObject, ПараметрыПоиска), ИмяКаталогаПоискаФайла, ПараметрыПоиска.ModuleFileName, True);
+	BeginFindingFiles(New NotifyDescription("StartSearchingForModuleFileInSourceFileDirectoriesCompletingFileSearch", 
+		ThisObject, SearchOptions), SearchFileDirectoryName, SearchOptions.ModuleFileName, True);
 
 EndProcedure
 
-Procedure НачатьПоискФайлаМодуляВКаталогеИсходныхФайлов(ДополнительныеПараметры)
-	If ДополнительныеПараметры.КаталогиИсходников.Количество() <= ДополнительныеПараметры.ИндексКаталогаИсходников Then
+Procedure StartSearchingForModuleFileInSourceFilesDirectory(AdditionalParameters)
+	If AdditionalParameters.SourcesDirectories.Count() <= AdditionalParameters.SourcesDirectoryIndex Then
 		Return;
 	EndIf;
-	КаталогИсходныхФайлов = ДополнительныеПараметры.КаталогиИсходников[ДополнительныеПараметры.ИндексКаталогаИсходников].Каталог;
+	SourceFilesDirectory = AdditionalParameters.SourcesDirectories[AdditionalParameters.SourcesDirectoryIndex].Directory;
 
-	If Not ValueIsFilled(КаталогИсходныхФайлов) Then
-		ДополнительныеПараметры.ИндексКаталогаИсходников = ДополнительныеПараметры.ИндексКаталогаИсходников + 1;
-		НачатьПоискФайлаМодуляВКаталогеИсходныхФайлов(ДополнительныеПараметры);
+	If Not ValueIsFilled(SourceFilesDirectory) Then
+		AdditionalParameters.SourcesDirectoryIndex = AdditionalParameters.SourcesDirectoryIndex + 1;
+		StartSearchingForModuleFileInSourceFilesDirectory(AdditionalParameters);
 		Return;
 	EndIf;
 
-	ИмяКаталогаПоискаФайла = КаталогИсходныхФайлов + ПолучитьРазделительПути() + ДополнительныеПараметры.КаталогМодуля
-		+ ПолучитьРазделительПути() + ДополнительныеПараметры.ОписаниеОбъектаМетаданных.Имя;
-	ДополнительныеПараметры.Вставить("ИмяКаталогаПоискаФайла", ИмяКаталогаПоискаФайла);
+	SearchFileDirectoryName = SourceFilesDirectory + GetPathSeparator() + AdditionalParameters.ModuleDirectory
+		+ GetPathSeparator() + AdditionalParameters.MetadataObjectDescription.Name;
+	AdditionalParameters.Insert("SearchFileDirectoryName", SearchFileDirectoryName);
 
-	НачатьПоискФайлов(Новый ОписаниеОповещения("УстановитьОписаниеМодуляДляРедактораMonacoЗавершениеПоискаФайловМодуля",
-		ЭтотОбъект, ДополнительныеПараметры), ИмяКаталогаПоискаФайла, ДополнительныеПараметры.ИмяФайлаМодуля, Истина);
+	BeginFindingFiles(New CallbackDescription("SetModuleDescriptionForMonacoEditorOnEndModuleFilesSeacrh",
+		ThisObject, AdditionalParameters), SearchFileDirectoryName, AdditionalParameters.ModuleFileName, True);
 
 EndProcedure
 
@@ -3345,19 +3345,19 @@ Procedure SetModuleDescriptionForMonacoEditor(UpdatedMetadataObject, AdditionalP
 	AdditionalParameters.Insert("ModuleDirectory", ModuleDirectory);
 	AdditionalParameters.Insert("ModuleFileName", FileName);
 
-	StartSearchOfModuleFileInSourceFilesDirectory(AdditionalParameters);
+	StartSearchingForModuleFileInSourceFilesDirectory(AdditionalParameters);
 EndProcedure
 Procedure SetModuleDescriptionForMonacoEditorOnEndModuleFilesSeacrh(FoundFiles, 
 AdditionalParameters) Export
 	If FoundFiles = Undefined Then
 		AdditionalParameters.SourcesDirectoryIndex = AdditionalParameters.SourcesDirectoryIndex + 1;
-		StartSearchOfModuleFileInSourceFilesDirectory(AdditionalParameters);
+		StartSearchingForModuleFileInSourceFilesDirectory(AdditionalParameters);
 		Return;
 	EndIf;
 
 	If FoundFiles.Count() = 0 Then
 		AdditionalParameters.SourcesDirectoryIndex = AdditionalParameters.SourcesDirectoryIndex + 1;
-		StartSearchOfModuleFileInSourceFilesDirectory(AdditionalParameters);
+		StartSearchingForModuleFileInSourceFilesDirectory(AdditionalParameters);
 		Return;
 	EndIf;
 
@@ -3924,26 +3924,26 @@ Function ConfigurationMetadataDescriptionForMonacoEditor()
 	Return MetadataCollection;
 EndFunction
 
-// Вид объекта метаданных по виду метаданных от редактора monaco.
+// Object metadata type by MetadataType by editor Monaco.
 // 
 // Parameters:
-//  ВидМетаданныхMonaco -Строка - Вид метаданных monaco
+//  MetadataTypeMonaco - String - Вид метаданных monaco
 // 
 // Return values:
-//  Строка
-Function ВидОбъектаМетаданныхПоВидуМетаданныхОтРедактораMonaco(ВидМетаданныхMonaco)
-	If НРег(ВидМетаданныхMonaco) = "inforegs" Then
+//  String
+Function ВидОбъектаМетаданныхПоВидуМетаданныхОтРедактораMonaco(MetadataTypeMonaco)
+	If Lower(MetadataTypeMonaco) = "inforegs" Then
 		Return "informationregisters";
-	ElsIf НРег(ВидМетаданныхMonaco) = "accumregs" Then
+	ElsIf Lower(MetadataTypeMonaco) = "accumregs" Then
 		Return "accumulationregisters";
-	ElsIf НРег(ВидМетаданныхMonaco) = "accountregs" Then
+	ElsIf Lower(MetadataTypeMonaco) = "accountregs" Then
 		Return "accountingregisters";
-	ElsIf НРег(ВидМетаданныхMonaco) = "calcregs" Then
+	ElsIf Lower(MetadataTypeMonaco) = "calcregs" Then
 		Return "calculationregisters";
-	ElsIf НРег(ВидМетаданныхMonaco) = "dataproc" Then
+	ElsIf Lower(MetadataTypeMonaco) = "dataproc" Then
 		Return "dataprocessors";
 	Иначе
-		Return ВидМетаданныхMonaco;
+		Return MetadataTypeMonaco;
 	EndIf;
 EndFunction
 
@@ -3955,19 +3955,19 @@ Function MapOfMonacoEditorUpdatedMetadataObjectsAndMetadataUpdateEventParameters
 	Map.Insert("documents", "documents.items");
 	Map.Insert("регистрысведений", "infoRegs.items");
 	Map.Insert("informationregisters", "infoRegs.items");
-	Соответствие.Вставить("infoRegs", "infoRegs.items");
+	Map.Insert("infoRegs", "infoRegs.items");
 	Map.Insert("регистрынакопления", "accumRegs.items");
 	Map.Insert("accumulationregisters", "accumRegs.items");
-	Соответствие.Вставить("accumRegs", "accumRegs.items");	
+	Map.Insert("accumRegs", "accumRegs.items");	
 	Map.Insert("регистрыбухгалтерии", "accountRegs.items");
 	Map.Insert("accountingregisters", "accountRegs.items");
-	Соответствие.Вставить("accountRegs", "accountRegs.items");
+	Map.Insert("accountRegs", "accountRegs.items");
 	Map.Insert("регистрырасчета", "calcRegs.items");
 	Map.Insert("calculationregisters", "calcRegs.items");
-	Соответствие.Вставить("calcRegs", "calcRegs.items");
+	Map.Insert("calcRegs", "calcRegs.items");
 	Map.Insert("обработки", "dataProc.items");
 	Map.Insert("dataprocessors", "dataProc.items");
-	Соответствие.Вставить("dataProc", "dataProc.items");
+	Map.Insert("dataProc", "dataProc.items");
 	Map.Insert("отчеты", "reports.items");
 	Map.Insert("reports", "reports.items");
 	Map.Insert("перечисления", "enums.items");
@@ -3992,56 +3992,56 @@ Function MapOfMonacoEditorUpdatedMetadataObjectsAndMetadataUpdateEventParameters
 EndFunction
 
 Function ThereAreAddedCommandsForEditorContextMenuMonaco(DocumentView)
-	КомандыРедактора = DocumentView.editor.getSupportedActions();
-	For Each  ТекКоманда In КомандыРедактора Do
-		If Not СтрЗаканчиваетсяНа(ТекКоманда.id, "_bsl") Then
-			Продолжить;
+	EditorCommands = DocumentView.editor.getSupportedActions();
+	For Each  CurrentCommand In EditorCommands Do
+		If Not StrEndsWith(CurrentCommand.id, "_bsl") Then
+			Continue;
 		EndIf;
 		
-		ЧастиИдентификатора = СтрРазделить(ТекКоманда.id, ":");  
-		Идентификатор = ЧастиИдентификатора[ЧастиИдентификатора.Количество()-1];
-		ЧастиИдентификатор = СтрРазделить(Идентификатор, ".");
-		If УИ_СтроковыеФункцииКлиентСервер.ТолькоЦифрыВСтроке(ЧастиИдентификатор[0]) Then
-			Return Истина;
+		PartsIdentifier = StrSplit(CurrentCommand.id, ":");  
+		ID = PartsIdentifier[PartsIdentifier.Count()-1];
+		PartsIdentifier = StrSplit(ID, ".");
+		If UT_StringFunctionsClientServer.OnlyNumbersInString(PartsIdentifier[0]) Then
+			Return True;
 		EndIf;
 	EndDo;
 	
-	Return Ложь;
+	Return False;
 EndFunction
 
 #EndRegion
 
 #Region ACE
-// Событие для обработки при нажатии monaco.
+// Event to Handle when clicked Ace.
 // 
 // Parameters:
-//  Form - ClientApplicationForm -Form
-//  Элемент - ПолеФормы-Элемент
-//  ДанныеСобытия  -ФиксированнаяСтруктура- Данные события
+//  Form - ClientApplicationForm - Form
+//  Item - FormField - Item
+//  EventData  - FixedStructure- Данные события
 // 
 // Return values:
-//  см. НовыйСобытиеРедактораКодаДляОбработки
+//  look CodeEditorNewEventForProcessing
 // Return values:
 //  Undefined - Событие не требует обработки
-Function EventToHandleWhenClickedAce(Form, Элемент, ДанныеСобытия)
-	Событие = ДанныеСобытия.Event.eventData1C;
+Function EventToHandleWhenClickedAce(Form, Item, EventData)
+	Event = EventData.Event.eventData1C;
 
-	If Событие = Undefined Then
+	If Event = Undefined Then
 		Return Undefined;
 	EndIf;
-//	СтандартнаяОбработка = Ложь;
+//	СтандартнаяОбработка = False;
 		
-	СобытиеДляОбработки = НовыйСобытиеРедактораКодаДляОбработки();
-	СобытиеДляОбработки.Элемент = Элемент;
-	СобытиеДляОбработки.ИмяСобытия = Событие.name;
+	EventForProcessing = CodeEditorNewEventForProcessing();
+	EventForProcessing.Item = Item;
+	EventForProcessing.EventName = Event.name;
 	
-	ДанныеСобытияДляОбработки = Undefined;
+	EventDataForProcessing = Undefined;
 
-	//Тут получение спец данных для события
+	//Obtaining special data for an event
 	
-	СобытиеДляОбработки.ДанныеСобытия = ДанныеСобытияДляОбработки;
+	EventForProcessing.EventData = EventDataForProcessing;
 
-	Return СобытиеДляОбработки;	
+	Return EventForProcessing;	
 EndFunction
 
 
@@ -4102,21 +4102,21 @@ Function EditorSaveDirectory(EditorType)
 		+ EditorType;
 EndFunction
 
-// New assembly parameters processing for editors.
+// New Build parameters processing for editors.
 // 
 // Return values:
-//  Structure - New assembly parameters processing for editors:
-// * DescriptionCompleteAlerts - CallbackDescription, Undefined -
-// * EditorsForAssembly - Массив In см. UT_CodeEditorClientServer.NewEditorDataForAssemblyProcessing-
-// * EditorIndexForAssembly - Number -
+//  Structure - New Build parameters processing for editors:
+// * CallbackDescriptionAboutCompletion - CallbackDescription, Undefined -
+// * EditorsForBuild - Array of см. UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor-
+// * EditorIndexForBuild - Number -
 // * CatalogTemplateProcessing - String -
 // * Form - ClientApplicationForm,Undefined -
 // * ConfiguratorCommandContext - см. УИ_УправлениеКонфигураторомКлиент.НовыйConfiguratorCommandContext, Undefined -
-Function NewAssemblyParametersProcessingForEditors()
+Function NewBuildParametersDataProcessorsForEditors()
 	BuildOptions = New Structure();
-	BuildOptions.Insert("DescriptionCompleteAlerts", Undefined);
-	BuildOptions.Insert("EditorsForAssembly", New Array);
-	BuildOptions.Insert("EditorIndexForAssembly", 0);
+	BuildOptions.Insert("CallbackDescriptionAboutCompletion", Undefined);
+	BuildOptions.Insert("EditorsForBuild", New Array);
+	BuildOptions.Insert("EditorIndexForBuild", 0);
 	BuildOptions.Insert("CatalogTemplateProcessing", "");
 	BuildOptions.Insert("ConfiguratorCommandContext", Undefined);
 	BuildOptions.Insert("Form", Undefined);
@@ -4140,7 +4140,7 @@ EndFunction
 // 
 // Parameters:
 //  Form - ClientApplicationForm
-//  EditorOptions - см. UT_CodeEditorClientServer.NewEditorFormData
+//  EditorOptions - look UT_CodeEditorClientServer.NewEditorFormData
 //  DocumentHTML - ExternalObject
 Procedure ConnectToFieldHTMLScriptInteraction(Form, EditorOptions, DocumentHTML)
 	TypesOfEditors = UT_CodeEditorClientServer.CodeEditorVariants();
@@ -4161,7 +4161,7 @@ Procedure ConnectToFieldHTMLScriptInteraction(Form, EditorOptions, DocumentHTML)
 	
 	If DataLibrariesEditors.Свойство(LibraryNameInteractionForDataForms) Then
 		DataLibrariesInteractions = DataLibrariesEditors[LibraryNameInteractionForDataForms];
-	Иначе
+	Else
 		DataLibrariesInteractions = UT_CodeEditorServerCall.DataLibraryGeneralLayout(LibraryLayoutName,
 																								 Form.UUID);
 		DataLibrariesEditors.Вставить(LibraryNameInteractionForDataForms, DataLibrariesInteractions);
@@ -4174,7 +4174,7 @@ EndProcedure
 // 
 // Parameters:
 //  DocumentView - ExternalObject- Документ view
-//  LibraryData - см. УИ_РедакторКодаСервер.
+//  LibraryData - look UT_CodeEditorServer.
 Procedure ConnectLibraryToDocumentHTMLFields(DocumentView, LibraryData)
 	For Each  ТекСкрипт In LibraryData.Scripts Do
 		Element = DocumentView.document.createElement("script");
