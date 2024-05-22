@@ -19,7 +19,7 @@ Procedure OnStart() Export
 	UT_ApplicationParameters.Insert("HTMLFieldBasedOnWebkit",
 		UT_CommonClientServer.HTMLFieldBasedOnWebkit());
 	UT_ApplicationParameters.Insert("AppVersion",
-	UT_CommonClientServer.CurrentAppVersion());
+		UT_CommonClientServer.CurrentAppVersion());
 	//UT_ApplicationParameters.Insert("ConfigurationMetadataDescriptionAdress", UT_CommonServerCall.ConfigurationMetadataDescriptionAdress());
 	
 	SessionParametersInStorage = New Structure;
@@ -32,21 +32,9 @@ Procedure OnStart() Export
 	//SessionParametersInStorage.Insert("ConfigurationMetadataDescriptionAdress", UT_ApplicationParameters["ConfigurationMetadataDescriptionAdress"]);
 
 	UT_CommonServerCall.CommonSettingsStorageSave(
-	UT_CommonClientServer.ObjectKeyInSettingsStorage(),
-	UT_CommonClientServer.SessionParametersSettingsKey(), SessionParametersInStorage);
+		UT_CommonClientServer.ObjectKeyInSettingsStorage(),
+		UT_CommonClientServer.SessionParametersSettingsKey(), SessionParametersInStorage);
 
-EndProcedure
-
-Procedure OnExit() Export
-	UT_AdditionalLibrariesDirectory=UT_AssistiveLibrariesDirectory();
-	If Not ValueIsFilled(UT_AdditionalLibrariesDirectory) Then
-		Return;
-	EndIf;
-	Try
-		BeginDeletingFiles(,UT_AdditionalLibrariesDirectory);
-	Except
-
-	EndTry;
 EndProcedure
 
 #EndRegion
@@ -83,19 +71,18 @@ EndProcedure
 //
 // Parameters:
 //   CompletionNotifyDescription - NotifyDescription - description of the procedures to be called 
-//                                                        after the question window is closed with the following parameters:
-//                                                          QuestionResult - Structure - a structure with the following properties:
-//                                                            Value - a user selection result: a 
-//                                                                       system enumeration value or 
-//                                                                       a value associated with the clicked button. 
-//                                                                       If the dialog is closed by a timeout - value
-//                                                                       Timeout.
-//                                                            DontAskAgain - Boolean - a user 
-//                                                                                                  
-//                                                                                                  selection result in the check box with the same name.
-//                                                          AdditionalParameters - Structure
+//                                                     after the question window is closed with the following parameters:
+//                                                     QuestionResult - Structure - a structure with the following properties:
+//                                                     	Value - a user selection result: a 
+//                                                              system enumeration value or 
+//                                                              a value associated with the clicked button. 
+//                                                              If the dialog is closed by a timeout - value
+//                                                              Timeout.
+//                                                      DontAskAgain - Boolean - a user                                                     
+//                                                          					 selection result in the check box with the same name.
+//                                                     AdditionalParameters - Structure
 //   QuestionText - String - a question text.
-//   Buttons                        - QuestionDialogMode, ValueList - a value list may be specified in which:
+//   Buttons - QuestionDialogMode, ValueList - a value list may be specified in which:
 //                                       Value - contains the value connected to the button and 
 //                                                  returned when the button is selected. You can 
 //                                                  pass a value of the DialogReturnCode enumeration 
@@ -105,11 +92,12 @@ EndProcedure
 //
 //   AdditionalParameters - Structure - see StandardSubsystemsClient.QuestionToUserParameters 
 //
+//
 // Returns:
 //   The user selection result is passed to the method specified in the NotifyDescriptionOnCompletion parameter.
 //
 Procedure ShowQuestionToUser(CompletionNotifyDescription, QuestionText, Buttons,
- AdditionalParameters = Undefined) Export
+ 	AdditionalParameters = Undefined) Export
 
 	If AdditionalParameters <> Undefined Then
 		Parameters = AdditionalParameters;
@@ -122,7 +110,7 @@ Procedure ShowQuestionToUser(CompletionNotifyDescription, QuestionText, Buttons,
 	ButtonsParameter = Buttons;
 
 	If TypeOf(Parameters.DefaultButton) = Type("DialogReturnCode") Then
-	 //@skip-warning
+		//@skip-warning
 		Parameters.DefaultButton = DialogReturnCodeToString(Parameters.DefaultButton);
 	EndIf;
 	
@@ -240,31 +228,40 @@ Procedure OpenDebuggingConsole(DebuggingObjectType, DebuggingData, ConsoleFormUn
 
 EndProcedure
 
-Procedure  RunDebugConsoleByDebugDataSettingsKey(DebugSettingsKey,User=Undefined, 
-	FormID = Undefined) Export
+Procedure  RunDebugConsoleByDebugDataSettingsKey(DebugSettingsKey, IsFile, DebuggingObjectType, 
+	User = Undefined, FormID = Undefined) Export
 	If Not ValueIsFilled(DebugSettingsKey) Then
 		Return;
 	EndIf;
 
-	DebugData = UT_CommonServerCall.DebuggingObjectDataStructureFromSystemSettingsStorage(
-		DebugSettingsKey,user, FormID);
-
-	If DebugData = Undefined Then
+	If IsFile Then 
+		DebuggingObjectAdress = UT_CommonServerCall.DebuggingObjectTempPathFromDebugDataCatalog(DebugSettingsKey, 
+			FormID);
+	Else 
+		DebuggingObjectAdress = UT_CommonServerCall.DebuggingObjectTempPathFromSystemSettingsStorage(DebugSettingsKey, 
+			User, 
+			FormID);
+	EndIf;
+	If DebuggingObjectAdress = Undefined Then
 		Return;
 	EndIf;
 
-	OpenDebuggingConsole(DebugData.DebuggingObjectType, DebugData.DebuggingObjectAddress);
+	OpenDebuggingConsole(DebuggingObjectType, DebuggingObjectAdress);
 EndProcedure
+
 
 #EndRegion
 
+// This is a web client.
+// 
+// Returns:
+// 	Boolean - This is a web client
 Function IsWebClient() Export
-	#If WebClient Then
-		Return True;
-	#Else
-		Return False;
-	#EndIf
+	Return UT_CommonClientServer.IsWebClient();
 EndFunction
+
+
+#Region ApplicationsRun
 
 Function ApplicationRunEmptyNotifyDescription() Export
 	Return New NotifyDescription("BeginRunningApplicationEndEmpty", ThisObject);
@@ -276,19 +273,121 @@ Procedure BeginRunningApplicationEndEmpty(ReturnCode, AdditionalParameters) Expo
 	EndIf;
 EndProcedure
 
-Procedure OpenTextEditingForm(Text, OnCloseNotifyDescription, Title = "",
-	WindowOpeningMode = Undefined) Export
+// Begin running the application with attaching file system extension.
+// 
+// Parameters:
+// 	CallbackDescription - CallbackDescription - Contains a description of the procedure that will be called upon completion
+// 	CommandString - String - The command string to run the application or the name of a file associated with some application.
+// 	CurrentDirectory - Undefined, String - Specifies the current directory of the application to be launched. Ignored in web client mode.
+// 	WaitToComplete - Boolean - Wait for the running application to complete before proceeding
+Procedure BeginRunningApplicationWithFilesWorkingExt(CallbackDescription, CommandString, CurrentDirectory = Undefined, WaitToComplete = False) Export
+	CallbackParameters = New Structure;
+	CallbackParameters.Insert("CallbackDescription", CallbackDescription);
+	CallbackParameters.Insert("CommandString", CommandString);
+	CallbackParameters.Insert("CurrentDirectory", CurrentDirectory);
+	CallbackParameters.Insert("WaitToComplete", WaitToComplete);
+	
+	AttachFileSystemExtensionWithPossibleInstallation(New CallbackDescription("BeginRunningApplicationWithFilesWorkingExtFinalizationAttachingFileSystemExtension", ThisObject, CallbackParameters));	
+EndProcedure
+
+// Begin running the application with attaching file system extension (finalize attaching file system extension).
+// 
+// Parameters:
+// 	Result - Boolean - Extension connected successfully
+// 	AdditionalParameters - Structure - Callback parameters:
+// 		* CallbackParameters - CallbackDescription - Contains a description of the procedure that will be called upon completion
+// 		* CommandString - String - The command string to run the application or the name of a file associated with some application.
+// 		* CurrentDirectory - Undefined, String - Specifies the current directory of the application to be launched. Ignored in web client mode.
+// 		* WaitToComplete - Boolean - Wait for the running application to complete before proceeding
+Procedure BeginRunningApplicationWithFilesWorkingExtFinalizationAttachingFileSystemExtension(Result, AdditionalParameters) Export
+	If Not Result Then
+		Return;
+	EndIf;
+	
+	BeginRunningApplication(AdditionalParameters.CallbackParameters, AdditionalParameters.CommandString, AdditionalParameters.CurrentDirectory, AdditionalParameters.WaitToComplete);
+EndProcedure
+
+#EndRegion
+
+#Region TypesEditing
+
+// Opens a special text editing form
+// 
+// Parameters:
+// 	Text - String
+// 	CallbackDescriptionOnClose - Undefined - Callback description on close.
+// 	Title - String - Title
+// 	FormWindowOpeningMode - Undefined - Opening mode
+Procedure OpenTextEditingForm(Text, CallbackDescriptionOnClose, Title = "",
+	FormWindowOpeningMode = Undefined) Export
 	FormParameters = New Structure;
 	FormParameters.Insert("Text", Text);
 	FormParameters.Insert("Title", Title);
 
-	If WindowOpeningMode = Undefined Then
-		OpenForm("CommonForm.UT_TextEditingForm", FormParameters, , , , , OnCloseNotifyDescription);
+	If FormWindowOpeningMode = Undefined Then
+		OpenForm("CommonForm.UT_TextEditingForm", FormParameters, , , , , CallbackDescriptionOnClose);
 	Else
-		OpenForm("CommonForm.UT_TextEditingForm", FormParameters, , , , , OnCloseNotifyDescription,
-			WindowOpeningMode);
+		OpenForm("CommonForm.UT_TextEditingForm", 
+			FormParameters, 
+			, 
+			, 
+			, 
+			, 
+			CallbackDescriptionOnClose,
+			FormWindowOpeningMode);
 	EndIf;
 EndProcedure
+
+// Start selecting an enumeration value.
+// 
+// Parameters:
+// 	Value - EnumRefEnumerationName, Type - Value
+// 	CallbackDescriptionOnClose - CallbackDescription - Callback description on close
+// 	Owner - ClientApplicationForm, FormField - FormOwner
+Procedure StartSelectingEnumerationValue(Value, CallbackDescriptionOnClose = Undefined,
+	Owner = Undefined) Export
+	FormParameters = New Structure;
+
+	If TypeOf(Value) = Type("Type") Then
+		FormParameters.Insert("EnumerationType", Value);
+	Else
+		FormParameters.Insert("EnumerationValue", Value);
+	EndIf;
+
+	OpenForm("ОбщаяФорма.УИ_ФормаВыбораЗначенияПеречисления",
+				 FormParameters,
+				 Owner,
+				 String(New UUID),
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+EndProcedure
+
+// Start editing the UUID.
+// 
+// Parameters:
+// 	Value - Undefined, UUID - Value
+// 	CallbackDescriptionOnClose - Undefined, CallbackDescription - Callback description on close
+// 	Owner - Undefined, ClientApplicationForm, FormField - FormOwner
+Procedure StartEditingUUID(Value = Undefined,
+	CallbackDescriptionOnClose = Undefined, Owner = Undefined) Export
+	FormParameters = New Structure;
+
+	If Value <> Undefined Then
+		FormParameters.Insert("Value", Value);
+	EndIf;
+
+	OpenForm("ОбщаяФорма.УИ_РедакторУникальногоИдентификатора",
+				 FormParameters,
+				 Owner,
+				 String(New UUID),
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+	
+EndProcedure
+
+#EndRegion
 
 Procedure OpenValueListChoiceItemsForm(List, OnCloseNotifyDescription, Title = "",
 	ItemsType = Undefined, CheckVisible = True, PresentationVisible = True, PickMode = True,
@@ -419,6 +518,7 @@ Function OpenInformationForSupportService() Export
 	Info = InformationForSupportService();
 	
 	OutputString = InformationForSupportServiceAsString(Info);
+	
     OpenTextEditingForm(OutputString,Undefined ,NStr("ru = 'Информация для тех поддержки';en = 'Information for Support Service'", ));
 EndFunction
 
@@ -469,10 +569,56 @@ EndProcedure
 #EndRegion
 #Region TypesEditingAndVariables
 
+#Region TypesEditingParameters
+
+// New parameters of value table editing
+//
+// Returns:
+//  Structure - New parameters of value table editing:
+//  	* SerializeToXML - boolean - If TRUE, then the string presentation of VT wiil be computed with UT_Common.ValueFromXMLString and UT_Common.ValueToXMLString.
+// 								     If FALSE, then with platform methods ValueToStringInternal and ValueFromStringInternal
+// 		* ReadOnly - boolean - if true table will open to readonly ( only view)
+Function ValueTableNewEditingParameters() Export
+	Structure = New Structure;
+	Structure.Insert("SerializeToXML", False);
+	Structure.Insert("ReadOnly", False);
+	
+	Return Structure;
+EndFunction
+
+// New parameters of value list editing.
+// 
+// Returns:
+// 	Structure - New parameters of value list editing:
+// * Title - String. 
+// * ReturnOnlySelectedValues - Boolean - 
+// * ElementsType - Undefined, TypeDescription, String - 
+// * DeletionMarkVisible - Boolean - 
+// * PresentationVisible - Boolean - 
+// * ChoiceMode - Boolean -
+// * AvailableValues - Undefined, ValueList of Arbitrary -
+// * OpeningMode - Undefined, FormWindowOpeningMode - 
+Function ValueListNewEditingParameters() Export
+	EditParameters = New Structure;
+	EditParameters.Insert("Title", "");
+	EditParameters.Insert("ReturnOnlySelectedValues", True);
+	EditParameters.Insert("ElementsType", Undefined);
+	EditParameters.Insert("DeletionMarkVisible", True);
+	EditParameters.Insert("PresentationVisible", True);
+	EditParameters.Insert("ChoiceMode", True);
+	EditParameters.Insert("AvailableValues", Undefined);
+	EditParameters.Insert("OpeningMode", Undefined);
+	
+	Return EditParameters;	
+EndFunction
+
+
+#EndRegion
+
 // Procedure - Edit type
 //
 // Parameters:
-//  DataType					 - TypesDescription , Undefined -  Current value type
+//  DataType					 - TypeDescription , Undefined -  Current value type
 //  StartMode					 - Number - type editor start mode
 // 0- selection of stored types
 // 1- type for query
@@ -480,10 +626,10 @@ EndProcedure
 // 3- type for parameter DCS 
 // 4-Reference types without composite types
 //  StandardProcessing			 - Boolean - StartChoise event standard processing
-//  FormOwner					 - 	 - 
-//  OnEndNotifyDescription	 - 	 - 
+//  FormOwner					 - 
+//  CallbackDescriptionOnClose	 - CallbackDescription
 //
-Procedure EditType(DataType, StartMode, StandardProcessing, FormOwner, OnEndNotifyDescription,
+Procedure EditType(DataType, StartMode, StandardProcessing, FormOwner, CallbackDescriptionOnClose,
 	TypesSet=Undefined) Export
 	StandardProcessing=False;
 
@@ -494,24 +640,63 @@ Procedure EditType(DataType, StartMode, StandardProcessing, FormOwner, OnEndNoti
 	Else
 		FormParameters.Insert("TypesSet", TypesSet);
 	EndIf;
-	OpenForm("CommonForm.UT_ValueTypeEditor", FormParameters, FormOwner, , , , OnEndNotifyDescription,
+	OpenForm("CommonForm.UT_ValueTypeEditor", 
+		FormParameters, 
+		FormOwner, 
+		, 
+		, 
+		, 
+		CallbackDescriptionOnClose,
 		FormWindowOpeningMode.LockOwnerWindow);
 EndProcedure
 
-// New parameters of value table editing
-//
-// Return type:
-//  Structure - New parameters of value table editing
-// * SerializeToXML - Boolean - If TRUE, then the string presentation of VT wiil be computed with UT_Common.ValueFromXMLString and UT_Common.ValueToXMLString.
-// If FALSE, then with platform methods ValueToStringInternal and ValueFromStringInternal
-// ReadOnly - boolean - if true table will open to readonly ( only view)
-Function ValueTableNewEditingParameters() Export
-	Structure = New Structure;
-	Structure.Insert("SerializeToXML", False);
-	Structure.Insert("ReadOnly", False);
+// Edit type as container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure SelectValueTypeAsContainerStorageType(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
 	
-	Return Structure;
-EndFunction
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValuesType", ContainerValues);
+	FormParameters.Insert("TypeSet", UT_CommonClientServer.AllEditingTypeSets());
+	FormParameters.Insert("CompositeTypeAvailable", False);
+	FormParameters.Insert("ChoiceMode", True);
+	OpenForm("CommonForm.UT_ValueTypeEditor",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose,
+				 FormWindowOpeningMode.LockOwnerWindow);
+	
+EndProcedure
+
+// Edit type as type description container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditValueTypeAsContainerStoreDescriptionType(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+	
+	FormParameters=New Structure;
+	FormParameters.Insert("ContainerValuesDescriptionType", ContainerValues);
+	FormParameters.Insert("TypeSet", UT_CommonClientServer.AllEditingTypeSets());
+	OpenForm("CommonForm.UT_ValueTypeEditor",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose,
+				 FormWindowOpeningMode.LockOwnerWindow);
+	
+EndProcedure
 
 // Edit value table
 //
@@ -519,7 +704,7 @@ EndFunction
 //  ValueTableAsString - String - Value table string presentation
 //  FormOwner - ClientApplicationForm - 
 //  OnEndNotifyDescription - NotifyDescription - Will be executed on end
-//  EditingParameters - Structure - See ValueTableNewEditingParameters
+//  EditingParameters - See ValueTableNewEditingParameters
 Procedure EditValueTable(ValueTableAsString, FormOwner,
 	OnEndNotifyDescription = Undefined, EditingParameters = Undefined) Export
 	FormParameters=New Structure;
@@ -534,103 +719,759 @@ Procedure EditValueTable(ValueTableAsString, FormOwner,
 		OnEndNotifyDescription);
 EndProcedure
 
-Procedure EditSpreadsheetDocument(SpreadsheetDocument, FormTitle,
-	CompletionNotifyDescription = Undefined) export
+// Edit the value table as a container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageValueTableType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditValueTableAsContainerStorage(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
 	
-	OpeningParameters = New Structure;
-	OpeningParameters.Insert("DocumentName", FormTitle);
-	OpeningParameters.Insert("SpreadsheetDocument", SpreadsheetDocument);
+	FormParameters=New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("CommonForm.UT_SpreadsheetDocumentEditor", OpeningParameters);
+	OpenForm("CommonForm.UT_ValueTableEditor",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
 EndProcedure
+
+// Edit the value tree as a container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageValueTreeType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditValueTreeAsContainerStorage(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters=New Structure;
+	FormParameters.Insert("ContainerValuesTree", ContainerValues);
+
+	OpenForm("CommonForm.UT_ValueTableEditor",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+EndProcedure
+
+// Edit spreadsheet document.
+// 
+// Parameters:
+// SpreadsheetDocument - SpreadsheetDocument
+// FormTitle - String - Form Title
+// CallbackDescriptionOnClose - Undefined, CallbackDescription -
+// FormOwner - Undefined, ClientApplicationForm, FormField - 
+Procedure EditSpreadsheetDocument(SpreadsheetDocument, FormTitle, CallbackDescriptionOnClose
+	, FormOwner = Undefined) Export
+	
+	FormParameters = New Structure;
+	FormParameters.Insert("DocumentName", FormTitle);
+	FormParameters.Insert("SpreadsheetDocument", SpreadsheetDocument);
+	FormParameters.Insert("Edit", True);
+
+	OpenForm("CommonForm.UT_SpreadsheetDocumentEditor", FormParameters, , , , , CallbackDescriptionOnClose);
+	
+EndProcedure
+
+// Edit spreadsheet as a container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageSpreadsheetDocumentType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditSpreadsheetDocumentAsContainerStorage(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+	FormParameters.Insert("Edit", True);
+
+	OpenForm("CommonForm.UT_SpreadsheetDocumentEditor",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+
+EndProcedure
+
+// Edit point in time type.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStoragePointInTimeType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditPointInTimeType(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+	
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторМоментаВремени",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+
+EndProcedure
+
+// Edit boundary type.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageBoundaryType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditBoundaryType(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторГраницы",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+
+EndProcedure
+
+// Edit structure type.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageStructureType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditStructureType(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторСтруктуры",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+		
+EndProcedure
+
+// Edit map type.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageMapType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditMapType(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторСоответствия",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+		
+EndProcedure
+
+// Edit value storage type.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageValueStorageType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditValueStorageTypeAsContainerStorage(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторХранилищаЗначения",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+		
+EndProcedure
+
+// Edit value storage type.
+// 
+// Parameters:
+// 	ValueStorage - ValueStorage
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditValueStorageType(ValueStorage, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ValueStorage);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторХранилищаЗначения",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+		
+EndProcedure
+
+// Edit value list as a container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStoreValueListTypeValueList
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditValueListAsContainerStorage(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_ФормаСпискаЗначений",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+		
+EndProcedure
+
+// Edit array as a container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageArrayType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditArrayAsContainerStorage(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValuesArray", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_ФормаСпискаЗначений",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+		
+EndProcedure
+
+// Edit picture.
+// 
+// Parameters:
+// 	Picture - Picture
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditPicture(Picture, CallbackDescriptionOnClose, FormOwner = Undefined) Export
+	FormParameters = New Structure;
+	FormParameters.Insert("Picture", Picture);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторКартинки",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+		
+EndProcedure
+
+// Edit picture as a container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStoragePictureType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditPictureAsContainerStorage(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторКартинки",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+
+EndProcedure
+
+// Edit binary data as a container store.
+// 
+// Parameters:
+// 	ContainerValues - see UT_CommonClientServer.NewValueStorageBinaryDataType
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - Form Owner
+Procedure EditBinaryDataAsContainerStorage(ContainerValues, CallbackDescriptionOnClose,
+	FormOwner = Undefined) Export
+
+	FormParameters = New Structure;
+	FormParameters.Insert("ContainerValues", ContainerValues);
+
+	OpenForm("ОбщаяФорма.УИ_РедакторДвоичныхДанных",
+				 FormParameters,
+				 FormOwner,
+				 ,
+				 ,
+				 ,
+				 CallbackDescriptionOnClose);
+
+EndProcedure
+
+// Begin selecting ref to edit specific value.
+// 
+// Parameters:
+// 	Value - Arbitrary - Value
+// 	CallbackDescriptionOnClose - CallbackDescription
+// 	FormOwner - Undefined, ClientApplicationForm, FormField - 
+// 	ContainerValue - see UT_CommonClientServer.NewValueContainer
+// 	UseDynamicListForSelectingRefValue - Boolean
+// 	StandardProcessing - Boolean
+Procedure BeginSelectingRefEditSpecificValue(Value, CallbackDescriptionOnClose, FormOwner,
+	ContainerValue = Undefined, UseDynamicListForSelectingRefValue = False,
+	StandardProcessing = True) Export
+	If ContainerValue <> Undefined Then
+		StandardProcessing = False;
+		
+		ContainerTypes = UT_CommonClientServer.ContainerValuesTypes();		
+		
+		If ContainerValue.Type = ContainerTypes.Boundary then
+			EditBoundaryType(ContainerValue.ValueStorage, CallbackDescriptionOnClose, FormOwner);
+		ElsIf ContainerValue.Type = ContainerTypes.PointInTime Then
+			EditPointInTimeType(ContainerValue.ValueStorage, CallbackDescriptionOnClose, FormOwner);
+		ElsIf ContainerValue.Type = ContainerTypes.ValueTable Then
+			EditValueTableAsContainerStorage(ContainerValue.ValueStorage,
+											 CallbackDescriptionOnClose, 
+											 FormOwner);
+		ElsIf ContainerValue.Type = ContainerTypes.ValueTree Then
+			EditValueTreeAsContainerStorage(ContainerValue.ValueStorage,
+											CallbackDescriptionOnClose, 
+											FormOwner);
+		ElsIf ContainerValue.Type = ContainerTypes.Type Then
+			SelectValueTypeAsContainerStorageType(ContainerValue.ValueStorage,
+											CallbackDescriptionOnClose, 
+											FormOwner);
+		ElsIf ContainerValue.Type = ContainerTypes.TypeDescription Then
+			EditValueTypeAsContainerStoreDescriptionType(ContainerValue.ValueStorage,
+											CallbackDescriptionOnClose, 
+											FormOwner);
+		ElsIf ContainerValue.Type = ContainerTypes.Structure 
+			Or ContainerValue.Type = ContainerTypes.FixedStructure Then
+			EditStructureType(ContainerValue.ValueStorage, CallbackDescriptionOnClose, FormOwner);	
+		ElsIf ContainerValue.Type = ContainerTypes.Map 
+			Or ContainerValue.Type = ContainerTypes.FixedMap Then
+			EditMapType(ContainerValue.ValueStorage, CallbackDescriptionOnClose, FormOwner);	
+		ElsIf ContainerValue.Type = ContainerTypes.SpreadsheetDocument Then
+			EditSpreadsheetDocumentAsContainerStorage(ContainerValue.ValueStorage, 
+													  CallbackDescriptionOnClose, 
+													  FormOwner);	
+		ElsIf ContainerValue.Type = ContainerTypes.ValueStorage Then
+			EditValueStorageTypeAsContainerStorage(ContainerValue.ValueStorage, 
+												   CallbackDescriptionOnClose, 
+												   FormOwner);
+		ElsIf ContainerValue.Type = ContainerTypes.ValueList Then
+			EditValueListAsContainerStorage(ContainerValue.ValueStorage, 
+											CallbackDescriptionOnClose, 
+											FormOwner);	
+		ElsIf ContainerValue.Type = ContainerTypes.Array 
+			Or ContainerValue.Type = ContainerTypes.FixedArray Then
+			EditArrayAsContainerStorage(ContainerValue.ValueStorage, 
+										CallbackDescriptionOnClose, 
+										FormOwner);
+		ElsIf ContainerValue.Type = ContainerTypes.Picture Then
+			EditPictureAsContainerStorage(ContainerValue.ValueStorage, 
+										  CallbackDescriptionOnClose, 
+										  FormOwner);	
+		ElsIf ContainerValue.Type = ContainerTypes.BinaryData Then
+			EditBinaryDataAsContainerStorage(ContainerValue.ValueStorage, 
+										  	 CallbackDescriptionOnClose, 
+										  	 FormOwner);
+		EndIf;
+	Else
+		ValueType = TypeOf(Value);
+		If ValueType = Type("String") Then
+			OpenTextEditingForm(Value, CallbackDescriptionOnClose);
+		ElsIf ValueType = Type("ValueStorage") Then
+			EditValueStorageType(Value, CallbackDescriptionOnClose, FormOwner);
+		ElsIf UT_CommonServerCall.ThisEnumerationByType(ValueType) Then
+			StandardProcessing = False;
+			StartSelectingEnumerationValue(Value, CallbackDescriptionOnClose, FormOwner);
+		ElsIf UT_Common.IsReference(ValueType) Then
+			StandardProcessing = False;
+			ObjectName = UT_Common.TableNameByRef(ValueType);	
+			If UseDynamicListForSelectingRefValue Then
+				FormParameters = New Structure;
+				FormParameters.Insert("MetaDataObjectName", ObjectName);
+				FormParameters.Insert("ChoiceMode", True);
+				
+				OpenForm("DataProcessor.UT_DynamicList.Form", FormParameters, FormOwner);
+			Else
+				OpenForm(ObjectName + ".ChoiceForm", , FormOwner);
+			EndIf;
+			
+		ElsIf ValueType = Type("UUID") Then
+			StartEditingUUID(Value, CallbackDescriptionOnClose);
+		EndIf;
+			
+	EndIf;
+EndProcedure
+																   
+#EndRegion
+
+#Region ContainerValuesStoredOnForm
+
+
 
 #EndRegion
 
 #Region FormItemsEvents
 
-Procedure FormFieldClear(Form, Item,StandardProcessing) Export
-	Item.TypeRestriction = New TypeDescription;
+// New form processors events base parameters.
+// 
+// Parameters:
+// 	Form - ClientApplicationForm - Form
+// 	Element - FormField - Element
+// 	FieldName - String - Field name in form structure
+// 
+// Returns:
+// Structure - New form field events processor base parameters:
+// * Form - ClientApplicationForm
+// * Element -FormField - Element
+// * AvailableContainer - Boolean - 
+// * StructureValueStorage - Undefined, ClientApplicationForm, FormDataStructure, FormDataTreeItem, FormDataCollectionItem -  
+// * FieldNameStructure - String - 
+// * ContainerFieldName - String, Undefined - 
+// * FieldNameValueType - String, Undefined - 
+// * FieldNamePresentationValueType - String, Undefined - 
+// * CurrentDescriptionValueTypes - Undefined, TypeDescription - 
+Function NewFormProcessorsEventsBaseParameters(Form, Element, FieldName) Export
+	ProcessorParameters = UT_CommonClientServer.NewStructureStoringAttributeOnFormContainer(FieldName);
+	ProcessorParameters.Insert("Form", Form);
+	ProcessorParameters.Insert("Element", Element);
+	ProcessorParameters.Insert("AvailableContainer", False);
+	ProcessorParameters.Insert("StructureValueStorage", Undefined);
+	ProcessorParameters.Insert("CurrentDescriptionValueTypes", Undefined);
+
+	Return ProcessorParameters;
+EndFunction
+
+// New processor value choice starting events.
+// 
+// Parameters:
+// 	Form - ClientApplicationForm - Form
+// 	Element - FormField - Element
+// 	FieldName - String - Field name in form structure
+// 
+// Returns:
+// Structure - New processor value choice starting events:
+// * Form - ClientApplicationForm
+// * Element -FormField - Element 
+// * StructureValueStorage - Undefined, ClientApplicationForm, FormDataStructure, FormDataTreeItem, FormDataCollectionItem -  
+// * FieldNameStructure - String - 
+// * ContainerFieldName - String, Undefined - 
+// * FieldNameValueType - String, Undefined - 
+// * FieldNamePresentationValueType - String, Undefined - 
+// * AvailableContainer - Boolean -
+// * Value - Undefined, Arbitrary -
+// * CurrentDescriptionValueTypes - Undefined, TypeDescription -
+// * TypesSet - String, Undefined -
+// * CallBackEmptyValueChoiceNotifications - Undefined, TypeDescription -
+// * CallBackTypeChoiceNotifications - Undefined, TypeDescription -
+// * CallBackChoiceNotificationsEnding - Undefined, TypeDescription - 
+Function NewProcessorValueChoiceStartingEvents(Form, Element, FieldName) Export
+	ProcessorParameters = NewFormProcessorsEventsBaseParameters(Form, Element, FieldName);
+	ProcessorParameters.Insert("Value", Undefined);
+	ProcessorParameters.Insert("TypesSet", Undefined);
+	ProcessorParameters.Insert("CallBackEmptyValueChoiceNotifications", Undefined);
+	ProcessorParameters.Insert("CallBackTypeChoiceNotifications", Undefined);
+	ProcessorParameters.Insert("CallBackChoiceNotificationsEnding", Undefined);
+
+	Return ProcessorParameters;
+EndFunction
+ 
+// New processor clearing events parameters.
+// 
+// Parameters:
+// 	Form - ClientApplicationForm - Form
+// 	Element - FormField - Element
+// 	FieldName - String - Field name in form structure
+// 
+// Returns:
+// 	Structure - see NewFormProcessorsEventsBaseParameters
+Function NewProcessorClearingEventsParameters(Form, Element, FieldName) Export
+	ProcessorParameters = NewFormProcessorsEventsBaseParameters(Form, Element, FieldName);
+	
+	Return ProcessorParameters;
+	
+EndFunction
+
+// New processor in changing events parameters.
+// 
+// Parameters:
+// 	Form - ClientApplicationForm - Form
+// 	Element - FormField - Element
+// 	FieldName - String - Field name in form structure
+// 
+// Returns:
+// 	Structure - see NewFormProcessorsEventsBaseParameters
+Function NewProcessorInChangingEventsParameters(Form, Element, FieldName) Export
+	ProcessorParameters = NewFormProcessorsEventsBaseParameters(Form, Element, FieldName);
+	
+	Return ProcessorParameters;
+	
+EndFunction
+
+// New processor clearing events.
+// 
+// Parameters:
+// 	ProcessorParameters - see NewProcessorClearingEventsParameters
+// 	StandardProcessing - Boolean - 
+Procedure FormFieldClear(ProcessorParameters, StandardProcessing) Export
+	// Item.TypeRestriction = New TypeDescription;
+	
+	NewValue = Undefined;
+	If ProcessorParameters.CurrentDescriptionValueTypes <> Undefined Then
+		// NewTypeDescription = ProcessorParameters.CurrentDescriptionValueTypes
+		NewValue = UT_CommonClientServer.EmptyTypeValue(ProcessorParameters.CurrentDescriptionValueTypes);
+	EndIf;
+	
+	If ProcessorParameters.AvailableContainer Then
+		UT_CommonClientServer.SetContainerFieldValue(ProcessorParameters.StructureValueStorage,
+													 ProcessorParameters,
+													 NewValue);
+	Else
+		ProcessorParameters.Element.TypeRestriction = New TypeDescription;
+		
+		ProcessorParameters.StructureValueStorage[ProcessorParameters.FieldNameStructure] = NewValue;
+	EndIf;
+	
 EndProcedure
 
-Procedure FormFieldValueStartChoice(Form, Item, Value, StandardProcessing,
-	EmptyTypeNotifyDescription = Undefined, TypesSet = Undefined) Export
+// New processor in changing events.
+// 
+// Parameters:
+// 	ProcessorParameters - see NewProcessorInChangingEventsParameters
+Procedure FormFieldInChangeProcessor(ProcessorParameters) Export
+	If Not ProcessorParameters.AvailableContainer Then
+		Return;
+	EndIf;
+	
+	ContainerValue = ProcessorParameters.StructureValueStorage[ProcessorParameters.ContainerFieldName];
+	If ContainerValue = Undefined Then
+		Return;
+	EndIf;
+	
+	ProcessorParameters.StructureValueStorage[ProcessorParameters.FieldNameStructure] = ContainerValue.Presentation;
+EndProcedure
 
-	IF Value = Undefined Then
+// New processor value choice starting events.
+// 
+// Parameters:
+// 	ProcessorParameters - see NewProcessorValueChoiceStartingEvents
+// 	StandardProcessing - Boolean - 
+Procedure FormFieldValueStartChoiceProcessor(ProcessorParameters, StandardProcessing) Export
+	Value = ProcessorParameters.StructureValueStorage[ProcessorParameters.FieldNameStructure];
+	ContainerValue = Undefined;
+	
+	If ProcessorParameters.AvailableContainer Then
+		ContainerValue = ProcessorParameters.StructureValueStorage[ProcessorParameters.ContainerFieldName];
+	EndIf;
+	If ProcessorParameters.AvailableContainer And ContainerValue <> Undefined Then
+		CallBackChoiceEndingNotifications = New NotifyDescription("FormFieldValueStartChoiceProcessorValueChoiceEnding", 
+			ThisObject, ProcessorParameters);
+	BeginSelectingRefEditSpecificValue(Value
+		, CallBackChoiceEndingNotifications
+		, ProcessorParameters.Element
+		, ContainerValue
+		,
+		, StandardProcessing);
+		
+	ElsIf Value = Undefined Then
 		StandardProcessing = False;
-
-		FormParameters=New Structure;
+		
+		CallBackTypeChoiceNotifications = New NotifyDescription("FormFieldValueStartChoiceProcessorTypeChoiceEnding"
+			, ThisObject, ProcessorParameters);
+			
+		FormParameters = New Structure;
 		FormParameters.Insert("CompositeTypeAvailable", False);
 		FormParameters.Insert("ChoiceMode", True);
-		IF TypesSet = Undefined Then
-			FormParameters.Insert("TypesSet", "Refs,Primitive,UUID");
+		IF ProcessorParameters.TypesSet = Undefined Then
+			FormParameters.Insert("TypesSet", "Refs, Primitive, UUID");
 		Else
-			FormParameters.Insert("TypesSet", TypesSet);
+			FormParameters.Insert("TypesSet", ProcessorParameters.TypesSet);
 		Endif;
 
-		NotifyAdditionalParameters = New Structure;
-		NotifyAdditionalParameters.Insert("Form", Form);
-		NotifyAdditionalParameters.Insert("Item", Item);
-		NotifyAdditionalParameters.Insert("EmptyTypeNotifyDescription", EmptyTypeNotifyDescription);
-
-		OpenForm("CommonForm.UT_ValueTypeEditor", FormParameters, Item, , , ,
-			New NotifyDescription("FormFieldValueStartChoiceTypeChoiceEnd", ThisObject,
-			NotifyAdditionalParameters), FormWindowOpeningMode.LockOwnerWindow);
-
-	ElsIf Item.TypeRestriction <> New TypeDescription Then
-		NewValue = Item.TypeRestriction.AdjustValue(Value);
-		If NewValue <> Value Then
-			Types = New Array;
-			Types.Add(TypeOf(Value));
-			Item.TypeRestriction = New TypeDescription(Types);
+		If ProcessorParameters.CurrentDescriptionValueTypes <> Undefined Then
+			TypesArray = ProcessorParameters.CurrentDescriptionValueTypes.Types();
+			If TypesArray.Count() = 1 Then
+				ChosenTypes = New Structure;
+				ChosenTypes.Insert("Description", ProcessorParameters.CurrentDescriptionValueTypes);
+				ChosenTypes.Insert("UseDynamicListForSelectingRefValue", False);
+				
+				ExecuteNotifyProcessing(CallBackTypeChoiceNotifications, ChosenTypes);
+				Return;
+			EndIf;
+			
+			FormParameters.Insert("TypeRestriction", ProcessorParameters.CurrentDescriptionValueTypes);
 		EndIf;
-		//OpenForm("Catalog._DemoBankAccounts.ChoiceForm", , Item);
+		
+		
+		OpenForm("CommonForm.UT_ValueTypeEditor"
+			, FormParameters
+			, ProcessorParameters.Element
+			, 
+			, 
+			, 
+			, CallBackTypeChoiceNotifications
+			, FormWindowOpeningMode.LockOwnerWindow);
+	Else//If Item.TypeRestriction <> New TypeDescription Then
+		CallBackTypeChoiceNotifications = New NotifyDescription("FormFieldValueStartChoiceProcessorValueChoiceEnding",
+			ThisObject, ProcessorParameters);
+		BeginSelectingRefEditSpecificValue(Value
+			, CallBackTypeChoiceNotifications
+			, ProcessorParameters.Element
+			, 
+			,
+			, StandardProcessing);
 	EndIf;
+	
 EndProcedure
 
-Procedure FormFieldValueStartChoiceTypeChoiceEnd(Result, AdditionalParameters) Export
+// New processor value choice starting events parameters type choice ending.
+// 
+// Parameters:
+// 	Result - Structure
+// 	* Description - TypeDescription -
+// 	* UseDynamicListForSelectingRefValueProcessing - Boolean -
+// 	AdditionalParameters - see NewProcessorValueChoiceStartingEvents
+Procedure FormFieldValueStartChoiceProcessorTypeChoiceEnding(Result, AdditionalParameters) Export
 	If Result = Undefined Then
 		Return;
 	EndIf;
-	AdditionalParameters.Item.TypeRestriction = Result.Description;
-
 	If Result.Description.Types().Count() = 0 Then
 		Return;
 	EndIf;
 
-	ValueType = Result.Description.Types()[0];
-	EmptyTypeValue = Undefined;
-	OpenChoiceForm = False;
+	AdditionalParameters.Form.Modified = True;
 	
-	If ValueType = Type("Number") Then
-		EmptyTypeValue = 0;
-	ElsIf ValueType = Type("String") Then 
-		EmptyTypeValue = "";
-	ElsIf ValueType = Type("Date") Then 
-		EmptyTypeValue = '00010101';
-	ElsIf ValueType = Type("Boolean") Then 
-		EmptyTypeValue = False;
-	Else
-		EmptyTypeValue = New (ValueType);
-		OpenChoiceForm = True;
-	EndIf;
-
-	IF TypeOf(AdditionalParameters.EmptyTypeNotifyDescription) = Type("NotifyDescription") Then
-		ExecuteNotifyProcessing(AdditionalParameters.EmptyTypeNotifyDescription, EmptyTypeValue);
-	EndIf;
-
-	If Not OpenChoiceForm Then
+	ValueType = Result.Description.Types()[0];
+	
+	FieldNameValueType = AdditionalParameters.FieldNameValueType;
+	FieldNamePresentationValueType = AdditionalParameters.FieldNamePresentationValueType;
+	ContainerFieldName = AdditionalParameters.ContainerFieldName;
+	
+	StoringInContainer = UT_CommonClientServer.TypeStoringInContainer(ValueType);
+	
+	If StoringInContainer And Not AdditionalParameters.AvailableContainer Then
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Данное поле не поддерживает данный тип'; en = 'Field does not support this type'"));
 		Return;
 	EndIf;
 	
-	ObjectName = UT_Common.TableNameByRef(EmptyTypeValue);
-	If Result.UseDynamicListForRefValueSelection Then  
-		FormParameters = New Structure;
-		FormParameters.Insert("MetadataObjectName", ObjectName);
-		FormParameters.Insert("ChoiceMode", True);
+	// AdditionalParameters.CurrentDescriptionValueTypes = Result.Description;
+	
+	EmptyValueTypeDescription = Result.Description;
+	
+	If AdditionalParameters.AvailableContainer Then
+	
+		If StoringInContainer Then
+			AdditionalParameters.StructureValueStorage[FieldNameValueType] = UT_CommonClientServer.DescriptionTypeString(100);
+			
+			AdditionalParameters.StructureValueStorage[ContainerFieldName] = UT_CommonClientServer.NewValueContainerByType(ValueType);
 		
-		OpenForm("DataProcessor.UT_DynamicList.Form", FormParameters, AdditionalParameters.Item);	
+		Else
+			AdditionalParameters.StructureValueStorage[FieldNameValueType] = Result.Description;
+			
+		EndIf;
+		EmptyValueTypeDescription = AdditionalParameters.StructureValueStorage[FieldNameValueType];
+		
+		AdditionalParameters.StructureValueStorage[FieldNamePresentationValueType] = String(Result.Description);
 	Else
-		OpenForm(ObjectName + ".ChoiceForm", , AdditionalParameters.Item);
+		AdditionalParameters.Element.TypeRestriction = EmptyValueTypeDescription;
+	EndIf;
+			
+	EmptyTypeValue = UT_CommonClientServer.EmptyTypeValue(ValueType, StoringInContainer);
+	AdditionalParameters.StructureValueStorage[AdditionalParameters.FieldNameStructure] = EmptyTypeValue;
+		
+	If ValueType = Type("Number") 
+		Or ValueType = Type("String")  
+		Or ValueType = Type("Date")  
+		Or ValueType = Type("Boolean") Then 
+		Return;
+	EndIf;
+
+	CallBackChoiceNotificationsEnding = New NotifyDescription("FormFieldValueStartChoiceProcessorValueChoiceEnding"
+		, ThisObject, AdditionalParameters);
+	
+	If AdditionalParameters.AvailableContainer Then
+		BeginSelectingRefEditSpecificValue(EmptyTypeValue
+			, CallBackChoiceNotificationsEnding
+			, AdditionalParameters.Element
+			, AdditionalParameters.StructureValueStorage[ContainerFieldName]
+			, Result.UseDynamicListForSelectingRefValue);		
+	Else
+		BeginSelectingRefEditSpecificValue(EmptyTypeValue
+			, CallBackChoiceNotificationsEnding
+			, AdditionalParameters.Element
+			, 
+			, Result.UseDynamicListForSelectingRefValue);
+	EndIf;
+
+
+EndProcedure
+
+// New processor value choice starting events parameters value choice ending.
+// 
+// Parameters:
+// 	Result - Arbitrary, Undefined -
+// 	AdditionalParameters - see NewProcessorValueChoiceStartingEvents
+Procedure FormFieldValueStartChoiceProcessorValueChoiceEnding(Result, AdditionalParameters) Export
+	If Result = Undefined Then
+		Return;
+	EndIf;
+	AdditionalParameters.Form.Modified = True;
+	
+	ContainerFieldName = AdditionalParameters.ContainerFieldName;
+	
+	If AdditionalParameters.AvailableContainer Then
+		CurrentContainerValue = AdditionalParameters.StructureValueStorage[ContainerFieldName]; // see UT_CommonClientServer.NewValueContainer
+		If CurrentContainerValue <> Undefined Then
+			CurrentContainerValue.ValueStorage = Result;
+			UT_CommonClientServer.SetContainerPresentation(CurrentContainerValue);
+			
+			AdditionalParameters.StructureValueStorage[AdditionalParameters.FieldNameStructure] = CurrentContainerValue.Presentation;
+		Else
+			AdditionalParameters.StructureValueStorage[AdditionalParameters.FieldNameStructure] = Result;
+		EndIf;
+	Else
+		AdditionalParameters.StructureValueStorage[AdditionalParameters.FieldNameStructure] = Result;
+	EndIf;
+	
+	If TypeOf(AdditionalParameters.CallBackChoiceNotificationsEnding) = Type("NotifyDescription") Then
+		ExecuteNotifyProcessing(AdditionalParameters.CallBackChoiceNotificationsEnding);
 	EndIf;
 EndProcedure
 
@@ -645,8 +1486,7 @@ Procedure FormFieldFileNameStartChoice (FileDescriptionStructure, Item, ChoiseDa
 	NotifyAdditionalParameters.Insert("DialogMode", DialogMode);
 	NotifyAdditionalParameters.Insert("OnEndNotifyDescription", OnEndNotifyDescription);
 
-	AttachFileSystemExtensionWithPossibleInstallation(
-		New NotifyDescription("FormFieldFileNameStartChoiceEndAttachFileSystemExtension",
+	AttachFileSystemExtensionWithPossibleInstallation(New NotifyDescription("FormFieldFileNameStartChoiceEndAttachFileSystemExtension",
 		ThisObject, NotifyAdditionalParameters));
 EndProcedure
 
@@ -678,11 +1518,11 @@ Function UT_AssistiveLibrariesDirectory() Export
 		Return "";
 	EndIf;
 	
-	Return FileVariablesStructure.UserDataWorkingDirectory + ?(StrEndsWith(
-		FileVariablesStructure.UserDataWorkingDirectory, GetPathSeparator()), "",
-		GetPathSeparator()) + "tools_ui_1c_int" + GetPathSeparator() + 
-		Format(UT_CommonClientServer.Version(), "NG=0;");
+	Return UT_CommonClientServer.SatelliteLibrariesCatalog(
+		FileVariablesStructure.UserDataWorkingDirectory);
 EndFunction
+
+
 #EndRegion
 
 #Region ValueStorage
@@ -704,8 +1544,14 @@ Procedure EditValueStorage(Form, ValueTempStorageUrlOrValue,
 	FormParameters = New Structure;
 	FormParameters.Insert("ValueStorageData", ValueTempStorageUrlOrValue);
 
-	OpenForm("CommonForm.UT_ValueStorageForm", FormParameters, Form, Form.UUID, , ,
-		OnCloseNotifyDescription, FormWindowOpeningMode.LockOwnerWindow);
+	OpenForm("CommonForm.UT_ValueStorageForm"
+		, FormParameters
+		, Form
+		, Form.UUID
+		, 
+		, 
+		, OnCloseNotifyDescription
+		, FormWindowOpeningMode.LockOwnerWindow);
 
 EndProcedure
 
@@ -754,70 +1600,6 @@ EndProcedure
 #EndRegion
 
 #Region SaveAndReadConsoleData
-
-Function EmptySelectedFileFormatDescription() Export
-	Description=New Structure;
-	Description.Insert("Extension", "");
-	Description.Insert("Name", "");
-	Description.Insert("Filter", "");
-
-	Return Description;
-EndFunction
-
-Procedure AddFormatToSavingFileDescription(DescriptionStructureOfSelectedFile, FormatName, FileExtension, Filter = "") Export
-	FileFormat=EmptySelectedFileFormatDescription();
-	FileFormat.Name=FormatName;
-	FileFormat.Extension=FileExtension;
-	FileFormat.Filter = Filter;
-	DescriptionStructureOfSelectedFile.Formats.Add(FileFormat);
-EndProcedure
-
-Function EmptyDescriptionStructureOfSelectedFile() Export
-	DescriptionStructure=New Structure;
-	DescriptionStructure.Insert("FileName", "");
-	DescriptionStructure.Insert("SerializableFileFormats", New Array);
-	DescriptionStructure.Insert("Formats", New Array);
-
-	Return DescriptionStructure;
-EndFunction
-
-Function FileSelectionDialogByDescriptionStructureOfSelectedFile(Mode, DescriptionStructureOfSelectedFile) Export
-	// You need to request a file name.
-	FileSelection = New FileDialog(Mode);
-	FileSelection.Multiselect = False;
-	
-	//Linux has problems with selecting a file if there is a dash in the existing one
-	If Not (UT_CommonClientServer.IsLinux() And Find(DescriptionStructureOfSelectedFile.FileName, "-") > 0) Then
-		FileSelection.FullFileName = DescriptionStructureOfSelectedFile.FileName;
-	EndIf;
-
-	Filter="";
-	For each CurrentFileFormat In DescriptionStructureOfSelectedFile.Formats Do
-		FormatExtension=CurrentFileFormat.Extension;
-		If ValueIsFilled(FormatExtension) Then
-			FormatFilter="*." + FormatExtension;
-		Else
-			FormatFilter="*.*";
-		EndIf;
-		
-		If ValueIsFilled(CurrentFileFormat.Filter) Then
-			FormatFilter = CurrentFileFormat.Filter;
-		EndIf;
-
-		Filter=Filter + ?(ValueIsFilled(Filter), "|", "") + StrTemplate("%1|%2", CurrentFileFormat.Name, FormatFilter);
-	EndDo;
-
-	FileSelection.Filter = Filter;
-
-	If DescriptionStructureOfSelectedFile.SerializableFileFormats.Count() > 0 Then
-		FileSelection.DefaultExt=DescriptionStructureOfSelectedFile.SerializableFileFormats[0];
-	ElsIf DescriptionStructureOfSelectedFile.Formats.Count() > 0 Then
-		FileSelection.DefaultExt=DescriptionStructureOfSelectedFile.Formats[0].Extension;
-	EndIf;
-
-	Return FileSelection;
-EndFunction
-
 #Region SaveConsoleData
 
 // Description
@@ -841,9 +1623,8 @@ Procedure SaveConsoleDataToFile(ConsoleName, SaveAs, SavedFilesDescriptionStruct
 	NotifyAdditionalParameters.Insert("OnEndNotifyDescription", OnEndNotifyDescription);
 	NotifyAdditionalParameters.Insert("ConsoleName", ConsoleName);
 
-	AttachFileSystemExtensionWithPossibleInstallation(
-		New  NotifyDescription ("SaveConsoleDataToFileAfterFileSystemExtensionConnection", ThisObject,
-		NotifyAdditionalParameters));
+	AttachFileSystemExtensionWithPossibleInstallation(New  NotifyDescription ("SaveConsoleDataToFileAfterFileSystemExtensionConnection", 
+		ThisObject,	NotifyAdditionalParameters));
 
 EndProcedure
 
@@ -877,9 +1658,10 @@ EndProcedure
 
 Procedure SaveConsoleDataToFileBeginGettingFile(FileName, AdditionalParameters) Export
 
-	PreparedDateToSave=UT_CommonServerCall.ConsolePreparedDataForFileWriting(
-		AdditionalParameters.ConsoleName, FileName, AdditionalParameters.SavedDataUrl,
-		AdditionalParameters.SavedFilesDescriptionStructure);
+	PreparedDateToSave=UT_CommonServerCall.ConsolePreparedDataForFileWriting(AdditionalParameters.ConsoleName
+		, FileName
+		, AdditionalParameters.SavedDataUrl
+		, AdditionalParameters.SavedFilesDescriptionStructure);
 	ReceivedFiles = New Array;
 	ReceivedFiles.Add(New TransferableFileDescription(FileName, PreparedDateToSave));
 	BeginGettingFiles(New NotifyDescription("SaveConsoleDataToFileAfterGettingFiles", ThisObject,
@@ -913,7 +1695,8 @@ EndProcedure
 
 #Region ConsoleDataReading
 
-Procedure ReadConsoleFromFile(ConsoleName, ReadableFileDescriptionStructure, OnEndNotifyDescription, WithoutFileSelection = False) Export
+Procedure ReadConsoleFromFile(ConsoleName, ReadableFileDescriptionStructure, OnEndNotifyDescription, 
+	WithoutFileSelection = False) Export
 
 	NotifyAdditionalParameters=New Structure;
 	NotifyAdditionalParameters.Insert("ReadableFileDescriptionStructure", ReadableFileDescriptionStructure);
@@ -921,9 +1704,8 @@ Procedure ReadConsoleFromFile(ConsoleName, ReadableFileDescriptionStructure, OnE
 	NotifyAdditionalParameters.Insert("ConsoleName", ConsoleName);
 	NotifyAdditionalParameters.Insert("WithoutFileSelection", WithoutFileSelection);
 
-	AttachFileSystemExtensionWithPossibleInstallation(
-		New NotifyDescription("ReadConsoleFromFileAfterExtensionConnection", ThisObject,
-		NotifyAdditionalParameters));
+	AttachFileSystemExtensionWithPossibleInstallation(New NotifyDescription("ReadConsoleFromFileAfterExtensionConnection", 
+		ThisObject, NotifyAdditionalParameters));
 
 EndProcedure
 
@@ -939,9 +1721,8 @@ Procedure ReadConsoleFromFileAfterExtensionConnection(Connected, AdditionalParam
 				PutableFiles=New Array;
 				PutableFiles.Add(New TransferableFileDescription(UploadFileName));
 
-				BeginPuttingFiles(
-					New NotifyDescription("ReadConsoleFromFileAfterPutFiles", ThisObject,
-					AdditionalParameters), PutableFiles, , False);
+				BeginPuttingFiles(New NotifyDescription("ReadConsoleFromFileAfterPutFiles", 
+					ThisObject, AdditionalParameters), PutableFiles, , False);
 			EndIf;
 		Else
 			FileChoose = FileSelectionDialogByDescriptionStructureOfSelectedFile(FileDialogMode.Open,
@@ -954,9 +1735,8 @@ Procedure ReadConsoleFromFileAfterExtensionConnection(Connected, AdditionalParam
 		PutableFiles=New Array;
 		PutableFiles.Add(New TransferableFileDescription(UploadFileName));
 
-		BeginPuttingFiles(
-			New NotifyDescription("ReadConsoleFromFileAfterPutFiles", ThisObject,
-			AdditionalParameters), PutableFiles, , UploadFileName = "");
+		BeginPuttingFiles(New NotifyDescription("ReadConsoleFromFileAfterPutFiles", 
+			ThisObject, AdditionalParameters), PutableFiles, , UploadFileName = "");
 
 	EndIf;
 
@@ -976,7 +1756,7 @@ Procedure ReadConsoleFromFileAfterFileChoose(SelectedFiles, AdditionalParameters
 	PutableFiles.Add(New TransferableFileDescription(SelectedFiles[0]));
 
 	BeginPuttingFiles(
-				New NotifyDescription("ReadConsoleFromFileAfterPutFiles", ThisObject,
+		New NotifyDescription("ReadConsoleFromFileAfterPutFiles", ThisObject,
 		AdditionalParameters), PutableFiles, , False);
 EndProcedure
 
@@ -1023,6 +1803,7 @@ EndProcedure
 #Region FileSystemExtensionConnectAndSetup
 
 Procedure AttachFileSystemExtensionWithPossibleInstallation(OnEndNotifyDescription, AfterInstall = False) Export
+	
 	NotifyAdditionalParameters=New Structure;
 	NotifyAdditionalParameters.Insert("OnEndNotifyDescription", OnEndNotifyDescription);
 	NotifyAdditionalParameters.Insert("AfterInstall", AfterInstall);
@@ -1039,15 +1820,18 @@ Procedure AttachFileSystemExtensionWithPossibleInstallationOnEndExtensionConnect
 	If Connected Then
 		SessionFileVariablesStructure=UT_ApplicationParameters[SessionFileVariablesParameterName()];
 		If SessionFileVariablesStructure = Undefined Then
-			ReadMainSessionFileVariablesToApplicationParameters(
-				New NotifyDescription("AttachFileSystemExtensionWithPossibleInstallationOnEndSessionFileVariablesReading",
+			ReadMainSessionFileVariablesToApplicationParameters(New NotifyDescription("AttachFileSystemExtensionWithPossibleInstallationOnEndSessionFileVariablesReading",
 				ThisObject, AdditionalParameters));
+		ElsIf Not SessionFileVariablesStructure.Property("UserDataWorkingDirectory") Then
+			ReadMainSessionFileVariablesToApplicationParameters(New NotifyDescription("AttachFileSystemExtensionWithPossibleInstallationOnEndSessionFileVariablesReading",
+				ThisObject, AdditionalParameters));
+		
 		Else
 			ExecuteNotifyProcessing(AdditionalParameters.OnEndNotifyDescription, True);
 		EndIf;
 	ElsIf Not AdditionalParameters.AfterInstall Then
 		BeginInstallFileSystemExtension(
-			New NotifyDescription("AttachFileSystemExtensionWithPossibleInstallationOnEndExtensionInstallation",
+		New NotifyDescription("AttachFileSystemExtensionWithPossibleInstallationOnEndExtensionInstallation",
 			ThisObject, AdditionalParameters));
 	Else
 		ExecuteNotifyProcessing(AdditionalParameters.OnEndNotifyDescription, False);
@@ -1085,8 +1869,8 @@ EndFunction
 
 // Sesstion file variables structure
 //
-// Return value:
-//  Structure - Sesstion file variables
+// Returns:
+//  Structure - Sesstion file variables:
 //  	*TempFilesDirectory - String -
 //  	*UserDataWorkingDirectory - String -
 Function SessionFileVariablesStructure() Export
@@ -1125,105 +1909,116 @@ Procedure ReadMainSessionFileVariablesToApplicationParametersOnEndGettingUserDat
 	AdditionalParameters) Export
 	FileVariablesStructure=SessionFileVariablesStructure();
 	FileVariablesStructure.Insert("UserDataWorkingDirectory", DirectoryName);
+	
 	ExecuteNotifyProcessing(AdditionalParameters.OnEndNotifyDescription, True);
 EndProcedure
 
 #EndRegion
-
 #Region ApplicationRun1С
 
 
 // Description
 // 
 // Parameters:
-// 	ClientType - Numeric - Run mode code
+// 	ClientType - Number - Run mode code
 // 		1 - Designer
 // 		2 - Thick client ordinary mode
 // 		3 - Thick client managed application
 // 		4 - Thin client
 // 	User - String - Name of Database User , to run application 
 // 	UnderUserRunMode - Boolean - Determines whether the user's password will be changed before launching. After the launch, the password will be returned back
-// Returned value:
+// Returns:
 // 	
 Function Run1CSession(ClientType, User, UnderUserRunMode = False,
 	PauseBeforePasswordRestore = 20) Export
-#If WebClient Then
+	#If WebClient Then
 
-#Else
-		Directory1C = BinDir();
+	#Else
+	Directory1C = BinDir();
 
-		LaunchString = Directory1C;
-
-		LaunchFileExtension = "";
-		If UT_CommonClientServer.IsWindows() Then
-			LaunchFileExtension=".EXE";
-		EndIf;
-
-		If ClientType = 1 Then
-			LaunchString = LaunchString + "1cv8" + LaunchFileExtension + " DESIGNER";
-		ElsIf ClientType = 2 Then
-			LaunchString = LaunchString + "1cv8" + LaunchFileExtension + " ENTERPRISE /RunModeOrdinaryApplication";
-		ElsIf ClientType = 3 Then
-			LaunchString = LaunchString + "1cv8" + LaunchFileExtension + " ENTERPRISE /RunModeManagedApplication";
-		Else
-			LaunchString = LaunchString + "1cv8c" + LaunchFileExtension + " ENTERPRISE";
-		Endif;
-
-		ConnectionString=InfoBaseConnectionString();
-		ConnectionStringParametersArray = StrSplit(ConnectionString, ";");
-
-		MatchOfConnectionStringParameters = New Structure;
+	LaunchString = Directory1C;
+	
+	LaunchFileExtension = "";
+	If UT_CommonClientServer.IsWindows() Then
+		LaunchFileExtension=".EXE";
+	EndIf;
+	
+	If ClientType = 1 Then
+		LaunchString = LaunchString + "1cv8" + LaunchFileExtension + " DESIGNER";
+	ElsIf ClientType = 2 Then
+		LaunchString = LaunchString + "1cv8" + LaunchFileExtension + " ENTERPRISE /RunModeOrdinaryApplication";
+	ElsIf ClientType = 3 Then
+		LaunchString = LaunchString + "1cv8" + LaunchFileExtension + " ENTERPRISE /RunModeManagedApplication";
+	Else
+		LaunchString = LaunchString + "1cv8c" + LaunchFileExtension + " ENTERPRISE";
+	Endif;
+	
+	ConnectionString=InfoBaseConnectionString();
+	ConnectionStringParametersArray = StrSplit(ConnectionString, ";");
+	
+	MatchOfConnectionStringParameters = New Structure;
+	For Each StringParameterOfConnectionString In ConnectionStringParametersArray Do
+		ParameterArray = StrSplit(StringParameterOfConnectionString, "=");
 		
-		For Each StringParameterOfConnectionString In ConnectionStringParametersArray Do
-			ParameterArray = StrSplit(StringParameterOfConnectionString, "=");
-
-			If ParameterArray.Count() <> 2 Then
-				Continue;
-			Endif;
-
-			Parameter = Lower(ParameterArray[0]);
-			ParameterValue = ParameterArray[1];
-			MatchOfConnectionStringParameters.Insert(Parameter, ParameterValue);
-		EndDo;
-
-		If MatchOfConnectionStringParameters.Property("file") Then
-			LaunchString = LaunchString + " /F" + MatchOfConnectionStringParameters.File;
-		ElsIf MatchOfConnectionStringParameters.Property("srvr") Then
-			DataBasePath = UT_StringFunctionsClientServer.PathWithoutQuotes(MatchOfConnectionStringParameters.srvr) + "\"
-				+ UT_StringFunctionsClientServer.PathWithoutQuotes(MatchOfConnectionStringParameters.ref);
-			DataBasePath = UT_StringFunctionsClientServer.WrapInOuotationMarks(DataBasePath);
-			LaunchString = LaunchString + " /S " + DataBasePath;
-		ElsIf MatchOfConnectionStringParameters.Property("ws") Then
-			LaunchString = LaunchString + " /WS " + MatchOfConnectionStringParameters.ws;
-		Else
-			Message(ConnectionString);
-		EndIf;
-
-		LaunchString = LaunchString + " /N""" + User + """";
-
-		StoredIBUserPasswordData = Undefined;
-		If UnderUserRunMode Then
-			TempPassword = "qwerty123456";
-			StoredIBUserPasswordData = UT_CommonServerCall.StoredIBUserPasswordData(
-				User);
-			UT_CommonServerCall.SetIBUserPassword(User, TempPassword);
-
-			LaunchString = LaunchString + " /P" + TempPassword;
-		EndIf;
-
-		NotifyAdditionalParameters = New Structure;
-		NotifyAdditionalParameters.Insert("UnderUserRunMode", UnderUserRunMode);
-		NotifyAdditionalParameters.Insert("StoredIBUserPasswordData",StoredIBUserPasswordData);
-		NotifyAdditionalParameters.Insert("User", User);
-		NotifyAdditionalParameters.Insert("PauseBeforePasswordRestore", PauseBeforePasswordRestore);
-
-		Try
-			BeginRunningApplication(New NotifyDescription("Run1CSessionEndLaunch", ThisObject,
-				NotifyAdditionalParameters), LaunchString);
-		Except
-			Message(BriefErrorDescription(ErrorInfo()));
-		EndTry;
-#EndIf
+		If ParameterArray.Count() <> 2 Then
+			Continue;
+		Endif;
+		
+		Parameter = Lower(ParameterArray[0]);
+		ParameterValue = ParameterArray[1];
+		MatchOfConnectionStringParameters.Insert(Parameter, ParameterValue);
+	EndDo;
+	
+	If MatchOfConnectionStringParameters.Property("file") Then
+		LaunchString = LaunchString + " /F" + MatchOfConnectionStringParameters.File;
+	ElsIf MatchOfConnectionStringParameters.Property("srvr") Then
+		DataBasePath = UT_StringFunctionsClientServer.PathWithoutQuotes(MatchOfConnectionStringParameters.srvr) + "\"
+		+ UT_StringFunctionsClientServer.PathWithoutQuotes(MatchOfConnectionStringParameters.ref);
+		DataBasePath = UT_StringFunctionsClientServer.WrapInOuotationMarks(DataBasePath);
+		LaunchString = LaunchString + " /S " + DataBasePath;
+	ElsIf MatchOfConnectionStringParameters.Property("ws") Then
+		LaunchString = LaunchString + " /WS " + MatchOfConnectionStringParameters.ws;
+	Else
+		Message(ConnectionString);
+	EndIf;
+	
+	LaunchString = LaunchString + " /N""" + User + """";
+	
+	StoredIBUserPasswordData = Undefined;
+	If UnderUserRunMode Then
+		
+		//+issue558
+		PasswordStrengthCheck = New Structure;
+		PasswordStrengthCheck = UT_CommonServerCall.GetPasswordStrengthLengthCheck(PasswordStrengthCheck);		
+		UT_CommonServerCall.SetPasswordStrengthLengthCheck(PasswordStrengthCheck, True);
+		//+
+		
+		TempPassword = "qwerty123456";
+		StoredIBUserPasswordData = UT_CommonServerCall.StoredIBUserPasswordData(
+		User);
+		UT_CommonServerCall.SetIBUserPassword(User, TempPassword);
+		
+		LaunchString = LaunchString + " /P" + TempPassword;
+		
+		//+issue558
+		UT_CommonServerCall.SetPasswordStrengthLengthCheck(PasswordStrengthCheck);
+		//+		
+	EndIf;
+	
+	NotifyAdditionalParameters = New Structure;
+	NotifyAdditionalParameters.Insert("UnderUserRunMode", UnderUserRunMode);
+	NotifyAdditionalParameters.Insert("StoredIBUserPasswordData",
+		StoredIBUserPasswordData);
+	NotifyAdditionalParameters.Insert("User", User);
+	NotifyAdditionalParameters.Insert("PauseBeforePasswordRestore", PauseBeforePasswordRestore);
+	
+	Try
+		BeginRunningApplication(New NotifyDescription("Run1CSessionEndLaunch", ThisObject,
+			NotifyAdditionalParameters), LaunchString);
+	Except
+		Message(BriefErrorDescription(ErrorInfo()));
+	EndTry;
+	#EndIf
 EndFunction
 
 Procedure Run1CSessionEndLaunch(ReturnCode, AdditionalParameters) Export
@@ -1241,11 +2036,735 @@ Procedure Run1CSessionEndLaunch(ReturnCode, AdditionalParameters) Export
 EndProcedure
 
 #EndRegion
+
+#Region FileWorkMethods
+
+#Region FileDialog
+
+// Empty description structure of the selected file.
+// 
+// Returns:
+// 	Structure - Empty description structure of the selected file:
+// * FileName - String 
+// * SerializableFileFormats - Array of String 
+// * Formats - Array of see EmptySelectedFileFormatDescription
+Function EmptyDescriptionStructureOfSelectedFile() Export
+	DescriptionStructure=New Structure;
+	DescriptionStructure.Insert("FileName", "");
+	DescriptionStructure.Insert("SerializableFileFormats", New Array);
+	DescriptionStructure.Insert("Formats", New Array);
+
+	Return DescriptionStructure;
+EndFunction
+
+// Empty selected file format description.
+// 
+// Returns:
+// Structure - Empty selected file format description:
+// * Extension - String - 
+// * Name - String - 
+// * Filter - String - 
+Function EmptySelectedFileFormatDescription() Export
+	Description=New Structure;
+	Description.Insert("Extension", "");
+	Description.Insert("Name", "");
+	Description.Insert("Filter", "");
+
+	Return Description;
+EndFunction
+
+// Add format to saving file description.
+// 
+// Parameters:
+//	DescriptionStructureOfSelectedFile - see EmptyDescriptionStructureOfSelectedFile
+// 	FormatName - String - FormatName
+// 	FileExtension - String - File extension
+// 	Filter - String - Filter
+Procedure AddFormatToSavingFileDescription(DescriptionStructureOfSelectedFile, FormatName, FileExtension, 
+	Filter = "") Export
+	
+	FileFormat=EmptySelectedFileFormatDescription();
+	FileFormat.Name=FormatName;
+	FileFormat.Extension=FileExtension;
+	FileFormat.Filter = Filter;
+	
+	DescriptionStructureOfSelectedFile.Formats.Add(FileFormat);
+EndProcedure
+
+// File selection dialog by description structure of selected file.
+// 
+// Parameters:
+// Mode - FileDialogMode - Mode
+// SelectedFileDescriptionStructure - see EmptyDescriptionStructureOfSelectedFile.
+// 
+// Returns:
+// 	FileDialog - File selection dialog based on the description structure of the file being selected
+Function FileSelectionDialogByDescriptionStructureOfSelectedFile(Mode, DescriptionStructureOfSelectedFile) Export
+	// You need to request a file name.
+	FileSelection = New FileDialog(Mode);
+	FileSelection.Multiselect = False;
+	
+	//Linux has problems with selecting a file if there is a dash in the existing one
+	If Not (UT_CommonClientServer.IsLinux() And Find(DescriptionStructureOfSelectedFile.FileName, "-") > 0) Then
+		
+		FileSelection.FullFileName = DescriptionStructureOfSelectedFile.FileName;
+	EndIf;
+
+	Filter="";
+	For each CurrentFileFormat In DescriptionStructureOfSelectedFile.Formats Do
+		FormatExtension=CurrentFileFormat.Extension;
+		If ValueIsFilled(FormatExtension) Then
+			FormatFilter="*." + FormatExtension;
+		Else
+			FormatFilter="*.*";
+		EndIf;
+		
+		If ValueIsFilled(CurrentFileFormat.Filter) Then
+			FormatFilter = CurrentFileFormat.Filter;
+		EndIf;
+
+		Filter=Filter + ?(ValueIsFilled(Filter), "|", "") + StrTemplate("%1|%2", CurrentFileFormat.Name, FormatFilter);
+	EndDo;
+
+	FileSelection.Filter = Filter;
+
+	If DescriptionStructureOfSelectedFile.SerializableFileFormats.Count() > 0 Then
+		FileSelection.DefaultExt=DescriptionStructureOfSelectedFile.SerializableFileFormats[0];
+	ElsIf DescriptionStructureOfSelectedFile.Formats.Count() > 0 Then
+		FileSelection.DefaultExt=DescriptionStructureOfSelectedFile.Formats[0].Extension;
+	EndIf;
+
+	Return FileSelection;
+EndFunction
+
+
+
+#EndRegion
+
+// Begin providing required directory. The file system extension should be attached earlier
+// 
+// Parameters:
+// 	Catalog - String - Catalog
+// 	EndingCallbackDescription - CallbackDescription - Ending callback description
+Procedure BeginCatalogProviding(Catalog, EndingCallbackDescription) Export
+
+	NotificationParameters = New Structure;
+	NotificationParameters.Insert("Catalog", Catalog);
+	NotificationParameters.Insert("EndingCallbackDescription", EndingCallbackDescription);
+
+	File = New File(Catalog);
+	File.BeginCheckingExistence(New NotifyDescription("BeginDirectoryProvidingCheckingExistenceEnding",
+		ThisObject, NotificationParameters));
+
+EndProcedure
+
+// New file saving parameters.
+// 
+// Returns:
+// 	Structure - New file saving parameters:
+// * FileSystemExtensionAttached - Boolean -. 
+// * TempStorageFileDirectory - String - - 
+// * EndingCallbackDescription - Undefined, CallbackDescription - 
+// * FullFileName - String - 
+// * FileDialog - Undefined, FileDialog -
+Function NewFileSavingParameters() Export
+	SavingParameters = New Structure;
+	SavingParameters.Insert("FileSystemExtensionAttached", False);
+	SavingParameters.Insert("TempStorageFileDirectory", "");
+	SavingParameters.Insert("EndingCallbackDescription", Undefined);
+	SavingParameters.Insert("FullFileName", "");
+	SavingParameters.Insert("FileDialog", Undefined);
+	
+	Return SavingParameters;
+	
+EndFunction
+
+// Begin file saving.
+// 
+// Parameters:
+// 	SavingParameters - see NewFileSavingParameters.
+Procedure BeginFileSaving(SavingParameters) Export
+	
+	If SavingParameters.FileSystemExtensionAttached Then
+		BeginFileSavingAttachingFileSystemExtensionEnding(True, SavingParameters);
+	Else
+		AttachFileSystemExtensionWithPossibleInstallation(New NotifyDescription("BeginFileSavingAttachingFileSystemExtensionEnding",
+			ThisObject, SavingParameters));
+	EndIf;
+		
+EndProcedure
+
+// New file reading parameters into binary data.
+// 
+// Parameters:
+//	FormUUID - UUID - Form UUID
+// 
+// Returns:
+// 	Structure - New file reading parameters into binary data:
+// * FormUUID - Undefined, UUID - 
+// * FileSystemExtensionAttached - Boolean 
+// * EndingCallbackDescription - Undefined, CallbackDescription - 
+// * FullFileName - String
+// * FileDialog - Undefined, FileDialog -
+Function NewFileReadingParameters(FormUUID) Export
+	ReadingsParameters = New Structure;
+	ReadingsParameters.Insert("FormUUID", FormUUID);
+	ReadingsParameters.Insert("FileSystemExtensionAttached", False);
+	ReadingsParameters.Insert("EndingCallbackDescription", Undefined);
+	ReadingsParameters.Insert("FullFileName", "");
+	ReadingsParameters.Insert("FileDialog", Undefined);
+	
+	Return ReadingsParameters;
+EndFunction
+
+// Begin file reading.
+// 
+// Parameters:
+// 	ReadingParameters - see NewFileReadingParameters.
+Procedure BeginFileReading(ReadingParameters) Export
+	If ReadingParameters.ExtensionWorkingWithFilesEnabled Then
+		BeginFileReadingAttachingFileSystemExtensionEnding(True, ReadingParameters);
+	Else
+		AttachFileSystemExtensionWithPossibleInstallation(New NotifyDescription("BeginFileReadingAttachingFileSystemExtensionEnding",
+			ThisObject, ReadingParameters));
+	EndIf;
+
+EndProcedure
+
+Procedure BeginFilesSelecting(EndingCallbackDescription, Title = "Choose files", Filter = "",
+	Multiselect = False) Export
+	
+
+EndProcedure
+
+// Shows the file dialog.
+// When working in a web client, the user will be shown a dialog of attaching file system extension, if required.
+//
+//
+// Parameters:
+// 	EndingProcessor - CallbackDescription -  a description of the procedure that will be called after the
+//  	closing the file dialog with the parameters:
+// 		 Result - Array of String - selected file names.
+// 		 	- String - an empty string if the user refused to install the extension.
+// 			- Undefined - if the user refused to select a file.
+// 		 AdditionalParameters - Structure - additional notification parameters.
+// Dialog - FileDialog - file dialog.
+//
+Procedure ShowFileDialog(EndingProcessor, Dialog) Export
+	
+	Context = New Structure;
+	Context.Insert("EndingProcessor", EndingProcessor);
+	Context.Insert("Dialog", Dialog);
+	
+	CallbackDescription = New NotifyDescription(
+		"ShowDialogSelectDialogWhenExpansionWorkingWithFiles", ThisObject, Context);
+	
+	AttachFileSystemExtensionWithPossibleInstallation(CallbackDescription);
+	
+EndProcedure
+
+
+
+#EndRegion
+
+// Find forms by unique key.
+// 
+// Parameters:
+// UniqueKey - Arbitrary - unique key
+// FormName - String - Name of the form for the filter
+// 
+// Returns:
+// 	Array of ClientApplicationForm.
+Function FormsByUniqueKey(UniqueKey, FormName = "") Export
+	FormsArray = New Array(); //Array of ClientApplicationForm
+	
+	FormType = UT_CommonClientServer.ManagedFormType();
+	
+	For Each CurrentWindow In GetWindows() Do
+		For Each CurrentContent In CurrentWindow.Content Do
+			If TypeOf(CurrentContent) <> FormType Then
+				Continue;
+			EndIf;
+			
+			If CurrentContent.UniqueKey <> UniqueKey Then
+				Continue;
+			EndIf;
+			
+			If ValueIsFilled(FormName) And Lower(CurrentContent.FormName) <> Lower(FormName) Then
+				Continue;
+			EndIf;
+			
+			FormsArray.Add(CurrentContent);
+		EndDo;
+	EndDo;
+	
+	Return FormsArray;
+EndFunction
+
+// Begin clearing cache tool at the client.
+// 
+// Parameters:
+// 	EndingCallbackDescription - Undefined, CallbackDescription - Ending callback description
+Procedure BeginCleanToolsCacheAtClient(EndingCallbackDescription = Неопределено) Export
+	AssistiveLibraryToolsCatalog = UT_AssistiveLibrariesDirectory();
+	If Not ValueIsFilled(AssistiveLibraryToolsCatalog) Then
+		Return;
+	КонецЕсли;
+	//@skip-check empty-except-statement
+	Try
+		BeginDeletingFiles(,AssistiveLibraryToolsCatalog);
+	Except
+		
+EndTry;
+
+EndProcedure
+
+// Opens a URL in an application associated with URL protocol.
+//
+// Valid protocols: http, https, e1c, v8help, mailto, tel, skype.
+//
+// Do not use protocol file:// to open Explorer or a file.
+// - To Open Explorer, use OpenExplorer. 
+// - To open a file in an associated application, use OpenFileInViewer. 
+//
+// Parameters:
+//  URL - Reference - a link to open.
+//  Notification - NotifyDescription - notification on file open attempt.
+//      If the notification is not specified and an error occurs, the method shows a warning.
+//      - ApplicationStarted - Boolean - True if the external application opened successfully.
+//      - AdditionalParameters - Arbitrary - a value that was specified when creating the NotifyDescription object.
+//
+// Example:
+//  FileSystemClient.OpenURL("e1cib/navigationpoint/startpage"); // Home page.
+//  FileSystemClient.OpenURL("v8help://1cv8/QueryLanguageFullTextSearchInData");
+//  FileSystemClient.OpenURL("https://1c.ru");
+//  FileSystemClient.OpenURL("mailto:help@1c.ru");
+//  FileSystemClient.OpenURL("skype:echo123?call");
+//
+Procedure OpenURL(URL, Val Notification = Undefined) Export
+	
+	// CAC:534-off safe start methods are provided with this function
+	
+	Context = New Structure;
+	Context.Insert("URL", URL);
+	Context.Insert("Notification", Notification);
+	
+	ErrorDescription = StringFunctionsClientServer.SubstituteParametersToString(
+		NStr("ru = 'Не удалось перейти по ссылке ""%1"" по причине: Неверно задана навигационная ссылка.'; 
+		           |en = 'Cannot follow link %1. The URL is invalid.'"),
+		URL);
+	
+	If Not IsAllowedRef(URL) Then 
+		
+		OpenURLNotifyOnError(ErrorDescription, Context);
+		
+	ElsIf IsWebURL(URL)
+		Or CommonInternalClient.IsURL(URL) Then 
+		
+		Try
+		
+#If ThickClientOrdinaryApplication Then
+			
+			BeginRunningApplicationWithFilesWorkingExt(Notification, URL);
+#Else
+			GotoURL(URL);
+#EndIf
+			
+			If Notification <> Undefined Then 
+				ApplicationStarted = True;
+				ExecuteNotifyProcessing(Notification, ApplicationStarted);
+			EndIf;
+			
+		Except
+			OpenURLNotifyOnError(ErrorDescription, Context);
+		EndTry;
+		
+//	ElsIf FileSystemInternalClient.IsHelpRef(URL) Then 
+//		
+//		OpenHelp(URL);
+		
+	Else 
+		
+		BeginRunningApplicationWithFilesWorkingExt(Notification, URL);
+//		Notification = New NotifyDescription(
+//			"OpenURLAfterCheckFileSystemExtension", FileSystemInternalClient, Context);
+//		
+//		SuggestionText = StringFunctionsClientServer.SubstituteParametersToString(
+//			NStr("ru = 'Для открытия ссылки ""%1"" необходимо установить расширение работы с файлами.'; en = 'To be able to open link ""%1"", install the file system extension.'"),
+//			URL);
+//		AttachFileOperationsExtension(Notification, SuggestionText, False);
+		
+	EndIf;
+	
+	// CAC:534-enable
+	
+EndProcedure
+
+
+// Open a code string in a special form.
+// 
+// Parameters:
+// 	Text - String - Text
+// 	Title - String - Title
+// 	UniqueKey - String - Form unique key
+Procedure OpenCodeStringCodeSpecialForm(Text, Title, UniqueKey = "") Export
+	FormParameters = New Structure;
+	FormParameters.Insert("Code", Text);
+	FormParameters.Insert("ModuleName", Title);
+
+	OpenForm("ОбщаяФорма.УИ_ФормаКода",
+				 FormParameters,
+				 ,
+				 UniqueKey);
+EndProcedure
+
+#Region ObsoletePrivate
+
+#EndRegion
+
+
+#EndRegion
+
+#Region Internal
+
+#Region FileWorkMethods
+
+// Begin directory providing checking existence ending.
+// 
+// Parameters:
+// 	Exists - Boolean - Indication of catalog existence
+// 	AdditionalParameters - Structure - Callback parameters:
+// 		EndingCallbackDescription - CallbackDescription
+// 		Directory - String
+Procedure BeginDirectoryProvidingCheckingExistenceEnding(Exists, AdditionalParameters) Export
+	If Exists Then
+		ExecuteNotifyProcessing(AdditionalParameters.EndingCallbackDescription, True);
+		Return;
+	EndIf;
+	CallBack = New NotifyDescription("BeginDirectoryProvidingCreatingDirectoryEnding", ThisObject,
+		AdditionalParameters, "BeginDirectoryProvidingCreatingDirectoryEndingWithError", ThisObject);
+
+	BeginCreatingDirectory(CallBack, AdditionalParameters.Directory);
+EndProcedure
+
+// Begin directory providing checking existence ending.
+// 
+// Parameters:
+// 	CatalogDirectory - String - a string containing the path to the created catalog,
+// 	AdditionalParameters - Structure - Callback parameters:
+//  	EndingCallbackDescription - CallbackDescription
+//  	Directory - String
+Procedure BeginDirectoryProvidingCreatingDirectoryEnding(CatalogDirectory, AdditionalParameters) Export
+	ExecuteNotifyProcessing(AdditionalParameters.EndingCallbackDescription, True);
+EndProcedure
+
+// Begin directory providing checking existence ending.
+// 
+// Parameters:
+// 	ErrorInfo - ErrorInfo.
+// 	StandardProcessing - Boolean -
+// 	AdditionalParameters - Structure - Callback parameters:
+//  	EndingCallbackDescription - CallbackDescription
+// 		Directory - String
+Procedure BeginDirectoryProvidingCreatingDirectoryEndingWithError(ErrorInfo, StandardProcessing,
+	AdditionalParameters) Export
+	StandardProcessing = False;
+	ExecuteNotifyProcessing(AdditionalParameters.EndingCallbackDescription, False);
+EndProcedure
+
+
+// Begin file saving, attaching file system extension ending.
+// 
+// Parameters:
+// 	Attached - Boolean - Connected
+// 	AdditionalParameters - see NewFileSavingParameters
+Procedure BeginFileSavingAttachingFileSystemExtensionEnding(Attached, AdditionalParameters) Export
+	If Attached <> True Then
+		Return;
+	EndIf;
+	AdditionalParameters.FileSystemExtensionAttached = True;
+	
+	If ValueIsFilled(AdditionalParameters.FullFileName) Then
+		BeginFileSavingFileNameSettingEnding(AdditionalParameters);
+	Else
+		Dialog = AdditionalParameters.FileDialog;
+		If Dialog = Undefined Then
+			Dialog = New FileDialog(FileDialogMode.Save);
+		EndIf;
+		Dialog.Show(New NotifyDescription("BeginFileSavingFileNameChoosing",
+			ThisObject, AdditionalParameters));
+	EndIf;
+	
+EndProcedure
+
+// Begin file saving, file name choosing.
+//  
+// Parameters:
+// 	SelectedFiles - Array of String - SelectedFiles
+// 	AdditionalParameters - see NewFileSavingParameters.
+Procedure BeginFileSavingFileNameChoosing(SelectedFiles, AdditionalParameters) Export
+	If SelectedFiles = Undefined Then
+		Return;
+	EndIf;
+	If SelectedFiles.Count()= 0 Then
+		Return;
+	EndIf;
+	
+	AdditionalParameters.FullFileName = SelectedFiles[0];
+
+	BeginFileSavingFileNameSettingEnding(AdditionalParameters);
+EndProcedure
+
+// Begin file saving, file full name setting ending.
+// 
+// Parameters:
+// 	AdditionalParameters - see NewFileSavingParameters.
+Procedure BeginFileSavingFileNameSettingEnding(AdditionalParameters) Export
+	ReceivedFiles = New Array;
+	ReceivedFiles.Add(New TransferableFileDescription(AdditionalParameters.FullFileName,
+		AdditionalParameters.TempStorageFileDirectory));
+
+	BeginGettingFiles(New NotifyDescription("BeginFileSavingPuttingFileEnding", ThisObject,
+		AdditionalParameters), ReceivedFiles, AdditionalParameters.FullFileName, False);
+
+EndProcedure
+
+// Begin non-interactive file saving, file putting ending.
+// 
+// Parameters:
+// 	ReceivedFiles - Array of TransferableFileDescription - Received Files
+// 	AdditionalParameters - see NewNonInteractiveFileSavingParameters.
+Procedure BeginFileSavingPuttingFileEnding(ReceivedFiles, AdditionalParameters) Export
+	If AdditionalParameters.EndingCallbackDescription = Undefined Then
+		Return;
+	EndIf;
+	
+	CallbackProcessor = AdditionalParameters.EndingCallbackDescription;
+	
+	If ReceivedFiles = Undefined Then
+		ExecuteNotifyProcessing(CallbackProcessor, Undefined);
+		Return;
+	EndIf;
+
+	If UT_CommonClientServer.PlatformVersionNotLess("8.3.13") Then
+		FileName = ReceivedFiles[0].FullName;
+	Else
+		FileName = ReceivedFiles[0].Name;
+	EndIf;
+	ExecuteNotifyProcessing(CallbackProcessor, FileName);
+EndProcedure
+
+
+// Begin file reading, attaching file system extension ending.
+// 
+// Parameters:
+// 	Attached - Boolean - Connected
+// 	AdditionalParameters - see NewFileReadingParameters 
+Procedure BeginFileReadingAttachingFileSystemExtensionEnding(Attached, AdditionalParameters) Export
+	If Attached <> True Then
+		Return;
+	EndIf;
+	AdditionalParameters.FileSystemExtensionAttached = True;
+	
+	If ValueIsFilled(AdditionalParameters.FullFileName) Then
+		BeginFileReadingFileNameSettingEnding(AdditionalParameters);
+	Else
+		Dialog = AdditionalParameters.FileDialog;
+		If Dialog = Undefined Then
+			Dialog = New FileDialog(FileDialogMode.Open);
+		EndIf;
+		Dialog.Show(New NotifyDescription("BeginFileReadingFileNameChoosing", ThisObject,
+			AdditionalParameters));
+	EndIf;
+	
+EndProcedure
+
+// Begin file reading, file name choosing
+// 
+// Parameters:
+// 	SelectedFiles - Array of String - SelectedFiles
+// AdditionalParameters - see NewFileReadingParameters.
+Procedure BeginFileReadingFileNameChoosing(SelectedFiles, AdditionalParameters) Export
+	If SelectedFiles = Undefined Then
+		Return;
+	EndIf;
+	If SelectedFiles.Count() = 0 Then
+		Return;
+	EndIf;
+	
+	AdditionalParameters.FullFileName = SelectedFiles[0];
+
+	BeginFileReadingFileNameSettingEnding(AdditionalParameters);
+EndProcedure
+
+// Begin file reading, file full name setting ending.
+// 
+// Parameters:
+// 	AdditionalParameters - see NewFileReadingParameters.
+Procedure BeginFileReadingFileNameSettingEnding(AdditionalParameters) Export
+	PutedFiles = New Array;
+	PutedFiles.Add(New TransferableFileDescription(AdditionalParameters.FullFileName));
+
+	BeginPuttingFiles(New NotifyDescription("BeginFileReadingPuttingFileEnding", ThisObject,
+		AdditionalParameters), PutedFiles, , False, AdditionalParameters.FormUUID);
+
+EndProcedure
+
+// Begin file saving reading, file putting ending.
+// 
+// Parameters:
+// 	PutedFiles - Array of TransferableFileDescription - Puted Files
+// 	AdditionalParameters - see NewFileReadingParameters.
+Procedure BeginFileReadingPuttingFileEnding(PutedFiles, AdditionalParameters) Export
+	If PutedFiles = Undefined Then
+		Return;
+	EndIf;
+	
+	If AdditionalParameters.EndingCallbackDescription = Undefined Then
+		Return;
+	EndIf;
+	
+	Files = New Array;
+	
+	For Each PutedFile In PutedFiles Do
+
+		If PutedFile.Location = "" Then
+			Continue;
+		EndIf;
+
+		FileDescription = New Structure;
+		FileDescription.Insert("Location", PutedFile.Storage);
+		If UT_CommonClientServer.PlatformVersionNotLess("8.3.13") Then
+			FileDescription.Insert("FullName", PutedFile.FullName);
+		Else
+			FileDescription.Insert("FullName", PutedFile.Name);
+		EndIf;
+
+		Files.Add(FileDescription);
+	EndDo;
+	
+
+	ExecuteNotifyProcessing(AdditionalParameters.EndingCallbackDescription, Files);
+	
+EndProcedure
+
+// Show file dialog while attaching file system extension.
+// 
+// Parameters:
+// 	ExtensionAttached - Boolean - Expansion attached
+// 	Context - Structure:
+//  	EndingCallbackProcessor - CallbackDescription
+//  	FileDialog - FileDialog
+Procedure ShowDialogSelectDialogWhenExpansionWorkingWithFiles(ExtensionAttached, Context) Export
+	If Not ExtensionAttached Then
+		ExecuteNotifyProcessing(Context.EndingCallbackProcessor, "");
+		Return;
+	EndIf;
+	
+	Context.FileDialog.Show(Context.EndingCallbackProcessor);
+	
+EndProcedure
+
+#EndRegion
+
+// Checks whether the passed string is an internal URL.
+//  
+// Parameters:
+//  String - String - URL.
+//
+// Returns:
+//  Boolean -  a check result.
+//
+Function IsURL(Row) Export
+	
+	Return StrStartsWith(Row, "e1c:")
+		Or StrStartsWith(Row, "e1cib/")
+		Or StrStartsWith(Row, "e1ccs/");
+	
+EndFunction
+
+// Checks whether the passed string is a web URL.
+// 
+// Parameters:
+//  String - String - passed URL.
+//
+// Returns:
+//	Boolean
+//
+Function IsWebURL(String) Export
+	
+	Return StrStartsWith(String, "http://")  // a usual connection.
+		Or StrStartsWith(String, "https://");// a secure connection.
+	
+EndFunction
+
+// Checks whether the passed string is a reference to the online help.
+// 
+// Parameters:
+//  String - String - passed URL.
+//
+// Returns:
+//	Boolean
+//
+Function IsHelpRef(String) Export
+	
+	Return StrStartsWith(String, "v8help://");
+	
+EndFunction
+
+
+
+// Checks whether the passed string is a valid reference to the protocol whitelist.
+// 
+// Parameters:
+//  String - String - passed URL.
+//
+// Returns:
+//	Boolean
+//
+Function IsAllowedRef(String) Export
+	
+	Return StrStartsWith(String, "e1c:")
+		Or StrStartsWith(String, "e1cib/")
+		Or StrStartsWith(String, "e1ccs/")
+		Or StrStartsWith(String, "v8help:")
+		Or StrStartsWith(String, "http:")
+		Or StrStartsWith(String, "https:")
+		Or StrStartsWith(String, "mailto:")
+		Or StrStartsWith(String, "tel:")
+		Or StrStartsWith(String, "skype:")
+		Or StrStartsWith(String, "market:")
+		Or StrStartsWith(String, "itms-apps:");
+		
+EndFunction
+
+
+// Continue the CommonClient.OpenURL procedure.
+Procedure OpenURLNotifyOnError(ErrorDescription, Context) Export
+	
+	Notification = Context.Notification;
+	
+	If Notification = Undefined Then
+		If Not IsBlankString(ErrorDescription) Then 
+			ShowMessageBox(, ErrorDescription);
+		EndIf;
+	Else 
+		ApplicationStarted = False;
+		ExecuteNotifyProcessing(Notification, ApplicationStarted);
+	EndIf;
+	
+EndProcedure
+
+#EndRegion
+
+
+#Region Private
+
+//@skip-check code-never-compiled
 Function InformationForSupportService() 
 	InformationStructure = New Structure;
 	InformationStructure.Insert("OptionSupplies", UT_CommonClientServer.DistributionType());
 	InformationStructure.Insert("ToolsVersion", UT_CommonClientServer.Version());
-	
 	
 	SystemInformation = New SystemInfo;
 	
@@ -1264,7 +2783,7 @@ Function InformationForSupportService()
 	#ElsIf MobileClient Then
 		InformationStructure.Insert("ClientType", "MobileClient");
 	#Else
-		//@skip-check code-never-compilied
+		
 		InformationStructure.Insert("ClientType", "Undefined");
 	#EndIf	
 	
@@ -1305,31 +2824,5 @@ Function InformationForSupportServiceAsString(Info, Prefix = "")
 		
 	Return SupportAsString;
 EndFunction
-#EndRegion
 
-Procedure BeginCleanToolsCacheAtClient(ОписаниеОповещенияОЗавершении = Неопределено) Export
-	КаталогВспомогательныхБиблиотекИнструментов=КаталогВспомогательныхБиблиотекИнструментов();
-	Если Не ValueIsFilled(КаталогВспомогательныхБиблиотекИнструментов) Тогда
-		Return;
-	КонецЕсли;
-	//@skip-check empty-except-statement
-	Try
-		BeginDeletingFiles(,КаталогВспомогательныхБиблиотекИнструментов);
-	Except
-		
-EndTry;
-	
-EndProcedure
-// Каталог вспомогательных библиотек инструментов.
-// 
-// Возвращаемое значение:
-//  Строка - Каталог вспомогательных библиотек инструментов
-Function КаталогВспомогательныхБиблиотекИнструментов() Export
-	FileVariablesStructure=SessionFileVariablesStructure();
-	If Не FileVariablesStructure.Property("UserDataWorkingDirectory") Then
-		Return "";
-	EndIf;
-	
-	Return UT_CommonClientServer.КаталогВспомогательныхБиблиотекИнструментов(
-	FileVariablesStructure.UserDataWorkingDirectory);
-EndFunction
+#EndRegion

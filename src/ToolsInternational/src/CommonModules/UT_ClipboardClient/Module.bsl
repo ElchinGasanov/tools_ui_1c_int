@@ -1,22 +1,22 @@
-// Работа с буфером обмена из 1С
+// Work with clipboard from 1C Enterprise
 //
 // Copyright 2020 ООО "Центр прикладных разработок"
-////   Licensed under the Apache License, Version 2.0 (the "License");
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
 //   You may obtain a copy of the License at
-////       http://www.apache.org/licenses/LICENSE-2.0
-////   Unless required by applicable law or agreed to in writing, software
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
 //   distributed under the License is distributed on an "AS IS" BASIS,
 //   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//   See the License for the specific language governing permissions and
-//   limitations under the License.
-//// URL:    https://github.com/cpr1c/clipboard_1c
-// Требования: платформа 1С версии 8.3.14 и выше
-// С более ранними платформами могут быть проблемы с подключением компоненты, а также с работой некоторых методов
-
-// Work with clipboard from 1C Enterprise 
+//   See the License for the specific language governing permissions and limitations under the License.
+//
+//
+// URL:    https://github.com/cpr1c/clipboard_1c
 // Translated to english variant of script by Neti company (https://erpdev.i-neti.com/)
-//  Requirements: 1C platform version 8.3.14 and higher
+// Requirements: 1C platform version 8.3.14 and higher
 // With earlier platforms, there may be problems with connecting components, as well as with the operation of some methods
 
 #Region Public
@@ -29,11 +29,11 @@ Function SubsystemVersion() Export
 	Return "1.0.2";
 EndFunction
 
-//Returns the clipboard components object. AddIn must be pre-connected.
+// Returns the clipboard components object. Сomponent must be pre-connected.
 // If the component is not connected, an exception will be thrown 
 // 
 // The return value:
-// 	AddInObject -Object of  AddIn  to work with clipboard. 
+// 	AddInObject - Object of  AddIn to work with clipboard. 
 Function AddInObject() Export
 	Return New ("AddIn." + AddInID() + ".ClipboardControl");
 EndFunction
@@ -41,10 +41,10 @@ EndFunction
 #Region SyncMetods
 
 // Synchronous calls are used
-// Returns Object of  AddIn  to work with clipboard. If necessary, the addin will be  attached and installed
+// Returns Object of  AddIn  to work with clipboard. If necessary, the addin will be attached and installed
 // 
 // Return value:
-// 	Add-in object - Object of  AddIn  to work with clipboard 
+// 	AddIn - Add-in object - Object of  AddIn  to work with clipboard 
 //  Undefined - if the component failed to attach
 Function ClipboardAddin() Export
 	Try
@@ -62,7 +62,7 @@ EndFunction
 // Returns version of clipboard addin 
 // 
 // Parameters:
-// 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
+// 	AddInObject - Add-in object - Object of AddIn сomponent to work with clipboard (optional)
 // Returned value:
 // 	String - Addin version 
 Function AddinVersion(AddInObject = Undefined) Export
@@ -79,7 +79,7 @@ Function AddinVersion(AddInObject = Undefined) Export
 	Return Version;
 EndFunction
 
-// Empty clipboard 
+// Clears the contents of the clipboard 
 // 
 // Parameters:
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
@@ -99,7 +99,7 @@ EndProcedure
 // 
 // Parameters:
 // 	Picture- Picture, BinaryData , Address in Temp Storage
-// 	If transmitted type of Address in Temp Storage  in temp storage must be picture or binary data
+// 	If transmitted type of Picture is Address in Temp Storage, type in temp storage must be picture or binary data
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure CopyImageToClipboard(Picture, AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
@@ -122,10 +122,10 @@ EndProcedure
 // 
 // Parameters:
 // 	ReturnDataType - String
-// 	One of the options::
-// 		BinaryData- getting binary image data
-// 		Picture- Converted to type "Picture" clipboard data
-// 		Adress-The address of the binary data of the image in the temporary storage
+// 	ReturnDataType options:
+// 		BinaryData - getting binary image data
+// 		Picture - Converted to type "Picture" clipboard data
+// 		Adress - The address of the binary data of the image in the temporary storage
 // 	AddInObject - Add-in object -  Object of  AddIn  to work with clipboard (optional)
 // Returned value:
 // 	BinaryData,Picture,String - picture in requested format
@@ -139,13 +139,14 @@ Function ImageFromClipboard(ReturnDataType = "Picture", AddInObject = Undefined)
 	If EmptyAddin Then
 		AddInObject=Undefined;
 	EndIf;
-    	Return ImageInCorrectFormatFromClipboard(ImageDataInClipboard, ReturnDataType);
+	
+    Return ImageInCorrectFormatFromClipboard(ImageDataInClipboard, ReturnDataType);
 EndFunction
 
 // Places the passed string in the clipboard
 // 
 // Parameters:
-// 	CopiedText- String- Text  to be placed in the clipboard
+// 	CopiedText - String - Text  to be placed in the clipboard
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure CopyTextToClipboard(CopiedText, AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
@@ -185,7 +186,7 @@ EndFunction
 // Parameters:
 //  AddInObject - Add-in object - Object of Adding to work with clipboard (optional)
 // Returned value:
-// String - A string in JSON format containing a description of the format of the clipboard contents
+// 	String - A string in JSON format containing a description of the format of the clipboard contents
 Function ClipboardFormat(AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
 
@@ -202,15 +203,14 @@ EndFunction
 
 #EndRegion
 
-#Region АсинхронныеМетоды
+#Region AsyncMetods
 
-// Starts receiving the object of the  clipboard addin.
-// If necessary, the components will be attached and installed
+// Starts receiving the object of the  clipboard addin. If necessary, the components will be attached and installed
 //
 // Parameters:
-// 	NotifyDescription - NotifyDescription -Contains a description of the procedure that will be called after completion with the following parameters:
-//<AddInObject> – Object of  AddIn  to work with clipboard, Тип: Add-in object. Undefined- if failed to attach addin
-//<AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
+// 	NotifyDescription - NotifyDescription - Contains a description of the procedure that will be called after completion with the following parameters:
+//<AddInObject> - Object of  AddIn  to work with clipboard, Тип: Add-in object. Undefined- if failed to attach addin
+//<AdditionalParameters> - the value that was specified when creating the object NotifyDescription.
 Procedure BeginGettingAddIn(NotifyDescription) Export
 	BeginInitializeAddin(NotifyDescription, True);
 EndProcedure
@@ -218,9 +218,9 @@ EndProcedure
 // Starts getting the version of the clipboard addin used
 // 
 // Parameters:
-// 	NotifyDescription - NotifyDescription -Contains a description of the procedure that will be called after completion with the following parameters:
-//	<AddinVersion> – Version of the addin used, Type: Строка. Undefined- if failed to attach addin
-//	<AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
+// 	NotifyDescription - NotifyDescription - Contains a description of the procedure that will be called after completion with the following parameters:
+//	<AddinVersion> - Version of the addin used, Type: Строка. Undefined- if failed to attach addin
+//	<AdditionalParameters> - the value that was specified when creating the object NotifyDescription.
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure BeginGettingAddinVersion(NotifyDescription, AddInObject = Undefined) Export
 	If AddInObject = Undefined Then
@@ -239,9 +239,9 @@ EndProcedure
 // 
 // Parameters:
 // 	NotifyDescription - NotifyDescription -Contains a description of the procedure that will be called after completion with the following parameters:
-//	<CleaningType> – Cleaning result, Type: Тип: Булево. Undefined- if failed to attach addin
-//	<CallParameters> - Empty array
-//	<AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
+//	 <CleaningType> - Cleaning result, Type: Булево. Undefined- if failed to attach addin
+//	 <CallParameters> - Empty array
+//	 <AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure BeginClipBoardEmptying(NotifyDescription, AddInObject = Undefined) Export
 	If AddInObject = Undefined Then
@@ -260,9 +260,9 @@ EndProcedure
 // Parameters:
 // 	Картинка
 // 	NotifyDescription - NotifyDescription -Contains a description of the procedure that will be called after completion with the following parameters:
-//	<Result> – The result of installing the image in the clipboard, Type: Boolean.Undefined- if failed to attach addin
-//	<CallParameters> - Array of parameters for calling the component method
-//	<AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
+//	 <Result> - The result of installing the image in the clipboard, Type: Boolean.Undefined- if failed to attach addin
+//	 <CallParameters> - Array of parameters for calling the component method
+//	 <AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure BeginCopyingImageToClipboard(Picture, NotifyDescription, AddInObject = Undefined) Export
 	If AddInObject = Undefined Then
@@ -285,14 +285,14 @@ EndProcedure
 // Starts receiving an image from the clipboard
 // 
 // Parameters:
-// 	NotifyDescription - NotifyDescription -Contains a description of the procedure that will be called after completion with the following parameters:
-//	<ImageData> – Image data in the requested format, Type: String,BinaryData, Picture. Undefined- if failed to attach addin or there is no picture in the buffer
-//	<AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
+// 	NotifyDescription - NotifyDescription - Contains a description of the procedure that will be called after completion with the following parameters:
+//	<ImageData> - Image data in the requested format, Type: String,BinaryData, Picture. Undefined- if failed to attach addin or there is no picture in the buffer
+//	<AdditionalParameters> - the value that was specified when creating the object NotifyDescription.
 // 	ReturnDataType - String
 // 	One of the options:
-// 		BinaryData- getting binary image data
-// 		Picture- Clipboard  content converted to the "Picture" type
-// 		Adress- The address of the binary data of the image in the temporary storage
+// 		BinaryData - getting binary image data
+// 		Picture - Clipboard  content converted to the "Picture" type
+// 		Adress - The address of the binary data of the image in the temporary storage
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure BeginGettingImageFromClipboard(NotifyDescription, ReturnDataType = "Picture",
 	AddInObject = Undefined) Export
@@ -316,9 +316,9 @@ EndProcedure
 // Parameters:
 // 	CopiedText- String- A string to be placed in the clipboard
 // 	NotifyDescription - NotifyDescription -Contains a description of the procedure that will be called after completion with the following parameters:
-//	<Result> – The result of setting the text in the clipboard, Type: Boolean.. Undefined- if failed to attach addin
-//	<CallParameters> -Array of parameters for calling the component method
-//	<AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
+//	 <Result> - The result of setting the text in the clipboard, Type: Boolean.. Undefined- if failed to attach addin
+//	 <CallParameters> -Array of parameters for calling the component method
+//	 <AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure BeginCopyTextToClipboard(CopiedText, NotifyDescription, AddInObject = Undefined) Export
 	If AddInObject = Undefined Then
@@ -339,8 +339,8 @@ EndProcedure
 // 
 // Parameters:
 // 	NotifyDescription - NotifyDescription -Contains a description of the procedure that will be called after completion with the following parameters:
-//	<Result> – Clipboard text, Type: String. Undefined- if failed to attach addin
-//	<AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
+//	 <Result> - Clipboard text, Type: String. Undefined- if failed to attach addin
+//	 <AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure BeginGettingTextFormClipboard(NotifyDescription, AddInObject = Undefined) Export
 	If AddInObject = Undefined Then
@@ -359,9 +359,9 @@ EndProcedure
 // Starts receiving the format of the current value in the clipboard
 // 
 // Parameters:
-// 	NotifyDescription - NotifyDescription -Contains a description of the procedure that will be called after completion with the following parameters:
-//	<Result> – A string in JSON format containing a description of the clipboard content format, Type: String. Undefined- if failed to attach addin
-//	<AdditionalParameters> -the value that was specified when creating the object NotifyDescription.
+// 	NotifyDescription - NotifyDescription - Contains a description of the procedure that will be called after completion with the following parameters:
+//	 <Result> - A string in JSON format containing a description of the clipboard content format, Type: String. Undefined- if failed to attach addin
+//	 <AdditionalParameters> - the value that was specified when creating the object NotifyDescription.
 // 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
 Procedure BeginGettingClipboardFormat(NotifyDescription, AddInObject = Undefined) Export
 	If AddInObject = Undefined Then
@@ -482,7 +482,11 @@ EndProcedure
 #Region Private
 
 Function AddinTemplateName()
-	Return "CommonTemplate.UT_ClipboardAddin";
+	If УИ_ОбщегоНазначенияКлиентСервер.ЭтоПортативнаяПоставка() Then
+		Возврат УИ_ПараметрыПриложения["ОбщийМакет.УИ_КомпонентаДляРаботыСБуферомОбмена"];
+	Else
+		Return "CommonTemplate.UT_ClipboardAddin";
+	EndIf;
 EndFunction
 
 Function ImageForCopyToClipboard(Picture)
