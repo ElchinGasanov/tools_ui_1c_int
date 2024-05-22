@@ -30,7 +30,7 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>RequestTree.Имя</segments>
+              <segments>RequestTree.Name</segments>
             </dataPath>
             <defaultItem>true</defaultItem>
             <extendedTooltip>
@@ -81,7 +81,7 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>RequestTree.ЗапросHTTP</segments>
+              <segments>RequestTree.HTTPRequest</segments>
             </dataPath>
             <extendedTooltip>
               <name>ДеревоЗапросовЗапросHTTPРасширеннаяПодсказка</name>
@@ -565,7 +565,7 @@
             <common>true</common>
           </userVisible>
           <dataPath xsi:type="form:DataPath">
-            <segments>СохранятьПередВыполнением</segments>
+            <segments>SaveBeforeExecution</segments>
           </dataPath>
           <toolTip>
             <key>ru</key>
@@ -689,7 +689,7 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>Items.ДеревоЗапросов.CurrentData.ЗапросHTTP</segments>
+              <segments>Items.ДеревоЗапросов.CurrentData.HTTPRequest</segments>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -742,7 +742,7 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>Items.ДеревоЗапросов.CurrentData.URLЗапроса</segments>
+              <segments>Items.ДеревоЗапросов.CurrentData.RequestURL</segments>
             </dataPath>
             <titleLocation>None</titleLocation>
             <handlers>
@@ -939,7 +939,7 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.ВидТела</segments>
+                  <segments>Items.ДеревоЗапросов.CurrentData.BodyType</segments>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <handlers>
@@ -1035,7 +1035,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.ТипСтроковогоСодержимого</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.TypeOfStringContent</segments>
                     </dataPath>
                     <handlers>
                       <event>OnChange</event>
@@ -1094,7 +1094,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.ИспользоватьBOM</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.UseBOM</segments>
                     </dataPath>
                     <titleLocation>Top</titleLocation>
                     <extendedTooltip>
@@ -1177,7 +1177,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.КодировкаТела</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.BodyEncoding</segments>
                     </dataPath>
                     <titleLocation>Top</titleLocation>
                     <handlers>
@@ -1305,7 +1305,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ТелоСтрокой</segments>
+                    <segments>Items.ДеревоЗапросов.CurrentData.BodyAsString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
@@ -1424,7 +1424,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>ТелоЗапросаДвоичныеДанныеСтрокой</segments>
+                    <segments>RequestBodyBinaryDataAsString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
@@ -1514,7 +1514,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ИмяФайлаТела</segments>
+                    <segments>Items.ДеревоЗапросов.CurrentData.BodyFileName</segments>
                   </dataPath>
                   <titleLocation>Top</titleLocation>
                   <extendedTooltip>
@@ -1681,7 +1681,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ТелоМультипарт</segments>
+                    <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <items xsi:type="form:FormField">
@@ -1697,7 +1697,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.ТелоМультипарт.Использование</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody.Using</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ДеревоЗапросовТелоМультипартИспользованиеРасширеннаяПодсказка</name>
@@ -1740,7 +1740,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.ТелоМультипарт.Имя</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody.Name</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ДеревоЗапросовТелоМультипартИмяРасширеннаяПодсказка</name>
@@ -1790,7 +1790,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.ТелоМультипарт.Значение</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody.Value</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ДеревоЗапросовТелоМультипартЗначениеРасширеннаяПодсказка</name>
@@ -1845,7 +1845,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.ТелоМультипарт.Вид</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody.Type</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ДеревоЗапросовТелоМультипартВидРасширеннаяПодсказка</name>
@@ -2166,7 +2166,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.АутентификацияВид</segments>
+                <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationType</segments>
               </dataPath>
               <handlers>
                 <event>OnChange</event>
@@ -2227,7 +2227,7 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.АутентификацияИспользовать</segments>
+                  <segments>Items.ДеревоЗапросов.CurrentData.UseAuthentication</segments>
                 </dataPath>
                 <extendedTooltip>
                   <name>ДеревоЗапросовАутентификацияИспользоватьРасширеннаяПодсказка</name>
@@ -2280,7 +2280,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.АутентификацияПользователь</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationUser</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ДеревоЗапросовАутентификацияПользовательРасширеннаяПодсказка</name>
@@ -2334,7 +2334,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.АутентификацияПароль</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationPassword</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ДеревоЗапросовАутентификацияПарольРасширеннаяПодсказка</name>
@@ -2422,7 +2422,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.АутентификацияПароль</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationPassword</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ДеревоЗапросовАутентификацияПароль1РасширеннаяПодсказка</name>
@@ -2479,7 +2479,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.АутентификацияПрефиксТокена</segments>
+                      <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationTokenPrefix</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ДеревоЗапросовАутентификацияПрефиксТокенаРасширеннаяПодсказка</name>
@@ -2736,7 +2736,7 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>РедактированиеЗаголовковТаблицей</segments>
+                  <segments>EditHeadersWithTable</segments>
                 </dataPath>
                 <titleLocation>Left</titleLocation>
                 <handlers>
@@ -2827,7 +2827,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>ЗаголовкиСтрока</segments>
+                    <segments>HeadersString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <handlers>
@@ -2915,7 +2915,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>ТаблицаЗаголовковЗапроса</segments>
+                    <segments>RequestHeadersTable</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <items xsi:type="form:FormField">
@@ -2931,7 +2931,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>ТаблицаЗаголовковЗапроса.Использование</segments>
+                      <segments>RequestHeadersTable.Using</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ТаблицаЗаголовковЗапросаИспользованиеРасширеннаяПодсказка</name>
@@ -2974,7 +2974,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>ТаблицаЗаголовковЗапроса.Ключ</segments>
+                      <segments>RequestHeadersTable.Key</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ПолеРасширеннаяПодсказка22</name>
@@ -3028,7 +3028,7 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>ТаблицаЗаголовковЗапроса.Значение</segments>
+                      <segments>RequestHeadersTable.Value</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>ПолеРасширеннаяПодсказка23</name>
@@ -3351,7 +3351,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.ПараметрыURL</segments>
+                <segments>Items.ДеревоЗапросов.CurrentData.URLParameters</segments>
               </dataPath>
               <titleLocation>None</titleLocation>
               <items xsi:type="form:FormField">
@@ -3367,7 +3367,7 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.ПараметрыURL.Использование</segments>
+                  <segments>Items.ДеревоЗапросов.CurrentData.URLParameters.Использование</segments>
                 </dataPath>
                 <extendedTooltip>
                   <name>ПараметрыURLИспользоватьРасширеннаяПодсказка</name>
@@ -3410,7 +3410,7 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.ПараметрыURL.Имя</segments>
+                  <segments>Items.ДеревоЗапросов.CurrentData.URLParameters.Имя</segments>
                 </dataPath>
                 <extendedTooltip>
                   <name>ПараметрыURLИмяРасширеннаяПодсказка</name>
@@ -3460,7 +3460,7 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.ПараметрыURL.Значение</segments>
+                  <segments>Items.ДеревоЗапросов.CurrentData.URLParameters.Значение</segments>
                 </dataPath>
                 <extendedTooltip>
                   <name>ПараметрыURLЗначениеРасширеннаяПодсказка</name>
@@ -3841,7 +3841,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>URLПредварительный</segments>
+                <segments>PreliminaryURL</segments>
               </dataPath>
               <titleLocation>Top</titleLocation>
               <extendedTooltip>
@@ -3930,7 +3930,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.НаКлиенте</segments>
+                <segments>Items.ДеревоЗапросов.CurrentData.AtClient</segments>
               </dataPath>
               <extendedTooltip>
                 <name>ДеревоЗапросовНаКлиентеРасширеннаяПодсказка</name>
@@ -3979,7 +3979,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.Таймаут</segments>
+                <segments>Items.ДеревоЗапросов.CurrentData.Timeout</segments>
               </dataPath>
               <toolTip>
                 <key>ru</key>
@@ -4036,7 +4036,7 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.ИспользоватьПрокси</segments>
+                  <segments>Items.ДеревоЗапросов.CurrentData.UseProxy</segments>
                 </dataPath>
                 <extendedTooltip>
                   <name>ПолеРасширеннаяПодсказка32</name>
@@ -4082,7 +4082,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ПроксиСервер</segments>
+                    <segments>Items.ДеревоЗапросов.CurrentData.ProxyServer</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>ПолеРасширеннаяПодсказка33</name>
@@ -4132,7 +4132,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ПроксиПорт</segments>
+                    <segments>Items.ДеревоЗапросов.CurrentData.ProxyPort</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>ПолеРасширеннаяПодсказка34</name>
@@ -4215,7 +4215,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ПроксиПользователь</segments>
+                    <segments>Items.ДеревоЗапросов.CurrentData.ProxyUser</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>ПолеРасширеннаяПодсказка35</name>
@@ -4265,7 +4265,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ПроксиПароль</segments>
+                    <segments>Items.ДеревоЗапросов.CurrentData.ProxyPassword</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>ПолеРасширеннаяПодсказка36</name>
@@ -4345,7 +4345,7 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.ПроксиАутентификацияОС</segments>
+                  <segments>Items.ДеревоЗапросов.CurrentData.ProxyOSAuthentication</segments>
                 </dataPath>
                 <extendedTooltip>
                   <name>ПолеРасширеннаяПодсказка37</name>
@@ -4459,7 +4459,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.Комментарий</segments>
+                <segments>Items.ДеревоЗапросов.CurrentData.Comment</segments>
               </dataPath>
               <titleLocation>None</titleLocation>
               <extendedTooltip>
@@ -4651,7 +4651,7 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>КодСостояния</segments>
+              <segments>StatusCode</segments>
             </dataPath>
             <extendedTooltip>
               <name>КодСостоянияРасширеннаяПодсказка</name>
@@ -4706,7 +4706,7 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>ДлительностьВМилисекундах</segments>
+              <segments>DurationInMilliseconds</segments>
             </dataPath>
             <extendedTooltip>
               <name>ДлительностьВМилисекундахРасширеннаяПодсказка</name>
@@ -4799,7 +4799,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>ТелоОтветаСтрокой</segments>
+                    <segments>ResponseBodyAsString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
@@ -4915,7 +4915,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>ТелоОтветаДвоичныеДанныеСтрокой</segments>
+                    <segments>ResponseBodyBinaryDataAsString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
@@ -5094,7 +5094,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>ЗаголовкиОтвета</segments>
+                <segments>ResponseHeaders</segments>
               </dataPath>
               <titleLocation>None</titleLocation>
               <extendedTooltip>
@@ -5255,7 +5255,7 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.КодСостояния</segments>
+              <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.StatusCode</segments>
             </dataPath>
             <extendedTooltip>
               <name>ДеревоЗапросовИсторияЗапросовКодСостоянияРасширеннаяПодсказка</name>
@@ -5309,7 +5309,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.HTTPФункция</segments>
+                <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.HTTPFunction</segments>
               </dataPath>
               <extendedTooltip>
                 <name>ДеревоЗапросовИсторияЗапросовHTTPФункцияРасширеннаяПодсказка</name>
@@ -5359,7 +5359,7 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.URLЗапроса</segments>
+                <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.RequestURL</segments>
               </dataPath>
               <extendedTooltip>
                 <name>ДеревоЗапросовИсторияЗапросовURLРасширеннаяПодсказка</name>
@@ -5443,7 +5443,7 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.ДлительностьВыполнения</segments>
+              <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.ExecutionDuration</segments>
             </dataPath>
             <extendedTooltip>
               <name>ДеревоЗапросовИсторияЗапросовДлительностьВыполненияРасширеннаяПодсказка</name>
@@ -6156,7 +6156,11 @@
   <showTitle>true</showTitle>
   <showCloseButton>true</showCloseButton>
   <attributes>
-    <name>Объект</name>
+    <name>Object</name>
+    <title>
+      <key>ru</key>
+      <value>Object</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_HTTPRequestConsole</types>
@@ -6170,10 +6174,10 @@
     <main>true</main>
   </attributes>
   <attributes>
-    <name>ЗаголовкиСтрока</name>
+    <name>HeadersString</name>
     <title>
       <key>ru</key>
-      <value>Заголовки строка</value>
+      <value>Headers string</value>
     </title>
     <id>9</id>
     <valueType>
@@ -6189,10 +6193,10 @@
     <savedData>true</savedData>
   </attributes>
   <attributes>
-    <name>ТаблицаЗаголовковЗапроса</name>
+    <name>RequestHeadersTable</name>
     <title>
       <key>ru</key>
-      <value>Таблица заголовков запроса</value>
+      <value>Request headers table</value>
     </title>
     <id>24</id>
     <valueType>
@@ -6206,10 +6210,10 @@
     </edit>
     <savedData>true</savedData>
     <columns>
-      <name>Ключ</name>
+      <name>Key</name>
       <title>
         <key>ru</key>
-        <value>Ключ</value>
+        <value>Key</value>
       </title>
       <id>25</id>
       <valueType>
@@ -6224,10 +6228,10 @@
       </edit>
     </columns>
     <columns>
-      <name>Значение</name>
+      <name>Value</name>
       <title>
         <key>ru</key>
-        <value>Значение</value>
+        <value>Value</value>
       </title>
       <id>26</id>
       <valueType>
@@ -6242,10 +6246,10 @@
       </edit>
     </columns>
     <columns>
-      <name>Использование</name>
+      <name>Using</name>
       <title>
         <key>ru</key>
-        <value>Использование</value>
+        <value>Using</value>
       </title>
       <id>107</id>
       <valueType>
@@ -6260,10 +6264,10 @@
     </columns>
   </attributes>
   <attributes>
-    <name>РедактированиеЗаголовковТаблицей</name>
+    <name>EditHeadersWithTable</name>
     <title>
       <key>ru</key>
-      <value>Редактирование заголовков таблицей</value>
+      <value>Edit headers with table</value>
     </title>
     <id>27</id>
     <valueType>
@@ -6276,14 +6280,14 @@
       <common>true</common>
     </edit>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>РедактированиеЗаголовковТаблицей</segments>
+      <segments>EditHeadersWithTable</segments>
     </settingsSavedData>
   </attributes>
   <attributes>
-    <name>СписокИспользованныхЗаголовков</name>
+    <name>ListOfUsedHeaders</name>
     <title>
       <key>ru</key>
-      <value>Список использованных заголовков</value>
+      <value>List of used headers</value>
     </title>
     <id>28</id>
     <valueType>
@@ -6303,10 +6307,10 @@
     </extInfo>
   </attributes>
   <attributes>
-    <name>ТелоЗапросаДвоичныеДанныеСтрокой</name>
+    <name>RequestBodyBinaryDataAsString</name>
     <title>
       <key>ru</key>
-      <value>Тело запроса двоичные данные строкой</value>
+      <value>Request body binary data as string</value>
     </title>
     <id>32</id>
     <valueType>
@@ -6323,10 +6327,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ТелоОтветаСтрокой</name>
+    <name>ResponseBodyAsString</name>
     <title>
       <key>ru</key>
-      <value>Тело ответа строкой</value>
+      <value>Response body as string</value>
     </title>
     <id>39</id>
     <valueType>
@@ -6341,10 +6345,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ИмяФайлаЗапросов</name>
+    <name>RequestsFileName</name>
     <title>
       <key>ru</key>
-      <value>Имя файла запросов</value>
+      <value>Requests file name</value>
     </title>
     <id>57</id>
     <valueType>
@@ -6358,14 +6362,14 @@
       <common>true</common>
     </edit>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>ИмяФайлаЗапросов</segments>
+      <segments>RequestsFileName</segments>
     </settingsSavedData>
   </attributes>
   <attributes>
-    <name>НачальныйЗаголовок</name>
+    <name>InitialHeader</name>
     <title>
       <key>ru</key>
-      <value>НачальныйЗаголовок</value>
+      <value>Initial Header</value>
     </title>
     <id>58</id>
     <valueType>
@@ -6397,10 +6401,10 @@
     </edit>
     <savedData>true</savedData>
     <columns>
-      <name>Имя</name>
+      <name>Name</name>
       <title>
         <key>ru</key>
-        <value>Имя</value>
+        <value>Name</value>
       </title>
       <id>68</id>
       <valueType>
@@ -6415,10 +6419,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ЗапросHTTP</name>
+      <name>HTTPRequest</name>
       <title>
         <key>ru</key>
-        <value>Запрос HTTP</value>
+        <value>HTTPRequest</value>
       </title>
       <id>76</id>
       <valueType>
@@ -6433,10 +6437,10 @@
       </edit>
     </columns>
     <columns>
-      <name>URLЗапроса</name>
+      <name>RequestURL</name>
       <title>
         <key>ru</key>
-        <value>URLЗапроса</value>
+        <value>Request URL</value>
       </title>
       <id>80</id>
       <valueType>
@@ -6451,10 +6455,10 @@
       </edit>
     </columns>
     <columns>
-      <name>Таймаут</name>
+      <name>Timeout</name>
       <title>
         <key>ru</key>
-        <value>Таймаут</value>
+        <value>Timeout</value>
       </title>
       <id>81</id>
       <valueType>
@@ -6471,10 +6475,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ВидТела</name>
+      <name>BodyType</name>
       <title>
         <key>ru</key>
-        <value>Вид тела</value>
+        <value>Body type</value>
       </title>
       <id>82</id>
       <valueType>
@@ -6489,10 +6493,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ИспользоватьBOM</name>
+      <name>UseBOM</name>
       <title>
         <key>ru</key>
-        <value>Использовать BOM</value>
+        <value>Use BOM</value>
       </title>
       <id>83</id>
       <valueType>
@@ -6509,10 +6513,10 @@
       </edit>
     </columns>
     <columns>
-      <name>КодировкаТела</name>
+      <name>BodyEncoding</name>
       <title>
         <key>ru</key>
-        <value>Кодировка тела</value>
+        <value>Body encoding</value>
       </title>
       <id>84</id>
       <valueType>
@@ -6527,10 +6531,10 @@
       </edit>
     </columns>
     <columns>
-      <name>Заголовки</name>
+      <name>Headers</name>
       <title>
         <key>ru</key>
-        <value>Заголовки</value>
+        <value>Headers</value>
       </title>
       <id>85</id>
       <valueType>
@@ -6544,10 +6548,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ПараметрыURL</name>
+      <name>URLParameters</name>
       <title>
         <key>ru</key>
-        <value>Параметры URL</value>
+        <value>URLParameters</value>
       </title>
       <id>86</id>
       <valueType>
@@ -6561,10 +6565,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ТелоДвоичныеДанные</name>
+      <name>BodyBinaryData</name>
       <title>
         <key>ru</key>
-        <value>Тело двоичные данные</value>
+        <value>Body binary data</value>
       </title>
       <id>87</id>
       <valueType/>
@@ -6576,10 +6580,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ИспользоватьПрокси</name>
+      <name>UseProxy</name>
       <title>
         <key>ru</key>
-        <value>Использовать прокси</value>
+        <value>Use proxy</value>
       </title>
       <id>88</id>
       <valueType>
@@ -6593,10 +6597,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ПроксиСервер</name>
+      <name>ProxyServer</name>
       <title>
         <key>ru</key>
-        <value>Сервер</value>
+        <value>Server</value>
       </title>
       <id>89</id>
       <valueType>
@@ -6611,10 +6615,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ПроксиПорт</name>
+      <name>ProxyPort</name>
       <title>
         <key>ru</key>
-        <value>Порт</value>
+        <value>Port</value>
       </title>
       <id>90</id>
       <valueType>
@@ -6631,10 +6635,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ПроксиПользователь</name>
+      <name>ProxyUser</name>
       <title>
         <key>ru</key>
-        <value>Пользователь</value>
+        <value>User</value>
       </title>
       <id>91</id>
       <valueType>
@@ -6649,10 +6653,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ПроксиПароль</name>
+      <name>ProxyPassword</name>
       <title>
         <key>ru</key>
-        <value>Пароль</value>
+        <value>Password</value>
       </title>
       <id>92</id>
       <valueType>
@@ -6667,7 +6671,11 @@
       </edit>
     </columns>
     <columns>
-      <name>ПроксиАутентификацияОС</name>
+      <name>ProxyOSAuthentication</name>
+      <title>
+        <key>ru</key>
+        <value>Proxy OSAuthentication</value>
+      </title>
       <id>93</id>
       <valueType>
         <types>Boolean</types>
@@ -6680,10 +6688,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ТелоСтрокой</name>
+      <name>BodyAsString</name>
       <title>
         <key>ru</key>
-        <value>Тело строкой</value>
+        <value>Body as string</value>
       </title>
       <id>104</id>
       <valueType>
@@ -6698,10 +6706,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ИмяФайлаТела</name>
+      <name>BodyFileName</name>
       <title>
         <key>ru</key>
-        <value>Имя файла тела</value>
+        <value>Body file name</value>
       </title>
       <id>105</id>
       <valueType>
@@ -6733,10 +6741,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ТипСтроковогоСодержимого</name>
+      <name>TypeOfStringContent</name>
       <title>
         <key>ru</key>
-        <value>Тип строкового содержимого</value>
+        <value>Type of string content</value>
       </title>
       <id>140</id>
       <valueType>
@@ -6751,10 +6759,10 @@
       </edit>
     </columns>
     <columns>
-      <name>Комментарий</name>
+      <name>Comment</name>
       <title>
         <key>ru</key>
-        <value>Комментарий</value>
+        <value>Comment</value>
       </title>
       <id>141</id>
       <valueType>
@@ -6769,10 +6777,10 @@
       </edit>
     </columns>
     <columns>
-      <name>АутентификацияВид</name>
+      <name>AuthenticationType</name>
       <title>
         <key>ru</key>
-        <value>Аутентификация вид</value>
+        <value>Authentication type</value>
       </title>
       <id>142</id>
       <valueType>
@@ -6787,10 +6795,10 @@
       </edit>
     </columns>
     <columns>
-      <name>АутентификацияИспользовать</name>
+      <name>UseAuthentication</name>
       <title>
         <key>ru</key>
-        <value>Аутентификация использовать</value>
+        <value>Use authentication</value>
       </title>
       <id>143</id>
       <valueType>
@@ -6804,10 +6812,10 @@
       </edit>
     </columns>
     <columns>
-      <name>АутентификацияПользователь</name>
+      <name>AuthenticationUser</name>
       <title>
         <key>ru</key>
-        <value>Аутентификация пользователь</value>
+        <value>Authentication user</value>
       </title>
       <id>144</id>
       <valueType>
@@ -6822,10 +6830,10 @@
       </edit>
     </columns>
     <columns>
-      <name>АутентификацияПароль</name>
+      <name>AuthenticationPassword</name>
       <title>
         <key>ru</key>
-        <value>Аутентификация пароль</value>
+        <value>Authentication password</value>
       </title>
       <id>145</id>
       <valueType>
@@ -6840,10 +6848,10 @@
       </edit>
     </columns>
     <columns>
-      <name>АутентификацияПрефиксТокена</name>
+      <name>AuthenticationTokenPrefix</name>
       <title>
         <key>ru</key>
-        <value>Аутентификация префикс токена</value>
+        <value>Authentication token prefix</value>
       </title>
       <id>146</id>
       <valueType>
@@ -6858,10 +6866,10 @@
       </edit>
     </columns>
     <columns>
-      <name>АутентификацияИмяЗаголовка</name>
+      <name>AuthenticationHeaderName</name>
       <title>
         <key>ru</key>
-        <value>Аутентификация имя заголовка</value>
+        <value>Authentication header name</value>
       </title>
       <id>147</id>
       <valueType>
@@ -6876,10 +6884,10 @@
       </edit>
     </columns>
     <columns>
-      <name>ТелоМультипарт</name>
+      <name>MultipartBody</name>
       <title>
         <key>ru</key>
-        <value>Тело мультипарт</value>
+        <value>Multipart body</value>
       </title>
       <id>148</id>
       <valueType>
@@ -6893,10 +6901,10 @@
       </edit>
     </columns>
     <columns>
-      <name>НаКлиенте</name>
+      <name>AtClient</name>
       <title>
         <key>ru</key>
-        <value>На клиенте</value>
+        <value>At client</value>
       </title>
       <id>150</id>
       <valueType>
@@ -6911,13 +6919,13 @@
     </columns>
     <additionalColumns>
       <tablePath xsi:type="form:DataPath">
-        <segments>RequestTree.Заголовки</segments>
+        <segments>RequestTree.Headers</segments>
       </tablePath>
       <columns>
-        <name>Ключ</name>
+        <name>Key</name>
         <title>
           <key>ru</key>
-          <value>Ключ</value>
+          <value>Key</value>
         </title>
         <id>94</id>
         <valueType>
@@ -6932,10 +6940,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Значение</name>
+        <name>Value</name>
         <title>
           <key>ru</key>
-          <value>Значение</value>
+          <value>Value</value>
         </title>
         <id>95</id>
         <valueType>
@@ -6950,10 +6958,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Использование</name>
+        <name>Using</name>
         <title>
           <key>ru</key>
-          <value>Использование</value>
+          <value>Using</value>
         </title>
         <id>106</id>
         <valueType>
@@ -6969,7 +6977,7 @@
     </additionalColumns>
     <additionalColumns>
       <tablePath xsi:type="form:DataPath">
-        <segments>RequestTree.ПараметрыURL</segments>
+        <segments>RequestTree.URLParameters</segments>
       </tablePath>
       <columns>
         <name>Использование</name>
@@ -7050,7 +7058,7 @@
         </edit>
       </columns>
       <columns>
-        <name>HTTPФункция</name>
+        <name>HTTPFunction</name>
         <title>
           <key>ru</key>
           <value>Метод</value>
@@ -7068,7 +7076,7 @@
         </edit>
       </columns>
       <columns>
-        <name>URLЗапроса</name>
+        <name>RequestURL</name>
         <title>
           <key>ru</key>
           <value>URL</value>
@@ -7086,10 +7094,10 @@
         </edit>
       </columns>
       <columns>
-        <name>АдресСервера</name>
+        <name>ServerAddress</name>
         <title>
           <key>ru</key>
-          <value>Адрес сервера</value>
+          <value>Server address</value>
         </title>
         <id>113</id>
         <valueType>
@@ -7104,10 +7112,10 @@
         </edit>
       </columns>
       <columns>
-        <name>АдресТелаОтветаСтрокой</name>
+        <name>ResponseBodyAddressAsString</name>
         <title>
           <key>ru</key>
-          <value>Адрес тела ответа строкой</value>
+          <value>Response body address as string</value>
         </title>
         <id>114</id>
         <valueType>
@@ -7122,10 +7130,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ВидТелаЗапроса</name>
+        <name>RequestBodyType</name>
         <title>
           <key>ru</key>
-          <value>Вид тела запроса</value>
+          <value>Request body type</value>
         </title>
         <id>115</id>
         <valueType>
@@ -7140,10 +7148,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Дата</name>
+        <name>Date</name>
         <title>
           <key>ru</key>
-          <value>Дата</value>
+          <value>Date</value>
         </title>
         <id>116</id>
         <valueType>
@@ -7158,10 +7166,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ДлительностьВыполнения</name>
+        <name>ExecutionDuration</name>
         <title>
           <key>ru</key>
-          <value>Длительность выполнения</value>
+          <value>Execution duration</value>
         </title>
         <id>117</id>
         <valueType>
@@ -7178,10 +7186,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ЗаголовкиЗапроса</name>
+        <name>RequestHeaders</name>
         <title>
           <key>ru</key>
-          <value>Заголовки запроса</value>
+          <value>Request headers</value>
         </title>
         <id>118</id>
         <valueType>
@@ -7196,10 +7204,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ЗаголовкиОтвета</name>
+        <name>ResponseHeaders</name>
         <title>
           <key>ru</key>
-          <value>Заголовки ответа</value>
+          <value>Response headers</value>
         </title>
         <id>119</id>
         <valueType>
@@ -7214,10 +7222,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Запрос</name>
+        <name>Request</name>
         <title>
           <key>ru</key>
-          <value>Запрос</value>
+          <value>Request</value>
         </title>
         <id>120</id>
         <valueType>
@@ -7232,10 +7240,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ИспользоватьПрокси</name>
+        <name>UseProxy</name>
         <title>
           <key>ru</key>
-          <value>Использовать прокси</value>
+          <value>Use proxy</value>
         </title>
         <id>121</id>
         <valueType>
@@ -7249,10 +7257,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Картинка</name>
+        <name>Picture</name>
         <title>
           <key>ru</key>
-          <value>Картинка</value>
+          <value>Picture</value>
         </title>
         <id>122</id>
         <valueType>
@@ -7266,10 +7274,10 @@
         </edit>
       </columns>
       <columns>
-        <name>КодСостояния</name>
+        <name>StatusCode</name>
         <title>
           <key>ru</key>
-          <value>Код состояния</value>
+          <value>Status code</value>
         </title>
         <id>123</id>
         <valueType>
@@ -7286,10 +7294,10 @@
         </edit>
       </columns>
       <columns>
-        <name>КодировкаТелаЗапроса</name>
+        <name>RequestBodyEncoding</name>
         <title>
           <key>ru</key>
-          <value>Кодировка тела запроса</value>
+          <value>Request body encoding</value>
         </title>
         <id>124</id>
         <valueType>
@@ -7304,10 +7312,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ПроксиАутентификацияОС</name>
+        <name>ProxyOSAuthentication</name>
         <title>
           <key>ru</key>
-          <value>Прокси аутентификация ОС</value>
+          <value>Proxy OS Authentication</value>
         </title>
         <id>125</id>
         <valueType>
@@ -7321,10 +7329,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ПроксиПароль</name>
+        <name>ProxyPassword</name>
         <title>
           <key>ru</key>
-          <value>Прокси пароль</value>
+          <value>Proxy password</value>
         </title>
         <id>126</id>
         <valueType>
@@ -7339,10 +7347,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ПроксиПользователь</name>
+        <name>ProxyUser</name>
         <title>
           <key>ru</key>
-          <value>Прокси пользователь</value>
+          <value>Proxy user</value>
         </title>
         <id>127</id>
         <valueType>
@@ -7357,7 +7365,11 @@
         </edit>
       </columns>
       <columns>
-        <name>ПроксиПорт</name>
+        <name>ProxyPort</name>
+        <title>
+          <key>ru</key>
+          <value>Proxy port</value>
+        </title>
         <id>128</id>
         <valueType>
           <types>Number</types>
@@ -7373,10 +7385,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ПроксиСервер</name>
+        <name>ProxyServer</name>
         <title>
           <key>ru</key>
-          <value>Прокси сервер</value>
+          <value>Proxy server</value>
         </title>
         <id>129</id>
         <valueType>
@@ -7391,10 +7403,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Протокол</name>
+        <name>Protocol</name>
         <title>
           <key>ru</key>
-          <value>Протокол</value>
+          <value>Protocol</value>
         </title>
         <id>130</id>
         <valueType>
@@ -7411,10 +7423,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Таймаут</name>
+        <name>Timeout</name>
         <title>
           <key>ru</key>
-          <value>Таймаут</value>
+          <value>Timeout</value>
         </title>
         <id>131</id>
         <valueType>
@@ -7431,10 +7443,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ТелоЗапросаАдресДвоичныхДанных</name>
+        <name>RequestBodyBinaryDataAddress</name>
         <title>
           <key>ru</key>
-          <value>Тело запроса адрес двоичных данных</value>
+          <value>Request body binary data address</value>
         </title>
         <id>132</id>
         <valueType>
@@ -7449,10 +7461,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ТелоЗапросаДвоичныеДанныеСтрокой</name>
+        <name>RequestBodyBinaryDataAsString</name>
         <title>
           <key>ru</key>
-          <value>Тело запроса двоичные данные строкой</value>
+          <value>Request body binary data as string</value>
         </title>
         <id>133</id>
         <valueType>
@@ -7467,10 +7479,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ТелоЗапросаИмяФайла</name>
+        <name>RequestBodyFileName</name>
         <title>
           <key>ru</key>
-          <value>Тело запроса имя файла</value>
+          <value>Request body file name</value>
         </title>
         <id>134</id>
         <valueType>
@@ -7485,10 +7497,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ТелоЗапросаСтрока</name>
+        <name>RequestBodyString</name>
         <title>
           <key>ru</key>
-          <value>Тело запроса строка</value>
+          <value>Request body string</value>
         </title>
         <id>135</id>
         <valueType>
@@ -7503,10 +7515,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ТелоОтветаАдресДвоичныхДанных</name>
+        <name>ResponseBodyBinaryDataAddress</name>
         <title>
           <key>ru</key>
-          <value>Тело ответа адрес двоичных данных</value>
+          <value>Response body binary data address</value>
         </title>
         <id>136</id>
         <valueType>
@@ -7521,10 +7533,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ТелоОтветаДвоичныеДанныеСтрокой</name>
+        <name>ResponseBodyBinaryDataAsString</name>
         <title>
           <key>ru</key>
-          <value>Тело ответа двоичные данные строкой</value>
+          <value>Response body binary data as string</value>
         </title>
         <id>137</id>
         <valueType>
@@ -7541,13 +7553,13 @@
     </additionalColumns>
     <additionalColumns>
       <tablePath xsi:type="form:DataPath">
-        <segments>RequestTree.ТелоМультипарт</segments>
+        <segments>RequestTree.MultipartBody</segments>
       </tablePath>
       <columns>
-        <name>Использование</name>
+        <name>Using</name>
         <title>
           <key>ru</key>
-          <value>Использование</value>
+          <value>Using</value>
         </title>
         <id>148</id>
         <valueType>
@@ -7561,10 +7573,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Имя</name>
+        <name>Name</name>
         <title>
           <key>ru</key>
-          <value>Имя</value>
+          <value>Name</value>
         </title>
         <id>149</id>
         <valueType>
@@ -7579,10 +7591,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Вид</name>
+        <name>Type</name>
         <title>
           <key>ru</key>
-          <value>Вид</value>
+          <value>Type</value>
         </title>
         <id>150</id>
         <valueType>
@@ -7597,10 +7609,10 @@
         </edit>
       </columns>
       <columns>
-        <name>Значение</name>
+        <name>Value</name>
         <title>
           <key>ru</key>
-          <value>Значение</value>
+          <value>Value</value>
         </title>
         <id>151</id>
         <valueType>
@@ -7617,10 +7629,10 @@
     </additionalColumns>
   </attributes>
   <attributes>
-    <name>ДлительностьВМилисекундах</name>
+    <name>DurationInMilliseconds</name>
     <title>
       <key>ru</key>
-      <value>Длительность в милисекундах</value>
+      <value>Duration in milliseconds</value>
     </title>
     <id>69</id>
     <valueType>
@@ -7638,10 +7650,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ЗаголовкиОтвета</name>
+    <name>ResponseHeaders</name>
     <title>
       <key>ru</key>
-      <value>Заголовки ответа</value>
+      <value>Response headers</value>
     </title>
     <id>70</id>
     <valueType>
@@ -7656,10 +7668,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>КодСостояния</name>
+    <name>StatusCode</name>
     <title>
       <key>ru</key>
-      <value>Код состояния</value>
+      <value>Status code</value>
     </title>
     <id>71</id>
     <valueType>
@@ -7677,10 +7689,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ТелоОтветаДвоичныеДанныеСтрокой</name>
+    <name>ResponseBodyBinaryDataAsString</name>
     <title>
       <key>ru</key>
-      <value>Тело ответа двоичные данные строкой</value>
+      <value>Response body binary data as string</value>
     </title>
     <id>72</id>
     <valueType>
@@ -7695,10 +7707,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ТелоОтветаАдресДвоичныхДанных</name>
+    <name>ResponseBodyBinaryDataAddress</name>
     <title>
       <key>ru</key>
-      <value>Тело ответа адрес двоичных данных</value>
+      <value>Response body binary data address</value>
     </title>
     <id>73</id>
     <valueType>
@@ -7713,10 +7725,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ВидыТелаЗапроса</name>
+    <name>TypesOfRequestBody</name>
     <title>
       <key>ru</key>
-      <value>Виды тела запроса</value>
+      <value>Types of request body</value>
     </title>
     <id>101</id>
     <valueType/>
@@ -7728,10 +7740,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ВидыHTTPМетодов</name>
+    <name>TypesOfHTTPMethods</name>
     <title>
       <key>ru</key>
-      <value>Виды HTTPМетодов</value>
+      <value>Types of HTTP Methods</value>
     </title>
     <id>102</id>
     <valueType/>
@@ -7743,10 +7755,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>РазделительТелаМультипарт</name>
+    <name>MultipartBodySplitter</name>
     <title>
       <key>ru</key>
-      <value>Разделитель тела мультипарт</value>
+      <value>Multipart body splitter</value>
     </title>
     <id>148</id>
     <valueType>
@@ -7761,10 +7773,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>СохранятьПередВыполнением</name>
+    <name>SaveBeforeExecution</name>
     <title>
       <key>ru</key>
-      <value>Сохранять перед выполнением</value>
+      <value>Save before execution</value>
     </title>
     <id>152</id>
     <valueType>
@@ -7777,11 +7789,11 @@
       <common>true</common>
     </edit>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>СохранятьПередВыполнением</segments>
+      <segments>SaveBeforeExecution</segments>
     </settingsSavedData>
   </attributes>
   <attributes>
-    <name>URLПредварительный</name>
+    <name>PreliminaryURL</name>
     <title>
       <key>ru</key>
       <value>URL предварительный</value>
