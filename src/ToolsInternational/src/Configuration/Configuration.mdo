@@ -83,6 +83,15 @@
   <commonPictures>CommonPicture.UT_ValueTable</commonPictures>
   <commonPictures>CommonPicture.UT_ArbitraryType</commonPictures>
   <commonPictures>CommonPicture.UT_MacroColumn</commonPictures>
+  <commonPictures>CommonPicture.UT_CopyToClipboard</commonPictures>
+  <commonPictures>CommonPicture.UT_DecreaseFont</commonPictures>
+  <commonPictures>CommonPicture.UT_IncreaseFont</commonPictures>
+  <commonPictures>CommonPicture.UT_TypeTree</commonPictures>
+  <commonPictures>CommonPicture.UT_DescriptionOfTypes</commonPictures>
+  <commonPictures>CommonPicture.UT_FixedArray</commonPictures>
+  <commonPictures>CommonPicture.UT_GeneratedCode</commonPictures>
+  <commonPictures>CommonPicture.UT_Folder</commonPictures>
+  <commonPictures>CommonPicture.UT_ClearFormat</commonPictures>
   <roles>Role.UT_UniversalTools</roles>
   <commonTemplates>CommonTemplate.UT_RegularExpressionsAddInRegExBrowsers</commonTemplates>
   <commonTemplates>CommonTemplate.UT_RegularExpressionsAddinRegEx</commonTemplates>
@@ -92,10 +101,12 @@
   <commonTemplates>CommonTemplate.UT_MonacoEditor</commonTemplates>
   <commonTemplates>CommonTemplate.UT_MonacoEditorWindows</commonTemplates>
   <commonTemplates>CommonTemplate.UT_AceColaborator</commonTemplates>
+  <commonTemplates>CommonTemplate.UT_TemplateProcessing</commonTemplates>
   <commonModules>CommonModule.AdditionalReportsAndDataProcessors</commonModules>
   <commonModules>CommonModule.AttachableCommandsOverridable</commonModules>
   <commonModules>CommonModule.UT_</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsServerCall</commonModules>
+  <commonModules>CommonModule.UT_AlgorithmsClient</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsClientServer</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsServer</commonModules>
   <commonModules>CommonModule.UT_ClipboardClient</commonModules>
@@ -125,7 +136,9 @@
   <commonModules>CommonModule.UT_FormsClient</commonModules>
   <commonModules>CommonModule.UT_FormsServer</commonModules>
   <commonModules>CommonModule.UT_Paste1CAPI</commonModules>
-  <commonModules>CommonModule.UT_AlgorithmsClient</commonModules>
+  <commonModules>CommonModule.UT_CodeGenerator</commonModules>
+  <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_21_ClientServer</commonModules>
+  <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_18_Client</commonModules>
   <httpServices>HTTPService.UT_PublishedFunctions</httpServices>
   <commonCommands>CommonCommand.UT_Settings</commonCommands>
   <commonForms>CommonForm.UT_TimeConsumingOperation</commonForms>
@@ -144,6 +157,7 @@
   <commonForms>CommonForm.UT_SpreadsheetDocumentEditor</commonForms>
   <commonForms>CommonForm.UT_SpreadsheetDocumentsComparison</commonForms>
   <commonForms>CommonForm.UT_DynamicListSettings</commonForms>
+  <commonForms>CommonForm.UT_CodeForm</commonForms>
   <catalogs>Catalog.UT_Algorithms</catalogs>
   <catalogs>Catalog.AdditionalReportsAndDataProcessors</catalogs>
   <reports>Report.UT_ReportsConsole</reports>
