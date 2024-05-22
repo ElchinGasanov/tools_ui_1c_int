@@ -193,7 +193,7 @@ EndFunction
 // Returns:
 // 	String - Algorithms storage catalog
 Function AlgorithmsStorageCatalog() Export
-	Return UT_AlgorithmsServer.AlgorithmsStorageCatalog();
+	Return UT_AlgorithmsServer.DirectoryStorageAlgorithms();
 EndFunction
 
 #EndRegion

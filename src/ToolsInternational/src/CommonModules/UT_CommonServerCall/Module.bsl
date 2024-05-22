@@ -1,7 +1,52 @@
 #Region Public
+
+#Region TypeWorks
+
+// This is an enumeration by type.
+// 
+// Parameters:
+// 	Type - Type
+// 
+// Returns:
+// 	Boolean - This is an enumeration by type
+Function ThisEnumerationByType(Type) Export
+	Return UT_Common.IsEnumbyType(Type);
+EndFunction
+
+Function ValueTableType() Export
+	Return Type("ValueTable");	
+EndFunction
+
+#EndRegion
+
+// Connect external data processors to the session.
+// 
+// Parameters:
+// 	AddressDataProcessorsBinaryData - String - The address of the binary data of the processing
+// 	DataProcessorName - Undefined, String - ProcessingName
+Procedure ConnectExternalProcessingSession(AddressDataProcessorsBinaryData, DataProcessorName = Undefined) Export
+	UT_Common.ConnectExternalDataProcessorToTheSession(AddressDataProcessorsBinaryData, DataProcessorName);
+EndProcedure
+
+// Common templates binary data address.
+// 
+// Parameters:
+// 	TemplateName - String - template name
+// 	FormUUID - UUID, Undefined - Form UUID
+// 
+// Returns:
+// 	String - Common templates binary data address
+Function CommonTemplatesBinaryDataAddress(TemplateName, FormUUID = Undefined) Export
+	If FormUUID = Undefined Then
+		Return PutToTempStorage(GetCommonTemplate(TemplateName));
+	Else
+		Return PutToTempStorage(GetCommonTemplate(TemplateName), FormUUID);
+	EndIf;
+EndFunction
+
 // Session start parameters
 //
-// Return value:
+// Returns:
 //  Structure - Session start parameters:
 // * ExtensionRightsAdded - Boolean - 
 // * SessionNumber - Number - 
@@ -14,11 +59,20 @@ Function SessionStartParameters() export
 		//@skip-check using-isinrole
 		If AccessRight("Administration", Metadata) AND Not IsInRole("UT_UniversalTools")
 			and InfoBaseUsers.GetUsers().Count() > 0 then
-			CurrentUser = InfoBaseUsers.CurrentUser();
-			CurrentUser.Roles.Add(Metadata.Roles.UT_UniversalTools);
-			CurrentUser.Write();
-
-			SessionStartParameters.Insert("ExtensionRightsAdded", True);
+			
+			SSLVersion = UT_Common.SSLVersion();
+			If UT_CommonClientServer.CompareVersions(SSLVersion, "3.1.6.0") >= 0 Then
+				//
+				ResultRightsApplication = UT_Common.AccessRightsSettingResultForBSP_3_1_6_AndHigher();
+			Else
+				CurrentUser = InfoBaseUsers.CurrentUser();
+				CurrentUser.Roles.Add(Metadata.Roles.UT_UniversalTools);
+				CurrentUser.Write();
+			
+				ResultRightsApplication = True;
+			EndIf;
+			
+			SessionStartParameters.Insert("ExtensionRightsAdded", ResultRightsApplication);
 		else
 			SessionStartParameters.Insert("ExtensionRightsAdded", False);
 		endif;
@@ -39,7 +93,7 @@ EndFunction
 //
 // Parameters:
 //  Form - ManagedForm - a form where group title fonts are changed.
-//  GroupsNames - String - a list of the form group names separated with commas. If the group names 
+//  GroupNames - String - a list of the form group names separated with commas. If the group names 
 //                        are not specified, the appearance will be applied to all groups on the form.
 //
 // Example:
@@ -52,10 +106,8 @@ Procedure SetGroupTitleRepresentation(Form, GroupNames = "") Export
 		BoldFont = New Font(,, True);
 		If NOT ValueIsFilled(GroupNames) Then 
 			For Each Item In Form.Items Do 
-				If Type(Item) = Type("FormGroup")
-					AND Item.Type = FormGroupType.UsualGroup
-					AND Item.ShowTitle = True 
-					AND (Item.Representation = UsualGroupRepresentation.NormalSeparation
+				If Type(Item) = Type("FormGroup") AND Item.Type = FormGroupType.UsualGroup
+					AND Item.ShowTitle = True AND (Item.Representation = UsualGroupRepresentation.NormalSeparation
 					Or Item.Representation = UsualGroupRepresentation.None) Then 
 						Item.TitleFont = BoldFont;
 				EndIf;
@@ -64,7 +116,8 @@ Procedure SetGroupTitleRepresentation(Form, GroupNames = "") Export
 			TitleArray = UT_StringFunctionsClientServer.SplitStringIntoSubstringsArray(GroupNames,,, True);
 			For Each TitleName In TitleArray Do
 				Item = Form.Items[TitleName];
-				If Item.Representation = UsualGroupRepresentation.NormalSeparation OR Item.Representation = UsualGroupRepresentation.None Then 
+				If Item.Representation = UsualGroupRepresentation.NormalSeparation OR Item.Representation 
+					= UsualGroupRepresentation.None Then 
 					Item.TitleFont = BoldFont;
 				EndIf;
 			EndDo;
@@ -75,13 +128,13 @@ EndProcedure
 
 // Defalut language code
 //
-// Return value:
+// Returns:
 //  String - default language code
 Function DefaultLanguageCode() Export
 	Return UT_CommonClientServer.DefaultLanguageCode();
 EndFunction
 
-// See. StandardSubsystemsCached.RefsByPredefinedItemsNames
+// See StandardSubsystemsCached.RefsByPredefinedItemsNames
 Function RefsByPredefinedItemsNames(FullMetadataObjectName) Export
 
 	Return UT_CommonCached.RefsByPredefinedItemsNames(FullMetadataObjectName);
@@ -100,7 +153,7 @@ EndFunction
 //
 // Parameters:
 //  Ref - AnyRef - the object whose attribute values will be read.
-//            - String - full name of the predefined item whose attribute values will be read.
+//      - String - full name of the predefined item whose attribute values will be read.
 //  AttributeName - String - the name of the attribute.
 //  SelectAllowedItems - Boolean - if True, user rights are considered when executing the object query.
 //                                If a record-level restriction is set, return Undefined.
@@ -108,11 +161,12 @@ EndFunction
 //                                if False, an exception is raised if the user has no rights to 
 //                                access the table or any attribute.
 //
+//
 // Returns:
 //  Arbitrary - depends on the type of the read atrribute value.
-//               - if a blank reference is passed to Ref, return Undefined.
-//               - if a reference to a nonexisting object (invalid reference) is passed to Ref, 
-//                 return Undefined.
+//            if a blank reference is passed to Ref, return Undefined.
+//            if a reference to a nonexisting object (invalid reference) is passed to Ref, 
+//            	return Undefined.
 //
 Function ObjectAttributeValue(Ref, AttributeName, SelectAllowedItems = False) Export
 
@@ -139,20 +193,20 @@ Procedure AddObjectsArrayToCompare(Objects) Export
 EndProcedure
 
 Procedure UploadObjectsToXMLonServer(ObjectsArray, FileURLInTempStorage, FormID=Undefined) Export
-	UploadingDataProcessor = Обработки.UT_ExportImportDataXMLWithFilters.Создать();
-	UploadingDataProcessor.Инициализация();
-	UploadingDataProcessor.ВыгружатьСДокументомЕгоДвижения=Истина;
-	UploadingDataProcessor.ИспользоватьФорматFastInfoSet=Ложь;
+	UploadingDataProcessor = DataProcessors.UT_ExportImportDataXMLWithFilters.Create();
+	UploadingDataProcessor.Initializing();
+	UploadingDataProcessor.ExportDocumentWithItsRecords=Истина;
+	UploadingDataProcessor.UseFastInfoSetFormat=Ложь;
 	
 	For Each CurrentObject In ObjectsArray Do
 		NR=UploadingDataProcessor.AdditionalObjectsToExport.Add();
-		NR.Объект=CurrentObject;
-		NR.ИмяОбъектаДляЗапроса=UT_Common.TableNameByRef(CurrentObject);
+		NR.Object=CurrentObject;
+		NR.ObjectForQueryName=UT_Common.TableNameByRef(CurrentObject);
 	EndDo;
 		
 	TempFileName = GetTempFileName(".xml");
 	
-	UploadingDataProcessor.ВыполнитьВыгрузку(TempFileName, , New ValueTable);
+	UploadingDataProcessor.ExecuteExport(TempFileName, , New ValueTable);
 		
 	File = New File(TempFileName);
 
@@ -173,7 +227,7 @@ EndProcedure
 // Parameters:
 //  Value  - Arbitrary  - value that you want to serialize into an XML string..
 //
-//  Return value:
+//  Returns:
 //  String - XML-string.
 //
 Function ValueToXMLString(Value) Export
@@ -207,9 +261,50 @@ Function ValueFromXMLString(XMLString, Type = Undefined) Export
 EndFunction
 
 Function ConfigurationMetadataDescriptionAdress() Export
-	Возврат UT_Common.ConfigurationMetadataDescriptionAdress();
+	Возврат Undefined; // Obsolete. UT_Common.MetaDataAdressDescription() dont exist;
 EndFunction
 
+// Get password difficulty length check.
+// 
+// Parameters:
+// 	ParametersStructure - Structure 
+// * MinPasswordLength - Number - Minimum password length, save to set later
+// * PasswordStrengthCheck - Boolean - Save the parameter to restore it later.
+// Returns: 
+// 	Structure - Return password complexity and length:   
+// * MinPasswordLength - Number - Minimum password length, save to set later
+// * PasswordStrengthCheck - Boolean - Save the parameter to restore it later. 
+Function GetPasswordStrengthLengthCheck(ParametersStructure) Export
+	ParametersStructure.Insert("MinPasswordLength", GetUserPasswordMinLength());
+	ParametersStructure.Insert("PasswordStrengthCheck", GetUserPasswordStrengthCheck());
+	Return ParametersStructure;
+EndFunction
+
+
+// Set password strength length complexity check.
+// 
+// Parameters:
+// 	ParametersStructure - see GetPasswordStrengthLengthCheck 
+//  ResetCheck - Boolean
+//
+Procedure SetPasswordStrengthLengthCheck(ParametersStructure, ResetCheck = False) Export
+	If ResetCheck Then
+		If ParametersStructure.MinPasswordLength > 12 Then
+			SetUserPasswordMinLength(0);
+		EndIf;
+		If ParametersStructure.PasswordDifficultyCheck then
+			SetUserPasswordStrengthCheck(False);
+		EndIf;	
+	Else
+		If ParametersStructure.MinPasswordLength > 12 Then
+			SetUserPasswordMinLength(ParametersStructure.MinPasswordLength);
+		EndIf;
+		If ParametersStructure.PasswordDifficultyCheck then
+			SetUserPasswordStrengthCheck(ParametersStructure.PasswordDifficultyCheck);
+		EndIf;		
+	EndIf;				
+
+EndProcedure
 #Region JSON
 
 Function mReadJSON(Value) Export
@@ -218,13 +313,15 @@ EndFunction // ReadJSON()
 
 Function mWriteJSON(DataStructure) Export
 	Return UT_CommonClientServer.mWriteJSON(DataStructure);
-EndFunction // WriteJSON(
+EndFunction // WriteJSON()
 #EndRegion
 
-#Region SettingsStorage
+
+
+
+#Region StorageSettings
 
 ////////////////////////////////////////////////////////////////////////////////
-
 // Saving, reading, and deleting settings from storages.
 
 // Saves a setting to the common settings storage as the Save method of 
@@ -237,16 +334,15 @@ EndFunction // WriteJSON(
 //   ObjectKey - String - see the Syntax Assistant.
 //   SettingsKey - String - see the Syntax Assistant.
 //   Settings - Arbitrary - see the Syntax Assistant.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //   UpdateCachedValues - Boolean - the flag that indicates whether to execute the method.
-
+//
 Procedure CommonSettingsStorageSave(ObjectKey, SettingsKey, Settings,
-			SettingsDetails = Undefined,
-			Username = Undefined,
-			UpdateCachedValues = False) Export
+			SettingsDetails = Undefined, Username = Undefined, UpdateCachedValues = False) Export
 
-	UT_Common.CommonSettingsStorageSave(ObjectKey, SettingsKey, Settings,SettingsDetails,Username,UpdateCachedValues = False);
+	UT_Common.CommonSettingsStorageSave(ObjectKey, SettingsKey, Settings,SettingsDetails,
+		Username,UpdateCachedValues = False);
 
 EndProcedure
 
@@ -257,15 +353,14 @@ EndProcedure
 // If the SaveUserData right is not granted, data save fails and no error is raised.
 // 
 // Parameters:
-//   MultipleSettings - Array of the following values:
-//     * Value - Structure - with the following properties:
-//         * Object - String - see the ObjectKey parameter in the Syntax Assistant.
-//         * Setting - String - see the SettingsKey parameter in the Syntax Assistant.
-//         * Value - Arbitrary - see the Settings parameter in the Syntax Assistant.
+//   MultipleSettings - Array of Structure - 
+//   	Structure with the following properties:
+//     		Object - String - see the ObjectKey parameter in the Syntax Assistant.
+//     		Setting - String - see the SettingsKey parameter in the Syntax Assistant.
+//     		Value - Arbitrary - see the Settings parameter in the Syntax Assistant.
 //
 //   UpdateCachedValues - Boolean - the flag that indicates whether to execute the method.
 //
-
 Procedure CommonSettingsStorageSaveArray(MultipleSettings, UpdateCachedValues = False) Export
 	
 	UT_Common.CommonSettingsStorageSaveArray(MultipleSettings, UpdateCachedValues);
@@ -289,15 +384,15 @@ EndProcedure
 //   ObjectKey - String - see the Syntax Assistant.
 //   SettingsKey - String - see the Syntax Assistant.
 //   DefaultValue - Arbitrary - a value that is returned if no settings are found.
-//                                             If not specified, returns Undefined.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//                              If not specified, returns Undefined.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //
 // Returns:
 //   Arbitrary - see the Syntax Assistant.
 //
 Function CommonSettingsStorageLoad(ObjectKey, SettingsKey, DefaultValue = Undefined, 
-			SettingsDetails = Undefined, Username = Undefined) Export
+	SettingsDetails = Undefined, Username = Undefined) Export
 	Return UT_Common.CommonSettingsStorageLoad(ObjectKey, SettingsKey, DefaultValue, 
 			SettingsDetails, Username)
 
@@ -320,7 +415,7 @@ Procedure CommonSettingsStorageDelete(ObjectKey, SettingsKey, Username) Export
 
 EndProcedure
 
-/// Saves a setting to the system settings storage as the Save method of 
+// Saves a setting to the system settings storage as the Save method of 
 // StandardSettingsStorageManager object. Setting keys exceeding 128 characters are supported by 
 // hashing the key part that exceeds 96 characters.
 // If the SaveUserData right is not granted, data save fails and no error is raised.
@@ -329,20 +424,17 @@ EndProcedure
 //   ObjectKey - String - see the Syntax Assistant.
 //   SettingsKey - String - see the Syntax Assistant.
 //   Settings - Arbitrary - see the Syntax Assistant.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //   UpdateCachedValues - Boolean - the flag that indicates whether to execute the method.
 //
 Procedure SystemSettingsStorageSave(ObjectKey, SettingsKey, Settings,
-			SettingsDetails = Undefined,
-			Username = Undefined,
-			UpdateCachedValues = False) Export
+			SettingsDetails = Undefined, Username = Undefined, UpdateCachedValues = False) Export
 
 	UT_Common.SystemSettingsStorageSave(ObjectKey, SettingsKey, Settings,
 			SettingsDetails,Username,UpdateCachedValues);
 
 EndProcedure
-
 
 // Loads a setting from the system settings storage as the Load method or the 
 // StandardSettingsStorageManager object. The setting key supports more than 128 characters by 
@@ -361,7 +453,7 @@ EndProcedure
 //   SettingsKey - String - see the Syntax Assistant.
 //   DefaultValue - Arbitrary - a value that is returned if no settings are found.
 //                                             If not specified, returns Undefined.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //
 // Returns:
@@ -401,13 +493,12 @@ EndProcedure
 //   ObjectKey - String - see the Syntax Assistant.
 //   SettingsKey - String - see the Syntax Assistant.
 //   Settings - Arbitrary - see the Syntax Assistant.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //   UpdateCachedValues - Boolean - the flag that indicates whether to execute the method.
 //
 Procedure FormDataSettingsStorageSave(ObjectKey, SettingsKey, Settings,
-			SettingsDetails = Undefined,Username = Undefined, 
-			UpdateCachedValues = False) Export
+			SettingsDetails = Undefined,Username = Undefined, UpdateCachedValues = False) Export
 
 	UT_Common.FormDataSettingsStorageSave(ObjectKey, SettingsKey, Settings, SettingsDetails,
 		Username, UpdateCachedValues);
@@ -432,7 +523,7 @@ EndProcedure
 //   SettingsKey - String - see the Syntax Assistant.
 //   DefaultValue - Arbitrary - a value that is returned if no settings are found.
 //                                             If not specified, returns Undefined.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //
 // Returns:
@@ -458,7 +549,9 @@ EndFunction
 //   UserName - String, Undefined - see the Syntax Assistant.
 //
 Procedure FormDataSettingsStorageDelete(ObjectKey, SettingsKey, Username) Export
+	
 	UT_Common.FormDataSettingsStorageDelete(ObjectKey, SettingsKey, Username);
+
 EndProcedure
 
 #EndRegion
@@ -479,14 +572,36 @@ EndFunction
 
 #Region Debug
 
-Function SaveDebuggingDataToCatalog(DebuggingObjectType, DebuggingData) Export
-	SettingsKey=DebuggingObjectType + "/" + UserName() + "/" + Format(CurrentDate(), "DF=yyyyMMddHHmmss;");
-	DebuggingDataObjectData=UT_CommonClientServer.DebuggingDataObjectDataKeyInSettingsStorage();
+// Write data for debugging to the сatalog.
+// 
+// Parameters:
+// 	DebuggingObjectType - String - Debug object type
+// 	DebugData - Arbitrary - Debugging data
+// 	Name - String - Name
+// 
+// Returns:
+// 	String - Result of debugging data saving
+// 	
+//
+Function SaveDebuggingDataToCatalog(DebuggingObjectType, DebugData, Name = "") Export
+	
+	IsTransactionActive = TransactionActive();
+	If IsTransactionActive And UT_CommonClientServer.IsPortableDistribution() Then
+		Return SaveDebuggingDataToFile(DebuggingObjectType, DebugData, Name);
+	EndIf;
+		
+	SettingsKey = DebuggingObjectType + "/" + UserName() + "/" + Format(CurrentDate(), "DF=yyyyMMddHHmmss;");
+	
+	If ValueIsFilled(Name) Then
+		SettingsKey = SettingsKey + "/" + Name;
+	EndIf;
+	
+	DebuggingDataObjectKey=UT_CommonClientServer.DebuggingDataObjectDataKeyInSettingsStorage();
       If TransactionActive() Then
 		ProcedureParameters = New Structure;
-		ProcedureParameters.Insert("ObjectKey", DebuggingDataObjectData);
+		ProcedureParameters.Insert("ObjectKey", DebuggingDataObjectKey);
 		ProcedureParameters.Insert("SettingsKey", SettingsKey);
-		ProcedureParameters.Insert("Settings", DebuggingData);
+		ProcedureParameters.Insert("Settings", DebugData);
 
 		ExecutionParameters = UT_TimeConsumingOperations.BackgroundExecutionParameters(Undefined);
 		ExecutionParameters.Insert("RunInBackground", True);
@@ -494,15 +609,53 @@ Function SaveDebuggingDataToCatalog(DebuggingObjectType, DebuggingData) Export
 		UT_TimeConsumingOperations.ExecuteInBackground("UT_Common.SystemSettingsStorageSaveInBackground", 
 												ProcedureParameters, 
 												ExecutionParameters);
-		Message = NSTR("ru = 'Запись будет выполнена в фоне. Ключ настроек';en = 'Write procedure will be executed in background mode. Settings key '") + SettingsKey;
+		Message = NSTR("ru = 'Запись будет выполнена в фоне. Ключ настроек ';en = 'Write procedure will be executed in background mode. Settings key '") + SettingsKey;
 	Else
-		UT_Common.SystemSettingsStorageSave(DebuggingDataObjectData, SettingsKey, DebuggingData);
-		Message = NSTR("ru = 'Запись выполнена успешно. Ключ настроек ';en = 'Writing was completed successfully. Settings Key'") + SettingsKey;
+		UT_Common.SystemSettingsStorageSave(DebuggingDataObjectKey, 
+			SettingsKey, 
+			DebugData);
+		Message = NSTR("ru = 'Запись выполнена успешно. Ключ настроек ';en = 'Writing was completed successfully. Settings Key '") + SettingsKey;
 	EndIf;
 	Return Message;
-	//UT_Common.SystemSettingsStorageSave(DebuggingDataObjectData, SettingsKey, DebuggingData);
+EndFunction
 
-	//Return "Data Saved successfully. Settings Key " + SettingsKey;
+// Write data for debugging to a file.
+// 
+// Parameters:
+// 	DebuggingObjectType - String - Debug object type
+// 	DebugData - Arbitrary - Debugging data
+// 	Name - String - Name
+// 
+// Returns:
+// 	String - Result of debugging data saving
+//
+Function SaveDebuggingDataToFile(DebuggingObjectType, DebugData, Name = "") Export
+	InstrumentsCatalogAtServer = UT_Common.DebuggingDataDirectoryAtServer();
+	
+	CatalogName = String(New UUID);
+	
+	SaveDirectory = UT_CommonClientServer.MergePaths(InstrumentsCatalogAtServer, CatalogName);
+	Try
+		CreateDirectory(SaveDirectory);
+	Except
+		Return Undefined;
+	EndTry;
+	
+	DataFileName = UT_CommonClientServer.MergePaths(SaveDirectory, "DATA.data");
+	MetadataFileName = UT_CommonClientServer.MergePaths(SaveDirectory, "METADATA.json");
+	
+	SaveMetadata = New Structure;
+	SaveMetadata.Insert("Author", UserName());
+	SaveMetadata.Insert("Date", CurrentDate());
+	SaveMetadata.Insert("DebuggingObjectType", DebuggingObjectType);
+	SaveMetadata.Insert("Name", Name);
+	
+	UT_CommonClientServer.mWriteJSONFile(MetadataFileName, SaveMetadata);
+	
+	ValueToFile(DataFileName, SaveMetadata);
+	
+	Return "Recording was successful. Server catalog " + SaveDirectory;
+
 EndFunction
 
 Function DebuggingObjectDataStructureFromDebugDataCatalog(DataPath) Export
@@ -514,16 +667,18 @@ Function DebuggingObjectDataStructureFromDebugDataCatalog(DataPath) Export
 	Return Result;
 EndFunction
 
-Function DebuggingObjectDataStructureFromSystemSettingsStorage(SettingsKey,User=Undefined, FormID=Undefined) Export
-	
+Function DebuggingObjectTempPathFromSystemSettingsStorage(SettingsKey,User=Undefined, 
+	FormID=Undefined) Export
 	DebuggingDataObjectKey=UT_CommonClientServer.DebuggingDataObjectDataKeyInSettingsStorage();
-	DebugSettings=UT_Common.SystemSettingsStorageLoad(DebuggingDataObjectKey, SettingsKey,  ,  , User);
+	DebugSettings=UT_Common.SystemSettingsStorageLoad(DebuggingDataObjectKey,
+													  SettingsKey,
+													  ,
+													  ,
+													  User);
 
 	If DebugSettings = Undefined Then
 		Return Undefined;
 	EndIf;
-
-	KeySubstringsArray=StrSplit(SettingsKey, "/");
 
 	If FormID=Undefined Then
 		DebuggingObjectAddress=PutToTempStorage(DebugSettings);
@@ -531,11 +686,31 @@ Function DebuggingObjectDataStructureFromSystemSettingsStorage(SettingsKey,User=
 		DebuggingObjectAddress=PutToTempStorage(DebugSettings, FormID);
 	EndIf;
 
-	Result = New Structure;
-	Result.Insert("DebuggingObjectType", KeySubstringsArray[0]);
-	Result.Insert("DebuggingObjectAddress", DebuggingObjectAddress);
+	Return DebuggingObjectAddress;
+EndFunction
 
-	Return Result;
+Function DebuggingObjectTempPathFromDebugDataCatalog(DebugDataDirectory, FormID = Undefined) Export
+	
+	Files = FindFiles(DebugDataDirectory, "*.data");
+	If Files.Count() = 0 Then
+		Return Undefined;
+	EndIf;
+	
+	FileData = Files[0];
+	
+	If Not FileData.Exists() Then
+		Return Undefined;
+	EndIf;
+
+	SettingsOptions = ValueFromFile(FileData.FullName);
+
+	If FormID = Undefined Then
+		DebuggingObjectAddress=PutToTempStorage(SettingsOptions);
+	Else
+		DebuggingObjectAddress=PutToTempStorage(SettingsOptions, FormID);
+	EndIf;
+
+	Return DebuggingObjectAddress;
 EndFunction
 
 Function SerializeDCSForDebug(DCS, DcsSettings, ExternalDataSets) Export
@@ -552,6 +727,7 @@ Function SerializeDCSForDebug(DCS, DcsSettings, ExternalDataSets) Export
 		Settings=DCS.DefaultSettings;
 	Else
 		Settings=DcsSettings;
+		
 	EndIf;
 
 	XMLWriter = New XMLWriter;
@@ -655,49 +831,46 @@ EndFunction
 
 #EndRegion
 
-#EndRegion
 
-#Region ConsolesDataSaveRead
+#Region SavingConsolesReadData
 
-Function ConsolePreparedDataForFileWriting(ConsoleName, FileName, SaveDataPath,
-	SavingFileDescriptionStructure) Export
-	File=Новый File(FileName);
+Function ConsolePreparedDataForFileWriting(ConsolesName, FileName, SaveDataDirectory,
+	SavedFileDescriptionStructure) Export
+	File = New File(FileName);
 
-	If  IsTempStorageURL(SaveDataPath) Then
-		SaveData=GetFromTempStorage(SaveDataPath);
+	If IsTempStorageURL(SaveDataDirectory) Then
+		SaveData = GetFromTempStorage(SaveDataDirectory);
 	Else
-		SaveData=SaveDataPath;
+		SaveData = SaveDataDirectory;
 	EndIf;
 
-	If Upper(ConsoleName) = "HTTPREQUESTCONSOLE" Then
-		ConsoleManager=DataProcessors.UT_HttpRequestConsole;
-	Else
-		ConsoleManager=Undefined;
-	EndIf;
+	ManagerConsoles = Undefined;
 
-	If ConsoleManager = Undefined Then
-		Если TypeOf(SaveData) = Type("String") Then
-			NewSaveData=SaveData;
+	If ManagerConsoles = Undefined Then
+		If TypeOf(SaveData) = Type("String") Then
+			NewSaveData = SaveData;
 		Else
-			NewSaveData=ValueToStringInternal(SaveData);
+			NewSaveData = ValueToStringInternal(SaveData);
 		EndIf;
 	Else
 		Try
-			NewSaveData=ConsoleManager.SerializedSaveData(File.Extension, SaveData);
+			NewSaveData = ManagerConsoles.SerializedSaveData(File.Extension, SaveData);
 		Except
-			NewSaveData=ValueToStringInternal(SaveData);
+			NewSaveData = ValueToStringInternal(SaveData);
 		EndTry;
 	EndIf;
 
-	Stream=New MemoryStream;
-	TextWriter=New DataWriter(Stream);
-	TextWriter.WriteLine(NewSaveData);
+	Stream = New MemoryStream;
+	RecordText = New DataWriter(Stream);
+	RecordText.WriteLine(NewSaveData);
 
 	Return PutToTempStorage(Stream.CloseAndGetBinaryData());
 	
-//	Return NewSavingData;	
+// Return NewStorageData;	
 
 EndFunction
+
+#EndRegion
 
 #EndRegion
 
@@ -705,22 +878,25 @@ EndFunction
 
 // Add information for support on the server.
 // 
-// Options:
+// Parameters:
 //  InformationStructure - Structure - Information structure
 Procedure AddInformationForSupportOnTheServer(InformationStructure) Export
-	
 	InformationStructure.Insert("Server", UT_CommonClientServer.DescriptionOSForTechnicalSupport());
-	InformationStructure.Insert("IsFileBase", 
-		Format(UT_Common.FileInfobase(),"BF=False; BT=True"));
+	InformationStructure.Insert("IsFileBase", UT_Common.FileInfobase());
 	InformationStructure.Insert("SSLVersion", UT_Common.SSLVersion());
 	InformationStructure.Insert("Configuration", New Structure);
 	InformationStructure.Configuration.Insert("Name", MetaData.Name);
 	InformationStructure.Configuration.Insert("CompatibilityMode", String(MetaData.CompatibilityMode));
 	InformationStructure.Configuration.Insert("Version", MetaData.Version);
 	InformationStructure.Configuration.Insert("DefaultRunMode", String(MetaData.DefaultRunMode));
-	InformationStructure.Configuration.Insert("ModalityUseMode", String(MetaData.ModalityUseMode));
+	InformationStructure.Configuration.Insert("ModalityUseMode", 
+											  String(MetaData.ModalityUseMode));
+	InformationStructure.Configuration.Insert("SynchronousExtensionAndAddInCallUseMode",
+											  String(MetaData.SynchronousExtensionAndAddInCallUseMode));
 	InformationStructure.Configuration.Insert("SynchronousPlatformExtensionAndAddInCallUseMode",
 											  String(MetaData.SynchronousPlatformExtensionAndAddInCallUseMode));
+	InformationStructure.Configuration.Insert("ModalityUseMode",
+											  String(MetaData.ModalityUseMode));
 	InformationStructure.Configuration.Insert("InterfaceCompatibilityMode",
 											  String(MetaData.InterfaceCompatibilityMode));
 	InformationStructure.Configuration.Insert("DataLockControlMode",
@@ -728,12 +904,10 @@ Procedure AddInformationForSupportOnTheServer(InformationStructure) Export
 	InformationStructure.Insert("Extensions", New Array);
 
 	For Each CurrentExpansion In ConfigurationExtensions.Get() Do
-		InformationStructure.Extensions.Add(""
-			+ CurrentExpansion.Name
-			+ "(" + CurrentExpansion.Version 
-			+ ")");
+		InformationStructure.Extensions.Add("" + CurrentExpansion.Name + "(" + CurrentExpansion.Version + ")");
 	EndDo;
-
 EndProcedure
+
+
 
 #EndRegion

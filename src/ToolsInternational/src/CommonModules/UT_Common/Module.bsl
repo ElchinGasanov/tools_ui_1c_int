@@ -9,7 +9,609 @@
 
 #Region ContainerValuesForStorageOnForm
 
-#Region StorageContainerValues
+#Region StorageContainerFromValues
+
+// Value storage of boundary.
+// 
+// Parameters:
+// 	Boundary - Boundary
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageBoundaryType
+Function ValueStorageContainerBoundary(Boundary) Export
+	Storage = UT_CommonClientServer.NewValueStorageBoundaryType();
+	Storage.Date = Boundary.Value;
+	If Boundary.ViewBoundary = BoundaryType.Include Then
+		Storage.BoundaryType = "Include";
+	Else
+		Storage.BoundaryType = "Including";
+	EndIf;
+
+	Return Storage;
+EndFunction
+
+
+// Value storage of point in time.
+// 
+// Parameters:
+// 	PointInTimeValue - PointInTime
+// 
+// Returns:
+//	ValueStorage - see UT_CommonClientServer.NewValueStoragePointInTimeType
+Function ValueStorageContainerPointInTimeType(PointInTimeValue) Export
+	Return UT_CommonClientServer.ValueStorageContainerTimeMomentByDateAndReference(PointInTimeValue.Date,
+																						PointInTimeValue.Reference);
+EndFunction
+
+// Value storage of value table.
+// 
+// Parameters:
+// 	ValueTable - ValueTable - Values table
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageValueTableType
+Function ValueStorageContainerValueTable(ValueTable) Export
+	Storage = UT_CommonClientServer.NewValueStorageValueTableType();
+	Storage.Value = ValueToStringInternal(ValueTable);
+	Storage.RowCount = ValueTable.Count();
+	Storage.ColumnCount = ValueTable.Columns.Count();
+	
+	Return Storage;
+EndFunction
+
+// Value storage of value tree.
+// 
+// Parameters:
+// 	ValueTree - ValueTree - Value tree.
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageValueTreeType
+Function ValueStorageContainerValueTree(ValueTree) Export
+	Storage = UT_CommonClientServer.NewValueStorageValueTreeType();
+	Storage.Value = ValueToStringInternal(ValueTree);
+	Storage.RowCount = ValueTree.Rows.Count();
+	Storage.ColumnCount = ValueTree.Columns.Count();
+	
+	Return Storage;
+EndFunction
+
+// Value storage type.
+// 
+// Parameters:
+// 	TypeValue - Type
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageType
+Function ValueStorageContainerType(TypeValue) Export
+	Storage = UT_CommonClientServer.NewValueStorageType();
+	Storage.Value = ValueToStringInternal(TypeValue);
+	Storage.Name = String(TypeValue);
+	
+	Return Storage;	
+EndFunction
+
+// Value storage of type description.
+// 
+// Parameters:
+// 	TypeDescriptionValue - TypeDescription.
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageType 
+Function ValueStorageContainerTypeDescription(TypeDescriptionValue) Export
+	Storage = UT_CommonClientServer.NewValueStorageType();
+	Storage.Value = ValueToStringInternal(TypeDescriptionValue);
+	Storage.Name = String(TypeDescriptionValue);
+	
+	Return Storage;	
+	
+EndFunction
+
+// Value storage of structure.
+// 
+// Parameters:
+// 	StructureValue - Structure - Structure value
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageStructureType
+Function ValueStorageContainerStructure(StructureValue) Export
+	Storage = UT_CommonClientServer.NewValueStorageStructureType();
+	Storage.Value = ValueToStringInternal(StructureValue);
+	Storage.KeysCount = StructureValue.Count();
+	
+	Keys = New Array;
+	For Each KeyValue In StructureValue Do
+		Keys.Add(KeyValue.Key);	
+	EndDo;
+	Storage.Keys = StrConcat(Keys, ",");
+	
+	Return Storage;	
+	
+EndFunction
+
+// Value storage of fixed structure.
+// 
+// Parameters:
+// 	FixedStructureValue - FixedStructure - Fixed structure
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageStructureType
+Function ValueStorageContainerFixedStructure(FixedStructureValue) Export
+	Return ValueStorageContainerStructure(New Structure(FixedStructureValue));
+EndFunction
+
+// Value storage of map.
+// 
+// Parameters:
+// 	MapValue - Map of Arbitrary - Map value.
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageMapType
+Function ValueStorageContainerMap(MapValue) Export
+	Storage = UT_CommonClientServer.NewValueStorageMapType();
+	Storage.Value = ValueStorageContainerStructure(MapValue);
+	Storage.KeysCount= MapValue.Count();
+	
+	Return Storage;	
+	
+EndFunction
+
+// Value storage of fixed map.
+// 
+// Parameters:
+// 	FixedMapValue - FixedMap of Arbitrary - Fixed map value.
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageMapType
+Function ValueStorageContainerFixedMap(FixedMapValue) Export
+	Return ValueStorageContainerMap(New Map(FixedMapValue));
+EndFunction
+
+// Value storage container of value.
+// 
+// Parameters:
+// 	ValueStorage - ValueStorage 
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageValueStorageType
+Function ValueStorageContainerStorageValue(ValueStorage) Export
+	Storage = UT_CommonClientServer.NewValueStorageValueStorageType();
+	Storage.Value = ValueToStringInternal(ValueStorage);
+	
+	Value = ValueStorage.Get();
+	Storage.Type = String(TypeOf(Value));
+	
+	Return Storage;	
+	
+EndFunction
+
+// Value storage container of arbitrary value.
+// 
+// Parameters:
+// 	ArbitraryValue - Arbitrary 
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageValueStorageType
+Function ValueStorageContainerStorageArbitraryValue(ArbitraryValue) Export
+	Storage = UT_CommonClientServer.NewValueStorageValueStorageType();
+	Storage.Type = String(TypeOf(ArbitraryValue));
+	Storage.Value = ValueToStringInternal(New ValueStorage(ArbitraryValue, New Deflation(9)));
+
+	Return Storage;	
+	
+EndFunction
+
+// Value storage container of value list.
+// 
+// Parameters:
+// 	List - ValueList of Arbitrary
+// 
+// Returns:
+//	see UT_CommonClientServer.NewValueStoreValueListType
+Function ValueStorageContainerValueList(List) Export
+	Storage = UT_CommonClientServer.NewValueStoreValueListType();
+	Storage.Value = ValueToStringInternal(List);
+	Storage.Presentation = String(List);
+	
+	Return Storage;
+EndFunction
+
+// Value storage container of array.
+// 
+// Parameters:
+// 	Array - Array of Arbitrary.
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageArrayType
+Function ValueStorageContainerArray(Array) Export
+	Storage = UT_CommonClientServer.NewValueStorageArrayType();
+	Storage.Value = ValueToStringInternal(Array);
+	
+	List = New ValueList();
+	List.LoadValues(Array);
+	Storage.Presentation = String(List);
+	
+	Return Storage;
+EndFunction
+
+// Value storage container of fixed array.
+// 
+// Parameters:
+// 	Array - FixedArray of Arbitrary.
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageArrayType
+Function ValueStorageContainerFixedArray(Array) Export
+	Return ValueStorageContainerArray(New Array(Array));
+EndFunction
+
+// Value storage container of array.
+// 
+// Parameters:
+// List - ValueList of Arbitrary
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageArrayType
+Function ValueStorageContainerArrayFromValueList(List) Export
+	Storage = UT_CommonClientServer.NewValueStorageArrayType();
+	Storage.Value = ValueToStringInternal(List.UnloadValues());
+	Storage.Presentation = String(List);
+	
+	Return Storage;
+EndFunction
+
+// Value storage container of binary data.
+// 
+// Parameters:
+// 	BinaryData - BinaryData
+// 
+// Returns:
+// 	see UT_CommonClientServer.NewValueStorageBinaryDataType
+Function ValueStorageContainerBinaryData(BinaryData) Export
+	Storage = UT_CommonClientServer.NewValueStorageBinaryDataType();
+	Storage.Value = New ValueStorage(BinaryData, New Deflation(9));
+	Storage.Size = BinaryData.Size();
+	Storage.Presentation = Left(String(BinaryData), 300);
+	
+	Return Storage;
+	
+EndFunction
+
+#EndRegion
+
+#Region ValueFromStorageContainer
+
+// Value from the point in time container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStoragePointInTimeType 
+// 
+// Returns:
+// 	PointInTime - point in time
+Function ValueFromPointInTimeContainerStorage(Storage) Export
+	Return New PointInTime(Storage.Date, Storage.Reference);
+EndFunction
+
+// Value from the boundary container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageBoundaryType 
+// 
+// Returns:
+// 	Boundary - Boundary
+Function ValueFromBoundaryContainerStorage(Storage) Export
+	Return New Boundary(Storage.Date, BoundaryType[Storage.BoundaryType]);
+EndFunction
+
+// Value from the value table container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageValueTableType 
+// 
+// Returns:
+// 	ValueTable, Undefined - Value from the value table container storage
+Function ValueFromValueTableContainerStorage(Storage) Export
+	Try
+		Return ValueFromStringInternal(Storage.Value);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the value tree container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageValueTreeType 
+// 
+// Returns:
+// 	ValueTree, Undefined - Value from the value tree container storage
+Function ValueFromValueTreeContainerStorage(Storage) Export
+	Try
+		Return ValueFromStringInternal(Storage.Value);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the type container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageType
+// 
+// Returns:
+// 	Type, Undefined - Value from type container storage 
+Function ValueFromTypeContainerStorage(Storage) Export
+	Try
+		Return ValueFromStringInternal(Storage.Value);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the type description container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageType
+// 
+// Returns:
+// 	TypeDescription, Undefined - Value from type description container storage
+Function ValueFromTypeDescriptionContainerStorage(Storage) Export
+	Try
+		Return ValueFromXMLString(Storage.Value, Type("TypeDescription"));
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the structure container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageStructureType
+// 
+// Returns:
+// 	Structure, Undefined - Value from structure container storage
+Function ValueFromStructureContainerStorage(Storage) Export
+	Try
+		Return ValueFromStringInternal(Storage.Value);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the structure container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageStructureType
+// 
+// Returns:
+// 	FixedStructure, Undefined - Value from fixed structure container storage
+Function ValueFromFixedStructureContainerStorage(Storage) Export
+	Structure = ValueFromStructureContainerStorage(Storage);
+	
+	If Structure = Undefined Then
+		Return Undefined;
+	EndIf;
+	
+	Return New FixedStructure(Structure);
+EndFunction
+
+// Value from the map container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageMapType
+// 
+// Returns:
+// 	Map of KeyAndValue, Undefined - Value from map container storage
+Function ValueFromMapContainerStorage(Storage) Export
+	Try
+		Return ValueFromStringInternal(Storage.Value);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the fixed map container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageMapType
+// 
+// Returns:
+// 	FixedMap of KeyAndValue, Undefined - Value from fixed map container storage
+Function ValueFromFixedMapContainerStorage(Storage) Export
+	Map = ValueFromMapContainerStorage(Storage);
+	If Map = Undefined Then
+		Return Undefined;
+	EndIf;
+	
+	Return New FixedMap(Map);
+EndFunction
+
+
+// Value from the value storage container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageType
+// 
+// Returns:
+// 	ValueStorage, Undefined - Value from value storage container storage
+Function ValueFromValueStorageContainerStorage(Storage) Export
+	Try
+		Return ValueFromStringInternal(Storage.Value);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the value list container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStoreValueListType
+// 
+// Returns:
+// 	ValueList of Arbitrary, Undefined - Value from value list container storage
+Function ValueFromValueListContainerStorage(Storage) Export
+	Try
+		Return ValueFromStringInternal(Storage.Value);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the array container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageArrayType 
+// 
+// Returns:
+// 	Array of Arbitrary, Undefined - Value from the array container storage
+Function ValueFromArrayContainerStorage(Storage) Export
+	Try
+		Return ValueFromStringInternal(Storage.Value);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
+// Value from the fixed array container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageArrayType 
+// 
+// Returns:
+// 	FixedArray of Arbitrary, Undefined - Value from the fixed array container storage
+Function ValueFromFixedArrayContainerStorage(Storage) Export
+	Array = ValueFromArrayContainerStorage(Storage);
+	If Array = Undefined Then
+		Return Undefined;
+	EndIf;
+	
+	Return New FixedArray(Array);
+EndFunction
+
+// Value from binary data container storage.
+// 
+// Parameters:
+// 	Storage - see UT_CommonClientServer.NewValueStorageBinaryDataType
+// 
+// Returns:
+// 	Undefined - Value from binary data container storage
+Function ValueFromBinaryDataContainerStorage(Storage) Export
+	If Storage.Value = Undefined Then
+		Return Undefined;
+	EndIf;
+	
+	Return Storage.Value.Get();
+
+EndFunction
+
+#EndRegion
+
+// Value into form container.
+// 
+// Parameters:
+// 	Value - Arbitrary - Value.
+// 
+// Returns:
+// 	Structure, Arbitrary - see UT_CommonClientServer.NewValueContainer -
+// 						   If the type is not supported by the container, the value itself is returned
+//
+Function ValueIntoFormContainer(Value) Export
+	ContainerTypes = UT_CommonClientServer.ContainerValuesTypes();
+	
+	NewContainer = UT_CommonClientServer.NewValueContainerByType(TypeOf(Value));
+	
+	If NewContainer.Type = ContainerTypes.Boundary Then
+		NewContainer.ValueStorage = ValueStorageContainerBoundary(Value);
+	ElsIf NewContainer.Type = ContainerTypes.PointInTime Then
+		NewContainer.ValueStorage = ValueStorageContainerPointInTimeType(Value);
+	ElsIf NewContainer.Type = ContainerTypes.ValueTable Then
+		NewContainer.ValueStorage = ValueStorageContainerValueTable(Value);
+	ElsIf NewContainer.Type = ContainerTypes.Type Then
+		NewContainer.ValueStorage = ValueStorageContainerType(Value);
+	ElsIf NewContainer.Type = ContainerTypes.TypeDescription Then
+		NewContainer.ValueStorage = ValueStorageContainerTypeDescription(Value);
+	ElsIf NewContainer.Type = ContainerTypes.Structure Then
+		NewContainer.ValueStorage = ValueStorageContainerStructure(Value);
+	ElsIf NewContainer.Type = ContainerTypes.FixedStructure Then
+		NewContainer.ValueStorage = ValueStorageContainerFixedStructure(Value);
+	ElsIf NewContainer.Type = ContainerTypes.Map Then
+		NewContainer.ValueStorage = ValueStorageContainerMap(Value);
+	ElsIf NewContainer.Type = ContainerTypes.FixedMap Then
+		NewContainer.ValueStorage = ValueStorageContainerFixedMap(Value);
+	ElsIf NewContainer.Type = ContainerTypes.ValueTree Then
+		NewContainer.ValueStorage = ValueStorageContainerValueTree(Value);
+	ElsIf NewContainer.Type = ContainerTypes.SpreadsheetDocument Then
+		NewContainer.ValueStorage = UT_CommonClientServer.ValueStorageContainerSpreadsheetDocument(Value);
+	ElsIf NewContainer.Type = ContainerTypes.ValueStorage Then
+		NewContainer.ValueStorage = ValueStorageContainerStorageValue(Value);
+	ElsIf NewContainer.Type = ContainerTypes.ValueList Then
+		NewContainer.ValueStorage = ValueStorageContainerValueList(Value);
+	ElsIf NewContainer.Type = ContainerTypes.Array Then
+		NewContainer.ValueStorage = ValueStorageContainerArray(Value);
+	ElsIf NewContainer.Type = ContainerTypes.FixedArray Then
+		NewContainer.ValueStorage = ValueStorageContainerFixedArray(Value);
+	ElsIf NewContainer.Type = ContainerTypes.Picture Then
+		NewContainer.ValueStorage = UT_CommonClientServer.ValueStorageContainerPicture(Value);
+	ElsIf NewContainer.Type = ContainerTypes.BinaryData Then
+		NewContainer.ValueStorage = ValueStorageContainerBinaryData(Value);
+	Else
+		Return Value;
+	EndIf;
+	UT_CommonClientServer.SetContainerPresentation(NewContainer);
+	
+	Return NewContainer;
+EndFunction
+
+// Value from form container.
+// 
+// Parameters:
+// 	Container - see UT_CommonClientServer.NewValueContainer
+// 
+// Returns:
+// 	Arbitrary - Value saved at the container
+Function ValueFromFormContainer(Container) Export
+	ContainerTypes = UT_CommonClientServer.ContainerValuesTypes();
+
+	If Container.Type = ContainerTypes.Boundary Then
+		Return ValueFromBoundaryContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.PointInTime Then
+		Return ValueFromPointInTimeContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.ValueTable Then
+		Return ValueFromValueTableContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.ValueTree Then
+		Return ValueFromValueTreeContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.Type Then
+		Return ValueFromTypeContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.TypeDescription Then
+		Return ValueFromTypeDescriptionContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.Structure Then
+		Return ValueFromStructureContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.FixedStructure Then
+		Return ValueFromFixedStructureContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.Map Then
+		Return ValueFromMapContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.FixedMap Then
+		Return ValueFromFixedMapContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.SpreadsheetDocument Then
+		Return UT_CommonClientServer.ValueFromSpreadsheetDocumentStorageContainer(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.ValueStorage Then
+		Return ValueFromValueStorageContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.ValueList Then
+		Return ValueFromValueListContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.Array Then
+		Return ValueFromArrayContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.FixedArray Then
+		Return ValueFromFixedArrayContainerStorage(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.Picture Then
+		Return UT_CommonClientServer.ValueFromPictureStorageContainer(Container.ValueStorage);
+	ElsIf Container.Type = ContainerTypes.BinaryData Then
+		Return ValueFromBinaryDataContainerStorage(Container.ValueStorage);
+	EndIf;
+	
+	Return Undefined;
+EndFunction
+
+
+#EndRegion
 
 // Returns the data separation mode flag (conditional separation).
 // 
@@ -21,6 +623,7 @@
 //  Boolean - True if separation is enabled,
 //         - False is separation is disabled or not supported.
 //
+//@skip-check doc-comment-type
 Function DataSeparationEnabled() Export
 	
 	//If SubsystemExists("StandardSubsystems.SaaS") Then
@@ -60,7 +663,7 @@ EndFunction
 
 // Return ref to common module by name .
 //
-//  Parameters:
+// Parameters:
 //  Name - String - name of a common module.
 //                 "Common",
 //                 "CommonClient".
@@ -71,6 +674,7 @@ EndFunction
 Function CommonModule(Name) Export
 
 	If Metadata.CommonModules.Find(Name) <> Undefined Then
+		//@skip-check server-execution-safe-mode
 		Module = Eval(Name); 
 	ElsIf StrOccurrenceCount(Name, ".") = 1 Then
 		Return ServerManagerModule(Name);
@@ -79,105 +683,11 @@ Function CommonModule(Name) Export
 	EndIf;
 	
 //	If TypeOf(Module) <> Type("CommonModule") Then
-//	Raise StrTemplate(
-//			NStr("ru = 'Общий модуль ""%1"" не найден.'; en = 'Common module %1 is not found.'"),
-//			Name);
+//	Raise StrTemplate(NStr("ru = 'Общий модуль ""%1"" не найден.'; en = 'Common module %1 is not found.'"), Name);
 //	EndIf
 
 	Return Module;
 	
-EndFunction
-
-// Returns a server manager module by object name.
-Function ServerManagerModule(Name)
-	ObjectFound = False;
-	
-	NameParts = StrSplit(Name, ".");
-	If NameParts.Count() = 2 Then
-		
-		KindName = Upper(NameParts[0]);
-		ObjectName = NameParts[1];
-		
-		If KindName = Upper("Constants") Then
-			If Metadata.Constants.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("InformationRegisters") Then
-			If Metadata.InformationRegisters.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("AccumulationRegisters") Then
-			If Metadata.AccumulationRegisters.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("AccountingRegisters") Then
-			If Metadata.AccountingRegisters.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("CalculationRegisters") Then
-			If Metadata.CalculationRegisters.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("Catalogs") Then
-			If Metadata.Catalogs.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("Documents") Then
-			If Metadata.Documents.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("Reports") Then
-			If Metadata.Reports.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("DataProcessors") Then
-			If Metadata.DataProcessors.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("BusinessProcesses") Then
-			If Metadata.BusinessProcesses.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("DocumentJournals") Then
-			If Metadata.DocumentJournals.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("Tasks") Then
-			If Metadata.Tasks.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("ChartsOfAccounts") Then
-			If Metadata.ChartsOfAccounts.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("ExchangePlans") Then
-			If Metadata.ExchangePlans.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("ChartsOfCharacteristicTypes") Then
-			If Metadata.ChartsOfCharacteristicTypes.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		ElsIf KindName = Upper("ChartsOfCalculationTypes") Then
-			If Metadata.ChartsOfCalculationTypes.Find(ObjectName) <> Undefined Then
-				ObjectFound = True;
-			EndIf;
-		EndIf;
-		
-	EndIf;
-	
-	If Not ObjectFound Then
-		Raise StrTemplate(
-			NStr("ru = 'Объект метаданных ""%1"" не найден,
-			           |либо для него не поддерживается получение модуля менеджера.'; 
-			           |en = 'Metadata object ""%1"" is not found
-			           |or it does not support getting manager modules.'"),
-			Name);
-	EndIf;
-
-	Module = Eval(Name); 
-
-	Return Module;
 EndFunction
 
 // Returns a flag indicating whether separated data (included in the separators) can be accessed.
@@ -190,7 +700,7 @@ EndFunction
 // Returns:
 //   Boolean - True if separation is not supported or disabled or separation is enabled and 
 //                    separators are set.
-//          - False if separation is enabled and separators are not set.
+//             False if separation is enabled and separators are not set.
 //
 Function SeparatedDataUsageAvailable() Export
 
@@ -224,7 +734,7 @@ EndFunction
 // Parameters:
 //  Value  - Arbitrary  - value that you want to serialize into an XML string..
 //
-//  Return value:
+// Returns:
 //  String - XML-string.
 //
 Function ValueToXMLString(Value) Export
@@ -257,6 +767,7 @@ Function ValueFromXMLString(XMLString, Type = Undefined) Export
 	EndIf;
 EndFunction
 
+
 // Determines the infobase mode: file (True) or client/server (False).
 // This function uses the InfobaseConnectionString parameter. You can specify this parameter explicitly.
 //
@@ -279,10 +790,12 @@ EndFunction
 Procedure SetSafeModeSSL()
 //	If SubsystemExists("StandardSubsystems.SecurityProfiles") Then
 //		ModuleSafeModeManager = CommonModule("SafeModeManager");
-//			If ModuleSafeModeManager.UseSecurityProfiles()
+//		If ModuleSafeModeManager.UseSecurityProfiles()
 //			AND Not ModuleSafeModeManager.SafeModeSet() Then
 //
+//			ModuleSafeModeManager = CommonModule("SafeModeManager");
 //			InfobaseProfile = ModuleSafeModeManager.InfobaseSecurityProfile();
+//			
 //			If ValueIsFilled(InfobaseProfile) Then
 //				
 //				SetSafeMode(InfobaseProfile);
@@ -300,28 +813,28 @@ EndProcedure
 // When enabling security profiles, to call the Execute() operator
 // switching to safe mode with the security profile used for the information base
 // is used (if no other safe mode was set higher up the stack).
+// 
 // Parameters:
 // 		Object - Arbitrary - object of the 1C Script:An object containing methods (for example, a processing object).
 // 		MethodName - String - the name of the export procedure of the processing object module
 //      Parameters - Array - parameters are passed to the procedure <Procedure Name>  in the order of the array elements.
-		
+//		
+//@skip-check doc-comment-collection-item-type
 Procedure ExecuteObjectMethod(Val Object, Val MethodName, Val Parameters = Undefined) Export
 	
-	// Check  that Method Name is Correct.
+	// Check Method Name is Correct.
 	Try
 		//@skip-warning
 		Test = New Structure(MethodName, MethodName);
 	Except
 		Raise StrTemplate(
-			NStr("ru = 'Некорректное значение параметра MethodName (%1) в Common.ExecuteObjectMethod';
-				 |en = 'Invalid parameter value MethodName (%1) In Common.ExecuteObjectMethod'"),
+			NStr("ru = 'Некорректное значение параметра MethodName (%1) в Common.ExecuteObjectMethod'; en = 'Invalid parameter value MethodName (%1) In Common.ExecuteObjectMethod'"),
 			MethodName);
 	EndTry;
 	
 	Try
 		SetSafeModeSSL();
 	Except
-		
 	EndTry;
 
 	ParametersString = "";
@@ -331,28 +844,29 @@ Procedure ExecuteObjectMethod(Val Object, Val MethodName, Val Parameters = Undef
 		EndDo;
 		ParametersString = Mid(ParametersString, 1, StrLen(ParametersString) - 1);
 	EndIf;
-
+	
 	Execute "Object." + MethodName + "(" + ParametersString + ")";
-
+	
 EndProcedure
+
 
 // Executes the export procedure by the name with the configuration privilege level.
 // To enable the security profile for calling the Execute() operator, the safe mode with the 
 // security profile of the infobase is used (if no other safe mode was set in stack previously).
 // 
-//
 // Parameters:
 //  MethodName  - String - the name of the export procedure in format:
 //                       <object name>.<procedure name>, where <object name> is a common module or 
 //                       object manager module.
-//  Parameters  - Array - the parameters are passed to <ExportProcedureName>
-//                        according to the array item order.
+//  Parameters  - Array - the parameters are passed to <ExportProcedureName> according to the array item order.
+// 
 // 
 // Example:
 //  Parameters = New Array();
 //  Parameters.Add("1");
 //  Common.ExecuteConfigurationMethod("MyCommonModule.MyProcedure", Parameters);
-
+//
+//@skip-check doc-comment-collection-item-type
 Procedure ExecuteConfigurationMethod(Val MethodName, Val Parameters = Undefined) Export
 	
 	CheckConfigurationProcedureName(MethodName);
@@ -372,8 +886,93 @@ Procedure ExecuteConfigurationMethod(Val MethodName, Val Parameters = Undefined)
 	EndIf;
 	
 	Execute MethodName + "(" + ParametersString + ")";
-	
+
 EndProcedure
+
+// Executes algorithm in the built-in 1C:Enterprise language, pre-setting the
+// safe code execution mode and safe data separation mode for all delimiters,
+// present in the configuration.
+//
+// Parameters:
+// 	Algorithm - String - algorithm in the built-in 1C:Enterprise language.
+// 	Parameters - Arbitrary - the context that is required to execute the algorithm.
+// 		In the text of the algorithm, the context must be referred to by the name "Parameters".
+// 		For example, the expression "Parameters.Value1 = Parameters.Value2" refers to the following values
+// 		"Value1" and "Value2" passed to the Parameters as properties.
+//
+// Example:
+//
+// Parameters = New Structure;
+// Parameters.Insert("Value1", 1);
+// Parameters.Insert("Value2", 10);
+// Common.ExecuteInSafeMode("Parameters.Value1 = Parameters.Value2", Parameters);
+//
+Procedure ExecuteInSafeMode(Val Algorithm, Val Parameters = Undefined) Export
+	
+	SetSafeMode(True);
+	
+	//If SubsystemExists("StandardSubsystems.SaaS") Then
+	//	ModuleSaaS = CommonModule("SaaS");
+	//	SeparatorArray = ModuleSaaS.ConfigurationSeparators();
+	//Else
+		SeparatorArray = New Array;
+	//EndIf;
+	
+	For Each SeparatorName In SeparatorArray Do
+		
+		SetDataSeparationSafeMode(SeparatorName, True);
+		
+	EndDo;
+	
+	Execute Algorithm;
+
+EndProcedure
+
+// Evaluates the passed expression, setting the safe mode of script execution and the safe mode of 
+// data separation for all separators of the configuration.
+//
+// Parameters:
+//  Expression - String - an expression in the 1C:Enterprise language.
+//  Parameters - Arbitrary - the context required to calculate the expression.
+//    To address the context in the expression text, use "Parameters" name.
+//    For example, expression "Parameters.Value1 = Parameters.Value2" addresses values
+//    Value1 and Value2 that were passed to Parameters as properties.
+//
+// Returns:
+//   Arbitrary - the result of the expression calculation.
+//
+// Example:
+//
+//  // Example 1
+//  Parameters = New Structure;
+//  Parameters.Insert("Value1", 1);
+//    Parameters.Insert("Value2", 10);
+//  Result = Common.ExecuteInSafeMode("Parameters.Value1 = Parameters.Value2", Parameters);
+//
+//  // Example 1
+//  Result = Common.ExecuteInSafeMode("StandardSubsystemsServer.LibraryVersion()");
+//
+Function CalculateInSafeMode(Val Expression, Val Parameters = Undefined) Export
+	
+	SetSafeMode(True);
+	
+	//If SubsystemExists("StandardSubsystems.SaaS") Then
+	//	ModuleSaaS = CommonModule("SaaS");
+	//	SeparatorArray = ModuleSaaS.ConfigurationSeparators();
+	//Else
+		SeparatorArray = New Array;
+	//EndIf;
+	
+	For Each SeparatorName In SeparatorArray Do
+		
+		SetDataSeparationSafeMode(SeparatorName, True);
+		
+	EndDo;
+	
+	Return Eval(Expression);
+	
+EndFunction
+
 
 // Checks whether the passed ProcedureName is the name of a configuration export procedure.
 // Can be used for checking whether the passed string does not contain an arbitrary algorithm in the 
@@ -399,13 +998,9 @@ Procedure CheckConfigurationProcedureName(Val ProcedureName)
 
 	ObjectName = NameParts[0];
 	If NameParts.Count() = 2 AND Metadata.CommonModules.Find(ObjectName) = Undefined Then
-		Raise StrTemplate(
-			NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
-				|Не найден общий модуль ""%2"".'; 
-				|en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.
-				|Common module ""%2"" is not found.'"),
-			ProcedureName,
-			ObjectName);
+		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
+				|Не найден общий модуль ""%2"".'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.
+				|Common module ""%2"" is not found.'"), ProcedureName, ObjectName);
 	КонецЕсли;
 
 	If NameParts.Count() = 3 Then
@@ -416,12 +1011,9 @@ Procedure CheckConfigurationProcedureName(Val ProcedureName)
 			Manager = Undefined;
 		EndTry;
 		If Manager = Undefined Then
-			Raise StrTemplate(
-				NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
-				           |Не найден менеджер объекта ""%2"".'; 
-				           |en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod:
-				           |Manager of ""%2"" object is not found.'"), 
-					 ProcedureName,FullObjectName);
+			Raise StrTemplate(NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
+				           |Не найден менеджер объекта ""%2"".'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod:
+				           |Manager of ""%2"" object is not found.'"), ProcedureName,FullObjectName);
 	   EndIf;
 	EndIf;
 
@@ -433,11 +1025,10 @@ Procedure CheckConfigurationProcedureName(Val ProcedureName)
 		TempStructure.Insert(ObjectMethodName);
 	Except
 		WriteLogEvent(NStr("ru = 'Безопасное выполнение метода'; en = 'Executing method in safe mode'",UT_CommonClientServer.DefaultLanguageCode()),
-			EventLogLevel.Error, , , DetailErrorDescription(ErrorInfo()));
-		Raise StrTemplate(
-			NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
-			           |Имя метода ""%2"" не соответствует требованиям образования имен процедур и функций.'; 
-			           |en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.
+			EventLogLevel.Error, , , 
+			DetailErrorDescription(ErrorInfo()));
+		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
+			           |Имя метода ""%2"" не соответствует требованиям образования имен процедур и функций.'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.
 			           |Method name %2 does not comply with the procedure and function naming convention.'"),
 			ProcedureName, ObjectMethodName);
 	EndTry;
@@ -555,23 +1146,21 @@ Function ObjectManagerByName(Name)
 		EndIf;
 	EndIf;
 
-	Raise StrTemplate(NStr("ru = 'Не удалось получить менеджер для объекта ""%1""'; 
-							|en = 'Cannot get a manager for object %1.'"), Name);
+	Raise StrTemplate(NStr("ru = 'Не удалось получить менеджер для объекта ""%1""'; en = 'Cannot get a manager for object %1.'"), Name);
 
 EndFunction
 
 Procedure StorageSave(StorageManager, ObjectKey, SettingsKey, Settings,
 			SettingsDetails, Username, UpdateCachedValues)
-
-      SetPrivilegedMode(True);	
+    SetPrivilegedMode(True);	
 	
-	StorageManager.Save(ObjectKey, SettingsKey(SettingsKey), Settings,
-		SettingsDetails, Username);
+	StorageManager.Save(ObjectKey, SettingsKey(SettingsKey), Settings, SettingsDetails, Username);
 	
 	If UpdateCachedValues Then
 		RefreshReusableValues();
 	EndIf;
-	SetPrivilegedMode(False);	
+	SetPrivilegedMode(False);
+		
 EndProcedure
 
 Function StorageLoad(StorageManager, ObjectKey, SettingsKey, DefaultValue,
@@ -598,9 +1187,9 @@ EndFunction
 
 Procedure StorageDelete(StorageManager, ObjectKey, SettingsKey, Username)
 	
-	     SetPrivilegedMode(True);
-	     StorageManager.Delete(ObjectKey, SettingsKey(SettingsKey), Username);
-	     SetPrivilegedMode(False);
+	SetPrivilegedMode(True);
+	StorageManager.Delete(ObjectKey, SettingsKey(SettingsKey), Username);
+	SetPrivilegedMode(False);
 	
 EndProcedure
 
@@ -633,8 +1222,9 @@ EndFunction
 //   String - a string within the maximum length limit.
 //
 Function TrimStringUsingChecksum(String, MaxLength) Export
-	UT_CommonClientServer.Validate(MaxLength >= 32, NStr("ru = 'Параметр МаксимальнаяДлина не может быть меньше 32'; 
-							|en = 'The MaxLength parameter cannot be less than 32.'"),"Common.TrimStringUsingChecksum");
+	UT_CommonClientServer.Validate(MaxLength >= 32, 
+		NStr("ru = 'Параметр МаксимальнаяДлина не может быть меньше 32'; 
+		|en = 'The MaxLength parameter cannot be less than 32.'"),"Common.TrimStringUsingChecksum");
 
 	Result = String;
 	If StrLen(String) > MaxLength Then
@@ -649,10 +1239,10 @@ EndFunction
 // Deletes dead references from a variable.
 //
 // Parameters:
-//   RefOrCollection - AnyReference, Arbitrary - An object or collection to be cleaned up.
+//   RefOrCollection - AnyRef, Arbitrary - An object or collection to be cleaned up.
 //
 // Returns:
-//   Boolean:
+//   Boolean -
 //       * True - If the RefOrCollection of a reference type and the object are not found in the infobase.
 //       * False - If the RefOrCollection of a reference type or the object are found in the infobase.
 //
@@ -660,15 +1250,12 @@ Function DeleteInvalidRefs(RefOrCollection)
 	
 	Type = TypeOf(RefOrCollection);
 
-	If Type = Type("Undefined")
-		Or Type = Type("Boolean")
-		Or Type = Type("String")
-		Or Type = Type("Number")
+	If Type = Type("Undefined")	Or Type = Type("Boolean") Or Type = Type("String") Or Type = Type("Number") 
 		Or Type = Type("Date") Then // Optimization - frequently used primitive types.
 		
 		Return False; // Not a reference.
 
-		ElsIf Type = Type("Array") Then
+	ElsIf Type = Type("Array") Then
 		
 		Count = RefOrCollection.Count();
 		For Number = 1 To Count Do
@@ -681,8 +1268,7 @@ Function DeleteInvalidRefs(RefOrCollection)
 		
 		Return False; // Not a reference.
 
-	ElsIf Type = Type("Structure")
-		Or Type = Type("Map") Then
+	ElsIf Type = Type("Structure") Or Type = Type("Map") Then
 		
 		For Each KeyAndValue In RefOrCollection Do
 			Value = KeyAndValue.Value;
@@ -692,14 +1278,11 @@ Function DeleteInvalidRefs(RefOrCollection)
 		EndDo;
 		
 		Return False; // Not a reference.
-ElsIf Documents.AllRefsType().ContainsType(Type)
-		Or Catalogs.AllRefsType().ContainsType(Type)
-		Or Enums.AllRefsType().ContainsType(Type)
-		Or ChartsOfCharacteristicTypes.AllRefsType().ContainsType(Type)
-		Or ChartsOfAccounts.AllRefsType().ContainsType(Type)
-		Or ChartsOfCalculationTypes.AllRefsType().ContainsType(Type)
-		Or ExchangePlans.AllRefsType().ContainsType(Type)
-		Or BusinessProcesses.AllRefsType().ContainsType(Type)
+		
+	ElsIf Documents.AllRefsType().ContainsType(Type)Or Catalogs.AllRefsType().ContainsType(Type)
+		Or Enums.AllRefsType().ContainsType(Type)Or ChartsOfCharacteristicTypes.AllRefsType().ContainsType(Type)
+		Or ChartsOfAccounts.AllRefsType().ContainsType(Type)Or ChartsOfCalculationTypes.AllRefsType().ContainsType(Type)
+		Or ExchangePlans.AllRefsType().ContainsType(Type)Or BusinessProcesses.AllRefsType().ContainsType(Type)
 		Or Tasks.AllRefsType().ContainsType(Type) Then
 		// Reference type except BusinessProcessRoutePointRef.
 		
@@ -725,7 +1308,6 @@ EndFunction
 // the reference to an object for quick reading of separate object attributes from the database.
 //
 // To read attribute values regardless of current user rights, enable privileged mode.
-// 
 //
 // Parameters:
 //  Ref - AnyRef - the object whose attribute values will be read.
@@ -747,10 +1329,10 @@ EndFunction
 //
 // Returns:
 //  Structure - contains names (keys) and values of the requested attributes.
-//            - if a blank string is passed to Attributes, a blank structure returns.
-//            - if a blank reference is passed to Ref, a structure matching names of Undefined 
+//            if a blank string is passed to Attributes, a blank structure returns.
+//            if a blank reference is passed to Ref, a structure matching names of Undefined 
 //              attributes returns.
-//            - if a reference to nonexisting object (invalid reference) is passed to Ref, all 
+//            if a reference to nonexisting object (invalid reference) is passed to Ref, all 
 //              attributes return as Undefined.
 //
 Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False) Export
@@ -765,10 +1347,8 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 		Try
 			Ref = UT_CommonClientServer.PredefinedItem(FullNameOfPredefinedItem);
 		Except
-			ErrorText = StrTemplate(
-			NStr("ru = 'Неверный первый параметр Ref в функции Common.ObjectAttributesValues:
-			           |%1'; 
-			           |en = 'Invalid value of the Ref parameter, function Common.ObjectAttributesValues:
+			ErrorText = StrTemplate(NStr("ru = 'Неверный первый параметр Ref в функции Common.ObjectAttributesValues:
+			           |%1'; en = 'Invalid value of the Ref parameter, function Common.ObjectAttributesValues:
 			           |%1.'"), BriefErrorDescription(ErrorInfo()));
 			Raise ErrorText;
 		EndTry;
@@ -785,9 +1365,9 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 
 			If Not AccessRight("Read", ObjectMetadata) Then
 				Raise StrTemplate(
-						NStr("ru = 'Недостаточно прав для работы с таблицей ""%1""'; 
-							  |en = 'Insufficient rights to access table %1.'"), FullMetadataObjectName);
+					NStr("ru = 'Недостаточно прав для работы с таблицей ""%1""'; en = 'Insufficient rights to access table %1.'"), FullMetadataObjectName);
 			EndIf;
+			
 		EndIf;
 
 	Else // If a reference is passed.
@@ -795,15 +1375,13 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 		Try
 			FullMetadataObjectName = Ref.Metadata().FullName(); 
 		Except
-			Raise NStr("ru = 'Неверный первый параметр Ref в функции Common.ObjectAttributesValues: 
-				           |- Значение должно быть ссылкой или именем предопределенного элемента'; 
-				           |en = 'Invalid value of the Ref parameter, function Common.ObjectAttributesValues:
-				           |The value must contain predefined item name or reference.'");
+			Raise NStr("ru = 'Неверный первый параметр Ref в функции Common.ObjectAttributesValues: Значение должно быть ссылкой или именем предопределенного элемента'; 
+				|en = 'Invalid value of the Ref parameter, function Common.ObjectAttributesValues: The value must contain predefined item name or reference.'");
 		EndTry;
 		
 	EndIf;
 	
-// Parsing the attributes if the second parameter is String.
+	// Parsing the attributes if the second parameter is String.
 	If TypeOf(Attributes) = Type("String") Then
 		If IsBlankString(Attributes) Then
 			Return New Structure;
@@ -817,8 +1395,7 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 	
 	// Converting the attributes to the unified format.
 	FieldsStructure = New Structure;
-	If TypeOf(Attributes) = Type("Structure")
-		Or TypeOf(Attributes) = Type("FixedStructure") Then
+	If TypeOf(Attributes) = Type("Structure") Or TypeOf(Attributes) = Type("FixedStructure") Then
 		
 		FieldsStructure = Attributes;
 
@@ -835,10 +1412,8 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 				// Searching for field availability error.
 				Result = FindObjectAttirbuteAvailabilityError(FullMetadataObjectName, Attributes);
 				If Result.Error Then 
-					Raise СтрШаблон(
-						NStr("ru = 'Неверный второй параметр Attributes в функции Common.ObjectAttributesValues: %1'; 
-							 |en = 'Invalid value of the Attributes parameter, function Common.ObjectAttributesValues: %1.'"),
-						Result.ErrorDescription);
+					Raise СтрШаблон(NStr("ru = 'Неверный второй параметр Attributes в функции Common.ObjectAttributesValues: %1'; 
+							 |en = 'Invalid value of the Attributes parameter, function Common.ObjectAttributesValues: %1.'"), Result.ErrorDescription);
 				EndIf;
 				
 				// Cannot identify the error. Forwarding the original error.
@@ -847,10 +1422,8 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 			EndTry;
 		EndDo;
 	Else
-		Raise СтрШаблон(
-			NStr("ru = 'Неверный тип второго параметра Attributes в функции Common.ObjectAttributesValues: %1';
-				| en = 'Invalid value type for the Attributes parameter, function Common.ObjectAttributesValues: %1.'"), 
-			String(TypeOf(Attributes)));
+		Raise СтрШаблон(NStr("ru = 'Неверный тип второго параметра Attributes в функции Common.ObjectAttributesValues: %1';
+				| en = 'Invalid value type for the Attributes parameter, function Common.ObjectAttributesValues: %1.'"), String(TypeOf(Attributes)));
 	EndIf;
 	
 	// Preparing the result (will be redefined after the query).
@@ -860,13 +1433,12 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 	FieldQueryText = "";
 	For each KeyAndValue In FieldsStructure Do
 
-		FieldName = ?(ValueIsFilled(KeyAndValue.Value),
-						KeyAndValue.Value,
-						KeyAndValue.Key);
+		FieldName = ?(ValueIsFilled(KeyAndValue.Value), KeyAndValue.Value, KeyAndValue.Key);
 		FieldAlias = KeyAndValue.Key;
-		FieldQueryText = 
-			FieldQueryText + ?(IsBlankString(FieldQueryText), "", ",") + "
-			|	" + FieldName + " AS " + FieldAlias;
+		
+		FieldQueryText = FieldQueryText + ?(IsBlankString(FieldQueryText), "", ",") + "
+			|	" + FieldName 
+			+ " AS " + FieldAlias;
 		
 		
 		// Adding the field by its alias to the return value.
@@ -881,12 +1453,13 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 	EndIf;
 
 	QueryText = "SELECT " + ?(SelectAllowedItems, "ALLOWED", "") + "
-																		   |" + FieldQueryText + "
-																									|FROM
-																									|	"
+																   |" + FieldQueryText + "
+																						 |FROM
+																						 |	"
 		+ FullMetadataObjectName + " AS Table
-									   |WHERE
-									   |	Table.Ref = &Ref";
+								   |WHERE
+								   |	Table.Ref = &Ref
+								   |";
 	
 	// Executing the query.
 	Query = New Query;
@@ -904,20 +1477,16 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 		If Type("Structure") = TypeOf(Attributes) Then
 			Attributes = New Array;
 			For each KeyAndValue In FieldsStructure Do
-				FieldName = ?(ValueIsFilled(KeyAndValue.Value),
-							KeyAndValue.Value,
-							KeyAndValue.Key);
+				FieldName = ?(ValueIsFilled(KeyAndValue.Value), KeyAndValue.Value, KeyAndValue.Key);
 				Attributes.Add(FieldName);
 			EndDo;
 		EndIf;
 		
-// Searching for field availability error.
+		// Searching for field availability error.
 		Result = FindObjectAttirbuteAvailabilityError(FullMetadataObjectName, Attributes);
 		If Result.Error Then 
-			Raise СтрШаблон(
-				NStr("ru = 'Неверный второй параметр Attributes в функции Common.ObjectAttributesValues: %1'; 
-					 |en = 'Invalid value of the Attributes parameter, function Common.ObjectAttributesValues: %1.'"), 
-				Result.ErrorDescription);
+			Raise СтрШаблон(NStr("ru = 'Неверный второй параметр Attributes в функции Common.ObjectAttributesValues: %1'; 
+					 |en = 'Invalid value of the Attributes parameter, function Common.ObjectAttributesValues: %1.'"), Result.ErrorDescription);
 		EndIf;
 		
 		// Cannot identify the error. Forwarding the original error.
@@ -935,15 +1504,13 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 EndFunction
 
 // Returns attribute values retrieved from the infobase using the object reference.
+// 
 // It is recommended that you use it instead of referring to object attributes via the point from 
 // the reference to an object for quick reading of separate object attributes from the database.
 //
-// To read attribute values regardless of current user rights, enable privileged mode.
-// 
-//
 // Parameters:
 //  Ref - AnyRef - the object whose attribute values will be read.
-//            - String - full name of the predefined item whose attribute values will be read.
+//      - String - full name of the predefined item whose attribute values will be read.
 //  AttributeName - String - the name of the attribute.
 //  SelectAllowedItems - Boolean - if True, user rights are considered when executing the object query.
 //                                If a record-level restriction is set, return Undefined.
@@ -953,18 +1520,15 @@ EndFunction
 //
 // Returns:
 //  Arbitrary - depends on the type of the read atrribute value.
-//               - if a blank reference is passed to Ref, return Undefined.
-//               - if a reference to a nonexisting object (invalid reference) is passed to Ref, 
-//                 return Undefined.
+//              if a blank reference is passed to Ref, return Undefined.
+//              if a reference to a nonexisting object (invalid reference) is passed to Ref, 
+//              return Undefined.
 //
 Function ObjectAttributeValue(Ref, AttributeName, SelectAllowedItems = False) Export
 	
 	If IsBlankString(AttributeName) Then 
-		Raise 
-			NStr("ru = 'Неверный второй параметр AttributeName в функции Common.ObjectAttributeValue: 
-			           |- Имя реквизита должно быть заполнено'; 
-			           |en = 'Invalid value of the AttributeName parameter, function Common.ObjectAttributeValue:
-			           |The parameter cannot be empty.'");
+		Raise NStr("ru = 'Неверный второй параметр AttributeName в функции Common.ObjectAttributeValue: Имя реквизита должно быть заполнено'; 
+			           |en = 'Invalid value of the AttributeName parameter, function Common.ObjectAttributeValue: The parameter cannot be empty.'");
 	EndIf;
 	
 	Result = ObjectAttributesValues(Ref, AttributeName, SelectAllowedItems);
@@ -980,8 +1544,8 @@ EndFunction
 // 
 // Returns:
 //  Structure - Check result.
-//  * Error - Boolean - the flag indicating whether an error is found.
-//  * ErrorDescription - String - the descriptions of errors that are found.
+//  	* Error - Boolean - the flag indicating whether an error is found.
+//  	* ErrorDescription - String - the descriptions of errors that are found.
 //
 // Example:
 //  
@@ -1001,8 +1565,7 @@ Function FindObjectAttirbuteAvailabilityError(FullMetadataObjectName, Expression
 	
 	If ObjectMetadata = Undefined Then 
 		Return New Structure("Error, ErrorDescription", True, 
-			StrTemplate(
-				NStr("ru = 'Ошибка получения метаданных ""%1""'; en = 'Cannot get metadata ""%1""'"), FullMetadataObjectName));
+			StrTemplate(NStr("ru = 'Ошибка получения метаданных ""%1""'; en = 'Cannot get metadata ""%1""'"), FullMetadataObjectName));
 	EndIf;
 
 	// Allowing calls from an external data processor or extension in safe mode.
@@ -1092,6 +1655,96 @@ Function IsWebClient() Export
 	Return IsWebClient;	
 EndFunction
 
+
+// SSL Version.
+// 
+// Returns:
+// 	String - SSL Version
+Function SSLVersion() Export
+	Var SSLVersion;
+	SetSafeMode(True);
+	
+	Try
+		Execute("SSLVersion = StandardSubsystemsServer.LibraryVersion()");
+	Except
+		Try
+			Execute("SSLVersion = StandardSubsystemsServerOverridable.LibraryVersion()");
+		Except
+			SSLVersion = "0.0.0.0";	
+		EndTry;
+	EndTry;
+	
+	Return SSLVersion;
+	
+EndFunction
+
+// Result of setting access rights for SSL 3_1_6 and higher.
+// 
+// Returns:
+// 	Boolean - Result of setting access rights for SSL 3_1_6 and above
+Function AccessRightsSettingResultForBSP_3_1_6_AndHigher() Export
+	Code = "
+		  |AccessProfileAdministrator = AccessManagement.AdministratorProfile();
+		  |ProfileObject = ProfileAccessAdministrator.GetObject();
+		  |ProfileObject.Write();
+		  |AccessAdministrator.UpdateUserRoles();
+		  |";
+
+	SetSafeMode(True);
+	Try
+		Execute(Code);
+		Return True;
+	Except
+		UT_CommonClientServer.MessageToUser(NStr("en = 'Failed to apply access rights for Chat Center. 
+			|They will be applied automatically later and a message will be displayed'"));
+		Return False;
+	EndTry;
+
+EndFunction
+
+// Provide a directory.
+// 
+// Parameters:
+// 	Directory - String - Directory
+Procedure ProvideDirectory(Directory) Export
+	File = New File(Directory);
+	If File.Exists() Then
+		Return;
+	EndIf;
+	CreateDirectory(Directory);
+EndProcedure
+
+// Satellite librarie tools data directory.
+// 
+// Returns:
+// 	String - Satellite librarie tools data directory
+Function SatellitelibrarieToolsDataDirectory() Export
+	SatellitelibrarieToolsDataDirectory = SatellitelibrarieToolsSettingsDataDirectory();
+	If ValueIsFilled(SatellitelibrarieToolsDataDirectory) Then
+		Return SatellitelibrarieToolsDataDirectory;
+	Else
+		Return SatellitelibrarieToolsDataDefaultDirectory();
+	EndIf;
+EndFunction
+
+// Debugging data files directory at server.
+// 
+// Returns:
+// 	String - Debugging data files directory at server
+Function DebuggingDataDirectoryAtServer() Export
+	Return UT_CommonClientServer.MergePaths(SatellitelibrarieToolsDataDirectory(),
+											"Debug Data");
+EndFunction
+
+// Tool1 CD file directory at server.
+// 
+// Returns:
+// 	String - Tool1 CD file directory at server
+Function Tool1CDfileDirectoryAtServer() Export
+	Return UT_CommonClientServer.MergePaths(SatellitelibrarieToolsDataDirectory(), "ctool1cd");
+
+EndFunction
+
 #Region WorkWithUniversalToolsForm
 
 Procedure AddToCommonCommandsCommandBar(Form, FormMainCommandBar)
@@ -1113,8 +1766,7 @@ Procedure AddToCommonCommandsCommandBar(Form, FormMainCommandBar)
 	CommandDescription.ItemParent=CommandBar;
 	CommandDescription.Picture = PictureLib.NewWindow;
 	CommandDescription.Representation = ButtonRepresentation.Picture;
-	CommandDescription.ToolTip =NStr("ru = 'Открывает еще одну пустую форму текущего инструмента';
-									 |en = 'Open one more empty form of current tool'");
+	CommandDescription.ToolTip = NStr("ru = 'Открывает еще одну пустую форму текущего инструмента'; en = 'Open one more empty form of current tool'");
 	CommandDescription.Title = NStr("ru = 'Открыть новую форму';en = 'Open new form'");
 	UT_Forms.CreateCommandByDescription(Form, CommandDescription);
 	UT_Forms.CreateButtonByDescription(Form, CommandDescription);
@@ -1128,10 +1780,50 @@ EndProcedure
 
 #Region UniversalToolsSettings
 
+Function SatellitelibrarieToolsDataDefaultDirectory() Export
+	Return UT_CommonClientServer.MergePaths(TempFilesDir(), "tools_ui_1c");
+
+EndFunction
+
+// Satellite librarie tools data directory from the settings.
+// 
+// Returns:
+// 	String - Satellite librarie tools data directory from the settings
+Function SatellitelibrarieToolsSettingsDataDirectory() Export
+	Return CommonSettingsStorageLoad(UT_CommonClientServer.SettingsDataKeyInSettingsStorage(),
+		UT_CommonClientServer.SavedToolsDataCatalogNameAtServer(),
+		"");
+
+EndFunction
+
+
+// Save the tools data directory at server to the settings.
+// 
+// Parameters:
+// 	Directory - String - Directory
+Procedure SaveToolsDataCatalogOnServerToolsDataCatalogOnSettings(Directory) Export
+	CommonSettingsStorageSave(UT_CommonClientServer.SettingsDataKeyInSettingsStorage(),
+							  UT_CommonClientServer.SavedToolsDataCatalogNameAtServer(),
+							  Directory);
+EndProcedure
 
 #EndRegion
 
-#EndRegion
+// Connect external data processor to the session.
+// 
+// Parameters:
+// 	BinaryDataProcessorDirectory - String - Binary data directory
+// 	ProcessorName - Undefined, String - ProcessorName
+Procedure ConnectExternalDataProcessorToTheSession(BinaryDataProcessorDirectory, ProcessorName = Undefined) Export
+	UnsafeOperationProtectionDescription = New UnsafeOperationProtectionDescription;
+	UnsafeOperationProtectionDescription.UnsafeOperationWarnings = False;
+	If ProcessorName = Undefined Then
+		ExternalDataProcessors.Connect(BinaryDataProcessorDirectory, , False, UnsafeOperationProtectionDescription);
+	Else
+
+		ExternalDataProcessors.Connect(BinaryDataProcessorDirectory, ProcessorName, False, UnsafeOperationProtectionDescription);
+	EndIf;
+EndProcedure
 
 // Returns an exception when searching for object usage locations.
 //
@@ -1242,19 +1934,13 @@ Function AttachAddInFromTemplate(ID, FullTemplateName) Export
 	
 	If Not TemplateExists(FullTemplateName) Then 
 		Raise StrTemplate(
-			NStr("ru = 'Не удалось подключить внешнюю компоненту ""%1"" на сервере
-			           |из %2
-			           |по причине:
-			           |Подключение на сервере не из макета запрещено'; 
-			           |en = 'Cannot attach add-in ""%1"" on the server
+			NStr("en = 'Cannot attach add-in ""%1"" on the server
 			           |from %2.
 			           |Reason:
-			           |On the server, add-ins can only be attached from templates.'"),
-			ID,
-			FullTemplateName);
+			           |On the server, add-ins can only be attached from templates.'"), ID, FullTemplateName);
 	EndIf;
 
-		Location = FullTemplateName;
+	Location = FullTemplateName;
 	SymbolicName = ID + "SymbolicName";
 	
 	If AttachAddIn(Location, SymbolicName) Then
@@ -1272,17 +1958,10 @@ Function AttachAddInFromTemplate(ID, FullTemplateName) Export
 		If AttachableModule = Undefined Then
 
 			ErrorText = StrTemplate(
-					NStr("ru = 'Не удалось создать объект внешней компоненты ""%1"", подключенной на сервере
-				           |из макета ""%2"",
-				           |по причине:
-				           |%3'; 
-				           |en = 'Cannot create an object for add-in ""%1"" that was attached on the server
-				           |from template ""%2.""
-				           |Reason:
-				           |%3'"),
-				ID,
-				Location,
-				ErrorText);
+					NStr("en = 'Cannot create an object for add-in ""%1"" that was attached on the server
+				         |from template ""%2.""
+				         |Reason:
+				         |%3'"), ID, Location, ErrorText);
 
 			WriteLogEvent(
 				NStr("ru = 'Подключение внешней компоненты на сервере'; en = 'Attaching add-in on the server'",					
@@ -1293,28 +1972,21 @@ Function AttachAddInFromTemplate(ID, FullTemplateName) Export
 	Else
 
 		ErrorText = StrTemplate(
-			NStr("ru = 'Не удалось подключить внешнюю компоненту ""%1"" на сервере
-			           |из макета ""%2""
-			           |по причине:
-			           |Метод ПодключитьВнешнююКомпоненту вернул Ложь.'; 
-			           |en = 'Cannot attach add-in ""%1"" on the server
-			           |from template ""%2.""
-			           |Reason:
-			           |Method AttachAddInSSL returned False.'"),
-			ID,
-			Location);
+			NStr("en = 'Cannot attach add-in ""%1"" on the server
+			      |from template ""%2.""
+			      |Reason:
+			      |Method AttachAddInSSL returned False.'"), ID, Location);
 
 		WriteLogEvent(
 			NStr("ru = 'Подключение внешней компоненты на сервере'; en = 'Attaching add-in on the server'",
-			UT_CommonClientServer.DefaultLanguageCode()),
-			EventLogLevel.Error,,,
-			ErrorText);
+			UT_CommonClientServer.DefaultLanguageCode()), EventLogLevel.Error,,, ErrorText);
 
 	EndIf;
 	
 	Return AttachableModule;
 	
 EndFunction
+
 
 // Returns subject details in the string format.
 // 
@@ -1327,10 +1999,12 @@ EndFunction
 Function SubjectString(ReferenceToSubject) Export
 
 	Result = "";
+	
 	//@skip-warning
 	If ReferenceToSubject = Undefined Or ReferenceToSubject.IsEmpty() Then
 		Result = NStr("ru = 'не задан'; en = 'not specified'");
-	ElsIf Metadata.Documents.Contains(ReferenceToSubject.Metadata()) Or Metadata.Enums.Contains(ReferenceToSubject.Metadata()) Then
+	ElsIf Metadata.Documents.Contains(ReferenceToSubject.Metadata()) Or Metadata.Enums.Contains(
+		ReferenceToSubject.Metadata()) Then
 		Result = String(ReferenceToSubject);
 	Else
 		//@skip-warning	
@@ -1339,10 +2013,11 @@ Function SubjectString(ReferenceToSubject) Export
 			//@skip-warning
 			ObjectPresentation = ReferenceToSubject.Metadata().Presentation();
 		EndIf;
-			Result = StrTemplate("%1 (%2)", String(ReferenceToSubject), ObjectPresentation);
+		Result = StrTemplate("%1 (%2)", String(ReferenceToSubject), ObjectPresentation);
 	EndIf;
 	
 	Return Result;
+	
 EndFunction
 
 Procedure RegisterReplacementError(Result, Val Ref, Val ErrorDescription)
@@ -1372,13 +2047,45 @@ EndFunction
 // Returns a type description that includes all configuration reference types.
 //
 // Returns:
-//  TypesDescription - all reference types in the configuration.
-
+// 	TypeDescription - all reference types in the configuration.
+//
 Function AllRefsTypeDescription() Export
 
 	Return UT_CommonCached.AllRefsTypeDescription();
 
 EndFunction
+
+// Returns a type description that includes primitive types.
+//
+// Returns:
+// 	TypeDescription - Type description that includes primitive types
+//
+Function PrimitiveTypesDescription() Export
+	
+	Return UT_CommonCached.PrimitiveTypeDescription();
+	
+EndFunction
+
+
+//// Type Name. May not always return a convertible type. 
+//// Anything found should be added to exceptions.
+//// 
+//// Parameters:
+////  Type - Type
+//// 
+//// Returns:
+////  String - Type Name
+//Function TypeName(Type) Export
+// If IsReference(Type) Then
+// 	Return XDTOSerializer.XMLType(Type).TypeName;
+// Else
+//  // Handle specific things that may not work in reverse
+// 	If Type = Type("BinaryData") Then
+// 		Return "BinaryData";
+// 	EndIf;
+// EndIf;
+// EndFunction
+
 
 #Region ObjectsComparison
 
@@ -1407,7 +2114,7 @@ Procedure AddObjectsArrayToCompare(Objects) Export
 		AddObjectToComparingObjectsArray(ObjectsArrayToCompare, Objects);
 	Endif;
 
-	UT_Common.SystemSettingsStorageSave(
+	SystemSettingsStorageSave(
 		UT_CommonClientServer.ObjectKeyInSettingsStorage(), ObjectsToCompareSettingsKey(),
 		ObjectsArrayToCompare);
 
@@ -1426,7 +2133,7 @@ Function ObjectsAddedToTheComparison() Export
 EndFunction
 
 Procedure ClearObjectsAddedToTheComparison() Export
-	UT_Common.SystemSettingsStorageSave(
+	SystemSettingsStorageSave(
 		UT_CommonClientServer.ObjectKeyInSettingsStorage(), ObjectsToCompareSettingsKey(), New Array);
 EndProcedure
 
@@ -1443,6 +2150,7 @@ Function NewStructureOfAdditionalDataProcessorDebugSettings ()  Export
 	Structure.Insert("DebugEnabled", False);
 	Structure.Insert("FileNameOnServer", "");
 	Structure.Insert("User", Undefined);
+	
 	Return Structure;
 EndFunction
 
@@ -1475,7 +2183,7 @@ Procedure SaveAdditionalDataProcessorDebugSettings(AdditionalDataProcessor, Sett
 
 	SettingsMap.Insert(AdditionalDataProcessor, Settings);
 
-	UT_Common.SystemSettingsStorageSave(
+	SystemSettingsStorageSave(
 		ObjectKey, SettingsKey, SettingsMap);
 
 EndProcedure
@@ -1553,6 +2261,7 @@ Function ReplaceReferences(Val ReplacementPairs, Val Parameters = Undefined) Exp
 	Result.Insert("HasErrors", False);
 	Result.Insert("Errors", ReplacementErrors);
 	
+	// Default values
 	ExecutionParameters = New Structure;
 	ExecutionParameters.Insert("DeleteDirectly",     False);
 	ExecutionParameters.Insert("MarkForDeletion",         False);
@@ -1598,20 +2307,23 @@ Function ReplaceReferences(Val ReplacementPairs, Val Parameters = Undefined) Exp
 			Continue; // Not replacing self-references and empty references.
 		EndIf;
 		Duplicates.Add(Duplicate);
-	// Skipping intermediate replacements to avoid building a graph (if A->B and B->C, replacing A->C).
+		// Skipping intermediate replacements to avoid building a graph (if A->B and B->C, replacing A->C).
 		OriginalOriginal = ReplacementPairs[Original];
-		HasOriginalOriginal = (OriginalOriginal <> Undefined AND OriginalOriginal <> Duplicate AND OriginalOriginal <> Original);
+		HasOriginalOriginal = (OriginalOriginal <> Undefined AND OriginalOriginal <> Duplicate AND OriginalOriginal 
+			<> Original);
 		If HasOriginalOriginal Then
 			While HasOriginalOriginal Do
 				Original = OriginalOriginal;
 				OriginalOriginal = ReplacementPairs[Original];
-				HasOriginalOriginal = (OriginalOriginal <> Undefined AND OriginalOriginal <> Duplicate AND OriginalOriginal <> Original);
+				HasOriginalOriginal = (OriginalOriginal <> Undefined AND OriginalOriginal <> Duplicate 
+					AND OriginalOriginal <> Original);
 			EndDo;
 			ReplacementPairs.Insert(Duplicate, Original);
 		EndIf;
 	EndDo;
 
-//	If ExecutionParameters.TakeAppliedRulesIntoAccount AND SubsystemExists("StandardSubsystems.DuplicateObjectDetection") Then
+//	If ExecutionParameters.TakeAppliedRulesIntoAccount AND SubsystemExists(
+//		"StandardSubsystems.DuplicateObjectDetection") Then
 //		ModuleDuplicateObjectsDetection = CommonModule("DuplicateObjectDetection");
 //		Errors = ModuleDuplicateObjectsDetection.CheckCanReplaceItems(ReplacementPairs, Parameters);
 //		For Each KeyValue In Errors Do
@@ -1675,15 +2387,15 @@ Function ReplaceReferences(Val ReplacementPairs, Val Parameters = Undefined) Exp
 		EndIf;
 
 		//If SubsystemExists("StandardSubsystems.AccessManagement") Then
-		//			ModuleAccessManagement = CommonModule("AccessManagement");
-		//			ModuleAccessManagement.DisableAccessKeysUpdate(False);
-		//		EndIf;
+		//	ModuleAccessManagement = CommonModule("AccessManagement");
+		//	ModuleAccessManagement.DisableAccessKeysUpdate(False);
+		//EndIf;
 
 	Except
 		//If SubsystemExists("StandardSubsystems.AccessManagement") Then
-		//			ModuleAccessManagement = CommonModule("AccessManagement");
-		//			ModuleAccessManagement.DisableAccessKeysUpdate(False);
-		//		EndIf;
+		//	ModuleAccessManagement = CommonModule("AccessManagement");
+		//	ModuleAccessManagement.DisableAccessKeysUpdate(False);
+		//EndIf;
 		Raise;
 	EndTry;
 	
@@ -1695,7 +2407,7 @@ EndFunction
 // When called in a shared session, does not find references in separated areas.
 //
 // Parameters:
-//     RefSet     - Array - references whose usage instances are to be found.
+//     RefSet - Array - references whose usage instances are to be found.
 //     ResultAddress - String - an optional address in the temporary storage where the replacement 
 //                                result copy will be stored.
 // 
@@ -1758,7 +2470,8 @@ Function UsageInstances(Val RefSet, Val ResultAddress = "") Export
 			Presentation = UsageInstance.Metadata.Presentation() + " (" + NStr("ru = 'константа'; en = 'constant'") + ")";
 			
 		ElsIf SequenceMetadata.Contains(UsageInstance.Metadata) Then
-			Presentation = UsageInstance.Metadata.Presentation() + " (" + NStr("ru = 'последовательность'; en = 'sequence'") + ")";
+			Presentation = UsageInstance.Metadata.Presentation() + " (" + NStr("ru = 'последовательность'; en = 'sequence'") 
+			+ ")";
 			
 		ElsIf DataType = Undefined Then
 			Presentation = String(UsageInstance.Data);
@@ -1820,6 +2533,7 @@ Function UsageInstances(Val RefSet, Val ResultAddress = "") Export
 EndFunction
 
 #EndRegion
+
 #Region AddIn
 
 // Checking extension and configuration metadata for the template.
@@ -1909,7 +2623,8 @@ Function RecordSetDimensionsDetails(Val RegisterMetadata, RegisterDimensionCache
 		ElsIf MetaPeriod = Periodicity.Quarter Then
 			DimensionData.Type           = New TypeDescription("Date");
 			DimensionData.Presentation = NStr("ru='Период'; en = 'Period'");
-			DimensionData.Format        =  NStr("ru = 'ДФ=''к """"квартал """"yyyy """"г.""""''; ДП=''Дата не задана'''; en = 'DF=''""""Q""""q yyyy''; DE=''No date set'''");
+			DimensionData.Format        =  NStr(
+				"ru = 'ДФ=''к """"квартал """"yyyy """"г.""""''; ДП=''Дата не задана'''; en = 'DF=''""""Q""""q yyyy''; DE=''No date set'''");
 			DimensionsDetails.Insert("Period", DimensionData);
 			
 		ElsIf MetaPeriod = Periodicity.Month Then
@@ -1934,7 +2649,7 @@ Function RecordSetDimensionsDetails(Val RegisterMetadata, RegisterDimensionCache
 		
 	EndIf;
 	
-		// All dimensions.
+	// All dimensions.
 	For Each MetaDimension In RegisterMetadata.Dimensions Do
 		DimensionData = New Structure("Master, Presentation, Format, Type");
 		DimensionData.Type           = MetaDimension.Type;
@@ -1979,9 +2694,8 @@ Function MarkUsageInstances(Val ExecutionParameters, Val Ref, Val DestinationRef
 			UsageInstance.ReplacementKey = "InformationRegister";
 			UsageInstance.DestinationRef = DestinationRef;
 			
-		ElsIf Information.Kind = "ACCOUNTINGREGISTER"
-			Or Information.Kind = "ACCUMULATIONREGISTER"
-			Or Information.Kind = "CALCULATIONREGISTER" Then
+		ElsIf Information.Kind = "ACCOUNTINGREGISTER" Or Information.Kind = "ACCUMULATIONREGISTER" Or Information.Kind 
+			= "CALCULATIONREGISTER" Then
 			UsageInstance.ReplacementKey = "RecordKey";
 			UsageInstance.DestinationRef = DestinationRef;
 			
@@ -2133,8 +2847,7 @@ Procedure ReplaceRefUsingSingleTransaction(Result, Val Duplicate, Val ExecutionP
 		If ActionState = "LockError" Then
 			ErrorPresentation = DetailErrorDescription(ErrorInfo());
 			Error = StrTemplate(NStr("ru = 'Не удалось заблокировать все места использования %1:';
-			| en = 'Cannot lock all usage instances of %1:'") 
-				+ Chars.LF + ErrorPresentation, Duplicate);
+			| en = 'Cannot lock all usage instances of %1:'") + Chars.LF + ErrorPresentation, Duplicate);
 			RegisterReplacementError(Result, Duplicate, 
 				ReplacementErrorDescription("LockError", Undefined, Undefined, Error));
 		Else
@@ -2144,7 +2857,8 @@ Procedure ReplaceRefUsingSingleTransaction(Result, Val Duplicate, Val ExecutionP
 	
 EndProcedure
 
-Procedure ReplaceInConstant(Result, Val UsageInstance, Val WriteParameters, Val InnerTransaction = True)
+Procedure ReplaceInConstant(Result, Val UsageInstance, Val WriteParameters, 
+	Val InnerTransaction = True)
 	
 	SetPrivilegedMode(True);
 	
@@ -2174,9 +2888,7 @@ Procedure ReplaceInConstant(Result, Val UsageInstance, Val WriteParameters, Val 
 			Try
 				Lock.Lock();
 			Except
-				Error = StrTemplate(NStr("ru = 'Не удалось заблокировать константу %1'; 
-				|en = 'Cannot lock the constant %1.'"), 
-					DataPresentation);
+				Error = StrTemplate(NStr("ru = 'Не удалось заблокировать константу %1'; en = 'Cannot lock the constant %1.'"), DataPresentation);
 				ActionState = "LockError";
 				Raise;
 			EndTry;
@@ -2209,8 +2921,7 @@ Procedure ReplaceInConstant(Result, Val UsageInstance, Val WriteParameters, Val 
 			WriteObjectOnRefsReplace(Manager, WriteParameters);
 		Except
 			ErrorDescription = BriefErrorDescription(ErrorInfo());
-			Error = StrTemplate(NStr("ru = 'Не удалось записать %1 по причине: %2'; 
-			|en = 'Cannot save %1. Reason: %2'"), 
+			Error = StrTemplate(NStr("ru = 'Не удалось записать %1 по причине: %2'; en = 'Cannot save %1. Reason: %2'"), 
 				DataPresentation, ErrorDescription);
 			ActionState = "WritingError";
 			Raise;
@@ -2242,7 +2953,8 @@ Procedure ReplaceInConstant(Result, Val UsageInstance, Val WriteParameters, Val 
 	
 EndProcedure
 
-Procedure ReplaceInObject(Result, Val UsageInstance, Val ExecutionParameters, Val InnerTransaction = True)
+Procedure ReplaceInObject(Result, Val UsageInstance, Val ExecutionParameters, 
+	Val InnerTransaction = True)
 	
 	SetPrivilegedMode(True);
 	
@@ -2269,17 +2981,14 @@ Procedure ReplaceInObject(Result, Val UsageInstance, Val ExecutionParameters, Va
 			Except
 				ActionState = "LockError";
 				ErrorText = StrTemplate(
-					NStr("ru = 'Не удалось заблокировать объект ""%1"":
-					|%2'; 
-					|en = 'Cannot lock object %1:
-					|%2'"),
-					DataPresentation,
-					BriefErrorDescription(ErrorInfo()));
+					NStr("ru = 'Не удалось заблокировать объект ""%1"": %2'; 
+					|en = 'Cannot lock object %1: %2'"), DataPresentation, BriefErrorDescription(ErrorInfo()));
 				Raise;
 			EndTry;
 		EndIf;
 
-		WritingObjects = ModifiedObjectsOnReplaceInObject(ExecutionParameters, UsageInstance, RowsToProcess);
+		WritingObjects = ModifiedObjectsOnReplaceInObject(ExecutionParameters, UsageInstance, 
+			RowsToProcess);
 		
 		// Attempting to save. The object goes last.
 		If Not ExecutionParameters.WriteInPrivilegedMode Then
@@ -2341,7 +3050,8 @@ Procedure ReplaceInObject(Result, Val UsageInstance, Val ExecutionParameters, Va
 	
 EndProcedure
 
-Procedure ReplaceInSet(Result, Val UsageInstance, Val ExecutionParameters, Val InnerTransaction = True)
+Procedure ReplaceInSet(Result, Val UsageInstance, Val ExecutionParameters, 
+	Val InnerTransaction = True)
 	SetPrivilegedMode(True);
 
 	Data = UsageInstance.Data;
@@ -2381,12 +3091,13 @@ Procedure ReplaceInSet(Result, Val UsageInstance, Val ExecutionParameters, Val I
 			For Each KeyValue In SetDetails.MeasurementList Do
 				DimensionType = KeyValue.Value;
 				Name          = KeyValue.Key;
-				Value     = Data[Name];
+				Value     	  = Data[Name];
 				
 				For Each Row In RowsToProcess Do
 					CurrentRef = Row.Ref;
 					If DimensionType.ContainsType(TypeOf(CurrentRef)) Then
-						Lock.Add(SetDetails.LockSpace).SetValue(Name, CurrentRef);
+						Lock.Add(SetDetails.LockSpace).SetValue(Name, 
+							CurrentRef);
 					EndIf;
 				EndDo;
 				
@@ -2396,8 +3107,7 @@ Procedure ReplaceInSet(Result, Val UsageInstance, Val ExecutionParameters, Val I
 			Try
 				Lock.Lock();
 			Except
-				Error = StrTemplate(NStr("ru = 'Не удалось заблокировать набор %1'; en = 'Cannot lock record set %1.'"), 
-					DataPresentation);
+				Error = StrTemplate(NStr("ru = 'Не удалось заблокировать набор %1'; en = 'Cannot lock record set %1.'"), DataPresentation);
 				ActionState = "LockError";
 				Raise;
 			EndTry;
@@ -2405,7 +3115,8 @@ Procedure ReplaceInSet(Result, Val UsageInstance, Val ExecutionParameters, Val I
 		EndIf;
 
 		RecordSet.Read();
-		ReplaceInRowCollection("RecordSet", "RecordSet", RecordSet, RecordSet, SetDetails.FieldList, ReplacementPairs);
+		ReplaceInRowCollection("RecordSet", "RecordSet", RecordSet, RecordSet, SetDetails.FieldList, 
+			ReplacementPairs);
 		
 		If RecordSet.Modified() Then
 			If InnerTransaction Then
@@ -2455,14 +3166,15 @@ Procedure ReplaceInSet(Result, Val UsageInstance, Val ExecutionParameters, Val I
 	
 EndProcedure
 
-Procedure ReplaceInInformationRegister(Result, Val UsageInstance, Val ExecutionParameters, Val InnerTransaction = True)
+Procedure ReplaceInInformationRegister(Result, Val UsageInstance, Val ExecutionParameters, 
+	Val InnerTransaction = True)
 	
 	If UsageInstance.Processed Then
 		Return;
 	EndIf;
 	UsageInstance.Processed = True;
 	
-		// If the duplicate is specified in set dimensions, two record sets are used:
+	// If the duplicate is specified in set dimensions, two record sets are used:
 	//     DuplicateRecordSet - reads old values (by old dimensions) and deletes old values.
 	//     OriginalRecordSet - reads actual values (by new dimensions) and writes new values.
 	//     Data of duplicates and originals are merged by the rules:
@@ -2488,8 +3200,7 @@ Procedure ReplaceInInformationRegister(Result, Val UsageInstance, Val ExecutionP
 	TwoSetsRequired = False;
 	For Each KeyValue In Information.Dimensions Do
 		DuplicateDimensionValue = RegisterRecordKey[KeyValue.Key];
-		If DuplicateDimensionValue = Duplicate
-			Or ExecutionParameters.SuccessfulReplacements[DuplicateDimensionValue] = Duplicate Then
+		If DuplicateDimensionValue = Duplicate Or ExecutionParameters.SuccessfulReplacements[DuplicateDimensionValue] = Duplicate Then
 			TwoSetsRequired = True; // Duplicate is specified in dimensions.
 			Break;
 		EndIf;
@@ -2665,7 +3376,7 @@ Function ModifiedObjectsOnReplaceInObject(ExecutionParameters, UsageInstance, Ro
 		Return Modified;
 	EndIf;
 
-		For Each RegisterRecordDetails In RegisterRecordsDetails Do
+	For Each RegisterRecordDetails In RegisterRecordsDetails Do
 		RegisterRecordDetails.RecordSet.Filter.Recorder.Set(Data);
 		RegisterRecordDetails.RecordSet.Read();
 	EndDo;
@@ -2680,7 +3391,8 @@ Function ModifiedObjectsOnReplaceInObject(ExecutionParameters, UsageInstance, Ro
 	For Each UsageInstance In RowsToProcess Do
 		ReplacementPairs.Insert(UsageInstance.Ref, UsageInstance.DestinationRef);
 	EndDo;
-		// Attributes
+	
+	// Attributes
 	For Each KeyValue In Details.Attributes Do
 		Name = KeyValue.Key;
 		DestinationRef = ReplacementPairs[ Object[Name] ];
@@ -2703,44 +3415,27 @@ Function ModifiedObjectsOnReplaceInObject(ExecutionParameters, UsageInstance, Ro
 	// Tabular sections
 	For Each Item In Details.TabularSections Do
 		ReplaceInRowCollection(
-			"TabularSections",
-			Item.Name,
-			Object,
-			Object[Item.Name],
-			Item.FieldList,
-			ReplacementPairs);
+			"TabularSections", Item.Name, Object, Object[Item.Name], Item.FieldList, ReplacementPairs);
 	EndDo;
 	
 	// Standard tabular section.
 	For Each Item In Details.StandardTabularSections Do
 		ReplaceInRowCollection(
-			"StandardTabularSections",
-			Item.Name,
-			Object,
-			Object[Item.Name],
-			Item.FieldList,
-			ReplacementPairs);
+			"StandardTabularSections", Item.Name, Object, Object[Item.Name], Item.FieldList, ReplacementPairs);
 	EndDo;
 		
 	// RegisterRecords
 	For Each RegisterRecordDetails In RegisterRecordsDetails Do
 		ReplaceInRowCollection(
-			"RegisterRecords",
-			RegisterRecordDetails.LockSpace,
-			RegisterRecordDetails.RecordSet,
-			RegisterRecordDetails.RecordSet,
-			RegisterRecordDetails.FieldList,
-			ReplacementPairs);
+			"RegisterRecords", RegisterRecordDetails.LockSpace, RegisterRecordDetails.RecordSet,
+			RegisterRecordDetails.RecordSet, RegisterRecordDetails.FieldList, ReplacementPairs);
 	EndDo;
 	
 	// Sequences
 	For Each SequenceDetails In SequencesDetails Do
 		ReplaceInRowCollection(
-			"Sequences",
-			SequenceDetails.LockSpace,
-			SequenceDetails.RecordSet,
-			SequenceDetails.RecordSet,
-			SequenceDetails.FieldList,
+			"Sequences", SequenceDetails.LockSpace, SequenceDetails.RecordSet,
+			SequenceDetails.RecordSet, SequenceDetails.FieldList, 
 			ReplacementPairs);
 	EndDo;
 	
@@ -2764,13 +3459,14 @@ Function ModifiedObjectsOnReplaceInObject(ExecutionParameters, UsageInstance, Ro
 	Return Modified;
 EndFunction
 
-Procedure RegisterReplacement(Object, DuplicateRef, OriginalRef, AttributeKind, AttributeName, Index = Undefined, ColumnName = Undefined)
+Procedure RegisterReplacement(Object, DuplicateRef, OriginalRef, AttributeKind, AttributeName, 
+	Index = Undefined, ColumnName = Undefined)
 	Structure = New Structure("AdditionalProperties");
 	FillPropertyValues(Structure, Object);
 	If TypeOf(Structure.AdditionalProperties) <> Type("Structure") Then
 		Return;
 	EndIf;
-AuxProperties = Object.AdditionalProperties;
+	AuxProperties = Object.AdditionalProperties;
 	AuxProperties.Insert("ReferenceReplacement", True);
 	CompletedReplacements = UT_CommonClientServer.StructureProperty(AuxProperties, "CompletedReplacements");
 	If CompletedReplacements = Undefined Then
@@ -2845,14 +3541,15 @@ Procedure DeleteRefsNotExclusive(Result, Val RefsList, Val ExecutionParameters, 
 			
 			Try
 				If DeleteDirectly Then
-					ProcessObjectWithMessageInterceptionOnRefsReplace(Object, "DirectDeletion", Undefined, ExecutionParameters);
+					ProcessObjectWithMessageInterceptionOnRefsReplace(Object, "DirectDeletion", Undefined, 
+					ExecutionParameters);
 				Else
-					ProcessObjectWithMessageInterceptionOnRefsReplace(Object, "DeletionMark", Undefined, ExecutionParameters);
+					ProcessObjectWithMessageInterceptionOnRefsReplace(Object, "DeletionMark", Undefined, 
+					ExecutionParameters);
 				EndIf;
 			Except
-				ErrorText = NStr("ru = 'Ошибка удаления'; en = 'Deletion error.'")
-					+ Chars.LF
-					+ TrimAll(BriefErrorDescription(ErrorInfo()));
+				ErrorText = NStr("ru = 'Ошибка удаления'; en = 'Deletion error.'") + Chars.LF + TrimAll(
+					BriefErrorDescription(ErrorInfo()));
 				ErrorDescription = ReplacementErrorDescription("DeletionError", Ref, RefPresentation, ErrorText);
 				RegisterReplacementError(Result, Ref, ErrorDescription);
 			EndTry;
@@ -2889,12 +3586,11 @@ Procedure AddModifiedObjectReplacementResults(Result, RepeatSearchTable)
 		DataPresentation = String(Data);
 		
 		Filter.ErrorObject = Data;
-		Filter.Ref       = Ref;
+		Filter.Ref = Ref;
 		If Result.Errors.FindRows(Filter).Count() > 0 Then
 			Continue; // Error on this issue has already been recorded.
 		EndIf;
-		RegisterReplacementError(Result, Ref, 
-			ReplacementErrorDescription("DataChanged", Data, DataPresentation,
+		RegisterReplacementError(Result, Ref, ReplacementErrorDescription("DataChanged", Data, DataPresentation,
 			NStr("ru = 'Заменены не все места использования. Возможно места использования были добавлены или изменены другим пользователем.';
 			|en = 'Some of the instances were not replaced. Probably these instances were added or edited by other users.'")));
 	EndDo;
@@ -2928,10 +3624,11 @@ Procedure LockUsageInstance(ExecutionParameters, Lock, UsageInstance)
 		// Register records by recorder.
 		RegisterRecordsDetails = RegisterRecordsDetails(ObjectMetadata);
 		For Each Item In RegisterRecordsDetails Do
-			Lock.Add(Item.LockSpace + ".RecordSet").SetValue("Recorder", ObjectRef);
+			Lock.Add(Item.LockSpace + ".RecordSet").SetValue("Recorder", 
+			ObjectRef);
 		EndDo;
 		
-		/// Sequences.
+		// Sequences.
 		SequencesDetails = SequencesDetails(ObjectMetadata);
 		For Each Item In SequencesDetails Do
 			Lock.Add(Item.LockSpace).SetValue("Recorder", ObjectRef);
@@ -2947,8 +3644,7 @@ Procedure LockUsageInstance(ExecutionParameters, Lock, UsageInstance)
 			Lock.Add(Item.LockSpace).SetValue("Recorder", ObjectRef);
 		EndDo;
 
-	ElsIf UsageInstance.ReplacementKey = "RecordKey"
-		Or UsageInstance.ReplacementKey = "InformationRegister" Then
+	ElsIf UsageInstance.ReplacementKey = "RecordKey" Or UsageInstance.ReplacementKey = "InformationRegister" Then
 		
 		Information = TypeInformation(UsageInstance.Metadata, ExecutionParameters);
 		DuplicateType = UsageInstance.RefType;
@@ -3091,7 +3787,8 @@ Function ObjectDetails(Val Meta)
 			EndDo;
 			
 			If FieldsList.Count() > 0 Then
-				ObjectDetails.TabularSections.Add(New Structure("Name, FieldList", MetaTable.Name, FieldsList));
+				ObjectDetails.TabularSections.Add(New Structure("Name, FieldList", MetaTable.Name, 
+					FieldsList));
 			EndIf;
 		EndDo;
 	EndIf;
@@ -3108,7 +3805,8 @@ Function ObjectDetails(Val Meta)
 			EndDo;
 			
 			If FieldsList.Count() > 0 Then
-				ObjectDetails.StandardTabularSections.Add(New Structure("Name, FieldList", MetaTable.Name, FieldsList));
+				ObjectDetails.StandardTabularSections.Add(New Structure("Name, FieldList", MetaTable.Name, 
+					FieldsList));
 			EndIf;
 		EndDo;
 	EndIf;
@@ -3171,7 +3869,6 @@ Function FieldListsByType(Val DataSource, Val MetaDimensions, Val ExcludeFields)
 	Details.Insert("DimensionStructure", New Structure);
 	Details.Insert("MasterDimentionList",   New Structure);
 	
-
 	ControlType = AllRefsTypeDescription();
 	ToExclude = New Structure(ExcludeFields);
 	
@@ -3219,7 +3916,8 @@ Procedure ReplaceInRowCollection(CollectionKind, CollectionName, Object, Collect
 			Name = KeyValue.Key;
 			DestinationRef = ReplacementPairs[ Row[Name] ];
 			If DestinationRef <> Undefined Then
-				RegisterReplacement(Object, Row[Name], DestinationRef, CollectionKind, CollectionName, WorkingCollection.IndexOf(Row), Name);
+				RegisterReplacement(Object, Row[Name], DestinationRef, CollectionKind, CollectionName, 
+					WorkingCollection.IndexOf(Row), Name);
 				Row[Name] = DestinationRef;
 				Modified = True;
 			EndIf;
@@ -3232,7 +3930,8 @@ Procedure ReplaceInRowCollection(CollectionKind, CollectionName, Object, Collect
 	EndIf;
 EndProcedure
 
-Procedure ProcessObjectWithMessageInterceptionOnRefsReplace(Val Object, Val Action, Val WriteMode, Val WriteParameters)
+Procedure ProcessObjectWithMessageInterceptionOnRefsReplace(Val Object, Val Action, Val WriteMode, 
+	Val WriteParameters)
 	
     // Saving the current messages before the exception.
 	PreviousMessages = GetUserMessages(True);
@@ -3276,7 +3975,8 @@ Procedure WriteObjectOnRefsReplace (Val Object, Val WriteParameters)
 	ObjectMetadata = Object.Metadata();
 	
 	If IsDocument(ObjectMetadata) Then
-		ProcessObjectWithMessageInterceptionOnRefsReplace(Object, "Write", DocumentWriteMode.Write, WriteParameters);
+		ProcessObjectWithMessageInterceptionOnRefsReplace(Object, "Write", DocumentWriteMode.Write, 
+			WriteParameters);
 		Return;
 	EndIf;
 	
@@ -3288,25 +3988,20 @@ Procedure WriteObjectOnRefsReplace (Val Object, Val WriteParameters)
 	If ObjectProperties.Hierarchical Or ObjectProperties.ExtDimensionTypes <> Undefined Then 
 		
 		If Object.Parent = Object.Ref Then
-			Raise StrTemplate(
-				NStr("ru = 'При записи ""%1"" возникает циклическая ссылка в иерархии.'; 
-				|en = 'Writing ""%1"" causes an infinite loop in the hierarchy.'"),
-				String(Object));
+			Raise StrTemplate(NStr("ru = 'При записи ""%1"" возникает циклическая ссылка в иерархии.'; 
+				|en = 'Writing ""%1"" causes an infinite loop in the hierarchy.'"), String(Object));
 			EndIf;
 			
 	EndIf;
 	
 	// Checking the owner.
 	If ObjectProperties.Owners.Count() > 1 AND Object.Owner = Object.Ref Then
-		Raise StrTemplate(
-			NStr("ru = 'При записи ""%1"" возникает циклическая ссылка в подчинении.'; 
-			|en = 'Writing ""%1"" causes an infinite loop in the subordination.'"),
-			String(Object));
+		Raise StrTemplate(NStr("ru = 'При записи ""%1"" возникает циклическая ссылка в подчинении.'; 
+			|en = 'Writing ""%1"" causes an infinite loop in the subordination.'"), String(Object));
 	EndIf;
 	
 	// For sequences, the Update right can be absent even in the FullAdministrator role.
-	If IsSequence(ObjectMetadata)
-		AND Not AccessRight("Update", ObjectMetadata)
+	If IsSequence(ObjectMetadata) AND Not AccessRight("Update", ObjectMetadata)
 		AND UT_Users.IsFullUser(,, False) Then
 		
 		SetPrivilegedMode(True);
@@ -3326,11 +4021,8 @@ Procedure RegisterErrorInTable(Result, Duplicate, Original, Data, Information, E
 	Result.HasErrors = True;
 	
 	WriteLogEvent(
-		RefReplacementEventLogMessageText(),
-		EventLogLevel.Error,
-		,
-		,
-		DetailErrorDescription(ErrorInformation));
+		RefReplacementEventLogMessageText(), EventLogLevel.Error, , , DetailErrorDescription(
+		ErrorInformation));
 	
 	FullDataPresentation = String(Data) + " (" + Information.ItemPresentation + ")";
 	
@@ -3389,10 +4081,10 @@ Function TypeInformation(FullNameOrMetadataOrType, Cache)
 	EndIf;
 
 	Information = New Structure("FullName, ItemPresentation, ListPresentation,
-	|Kind, Reference, Technical, Separated,
-	|Hierarchical,
-	|HasSubordinate, SubordinateItemNames,
-	|Dimensions, Attributes, Resources");
+								|Kind, Reference, Technical, Separated,
+								|Hierarchical,
+								|HasSubordinate, SubordinateItemNames,
+								|Dimensions, Attributes, Resources");
 	TypesInformation.Insert(FullName, Information);
 	
 	// Fill in basic information.
@@ -3416,24 +4108,17 @@ Function TypeInformation(FullNameOrMetadataOrType, Cache)
 		Information.ListPresentation = MetadataObject.Presentation();
 	EndIf;
 	
-		// Kind and its properties.
+	// Kind and its properties.
 	Information.Kind = Left(Information.FullName, StrFind(Information.FullName, ".")-1);
-	If Information.Kind = "CATALOG"
-		Or Information.Kind = "DOCUMENT"
-		Or Information.Kind = "ENUM"
-		Or Information.Kind = "CHARTOFCHARACTERISTICTYPES"
-		Or Information.Kind = "CHARTOFACCOUNTS"
-		Or Information.Kind = "CHARTOFCALCULATIONTYPES"
-		Or Information.Kind = "BUSINESSPROCESS"
-		Or Information.Kind = "TASK"
-		Or Information.Kind = "EXCHANGEPLAN" Then
+	If Information.Kind = "CATALOG" Or Information.Kind = "DOCUMENT" Or Information.Kind = "ENUM"
+		Or Information.Kind = "CHARTOFCHARACTERISTICTYPES" Or Information.Kind = "CHARTOFACCOUNTS" Or Information.Kind = "CHARTOFCALCULATIONTYPES"
+		Or Information.Kind = "BUSINESSPROCESS" Or Information.Kind = "TASK" Or Information.Kind = "EXCHANGEPLAN" Then
 		Information.Reference = True;
 	Else
 		Information.Reference = False;
 	EndIf;
 
-		If Information.Kind = "CATALOG"
-		Or Information.Kind = "CHARTOFCHARACTERISTICTYPES" Then
+		If Information.Kind = "CATALOG"	Or Information.Kind = "CHARTOFCHARACTERISTICTYPES" Then
 		Information.Hierarchical = MetadataObject.Hierarchical;
 	ElsIf Information.Kind = "CHARTOFACCOUNTS" Then
 		Information.Hierarchical = True;
@@ -3442,11 +4127,8 @@ Function TypeInformation(FullNameOrMetadataOrType, Cache)
 	EndIf;
 
 		Information.HasSubordinate = False;
-	If Information.Kind = "CATALOG"
-		Or Information.Kind = "CHARTOFCHARACTERISTICTYPES"
-		Or Information.Kind = "EXCHANGEPLAN"
-		Or Information.Kind = "CHARTOFACCOUNTS"
-		Or Information.Kind = "CHARTOFCALCULATIONTYPES" Then
+	If Information.Kind = "CATALOG"	Or Information.Kind = "CHARTOFCHARACTERISTICTYPES" Or Information.Kind = "EXCHANGEPLAN"
+		Or Information.Kind = "CHARTOFACCOUNTS"	Or Information.Kind = "CHARTOFCALCULATIONTYPES" Then
 		For Each Catalog In Metadata.Catalogs Do
 			If Catalog.Owners.Contains(MetadataObject) Then
 				If Information.HasSubordinate = False Then
@@ -3458,8 +4140,8 @@ Function TypeInformation(FullNameOrMetadataOrType, Cache)
 		EndDo;
 	EndIf;
 
-	If Information.FullName = "CATALOG.METADATAOBJECTIDS"
-		Or Information.FullName = "CATALOG.PREDEFINEDREPORTSOPTIONS" Then
+	If Information.FullName = "CATALOG.METADATAOBJECTIDS" Or Information.FullName 
+		= "CATALOG.PREDEFINEDREPORTSOPTIONS" Then
 		Information.Technical = True;
 		Information.Separated = False;
 	Else
@@ -3467,7 +4149,7 @@ Function TypeInformation(FullNameOrMetadataOrType, Cache)
 		If Not Cache.Property("SaaSModel") Then
 			Cache.Insert("SaaSModel", DataSeparationEnabled());
 			If Cache.SaaSModel Then
-//
+
 //				If SubsystemExists("StandardSubsystems.SaaS") Then
 //					ModuleSaaS = CommonModule("SaaS");
 //					MainDataSeparator = ModuleSaaS.MainDataSeparator();
@@ -3486,7 +4168,8 @@ Function TypeInformation(FullNameOrMetadataOrType, Cache)
 //			If SubsystemExists("StandardSubsystems.SaaS") Then
 //				ModuleSaaS = CommonModule("SaaS");
 //				Try
-//					IsSeparatedMetadataObject = ModuleSaaS.IsSeparatedMetadataObject(MetadataObject);
+//					IsSeparatedMetadataObject = ModuleSaaS.IsSeparatedMetadataObject(
+//					MetadataObject);
 //				Except
 //					IsSeparatedMetadataObject = True;
 //				Endtry;
@@ -3512,14 +4195,16 @@ Function TypeInformation(FullNameOrMetadataOrType, Cache)
 			EndDo;
 		EndIf;
 	EndDo;
-	If Information.Kind = "INFORMATIONREGISTER"
-		AND MetadataObject.InformationRegisterPeriodicity <> Metadata.ObjectProperties.InformationRegisterPeriodicity.Nonperiodical Then
+	If Information.Kind = "INFORMATIONREGISTER"	AND MetadataObject.InformationRegisterPeriodicity 
+		<> Metadata.ObjectProperties.InformationRegisterPeriodicity.Nonperiodical Then
 		AttributeInformation = New Structure("Master, Presentation, Format, Type, DefaultValue, FillFromFillingValue");
 		AttributeInformation.Master = False;
 		AttributeInformation.FillFromFillingValue = False;
-		If MetadataObject.InformationRegisterPeriodicity = Metadata.ObjectProperties.InformationRegisterPeriodicity.RecorderPosition Then
+		If MetadataObject.InformationRegisterPeriodicity 
+			= Metadata.ObjectProperties.InformationRegisterPeriodicity.RecorderPosition Then
 			AttributeInformation.Type = New TypeDescription("PointInTime");
-		ElsIf MetadataObject.InformationRegisterPeriodicity = Metadata.ObjectProperties.InformationRegisterPeriodicity.Second Then
+		ElsIf MetadataObject.InformationRegisterPeriodicity 
+			= Metadata.ObjectProperties.InformationRegisterPeriodicity.Second Then
 			AttributeInformation.Type = New TypeDescription("Date", , , New DateQualifiers(DateFractions.DateTime));
 		Else
 			AttributeInformation.Type = New TypeDescription("Date", , , New DateQualifiers(DateFractions.Date));
@@ -3658,6 +4343,25 @@ Function IsEnum(MetadataObject) Export
 	
 	Return Metadata.Enums.Contains(MetadataObject);
 	
+EndFunction
+
+// This is an enumeration by type.
+// 
+// Parameters:
+// 	Type - Type
+// 
+// Returns:
+// Boolean - This is an enumeration by type
+Function IsEnumbyType(Type) Export
+	If Not IsReference(Type) Then
+		Return False;
+	EndIf;
+	ReferenceEmpty = NewValueByType(Type);
+	If ReferenceEmpty = Undefined Then
+		Return False;
+	EndIf;
+	ReferenceMetadata = ReferenceEmpty.Metadata();
+	Return IsEnum(ReferenceMetadata);
 EndFunction
 
 // Checks whether the metadata object belongs to the Exchange Plan common type.
@@ -3801,6 +4505,7 @@ Function IsCalculationRegister(MetadataObject) Export
 	Return Metadata.CalculationRegisters.Contains(MetadataObject);
 	
 EndFunction
+
 // Constants
 
 // Checks whether the metadata object belongs to the Constant common type.
@@ -3877,8 +4582,7 @@ EndFunction
 //
 Function IsRegister(MetadataObject) Export
 	
-	Return Metadata.AccountingRegisters.Contains(MetadataObject)
-		Or Metadata.AccumulationRegisters.Contains(MetadataObject)
+	Return Metadata.AccountingRegisters.Contains(MetadataObject) Or Metadata.AccumulationRegisters.Contains(MetadataObject)
 		Or Metadata.CalculationRegisters.Contains(MetadataObject)
 		Or Metadata.InformationRegisters.Contains(MetadataObject);
 		
@@ -3898,14 +4602,9 @@ Function IsRefTypeObject(MetadataObject) Export
 	Position = StrFind(MetadataObjectName, ".");
 	If Position > 0 Then 
 		BaseTypeName = Left(MetadataObjectName, Position - 1);
-		Return BaseTypeName = "Catalog"
-			Or BaseTypeName = "Document"
-			Or BaseTypeName = "BusinessProcess"
-			Or BaseTypeName = "Task"
-			Or BaseTypeName = "ChartOfAccounts"
-			Or BaseTypeName = "ExchangePlan"
-			Or BaseTypeName = "ChartOfCharacteristicTypes"
-			Or BaseTypeName = "ChartOfCalculationTypes";
+		Return BaseTypeName = "Catalog"	Or BaseTypeName = "Document" Or BaseTypeName = "BusinessProcess"
+			Or BaseTypeName = "Task" Or BaseTypeName = "ChartOfAccounts" Or BaseTypeName = "ExchangePlan"
+			Or BaseTypeName = "ChartOfCharacteristicTypes" Or BaseTypeName = "ChartOfCalculationTypes";
 	Else
 		Return False;
 	EndIf;
@@ -4009,7 +4708,10 @@ Function BaseTypeNameByMetadataObject(MetadataObject) Export
 	ElsIf Metadata.CalculationRegisters.Contains(MetadataObject.Parent())
 		AND MetadataObject.Parent().Recalculations.Find(MetadataObject.Name) = MetadataObject Then
 		Return "Recalculations";
-		
+	
+	ElsIf Metadata.ExternalDataSources.Contains(MetadataObject) Then
+		Return "ExternalDataSources";
+			
 	Else
 		
 		Return "";
@@ -4041,7 +4743,7 @@ Function ObjectManagerByFullName(FullName) Export
 		MetadataObjectName  = NameParts[1];
 	EndIf;
 	
-	If      Upper(MOClass) = "EXCHANGEPLAN" Then
+	If Upper(MOClass) = "EXCHANGEPLAN" Then
 		Manager = ExchangePlans;
 		
 	ElsIf Upper(MOClass) = "CATALOG" Then
@@ -4120,6 +4822,7 @@ Function ObjectManagerByFullName(FullName) Export
 	EndIf;
 
 	Raise StrTemplate(NStr("ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Invalid metadata object type: %1.'"), FullName);
+	
 EndFunction
 
 // Returns an object manager by the passed object reference.
@@ -4138,6 +4841,7 @@ EndFunction
 //
 Function ObjectManagerByRef(Ref) Export
 	
+	//@skip-warning
 	ObjectName = Ref.Metadata().Name;
 	RefType = TypeOf(Ref);
 	
@@ -4235,6 +4939,21 @@ Function ObjectKindByRef(Ref) Export
 	
 EndFunction 
 
+// New value by type.
+// 
+// Parameters:
+// 	Type - Type.
+// 
+// Returns:
+// 	Undefined, Arbitrary - New Value by Type
+Function NewValueByType(Type) Export
+	Try
+		Return New (Type);
+	Except
+		Return Undefined;
+	EndTry;
+EndFunction
+
 // Returns a metadata object kind name by the passed object type.
 // Restriction: does not process business process route points.
 // See also: ObjectKindByRef.
@@ -4275,12 +4994,12 @@ Function ObjectKindByType(ObjectType) Export
 		Return "Enum";
 	
 	Else
-		
-    Raise StrTemplate(NStr("ru='Неверный тип значения параметра (%1)'; en = 'Invalid parameter value type: %1.'"), String(ObjectType));
+    	Raise StrTemplate(NStr("ru='Неверный тип значения параметра (%1)'; en = 'Invalid parameter value type: %1.'"), String(ObjectType));
 	
 	EndIf;
 	
 EndFunction
+
 // Returns full metadata object name by the passed reference value.
 //
 // Parameters:
@@ -4291,6 +5010,7 @@ EndFunction
 //
 Function TableNameByRef(Ref) Export
 	
+	//@skip-warning
 	Return Ref.Metadata().FullName();
 	
 EndFunction
@@ -4322,15 +5042,16 @@ Function ObjectIsFolder(Object) Export
 	If RefTypeValue(Object) Then
 		Ref = Object;
 	Else
+		//@skip-check reading-attribute-from-database
 		Ref = Object.Ref;
 	EndIf;
 	
+	//@skip-warning
 	ObjectMetadata = Ref.Metadata();
 	
 	If IsCatalog(ObjectMetadata) Then
 		
-		If NOT ObjectMetadata.Hierarchical
-		 OR ObjectMetadata.HierarchyType
+		If NOT ObjectMetadata.Hierarchical OR ObjectMetadata.HierarchyType
 		     <> Metadata.ObjectProperties.HierarchyType.HierarchyFoldersAndItems Then
 			
 			Return False;
@@ -4344,6 +5065,7 @@ Function ObjectIsFolder(Object) Export
 	EndIf;
 	
 	If Ref <> Object Then
+		//@skip-check reading-attribute-from-database
 		Return Object.IsFolder;
 	EndIf;
 	
@@ -4351,7 +5073,7 @@ Function ObjectIsFolder(Object) Export
 	
 EndFunction
 
-/// Returns a string presentation of the type.
+// Returns a string presentation of the type.
 // For reference types, returns a string in format "CatalogRef.ObjectName" or "DocumentRef.ObjectName".
 // For any other types, converts the type to string. Example: "Number".
 //
@@ -4411,7 +5133,7 @@ Function TypePresentationString(Type) Export
 	
 EndFunction
 
-//  Returns a value table with the required property information for all attributes of a metadata object.
+// Returns a value table with the required property information for all attributes of a metadata object.
 // Gets property values of standard and custom attributes (custom attributes are the attributes created in Designer mode).
 //
 // Parameters:
@@ -4454,7 +5176,7 @@ EndFunction
 // Parameters:
 //  StandardAttributes - StandardAttributeDescriptions - the type and value describe a collection of 
 //                                                         settings for various standard attributes;
-//  AttributeName         - String - an attribute to check whether it is a standard attribute or not.
+//  AttributeName - String - an attribute to check whether it is a standard attribute or not.
 //                                  
 // 
 // Returns:
@@ -4475,7 +5197,7 @@ EndFunction
 //
 // Parameters:
 //  AttributeName - String - attribute name.
-//  MetadataObject - MetadataObject - an object to search for the attribute.
+//  ObjectMetadata - MetadataObject - an object to search for the attribute.
 //
 // Returns:
 //  Boolean - True if the attribute is found.
@@ -4490,7 +5212,7 @@ EndFunction
 // type.
 //
 // Parameters:
-//   TypeDetails - TypesDetails - a type collection to check.
+//   TypeDetails - TypeDescription - a type collection to check.
 //   ValueType  - Type - a type to check.
 //
 // Returns:
@@ -4503,8 +5225,7 @@ EndFunction
 //
 Function TypeDetailsContainsType(TypeDetails, ValueType) Export
 	
-	If TypeDetails.Types().Count() = 1
-	   AND TypeDetails.Types().Get(0) = ValueType Then
+	If TypeDetails.Types().Count() = 1 AND TypeDetails.Types().Get(0) = ValueType Then
 		Return True;
 	EndIf;
 	
@@ -4512,71 +5233,12 @@ Function TypeDetailsContainsType(TypeDetails, ValueType) Export
 	
 EndFunction
 
-// Creates a TypesDetails object that contains the String type.
-//
-// Parameters:
-//  StringLength - Number - string length.
-//
-// Returns:
-//  TypesDetails - description of the String type.
-//
-Function StringTypeDetails(StringLength) Export
-
-	Array = New Array;
-	Array.Add(Type("String"));
-
-	StringQualifier = New StringQualifiers(StringLength, AllowedLength.Variable);
-
-	Return New TypeDescription(Array, , StringQualifier);
-
-EndFunction
-
-// Creates a TypesDetails object that contains the Number type.
-//
-// Parameters:
-//  NumberOfDigits - Number - the total number of digits in a number (both in the integer part and 
-//                        the fractional part).
-//  DigitsInFractionalPart - Number - number of digits in the fractional part.
-//  NumberSign - AllowedSign - allowed sign of the number.
-//
-// Returns:
-//  TypesDetails - description of Number type.
-Function TypeDescriptionNumber(NumberOfDigits, DigitsInFractionalPart = 0, NumberSign = Undefined) Export
-
-	If NumberSign = Undefined Then
-		NumberQualifier = New NumberQualifiers(NumberOfDigits, DigitsInFractionalPart);
-	Else
-		NumberQualifier = New NumberQualifiers(NumberOfDigits, DigitsInFractionalPart, NumberSign);
-	EndIf;
-
-	Return New TypeDescription("Number", NumberQualifier);
-
-EndFunction
-
-// Creates a TypesDetails object that contains the Date type.
-//
-// Parameters:
-//  DateParts - DateParts - a set of Date type value usage options.
-//
-// Returns:
-//  TypesDetails - description of Date type.
-Function DateTypeDetails(DateParts) Export
-
-	Array = New Array;
-	Array.Add(Type("Date"));
-
-	DateQualifier = New DateQualifiers(DateParts);
-
-	Return New TypeDescription(Array, , , DateQualifier);
-
-EndFunction
-
 // Return reference create date.
 //
 // Parameters:
 //  Reference - AnyRef - reference to Infobase item,  for which you want to get the result of the function
 // 
-// Return Value:
+// Returns:
 //  Date - reference creation date .
 //
 Function ReferenceCreationDate(Reference) Export
@@ -4593,7 +5255,6 @@ Function ReferenceCreationDate(Reference) Export
 	Return Date(1582, 10, 15, 00, 00, 00) + NumberOfSeconds + StandardTimeOffset() + DaylightTimeOffset();
 		
 EndFunction
-
 
 #EndRegion
 
@@ -4617,8 +5278,7 @@ EndFunction
 //   UpdateCachedValues - Boolean - the flag that indicates whether to execute the method.
 //
 Procedure CommonSettingsStorageSave(ObjectKey, SettingsKey, Settings,
-			SettingsDetails = Undefined,Username = Undefined,UpdateCachedValues = False) Export
-	
+	SettingsDetails = Undefined,Username = Undefined,UpdateCachedValues = False) Export
 	StorageSave(CommonSettingsStorage, ObjectKey, SettingsKey,Settings,
 		SettingsDetails,Username,UpdateCachedValues);
 	
@@ -4639,9 +5299,9 @@ EndProcedure
 //
 //   UpdateCachedValues - Boolean - the flag that indicates whether to execute the method.
 //
-Procedure CommonSettingsStorageSaveArray(MultipleSettings,
-			UpdateCachedValues = False) Export
+Procedure CommonSettingsStorageSaveArray(MultipleSettings, UpdateCachedValues = False) Export
 	SetPrivilegedMode(True);
+	
 	If Not AccessRight("SaveUserData", Metadata) Then
 		Return;
 	EndIf;
@@ -4654,6 +5314,7 @@ Procedure CommonSettingsStorageSaveArray(MultipleSettings,
 		RefreshReusableValues();
 	EndIf;
 	SetPrivilegedMode(False);
+	
 EndProcedure
 
 // Loads a setting from the general settings storage as the Load method, 
@@ -4674,20 +5335,16 @@ EndProcedure
 //   SettingsKey - String - see the Syntax Assistant.
 //   DefaultValue - Arbitrary - a value that is returned if no settings are found.
 //                                             If not specified, returns Undefined.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //
 // Returns:
 //   Arbitrary - see the Syntax Assistant.
 //
 Function CommonSettingsStorageLoad(ObjectKey, SettingsKey, DefaultValue = Undefined, 
-			SettingsDetails = Undefined, Username = Undefined) Export
+	SettingsDetails = Undefined, Username = Undefined) Export
 	
-	Return StorageLoad(CommonSettingsStorage,
-		ObjectKey,
-		SettingsKey,
-		DefaultValue,
-		SettingsDetails,
+	Return StorageLoad(CommonSettingsStorage, ObjectKey, SettingsKey, DefaultValue, SettingsDetails,
 		Username);
 	
 EndFunction
@@ -4705,10 +5362,7 @@ EndFunction
 //
 Procedure CommonSettingsStorageDelete(ObjectKey, SettingsKey, Username) Export
 	
-	StorageDelete(CommonSettingsStorage,
-		ObjectKey,
-		SettingsKey,
-		Username);
+	StorageDelete(CommonSettingsStorage, ObjectKey, SettingsKey, Username);
 	
 EndProcedure
 
@@ -4721,22 +5375,15 @@ EndProcedure
 //   ObjectKey - String - see the Syntax Assistant.
 //   SettingsKey - String - see the Syntax Assistant.
 //   Settings - Arbitrary - see the Syntax Assistant.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //   UpdateCachedValues - Boolean - the flag that indicates whether to execute the method.
 //
-Procedure SystemSettingsStorageSave(ObjectKey, SettingsKey, Settings,
-			SettingsDetails = Undefined,
-			Username = Undefined,
-			UpdateCachedValues = False) Export
+Procedure SystemSettingsStorageSave(ObjectKey, SettingsKey, Settings, SettingsDetails = Undefined,
+	Username = Undefined, UpdateCachedValues = False) Export
 	
-	StorageSave(SystemSettingsStorage, 
-		ObjectKey,
-		SettingsKey,
-		Settings,
-		SettingsDetails,
-		Username,
-		UpdateCachedValues);
+	StorageSave(SystemSettingsStorage, ObjectKey, SettingsKey, Settings, SettingsDetails,
+		Username, UpdateCachedValues);
 	
 EndProcedure
 
@@ -4757,21 +5404,17 @@ EndProcedure
 //   SettingsKey - String - see the Syntax Assistant.
 //   DefaultValue - Arbitrary - a value that is returned if no settings are found.
 //                                             If not specified, returns Undefined.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //
 // Returns:
 //   Arbitrary - see the Syntax Assistant.
 //
 Function SystemSettingsStorageLoad(ObjectKey, SettingsKey, DefaultValue = Undefined, 
-			SettingsDetails = Undefined, Username = Undefined) Export
+	SettingsDetails = Undefined, Username = Undefined) Export
 	
-	Return StorageLoad(SystemSettingsStorage,
-		ObjectKey,
-		SettingsKey,
-		DefaultValue,
-		SettingsDetails,
-		Username);
+	Return StorageLoad(SystemSettingsStorage, ObjectKey, SettingsKey, DefaultValue,
+		SettingsDetails, Username);
 	
 EndFunction
 
@@ -4787,10 +5430,7 @@ EndFunction
 //
 Procedure SystemSettingsStorageDelete(ObjectKey, SettingsKey, Username) Export
 	
-	StorageDelete(SystemSettingsStorage,
-		ObjectKey,
-		SettingsKey,
-		Username);
+	StorageDelete(SystemSettingsStorage, ObjectKey, SettingsKey, Username);
 	
 EndProcedure
 
@@ -4804,22 +5444,15 @@ EndProcedure
 //   ObjectKey - String - see the Syntax Assistant.
 //   SettingsKey - String - see the Syntax Assistant.
 //   Settings - Arbitrary - see the Syntax Assistant.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //   UpdateCachedValues - Boolean - the flag that indicates whether to execute the method.
 //
-Procedure FormDataSettingsStorageSave(ObjectKey, SettingsKey, Settings,
-			SettingsDetails = Undefined,
-			Username = Undefined, 
-			UpdateCachedValues = False) Export
+Procedure FormDataSettingsStorageSave(ObjectKey, SettingsKey, Settings, SettingsDetails = Undefined,
+			Username = Undefined, UpdateCachedValues = False) Export
 	
-	StorageSave(FormDataSettingsStorage,
-		ObjectKey,
-		SettingsKey,
-		Settings,
-		SettingsDetails,
-		Username,
-		UpdateCachedValues);
+	StorageSave(FormDataSettingsStorage, ObjectKey, SettingsKey, Settings, SettingsDetails,
+		Username, UpdateCachedValues);
 	
 EndProcedure
 
@@ -4841,7 +5474,7 @@ EndProcedure
 //   SettingsKey - String - see the Syntax Assistant.
 //   DefaultValue - Arbitrary - a value that is returned if no settings are found.
 //                                             If not specified, returns Undefined.
-//   SettingsDescription - SettingsDescription - see the Syntax Assistant.
+//   SettingsDetails - SettingsDescription - see the Syntax Assistant.
 //   UserName - String - see the Syntax Assistant.
 //
 // Returns:
@@ -4850,12 +5483,8 @@ EndProcedure
 Function FormDataSettingsStorageLoad(ObjectKey, SettingsKey, DefaultValue = Undefined, 
 			SettingsDetails = Undefined, Username = Undefined) Export
 	
-	Return StorageLoad(FormDataSettingsStorage,
-		ObjectKey,
-		SettingsKey,
-		DefaultValue,
-		SettingsDetails, 
-		Username);
+	Return StorageLoad(FormDataSettingsStorage, ObjectKey, SettingsKey, DefaultValue,
+		SettingsDetails, Username);
 	
 EndFunction
 
@@ -4872,17 +5501,15 @@ EndFunction
 //
 Procedure FormDataSettingsStorageDelete(ObjectKey, SettingsKey, Username) Export
 	
-	StorageDelete(FormDataSettingsStorage,
-		ObjectKey,
-		SettingsKey,
-		Username);
+	StorageDelete(FormDataSettingsStorage, ObjectKey, SettingsKey, Username);
 	
 EndProcedure
 
-//// Saves in background mode setting to the system settings storage as the Save method of 
+// Saves in background mode setting to the system settings storage as the Save method of 
 // StandardSettingsStorageManager object. Setting keys exceeding 128 characters are supported by 
 // hashing the key part that exceeds 96 characters.
 // If the SaveUserData right is not granted, data save fails and no error is raised.
+// 
 // Parameters:
 //   ProcedureParameters - Structure -
 //  					* ObjectKey       - String           - see the Syntax Assistant.
@@ -4891,9 +5518,11 @@ EndProcedure
 //  					* SettingsDetails  - SettingsDetails - see the Syntax Assistant.
 //  					* Username   - String           - see the Syntax Assistant.
 //  					* UpdateCachedValues - Boolean - execute platform method with same name.
-//   ResultAddress - String - temp storage address, to save procedure executuon result. required;
-//   AdditionalResultAddress - String - if in ExecutionParameters set parameter AdditionalResult, that contains the address of an additional temporary
-// storage in which to place the result of the procedure. Optional.
+//   ResultAddress - String - temp storage address, 
+//   						  to save procedure executuon result. required;
+//   AdditionalResultAddress - String - if in ExecutionParameters set parameter AdditionalResult,
+//   									that contains the address of an additional temporary
+// 	 									storage in which to place the result of the procedure. Optional.
 //
 Procedure SystemSettingsStorageSaveInBackground(ProcedureParameters, ResultAddress, 
 												AdditionalResultAddress = Undefined) Export
@@ -4912,6 +5541,7 @@ Procedure SystemSettingsStorageSaveInBackground(ProcedureParameters, ResultAddre
 									Username, UpdateCachedValues);
 	
 EndProcedure
+
 #EndRegion
 
 #Region Algorithms
@@ -4931,7 +5561,7 @@ Function GetRefCatalogAlgorithms(Algorithm) Export
 		If Left(Algorithm, 5) = "GUID_" Then // SSL Additional DataProcessor 
 			UUIDString = Mid(Algorithm, 6);
 			ref = Catalogs.UT_Algorithms.GetRef(New UUID(UUIDString));
-			Return ?(IsBlankString(ref.Наименование), Undefined, ref);
+			Return ?(IsBlankString(ref.Description), Undefined, ref);
 		EndIf;
 		FoundedByName = Catalogs.UT_Algorithms.FindByDescription(Algorithm, True);
 		If FoundedByName = Undefined Then
@@ -4958,7 +5588,7 @@ EndFunction
 
 #Region WriteObjects
 
-Procedure  SetMarkOfWritingWithOutChangesAutoRecording (Object, WithOutAutoRecording = False)
+Procedure SetMarkOfWritingWithOutChangesAutoRecording (Object, WithOutAutoRecording = False)
 	If Not WithOutAutoRecording Then
 		Return;
 	EndIf;
@@ -4980,11 +5610,13 @@ Function ExecuteObjectBeforeWriteProcedure(Object, _BeforeWriteProcedureText)
 	Try
 		Execute (_BeforeWriteProcedureText);
 	Except
-		UT_CommonClientServer.MessageToUser(StrTemplate(NSTR("ru = 'Объект: %1. Ошибка при выполнении процедуры ПередЗаписью: %2';en = 'Object: %1. Error when executing procedure BeforeWrite: %2'"), 
-						Object, BriefErrorDescription(ErrorInfo())));
+		UT_CommonClientServer.MessageToUser(StrTemplate(NSTR("ru = 'Объект: %1. Ошибка при выполнении процедуры ПередЗаписью: %2';
+			|en = 'Object: %1. Error when executing procedure BeforeWrite: %2'"), 
+			Object, BriefErrorDescription(ErrorInfo())));
 		Result=False;
 		
 	EndTry;
+	
 	Return Result;
 EndFunction
 
@@ -5024,20 +5656,24 @@ Function WriteObjectToDB(Object, WriteSettings, Val Action = "Write", Val WriteM
 			EndIf;
 
 		ElsIf Action = "SetDeletionMark" Then
-			IncludingSubordinates=False;
-			Если ReplaceRefs Then
-				ObjectMetadata = Object.Metadata();
-				If IsCatalog(ObjectMetadata) Or IsChartOfCharacteristicTypes(ObjectMetadata) Or IsChartOfAccounts(
-				ObjectMetadata) Then
-					IncludingSubordinates=False;
-				EndIf;
+			ObjectMetadata = Object.Metadata();
+			
+			IncludingSubordinates = IsCatalog(ObjectMetadata) 
+				Or IsChartOfCharacteristicTypes(ObjectMetadata) 
+				Or IsChartOfAccounts(ObjectMetadata);
+				
+			If IncludingSubordinates Then
+				Object.SetDeletionMark(True, ReplaceRefs);
+			Else
+				Object.SetDeletionMark(True);
 			EndIf;
-			Object.SetDeletionMark(True, IncludingSubordinates);
 
 		ElsIf Action = "UnSetDeletionMark" Then
 			Object.SetDeletionMark(False);
 		ElsIf Action = "DirectDeletion" Then
+			
 			Object.Delete();
+		
 		EndIf;
 
 	Except
@@ -5053,7 +5689,58 @@ Function WriteObjectToDB(Object, WriteSettings, Val Action = "Write", Val WriteM
 EndFunction
 #EndRegion
 
-#Region ServiceProceduresAndFunctions
+#Region ObsoletePrivate
+
+// Obsolete. Should to use  UT_CommonClientServer.DescriptionTypeString
+// Creates a TypeDescription object that contains the string type.
+// 
+// Parameters:
+//  StringLength - Number - string length.
+//
+// Returns:
+//  TypeDescription - description of the String type.
+//
+Function StringTypeDetails(StringLength) Export
+
+	Return UT_CommonClientServer.DescriptionTypeString(StringLength);
+
+EndFunction
+
+// Obsolete. Should to use  UT_CommonClientServer.DescriptionTypeNumber
+// Creates a TypeDescription object that contains the Number type.
+//
+// Parameters:
+//  NumberOfDigits - Number - the total number of digits in a number (both in the integer part and 
+//                        the fractional part).
+//  DigitsInFractionalPart - Number - number of digits in the fractional part.
+//  NumberSign - AllowedSign - allowed sign of the number.
+//
+// Returns:
+//  TypeDescription - description of Number type.
+Function TypeDescriptionNumber(NumberOfDigits, DigitsInFractionalPart = 0, NumberSign = Undefined) Export
+
+	Return UT_CommonClientServer.DescriptionTypeNumber(NumberOfDigits, DigitsInFractionalPart, NumberSign);
+
+EndFunction
+
+// Obsolete. Should to use  UT_CommonClientServer.DescriptionTypeDate
+// Creates a TypeDescription object that contains the Date type.
+//
+// Parameters:
+//  DateFractions - DateFractions - a set of Date type value usage options.
+//
+// Returns:
+//  TypeDescription - description of Date type.
+Function DateTypeDetails(DateFractions) Export
+	Return UT_CommonClientServer.DescriptionTypeDate(DateFractions);
+EndFunction
+
+
+#EndRegion
+
+#EndRegion
+
+#Region Private
 
 Function CollectionToValueTable(Collection) Export
 	VT = New ValueTable;
@@ -5073,24 +5760,94 @@ Function CollectionToValueTable(Collection) Export
 	Return VT;
 EndFunction
 
-#EndRegion
+// Returns a server manager module by object name.
+Function ServerManagerModule(Name)
+	ObjectFound = False;
+	
+	NameParts = StrSplit(Name, ".");
+	If NameParts.Count() = 2 Then
+		
+		KindName = Upper(NameParts[0]);
+		ObjectName = NameParts[1];
+		
+		If KindName = Upper("Constants") Then
+			If Metadata.Constants.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("InformationRegisters") Then
+			If Metadata.InformationRegisters.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("AccumulationRegisters") Then
+			If Metadata.AccumulationRegisters.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("AccountingRegisters") Then
+			If Metadata.AccountingRegisters.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("CalculationRegisters") Then
+			If Metadata.CalculationRegisters.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("Catalogs") Then
+			If Metadata.Catalogs.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("Documents") Then
+			If Metadata.Documents.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("Reports") Then
+			If Metadata.Reports.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("DataProcessors") Then
+			If Metadata.DataProcessors.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("BusinessProcesses") Then
+			If Metadata.BusinessProcesses.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("DocumentJournals") Then
+			If Metadata.DocumentJournals.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("Tasks") Then
+			If Metadata.Tasks.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("ChartsOfAccounts") Then
+			If Metadata.ChartsOfAccounts.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("ExchangePlans") Then
+			If Metadata.ExchangePlans.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("ChartsOfCharacteristicTypes") Then
+			If Metadata.ChartsOfCharacteristicTypes.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		ElsIf KindName = Upper("ChartsOfCalculationTypes") Then
+			If Metadata.ChartsOfCalculationTypes.Find(ObjectName) <> Undefined Then
+				ObjectFound = True;
+			EndIf;
+		EndIf;
+		
+	EndIf;
+	
+	If Not ObjectFound Then
+		Raise StrTemplate(
+			NStr("ru = 'Объект метаданных ""%1"" не найден, либо для него не поддерживается получение модуля менеджера.'; 
+			           |en = 'Metadata object ""%1"" is not found or it does not support getting manager modules.'"), Name);
+	EndIf;
 
-Function SSLVersion() Export
-	
-	Var SSLVersion;
-	
-	SetSafeMode(True);
-	
-	Try
-		Execute("SSLVersion = StandardSubsystemsServer.LibraryVersion()");
-	Except
-		Try
-			Execute("SSLVersion = StandardSubsystemsServerOverridable.LibraryVersion()");
-		Except
-			SSLVersion = "0.0.0.0";	
-		EndTry;
-	EndTry;
-	
-	Return SSLVersion;
-	
+	//@skip-check server-execution-safe-mode
+	Module = Eval(Name); 
+
+	Return Module;
 EndFunction
+
+#EndRegion

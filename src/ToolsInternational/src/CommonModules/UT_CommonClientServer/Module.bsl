@@ -1202,13 +1202,13 @@ Function DebugObject(ObjectForDebugging, DcsSettingsOrHTTPConnection = Undefined
 		Return Undefined;
 	
 	ElsIf SaveFile Then
-		Return УИ_ОбщегоНазначенияВызовСервера.ЗаписатьДанныеДляОтладкиВФайл(ТипОбъектаОтладки,
-																			  СериализованныйОбъект,
-																			  Наименование);
+		Return UT_CommonServerCall.SaveDebuggingDataToFile(DebugObjectType,
+														   SerializeObject,
+														   Name);
 	Else
-		Return УИ_ОбщегоНазначенияВызовСервера.ЗаписатьДанныеДляОтладкиВСправочник(ТипОбъектаОтладки,
-																					СериализованныйОбъект,
-																					Наименование);
+		Return UT_CommonServerCall.SaveDebuggingDataToCatalog(DebugObjectType,
+															  SerializeObject,
+															  Name);
 	EndIf;
 EndFunction
 
@@ -2282,7 +2282,7 @@ EndFunction
 // * Value - String 
 // * KeysCount - Number 
 // * Keys - String - Comma-separated structure keys
-Function NewStorageValueStructureType() Export
+Function NewValueStorageStructureType() Export
 	ValueStorage = New Structure;
 	ValueStorage.Insert("Value", "");
 	ValueStorage.Insert("KeysCount", 0);
@@ -2723,7 +2723,7 @@ Function ValueContainerFieldValue(FormDataStructure, ContainerFieldStorageParame
 		Return FieldValue;
 	EndIf;
 	
-	Return УИ_ОбщегоНазначения.ЗначениеИзКонтейнераФормы(ЗначениеКонтейнера);
+	Return UT_Common.ValueFromFormContainer(ContainerValue);
 EndFunction
 
 // Set container field value.
@@ -2751,7 +2751,7 @@ Procedure SetContainerFieldValue(FormDataStructure, ContainerFieldStorageParamet
 	Else
 		FormDataStructure[ContainerFieldStorageParameters.ValueTypeFieldName] = DescriptionTypeString(100);
 		
-		Container = УИ_ОбщегоНазначения.ЗначениеВКонтейнерДляФормы(НовоеЗначение);
+		Container = UT_Common.ValueIntoFormContainer(NewValue);
 
 		SetContainerPresentation(Container);
 		FormDataStructure[ContainerFieldStorageParameters.ValueTypeFieldName] = Container;
