@@ -965,7 +965,7 @@ EndFunction
 //
 // Parameters:
 //  Value - String - a string to be transformed into a date.
-//                      Date format needs to look like DD.MM.YYYY, DD/MM/YY, or DD-MM-YY,
+//                      Date format needs to look at like DD.MM.YYYY, DD/MM/YY, or DD-MM-YY,
 //                      For example, "23.02.1980" or "23/02/80".
 // 
 // Returns:

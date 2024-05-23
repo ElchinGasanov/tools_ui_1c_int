@@ -642,10 +642,10 @@ EndFunction
 // Editors for build with converted text module.
 // 
 // Parameters:
-//  EditorsForBuild - Array from look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor - Editors for build
+//  EditorsForBuild - Array from look at UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor - Editors for build
 // 
 // Return values:
-// Array from look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor 
+// Array from look at UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor 
 Function EditorsForBuildWithConvertedTextModule(EditorsForBuild) Export
 	For Each CurrentEditor In EditorsForBuild Do
 		CurrentEditor.ТекстРедактораДляОбработки = UT_Code.TextOfAlgorithmExecutionProcessingModule(CurrentEditor.TextEditor,
@@ -691,7 +691,7 @@ EndFunction
 //  FormId - UUID
 // 
 // Return values:
-//  look UT_CodeEditorClientServer.NewDataLibraryEditor
+//  look at UT_CodeEditorClientServer.NewDataLibraryEditor
 Function DataLibraryCommonTemplate(LayoutName, FormId) Export
 	LibraryData = UT_CodeEditorClientServer.NewDataLibraryEditor();
 
@@ -747,7 +747,7 @@ EndFunction
 // Return values:
 //  String -  Library address in temporary storage
 // Return values:
-//  look UT_CodeEditorClientServer.NewDataLibraryEditor
+//  look at UT_CodeEditorClientServer.NewDataLibraryEditor
 Function DataLibraryEditor(FormId, IsWindowsClient, IsWebClient, EditorType = Undefined)
 	If EditorType = Undefined Then
 		EditorType = CodeEditor1CCurrentVariant();
@@ -823,7 +823,7 @@ EndFunction
 // Text fields HTML editor Ace.
 // 
 // Parameters:
-//  LibraryData - look UT_CodeEditorClientServer.NewLibraryDataРедактора
+//  LibraryData - look at UT_CodeEditorClientServer.NewLibraryDataРедактора
 // 
 // Return values:
 //  String

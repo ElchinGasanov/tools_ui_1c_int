@@ -3178,7 +3178,7 @@ EndFunction
 // 
 // Parameters:
 //  ModuleName - String - Module name. module.УИ_ОбщегоНазначения, module.manager.документы.авансовыйотчет, module.object.документы.авансовыйотчет
-//  DirectoriesOfSourceFiles - Array of look УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
+//  DirectoriesOfSourceFiles - Array of look at УИ_РедакторКодаКлиентСервер.НовыйОписаниеКаталогаИсходныхФайловКонфигурации -
 //  CallbackDescriptionAboutCompletion - CallbackDescription - Description of the completion alert
 Procedure StartGettingModuleTextFromSourceFiles(ModuleName, DirectoriesOfSourceFiles, CallbackDescriptionAboutCompletion)
 	If DirectoriesOfSourceFiles.Count() = 0 Then
@@ -4020,7 +4020,7 @@ EndFunction
 //  EventData  - FixedStructure- Данные события
 // 
 // Return values:
-//  look CodeEditorNewEventForProcessing
+//  look at CodeEditorNewEventForProcessing
 // Return values:
 //  Undefined - Событие не требует обработки
 Function EventToHandleWhenClickedAce(Form, Item, EventData)
@@ -4140,7 +4140,7 @@ EndFunction
 // 
 // Parameters:
 //  Form - ClientApplicationForm
-//  EditorOptions - look UT_CodeEditorClientServer.NewEditorFormData
+//  EditorOptions - look at UT_CodeEditorClientServer.NewEditorFormData
 //  DocumentHTML - ExternalObject
 Procedure ConnectToFieldHTMLScriptInteraction(Form, EditorOptions, DocumentHTML)
 	TypesOfEditors = UT_CodeEditorClientServer.CodeEditorVariants();
@@ -4174,7 +4174,7 @@ EndProcedure
 // 
 // Parameters:
 //  DocumentView - ExternalObject- Документ view
-//  LibraryData - look UT_CodeEditorServer.
+//  LibraryData - look at UT_CodeEditorServer.
 Procedure ConnectLibraryToDocumentHTMLFields(DocumentView, LibraryData)
 	For Each  ТекСкрипт In LibraryData.Scripts Do
 		Element = DocumentView.document.createElement("script");

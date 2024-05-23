@@ -57,7 +57,7 @@ EndFunction
 // * ExecuteOnSchedule - Boolean - 
 // * InSettingsStorage - Boolean - If set to True, saving occurs in the general settings storage in the database
 // * TextOfTheAlgorithm - String - 
-// * Options - Array from look NewAlgorithmParameterDescription - 
+// * Options - Array from look at NewAlgorithmParameterDescription - 
 Function NewDescriptionOfAlgorithm() Export
 	Description = NewDescriptionOfAlgorithmHeaders();
 	Description.Insert("TextOfTheAlgorithm","");

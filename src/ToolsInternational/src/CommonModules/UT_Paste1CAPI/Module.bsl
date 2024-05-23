@@ -7,7 +7,7 @@
 //  AlgorithmID - String - Algorithm identifier
 // 
 // Return values:
-//  look NewAlgorithmData 
+//  look at NewAlgorithmData 
 // Return values:
 // Undefined - Failed to receive data
 Function ServiceAlgorithmData(AlgorithmID) Export
@@ -31,7 +31,7 @@ EndFunction
 //  QueryMode - Boolean - Query mode
 // 
 // Return values:
-// look NewResultLoadingAlgorithm
+// look at NewResultLoadingAlgorithm
 // Return values:
 // Undefined - the request came out with an error
 Function LoadingResultAlgorithmIntoService(AlgorithmText, QueryMode) Export

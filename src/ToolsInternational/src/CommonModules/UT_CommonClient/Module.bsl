@@ -354,7 +354,7 @@ Procedure StartSelectingEnumerationValue(Value, CallbackDescriptionOnClose = Und
 		FormParameters.Insert("EnumerationValue", Value);
 	EndIf;
 
-	OpenForm("ОбщаяФорма.УИ_ФормаВыбораЗначенияПеречисления",
+	OpenForm("CommonForm.UT_EnumerationsSelectionForm",
 				 FormParameters,
 				 Owner,
 				 String(New UUID),
@@ -377,7 +377,7 @@ Procedure StartEditingUUID(Value = Undefined,
 		FormParameters.Insert("Value", Value);
 	EndIf;
 
-	OpenForm("ОбщаяФорма.УИ_РедакторУникальногоИдентификатора",
+	OpenForm("CommonForm.UT_UUIDEditor",
 				 FormParameters,
 				 Owner,
 				 String(New UUID),
@@ -815,7 +815,7 @@ Procedure EditPointInTimeType(ContainerValues, CallbackDescriptionOnClose,
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторМоментаВремени",
+	OpenForm("CommonForm.UT_PointInTimeEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -836,7 +836,7 @@ Procedure EditBoundaryType(ContainerValues, CallbackDescriptionOnClose,
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторГраницы",
+	OpenForm("CommonForm.UT_BoundaryEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -858,7 +858,7 @@ Procedure EditStructureType(ContainerValues, CallbackDescriptionOnClose,
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторСтруктуры",
+	OpenForm("CommonForm.UT_StructureEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -880,7 +880,7 @@ Procedure EditMapType(ContainerValues, CallbackDescriptionOnClose,
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторСоответствия",
+	OpenForm("CommonForm.UT_MapEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -902,7 +902,7 @@ Procedure EditValueStorageTypeAsContainerStorage(ContainerValues, CallbackDescri
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторХранилищаЗначения",
+	OpenForm("CommonForm.UT_ValueStorageEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -924,7 +924,7 @@ Procedure EditValueStorageType(ValueStorage, CallbackDescriptionOnClose,
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ValueStorage);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторХранилищаЗначения",
+	OpenForm("CommonForm.UT_ValueStorageEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -946,7 +946,7 @@ Procedure EditValueListAsContainerStorage(ContainerValues, CallbackDescriptionOn
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_ФормаСпискаЗначений",
+	OpenForm("CommonForm.UT_ValueListForm",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -968,7 +968,7 @@ Procedure EditArrayAsContainerStorage(ContainerValues, CallbackDescriptionOnClos
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValuesArray", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_ФормаСпискаЗначений",
+	OpenForm("CommonForm.UT_ValueListForm",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -988,7 +988,7 @@ Procedure EditPicture(Picture, CallbackDescriptionOnClose, FormOwner = Undefined
 	FormParameters = New Structure;
 	FormParameters.Insert("Picture", Picture);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторКартинки",
+	OpenForm("CommonForm.UT_PictureEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -1010,7 +1010,7 @@ Procedure EditPictureAsContainerStorage(ContainerValues, CallbackDescriptionOnCl
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторКартинки",
+	OpenForm("CommonForm.UT_PictureEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -1032,7 +1032,7 @@ Procedure EditBinaryDataAsContainerStorage(ContainerValues, CallbackDescriptionO
 	FormParameters = New Structure;
 	FormParameters.Insert("ContainerValues", ContainerValues);
 
-	OpenForm("ОбщаяФорма.УИ_РедакторДвоичныхДанных",
+	OpenForm("CommonForm.UT_BinaryDataEditor",
 				 FormParameters,
 				 FormOwner,
 				 ,
@@ -2412,7 +2412,7 @@ Procedure OpenCodeStringCodeSpecialForm(Text, Title, UniqueKey = "") Export
 	FormParameters.Insert("Code", Text);
 	FormParameters.Insert("ModuleName", Title);
 
-	OpenForm("ОбщаяФорма.УИ_ФормаКода",
+	OpenForm("CommonForm.UT_CodeForm",
 				 FormParameters,
 				 ,
 				 UniqueKey);
