@@ -1,10 +1,10 @@
 
 
-#Region ОписаниеПеременных
+#Region Variables
 
 #EndRegion
 
-#Region ОбработчикиСобытийФормы
+#Region FormEventHandlers
 
 // Code of procedures and functions
 
@@ -24,19 +24,19 @@ EndProcedure
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовШапкиФормы
+#Region FormHeaderItemsEventHandlers
 
 // Code of procedures and functions
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовТаблицыФормы //<TableNameForm>
+#Region FormTableItemsEventHandlers //<TableNameForm>
 
 // Code of procedures and functions
 
 #EndRegion
 
-#Region ОбработчикиКомандФормы
+#Region FormCommandsEventHandlers
 
 
 &AtClient
@@ -49,7 +49,7 @@ EndProcedure
 
 &AtClient
 Procedure FollowTheLink(Command)
-	УИ_ОбщегоНазначенияКлиент.ОткрытьНавигационнуюСсылку(Ref);
+	UT_CommonClient.OpenURL(Ref);
 EndProcedure
 
 &AtClient
@@ -66,7 +66,7 @@ EndProcedure
 
 #EndRegion
 
-#Region СлужебныеПроцедурыИФункции
+#Region Private
 
 // Copy to clipboard finish.
 // 

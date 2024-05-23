@@ -225,6 +225,7 @@
       <key>en</key>
       <value>CopyRef</value>
     </title>
+    <width>60</width>
     <extendedTooltip>
       <name>CopyRefExtendedTooltip</name>
       <id>2</id>

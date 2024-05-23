@@ -23,10 +23,10 @@ EndFunction
 // Editors for Build with converted module text.
 // 
 // Parameters:
-//  EditorsForBuild - Массив из look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor - Editors for Build
+//  EditorsForBuild - Массив из look at UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor - Editors for Build
 // 
 // Return values:
-// Массив из look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor 
+// Массив из look at UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor 
 Function EditorsForBuildWithConvertedTextModule(EditorsForBuild) Export
 	Return UT_CodeEditorServer.EditorsForBuildWithConvertedTextModule(EditorsForBuild);	
 EndFunction
@@ -62,7 +62,7 @@ EndFunction
 //  Link - String - Link
 // 
 // Return values:
-// look UT_Paste1CAPI.NewAlgorithmData
+// look at UT_Paste1CAPI.NewAlgorithmData
 // Return values:
 // Undefined - Failed to receive data from the service
 Function AlgorithmDataInService(Link) Export
@@ -87,7 +87,7 @@ EndFunction
 //  FormID - UUID
 // 
 // Return values:
-//  look UT_CodeEditorClientServer.NewDataLibraryEditor
+//  look at UT_CodeEditorClientServer.NewDataLibraryEditor
 Function DataLibraryGeneralLayout(LayoutName, FormID) Export
 	Return UT_CodeEditorServer.DataLibraryCommonTemplate(LayoutName, FormID);
 EndFunction

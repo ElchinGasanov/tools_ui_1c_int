@@ -9,11 +9,11 @@
 //  ID - String - Identifier
 // 
 // Return values:
-//  look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
+//  look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
 // Return values: 
 // 	Undefined - Алгоритм не найден
 Function AlgorithmData(ID) Export
-	// First we look in DBF
+	// First we look at in DBF
 	AlgorithmsDatabase = AlgorithmStorageBase();
 	
 	AlgorithmsDatabase.CurrentIndex = AlgorithmsDatabase.Индексы.IDXID;
@@ -39,9 +39,9 @@ EndFunction
 // List of algorithms.
 // 
 // Return values:
-// Array of look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
+// Array of look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
 Function ListOfAlgorithms() Export
-	AlgorithmsArray = New Array;//Array of look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
+	AlgorithmsArray = New Array;//Array of look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
 	
 	AddToListOfAlgorithmsFromDBF(AlgorithmsArray);
 	AddToListOfAlgorithmsFromTheGeneralSettingsStorage(AlgorithmsArray);	
@@ -52,7 +52,7 @@ EndFunction
 // Write algorithm.
 // 
 // Parameters:
-//  AlgorithmData - look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
+//  AlgorithmData - look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
 //  Refusal - Boolean
 Procedure WriteAlgorithm(AlgorithmData, Refusal) Export
 	If AlgorithmData.InSettingsStorage Then
@@ -184,7 +184,7 @@ EndFunction
 // List of algorithms.
 // 
 // Parameters:
-//  AlgorithmsArray - Array from look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders 
+//  AlgorithmsArray - Array from look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders 
 // 
 Procedure AddToListOfAlgorithmsFromTheGeneralSettingsStorage(AlgorithmsArray) 
 	SetPrivilegedMode(True);
@@ -210,7 +210,7 @@ EndProcedure
 // Write algorithm to settings storage.
 // 
 // Parameters:
-//  AlgorithmData - look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
+//  AlgorithmData - look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
 //  Refusal - Boolean -
 Procedure WriteAlgorithmToSettingsStorage(AlgorithmData, Refusal)
 	SettingsKey = AlgorithmData.ID;// + "/" + UserName() + "/" + Format(CurrentDate(), "DF=yyyyMMddHHmmss;");
@@ -248,7 +248,7 @@ EndFunction
 // Write algorithm to the DBF.
 // 
 // Parameters:
-//  AlgorithmData - look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
+//  AlgorithmData - look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithm
 //  Refusal - Boolean -
 Procedure WriteAlgorithmToDBF(AlgorithmData, Refusal)
 	AlgorithmsDatabase = AlgorithmStorageBase(True);
@@ -294,7 +294,7 @@ EndProcedure
 // Algorithm header from the storage database.
 // 
 // Parameters:
-// 	HeaderDescription - look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
+// 	HeaderDescription - look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders
 //  StorageBase - XBase - Storage Base
 Procedure FillAlgorithmHeaderByStorageBase(HeaderDescription,StorageBase)
 	HeaderDescription.ID 					= TrimAll(StorageBase.id);
@@ -326,7 +326,7 @@ EndProcedure
 // List of algorithms.
 // 
 // Parameters:
-//  AlgorithmsArray - Массив из look UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders 
+//  AlgorithmsArray - Массив из look at UT_AlgorithmsClientServer.NewDescriptionOfAlgorithmHeaders 
 // 
 Procedure AddToListOfAlgorithmsFromDBF(AlgorithmsArray) 
 	AlgorithmsDatabase = AlgorithmStorageBase();
