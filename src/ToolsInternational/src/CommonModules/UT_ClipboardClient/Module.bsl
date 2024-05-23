@@ -23,7 +23,7 @@
 
 // Returns the current subsystem version
 //
-// Return value:
+// Returns:
 // 	String - Version of subsytem work with clipboard
 Function SubsystemVersion() Export
 	Return "1.0.2";
@@ -32,7 +32,7 @@ EndFunction
 // Returns the clipboard components object. Сomponent must be pre-connected.
 // If the component is not connected, an exception will be thrown 
 // 
-// The return value:
+// Returns:
 // 	AddInObject - Object of  AddIn to work with clipboard. 
 Function AddInObject() Export
 	Return New ("AddIn." + AddInID() + ".ClipboardControl");
@@ -43,8 +43,8 @@ EndFunction
 // Synchronous calls are used
 // Returns Object of  AddIn  to work with clipboard. If necessary, the addin will be attached and installed
 // 
-// Return value:
-// 	AddIn - Add-in object - Object of  AddIn  to work with clipboard 
+// Returns:
+// 	AddIn - AddIn object - Object of  AddIn  to work with clipboard 
 //  Undefined - if the component failed to attach
 Function ClipboardAddin() Export
 	Try
@@ -62,8 +62,8 @@ EndFunction
 // Returns version of clipboard addin 
 // 
 // Parameters:
-// 	AddInObject - Add-in object - Object of AddIn сomponent to work with clipboard (optional)
-// Returned value:
+// 	AddInObject - AddIn object - Object of AddIn сomponent to work with clipboard (optional)
+// Returns:
 // 	String - Addin version 
 Function AddinVersion(AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
@@ -82,7 +82,7 @@ EndFunction
 // Clears the contents of the clipboard 
 // 
 // Parameters:
-// 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
+// 	AddInObject - AddIn object - Object of  AddIn  to work with clipboard (optional)
 Procedure EmptyClipboard(AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
 
@@ -98,9 +98,9 @@ EndProcedure
 // Put the transferred image to the clipboard
 // 
 // Parameters:
-// 	Picture- Picture, BinaryData , Address in Temp Storage
+// 	Picture - Picture, BinaryData , Address in Temp Storage -
 // 	If transmitted type of Picture is Address in Temp Storage, type in temp storage must be picture or binary data
-// 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
+// 	AddInObject - AddIn object - Object of  AddIn  to work with clipboard (optional)
 Procedure CopyImageToClipboard(Picture, AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
 
@@ -126,7 +126,7 @@ EndProcedure
 // 		BinaryData - getting binary image data
 // 		Picture - Converted to type "Picture" clipboard data
 // 		Adress - The address of the binary data of the image in the temporary storage
-// 	AddInObject - Add-in object -  Object of  AddIn  to work with clipboard (optional)
+// 	AddInObject - AddIn object -  Object of  AddIn  to work with clipboard (optional)
 // Returned value:
 // 	BinaryData,Picture,String - picture in requested format
 //	Undefined- if there is no picture in the buffer
@@ -147,7 +147,7 @@ EndFunction
 // 
 // Parameters:
 // 	CopiedText - String - Text  to be placed in the clipboard
-// 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
+// 	AddInObject - AddIn object - Object of  AddIn  to work with clipboard (optional)
 Procedure CopyTextToClipboard(CopiedText, AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
 
@@ -160,11 +160,11 @@ Procedure CopyTextToClipboard(CopiedText, AddInObject = Undefined) Export
 
 EndProcedure
 
-//retrieves the current text from the clipboard
+// Retrieves the current text from the clipboard
 // 
 // Parameters:
-// 	AddInObject - Add-in object - Object of  AddIn  to work with clipboard (optional)
-// Returned value:
+// 	AddInObject - AddIn object - Object of  AddIn  to work with clipboard (optional)
+// Returns:
 // 	String - Text contained in the clipboard
 Function TextFromClipboard(AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
@@ -181,11 +181,11 @@ Function TextFromClipboard(AddInObject = Undefined) Export
 
 EndFunction
 
-// gets the format of the current value from the clipboard
+// Gets the format of the current value from the clipboard
 //
 // Parameters:
-//  AddInObject - Add-in object - Object of Adding to work with clipboard (optional)
-// Returned value:
+//  AddInObject - AddIn object - Object of Adding to work with clipboard (optional)
+// Returns:
 // 	String - A string in JSON format containing a description of the format of the clipboard contents
 Function ClipboardFormat(AddInObject = Undefined) Export
 	EmptyAddin=AddInObject = Undefined;
@@ -482,8 +482,8 @@ EndProcedure
 #Region Private
 
 Function AddinTemplateName()
-	If УИ_ОбщегоНазначенияКлиентСервер.ЭтоПортативнаяПоставка() Then
-		Возврат УИ_ПараметрыПриложения["ОбщийМакет.УИ_КомпонентаДляРаботыСБуферомОбмена"];
+	If UT_CommonClientServer.IsPortableDistribution() Then
+		Возврат UT_ApplicationParameters["CommonTemplate.UT_ClipboardAddin"];
 	Else
 		Return "CommonTemplate.UT_ClipboardAddin";
 	EndIf;
