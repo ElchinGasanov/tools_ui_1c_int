@@ -139,7 +139,7 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 	
 	If EditorLanguage = "bsl" Then
 		DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
-		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing(),
+		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeViaDataProcessor(),
 																				  EditorID);
 		DescriptionButtons.CommandName = DescriptionButtons.Name;
 		DescriptionButtons.Title = NStr("ru = 'Через обработку'; en = 'Through processing'");
@@ -700,7 +700,7 @@ Function DataLibraryCommonTemplate(LayoutName, FormId) Export
 	CatalogOnServer = GetTempFileName();
 	CreateDirectory(CatalogOnServer);
 
-	Stream = BinaryDataLibraries.ОткрытьПотокДляЧтения();
+	Stream = BinaryDataLibraries.OpenStreamForRead();
 
 	ZipFileReader = New ZipFileReader(Stream);
 	ZipFileReader.ExtractAll(CatalogOnServer, ZIPRestoreFilePathsMode.Restore);
@@ -795,7 +795,7 @@ Function PutLibraryInTemporaryStorage(FormId, IsWindowsClient, IsWebClient,
 	CatalogOnServer = GetTempFileName();
 	CreateDirectory(CatalogOnServer);
 
-	Stream = BinaryDataLibraries.ОткрытьПотокДляЧтения();
+	Stream = BinaryDataLibraries.OpenStreamForRead();
 
 	ZipFileReader = Новый ZipFileReader(Stream);
 	ZipFileReader.ExtractAll(CatalogOnServer, ZIPRestoreFilePathsMode.Restore);
@@ -814,7 +814,7 @@ Function PutLibraryInTemporaryStorage(FormId, IsWindowsClient, IsWebClient,
 	Try
 		DeleteFiles(CatalogOnServer);
 	Except
-		// TODO:
+		
 	EndTry;
 
 	Return LibraryAddress;

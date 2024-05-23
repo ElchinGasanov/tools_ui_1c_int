@@ -7,7 +7,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	StructureSource = New Structure;
 	If Parameters.Property("ValueStorageContainer") Then
 		//@skip-check unknown-form-parameter-access
-		ContainerStorage = Parameters.ValueStorageContainer;//см. УИ_ОбщегоНазначенияКлиентСервер.НовыйХранилищеЗначенияТипаСтруктура
+		ContainerStorage = Parameters.ValueStorageContainer;//look at UT_CommonClientServer.NewValueStorageStructureType
 		
 		If ContainerStorage <> Undefined Then
 			StructureSource = UT_Common.ValueFromStructureContainerStorage(ContainerStorage);

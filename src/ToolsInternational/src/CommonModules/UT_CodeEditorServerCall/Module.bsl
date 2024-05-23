@@ -66,7 +66,7 @@ EndFunction
 // Return values:
 // Undefined - Failed to receive data from the service
 Function AlgorithmDataInService(Link) Export
-	StructureLinks = УИ_КоннекторHTTP.РазобратьURL(Link);	
+	StructureLinks = UT_HTTPConnector.ParseURL(Link);	
 	
 	ArrayPaths = StrSplit(StructureLinks.Путь, "/", False);
 	If ArrayPaths.Count() = 0 Then

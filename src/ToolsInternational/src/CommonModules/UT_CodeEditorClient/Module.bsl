@@ -25,7 +25,7 @@ Procedure StartBuildDataProcessorForCodeExecution(Form, CallbackDescriptionAbout
 			EditorDataForBuild.ExecutionAtClient = EditorsIDForExecutionAtClient.Find(KeyAndValue.Key) <> Undefined;
 		EndIf;
 		EditorDataForBuild.TextEditor = EditorCodeText(Form, KeyAndValue.Key);
-		EditorDataForBuild.ИмяПодключаемойОбработки = UT_CodeEditorClientServer.NameOfConnectedDataProcessorForExecutionCodeEditor(KeyAndValue.Key);
+		EditorDataForBuild.ConnectedDataProcessorName = UT_CodeEditorClientServer.NameOfConnectedDataProcessorForExecutionCodeEditor(KeyAndValue.Key);
 
 		If NamesOfPredefinedVariables <> Undefined Then
 			If NamesOfPredefinedVariables.Property(KeyAndValue.Key) Then
@@ -64,7 +64,7 @@ Procedure StartBuildDataProcessorForCodeExecution(Form, CallbackDescriptionAbout
 	EndDo;
 	
 	If EditorsForBuild.Count() = 0 Then
-		ВыполнитьОбработкуОповещения(CallbackDescriptionAboutCompletion, True);
+		RunCallback(CallbackDescriptionAboutCompletion, True);
 		Return;
 	EndIf;
 
@@ -72,7 +72,7 @@ Procedure StartBuildDataProcessorForCodeExecution(Form, CallbackDescriptionAbout
 	DataProcessorsBuildOptions.Form = Form;
 	DataProcessorsBuildOptions.EditorsForBuild = UT_CodeEditorServerCall.EditorsForBuildWithConvertedTextModule(EditorsForBuild);
 	DataProcessorsBuildOptions.CallbackDescriptionAboutCompletion = CallbackDescriptionAboutCompletion;
-	DataProcessorsBuildOptions.CatalogTemplateProcessing = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначенияКлиент.КаталогВспомогательныхБиблиотекИнструментов(),
+	DataProcessorsBuildOptions.CatalogTemplateProcessing = UT_CommonClientServer.MergePaths(UT_CommonClient.UT_AssistiveLibrariesDirectory(),
 																									  "DataProcessorTemplate");
 
 	StartSavingProcessingTemplateToDisk(DataProcessorsBuildOptions.CatalogTemplateProcessing,
@@ -177,8 +177,8 @@ Procedure EditorEventsDeferProcessing(Form) Export
 			If ValueIsFilled(CurrentEvent.EventData.Module) Then
 				ModuleName = "module." + CurrentEvent.EventData.Module;
 
-				OpenFormsViewDefinitions = УИ_ОбщегоНазначенияКлиент.ФормыПоКлючуУникальности(Upper(CurrentEvent.EventData.Module),
-																									   "ОбщаяФорма.УИ_ФормаКода");
+				OpenFormsViewDefinitions = UT_CommonClient.FormsByUniqueKey(Upper(CurrentEvent.EventData.Module),
+																									   "CommonForm.UT_CodeForm");
 				If OpenFormsViewDefinitions.Count() > 0 Then
 					CodeForm = OpenFormsViewDefinitions[0];
 					GotoEditorMethodDefinition(CodeForm, "Код", CurrentEvent.EventData.Word);
@@ -1727,7 +1727,7 @@ Procedure StartSessionInteractionWithCodeEditorParametersRequest(Form, EditorID)
 
 	FormOptions = New Structure;
 
-	OpenForm("ОбщаяФорма.УИ_InteractionSessionParametersРедактораКода",
+	OpenForm("CommonForm.UT_CodeEditorInteractionSessionParameters",
 				 FormOptions,
 				 Form,
 				 "" + Form.UUID + EditorID,
@@ -1863,7 +1863,7 @@ Procedure ShareCode(Code, isRequest, FormOwner = Undefined) Export
 	
 	FormOptions = New Structure;
 	FormOptions.Вставить("Link", LinkToCode);
-	OpenForm("ОбщаяФорма.УИ_ФормаСсылкиНаКод",
+	OpenForm("CommonForm.UT_RefToCodeForm",
 				 FormOptions,
 				 FormOwner,
 				 ,
@@ -1884,7 +1884,7 @@ Procedure StartLoadingCodeFromService(CallbackDescription, FormOwner = Undefined
 	FormOptions = New Structure;
 	FormOptions.Insert("InsertMode", True);
 	
-	OpenForm("ОбщаяФорма.УИ_ФормаСсылкиНаКод",
+	OpenForm("CommonForm.UT_RefToCodeForm",
 				 FormOptions,
 				 FormOwner,
 				 ,
@@ -1964,7 +1964,7 @@ Procedure StartLoadingCodeFromServiceLinksInputCompletion(Result, AdditionalPara
 		Return;
 	EndIf;
 	
-	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, LinksData);
+	RunCallback(AdditionalParameters.CallbackDescriptionAboutCompletion, LinksData);
 EndProcedure
 
 // Начать загрузку кода In сервиса завершение.
@@ -2012,7 +2012,7 @@ Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditor(Da
 
 	EditorForBuild = DataProcessorsBuildOptions.EditorsForBuild[DataProcessorsBuildOptions.EditorIndexForBuild];
 
-	ModuleFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(DataProcessorsBuildOptions.CatalogTemplateProcessing,
+	ModuleFileName = UT_CommonClientServer.MergePaths(DataProcessorsBuildOptions.CatalogTemplateProcessing,
 																	"DataProcessorTemplate",
 																	"Ext",
 																	"ObjectModule.bsl");
@@ -2049,7 +2049,7 @@ Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCom
 		Return;
 	EndIf;
 
-	ModuleFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
+	ModuleFileName = UT_CommonClientServer.MergePaths(UT_CommonClientServer.MergePaths(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
 																												   "DataProcessorTemplate",
 																												   "Forms",
 																												   "Form"),
@@ -2082,9 +2082,9 @@ Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCom
 		Return;
 	EndIf;
 
-	DataProcessorFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
+	DataProcessorFileName = UT_CommonClientServer.MergePaths(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
 																	   "DataProcessorForEditor.epf");
-	DataProcessorSourceFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
+	DataProcessorSourceFileName = UT_CommonClientServer.MergePaths(AdditionalParameters.DataProcessorsBuildOptions.CatalogTemplateProcessing,
 																				"DataProcessorTemplate.xml");
 	AdditionalParameters.Insert("DataProcessorFileName", DataProcessorFileName);
 
@@ -2128,9 +2128,9 @@ Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCom
 	AdditionalParameters) Export
 
 	AddressOfBinaryDataInTemporaryStorage = PutToTempStorage(BinaryData,
-																			AdditionalParameters.DataProcessorsBuildOptions.Form.UUID);
-	УИ_ОбщегоНазначенияВызовСервера.ПодключитьВнешнююОбработкуКСеансу(AddressOfBinaryDataInTemporaryStorage,
-																	  AdditionalParameters.EditorForBuild.ИмяПодключаемойОбработки);
+													AdditionalParameters.DataProcessorsBuildOptions.Form.UUID);
+	UT_CommonServerCall.ConnectExternalProcessingSession(AddressOfBinaryDataInTemporaryStorage,
+													AdditionalParameters.EditorForBuild.ИмяПодключаемойОбработки);
 																	  
 		
 	FormEditors = UT_CodeEditorClientServer.FormEditors(AdditionalParameters.DataProcessorsBuildOptions.Form);
@@ -2145,7 +2145,7 @@ Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCom
 	EndDo;
 	EditorOptions.CacheResultsConnectionsProcessingExecution = CacheResultsConnectionsProcessingExecution;
 
-	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
+	RunCallback(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
 EndProcedure
 
 // Начать сборку обработок для исполнения кода завершение сборки обработки для очередного редактора.
@@ -2161,10 +2161,10 @@ Procedure StartBuildDataProcessorForCodeExecutionCompletionOfBuildProcessingForN
 	
 	AdditionalParameters.EditorIndexForBuild = AdditionalParameters.EditorIndexForBuild + 1;
 	If AdditionalParameters.EditorIndexForBuild >= AdditionalParameters.EditorsForBuild.Количество() Then
-		ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
+		RunCallback(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
 	Иначе
 		StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditor(AdditionalParameters,
-																					New CallbackDescription("StartBuildDataProcessorForCodeExecutionCompletionOfBuildProcessingForNextEditor",
+			New CallbackDescription("StartBuildDataProcessorForCodeExecutionCompletionOfBuildProcessingForNextEditor",
 			ThisObject, AdditionalParameters));
 	EndIf;
 		
@@ -2182,7 +2182,7 @@ Procedure StartSavingProcessingTemplateToDiskFinishProvidingDirectory(Successful
 		Return;
 	EndIf;
 
-	File = New File(УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.Directory,
+	File = New File(UT_CommonClientServer.MergePaths(AdditionalParameters.Directory,
 																	 "TemplateProcessing.xml"));
 	File.BeginCheckingExistence(New CallbackDescription("StartSavingProcessingTemplateToDiskCompletingExistenceCheckOfSavedTemplate",
 		ThisObject, AdditionalParameters));
@@ -2198,11 +2198,11 @@ EndProcedure
 Procedure StartSavingProcessingTemplateToDiskCompletingExistenceCheckOfSavedTemplate(Exists,
 	AdditionalParameters) Export
 	If Exists Then
-		ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
+		RunCallback(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
 	Else
-		AddressTemplateProcessingForSaving = УИ_ОбщегоНазначенияВызовСервера.АдресДвоичныхДанныхОбщегоМакета("UT_TemplateProcessing");
+		AddressTemplateProcessingForSaving = UT_CommonServerCall.CommonTemplatesBinaryDataAddress("UT_TemplateProcessing");
 
-		ArchiveFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(AdditionalParameters.Directory, "template.zip");
+		ArchiveFileName = UT_CommonClientServer.MergePaths(AdditionalParameters.Directory, "template.zip");
 		AdditionalParameters.Insert("ArchiveFileName", ArchiveFileName);
 
 		BinaryData = GetFromTempStorage(AddressTemplateProcessingForSaving); //BinaryData
@@ -2222,9 +2222,9 @@ Procedure StartSavingProcessingTemplateToDiskCompletingSavingArchiveTemplate(Add
 #If Not WebClient And Not MobileClient Then
 	ReadingZIP = New ZipFileReader(AdditionalParameters.ArchiveFileName);
 	ReadingZIP.ExtractAll(AdditionalParameters.Directory, ZIPRestoreFilePathsMode.Restore);
-	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
+	RunCallback(AdditionalParameters.CallbackDescriptionAboutCompletion, True);
 #Иначе
-	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, False);
+	RunCallback(AdditionalParameters.CallbackDescriptionAboutCompletion, False);
 #EndIf
 
 EndProcedure
@@ -2255,7 +2255,7 @@ Procedure OpenModuleProcedureDefinitionCompletionOfReceivingTextModule(ModuleTex
 	FormOptions.Insert("MethodNameToGoToDefinition",
 							AdditionalParameters.CurrentEvent.EventData.Word);
 
-	OpenForm("ОбщаяФорма.УИ_ФормаКода",
+	OpenForm("CommonForm.UT_CodeForm",
 				 FormOptions,
 				 ,
 				 Upper(AdditionalParameters.CurrentEvent.EventData.Module));
@@ -2691,7 +2691,7 @@ Procedure StartSearchingForModuleFileInSourceFileDirectoriesCompletingFileSearch
 	КонецЕсли;
 
 	FileName = FoundFiles[0].FullName;
-	ВыполнитьОбработкуОповещения(SearchOptions.CallbackDescriptionCompleteSearchFile, FileName);
+	RunCallback(SearchOptions.CallbackDescriptionCompleteSearchFile, FileName);
 	
 EndProcedure
 
@@ -2727,7 +2727,7 @@ EndProcedure
 //  	* CallbackDescriptionAboutCompletion - CallbackDescription
 Procedure StartGettingModuleTextFromSourceFilesCompletingReadingModuleTextFromFile(AdditionalParameters) Export
 	ModuleText = AdditionalParameters.TextDocument.GetText();
-	ВыполнитьОбработкуОповещения(AdditionalParameters.CallbackDescriptionAboutCompletion, ModuleText);
+	RunCallback(AdditionalParameters.CallbackDescriptionAboutCompletion, ModuleText);
 EndProcedure
 
 #Region Monaco
@@ -2813,8 +2813,8 @@ Procedure StartSavingProcessingTemplateToDisk(Directory, CallbackDescriptionAbou
 	SettingsCallback.Вставить("CallbackDescriptionAboutCompletion", CallbackDescriptionAboutCompletion);
 	SettingsCallback.Вставить("Directory", Directory);
 
-	УИ_ОбщегоНазначенияКлиент.НачатьОбеспечениеКаталога(Directory,
-														New CallbackDescription("StartSavingProcessingTemplateToDiskFinishProvidingDirectory",
+	UT_CommonClient.BeginCatalogProviding(Directory,
+											New CallbackDescription("StartSavingProcessingTemplateToDiskFinishProvidingDirectory",
 		ThisObject, SettingsCallback));
 EndProcedure
 
@@ -3258,7 +3258,7 @@ Procedure StartSearchingForModuleFilesInSourceFileDirectories(SearchOptions, Cal
 		Return;
 	EndIf;
 
-	SearchFileDirectoryName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(SourceFilesDirectory,
+	SearchFileDirectoryName = UT_CommonClientServer.MergePaths(SourceFilesDirectory,
 																			SearchOptions.ModuleDirectory,
 																			SearchOptions.MetadataObjectDescription.Name);
 	SearchOptions.Insert("SearchFileDirectoryName", SearchFileDirectoryName);
@@ -4029,7 +4029,7 @@ Function EventToHandleWhenClickedAce(Form, Item, EventData)
 	If Event = Undefined Then
 		Return Undefined;
 	EndIf;
-//	СтандартнаяОбработка = False;
+//	StandardProcessing = False;
 		
 	EventForProcessing = CodeEditorNewEventForProcessing();
 	EventForProcessing.Item = Item;
