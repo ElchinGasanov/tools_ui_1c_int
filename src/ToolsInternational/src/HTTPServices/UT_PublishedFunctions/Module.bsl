@@ -1,4 +1,8 @@
-Function _37583_ALG_GET(Request)
+#Region EventHandlers
+
+#Region AlgorithmsExecution
+
+Function AlgorithmsExecutionResult(Request)
 	WebID = Request.URLParameters["AlgWebID"];
 
 	IncomingParametersStructure = New Structure;
@@ -9,74 +13,23 @@ Function _37583_ALG_GET(Request)
 
 	ProcessRequest(WebID, IncomingParametersStructure, ResponseStructure);
 
-	Response = New HTTPServiceResponse(ResponseStructure.StatusCode);
-	Response.SetBodyFromString(ResponseStructure.ResponseBody, TextEncoding.UTF8);
-	Response.Headers.Insert("Content-Type", "text/html; charset=utf-8");
-	Return Response;
-EndFunction
-
-Procedure ProcessRequest(WebID, IncomingParameters, Response)
-//	Query = New Query;
-//	Query.Text =
-//	"Select first 1
-//	|   _37583_ALG.Ref AS Algorithm
-//	|ИЗ
-//	|   Catalog.UT_Algorithms AS _37583_ALG
-//	|ГДЕ
-//	|   _37583_ALG.HttpID= &WebID";
-//
-//	Query.SetParameter("WebID", WebID);
-//
-//	QueryResult = Query.Выполнить();
-//	If Не QueryResult.Пустой() Then
-//		SelectionDetailRecords = QueryResult.Select();
-//		SelectionDetailRecords.Next();
-//		sResponse = _37583_AlgorithmsServer.ExecuteFunction(SelectionDetailRecords.Algorithm, IncomingParameters);
-//		If IncomingParameters["Cancel"] Then
-//			Response.StatusCode = 500;
-//			Response.ResponseBody = IncomingParameters.ErrorMessage;
-//		Else
-//			If sResponse["Result"] = Неопределено Then
-//				Response.StatusCode = 500;
-//				Response.ResponseBody = "Error:  the result of the function execution is not defined";
-//
-//			Else
-//				Response.ResponseBody =sResponse["Result"];
-//			EndIf;
-//		EndIf;
-//	Else
-//		Response.StatusCode = 404;
-//		Response.ResponseBody = "Error algorithm not found";
-//	EndIf;
-EndProcedure
-Function _37583_ALG_POST(Request)
-
-	WebID = Request.URLParameters["AlgWebID"];
-	SetParameter = Request.URLParameters["SetParameter"];  // true or false
-
-	IncomingParametersStructure = New Structure;
-	For Each Parameter In Request.QueryOptions Do
-		IncomingParametersStructure.Insert(Parameter.Key, Parameter.Value);
-	EndDo;
-	ResponseStructure = New Structure("StatusCode,ResponseBody", 200, "POST method processing ");
-
-	ProcessRequest(WebID, IncomingParametersStructure, ResponseStructure);
-
-	Response = New HTTPServiceResponse(ResponseStructure.StatusCode);
-	Response.SetBodyFromString(ResponseStructure.ResponseBody, TextEncoding.UTF8);
-	Response.Headers.Insert("Content-Type", "text/html; charset=utf-8");
-	Return Response;
+	Return ServiceResponse(ResponseStructure.StatusCode, ResponseStructure.ResponseBody);
 EndFunction
 
 
+
+#EndRegion
+
+#Region Ping
+
+
+Функция PingGET(Запрос)
+	Возврат ServiceResponse(200, "OK");
+КонецФункции
+
+#EndRegion
 
 #Region DataTransfer
-
-Function DataTransferPing(Request)
-	Response = New HTTPServiceResponse(200);
-	Response.SetBodyFromString("OK");
-	Return Response;
-EndFunction
 
 Function DataTransferSendFileAndUpload(Request)
 
@@ -95,9 +48,9 @@ Function DataTransferSendFileAndUpload(Request)
 		Processing = DataProcessors.UT_UniversalDataExchangeXML.Create();
 		Processing.ExchangeMode = "Load";
 		Processing.ExchangeFileName = FileName;
-		Processing.ExchangeProtocolFileName=UploadLogFileName;
-		Processing.ExchangeProtocolFileEncoding="UTF-8";
-		Processing.ExecuteUploading();
+		Processing.ExchangeLogFileName=UploadLogFileName;
+		Processing.ExchangeLogFileEncoding="UTF-8";
+		Processing.ExecuteImport();
 
 		UploadError=Processing.ErrorFlag;
 		DeleteFiles(FileName);
@@ -127,11 +80,57 @@ Function DataTransferSendFileAndUpload(Request)
 
 	WriteJSON(JSONWriter, ResponseStructure);
 
-	Response = New HTTPServiceResponse(200);
-	Response.Headers.Insert("Content-Type", "application/json; charset=utf-8");
-	Response.SetBodyFromString(JSONWriter.Close());
-	Return Response;
+	Return ServiceResponse(200, JSONWriter.Close(), "application/json; charset=utf-8");
 
 EndFunction
 
 #EndRegion
+
+#EndRegion
+
+#Region Private
+
+
+Procedure ProcessRequest(WebID, IncomingParameters, Response)
+	Query = New Query;
+	Query.Text =
+	"Select first 1
+	|   _37583_ALG.Ref AS Algorithm
+	|ИЗ
+	|   Catalog.UT_Algorithms AS _37583_ALG
+	|ГДЕ
+	|   _37583_ALG.HttpID= &WebID";
+
+	Query.SetParameter("WebID", WebID);
+
+	QueryResult = Query.Execute();
+	If QueryResult.IsEmpty() Then
+		Response.StatusCode = 404;
+		Response.ResponseBody = NStr("ru = 'Ошибка: не найден алгоритм!'; en = 'Error:  algorithm not found'");
+		Return;
+	EndIf;
+		
+	SelectionDetailRecords = QueryResult.Select();
+	SelectionDetailRecords.Next();
+	ExecutionResult = UT_AlgorithmsServer.ExecuteAlgorithm(SelectionDetailRecords.Algorithm);
+	If ExecutionResult = Undefined Then
+		Response.StatusCode = 404;
+		Response.ResponseBody = NStr("ru = 'Ошибка: Путой алгоритм!'; en = 'Error:  algorithm is empty'");
+		Return;
+	EndIf;
+	
+	Response.ResponseBody = UT_CommonClientServer.mWriteJSON(ExecutionResult);	
+		
+EndProcedure
+
+
+Function ServiceResponse(StatusCode, ResponseBody, ContentType = "text/html; charset=utf-8")
+	Response = New HTTPServiceResponse(StatusCode);
+	Response.SetBodyFromString(ResponseBody, TextEncoding.UTF8);
+	Response.Headers.Insert("Content-Type", ContentType);
+	Return Response;
+		
+EndFunction 
+
+#EndRegion
+
