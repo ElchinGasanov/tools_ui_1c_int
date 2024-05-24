@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/github/license/i-neti/tools_ui_1c_international?style=badge)](https://github.com/i-neti/tools_ui_1c_international/blob/master/LICENSE)
 
 [RUSSIAN VERSION OF THIS DOCUMENT](https://github.com/i-neti/tools_ui_1c_international/blob/develop/README_RU.md)
+
 This is freely distributed set of Universal tools: data processors  and reports. 
 May be useful for for developers and users for development and support.
 Works in ALL types of client applications and in all operating systems supported by the "1C:Enterprise" platform, except for mobile.
