@@ -546,13 +546,6 @@
 		</right>
 	</object>
 	<object>
-		<name>HTTPService.UT_PublishedFunctions.URLTemplate.DataTransfer.Method.Ping</name>
-		<right>
-			<name>Use</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>DataProcessor.UT_CodeConsole</name>
 		<right>
 			<name>Use</name>
@@ -606,84 +599,6 @@
 		</right>
 	</object>
 	<object>
-		<name>CommonForm.UT_RefToCodeForm</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_EnumerationsSelectionForm</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_UUIDEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_PointInTimeEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_BoundaryEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_StructureEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_MapEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_ValueStorageEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_ValueListForm</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_PictureEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_BinaryDataEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_CodeEditorInteractionSessionParameters</name>
 		<right>
 			<name>View</name>
 			<value>true</value>

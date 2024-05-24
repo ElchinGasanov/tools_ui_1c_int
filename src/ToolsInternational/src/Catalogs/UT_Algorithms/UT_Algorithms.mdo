@@ -14,7 +14,7 @@
   </synonym>
   <synonym>
     <key>ru</key>
-    <value>Алгоритмы [УИ]</value>
+    <value>Algorithms [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>Catalog.UT_Algorithms.StandardAttribute.Description</inputByString>
@@ -165,7 +165,7 @@
     </synonym>
     <synonym>
       <key>ru</key>
-      <value>Хранилище параметров</value>
+      <value>Parameters storage</value>
     </synonym>
     <type>
       <types>ValueStorage</types>
@@ -215,7 +215,7 @@
     </synonym>
     <synonym>
       <key>ru</key>
-      <value>Выполнять по расписанию</value>
+      <value>Execute by schedule</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -228,7 +228,7 @@
     <name>WriteErrorsToEventLog</name>
     <synonym>
       <key>ru</key>
-      <value>Записывать ошибки  в журнал</value>
+      <value>Write errors to event log</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -249,7 +249,7 @@
     </synonym>
     <synonym>
       <key>ru</key>
-      <value>Идентификатор HTTP</value>
+      <value>HTTP ID</value>
     </synonym>
     <type>
       <types>String</types>
@@ -290,7 +290,7 @@
     </synonym>
     <synonym>
       <key>ru</key>
-      <value>Кэшировать возвращаемые значения</value>
+      <value>Cache returns values</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -350,7 +350,7 @@
       </synonym>
       <synonym>
         <key>ru</key>
-        <value>Вход</value>
+        <value>Entry</value>
       </synonym>
       <type>
         <types>Boolean</types>
