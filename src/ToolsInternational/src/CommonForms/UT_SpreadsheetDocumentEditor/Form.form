@@ -2088,6 +2088,23 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>ReturningStorageForValueContainer</name>
+    <title>
+      <key>ru</key>
+      <value>Returning storage for value container</value>
+    </title>
+    <id>10</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <formCommands>
     <name>WriteAndClose</name>
     <title>

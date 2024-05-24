@@ -4,6 +4,98 @@
     <name>PagesGroup</name>
     <id>81</id>
     <items xsi:type="form:FormGroup">
+      <name>GroupPageGeneralSettings</name>
+      <id>87</id>
+      <items xsi:type="form:FormField">
+        <name>DataStorageInstrumentsDirectoryOnServer</name>
+        <id>89</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>DataStorageInstrumentsDirectoryOnServer</segments>
+        </dataPath>
+        <toolTip>
+          <key>ru</key>
+          <value>This directory stores information such as debug data, tool autosave data, algorithms, etc.</value>
+        </toolTip>
+        <toolTipRepresentation>ShowTop</toolTipRepresentation>
+        <extendedTooltip>
+          <name>DataStorageInstrumentsDirectoryOnServerExtendedTooltip</name>
+          <id>91</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>DataStorageInstrumentsDirectoryOnServerContextMenu</name>
+          <id>90</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <wrap>true</wrap>
+          <chooseType>true</chooseType>
+          <typeDomainEnabled>true</typeDomainEnabled>
+          <textEdit>true</textEdit>
+        </extInfo>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <title>
+        <key>en</key>
+        <value>GroupPageGeneralSettings</value>
+      </title>
+      <title>
+        <key>ru</key>
+        <value>General</value>
+      </title>
+      <extendedTooltip>
+        <name>GroupPageGeneralSettingsExtendedTooltip</name>
+        <id>88</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>Page</type>
+      <extInfo xsi:type="form:PageGroupExtInfo">
+        <group>Vertical</group>
+        <showTitle>true</showTitle>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormGroup">
       <name>CodeEditorGroup</name>
       <id>83</id>
       <items xsi:type="form:FormField">
@@ -793,16 +885,16 @@
             <dataPath xsi:type="form:DataPath">
               <segments>ConfigurationSourceFilesDirectories</segments>
             </dataPath>
-            <titleLocation>Top</titleLocation>
+            <titleLocation>None</titleLocation>
             <toolTip>
               <key>en</key>
               <value>You need to specify that the hints on the export methods of modules in the Monaco editor work</value>
             </toolTip>
             <toolTip>
               <key>ru</key>
-              <value>Нужно указать, чтобы работали подсказки по экспортным методам модулей в вредакторе Monaco</value>
+              <value>You need to specify that hints on module export methods will work in the Monaco editor</value>
             </toolTip>
-            <toolTipRepresentation>Button</toolTipRepresentation>
+            <toolTipRepresentation>ShowTop</toolTipRepresentation>
             <items xsi:type="form:FormField">
               <name>ConfigurationSourceFilesDirectoriesSource</name>
               <id>40</id>
@@ -1699,6 +1791,41 @@
         <common>true</common>
       </edit>
     </columns>
+  </attributes>
+  <attributes>
+    <name>UseCommandsForWorkingWithBufferInContextMenu</name>
+    <title>
+      <key>ru</key>
+      <value>Use Commands for Working with Buffer in the Context Menu</value>
+    </title>
+    <id>16</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>DataStorageInstrumentsDirectoryOnServer</name>
+    <title>
+      <key>ru</key>
+      <value>Data storage instruments directory on server</value>
+    </title>
+    <id>17</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
   <formCommands>
     <name>Apply</name>

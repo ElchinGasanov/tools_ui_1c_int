@@ -4,7 +4,7 @@
 
 #EndRegion
 
-#Region EventHandlers
+#Region FormEventHandlers
 
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
@@ -86,7 +86,7 @@ EndProcedure
 
 #EndRegion
 
-#Region FormHeaderItemsEventsHandlers
+#Region FormHeaderItemsEventHandlers
 
 
 &AtClient
@@ -102,11 +102,10 @@ Procedure PlatformLaunchFileStartChoice(Item, ChoiceData, StandardProcessing)
 	FileName = "1cv8";
 	
 	If UT_CommonClientServer.IsWindows() Then
-		FileName = FileName+".exe";
+		FileName = FileName + ".exe";
 	EndIf;
 	
-	UT_CommonClient.AddFormatToSavingFileDescription(FileDescription, StrTemplate(NStr("ru = 'Файл толстого клиента 1С(%1)';
-	|en = '1C thick client file (%1)'"),FileName), "",FileName);
+	UT_CommonClient.AddFormatToSavingFileDescription(FileDescription, StrTemplate(NStr("ru = 'Файл толстого клиента 1С(%1)'; en = '1C thick client file (%1)'"),FileName), "",FileName);
 	
 	UT_CommonClient.FormFieldFileNameStartChoice(FileDescription, Item, ChoiceData, StandardProcessing,
 		FileDialogMode.Open,
@@ -147,11 +146,12 @@ EndProcedure
 #Region FormCommandsEventHandlers
 
 
+
 &AtClient
 Procedure SelectCommonSaveDirectory(Command)
-	FD = New FileDialog(FileDialogMode.ChooseDirectory);
-	FD.Multiselect = False;
-	FD.Show(New NotifyDescription("SelectCommonSaveDirectoryOnEnd", ThisObject));
+	FileDialog = New FileDialog(FileDialogMode.ChooseDirectory);
+	FileDialog.Multiselect = False;
+	FileDialog.Show(New NotifyDescription("SelectCommonSaveDirectoryOnEnd", ThisObject));
 EndProcedure
 
 &AtClient

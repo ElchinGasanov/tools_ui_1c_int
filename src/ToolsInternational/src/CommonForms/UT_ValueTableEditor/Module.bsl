@@ -2,109 +2,109 @@
 
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
-	ПрефиксОкончаниеКолонокКонтейнера = "____Контейнер__";
+	ColumnsContainerEndPrefix = "____Container__";
 
-	Если Параметры.Свойство("СериализоватьВXML") Тогда
+	If Parameters.Property("SerializeToXML") Then
 		//@skip-check unknown-form-parameter-access
-		СериализоватьВXML = Параметры.СериализоватьВXML;
-	КонецЕсли;
+		SerializeToXML = Parameters.SerializeToXML;
+	EndIf;
 	
-	Таблица = Неопределено;
-	Если Параметры.Свойство("ТаблицаЗначенийСтрокой") Тогда
+	Table = Undefined;
+	If Parameters.Property("ValueTableAsString") Then
 		//@skip-check unknown-form-parameter-access
-		Таблица = ТаблицаЗначенийИзСтроковогоПредставления(Параметры.ТаблицаЗначенийСтрокой, СериализоватьВXML);
-	ИначеЕсли Параметры.Свойство("ХранилищеКонтейнераЗначения") Тогда 
-		ВозвратХранилищаДляКонтейнераЗначения = Истина;
-		
-		//@skip-check unknown-form-parameter-access
-		ХранилищеКонтейнера = Параметры.ХранилищеКонтейнераЗначения; //см. УИ_ОбщегоНазначенияКлиентСервер.НовыйХранилищеЗначенияТаблицыЗначений
-		
-		СериализоватьВXML = Ложь;
-		Если ХранилищеКонтейнера <> Неопределено Тогда
-			Таблица = УИ_ОбщегоНазначения.ЗначениеИзХранилищаКонтейнераТаблицыЗначений(ХранилищеКонтейнера);
-		КонецЕсли;
-	ИначеЕсли Параметры.Свойство("ХранилищеКонтейнераЗначенияДерева") Тогда 
-		ВозвратХранилищаДляКонтейнераЗначения = Истина;
-		ЭтоДерево = Истина;
+		Table = TableOfValuesFromStringRepresentation(Parameters.ValueTableAsString, SerializeToXML);
+	ElsIf Parameters.Property("ValueContainerStorage") Then 
+		ReturningStorageForValueContainer = True;
 		
 		//@skip-check unknown-form-parameter-access
-		ХранилищеКонтейнера = Параметры.ХранилищеКонтейнераЗначенияДерева; //см. УИ_ОбщегоНазначенияКлиентСервер.НовыйХранилищеЗначенияТаблицыЗначений
+		ContainerStorage = Parameters.ValueContainerStorage; //см. UT_CommonClientServer.NewValueStorageValueTableType
 		
-		СериализоватьВXML = Ложь;
-		Если ХранилищеКонтейнера <> Неопределено Тогда
-			Таблица = УИ_ОбщегоНазначения.ЗначениеИзХранилищаКонтейнераДереваЗначений(ХранилищеКонтейнера);
-		КонецЕсли;
-	КонецЕсли;
+		SerializeToXML = False;
+		If ContainerStorage <> Undefined Then
+			Table = UT_Common.ValueFromValueTableContainerStorage(ContainerStorage);
+		EndIf;
+	ElsIf Parameters.Property("ValueTreeContainerStorage") Then 
+		ReturningStorageForValueContainer = True;
+		IsTree = True;
+		
+		//@skip-check unknown-form-parameter-access
+		ContainerStorage = Parameters.ValueTreeContainerStorage; //см. UT_CommonClientServer.NewValueStorageValueTableType
+		
+		SerializeToXML = False;
+		If ContainerStorage <> Undefined Then
+			Table = UT_Common.ValueFromValueTreeContainerStorage(ContainerStorage);
+		EndIf;
+	EndIf;
 
-	Если Таблица = Неопределено Тогда
-		Если ЭтоДерево Тогда
-			Таблица = Новый ДеревоЗначений;
-		Иначе
-			Таблица = Новый ТаблицаЗначений;
-		КонецЕсли;
-	КонецЕсли;
-	Если ЭтоДерево Тогда
-		Заголовок = "Редактор дерева значения";
-	Иначе
-		Заголовок = "Редактор таблицы значения"
-	КонецЕсли;
-	ДобавитьКорневойЭлементИРеквизитТаблицы();	
+	If Table = Undefined Then
+		If IsTree Then
+			Table = New ValueTree;
+		Else
+			Table = New ValueTable;
+		EndIf;
+	EndIf;
+	If IsTree Then
+		Title = NStr("ru = 'Редактор дерева значения'; en = 'Value tree editor'");
+	Else
+		Title = NStr("ru = 'Редактор таблицы значения'; en = 'Value table editor'")
+	EndIf;
+	AddRootItemAndAttributeTables();	
 
-	ЗаполнитьКолонкиТаблицыЗначений(Таблица);
-	СоздатьКолонкиТаблицыЗначенийФормы();
-	Если ЭтоДерево Тогда
-		ЗаполнитьДеревоЗначенийФормыПоДереву(Таблица);
-	Иначе
-		ЗаполнитьТаблицуЗначенийФормыПоТаблице(Таблица);
-	КонецЕсли;
+	FillValueTableColumns(Table);
+	CreateFormValueTableColumns();
+	If IsTree Then
+		FillFormTreeValuesByTree(Table);
+	Else
+		FillFormValueTableByTable(Table);
+	EndIf;
 	
-	Если КолонкиТаблицы.Количество() = 0 Тогда
-		Элементы.ГруппаКолонкиТаблицы.Показать();
-	КонецЕсли;
+	If TableColumns.Количество() = 0 Then
+		Items.GroupTableColumns.Show();
+	EndIf;
 	
 EndProcedure
 
 #EndRegion
 
-#Region FormTableItemsEventHandlersTableColumn
+#Region FormTableItemsEventHandlersTableColumns
 
 &AtClient
 Procedure TableColumnsBeforeEditEnd(Item, NewRow, CancelEdit, Cancel)
-	Если ОтменаРедактирования Тогда
-		Возврат;
-	КонецЕсли;
-	ТекДанные = Элементы.КолонкиТаблицы.ТекущиеДанные;
-	Если ТекДанные = Неопределено Тогда
-		Возврат;
-	КонецЕсли;
+	If CancelEdit Then
+		Return;
+	EndIf;
+	CurrentData = Items.TableColumns.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
 	
-	ИмяКолонки = ТекДанные.Имя;
+	ColumnName = CurrentData.Name;
 
-	Если Не УИ_ОбщегоНазначенияКлиентСервер.ИмяПеременнойКорректно(ИмяКолонки) Тогда
-		ПоказатьПредупреждение( ,
-			УИ_ОбщегоНазначенияКлиентСервер.ТекстПредупрежденияОНерпавильномИмениПеременной(),
-			, Заголовок);
-		Отказ = Истина;
-		Возврат;
-	КонецЕсли;
+	If Not UT_CommonClientServer.IsCorrectVariableName(ColumnName) Then
+		ShowMessageBox( ,
+			UT_CommonClientServer.TextWarningInvalidVariableName(),
+			, Title);
+		Cancel = True;
+		Return;
+	EndIf;
 
-	СтрокиИмени = КолонкиТаблицы.НайтиСтроки(Новый Структура("Имя", ИмяКолонки));
-	Если СтрокиИмени.Количество() > 1 Тогда
-		ПоказатьПредупреждение( , "Колонка с таким именем уже есть! Введите другое имя.", , Заголовок);
-		Отказ = Истина;
-		Возврат;
-	КонецЕсли;
+	NameRows = TableColumns.НайтиСтроки(New Structure("Name", ColumnName));
+	If NameRows.Count() > 1 Then
+		ShowMessageBox( , NStr("ru = 'Колонка с таким именем уже есть! Введите другое имя.'; en = 'There is already a column with that name! Enter a different name.'"), , Title);
+		Cancel = True;
+		Return;
+	EndIf;
 EndProcedure
 
 &AtClient
 Procedure TableColumnsValueTypeStartChoice(Item, ChoiceData, StandardProcessing)
-	CurrentData=Items.TableColumns.CurrentData;
+	CurrentData = Items.TableColumns.CurrentData;
 	If CurrentData = Undefined Then
 		Return;
 	EndIf;
 	
 	StandardProcessing = False;
-	CurrentRow=Items.TableColumns.CurrentRow;
+	CurrentRow = Items.TableColumns.CurrentRow;
 
 	UT_CommonClient.EditType(CurrentData.ValueType, 1, StandardProcessing, ThisObject,
 		New NotifyDescription("TableColumnsValueTypeStartChoiceEND", ThisObject,
@@ -118,109 +118,109 @@ EndProcedure
 
 &AtClient
 Procedure TableColumnsOnEditEnd(Item, NewRow, CancelEdit)
-	Если ОтменаРедактирования Тогда
-		Возврат;
-	КонецЕсли;
+	If CancelEdit Then
+		Return;
+	EndIf;
 	
-	ТекДанные = Элементы.КолонкиТаблицы.ТекущиеДанные;
-	ТекДанные.ИмяДляПоиска = НРег(ТекДанные.Имя);
+	CurrentData = Items.TableColumns.CurrentData;
+	CurrentData.NameForSearch = Lower(CurrentData.Name);
 
-	Элементы.ТаблицаЗначений.Доступность = Ложь;
-	ПодключитьОбработчикОжидания("СоздатьКолонкиТаблицыЗначенийФормыОбработчикОжидания", 0.1, Истина);
+	Items.ValueTable.Enabled = False;
+	AttachIdleHandler("CreateColumnsTablesValuesFormsHandlerExpectations", 0.1, True);
 EndProcedure
 
 #EndRegion
 
 #Область FormTableItemsEventHandlersValueTable
 
-&НаКлиенте 
-Процедура Подключаемый_ПолеТаблицыЗначенийПриИзменении(Элемент)
-	ТекДанные = Элементы.ТаблицаЗначений.ТекущиеДанные;
-	Если ТекДанные = Неопределено Тогда
-		ВозвраТ;
-	КонецЕсли;
+&AtClient 
+Procedure Подключаемый_ПолеТаблицыЗначенийПриИзменении(Item)
+	CurrentData = Items.ValueTable.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
 	
-	СтрокаКолонкиТаблицы = СтрокаКолонкиТаблицы(КолонкиТаблицы, Сред(НРег(Элемент.Имя), СтрДлина("таблицазначений")+1));
-	Если СтрокаКолонкиТаблицы = Неопределено Тогда
-		Возврат;
-	КонецЕсли;
+	TableRowColumns = TableRowColumns(TableColumns, Mid(Lower(Item.Name), StrLen("valuetable")+1));
+	If TableRowColumns = Undefined Then
+		Return;
+	EndIf;
 	
-	ПараметрыОбработчика = УИ_ОбщегоНазначенияКлиент.НовыйПараметрыОбработчикаСобытияПриИзменении(ЭтотОбъект,
-																								  Элемент,
-																								  "Значение");
-	ПараметрыОбработчика.ДоступенКонтейнер = Истина;
-	ПараметрыОбработчика.СтруктураХраненияЗначения = ТекДанные;
+	HandlerParameters = UT_CommonClient.NewProcessorInChangingEventsParameters(ThisObject,
+		Item,
+		"Value");
+	HandlerParameters.AvailableContainer = True;
+	HandlerParameters.StructureValueStorage = CurrentData;
 	
-	СтруктураХраненияКолонкиТаблицыНаФорме = СтруктураХраненияКолонкиТаблицыНаФорме(СтрокаКолонкиТаблицы.Имя);
-	ЗаполнитьЗначенияСвойств(ПараметрыОбработчика, СтруктураХраненияКолонкиТаблицыНаФорме);
+	TableColumnStorageStructureOnForm = TableColumnStorageStructureOnForm(TableRowColumns.Name);
+	FillPropertyValues(HandlerParameters, TableColumnStorageStructureOnForm);
 
-	УИ_ОбщегоНазначенияКлиент.ПолеФормыОбработчикПриИзменении(ПараметрыОбработчика);
+	UT_CommonClient.FormFieldInChangeProcessor(HandlerParameters);
 	
-КонецПроцедуры
+EndProcedure
 
-&НаКлиенте
-Процедура Подключаемый_ПолеТаблицыЗначенийНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
-	ТекДанные = Элементы.ТаблицаЗначений.ТекущиеДанные;
-	Если ТекДанные = Неопределено Тогда
-		ВозвраТ;
-	КонецЕсли;
+&AtClient
+Procedure Подключаемый_ПолеТаблицыЗначенийНачалоВыбора(Item, ChosenData, StandardProcessing)
+	CurrentData = Items.ValueTable.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
 
-	СтрокаКолонкиТаблицы = СтрокаКолонкиТаблицы(КолонкиТаблицы, Сред(НРег(Элемент.Имя), СтрДлина("таблицазначений")+1));
-	Если СтрокаКолонкиТаблицы = Неопределено Тогда
-		СтандартнаяОбработка = Ложь;
-		Возврат;
-	КонецЕсли;
+	TableRowColumns = TableRowColumns(TableColumns, Mid(Lower(Item.Name), StrLen("valuetable")+1));
+	If TableRowColumns = Undefined Then
+		StandardProcessing = False;
+		Return;
+	EndIf;
 
-	ПараметрыОбработчика = УИ_ОбщегоНазначенияКлиент.НовыйПараметрыОбработчикаСобытияНачалоВыбораЗначения(ЭтотОбъект,
-																										  Элемент,
-																										  СтрокаКолонкиТаблицы.Имя);
-	ПараметрыОбработчика.ДоступенКонтейнер = Истина;
-	ПараметрыОбработчика.Значение = ТекДанные[СтрокаКолонкиТаблицы.Имя];
-	ПараметрыОбработчика.СтруктураХраненияЗначения = ТекДанные;
-	ПараметрыОбработчика.НаборТипов = УИ_ОбщегоНазначенияКлиентСервер.ВсеНаборыТиповДляРедактирования();
-	ПараметрыОбработчика.ТекущееОписаниеТиповЗначения = СтрокаКолонкиТаблицы.ТипЗначения;
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+		Item,
+		TableRowColumns.Name);
+	HandlerParameters.AvailableContainer = True;
+	HandlerParameters.Value = CurrentData[TableRowColumns.Name];
+	HandlerParameters.StructureValueStorage 		= CurrentData;
+	HandlerParameters.TypesSet 						= UT_CommonClientServer.AllEditingTypeSets();
+	HandlerParameters.CurrentDescriptionValueTypes 	= TableRowColumns.ValueType;
 
-	СтруктураХраненияКолонкиТаблицыНаФорме = СтруктураХраненияКолонкиТаблицыНаФорме(СтрокаКолонкиТаблицы.Имя);
-	ЗаполнитьЗначенияСвойств(ПараметрыОбработчика, СтруктураХраненияКолонкиТаблицыНаФорме);
-	УИ_ОбщегоНазначенияКлиент.ПолеФормыОбработчикНачалоВыбораЗначения(ПараметрыОбработчика, СтандартнаяОбработка);
-КонецПроцедуры
+	TableColumnStorageStructureOnForm = TableColumnStorageStructureOnForm(TableRowColumns.Name);
+	FillPropertyValues(HandlerParameters, TableColumnStorageStructureOnForm);
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
+EndProcedure
 
-&НаКлиенте
-Процедура Подключаемый_ПолеТаблицыЗначенийОчистка(Элемент, СтандартнаяОбработка)
-	ТекДанные = Элементы.ТаблицаЗначений.ТекущиеДанные;
-	Если ТекДанные = Неопределено Тогда
-		Возврат;
-	КонецЕсли;
-	СтрокаКолонкиТаблицы = СтрокаКолонкиТаблицы(КолонкиТаблицы, Сред(НРег(Элемент.Имя), СтрДлина("таблицазначений")+1));
-	Если СтрокаКолонкиТаблицы = Неопределено Тогда
-		СтандартнаяОбработка = Ложь;
-		Возврат;
-	КонецЕсли;
+&AtClient
+Procedure Подключаемый_ПолеТаблицыЗначенийОчистка(Item, StandardProcessing)
+	CurrentData = Items.ValueTable.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	TableRowColumns = TableRowColumns(TableColumns, Mid(Lower(Item.Name), StrLen("valuetable")+1));
+	If TableRowColumns = Undefined Then
+		StandardProcessing = False;
+		Return;
+	EndIf;
 
-	ПараметрыОбработчика = УИ_ОбщегоНазначенияКлиент.НовыйПараметрыОбработчикаСобытияОчистка(ЭтотОбъект,
-																							 Элемент,
-																							 СтрокаКолонкиТаблицы.Имя);
-	ПараметрыОбработчика.ДоступенКонтейнер = Истина;
-	ПараметрыОбработчика.СтруктураХраненияЗначения = ТекДанные;
-	ПараметрыОбработчика.ТекущееОписаниеТиповЗначения = СтрокаКолонкиТаблицы.ТипЗначения;
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+		Item,
+		TableRowColumns.Name);
+	HandlerParameters.AvailableContainer = True;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.CurrentDescriptionValueTypes = TableRowColumns.ValueType;
 	
-	СтруктураХраненияКолонкиТаблицыНаФорме = СтруктураХраненияКолонкиТаблицыНаФорме(СтрокаКолонкиТаблицы.Имя);
-	ЗаполнитьЗначенияСвойств(ПараметрыОбработчика, СтруктураХраненияКолонкиТаблицыНаФорме);
+	TableColumnStorageStructureOnForm = TableColumnStorageStructureOnForm(TableRowColumns.Name);
+	FillPropertyValues(HandlerParameters, TableColumnStorageStructureOnForm);
 	
-	УИ_ОбщегоНазначенияКлиент.ПолеФормыОбработчикОчистка(ПараметрыОбработчика, СтандартнаяОбработка);
-КонецПроцедуры
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+EndProcedure
 
 
 #КонецОбласти
 
-#Region CommandFormEventHandlers
+#Region FormCommandsEventHandlers
 &AtClient
 Procedure Apply(Command)
-	Если ЭтоДерево Тогда
-		СтруктураРезультата=РезультатДеревоЗначенийВХранилище();
-	Иначе
-		ResultStructure=ResultValueTableToString();
-	КонецЕсли;
+	If IsTree Then
+		ResultStructure=ResultValueTreeInStorage();
+	Else
+		ResultStructure = ResultValueTableToString();
+	EndIf;
 	
 	Close(ResultStructure);	
 EndProcedure
@@ -228,195 +228,195 @@ EndProcedure
 
 #Region Private
 
-&НаКлиентеНаСервереБезКонтекста
-Функция СтрокаКолонкиТаблицы(Колонки, Имя)
-	Поиск = Новый Структура;
-	Поиск.Вставить("ИмяДляПоиска", НРег(Имя));
+&AtClientAtServerNoContext
+Function TableRowColumns(Columns, Name)
+	Search = New Structure;
+	Search.Insert("NameForSearch", Lower(Name));
 	
-	НайденныеСтроки = Колонки.НайтиСтроки(Поиск);
-	Если НайденныеСтроки.Количество() = 0 Тогда
-		Возврат Неопределено;
-	Иначе
-		Возврат НайденныеСтроки[0];
-	КонецЕсли;
-КонецФункции
+	FoundStrings = Columns.FindRows(Search);
+	If FoundStrings.Count() = 0 Then
+		Return Undefined;
+	Else
+		Return FoundStrings[0];
+	EndIf;
+EndFunction
 
-&НаКлиенте
-Процедура СоздатьКолонкиТаблицыЗначенийФормыОбработчикОжидания()
-	СоздатьКолонкиТаблицыЗначенийФормы();
-	Элементы.ТаблицаЗначений.Доступность = Истина;
-КонецПроцедуры
+&AtClient
+Procedure CreateColumnsTablesValuesFormsHandlerExpectations()
+	CreateFormValueTableColumns();
+	Items.TableColumns.Enabled = True;
+EndProcedure
 
-&НаСервереБезКонтекста
-Функция ТаблицаЗначенийИзСтроковогоПредставления(СтроковоеПредставлениеТаблицы, СериализоватьвXML)
+&AtServerNoContext
+Function TableOfValuesFromStringRepresentation(TableStringRepresentation, SerializeToXML)
 
-	Если СериализоватьВXML Тогда
-		Попытка
-			Таблица=УИ_ОбщегоНазначения.ЗначениеИзСтрокиXML(СтроковоеПредставлениеТаблицы);
-		Исключение
-			Таблица=Новый ТаблицаЗначений;
-		КонецПопытки;
-	Иначе
-		Попытка
-			Таблица=ЗначениеИзСтрокиВнутр(СтроковоеПредставлениеТаблицы);
-		Исключение
-			Таблица=Новый ТаблицаЗначений;
-		КонецПопытки;
-	КонецЕсли;
-	Возврат Таблица;
+	If SerializeToXML Then
+		Try
+			ValueTable = UT_Common.ValueFromXMLString(TableStringRepresentation);
+		Except
+			ValueTable = New ValueTable;
+		EndTry;
+	Else
+		Try
+			ValueTable = ValueFromStringInternal(TableStringRepresentation);
+		Except
+			ValueTable = New ValueTable;
+		EndTry;
+	EndIf;
+	Return ValueTable;
 
-КонецФункции
+EndFunction
 
 &AtServer
-Procedure FillValueTableColumns(VT)
+Procedure FillValueTableColumns(ValueTable)
 	TableColumns.Clear();
 
-	For Each Column In VT.Columns Do
-		NewRow=TableColumns.Add();
-		NewRow.Name=Column.Name;
-		НС.ИмяДляПоиска = НРег(Колонка.Имя);
-		NewRow.ValueType=Column.ValueType;
+	For Each Column In ValueTable.Columns Do
+		NewRow = TableColumns.Add();
+		NewRow.Name = Column.Name;
+		NewRow.NameForSearch = Lower(Column.Name);
+		NewRow.ValueType = Column.ValueType;
 	EndDo;
 EndProcedure
 
-&НаСервереБезКонтекста
-Процедура УдалитьЗначениеИзМассива(Массив, Значение)
-	Индекс = Массив.Найти(Значение);
-	Если Индекс = Неопределено Тогда
-		Возврат;
-	КонецЕсли;
+&AtServerNoContext
+Procedure RemoveValueFromArray(Array, Value)
+	Index = Array.Find(Value);
+	If Index = Undefined Then
+		Return;
+	EndIf;
 	
-	Массив.Удалить(Индекс);
-КонецПроцедуры
+	Array.Delete(Index);
+EndProcedure
 
-&НаСервере
-Функция ИмяВспомогательнойКолонкиТаблицы(ИмяПоля, Суффикс)
-	Возврат ПрефиксОкончаниеКолонокКонтейнера + ИмяПоля + Суффикс + ПрефиксОкончаниеКолонокКонтейнера
-КонецФункции
+&AtServer
+Function AdditionalTableColumnName(FieldName, Suffix)
+	Return ColumnsContainerEndPrefix + FieldName + Suffix + ColumnsContainerEndPrefix;
+EndFunction
 
 &AtServer
 Procedure CreateFormValueTableColumns()
-	ТипХранимыеВКонтейнере = УИ_ОбщегоНазначенияКлиентСервер.ТипыЗначенийХранимыеВКонтейнерах();
+	TypeStoredInContainer = UT_CommonClientServer.TypesStoredInContainers();
 	
-	МассивУдаляемыхРеквизитов=Новый Массив;
-	МассивДобавляемыхРеквизитов=Новый Массив;
+	ArrayOfRemovableAttributes = New Array;
+	ArrayOfAddedAttributes = New Array;
 	
-	МассивТекущихКолонокТаблицы=ПолучитьРеквизиты(ИмяРеквизитаХранилища);
+	ArrayOfCurrentColumnsOfTable = GetAttributes(StorageAttributeName);
 	
-	УжеСозданныеКолонки=Новый Структура;
+	AlreadyCreatedColumns = New Structure;
 
-	Для Каждого ТекРеквизит Из МассивТекущихКолонокТаблицы Цикл
-		МассивУдаляемыхРеквизитов.Добавить(ИмяРеквизитаХранилища + "." + НРег(ТекРеквизит.Имя));
-		Если СтрНачинаетсяС(ТекРеквизит.Имя, ПрефиксОкончаниеКолонокКонтейнера) И СтрЗаканчиваетсяНа(ТекРеквизит.Имя,
-																									 ПрефиксОкончаниеКолонокКонтейнера) Тогда
-			Продолжить;
-		КонецЕсли;
-		УжеСозданныеКолонки.Вставить(ТекРеквизит.Имя, ТекРеквизит);
+	For Each СurrentAttribute In ArrayOfCurrentColumnsOfTable Do
+		ArrayOfRemovableAttributes.Add(StorageAttributeName + "." + Lower(СurrentAttribute.Name));
+		If StrStartsWith(СurrentAttribute.Name, ColumnsContainerEndPrefix) 
+			And StrEndsWith(СurrentAttribute.Name, ColumnsContainerEndPrefix) Then
+			Continue;
+		EndIf;
+		AlreadyCreatedColumns.Insert(СurrentAttribute.Name, СurrentAttribute);
 
-	КонецЦикла;
-	КолонкиДляПриведенияТипов=Новый Массив;
+	EndDo;
+	ColumnsForCastingTypes = New Array;
 
-	СтруктурыХраненияЗначенийПоляКолонок = Новый Структура;
+	FieldColumnStructuresStoringValues = New Structure;
 
-	Для Каждого ТекКолонка Из КолонкиТаблицы Цикл
-		СтруктурыХраненияЗначенийПоляКолонок.Вставить(ТекКолонка.Имя,
-													  СтруктураХраненияКолонкиТаблицыНаФорме(ТекКолонка.Имя));
-		Если УжеСозданныеКолонки.Свойство(ТекКолонка.Имя) Тогда
-			Если ТекКолонка.ТипЗначения <> УжеСозданныеКолонки[ТекКолонка.Имя].ТипЗначения Тогда
-				КолонкиДляПриведенияТипов.Добавить(ТекКолонка);
-			КонецЕсли;
+	For Each  CurrentColumn In TableColumns Do
+		FieldColumnStructuresStoringValues.Insert(CurrentColumn.Name,
+													  TableColumnStorageStructureOnForm(CurrentColumn.Name));
+		If AlreadyCreatedColumns.Property(CurrentColumn.Name) Then
+			If CurrentColumn.ValueType <> AlreadyCreatedColumns[CurrentColumn.Name].ValueType Then
+				ColumnsForCastingTypes.Add(CurrentColumn);
+			EndIf;
 
-			УдалитьЗначениеИзМассива(МассивУдаляемыхРеквизитов, ИмяРеквизитаХранилища + "." + НРег(ТекКолонка.Имя));
-			УдалитьЗначениеИзМассива(МассивУдаляемыхРеквизитов, ИмяРеквизитаХранилища
-																+ "."
-																+ НРег(ИмяВспомогательнойКолонкиТаблицы(ТекКолонка.Имя,
-																										УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияКонтейнераДляПоляСКонтейнером())));
-			УдалитьЗначениеИзМассива(МассивУдаляемыхРеквизитов, ИмяРеквизитаХранилища
-																+ "."
-																+ НРег(ИмяВспомогательнойКолонкиТаблицы(ТекКолонка.Имя,
-																										УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияТипаЗначенияДляПоляСКонтейнером())));
-			УдалитьЗначениеИзМассива(МассивУдаляемыхРеквизитов, ИмяРеквизитаХранилища
-																+ "."
-																+ НРег(ИмяВспомогательнойКолонкиТаблицы(ТекКолонка.Имя,
-																										УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияПредставленияТипаЗначенияДляПоляСКонтейнером())));
+			RemoveValueFromArray(ArrayOfRemovableAttributes, StorageAttributeName + "." + Lower(CurrentColumn.Name));
+			RemoveValueFromArray(ArrayOfRemovableAttributes, StorageAttributeName
+				+ "."
+				+ Lower(AdditionalTableColumnName(CurrentColumn.Name,
+						UT_CommonClientServer.SuffixContainerStorageFieldName())));
+			RemoveValueFromArray(ArrayOfRemovableAttributes, StorageAttributeName
+				+ "."
+				+ Lower(AdditionalTableColumnName(CurrentColumn.Name,
+						UT_CommonClientServer.SuffixValueTypeStorageFieldName())));
+			RemoveValueFromArray(ArrayOfRemovableAttributes, StorageAttributeName
+				+ "."
+				+ Lower(AdditionalTableColumnName(CurrentColumn.Name,
+						UT_CommonClientServer.SuffixPresentationStorageFieldName())));
 
-		Иначе
-			МассивДобавляемыхРеквизитов.Добавить(Новый РеквизитФормы(ТекКолонка.Имя, Новый ОписаниеТипов,
-				ИмяРеквизитаХранилища, , Истина));
-			МассивДобавляемыхРеквизитов.Добавить(Новый РеквизитФормы(ИмяВспомогательнойКолонкиТаблицы(ТекКолонка.Имя,
-																									  УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияКонтейнераДляПоляСКонтейнером()),
-				Новый ОписаниеТипов, ИмяРеквизитаХранилища, , Истина));
-			МассивДобавляемыхРеквизитов.Добавить(Новый РеквизитФормы(ИмяВспомогательнойКолонкиТаблицы(ТекКолонка.Имя,
-																									  УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияТипаЗначенияДляПоляСКонтейнером()),
-				Новый ОписаниеТипов("ОписаниеТипов"), ИмяРеквизитаХранилища, , Истина));
-			МассивДобавляемыхРеквизитов.Добавить(Новый РеквизитФормы(ИмяВспомогательнойКолонкиТаблицы(ТекКолонка.Имя,
-																									  УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияПредставленияТипаЗначенияДляПоляСКонтейнером()),
-				УИ_ОбщегоНазначенияКлиентСервер.ОписаниеТипаСтрока(0), ИмяРеквизитаХранилища, , Истина));
+		Else
+			ArrayOfAddedAttributes.Add(New FormAttribute(CurrentColumn.Name, New TypeDescription,
+				StorageAttributeName, , True));
+			ArrayOfAddedAttributes.Add(New FormAttribute(AdditionalTableColumnName(CurrentColumn.Name,
+					UT_CommonClientServer.SuffixContainerStorageFieldName()),
+				New TypeDescription, StorageAttributeName, , True));
+			ArrayOfAddedAttributes.Add(New FormAttribute(AdditionalTableColumnName(CurrentColumn.Name,
+					UT_CommonClientServer.SuffixValueTypeStorageFieldName()),
+				New TypeDescription("TypeDescription"), StorageAttributeName, , True));
+			ArrayOfAddedAttributes.Add(New FormAttribute(AdditionalTableColumnName(CurrentColumn.Name,
+				UT_CommonClientServer.SuffixPresentationStorageFieldName()),
+				UT_CommonClientServer.DescriptionTypeString(0), StorageAttributeName, , True));
 
-		КонецЕсли;
-	КонецЦикла;
+		EndIf;
+	EndDo;
 
-	ИзменитьРеквизиты(МассивДобавляемыхРеквизитов, МассивУдаляемыхРеквизитов);
+	ChangeAttributes(ArrayOfAddedAttributes, ArrayOfRemovableAttributes);
 
-	Для Каждого ТекКолонка Из КолонкиТаблицы Цикл
-		ОписаниеЭлемента=УИ_РаботаСФормами.НовыйОписаниеРеквизитаЭлемента();
-		ОписаниеЭлемента.Вставить("Имя", ТекКолонка.Имя);
-		ОписаниеЭлемента.Вставить("ПутьКДанным", ИмяРеквизитаХранилища+"." + ТекКолонка.Имя);
-		ОписаниеЭлемента.Вставить("РодительЭлемента", Элементы.ТаблицаЗначений);
+	For Each CurrentColumn In TableColumns Do
+		ItemDescription = UT_Forms.ItemAttributeNewDescription();
+		ItemDescription.Insert("Name", CurrentColumn.Name);
+		ItemDescription.Insert("DataPath", StorageAttributeName + "." + CurrentColumn.Name);
+		ItemDescription.Insert("ItemParent", Items.ValueTable);
 
-		ОписаниеЭлемента.Действия.Вставить("ПриИзменении", "Подключаемый_ПолеТаблицыЗначенийПриИзменении");
-		ОписаниеЭлемента.Действия.Вставить("НачалоВыбора", "Подключаемый_ПолеТаблицыЗначенийНачалоВыбора");
-		ОписаниеЭлемента.Действия.Вставить("Очистка", "Подключаемый_ПолеТаблицыЗначенийОчистка");
+		ItemDescription.Actions.Insert("OnChange", "Подключаемый_ПолеТаблицыЗначенийПриИзменении");
+		ItemDescription.Actions.Insert("StartChoice", "Подключаемый_ПолеТаблицыЗначенийНачалоВыбора");
+		ItemDescription.Actions.Insert("Clearing", "Подключаемый_ПолеТаблицыЗначенийОчистка");
 
-		ЭлементНовый = УИ_РаботаСФормами.СоздатьЭлементПоОписанию(ЭтотОбъект, ОписаниеЭлемента);
-		ЭлементНовый.ВыбиратьТип = Ложь;
-		ЭлементНовый.ВыборГруппИЭлементов = ГруппыИЭлементы.ГруппыИЭлементы;
-		ЭлементНовый.ОграничениеТипа = ТекКолонка.ТипЗначения;
-		ЭлементНовый.КнопкаВыбора = Истина;
-		ЭлементНовый.КнопкаОчистки = Истина;
+		NewItem = UT_Forms.CreateItemByDescription(ThisObject, ItemDescription);
+		NewItem.ChooseType = False;
+		NewItem.ChoiceFoldersAndItems = FoldersAndItems.FoldersAndItems;
+		NewItem.TypeRestriction = CurrentColumn.ValueType;
+		NewItem.ChoiceButton = True;
+		NewItem.ClearButton = True;
 
-	КонецЦикла;
+	EndDo;
 
-	Для Каждого ТекКолонка Из КолонкиДляПриведенияТипов Цикл
-		СтруктураХраненияКолонки = СтруктурыХраненияЗначенийПоляКолонок[ТекКолонка.Имя];
-		Для Каждого СтрокаТЗ Из ЭтотОбъект[ИмяРеквизитаХранилища] Цикл
-			ЗначениеПоля = УИ_ОбщегоНазначенияКлиентСервер.ЗначениеПоляСКонтейнеромЗначения(СтрокаТЗ,
-																							СтруктураХраненияКолонки);
-			НовоеЗначениеПоля = ТекКолонка.ТипЗначения.ПривестиЗначение(ЗначениеПоля);
+	For Each CurrentColumn In ColumnsForCastingTypes Do
+		ColumnsStorageStructure = FieldColumnStructuresStoringValues[CurrentColumn.Name];
+		For Each  ValueTableRow In ThisObject[StorageAttributeName] Do
+			FieldValue = UT_CommonClientServer.ValueContainerFieldValue(ValueTableRow,
+				ColumnsStorageStructure);
+			NewFieldValue = CurrentColumn.ValueType.AdjustValue(FieldValue);
 
-			Если ЗначениеПоля <> НовоеЗначениеПоля Или ТипЗнч(ЗначениеПоля) <> ТипЗнч(НовоеЗначениеПоля) Тогда
-				УИ_ОбщегоНазначенияКлиентСервер.УстановитьЗначениеПоляСКонтейнером(СтрокаТЗ,
-																				   СтруктураХраненияКолонки,
-																				   НовоеЗначениеПоля);
-			КонецЕсли;
-		КонецЦикла;
-	КонецЦикла;
+			If FieldValue <> NewFieldValue Or TypeOf(FieldValue) <> TypeOf(NewFieldValue) Then
+				UT_CommonClientServer.SetContainerFieldValue(ValueTableRow,
+					ColumnsStorageStructure,
+					NewFieldValue);
+			EndIf;
+		EndDo;
+	EndDo;
 EndProcedure
 
 
 &AtServer
-Procedure FillFormValueTableByTable(VT)
-	ТаблицаЗначений = ЭтотОбъект[ИмяРеквизитаХранилища];
-	ТаблицаЗначений.Очистить();
+Procedure FillFormValueTableByTable(ValueTable)
+	ValueTable = ThisObject[StorageAttributeName];
+	ValueTable.Clear();
 
-	СтруктурыХраненияКолонокТаблицыНаФорме = Новый Структура;
+	ColumnsTableStorageStructuresOnForm = New Structure;
 
-	Для Каждого СтрокаКолонки Из КолонкиТаблицы Цикл
-		СтруктурыХраненияКолонокТаблицыНаФорме.Вставить(СтрокаКолонки.Имя,
-														СтруктураХраненияКолонкиТаблицыНаФорме(СтрокаКолонки.Имя));
-	КонецЦикла;
+	For Each ColumnRow In TableColumns Do
+		ColumnsTableStorageStructuresOnForm.Insert(ColumnRow.Name,
+			TableColumnStorageStructureOnForm(ColumnRow.Name));
+	EndDo;
 
-	Для Каждого Стр Из ТаблицаИсточник Цикл
-		НС=ТаблицаЗначений.Добавить();
+	For Each Row In ValueTable Do
+		NewRow = ValueTable.Add();
 
-		Для Каждого СтрокаКолонки Из КолонкиТаблицы Цикл
-			УИ_ОбщегоНазначенияКлиентСервер.УстановитьЗначениеПоляСКонтейнером(НС,
-																			   СтруктурыХраненияКолонокТаблицыНаФорме[СтрокаКолонки.Имя],
-																			   Стр[СтрокаКолонки.Имя]);
-		КонецЦикла;
+		For Each ColumnRow In TableColumns Do
+			UT_CommonClientServer.SetContainerFieldValue(NewRow,
+				ColumnsTableStorageStructuresOnForm[ColumnRow.Name],
+				Row[ColumnRow.Name]);
+		EndDo;
 		
-		//ЗаполнитьЗначенияСвойств(НС, Стр);
-	КонецЦикла;
+		//FillPropertyValues(NewRow, Row);
+	EndDo;
 EndProcedure
 
 &AtClientAtServerNoContext
@@ -425,29 +425,29 @@ Function GetTypeModifiers(ValueType)
 	QualifiersArray = New Array;
 
 	If ValueType.ContainsType(Type("String")) Then
-		strStringQualifiers = "Length " + ValueType.StringQualifiers.Length;
-		QualifiersArray.Add(New Structure("Type, Qualifiers", "String", strStringQualifiers));
+		StrStringQualifiers = "Length " + ValueType.StringQualifiers.Length;
+		QualifiersArray.Add(New Structure("Type, Qualifiers", "String", StrStringQualifiers));
 	EndIf;
 
 	If ValueType.ContainsType(Type("Date")) Then
-		strDateQualifiers = ValueType.DateQualifiers.DateFractions;
-		QualifiersArray.Add(New Structure("Type, Qualifiers", "Date", strDateQualifiers));
+		StrDateQualifiers = ValueType.DateQualifiers.DateFractions;
+		QualifiersArray.Add(New Structure("Type, Qualifiers", "Date", StrDateQualifiers));
 	EndIf;
 
 	If ValueType.ContainsType(Type("Number")) Then
-		strDateQualifiers = "Sign " + ValueType.NumberQualifiers.AllowedSign + " "
+		StrDateQualifiers = "Sign " + ValueType.NumberQualifiers.AllowedSign + " "
 			+ ValueType.NumberQualifiers.Digits + "." + ValueType.NumberQualifiers.FractionDigits;
-		QualifiersArray.Add(New Structure("Type, Qualifiers", "Number", strDateQualifiers));
+		QualifiersArray.Add(New Structure("Type, Qualifiers", "Number", StrDateQualifiers));
 	EndIf;
 
-	fNeedTitle = QualifiersArray.Count() > 1;
+	NeedTitle = QualifiersArray.Count() > 1;
 
-	strQualifiers = "";
+	StrQualifiers = "";
 	For Each stQualifiers In QualifiersArray Do
-		strQualifiers = ?(fNeedTitle, stQualifiers.Type + ": ", "") + stQualifiers.Qualifiers + "; ";
+		StrQualifiers = ?(NeedTitle, stQualifiers.Type + ": ", "") + stQualifiers.Qualifiers + "; ";
 	EndDo;
 
-	Return strQualifiers;
+	Return StrQualifiers;
 
 EndFunction
 
@@ -457,193 +457,193 @@ Procedure TableColumnsValueTypeStartChoiceEND(Result, AdditionalParameters) Expo
 		Return;
 	EndIf;
 
-	CurrentData=TableColumns.FindByID(AdditionalParameters.CurrentRow);
-	CurrentData.ValueType=Result;
-	CurrentData.Qualifiers=GetTypeModifiers(CurrentData.ValueType);
+	CurrentData = TableColumns.FindByID(AdditionalParameters.CurrentRow);
+	CurrentData.ValueType = Result;
+	CurrentData.Qualifiers = GetTypeModifiers(CurrentData.ValueType);
 
 EndProcedure
 
-&НаСервере
-Функция РезультатДеревоЗначенийВХранилище()
-	ДеревоРезультата = Новый ДеревоЗначений();
+&AtServer
+Function ResultValueTreeInStorage()
+	ResultTree = New ValueTree();
 
-	СтруктураСтруктурХраненияПоляПоИменам = Новый Структура;
+	StructureStorageStructuresFieldsByNames = New Structure;
 
-	Для Каждого ТекСтрокаКолонки Из КолонкиТаблицы Цикл
-		ДеревоРезультата.Колонки.Добавить(ТекСтрокаКолонки.Имя, ТекСтрокаКолонки.ТипЗначения);
+	For Each  CurrentRowColumns In TableColumns Do
+		ResultTree.Columns.Add(CurrentRowColumns.Name, CurrentRowColumns.ValueType);
 
-		СтруктураСтруктурХраненияПоляПоИменам.Вставить(ТекСтрокаКолонки.Имя,
-													   СтруктураХраненияКолонкиТаблицыНаФорме(ТекСтрокаКолонки.Имя));
-	КонецЦикла;
+		StructureStorageStructuresFieldsByNames.Insert(CurrentRowColumns.Name,
+			TableColumnStorageStructureOnForm(CurrentRowColumns.Name));
+	EndDo;
 
-	ПрочитатьСтрокуДереваФормыВДеревоРезультата(ЭтотОбъект[ИмяРеквизитаХранилища],
-												ДеревоРезультата,
-												СтруктураСтруктурХраненияПоляПоИменам);
+	ReadRowTreeFormInTreeResult(ThisObject[StorageAttributeName],
+												ResultTree,
+												StructureStorageStructuresFieldsByNames);
 												
-	Если ВозвратХранилищаДляКонтейнераЗначения Тогда
-		Возврат УИ_ОбщегоНазначения.ЗначениеХранилищаКонтейнераДереваЗначений(ДеревоРезультата);	
-	Иначе
+	If ReturningStorageForValueContainer Then
+		Return UT_Common.ValueStorageContainerValueTree(ResultTree);	
+	Else
 
-		СтруктураРезультата=Новый Структура;
-		Если СериализоватьВXML Тогда
-			СтруктураРезультата.Вставить("Значение", УИ_ОбщегоНазначения.ЗначениеВСтрокуXML(ДеревоРезультата));
-		Иначе
-			СтруктураРезультата.Вставить("Значение", ЗначениеВСтрокуВнутр(ДеревоРезультата));
-		КонецЕсли;
-		СтруктураРезультата.Вставить("Представление", СтрШаблон("Строк: %1 Колонок: %2",
-																ДеревоРезультата.Строки.Количество(),
-																ДеревоРезультата.Колонки.Количество()));
-		СтруктураРезультата.Вставить("КоличествоСтрок", ДеревоРезультата.Строки.Количество());
-		СтруктураРезультата.Вставить("КоличествоКолонок", ДеревоРезультата.Колонки.Количество());
-		Возврат СтруктураРезультата;
-	КонецЕсли;
+		ResultStructure = New Structure;
+		If SerializeToXML Then
+			ResultStructure.Insert("Value", UT_Common.ValueToXMLString(ResultTree));
+		Else
+			ResultStructure.Insert("Value", ValueToStringInternal(ResultTree));
+		EndIf;
+		ResultStructure.Insert("Presentation", StrTemplate(NStr("ru = 'Строк: %1 Колонок: %2'; en = 'Rows: %1 Columns: %2'"),
+			ResultTree.Rows.Count(),
+			ResultTree.Columns.Count()));
+		ResultStructure.Insert("RowsCount", ResultTree.Rows.Count());
+		ResultStructure.Insert("ColumnsCount", ResultTree.Columns.Count());
+		Return ResultStructure;
+	EndIf;
 	
-КонецФункции
+EndFunction
 
-// Прочитать строку дерева формы в дерево результата.
+// Read form tree row into result tree.
 // 
-// Параметры:
-//  СтрокаДереваФормы - ДанныеФормыДерево, ДанныеФормыЭлементДерева- Строка дерева формы
-//  СтрокаДереваРезультата - ДеревоЗначений, СтрокаДереваЗначений -  Строка дерева результата
-//  СтруктураСтруктурХраненияПоляПоИменам - Структура -  Структура структур хранения поля по именам
-&НаСервере
-Процедура ПрочитатьСтрокуДереваФормыВДеревоРезультата(СтрокаДереваФормы, СтрокаДереваРезультата,
-	СтруктураСтруктурХраненияПоляПоИменам)
+// Parameters:
+//  RowTreeForm - FormDataTree, FormDataTreeItem - Form tree row
+//  ResultTreeRow - ValueTree, ValueTreeRow -  Result tree row
+//  StructureStorageStructuresFieldsByNames - Structure -  Structure of field storage structures by name
+&AtServer
+Procedure ReadRowTreeFormInTreeResult(RowTreeForm, ResultTreeRow,
+	StructureStorageStructuresFieldsByNames)
 
-	Для Каждого СтрокаТаблицыФормы Из СтрокаДереваФормы.ПолучитьЭлементы() Цикл
-		НоваяСтрока = СтрокаДереваРезультата.Строки.Добавить();
+	For Each RowTableForm In RowTreeForm.GetItems() Do
+		NewRow = ResultTreeRow.Rows.Add();
 
-		Для Каждого ТекСтрокаКолонки Из КолонкиТаблицы Цикл
-			НоваяСтрока[ТекСтрокаКолонки.Имя] = УИ_ОбщегоНазначенияКлиентСервер.ЗначениеПоляСКонтейнеромЗначения(СтрокаТаблицыФормы,
-																												 СтруктураСтруктурХраненияПоляПоИменам[ТекСтрокаКолонки.Имя]);
-		КонецЦикла;
+		For Each CurrentRowColumns In TableColumns Do
+			NewRow[CurrentRowColumns.Name] = UT_CommonClientServer.ValueContainerFieldValue(RowTableForm,
+				StructureStorageStructuresFieldsByNames[CurrentRowColumns.Name]);
+		EndDo;
 
-		ПрочитатьСтрокуДереваФормыВДеревоРезультата(СтрокаТаблицыФормы,
-													НоваяСтрока,
-													СтруктураСтруктурХраненияПоляПоИменам);
-	КонецЦикла;
+		ReadRowTreeFormInTreeResult(RowTableForm,
+									NewRow,
+									StructureStorageStructuresFieldsByNames);
+	EndDo;
 
-КонецПроцедуры
+EndProcedure
 
 &AtServer
 Function ResultValueTableToString()
-	ТаблицаРезультата = Новый ТаблицаЗначений;
+	ValueTable = New ValueTable;
 
-	СтруктураСтруктурХраненияПоляПоИменам = Новый Структура;
+	StructureStorageStructuresFieldsByNames = New Structure;
 
-	Для Каждого ТекСтрокаКолонки Из КолонкиТаблицы Цикл
-		ТаблицаРезультата.Колонки.Добавить(ТекСтрокаКолонки.Имя, ТекСтрокаКолонки.ТипЗначения);
+	For Each ColumnCurrentRow In TableColumns Do
+		ValueTable.Columns.Add(ColumnCurrentRow.Name, ColumnCurrentRow.ValueType);
 
-		СтруктураСтруктурХраненияПоляПоИменам.Вставить(ТекСтрокаКолонки.Имя,
-													   СтруктураХраненияКолонкиТаблицыНаФорме(ТекСтрокаКолонки.Имя));
-	КонецЦикла;
+		StructureStorageStructuresFieldsByNames.Insert(ColumnCurrentRow.Name,
+			TableColumnStorageStructureOnForm(ColumnCurrentRow.Name));
+	EndDo;
 
-	Для Каждого СтрокаТаблицыФормы Из ЭтотОбъект[ИмяРеквизитаХранилища] Цикл
-		НоваяСтрока = ТаблицаРезультата.Добавить();
+	For Each RowTableForm In ThisObject[StorageAttributeName] Do
+		NewRow = ValueTable.Add();
 
-		Для Каждого ТекСтрокаКолонки Из КолонкиТаблицы Цикл
-			НоваяСтрока[ТекСтрокаКолонки.Имя] = УИ_ОбщегоНазначенияКлиентСервер.ЗначениеПоляСКонтейнеромЗначения(СтрокаТаблицыФормы,
-																												 СтруктураСтруктурХраненияПоляПоИменам[ТекСтрокаКолонки.Имя]);
-		КонецЦикла;
-	КонецЦикла;
+		For Each  ColumnCurrentRow In TableColumns Do
+			NewRow[ColumnCurrentRow.Name] = UT_CommonClientServer.ValueContainerFieldValue(RowTableForm,
+				StructureStorageStructuresFieldsByNames[ColumnCurrentRow.Name]);
+		EndDo;
+	EndDo;
 		
-	Если ВозвратХранилищаДляКонтейнераЗначения Тогда
-		Возврат УИ_ОбщегоНазначения.ЗначениеХранилищаКонтейнераТаблицыЗначений(ТаблицаРезультата);	
-	Иначе
+	If ReturningStorageForValueContainer Then
+		Return UT_Common.ValueStorageContainerValueTable(ValueTable);	
+	Else
 		
 		ResultStructure=New Structure;
 		If SerializeToXML Then
-			ResultStructure.Insert("Value", UT_Common.ValueToXMLString(VT));
+			ResultStructure.Insert("Value", UT_Common.ValueToXMLString(ValueTable));
 		Else
-			ResultStructure.Insert("Value", ValueToStringInternal(VT));
+			ResultStructure.Insert("Value", ValueToStringInternal(ValueTable));
 		EndIf;
 		ResultStructure.Insert("Presentation", StrTemplate(NSTR("ru = 'Строк: %1 Колонок: %2';en = 'Rows: %1 Columns: %2'"), 
-			VT.Count(), 
-			VT.Cols.Count()));
-		ResultStructure.Insert("LineCount", VT.Count());
-		ResultStructure.Insert("ColumnsCount", VT.Cols.Count());
+			ValueTable.Count(), 
+			ValueTable.Cols.Count()));
+		ResultStructure.Insert("LineCount", ValueTable.Count());
+		ResultStructure.Insert("ColumnsCount", ValueTable.Cols.Count());
 		Return ResultStructure;
-	КонецЕсли;
+	EndIf;
 EndFunction
 
-&НаСервере
-Функция СтруктураХраненияКолонкиТаблицыНаФорме(ИмяКолонки)
-	СтруктураХранения = УИ_ОбщегоНазначенияКлиентСервер.НовыйСтруктураХраненияРеквизитаНаФормеСКонейнером(ИмяКолонки);
-	СтруктураХранения.ИмяПоляКонтейнера = ИмяВспомогательнойКолонкиТаблицы(ИмяКолонки,
-																			  УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияКонтейнераДляПоляСКонтейнером());
-	СтруктураХранения.ИмяПоляТипаЗначения = ИмяВспомогательнойКолонкиТаблицы(ИмяКолонки,
-																				УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияТипаЗначенияДляПоляСКонтейнером());
-	СтруктураХранения.ИмяПоляПредставленияТипаЗначения = ИмяВспомогательнойКолонкиТаблицы(ИмяКолонки,
-																							 УИ_ОбщегоНазначенияКлиентСервер.СуффиксИмениПоляХраненияПредставленияТипаЗначенияДляПоляСКонтейнером());
+&AtServer
+Function TableColumnStorageStructureOnForm(ColumnName)
+	StorageStructure = UT_CommonClientServer.NewStructureStoringAttributeOnFormContainer(ColumnName);
+	StorageStructure.ContainerFieldName = AdditionalTableColumnName(ColumnName,
+		UT_CommonClientServer.SuffixContainerStorageFieldName());
+	StorageStructure.ValueTypeFieldName = AdditionalTableColumnName(ColumnName,
+		UT_CommonClientServer.SuffixValueTypeStorageFieldName());
+	StorageStructure.ValueTypePresentationFieldName = AdditionalTableColumnName(ColumnName,
+		UT_CommonClientServer.SuffixPresentationStorageFieldName());
 	
-	Возврат СтруктураХранения;
-КонецФункции
+	Return StorageStructure;
+EndFunction
 
-// Заполнить уровень дерева формы по дереву источнику.
+// Fill the form tree level according to the source tree.
 // 
-// Параметры:
-//  СтрокаДереваФорма -ДанныеФормыДерево, ДанныеФормыЭлементДерева - Строка дерева форма
-//  СтрокаДереваИсточника -ДеревоЗначений, СтрокаДереваЗначений-Строка дерева источника
-//  СтруктурыХраненияКолонокТаблицыНаФорме - Структура
-&НаСервере
-Процедура ЗаполнитьУровеньДереваФормыПоДеревуИсточнику(СтрокаДереваФорма, СтрокаДереваИсточника,
-	СтруктурыХраненияКолонокТаблицыНаФорме)
+// Parameters:
+//  FormTreeRow - FormDataTree, FormDataTreeItem - Row rom tree
+//  SourceTreeRow - ValueTree, СтрокаДереваЗначений - Row source tree
+//  ColumnsTableStorageStructuresOnForm - Structure
+&AtServer
+Procedure FillLevelFormTreeBySourceTree(FormTreeRow, SourceTreeRow,
+	ColumnsTableStorageStructuresOnForm)
 
-	ЭлементыДереваФормы = СтрокаДереваФорма.ПолучитьЭлементы();
+	FormTreeItems = FormTreeRow.GetItems();
 
-	Для Каждого Стр Из СтрокаДереваИсточника.Строки Цикл
-		НС=ЭлементыДереваФормы.Добавить();
+	For Each Row In SourceTreeRow.Rows Do
+		НС = FormTreeItems.Add();
 
-		Для Каждого СтрокаКолонки Из КолонкиТаблицы Цикл
-			УИ_ОбщегоНазначенияКлиентСервер.УстановитьЗначениеПоляСКонтейнером(НС,
-																			   СтруктурыХраненияКолонокТаблицыНаФорме[СтрокаКолонки.Имя],
-																			   Стр[СтрокаКолонки.Имя]);
-		КонецЦикла;
+		For Each  ColumnRow In TableColumns Do
+			UT_CommonClientServer.SetContainerFieldValue(НС,
+				ColumnsTableStorageStructuresOnForm[ColumnRow.Name],
+				Row[ColumnRow.Name]);
+		EndDo;
 
-		ЗаполнитьУровеньДереваФормыПоДеревуИсточнику(НС, Стр, СтруктурыХраненияКолонокТаблицыНаФорме);
-	КонецЦикла;
-КонецПроцедуры
+		FillLevelFormTreeBySourceTree(НС, Row, ColumnsTableStorageStructuresOnForm);
+	EndDo;
+EndProcedure
 
-&НаСервере
-Процедура ЗаполнитьДеревоЗначенийФормыПоДереву(ДеревоИсточник)
-	ДеревоЗначений = ЭтотОбъект[ИмяРеквизитаХранилища]; //ДанныеФормыДерево
-	ДеревоЗначений.ПолучитьЭлементы().Очистить();
+&AtServer
+Procedure FillFormTreeValuesByTree(SourceTree)
+	ValueTree = ThisObject[StorageAttributeName]; // DataShapesTree
+	ValueTree.GetItems().Clear();
 
-	СтруктурыХраненияКолонокТаблицыНаФорме = Новый Структура;
+	ColumnsTableStorageStructuresOnForm = New Structure;
 
-	Для Каждого СтрокаКолонки Из КолонкиТаблицы Цикл
-		СтруктурыХраненияКолонокТаблицыНаФорме.Вставить(СтрокаКолонки.Имя,
-														СтруктураХраненияКолонкиТаблицыНаФорме(СтрокаКолонки.Имя));
-	КонецЦикла;
+	For Each ColumnRow In TableColumns Do
+		ColumnsTableStorageStructuresOnForm.Insert(ColumnRow.Name,
+			TableColumnStorageStructureOnForm(ColumnRow.Name));
+	EndDo;
 
-	ЗаполнитьУровеньДереваФормыПоДеревуИсточнику(ДеревоЗначений, ДеревоИсточник, СтруктурыХраненияКолонокТаблицыНаФорме);
+	FillLevelFormTreeBySourceTree(ValueTree, SourceTree, ColumnsTableStorageStructuresOnForm);
 
-КонецПроцедуры
+EndProcedure
 
-&НаСервере
-Процедура ДобавитьКорневойЭлементИРеквизитТаблицы()
-	ИмяРеквизитаХранилища = "ТаблицаЗначений";
-	МассивДобавляемыхРеквизитов = Новый Массив;
+&AtServer
+Procedure AddRootItemAndAttributeTables()
+	StorageAttributeName = "ValueTable";
+	AttributesAddedArray = New Array;
 	
-	Если ЭтоДерево Тогда
-		ТипРеквизита = Новый ОписаниеТипов("ДеревоЗначений");
-	Иначе
-		ТипРеквизита = Новый ОписаниеТипов("ТаблицаЗначений");
-	КонецЕсли;
+	If IsTree Then
+		AttributeType = New TypeDescription("ValueTree");
+	Else
+		AttributeType = New TypeDescription("ValueTable");
+	EndIf;
 	
-	МассивДобавляемыхРеквизитов.Добавить(Новый РеквизитФормы(ИмяРеквизитаХранилища, ТипРеквизита, "", "", Истина));
-	ИзменитьРеквизиты(МассивДобавляемыхРеквизитов);
+	AttributesAddedArray.Add(New FormAttribute(StorageAttributeName, AttributeType, "", "", True));
+	ChangeAttributes(AttributesAddedArray);
 
-	ОписаниеЭлемента=УИ_РаботаСФормами.НовыйОписаниеРеквизитаЭлемента();
-	ОписаниеЭлемента.Вставить("Имя", ИмяРеквизитаХранилища);
-	ОписаниеЭлемента.Вставить("ПутьКДанным", ИмяРеквизитаХранилища);
-	ОписаниеЭлемента.Параметры.Тип = Тип("ТаблицаФормы");
-	ОписаниеЭлемента.Параметры.Вставить("ПоложениеЗаголовка", ПоложениеЗаголовкаЭлементаФормы.Нет);
-	Если ЭтоДерево Тогда
-		ОписаниеЭлемента.Параметры.Вставить("Отображение", ОтображениеТаблицы.Дерево);
-	КонецЕсли;
+	ItemDescription = UT_Forms.ItemAttributeNewDescription();
+	ItemDescription.Insert("Name", StorageAttributeName);
+	ItemDescription.Insert("DataPath", StorageAttributeName);
+	ItemDescription.Properties.FieldType = Type("FormTable");
+	ItemDescription.Properties.Insert("TitleLocation", FormItemTitleLocation.None);
+	If IsTree Then
+		ItemDescription.Properties.Insert("Representation", TableRepresentation.Tree);
+	EndIf;
 
-	ЭлементНовый = УИ_РаботаСФормами.СоздатьЭлементПоОписанию(ЭтотОбъект, ОписаниеЭлемента);
-КонецПроцедуры
+	NewItem = UT_Forms.CreateItemByDescription(ThisObject, ItemDescription);
+EndProcedure
 
 #EndRegion
