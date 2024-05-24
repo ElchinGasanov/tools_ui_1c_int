@@ -12,7 +12,7 @@
       </title>
       <title>
         <key>ru</key>
-        <value>Имя нового параметра</value>
+        <value>Parameter name</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -110,7 +110,7 @@
     </title>
     <title>
       <key>ru</key>
-      <value>Введите имя нового параметра ( стандартные требования  к  именам  реквизитов)</value>
+      <value>Enter the name of the new parameter (standard requirements for prop names)</value>
     </title>
     <titleTextColor xsi:type="core:ColorDef">
       <red>128</red>
@@ -147,6 +147,10 @@
   <items xsi:type="form:FormField">
     <name>SelectedType</name>
     <id>6</id>
+    <title>
+      <key>ru</key>
+      <value>Selected type</value>
+    </title>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -249,7 +253,7 @@
       </title>
       <title>
         <key>ru</key>
-        <value>Пример описания -  Результат = Новый ТаблицаЗначений ....</value>
+        <value>Description example  - Result = New ValueTable ....</value>
       </title>
       <titleTextColor xsi:type="core:ColorDef">
         <red>128</red>
@@ -361,7 +365,7 @@
     <id>8</id>
     <title>
       <key>ru</key>
-      <value>Коллекция</value>
+      <value>Collection</value>
     </title>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -456,6 +460,10 @@
   <items xsi:type="form:FormField">
     <name>ExternalFile</name>
     <id>10</id>
+    <title>
+      <key>ru</key>
+      <value>External file</value>
+    </title>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -581,7 +589,7 @@
     </title>
     <title>
       <key>ru</key>
-      <value>Гр доступные типы</value>
+      <value>Available types</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -619,6 +627,10 @@
       <items xsi:type="form:FormField">
         <name>TypeDescription</name>
         <id>16</id>
+        <title>
+          <key>ru</key>
+          <value>Type description</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -1004,6 +1016,10 @@
     <items xsi:type="form:Button">
       <name>FormWriteAndClose</name>
       <id>14</id>
+      <title>
+        <key>ru</key>
+        <value>Write and close</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -1272,7 +1288,7 @@
     </title>
     <title>
       <key>ru</key>
-      <value>Установить</value>
+      <value>Set</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1325,12 +1341,12 @@
   <formCommands>
     <name>AddColumn</name>
     <title>
-      <key>ru</key>
-      <value>Добавить колонку</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add column</value>
+    </title>
+    <title>
+      <key>ru</key>
+      <value>Add сolumn</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -1358,12 +1374,12 @@
   <formCommands>
     <name>DeleteColumn</name>
     <title>
-      <key>ru</key>
-      <value>Удалить колонку</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete column</value>
+    </title>
+    <title>
+      <key>ru</key>
+      <value>Delete сolumn</value>
     </title>
     <id>4</id>
     <toolTip>

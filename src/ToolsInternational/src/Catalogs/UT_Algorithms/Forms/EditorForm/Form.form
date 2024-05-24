@@ -9,7 +9,7 @@
     </title>
     <title>
       <key>ru</key>
-      <value>ТекстHTML</value>
+      <value>HTML text</value>
     </title>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -64,6 +64,10 @@
   <items xsi:type="form:FormField">
     <name>SpreadsheetDocument</name>
     <id>10</id>
+    <title>
+      <key>ru</key>
+      <value>Spreadsheet document</value>
+    </title>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>

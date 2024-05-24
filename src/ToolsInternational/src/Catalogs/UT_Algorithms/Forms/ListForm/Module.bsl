@@ -3,7 +3,7 @@
 Procedure ExecuteAlgorithm(Command)
 	AlgorithmsArray = Items.List.SelectedRows;
 	
-		For Each Algorithm In  AlgorithmsArray Do
+	For Each Algorithm In  AlgorithmsArray Do
 		Error = False;
 		ErrorMessage = "";
 		TransmittedStructure = New Structure;

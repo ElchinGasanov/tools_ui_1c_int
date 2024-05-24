@@ -546,13 +546,6 @@
 		</right>
 	</object>
 	<object>
-		<name>HTTPService.UT_PublishedFunctions.URLTemplate.DataTransfer.Method.Ping</name>
-		<right>
-			<name>Use</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
 		<name>DataProcessor.UT_CodeConsole</name>
 		<right>
 			<name>Use</name>
@@ -600,6 +593,17 @@
 	</object>
 	<object>
 		<name>CommonForm.UT_CodeForm</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.AdditionalReportsAndDataProcessors</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
 		<right>
 			<name>View</name>
 			<value>true</value>

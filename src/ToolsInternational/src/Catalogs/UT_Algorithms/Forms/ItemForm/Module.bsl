@@ -1,7 +1,7 @@
 &AtClient
 Var UT_CodeEditorClientData Export;
 
-#Region EventHandlers
+#Region FormEventHandlers
 
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
@@ -52,7 +52,7 @@ EndProcedure
 
 #EndRegion
 
-#Region FormHeadEventsHandlers
+#Region FormHeaderItemsEventHandlers
 
 &AtClient
 Procedure GroupPagesPanelOnCurrentPageChange(Item, CurrentPage)
@@ -74,10 +74,10 @@ EndProcedure
 Procedure ParametersTableBeforeDeleteRow(Item, Cancel)
 	ShowQueryBox(New NotifyDescription("ParametersTableBeforeDeleteEnd", ThisObject,
 		New Structure("String,Parameter", Item.CurrentLine, Item.CurrentData.Parameter)), Nstr("ru = 'Элемент структуры настроек будет удален без возможности  восстановления !';
-		|en = 'The element of the settings structure will be deleted without the possibility of recovery !'")
-		+ Chars.LF +Nstr("ru = 'Продолжить выполнение ?';en = 'Continue execution ?'"), QuestionDialogMode.YesNoCancel);
+		|en = 'The element of the settings structure will be deleted without the possibility of recovery !'") + Chars.LF +Nstr("ru = 'Продолжить выполнение ?';en = 'Continue execution ?'"), QuestionDialogMode.YesNoCancel);
 	Cancel = True;
 EndProcedure
+
 &AtClient
 Procedure ParametersTableBeforeDeleteEnd(Result, AdditionalParameters) Export
 	If Result = DialogReturnCode.Yes Then
@@ -90,7 +90,7 @@ EndProcedure
 
 &AtClient
 Procedure ParametersTableParameterOpening(Item, StandardProcessing)
-		StandardProcessing = False;
+	StandardProcessing = False;
 	If Item.Parent.CurrentData.TypeDescription = "Value table"
 		Or Item.Parent.CurrentData.TypeDescription = "Binary data" Then
 		Return;
@@ -105,7 +105,7 @@ EndProcedure
 
 &AtClient
 Procedure ParametersTableOnActivateRow(Item)
-		If Item.CurrentData = Undefined Then
+	If Item.CurrentData = Undefined Then
 		Return;	
 	EndIf;
 	If SelectedParameter <> Item.CurrentData.Parameter Then
@@ -201,7 +201,8 @@ EndProcedure
 Procedure EditName(Command)
 	If Items.ParametersTable.CurrentData = Undefined Then
 		Return;
-	EndIf 	;
+	EndIf 	
+	;
 	FormParameters = New Structure("Key,ParameterName,Rename", Parameters.Key,
 		Items.ParametersTable.CurrentData.Parameter, True);
 	OpenForm("Catalog.UT_Algorithms.Form.ParameterForm", FormParameters, ThisObject);
@@ -242,7 +243,6 @@ Procedure ExecuteProcedure(Command)
 		- StartTime));
 EndProcedure
 
-///
 &AtClient
 Procedure ShowQueryWizard(Command)
 	Wizard = New QueryWizard;
@@ -458,13 +458,13 @@ Procedure MarkError(ErrorText)
 				StringsArray[LineNumber - 1] = StringsArray[LineNumber - 1] + " <<<<<";
 				If ErrorPosition2 > 0 Then
 					LineNumber2 = Number(TextLineNumber2);
-					Ъ = LineNumber - 1;
-					While Ъ >= 0 Do
-						If StrFind(StringsArray[Ъ], "SELECT") > 0 Or StrFind(StringsArray[Ъ], "Select") > 0 Or StrFind(
-							StringsArray[Ъ], "select") > 0 Then
-							StringsArray[Ъ + LineNumber2 - 1] = StringsArray[Ъ + LineNumber2 - 1] + " <<<<<";
+					Сounter = LineNumber - 1;
+					While Сounter >= 0 Do
+						If StrFind(StringsArray[Сounter], "SELECT") > 0 Or StrFind(StringsArray[Сounter], "Select") > 0 Or StrFind(
+							StringsArray[Сounter], "select") > 0 Then
+							StringsArray[Сounter + LineNumber2 - 1] = StringsArray[Сounter + LineNumber2 - 1] + " <<<<<";
 						EndIf;
-						Ъ = Ъ - 1;
+						Сounter = Сounter - 1;
 					EndDo;
 				EndIf;
 				Object.Text = StrConcat(StringsArray, Chars.LF);
@@ -593,7 +593,7 @@ Procedure SetVisibleAndEnabled()
 
 	Items.EventLog.Title = " ";
 
-	Items.GroupServer.Visible=Not Object.AtClient;
+	//Items.GroupServer.Visible=Not Object.AtClient;
 EndProcedure
 
 
@@ -827,7 +827,6 @@ Procedure OnOpen(Cancel)
    	// CodeEditor
 EndProcedure
 
-
 //@skip-warning
 &AtClient
 Процедура Attachable_EditorFieldDocumentGenerated(Item)
@@ -855,6 +854,7 @@ EndProcedure
 Procedure Attachable_CodeEditorInitializingCompletion() Export
 	UT_CodeEditorClient.SetEditorText(ThisObject, "Algorithm", Object.AlgorithmText, True);
 EndProcedure
+
 
 &AtClient
 Procedure BeforeWrite(Cancel, WriteParameters)

@@ -9,6 +9,10 @@
       <items xsi:type="form:FormField">
         <name>Description</name>
         <id>3</id>
+        <title>
+          <key>ru</key>
+          <value>Description</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -61,6 +65,10 @@
       <items xsi:type="form:FormField">
         <name>Code</name>
         <id>1</id>
+        <title>
+          <key>ru</key>
+          <value>Code</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -198,7 +206,7 @@
       </title>
       <title>
         <key>ru</key>
-        <value>Клиент</value>
+        <value>At client</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -350,7 +358,6 @@
         <showInFooter>true</showInFooter>
         <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
       </items>
-      <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
@@ -400,7 +407,7 @@
         <id>518</id>
         <title>
           <key>ru</key>
-          <value>Кэшировать</value>
+          <value>Сache</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -493,7 +500,6 @@
         <showInFooter>true</showInFooter>
         <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
       </items>
-      <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
@@ -646,7 +652,7 @@
       </title>
       <title>
         <key>ru</key>
-        <value>Внимание ! Системные настройки.</value>
+        <value>Attention ! System settings.</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -698,11 +704,11 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Гр предупреждение</value>
+      <key>en</key>
+      <value>Group warning</value>
     </title>
     <title>
-      <key>en</key>
+      <key>ru</key>
       <value>Group warning</value>
     </title>
     <toolTip>
@@ -839,7 +845,7 @@
         </title>
         <title>
           <key>ru</key>
-          <value>Текст алгоритма</value>
+          <value>Algorithm text</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -899,7 +905,7 @@
       </title>
       <title>
         <key>ru</key>
-        <value>Модуль</value>
+        <value>Code</value>
       </title>
       <titleTextColor xsi:type="core:ColorDef">
         <red>128</red>
@@ -968,6 +974,10 @@
         <items xsi:type="form:FormField">
           <name>ParametersTableParameter</name>
           <id>102</id>
+          <title>
+            <key>ru</key>
+            <value>Parameter</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1027,7 +1037,7 @@
           <id>104</id>
           <title>
             <key>ru</key>
-            <value>Тип</value>
+            <value>Type</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1087,7 +1097,7 @@
             <id>106</id>
             <title>
               <key>ru</key>
-              <value>Добавить</value>
+              <value>Add</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -1122,6 +1132,10 @@
           <items xsi:type="form:Button">
             <name>EditValue</name>
             <id>116</id>
+            <title>
+              <key>ru</key>
+              <value>Edit value</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -1161,7 +1175,7 @@
             </title>
             <title>
               <key>ru</key>
-              <value>Переименовать</value>
+              <value>Edit name</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -1717,7 +1731,7 @@
       </title>
       <title>
         <key>ru</key>
-        <value>Параметры</value>
+        <value>Parameters</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -2216,7 +2230,6 @@
         <enableDrag>true</enableDrag>
         <rowFilter xsi:type="core:UndefinedValue"/>
       </items>
-      <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
@@ -2305,6 +2318,10 @@
     <items xsi:type="form:FormField">
       <name>Comment</name>
       <id>109</id>
+      <title>
+        <key>ru</key>
+        <value>Comment</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -2372,7 +2389,7 @@
     </title>
     <title>
       <key>ru</key>
-      <value>Комментарий</value>
+      <value>Comment</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -2412,6 +2429,10 @@
     <items xsi:type="form:Button">
       <name>WriteAndClose</name>
       <id>491</id>
+      <title>
+        <key>ru</key>
+        <value>Write and close</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -2442,6 +2463,10 @@
     <items xsi:type="form:Button">
       <name>Write</name>
       <id>493</id>
+      <title>
+        <key>ru</key>
+        <value>Write</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -2475,6 +2500,10 @@
     <items xsi:type="form:Button">
       <name>Reread</name>
       <id>495</id>
+      <title>
+        <key>ru</key>
+        <value>Reread</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -2508,6 +2537,10 @@
     <items xsi:type="form:Button">
       <name>CustomizeForm</name>
       <id>497</id>
+      <title>
+        <key>ru</key>
+        <value>Customize form</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -2543,7 +2576,7 @@
       <id>118</id>
       <title>
         <key>ru</key>
-        <value> </value>
+        <value>Event log</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -2575,6 +2608,10 @@
     <items xsi:type="form:Button">
       <name>FormatText</name>
       <id>538</id>
+      <title>
+        <key>ru</key>
+        <value>Format text</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -2612,7 +2649,7 @@
       </title>
       <title>
         <key>ru</key>
-        <value>Выполнить</value>
+        <value>Execute</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -3175,10 +3212,6 @@
     <handlers>
       <event>AfterWriteAtServer</event>
       <name>AfterWriteAtServer</name>
-    </handlers>
-    <handlers>
-      <event>BeforeWriteAtServer</event>
-      <name>BeforeWriteAtServer</name>
     </handlers>
     <handlers>
       <event>BeforeWrite</event>

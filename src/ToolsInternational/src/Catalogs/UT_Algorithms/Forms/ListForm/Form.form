@@ -54,6 +54,10 @@
     <items xsi:type="form:FormField">
       <name>Description</name>
       <id>22</id>
+      <title>
+        <key>ru</key>
+        <value>Description</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -770,7 +774,7 @@
     </title>
     <title>
       <key>ru</key>
-      <value>Текст алгоритма:</value>
+      <value>Algorithm text:</value>
     </title>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -825,6 +829,10 @@
     <items xsi:type="form:Button">
       <name>FormExecuteAlgorithm</name>
       <id>79</id>
+      <title>
+        <key>ru</key>
+        <value>Execute algorithm</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -907,6 +915,7 @@
         <name>ExecuteAlgorithm</name>
       </handler>
     </action>
+    <representation>TextPicture</representation>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <commandInterface>
