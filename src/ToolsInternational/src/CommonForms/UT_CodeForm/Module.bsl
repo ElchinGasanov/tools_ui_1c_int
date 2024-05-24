@@ -1,13 +1,13 @@
 
  
-#Region ОписаниеПеременных
+#Region Variables
 
 &AtClient
 Var UT_CodeEditorClientData Export;
 
 #EndRegion
 
-#Region ОбработчикиСобытийФормы
+#Region FormEventHandlers
 
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
@@ -22,7 +22,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	EndIf;
 	
 	If Parameters.Property("ModuleName") Then
-		Caption = Parameters.ModuleName;
+		Title = Parameters.ModuleName;
 	EndIf;
 	
 	UT_CodeEditorServer.FormOnCreateAtServer(ThisObject);
@@ -38,19 +38,19 @@ EndProcedure
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовШапкиФормы
+#Region FormHeaderItemsEventHandlers
 
 // Code of procedures and functions
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовТаблицыФормы //<ИмяТаблицыФормы>
+#Region FormTableItemsEventHandlers //<ИмяТаблицыФормы>
 
 // Code of procedures and functions
 
 #EndRegion
 
-#Region ОбработчикиКомандФормы
+#Region FormCommandsEventHandlers
 
 
 &AtClient
@@ -69,13 +69,13 @@ EndProcedure
 
 #EndRegion
 
-#Region СлужебныеПроцедурыИФункции
+#Region Private
 
 // Copy to clipboard finish.
 // 
 // Parameters:
 //  Result - Булево - Result
-//  CallOptions - Произвольный -
+//  CallOptions - Arbitrary -
 //  ExtraParameters - Undefined - Extra parameters
 &AtClient
 Procedure CopyToClipboardFinish(Result, CallOptions, ExtraParameters) Export

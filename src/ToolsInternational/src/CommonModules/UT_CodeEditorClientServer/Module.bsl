@@ -220,7 +220,7 @@ EndFunction
 // 
 // Return values:
 //  String - Command name execution mode through DataProcessor
-Function CommandNameExecutionModeThroughDataProcessor() Export
+Function CommandNameExecutionModeViaDataProcessor() Export
 	Return "ExecutionModeThroughDataProcessor";
 EndFunction
 
@@ -385,12 +385,12 @@ EndFunction
 //  Structure - New options session interactions:
 // * UserName - String - 
 // * ID - String - 
-// * URLInteractions - String - 
+// * InteractionURL - String - 
 Function NewOptionsSessionInteractions() Export
 	SettingsSessionsInteractions = New Structure;
 	SettingsSessionsInteractions.Insert("UserName", "");
 	SettingsSessionsInteractions.Insert("ID","");
-	SettingsSessionsInteractions.Insert("URLInteractions","");
+	SettingsSessionsInteractions.Insert("InteractionURL","");
 	
 	Return SettingsSessionsInteractions;
 EndFunction

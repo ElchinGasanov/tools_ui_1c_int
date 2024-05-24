@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonForm xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b65cd466-60b9-4e21-a6fc-0229bdb9adc8">
+  <name>UT_ValueStorageEditor</name>
+  <synonym>
+    <key>ru</key>
+    <value>Value storage editor</value>
+  </synonym>
+  <usePurposes>PersonalComputer</usePurposes>
+  <usePurposes>MobileDevice</usePurposes>
+</mdclass:CommonForm>

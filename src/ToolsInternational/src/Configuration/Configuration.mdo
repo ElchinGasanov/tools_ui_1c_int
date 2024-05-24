@@ -158,6 +158,18 @@
   <commonForms>CommonForm.UT_SpreadsheetDocumentsComparison</commonForms>
   <commonForms>CommonForm.UT_DynamicListSettings</commonForms>
   <commonForms>CommonForm.UT_CodeForm</commonForms>
+  <commonForms>CommonForm.UT_RefToCodeForm</commonForms>
+  <commonForms>CommonForm.UT_EnumerationsSelectionForm</commonForms>
+  <commonForms>CommonForm.UT_UUIDEditor</commonForms>
+  <commonForms>CommonForm.UT_PointInTimeEditor</commonForms>
+  <commonForms>CommonForm.UT_BoundaryEditor</commonForms>
+  <commonForms>CommonForm.UT_StructureEditor</commonForms>
+  <commonForms>CommonForm.UT_MapEditor</commonForms>
+  <commonForms>CommonForm.UT_ValueStorageEditor</commonForms>
+  <commonForms>CommonForm.UT_ValueListForm</commonForms>
+  <commonForms>CommonForm.UT_PictureEditor</commonForms>
+  <commonForms>CommonForm.UT_BinaryDataEditor</commonForms>
+  <commonForms>CommonForm.UT_CodeEditorInteractionSessionParameters</commonForms>
   <catalogs>Catalog.UT_Algorithms</catalogs>
   <catalogs>Catalog.AdditionalReportsAndDataProcessors</catalogs>
   <reports>Report.UT_ReportsConsole</reports>
