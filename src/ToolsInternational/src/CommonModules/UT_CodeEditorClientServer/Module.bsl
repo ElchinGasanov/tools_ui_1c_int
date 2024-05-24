@@ -220,7 +220,7 @@ EndFunction
 // 
 // Return values:
 //  String - Command name execution mode through DataProcessor
-Function CommandNameExecutionModeThroughDataProcessor() Export
+Function CommandNameExecutionModeViaDataProcessor() Export
 	Return "ExecutionModeThroughDataProcessor";
 EndFunction
 

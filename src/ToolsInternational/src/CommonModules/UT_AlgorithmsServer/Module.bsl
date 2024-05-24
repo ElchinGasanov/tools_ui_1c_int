@@ -166,7 +166,7 @@ EndFunction
 // Return values:
 //  String -  Algorithm storage directory
 Function DirectoryStorageAlgorithms() Export
-	Return УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначения.КаталогДанныхИнструментовНаСервере(),
+	Return UT_CommonClientServer.MergePaths(UT_Common.SatellitelibrarieToolsDataDirectory(),
 														   "Algorithms");
 EndFunction
 #EndRegion
@@ -222,7 +222,7 @@ Procedure WriteAlgorithmToSettingsStorage(AlgorithmData, Refusal)
 	AlgorithmObjectKey = DataKeyOfAlgorithmObjectInSettingsStorage();
 
 	Try
-		УИ_ОбщегоНазначения.ХранилищеСистемныхНастроекСохранить(AlgorithmObjectKey, SettingsKey, AlgorithmData);
+		UT_Common.SystemSettingsStorageSave(AlgorithmObjectKey, SettingsKey, AlgorithmData);
 	Except
 		Refusal = True;
 	EndTry;
@@ -240,7 +240,7 @@ EndProcedure
 // Return values:
 //  String
 Function DirectoryStorageAdditionalDataAlgorithm(ID)
-	Return УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(УИ_ОбщегоНазначенияПовтИсп.КаталогХраненияАлгоритмов(),
+	Return UT_CommonClientServer.MergePaths(UT_CommonCached.AlgorithmsStorageCatalog(),
 														   "AlgorithmData",
 														   ID);
 EndFunction
@@ -280,9 +280,9 @@ Procedure WriteAlgorithmToDBF(AlgorithmData, Refusal)
 	AlgorithmsDatabase.CloseFile();
 	
 	DirectoryStorageAdditionalDataAlgorithm = DirectoryStorageAdditionalDataAlgorithm(AlgorithmData.ID);
-	УИ_ОбщегоНазначения.ОбеспечитьКаталог(DirectoryStorageAdditionalDataAlgorithm);
+	UT_Common.ProvideDirectory(DirectoryStorageAdditionalDataAlgorithm);
 
-	FileNameText = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(DirectoryStorageAdditionalDataAlgorithm,
+	FileNameText = UT_CommonClientServer.MergePaths(DirectoryStorageAdditionalDataAlgorithm,
 																	UT_AlgorithmsClientServer.AlgorithmTextFileNameDBF());
 	
 	Text = New TextDocument();
@@ -314,7 +314,7 @@ EndProcedure
 
 Procedure FillDescriptionAlgorithmAfterReadingHeader(AlgorithmDescription) Export
 	CatalogAlgorithmsAdditionalData = DirectoryStorageAdditionalDataAlgorithm(AlgorithmDescription.ID);
-	AlgorithmFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(CatalogAlgorithmsAdditionalData,
+	AlgorithmFileName = UT_CommonClientServer.MergePaths(CatalogAlgorithmsAdditionalData,
 																	   UT_AlgorithmsClientServer.AlgorithmTextFileNameDBF());
 	
 	Text = New TextDocument();
@@ -370,13 +370,13 @@ EndProcedure
 // Return values:
 //  XBase -  Algorithm storage base
 Function AlgorithmStorageBase(ForChange = False) 
-	StorageCatalog = ОбщегоНазначенияПовтИсп.КаталогХраненияАлгоритмов();
-	УИ_ОбщегоНазначения.ОбеспечитьКаталог(StorageCatalog);
+	StorageCatalog = UT_CommonCached.AlgorithmsStorageCatalog();
+	UT_Common.ProvideDirectory(StorageCatalog);
 
 	FileName = FileNameStorageAlgorithms();
 	
-	FileNameStorage = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(StorageCatalog, FileName + ".DBF");
-	IndexFileName = УИ_ОбщегоНазначенияКлиентСервер.ОбъединитьПути(StorageCatalog, FileName + ".CDX");
+	FileNameStorage = UT_CommonClientServer.MergePaths(StorageCatalog, FileName + ".DBF");
+	IndexFileName = UT_CommonClientServer.MergePaths(StorageCatalog, FileName + ".CDX");
 		
 	File = New File(FileNameStorage);
 	If Not File.Exists() Then

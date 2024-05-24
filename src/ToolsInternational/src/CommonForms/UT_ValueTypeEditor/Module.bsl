@@ -3,11 +3,14 @@
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	If Parameters.Property("StartMode") Then
+		//@skip-check unknown-form-parameter-access
 		ActionMode = Parameters.StartMode;
 	Else
 		ActionMode = -1;
 	EndIf;
 	
+	AvailableTypesSets = UT_CommonClientServer.AvailableEditingTypesSets();
+
 	//Types set can contain:
 	// Ref
 	// CompositeRef
@@ -25,39 +28,41 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	TypesSet.Clear();
 	
 	If ActionMode = 0 Then
-		TypesSet.Add("REF");
-		TypesSet.Add("COMPOSITEREF");
-		TypesSet.Add("PRIMITIVETYPE");
-		TypesSet.Add("VALUESTORAGE");
-		TypesSet.Add("UUID");
+		TypesSet.Add(AvailableTypesSets.References);
+		TypesSet.Add(AvailableTypesSets.ComplexReferences);
+		TypesSet.Add(AvailableTypesSets.Primitive);
+		TypesSet.Add(AvailableTypesSets.ValueStorage);
+		TypesSet.Add(AvailableTypesSets.UUID);
 	ElsIf ActionMode = 1 Then 
-		TypesSet.Add("REF");
-		TypesSet.Add("COMPOSITEREF");
-		TypesSet.Add("PRIMITIVETYPE");
-		TypesSet.Add("VALUESTORAGE");
-		TypesSet.Add("UUID");
-		TypesSet.Add("VALUECOLLECTION");
-		TypesSet.Add("POINTINTIME");
-		TypesSet.Add("TYPE");
-		TypesSet.Add("BOUNDARY");
-		TypesSet.Add("NULL");
+		TypesSet.Add(AvailableTypesSets.References);
+		TypesSet.Add(AvailableTypesSets.ComplexReferences);
+		TypesSet.Add(AvailableTypesSets.Primitive);
+		TypesSet.Add(AvailableTypesSets.ValueStorage);
+		TypesSet.Add(AvailableTypesSets.UUID);
+		TypesSet.Add(AvailableTypesSets.ValueCollections);
+		TypesSet.Add(AvailableTypesSets.PointInTime);
+		TypesSet.Add(AvailableTypesSets.Type);
+		TypesSet.Add(AvailableTypesSets.Boundary);
+		TypesSet.Add(AvailableTypesSets.UUID);
+		TypesSet.Add(AvailableTypesSets.Null);
 	ElsIf ActionMode = 2 Then 
-		TypesSet.Add("REF");
-		TypesSet.Add("COMPOSITEREF");
-		TypesSet.Add("PRIMITIVETYPE");
-		TypesSet.Add("VALUESTORAGE");
-		TypesSet.Add("UUID");
-		TypesSet.Add("NULL");
+		TypesSet.Add(AvailableTypesSets.References);
+		TypesSet.Add(AvailableTypesSets.ComplexReferences);
+		TypesSet.Add(AvailableTypesSets.Primitive);
+		TypesSet.Add(AvailableTypesSets.ValueStorage);
+		TypesSet.Add(AvailableTypesSets.UUID);
+		TypesSet.Add(AvailableTypesSets.Null);
 	ElsIf ActionMode = 3 Then 
-		TypesSet.Add("REF");
-		TypesSet.Add("COMPOSITEREF");
-		TypesSet.Add("PRIMITIVETYPE");
-		TypesSet.Add("VALUESTORAGE");
-		TypesSet.Add("UUID");
-		TypesSet.Add("NULL");
-		TypesSet.Add("STANDARDPERIOD");
-		TypesSet.Add("SYSTEMENUMERATION");
+		TypesSet.Add(AvailableTypesSets.References);
+		TypesSet.Add(AvailableTypesSets.ComplexReferences);
+		TypesSet.Add(AvailableTypesSets.Primitive);
+		TypesSet.Add(AvailableTypesSets.ValueStorage);
+		TypesSet.Add(AvailableTypesSets.UUID);
+		TypesSet.Add(AvailableTypesSets.Null);
+		TypesSet.Add(AvailableTypesSets.StandardPeriod);
+		TypesSet.Add(AvailableTypesSets.SystemEnums);
 	ElsIf Parameters.Property("TypesSet") Then
+		//@skip-check unknown-form-parameter-access
 		TempTypesSet = Parameters.TypesSet;
 		If TypeOf(TempTypesSet) = Type("String") Then
 			TempTypesArray = StrSplit(TempTypesSet, ",");
@@ -75,27 +80,73 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 			EndDo;
 		EndIf;
 	EndIf;
-		
-	If Parameters.Property("DataType") Then
-		DataType=Parameters.DataType;
-		If TypeOf(DataType) = Type("TypeDescription") Then
-			InitialDataType=DataType;
-		Else
-			InitialDataType=New TypeDescription;
-		EndIf;
-	Else
-		InitialDataType=New TypeDescription;
-	EndIf;
 	
+	InitialDataType = New TypeDescription;	
+	If Parameters.Property("DataType") Then
+		//@skip-check unknown-form-parameter-access
+		DataType = Parameters.DataType;
+		If TypeOf(DataType) = Type("TypeDescription") Then
+			InitialDataType = DataType;
+		ElsIf TypeOf(DataType) = Type("String") Then 
+			//@skip-check empty-except-statement
+			Try
+				FillSelectedTypes = UT_Common.ValueFromXMLString(DataType, Type("TypeDescription"));
+			Except
+			EndTry;
+		EndIf;
+	ElsIf Parameters.Property("ValueTypeStorageContainer") Then 
+		ReturnStorageForValueContainer = True;
+		ValueContainerType = UT_CommonClientServer.ContainerValuesTypes().Type;
+		//@skip-check unknown-form-parameter-access
+		StorageContainer = Parameters.ValueTypeStorageContainer;//look at UT_CommonClientServer.NewValueStorageBoundaryType
+		If StorageContainer <> Undefined Then
+			Try
+				ContainerDataType = ValueFromStringInternal(StorageContainer.Value);
+				ArrayOfTypesForDescription = New Array();
+				ArrayOfTypesForDescription.Add(ContainerDataType);
+				FillSelectedTypes = New TypeDescription(ArrayOfTypesForDescription);
+			Except
+				UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось прочитать тип из контейнера.'; en = 'Failed to read type from container.'"));
+			EndTry;
+		EndIf;
+	ElsIf Parameters.Property("ValueDescriptionsTypeStorageContainer") Then 
+		ReturnStorageForValueContainer = True;
+		ValueContainerType = UT_CommonClientServer.ContainerValuesTypes().TypeDescription;
+		
+		//@skip-check unknown-form-parameter-access
+		StorageContainer = Parameters.ValueDescriptionsTypeStorageContainer;//look at UT_CommonClientServer.NewValueStorageBoundaryType
+		If StorageContainer <> Undefined Then
+			Try
+				FillSelectedTypes = UT_Common.ValueFromXMLString(StorageContainer.Value,
+																			 Type("TypeDescription"));
+			Except
+				UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось прочитать описание типов из контейнера.'; en = 'Failed to read type description from container.'"));
+			EndTry;
+		EndIf;
+		
+	EndIf;
+
+	If Parameters.Property("TypeRestrictions") Then
+		//@skip-check unknown-form-parameter-access
+		TypeRestrictionsParameter = Parameters.TypeRestrictions;
+		If TypeOf(TypeRestrictionsParameter) = Type("TypeDescription") Then
+			TypeRestrictions = UT_Common.ValueToXMLString(TypeRestrictionsParameter);
+		ElsIf TypeOf(TypeRestrictionsParameter) = Type("String") Then
+			TypeRestrictions = TypeRestrictionsParameter;
+		EndIf;
+	EndIf;
+		
 	CompositeDataType = InitialDataType.Types().Count() > 1;
 
 	If Parameters.Property("CompositeDataTypeAvailable") Then
+		//@skip-check unknown-form-parameter-access
 		CompositeDataTypeAvailable = Parameters.CompositeDataTypeAvailable;
 	Else
 		CompositeDataTypeAvailable = True;
 	EndIf;
 	
 	If Parameters.Property("ChoiceMode") Then
+		//@skip-check unknown-form-parameter-access
 		ChoiceMode = Parameters.ChoiceMode;
 		If ChoiceMode Then
 			CompositeDataTypeAvailable = False;
@@ -114,34 +165,20 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	EndIf;
 	
 //	Items.TypesTreeSelected.Visible = Not ChoiceMode;
-	Items.ReferredValueChoiceFormSelectionGroup.Visible = ChoiceMode;
+	Items.ReferredValueChoiceFormSelectionGroup.Visible = ChoiceMode
+														And Not ReturnStorageForValueContainer;
 	
-	FillQualifiersDataByOriginalDataType();
+	FillQualifiersDataByOriginalDataType(InitialDataType);
 	
 	FillTypesTree(True);
 	
 	SetConditionalAppearance();
-	
 EndProcedure
-
 
 
 #EndRegion
 
 #Region FormItemsEvents
-
-
-&AtClient
-Procedure TypesTreeOnActivateRow(Item)
-	CurrentData=Items.TypesTree.CurrentData;
-	If CurrentData=Undefined Then
-		Return;
-	EndIf;
-	
-	Items.GroupNumberQualifier.Visible=CurrentData.Name="Number";
-	Items.GroupStringQualifier.Visible=CurrentData.Name="String";
-	Items.GroupDateQualifier.Visible=CurrentData.Name="Date";
-EndProcedure
 
 &AtClient
 Procedure UnlimitedStringLengthOnChange(Item)
@@ -149,7 +186,7 @@ Procedure UnlimitedStringLengthOnChange(Item)
 		StringLength=0;
 		AcceptableFixedStringLength=False;
 	EndIf;
-	Items.AcceptableFixedStringLength.Enabled=Not UnlimitedStringLength;
+	Items.AcceptableFixedStringLength.Enabled = Not UnlimitedStringLength;
 EndProcedure
 
 &AtClient
@@ -160,58 +197,13 @@ Procedure StringLengthOnChange(Item)
 	Else
 		UnlimitedStringLength=False;
 	EndIf;
-	Items.AcceptableFixedStringLength.Enabled=Not UnlimitedStringLength;
+	Items.AcceptableFixedStringLength.Enabled = Not UnlimitedStringLength;
 EndProcedure
 
 &AtClient
 Procedure SearchStringOnChange(Item)
 	FillTypesTree();
 	ExpandTreeItems();
-EndProcedure
-
-&AtClient
-Procedure TypesTreeSelectedOnChange(Item)
-		CurrentRow=Items.TypesTree.CurrentData;
-	If CurrentRow=Undefined Then
-		Return;
-	EndIf;
-	
-	If CurrentRow.Selected Then
-		If Not CompositeDataType Then
-			SelectedTypes.Clear();
-		 ElsIf CurrentRow.UnavailableForCompositeType Then
-			If SelectedTypes.Count()>0 Then
-				ShowQueryBox(New NotifyDescription("TypesTreeSelectedOnChangeEnd", ThisForm, New Structure("CurrentRow",CurrentRow)),NSTR("ru = 'Выбран тип, который не может быть включен в составной тип данных.Будут исключены остальные типы данных.
-				|Продолжить?';
-				|en = 'A type is selected that cannot be included in a composite data type.Other data types will be excluded.
-				|Continue?'"),QuestionDialogMode.YesNo);
-	        	Return;
-			EndIf;
-		Else
-			HaveUnavailableForCompositeType=False;
-			For Each SelectedTypesItem In SelectedTypes Do
-				If SelectedTypesItem.Check Then
-					HaveUnavailableForCompositeType=True;
-					Break;
-				EndIf;
-			EndDo;
-			
-			If HaveUnavailableForCompositeType Then
-				ShowQueryBox(New NotifyDescription("TypesTreeSelectedOnChangeEndWasNotAllowedForCompositeType", ThisForm, New Structure("CurrentRow",CurrentRow)),NSTR("ru = 'Ранее был выбран тип, который не может быть включен в составной тип данных и будет исключен. Продолжить?';
-				|en = 'Previously, a type was selected that cannot be is included in the composite data type and will be excluded.
-				|Continue?'") ,QuestionDialogMode.YesNo);
-				Return;
-			EndIf;
-		EndIf;
-	Else
-		Item=SelectedTypes.FindByValue(CurrentRow.Name);
-		If Item<>Undefined Then
-			SelectedTypes.Delete(Item);
-		EndIf;
-		
-	EndIf;
-	TypesTreeSelectedOnChangeFragment(CurrentRow);
-
 EndProcedure
 
 &AtClient
@@ -228,13 +220,49 @@ Procedure CompositeDataTypeOnChange(Item)
 	EndIf;
 EndProcedure
 
+#EndRegion
+
+#Область ОбработчикиСобытийЭлементовТаблицыФормыДеревоТипов
 
 &AtClient
 Procedure TypesTreeSelection(Item, RowSelected, Field, StandardProcessing)
-	If ChoiceMode Then
-
+	СurrentRow = TypesTree.FindByID(RowSelected);
+	If СurrentRow = Undefined Then
+		Return;
+	EndIf;
+	
+	СurrentRow.Check = True;
+	ChangeCheckTypeСhoiceHandler(СurrentRow);
+	
+	If ChoiceMode И Не CompositeDataType Then
+		FinishTypeEditingAndCloseForm();
 	EndIf;
 EndProcedure
+
+&AtClient
+Procedure TypesTreeSelectedOnChange(Item)
+	CurrentRow=Items.TypesTree.CurrentData;
+	If CurrentRow=Undefined Then
+		Return;
+	EndIf;
+	
+	ChangeCheckTypeСhoiceHandler(CurrentRow);
+EndProcedure
+
+&AtClient
+Procedure TypesTreeOnActivateRow(Item)
+	CurrentData=Items.TypesTree.CurrentData;
+	If CurrentData=Undefined Then
+		Return;
+	EndIf;
+	
+	Items.GroupNumberQualifier.Visible=CurrentData.Name = NStr("ru = 'Число'; en = 'Number'");
+	Items.GroupStringQualifier.Visible=CurrentData.Name = NStr("ru = 'Строка'; en = 'String'");
+	Items.GroupDateQualifier.Visible=CurrentData.Name = NStr("ru = 'Дата'; en = 'Date'");
+	
+EndProcedure
+
+
 
 #EndRegion
 
@@ -242,70 +270,230 @@ EndProcedure
 
 &AtClient
 Procedure Apply(Command)
-	TypesArray=SelectedTypesArray();
-	
-	TypesByString=New Array;
-	TypesByType=New Array;
-	
-	For Each Type ИЗ TypesArray Do
-		If TypeOf(Type) = Type("Type") Then
-			TypesByType.Add(Type);
-		Else
-			TypesByString.Add(Type);
-		EndIf;
-	EndDo;
-	
-	If NonnegativeNumber Then
-		Sign=AllowedSign.Nonnegative;
-	Else
-		Sign=AllowedSign.Any;
-	EndIf;
-		
-	NumberQualifier=New NumberQualifiers(NumberLength,NumberPrecision,Sign);
-	StringQualifier=New StringQualifiers(StringLength, ?(AcceptableFixedStringLength,AllowedLength.Fixed, AllowedLength.Variable));
-	
-	If DateFormat=1 Then
-		DateFraction=DateFractions.Time;
-	 ElsIf DateFormat=2 Then
-		DateFraction=DateFractions.DateTime;
-	Else
-		DateFraction=DateFractions.Date;
-	EndIf;
-	
-	DateQualifier=New DateQualifiers(DateFraction);
-	
-	Description=New TypeDescription;
-	If TypesByType.Count()>0 Then 
-		Description=New TypeDescription(Description, TypesByType,,NumberQualifier,StringQualifier,DateQualifier);
-	EndIf;
-	If TypesByString.Count()>0 Then 
-		Description=New TypeDescription(Description, StrConcat(TypesByString,","),,NumberQualifier,StringQualifier,DateQualifier);
-	EndIf;
-	
-	If ChoiceMode Then
-		ReturnValue = New Structure;
-		ReturnValue.Insert("Description", Description);
-		ReturnValue.Insert("UseDynamicListForRefValueSelection", UseDynamicListForRefValueSelection);
-	Else
-		ReturnValue = Description;
-	EndIf;
-	
-	
-	Close(ReturnValue);
+	FinishTypeEditingAndCloseForm();
 EndProcedure
 
 #EndRegion
 
 #Region Internal
 
-&AtClient
-Procedure SelectCurrentTypeDefaultValue()
+
+&НаСервере
+Процедура AddTypesToArrayByCollectionMetadata(TypesArray, Collection, TypePrefix)
+	For Each MDObject In Collection Do
+		TypesArray.Add(Type(TypePrefix + MDObject.Name));
+	EndDo;
+КонецПроцедуры
+
+&НаСервере
+Функция ArrayOfSelectedTypes()
+	TypesArray = New Array;
 	
-EndProcedure
+	For Each TypeItem In SelectedTypes Do 
+		TypeRow = TypeItem.Value;
+		
+		If Lower(TypeRow) = Lower("AnyRef") Then
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.Catalogs,"CatalogRef.");
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.Documents,"DocumentRef.");
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.ChartsOfCharacteristicTypes,"ChartOfCharacteristicTypesRef.");
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.ChartsOfAccounts,"ChartOfAccountsRef.");
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.ChartsOfCalculationTypes,"ChartOfCalculationTypesRef.");
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.ExchangePlans,"ExchangePlanRef.");
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.Enums,"EnumRef.");
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.BusinessProcesses,"BusinessProcessRef.");
+			AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.Tasks,"TaskRef.");
+		ElsIf StrFind(Lower(TypeRow),Lower("Ref")) > 0 And StrFind(TypeRow,".") = 0 Then
+			If Lower(TypeRow) = Lower("CatalogRef") Then
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.Catalogs,"CatalogRef.");
+			ElsIf Lower(TypeRow) = Lower("DocumentRef") Then	
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.Documents,"DocumentRef.");
+			ElsIf Lower(TypeRow) = Lower("ChartOfCharacteristicTypesRef") Then	
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.ChartsOfCharacteristicTypes,"ChartOfCharacteristicTypesRef.");
+			ElsIf Lower(TypeRow) = Lower("ChartOfAccountsRef") Then	
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.ChartsOfAccounts,"ChartOfAccountsRef.");
+			ElsIf Lower(TypeRow) = Lower("ChartOfCalculationTypesRef") Then	
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.ChartsOfCalculationTypes,"ChartOfCalculationTypesRef.");
+			ElsIf Lower(TypeRow) = Lower("ExchangePlanRef") Then	
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.ExchangePlans,"ExchangePlanRef.");
+			ElsIf Lower(TypeRow) = Lower("EnumRef") Then	
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.Enums,"EnumRef.");
+			ElsIf Lower(TypeRow) = Lower("BusinessProcessRef") Then	
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.BusinessProcesses,"BusinessProcessRef.");
+			ElsIf Lower(TypeRow) = Lower("TaskRef") Then	
+				AddTypesToArrayByCollectionMetadata(TypesArray, Metadata.Tasks,"TaskRef.");
+			EndIf;
+		ElsIf TypeItem.Check Then
+			NameArray = StrSplit(TypeRow,".");
+			If NameArray.Count() <> 2 Then
+				Continue;
+			EndIf;
+			ObjectName = NameArray[1];
+			If StrFind(Lower(TypeRow), Lower("Characteristic")) > 0 Then
+				MDObject = Metadata.ChartsOfCharacteristicTypes[ObjectName];
+			ElsIf StrFind(Lower(TypeRow), Lower("DefinedType")) > 0 Then
+				MDObject = Metadata.DefinedTypes[ObjectName];
+			Else
+				Continue;
+			EndIf;
+			TypeDescription = MDObject.Type;
+			
+			For Each  CurrentType ИЗ TypeDescription.Types() Do
+				TypesArray.Add(CurrentType);
+			EndDo;
+			
+		Else
+			TypesArray.Add(TypeItem.Value);
+		EndIf;
+	EndDo;
+	
+	Return TypesArray;
+	
+КонецФункции
+
+&НаКлиентеНаСервереБезКонтекста
+Функция SelectedTypesDescription(Form, TypesArray)
+	TypesLikeString = New Array;
+	TypesLikeType = New Array;
+
+	For Each CurrentType In TypesArray Do
+		If TypeOf(CurrentType) = Type("Type") Then
+			TypesLikeType.Add(CurrentType);
+		Else
+			TypesLikeString.Add(CurrentType);
+		EndIf;
+	EndDo;
+
+	If Form.NonnegativeNumber Then
+		Sign = AllowedSign.Nonnegative;
+	Else
+		Sign = AllowedSign.Any;
+	EndIf;
+
+	NumberQualifier = New NumberQualifiers(Form.NumberLength, Form.NumberPrecision, Sign);
+	StringQualifier = New StringQualifiers(Form.StringLength, ?(Form.AcceptableFixedStringLength,
+																	  AllowedLength.Fixed,
+																	  AllowedLength.Variable));
+	
+	If Form.СоставДаты = 1 Then
+		DateFraction = DateFractions.Time;
+	ElsIf Form.СоставДаты = 2 Then
+		DateFraction = DateFractions.DateTime;
+	Else
+		DateFraction = DateFractions.Date;
+	EndIf;
+	
+	DateQualifier = New DateQualifiers(DateFraction);
+
+	Description = New TypeDescription;
+	If TypesLikeType.Count() > 0 Then
+		Description = New TypeDescription(Description, TypesLikeType, , NumberQualifier, StringQualifier, DateQualifier);
+	EndIf;
+	If TypesLikeString.Count() > 0 Then
+		Description = New TypeDescription(Description, СтрСоединить(TypesLikeString, ","), , NumberQualifier, StringQualifier,
+			DateQualifier);
+	EndIf;
+	
+	Return Description;
+КонецФункции
+
+&НаСервере
+Функция ReturnStorageForContainer()
+	TypesArray = ArrayOfSelectedTypes();
+	
+	Description = SelectedTypesDescription(ThisObject, TypesArray);
+	
+	TypeStorage = UT_CommonClientServer.NewValueStorageType();
+	TypeStorage.Name = String(Description);
+	
+	ContainerTypes = UT_CommonClientServer.ContainerValuesTypes();
+	If ValueContainerType = ContainerTypes.Type Then
+		Types = Description.Types();
+		If Types.Count() = 0 Then
+			TypeInContainer = Type("Undefined");
+		Else
+			TypeInContainer = Types[0];
+		EndIf;
+		
+		TypeStorage.Value = ValueToStringInternal(TypeInContainer);
+	Else
+		TypeStorage.Value = UT_Common.ValueToXMLString(Description);
+	EndIf;
+	
+	Return TypeStorage;
+КонецФункции
+
+&НаКлиенте
+Процедура ChangeCheckTypeСhoiceHandler(СurrentRow)
+	
+	If СurrentRow.Check Then
+		If Not CompositeDataType Then
+			SelectedTypes.Очистить();
+		ElsIf СurrentRow.UnavailableForCompositeType Then
+			If SelectedTypes.Count() > 0 Then
+				ShowQueryBox(New CallbackDescription("TypesTreeSelectedOnChangeEnd", ThisObject,
+					New Structure("СurrentRow", СurrentRow)), NStr("ru = 'Выбран тип, который не может быть включен в составной тип данных.'; en = 'A type was selected that cannot be included in a composite data type.'") + Chars.LF 
+					+ NStr("ru = 'Будут исключены остальные типы данных.'; en = 'Other data types will be excluded.'") + Chars.LF
+					+ NStr("ru = 'Продолжить?'; en = 'Continue?'"), QuestionDialogMode.YesNo);
+				Return;
+			EndIf;
+		Else
+			IsUnAvailableForCompositeType = Ложь;
+			For Each  Item Из SelectedTypes Do
+				If Item.Check Then
+					IsUnAvailableForCompositeType = True;
+					Прервать;
+				EndIf;
+			EndDo;
+			
+			If IsUnAvailableForCompositeType Then
+				ShowQueryBox(New CallbackDescription("TypesTreeSelectedOnChangeEndWasNotAllowedForCompositeType", ThisObject,
+					New Structure("СurrentRow", СurrentRow)), NStr("ru = 'Ранее был выбран тип, который не может быть'; en = 'A type was previously selected that cannot be'") + Chars.LF  																	  
+					+ NStr("ru = 'включен в составной тип данных и будет исключен.'; en = 'included in a composite data type and will be excluded.'") + Chars.LF 
+					+ NStr("ru = 'Продолжить?'; en = 'Continue?'"), QuestionDialogMode.YesNo);
+				Return;
+			EndIf;
+		EndIf;
+	Else
+		Item = SelectedTypes.FindByValue(СurrentRow.Name);
+		If Item <> Undefined Then
+			SelectedTypes.Delete(Item);
+		EndIf;
+
+	EndIf;
+	TypesTreeSelectedOnChangeFragment(СurrentRow);
+
+	
+КонецПроцедуры
+
+&НаКлиенте
+Процедура FinishTypeEditingAndCloseForm()
+	If ReturnStorageForValueContainer Then
+		ReturnValue = ReturnStorageForContainer();
+	Else
+		TypesArray = ArrayOfSelectedTypes();
+		
+		Description = SelectedTypesDescription(ThisObject, TypesArray);
+		ReturnValue = Description;
+		If ChoiceMode Then
+			ReturnValue = New Structure;
+			ReturnValue.Insert("Description", Description);
+			ReturnValue.Insert("UseDynamicListForRefValueSelection",
+										  UseDynamicListForRefValueSelection);
+		EndIf;
+	EndIf;
+	
+	Close(ReturnValue);
+	
+КонецПроцедуры
+
+&НаСервере
+Функция TypesSetAvailable(Set)
+	Return TypesSet.FindByValue(Set) <> Undefined;
+КонецФункции
 
 &AtServer
 Function PrimitiveTypeIsAvailable()
-	Return TypesSet.FindByValue("PRIMITIVETYPE") <> Undefined;	
+	Return TypesSetAvailable(AvailableTypesSets.Primitive);
 EndFunction
 
 &AtServer
@@ -364,45 +552,50 @@ Function SystemEnumerationIsAvailable()
 EndFunction
 
 &AtServer
-Function AddTypeToTypesTree(FillSelectedTypes,TypeName, Picture, Presentation = "", 
+Function AddTypeToTypesTree(FillSelectedTypes, TypeName, Picture, TypeRestrictionsDescription, Presentation = "", 
 	TreeRow = Undefined, IsGroup = False, Group = False, UnavailableForCompositeType = False)
 	
 	If ValueIsFilled(Presentation) Then
-		TypePresentation=Presentation;
+		TypePresentation = Presentation;
 	Else
-		TypePresentation=TypeName;
+		TypePresentation = TypeName;
 	EndIf;
 
-	If ValueIsFilled(SearchString) и Not Group Then
-		If StrFind(Lower(TypePresentation), Lower(SearchString))=0 Then
+	If ValueIsFilled(SearchString) And Not Group Then
+		If StrFind(Lower(TypePresentation), Lower(SearchString)) = 0 Then
 			Return Undefined;
 		EndIf;
 	EndIf;
 	
 	If TreeRow = Undefined Then
-		AdditionElement=TypesTree;
+		AdditionElement = TypesTree;
 	Else
-		AdditionElement=TreeRow;
+		AdditionElement = TreeRow;
 	EndIf;
+	
+	Try
+		CurrentType = Type(TypeName);
+	Except
+		CurrentType = Undefined;
+	EndTry;
+	
+	If TypeOf(TypeRestrictionsDescription) = Type("TypeDescription") And CurrentType <> Undefined Then
+		If Not TypeRestrictionsDescription.СодержитТип(CurrentType) Then
+			Return Undefined;
+		EndIf;
+	EndIf; 
 
-	NewRow=AdditionElement.GetItems().Add();
-	NewRow.Name=TypeName;
-	NewRow.Presentation=TypePresentation;
-	NewRow.Picture=Picture;
-	NewRow.IsGroup=IsGroup;
-	NewRow.UnavailableForCompositeType=UnavailableForCompositeType;
+	NewRow = AdditionElement.GetItems().Add();
+	NewRow.Name = TypeName;
+	NewRow.Presentation = TypePresentation;
+	NewRow.Picture = Picture;
+	NewRow.IsGroup = IsGroup;
+	NewRow.UnavailableForCompositeType = UnavailableForCompositeType;
 	NewRow.Group = Group;
 	
-	If FillSelectedTypes Then
-		Try
-			CurrentType=Type(TypeName);
-		Except
-			CurrentType=Undefined;
-		EndTry;
-		If CurrentType<>Undefined Then
-			If InitialDataType.ContainsType(CurrentType) Then
-				SelectedTypes.Add(NewRow.Name,,NewRow.UnavailableForCompositeType);
-			EndIf;
+	If FillSelectedTypes <> Undefined And CurrentType <> Undefined Then
+		If FillSelectedTypes.ContainsType(CurrentType) Then
+			SelectedTypes.Add(NewRow.Name, , NewRow.UnavailableForCompositeType);
 		EndIf;
 	EndIf;
 
@@ -411,56 +604,98 @@ Function AddTypeToTypesTree(FillSelectedTypes,TypeName, Picture, Presentation = 
 EndFunction
 
 &AtServer
-Procedure FillTypesByObjectType(MetadataObjectsType, TypePrefix, Picture,FillSelectedTypes)
-	ObjectsCollection=Metadata[MetadataObjectsType];
-	
-	CollectionRow=AddTypeToTypesTree(FillSelectedTypes,TypePrefix,Picture,TypePrefix,,,True);
-	
-	For Each MetadataObject In ObjectsCollection Do
-		AddTypeToTypesTree(FillSelectedTypes,TypePrefix+"."+MetadataObject.Name, Picture,MetadataObject.Name,CollectionRow);
+Procedure FillTypesByObjectType(MetadataObjectsType, TypePrefix, Picture, FillSelectedTypes,
+	TypeRestrictionsDescription)
+	ObjectsCollection = Metadata[MetadataObjectsType];
+
+	CollectionRow = AddTypeToTypesTree(FillSelectedTypes,
+											TypePrefix,
+											Picture,
+											TypeRestrictionsDescription,
+											TypePrefix,
+											,
+											,
+											True);
+
+	For Each  MetadataObject Из ObjectsCollection Do
+		AddTypeToTypesTree(FillSelectedTypes,
+								TypePrefix + "." + MetadataObject.Name,
+								Picture,
+								TypeRestrictionsDescription,
+								MetadataObject.Name,
+								CollectionRow);
 	EndDo;
 	
-	DeleteTreeRowIfNotSubordinatesOnSearch(CollectionRow);
+	DeleteTreeRowIfNotSubordinatesOnSearch(CollectionRow, TypeRestrictionsDescription);
 EndProcedure
 
 &AtServer
-Procedure FillPrimitiveTypes(FillSelectedTypes)
+Procedure FillPrimitiveTypes(FillSelectedTypes, TypeRestrictionsDescription)
 	//AddTypeToTypesTree("Arbitrary", PictureLib.UT_ArbitraryType);
 	If PrimitiveTypeIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"Number", PictureLib.UT_Number);
-		AddTypeToTypesTree(FillSelectedTypes,"String", PictureLib.UT_String);
-		AddTypeToTypesTree(FillSelectedTypes,"Date", PictureLib.UT_Date);
-		AddTypeToTypesTree(FillSelectedTypes,"Boolean", PictureLib.UT_Boolean);
+		AddTypeToTypesTree(FillSelectedTypes,"Number", PictureLib.UT_Number, TypeRestrictionsDescription);
+		AddTypeToTypesTree(FillSelectedTypes,"String", PictureLib.UT_String, TypeRestrictionsDescription);
+		AddTypeToTypesTree(FillSelectedTypes,"Date", PictureLib.UT_Date, TypeRestrictionsDescription);
+		AddTypeToTypesTree(FillSelectedTypes,"Boolean", PictureLib.UT_Boolean, TypeRestrictionsDescription);
 	EndIf;
 	If ValueStorageIsAvailable() Then      
-		AddTypeToTypesTree(FillSelectedTypes,"ValueStorage", New Picture);
+		AddTypeToTypesTree(FillSelectedTypes,"ValueStorage", New Picture, TypeRestrictionsDescription);
 	EndIf;
 	
 	If ValueCollectionIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"ValueTable", PictureLib.UT_ValueTable);
-		AddTypeToTypesTree(FillSelectedTypes,"ValueList", PictureLib.UT_ValueList);
-		AddTypeToTypesTree(FillSelectedTypes,"Array", PictureLib.UT_Array);
+		AddTypeToTypesTree(FillSelectedTypes,
+			"ValueTable",
+			PictureLib.UT_ValueTable,
+			TypeRestrictionsDescription);
+		AddTypeToTypesTree(FillSelectedTypes,
+			"ValueList", 
+			PictureLib.UT_ValueList,
+			TypeRestrictionsDescription);
+		AddTypeToTypesTree(FillSelectedTypes,
+		"Array",
+		 PictureLib.UT_Array,
+		 TypeRestrictionsDescription);
+		AddTypeToTypesTree(FillSelectedTypes, "Массив", БиблиотекаКартинок.УИ_Массив, TypeRestrictionsDescription,);
+		AddTypeToTypesTree(FillSelectedTypes, "Структура", New Картинка, TypeRestrictionsDescription);
+		AddTypeToTypesTree(FillSelectedTypes, "Соответствие", New Картинка, TypeRestrictionsDescription);		
 	EndIf;
 	If TypeTypeIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"Type", PictureLib.ChooseType);
+		AddTypeToTypesTree(FillSelectedTypes,"Type", PictureLib.ChooseType, TypeRestrictionsDescription);
 	EndIf;
-	If PointInTimeIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"PointInTime", PictureLib.UT_PointInTime);
-	EndIf;
-	If BoundaryIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"Boundary", PictureLib.UT_Boundary);
-	EndIf;
-	If UUIDIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"UUID", PictureLib.UT_UUID);
-	EndIf;
-	If NullIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"Null", PictureLib.UT_Null);
+	If TypesSetAvailable(AvailableTypesSets.ОписаниеТипов) Then
+		AddTypeToTypesTree(FillSelectedTypes,
+								"ОписаниеТипов",
+								БиблиотекаКартинок.УИ_ОписаниеТипов,
+								TypeRestrictionsDescription);
 	EndIf;
 	
+	If PointInTimeIsAvailable() Then
+		AddTypeToTypesTree(FillSelectedTypes,
+			"PointInTime", 
+			PictureLib.UT_PointInTime,
+			TypeRestrictionsDescription);
+	EndIf;
+	If BoundaryIsAvailable() Then
+		AddTypeToTypesTree(FillSelectedTypes,
+			"Boundary", 
+			PictureLib.UT_Boundary,
+			TypeRestrictionsDescription);
+	EndIf;
+	If UUIDIsAvailable() Then
+		AddTypeToTypesTree(FillSelectedTypes,
+			"UUID", 
+			PictureLib.UT_UUID,
+			TypeRestrictionsDescription);
+	EndIf;
+	If NullIsAvailable() Then
+		AddTypeToTypesTree(FillSelectedTypes,"Null", PictureLib.UT_Null,TypeRestrictionsDescription);
+	EndIf;
+	
+	FillAdditionalTypes(FillSelectedTypes, TypeRestrictionsDescription);
 EndProcedure
 
 &AtServer
-Procedure FillCharacteristicsTypes(FillSelectedTypes)
+Procedure FillCharacteristicsTypes(FillSelectedTypes, TypeRestrictionsDescription)
 	If Not CompositeRefIsAvailable() Then
 		Return;
 	EndIf;
@@ -470,81 +705,246 @@ Procedure FillCharacteristicsTypes(FillSelectedTypes)
 		Return;
 	EndIf;
 	
-	CharacteristicsRow=AddTypeToTypesTree(FillSelectedTypes,"Characteristics", PictureLib.Folder,,,True,True);
+	CharacteristicsRow=AddTypeToTypesTree(FillSelectedTypes,
+		"Characteristics", 
+		PictureLib.Folder,
+		TypeRestrictionsDescription,
+		,
+		,
+		True,
+		True);
 	
 	For Each Chart In Charts Do
-		AddTypeToTypesTree(FillSelectedTypes,"Characteristic."+Chart.Name,New Picture,Chart.Name,CharacteristicsRow,,,True);
+		AddTypeToTypesTree(FillSelectedTypes,
+			"Characteristic." + Chart.Name,
+			New Picture,
+			TypeRestrictionsDescription,
+			Chart.Name,
+			CharacteristicsRow,
+			,
+			,
+			True);
 	EndDo;
 	
-	DeleteTreeRowIfNotSubordinatesOnSearch(CharacteristicsRow);
+	DeleteTreeRowIfNotSubordinatesOnSearch(CharacteristicsRow, TypeRestrictionsDescription);
 
 EndProcedure
 
 &AtServer
-Procedure FillDefinedTypes(FillSelectedTypes)
+Procedure FillDefinedTypes(FillSelectedTypes, TypeRestrictionsDescription)
 	If Not CompositeRefIsAvailable() Then
 		Return;
 	EndIf;
 	
 	//Characteristics
-	Types=Metadata.DefinedTypes;
-	If Types.Count()=0 Then
+	Types = Metadata.DefinedTypes;
+	If Types.Count() = 0 Then
 		Return;
 	EndIf;
 	
-	TypeAsString=AddTypeToTypesTree(FillSelectedTypes,"DefinedType", PictureLib.Folder,,,True, True);
+	TypeAsString = AddTypeToTypesTree(FillSelectedTypes,
+		"DefinedType", 
+		PictureLib.Folder,
+		TypeRestrictionsDescription,
+		,
+		,
+		True,
+		True);
 	
 	For Each DefinedType In Types Do
-		AddTypeToTypesTree(FillSelectedTypes,"DefinedType."+DefinedType.Name,New Picture,DefinedType.Name,TypeAsString,,,True);
+		AddTypeToTypesTree(FillSelectedTypes,
+			"DefinedType." + DefinedType.Name,
+			New Picture,
+			TypeRestrictionsDescription,
+			DefinedType.Name,
+			TypeAsString,
+			,
+			,
+			True);
 	EndDo;
-	DeleteTreeRowIfNotSubordinatesOnSearch(TypeAsString);
+	DeleteTreeRowIfNotSubordinatesOnSearch(TypeAsString, TypeRestrictionsDescription);
 EndProcedure
 
 &AtServer
-Procedure FillTypesOfSystemEnumerations(FillSelectedTypes)
+Procedure FillTypesOfSystemEnumerations(FillSelectedTypes, TypeRestrictionsDescription)
 	If Not SystemEnumerationIsAvailable() Then
 		Return;
 	EndIf;
-	TypeAsString=AddTypeToTypesTree(FillSelectedTypes,"SystemEnumerations", PictureLib.Folder,"System Enumerations",,True, True);
+	TypeAsString=AddTypeToTypesTree(FillSelectedTypes,
+		"SystemEnumerations", 
+		PictureLib.Folder,
+		TypeRestrictionsDescription,
+		"System Enumerations",
+		,
+		True,
+		True);
 
-	AddTypeToTypesTree(FillSelectedTypes,"AccumulationRecordType",PictureLib.UT_AccumulationRecordType,,TypeAsString);
-	AddTypeToTypesTree(FillSelectedTypes,"AccountType",PictureLib.ChartOfAccountsObject,,TypeAsString);
-	AddTypeToTypesTree(FillSelectedTypes,"AccountingRecordType",PictureLib.ChartOfAccounts,,TypeAsString);
-	AddTypeToTypesTree(FillSelectedTypes,"AccumulationRegisterAggregateUse",New Picture,,TypeAsString);
-	AddTypeToTypesTree(FillSelectedTypes,"AccumulationRegisterAggregatePeriodicity",New Picture,,TypeAsString);
+	AddTypeToTypesTree(FillSelectedTypes,
+		"AccumulationRecordType",
+		PictureLib.UT_AccumulationRecordType,
+		TypeRestrictionsDescription,
+		,
+		TypeAsString);
+	AddTypeToTypesTree(FillSelectedTypes,
+		"AccountType",
+		PictureLib.ChartOfAccountsObject,
+		TypeRestrictionsDescription,
+		,
+		TypeAsString);
+	AddTypeToTypesTree(FillSelectedTypes,
+		"AccountingRecordType",
+		PictureLib.ChartOfAccounts,
+		TypeRestrictionsDescription,
+		,
+		TypeAsString);
+	AddTypeToTypesTree(FillSelectedTypes,
+		"AccumulationRegisterAggregateUse",
+		New Picture,
+		TypeRestrictionsDescription,
+		,
+		TypeAsString);
+	AddTypeToTypesTree(FillSelectedTypes,
+		"AccumulationRegisterAggregatePeriodicity",
+		New Picture,
+		TypeRestrictionsDescription,
+		,
+		TypeAsString);
 	
-	DeleteTreeRowIfNotSubordinatesOnSearch(TypeAsString);
+	DeleteTreeRowIfNotSubordinatesOnSearch(TypeAsString, TypeRestrictionsDescription);
 EndProcedure
+
+&НаСервере
+Процедура FillAdditionalTypes(FillSelectedTypes, TypeRestrictionsDescription)
+	If TypesSetAvailable(AvailableTypesSets.ТабличныйДокумент) Then
+		AddTypeToTypesTree(FillSelectedTypes,
+								"ТабличныйДокумент",
+								БиблиотекаКартинок.ТабличныйДокументОтображатьЗаголовки,
+								TypeRestrictionsDescription);
+	EndIf;
+	If TypesSetAvailable(AvailableTypesSets.Картинка) Then
+		AddTypeToTypesTree(FillSelectedTypes,
+								"Картинка",
+								БиблиотекаКартинок.Картинка,
+								TypeRestrictionsDescription);
+	EndIf;
+	If TypesSetAvailable(AvailableTypesSets.ДвоичныеДанные) Then
+		AddTypeToTypesTree(FillSelectedTypes,
+								"ДвоичныеДанные",
+								New Картинка,
+								TypeRestrictionsDescription);
+	EndIf;
+	
+КонецПроцедуры
+
+&НаСервере
+Процедура ЗаполнитьФиксированныеКоллекции(FillSelectedTypes, TypeRestrictionsDescription)
+	If Not TypesSetAvailable(AvailableTypesSets.ФиксированныеКоллекцииЗначений) Then
+		Return;
+	EndIf;
+	
+	AddTypeToTypesTree(FillSelectedTypes,
+							"ФиксированныйМассив",
+							БиблиотекаКартинок.УИ_ФиксированныйМассив,
+							TypeRestrictionsDescription);
+	AddTypeToTypesTree(FillSelectedTypes, "ФиксированнаяСтруктура",
+							БиблиотекаКартинок.УИ_ФиксированныйМассив,
+							TypeRestrictionsDescription);
+	AddTypeToTypesTree(FillSelectedTypes,
+							"ФиксированноеСоответствие",
+							БиблиотекаКартинок.УИ_ФиксированныйМассив,
+							TypeRestrictionsDescription);
+
+КонецПроцедуры
 
 &AtServer
 Procedure FillTypesTree(FillSelectedTypes=False)
+	TypeRestrictionsDescription = Undefined;
+	If ValueIsFilled(TypeRestrictions) Then
+		//@skip-check empty-except-statement
+		Try
+			TypeRestrictionsDescription = UT_Common.ValueFromXMLString(TypeRestrictions, Type("TypeDescription"));
+		Except
+		EndTry;
+		If TypeRestrictionsDescription = New TypeDescription Then
+			TypeRestrictionsDescription = Undefined;
+		EndIf;
+	EndIf;
+	
 	TypesTree.GetItems().Clear();
-	FillPrimitiveTypes(FillSelectedTypes);
-	FillTypesByObjectType("Catalogs", "CatalogRef",PictureLib.Catalog,FillSelectedTypes);
-	FillTypesByObjectType("Documents", "DocumentRef",PictureLib.Document,FillSelectedTypes);
-	FillTypesByObjectType("ChartsOfCharacteristicTypes", "ChartOfCharacteristicTypesRef", PictureLib.ChartOfCharacteristicTypes,FillSelectedTypes);
-	FillTypesByObjectType("ChartsOfAccounts", "ChartOfAccountsRef", PictureLib.ChartOfAccounts,FillSelectedTypes);
-	FillTypesByObjectType("ChartsOfCalculationTypes", "ChartOfCalculationTypesRef", PictureLib.ChartOfCalculationTypes,FillSelectedTypes);
-	FillTypesByObjectType("ExchangePlans", "ExchangePlanRef", PictureLib.ExchangePlan,FillSelectedTypes);
-	FillTypesByObjectType("Enums", "EnumRef", PictureLib.Enum,FillSelectedTypes);
-	FillTypesByObjectType("BusinessProcesses", "BusinessProcessRef", PictureLib.BusinessProcess,FillSelectedTypes);
-	FillTypesByObjectType("Tasks", "TaskRef", PictureLib.Task,FillSelectedTypes);
+	FillPrimitiveTypes(FillSelectedTypes, TypeRestrictionsDescription);
+	FillTypesByObjectType("Catalogs",
+		"CatalogRef",
+		PictureLib.Catalog,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
+	FillTypesByObjectType("Documents",
+		"DocumentRef",
+		PictureLib.Document,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
+	FillTypesByObjectType("ChartsOfCharacteristicTypes",
+		"ChartOfCharacteristicTypesRef",
+		PictureLib.ChartOfCharacteristicTypes,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
+	FillTypesByObjectType("ChartsOfAccounts", "ChartOfAccountsRef",
+		PictureLib.ChartOfAccounts,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
+	FillTypesByObjectType("ChartsOfCalculationTypes",
+		"ChartOfCalculationTypesRef",
+		PictureLib.ChartOfCalculationTypes,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
+	FillTypesByObjectType("ExchangePlans",
+		"ExchangePlanRef", 
+		PictureLib.ExchangePlan,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
+	FillTypesByObjectType("Enums", 
+		"EnumRef", 
+		PictureLib.Enum,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
+	FillTypesByObjectType("BusinessProcesses",
+		"BusinessProcessRef",
+		PictureLib.BusinessProcess,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
+	FillTypesByObjectType("Tasks",
+		"TaskRef",
+		PictureLib.Task,
+		FillSelectedTypes,
+		TypeRestrictionsDescription);
 	//FillTypesByObjectType("BusinessProcessRoutePointsRef", "BusinessProcessRoutePointRef");
 	
-	FillCharacteristicsTypes(FillSelectedTypes);
+	FillCharacteristicsTypes(FillSelectedTypes, TypeRestrictionsDescription);
+	//@skip-check empty-except-statement
 	Try
-		FillDefinedTypes(FillSelectedTypes);
+		FillDefinedTypes(FillSelectedTypes, TypeRestrictionsDescription);
 	Except
 	EndTry;
 	If CompositeRefIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"AnyRef", New Picture, "Any reference");
+		AddTypeToTypesTree(FillSelectedTypes,
+		"AnyRef",
+		New Picture,
+		TypeRestrictionsDescription,
+		"Any reference");
 	EndIf;
-
+	ЗаполнитьФиксированныеКоллекции(FillSelectedTypes, TypeRestrictionsDescription);
 	If StandardPeriodIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"StandardBeginningDate", New Picture, "Standard beginning date");
-		AddTypeToTypesTree(FillSelectedTypes,"StandardPeriod", New Picture, "Standard period");
+		AddTypeToTypesTree(FillSelectedTypes,
+			"StandardBeginningDate", 
+			New Picture,
+			TypeRestrictionsDescription,
+			"Standard beginning date");
+		AddTypeToTypesTree(FillSelectedTypes,
+			"StandardPeriod", 
+			New Picture,
+			TypeRestrictionsDescription, 
+			"Standard period");
 	EndIf;
-	FillTypesOfSystemEnumerations(FillSelectedTypes);
+	FillTypesOfSystemEnumerations(FillSelectedTypes, TypeRestrictionsDescription);
 	
 	SetSelectedTypesInTree(TypesTree,SelectedTypes);
 EndProcedure
@@ -594,8 +994,8 @@ Procedure SetConditionalAppearance()
 EndProcedure
 
 &AtServer
-Procedure DeleteTreeRowIfNotSubordinatesOnSearch(TreeRow)
-	If Not ValueIsFilled(SearchString) Then
+Procedure DeleteTreeRowIfNotSubordinatesOnSearch(TreeRow, TypeRestrictionsDescription)
+	If Not ValueIsFilled(SearchString) And TypeRestrictionsDescription = Undefined Then
 		Return;
 	EndIf;
 	If TreeRow.GetItems().Count()=0 Then
@@ -687,80 +1087,9 @@ Procedure TypesTreeSelectedOnChangeFragment(CurrentRow) Export
 	SetSelectedTypesInTree(TypesTree,SelectedTypes);
 EndProcedure
 
-&AtServer
-Procedure AddTypesToArrayByMetadataCollection(TypesArray, Collection, TypePrefix)
-	For each MetadataObject in Collection do
-		TypesArray.Add(Type(TypePrefix+MetadataObject.Name));
-	Enddo;
-EndProcedure
 
 &AtServer
-Function SelectedTypesArray()
-	TypesArray=New Array;
-	
-	For Each ItemOfType In SelectedTypes Do
-		TypeAsString=ItemOfType.Value;
-		
-		If Lower(TypeAsString)="anyref" Then
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.Catalogs,"CatalogRef.");
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.Documents,"DocumentRef.");
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.ChartsOfCharacteristicTypes,"ChartOfCharacteristicTypesRef.");
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.ChartsOfAccounts,"ChartOfAccountsRef.");
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.ChartsOfCalculationTypes,"ChartOfCalculationTypesRef.");
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.ExchangePlans,"ExchangePlanRef.");
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.Enums,"EnumRef.");
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.BusinessProcesses,"BusinessProcessRef.");
-			AddTypesToArrayByMetadataCollection(TypesArray, Metadata.Tasks,"TaskRef.");
-		 ElsIf StrFind(Lower(TypeAsString),"ref")>0 And StrFind(TypeAsString,".")=0 Then
-			If Lower(TypeAsString)="catalogref" Then
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.Catalogs,"CatalogRef.");
-			 ElsIf Lower(TypeAsString)="documentref" Then	
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.Documents,"DocumentRef.");
-			 ElsIf Lower(TypeAsString)="chartofcharacteristictypesref" Then	
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.ChartsOfCharacteristicTypes,"ChartOfCharacteristicTypesRef.");
-			 ElsIf Lower(TypeAsString)="chartofaccountsref" Then	
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.ChartsOfAccounts,"ChartOfAccountsRef.");
-			 ElsIf Lower(TypeAsString)="chartofcalculationtypesref" Then	
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.ChartsOfCalculationTypes,"ChartOfCalculationTypesRef.");
-			 ElsIf Lower(TypeAsString)="exchangeplanref" Then	
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.ExchangePlans,"ExchangePlanRef.");
-			 ElsIf Lower(TypeAsString)="enumref" Then	
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.Enums,"EnumRef.");
-			 ElsIf Lower(TypeAsString)="businessprocessref" Then	
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.BusinessProcesses,"BusinessProcessRef.");
-			 ElsIf Lower(TypeAsString)="taskref" Then	
-				AddTypesToArrayByMetadataCollection(TypesArray, Metadata.Tasks,"TaskRef.");
-			EndIf;
-		 ElsIf ItemOfType.Check Then
-			ArrayOfName=StrSplit(TypeAsString,".");
-			If ArrayOfName.Count()<>2 Then
-				Continue;
-			EndIf;
-			ObjectName=ArrayOfName[1];
-			If StrFind(Lower(TypeAsString),"characteristic")>0 Then
-				MetadataObject=Metadata.ChartsOfCharacteristicTypes[ObjectName];
-			 ElsIf StrFind(Lower(TypeAsString),"definedtype")>0 Then
-				MetadataObject=Metadata.DefinedTypes[ObjectName];
-			Else
-				Continue;
-			EndIf;
-			TypeDescription=MetadataObject.Тип;
-			
-			For Each CurrentType ИЗ TypeDescription.Types() Do
-				TypesArray.Add(CurrentType);
-			EndDo;
-			
-		Else
-			TypesArray.Add(ItemOfType.Value);
-		EndIf;
-	EndDo;
-	
-	Return TypesArray;
-	
-EndFunction
-
-&AtServer
-Procedure FillQualifiersDataByOriginalDataType()
+Procedure FillQualifiersDataByOriginalDataType(InitialDataType)
 	NumberLength=InitialDataType.NumberQualifiers.Digits;
 	NumberPrecision=InitialDataType.NumberQualifiers.FractionDigits;
 	NonnegativeNumber= InitialDataType.NumberQualifiers.AllowedSign=AllowedSign.Nonnegative;

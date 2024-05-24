@@ -366,7 +366,7 @@
     </title>
     <title>
       <key>ru</key>
-      <value>Колонки таблицы</value>
+      <value>Columns</value>
     </title>
     <extendedTooltip>
       <name>GroupTableColumnsExtendedTooltip</name>
@@ -396,186 +396,6 @@
       <throughAlign>Auto</throughAlign>
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
-  </items>
-  <items xsi:type="form:Table">
-    <name>ValueTable</name>
-    <id>5</id>
-    <visible>true</visible>
-    <enabled>true</enabled>
-    <userVisible>
-      <common>true</common>
-    </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>ValueTable</segments>
-    </dataPath>
-    <titleLocation>None</titleLocation>
-    <autoCommandBar>
-      <name>ValueTableCommandBar</name>
-      <id>6</id>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <horizontalAlign>Left</horizontalAlign>
-      <autoFill>true</autoFill>
-    </autoCommandBar>
-    <searchStringAddition>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <name>ValueTableSearchString</name>
-      <id>9</id>
-      <extendedTooltip>
-        <name>ValueTableSearchStringExtendedTooltip</name>
-        <id>11</id>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <type>Label</type>
-        <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
-        <extInfo xsi:type="form:LabelDecorationExtInfo">
-          <horizontalAlign>Left</horizontalAlign>
-        </extInfo>
-      </extendedTooltip>
-      <contextMenu>
-        <name>ValueTableSearchStringContextMenu</name>
-        <id>10</id>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <autoFill>true</autoFill>
-      </contextMenu>
-      <extInfo xsi:type="form:SearchStringAdditionExtInfo">
-        <autoMaxWidth>true</autoMaxWidth>
-      </extInfo>
-    </searchStringAddition>
-    <viewStatusAddition>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <name>ValueTableViewStatus</name>
-      <id>15</id>
-      <extendedTooltip>
-        <name>ValueTableViewStatusExtendedTooltip</name>
-        <id>17</id>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <type>Label</type>
-        <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
-        <extInfo xsi:type="form:LabelDecorationExtInfo">
-          <horizontalAlign>Left</horizontalAlign>
-        </extInfo>
-      </extendedTooltip>
-      <contextMenu>
-        <name>ValueTableViewStatusContextMenu</name>
-        <id>16</id>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <autoFill>true</autoFill>
-      </contextMenu>
-      <type>ViewStatusAddition</type>
-      <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
-        <autoMaxWidth>true</autoMaxWidth>
-      </extInfo>
-    </viewStatusAddition>
-    <searchControlAddition>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <name>ValueTableSearchControl</name>
-      <id>12</id>
-      <extendedTooltip>
-        <name>ValueTableSearchControlExtendedTooltip</name>
-        <id>14</id>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <type>Label</type>
-        <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
-        <extInfo xsi:type="form:LabelDecorationExtInfo">
-          <horizontalAlign>Left</horizontalAlign>
-        </extInfo>
-      </extendedTooltip>
-      <contextMenu>
-        <name>ValueTableSearchControlContextMenu</name>
-        <id>13</id>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
-        <autoFill>true</autoFill>
-      </contextMenu>
-      <type>SearchControlAddition</type>
-      <extInfo xsi:type="form:SearchControlAdditionExtInfo">
-        <autoMaxWidth>true</autoMaxWidth>
-      </extInfo>
-    </searchControlAddition>
-    <extendedTooltip>
-      <name>ValueTableExtendedTooltip</name>
-      <id>8</id>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <type>Label</type>
-      <autoMaxWidth>true</autoMaxWidth>
-      <autoMaxHeight>true</autoMaxHeight>
-      <extInfo xsi:type="form:LabelDecorationExtInfo">
-        <horizontalAlign>Left</horizontalAlign>
-      </extInfo>
-    </extendedTooltip>
-    <contextMenu>
-      <name>ValueTableContextMenu</name>
-      <id>7</id>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <autoFill>true</autoFill>
-    </contextMenu>
-    <changeRowSet>true</changeRowSet>
-    <changeRowOrder>true</changeRowOrder>
-    <autoMaxWidth>true</autoMaxWidth>
-    <autoMaxHeight>true</autoMaxHeight>
-    <autoMaxRowsCount>true</autoMaxRowsCount>
-    <selectionMode>MultiRow</selectionMode>
-    <header>true</header>
-    <headerHeight>1</headerHeight>
-    <footerHeight>1</footerHeight>
-    <horizontalScrollBar>AutoUse</horizontalScrollBar>
-    <verticalScrollBar>AutoUse</verticalScrollBar>
-    <horizontalLines>true</horizontalLines>
-    <verticalLines>true</verticalLines>
-    <searchOnInput>Auto</searchOnInput>
-    <initialListView>Auto</initialListView>
-    <horizontalStretch>true</horizontalStretch>
-    <verticalStretch>true</verticalStretch>
-    <rowFilter xsi:type="core:UndefinedValue"/>
   </items>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
@@ -660,28 +480,6 @@
   <enabled>true</enabled>
   <showTitle>true</showTitle>
   <showCloseButton>true</showCloseButton>
-  <attributes>
-    <name>ValueTable</name>
-    <title>
-      <key>ru</key>
-      <value>Таблица значений</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Value table</value>
-    </title>
-    <id>1</id>
-    <valueType>
-      <types>ValueTable</types>
-    </valueType>
-    <view>
-      <common>true</common>
-    </view>
-    <edit>
-      <common>true</common>
-    </edit>
-    <savedData>true</savedData>
-  </attributes>
   <attributes>
     <name>TableColumns</name>
     <title>
@@ -768,6 +566,24 @@
         <common>true</common>
       </edit>
     </columns>
+    <columns>
+      <name>NameForSearch</name>
+      <title>
+        <key>ru</key>
+        <value>Name for search</value>
+      </title>
+      <id>11</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
   </attributes>
   <attributes>
     <name>SerializeToXML</name>
@@ -776,6 +592,76 @@
       <value>Serialize to XML</value>
     </title>
     <id>8</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ReturningStorageForValueContainer</name>
+    <title>
+      <key>ru</key>
+      <value>Returning storage for value container</value>
+    </title>
+    <id>9</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>StorageAttributeName</name>
+    <title>
+      <key>ru</key>
+      <value>Storage attribute name</value>
+    </title>
+    <id>10</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ColumnsContainerEndPrefix</name>
+    <title>
+      <key>ru</key>
+      <value>Columns container end prefix</value>
+    </title>
+    <id>12</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>IsTree</name>
+    <title>
+      <key>ru</key>
+      <value>This is a tree</value>
+    </title>
+    <id>13</id>
     <valueType>
       <types>Boolean</types>
     </valueType>

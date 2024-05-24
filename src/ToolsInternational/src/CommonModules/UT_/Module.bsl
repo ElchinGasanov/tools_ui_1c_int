@@ -156,15 +156,15 @@ EndFunction
 // Parameters:
 //  AlgorithmName - String - Catalog's "Algorithms" element's name, search by description 
 //  AlgorithmText - String - Attribute "AlgorithmText" value
-//  Parameter1 - Any value
-//  Parameter2 - Any value
-//  Parameter3 - Any value
-//  Parameter4 - Any value
-//  Parameter5 - Any value
-//  Parameter6 - Any value
-//  Parameter7 - Any value
-//  Parameter8 - Any value
-//  Parameter9 - Any value
+//  Parameter1 - Arbitrary - value
+//  Parameter2 - Arbitrary - value
+//  Parameter3 - Arbitrary - value
+//  Parameter4 - Arbitrary - value
+//  Parameter5 - Arbitrary - value
+//  Parameter6 - Arbitrary - value
+//  Parameter7 - Arbitrary - value
+//  Parameter8 - Arbitrary - value
+//  Parameter9 - Arbitrary - value
 //  ParametersNamesArray - String - Comma separated parameter names
 // Return value:
 //  String - Algorithm saving result

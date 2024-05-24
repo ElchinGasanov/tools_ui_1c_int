@@ -38,7 +38,7 @@ EndFunction
 //  Source - String - Source
 //  PluginOptions - Структура Из KeyAndValue:
 //  	* Key - String - Plugin name
-//  	* Value - Произвольный - Plugin options
+//  	* Value - Arbitrary - Plugin options
 // 
 // Return values:
 //  String
@@ -59,10 +59,10 @@ EndFunction
 //  Source - String - Source
 //  PluginOptions - Structure from KeyAndValue:
 //  	* Key - String - Plugin name
-//  	* Value - Произвольный - Plugin options
+//  	* Value - Arbitrary - Plugin options
 // 
 // Return values:
-//  Array of Произвольный - Results обработки текста
+//  Array of Arbitrary - Results обработки текста
 Function TextProcessingResults(Source, PluginOptions) Export
 	ProcessingResult = ProcessModuleUsingPlugins(Source, PluginOptions);
 
@@ -118,11 +118,11 @@ EndFunction
 //  Source - String - Source
 //  PluginOptions - Structure of KeyAndValue:
 //  	* Key - String - Plugin name
-//  	* Value - Произвольный - Plugin options
+//  	* Value - Arbitrary - Plugin options
 // 
 // Return values:
 //  Structure - Process a module using plugins:
-// * ProcessingResults - Array of Произвольный -
+// * ProcessingResults - Array of Arbitrary -
 // * Parser - ОбработкаОбъект.УИ_ПарсерВстроенногоЯзыка -
 Function ProcessModuleUsingPlugins(Source, PluginOptions)
 	Parser = Обработки.УИ_ПарсерВстроенногоЯзыка.Создать();
@@ -134,7 +134,7 @@ Function ProcessModuleUsingPlugins(Source, PluginOptions)
 		CurrentPlugin = NewParserPluginBuiltInLanguage(KeyAndValue.Key);
 		
 		Plugins.Add(CurrentPlugin);
-		PluginOptionsExecution[CurrentPlugin.ЭтотОбъект] = KeyAndValue.Value;
+		PluginOptionsExecution[CurrentPlugin.ThisObject] = KeyAndValue.Value;
 	EndDo;
 
 	ProcessingResults = Parser.Пуск(Source, Plugins, PluginOptionsExecution);
@@ -182,7 +182,7 @@ Procedure ConnectPluginToSession(PluginName)
 	BinaryDataPlugin = Обработки.УИ_ПарсерВстроенногоЯзыка.GetTemplate("Plugin_" + PluginName);
 	PluginAddressInTemporaryStorage = PutToTempStorage(BinaryDataPlugin);
 
-	УИ_ОбщегоНазначения.ПодключитьВнешнююОбработкуКСеансу(PluginAddressInTemporaryStorage,
+	UT_Common.ConnectExternalDataProcessorToTheSession(PluginAddressInTemporaryStorage,
 														  NameOfPlugInProcessingParserPlugInBuiltInLanguage(PluginName));
 
 EndProcedure

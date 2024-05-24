@@ -82,10 +82,10 @@ Function ValueInCodeString(Value, NameOfVariableToFill = "") Export
 		Return ArrayInCodeString(Value, NameOfVariableToFill);
 	ElsIf ValueType = Тип("ValueList") Then 
 		Return ValueListInCodeString(Value, NameOfVariableToFill);
-	ElsIf УИ_ОбщегоНазначения.ЭтоСсылка(ValueType) Then 
+	ElsIf UT_Common.IsReference(ValueType) Then 
 		Return RefInCodeString(Value);
 	Else
-		Return NStr("ru = '???//Тип '; en = 'Type'") + ValueType + NStr("ru = ' пока не поддерживается For генерации'; en = ' not yet supported for generation'");
+		Return NStr("ru = '???//Тип'; en = 'Type'") + " " + ValueType + NStr("ru = ' пока не поддерживается For генерации'; en = ' not yet supported for generation'");
 	EndIf;
 EndFunction
 
@@ -181,7 +181,7 @@ EndFunction
 // Return values:
 // String
 //Function ТипВСтокуКода(Значение) Export
-//	//TODO AHTUNG Из общего модуля неправильный тип возвращается
+//	
 //	ИмяТипа = УИ_ОбщегоНазначения.ИмяТипа(Значение);
 //	Return StrTemplate("Тип(%1)", StringInCodeString(ИмяТипа));
 //EndFunction

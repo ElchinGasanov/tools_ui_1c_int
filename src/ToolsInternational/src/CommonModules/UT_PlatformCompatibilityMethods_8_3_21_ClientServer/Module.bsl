@@ -36,7 +36,7 @@ Function NewHTTPConnection(Server, Port = Undefined, User = Undefined, Password 
 	If SecureConnection = Undefined Then
 		SecureConnectionForConstructor = SecureConnection;
 	Else            
-		If УИ_ОбщегоНазначенияКлиентСервер.ЭтоВебКлиент() Then
+		If UT_CommonClientServer.IsWebClient() Then
 			SecureConnectionForConstructor = True;	         
 		Else
 			SecureConnectionForConstructor = SecureConnection;

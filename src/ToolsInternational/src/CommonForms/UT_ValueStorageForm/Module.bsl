@@ -29,6 +29,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 
 	ValueStorageData = ValueStorageData.Get();
 	If ValueStorageData = Undefined Then
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Хранилище пустое'; en = 'Storage is empty'"));
 		Cancel = True;
 		Return;
 	EndIf;
@@ -106,7 +107,9 @@ Function ShowArray(ValueStorageData)
 
 		If NeedToConvertValue(Value) Then
 			NewRow.Value = New ValueStorage(Value);
-		Иначе
+		ElsIf TypeOf(Value) = Type("ValueStorage") Then
+			NewRow.Value = Value.Get();			
+		Else
 			NewRow.Value = Value;
 		EndIf;
 	EndDo;
@@ -147,6 +150,8 @@ Function ShowStructure(ValueStorageData)
 
 		If NeedToConvertValue(Item.Value) Then
 			NewRow.Value = New ValueStorage(Item.Value);
+		ElsIf TypeOf(Item.Value) = Type("ValueStorage") Then
+			NewRow.Value = Item.Value.Get();			
 		Else
 			NewRow.Value = Item.Value;
 		EndIf;
@@ -187,7 +192,9 @@ Function ShowMap(ValueStorageData)
 
 		If NeedToConvertValue(Item.Value) Then
 			NewRow.Value = New ValueStorage(Item.Value);
-		Иначе
+		ElsIf TypeOf(Item.Value) = Type("ValueStorage") Then
+			NewRow.Value = Item.Value.Get();			
+		Else
 			NewRow.Value = Item.Value;
 		EndIf;
 	EndDo;
@@ -230,6 +237,8 @@ Function ShowValueList(ValueStorageData)
 
 		If NeedToConvertValue(Item.Value) Then
 			NewRow.Value = New ValueStorage(Item.Value);
+		ElsIf TypeOf(Item.Value) = Type("ValueStorage") Then
+			NewRow.Value = Item.Value.Get();			
 		Else
 			NewRow.Value = Item.Value;
 		EndIf;
@@ -265,7 +274,10 @@ Function ShowValueTable(ValueStorageData)
 
 			If NeedToConvertValue(Value) Then
 				Value = New ValueStorage(Value);
+			ElsIf TypeOf(Value) = Type("ValueStorage") Then
+				Value = Value.Get();				
 			EndIf;
+			
 			NewRow[Column.Name] = Value;
 		EndDo;
 	EndDo;
@@ -314,6 +326,8 @@ Function FillValueTreeNode (Val Receiver, Val Source, Val ColumnCollection)
 
 			If NeedToConvertValue(Value) Then
 				Value = New ValueStorage(Value);
+			ElsIf TypeOf(Value) = Type("ValueStorage") Then
+				Value = Value.Get();				
 			EndIf;
 			NewRow[Column.Name] = Value;
 		EndDo;
@@ -380,7 +394,6 @@ EndProcedure
 
 &AtClient
 Procedure _ValueTableSelection(Item, RowSelected, Field, StandardProcessing)
-
 	StandardProcessing = False;
 
 	CurrentData = Item.CurrentData;
@@ -390,7 +403,7 @@ Procedure _ValueTableSelection(Item, RowSelected, Field, StandardProcessing)
 
 		If TypeOf(Value) = mValueStorageType Then
 			ShowValueOfValueStorage(Value);
-		Иначе
+		Else
 			ShowValue( , Value);
 		EndIf;
 	EndIf;

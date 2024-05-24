@@ -107,6 +107,7 @@
   <content>DataProcessor.UT_ObjectsComparison</content>
   <content>CommonForm.UT_ToolsSettings</content>
   <content>CommonCommand.UT_Settings</content>
+  <content>CommonForm.UT_CodeForm</content>
   <subsystems>UT_Support</subsystems>
   <subsystems>UT_Debug</subsystems>
 </mdclass:Subsystem>
