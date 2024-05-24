@@ -15,7 +15,16 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		WindowOpeningMode = Parameters.WindowOpeningMode;
 	EndIf;
 	
-	If Parameters.SpreadsheetDocument = Undefined Then
+	If Parameters.Property("ValueStorageContainer") Then
+		ReturningStorageForValueContainer = False;
+		
+		//@skip-check unknown-form-parameter-access
+		ValueStorageContainer = Parameters.ValueStorageContainer;//см. УИ_ОбщегоНазначенияКлиентСервер.НовыйХранилищеЗначенияТипаТабличныйДокумент
+		If ValueStorageContainer <> Undefined Then
+			SpreadsheetDocument = UT_CommonClientServer.ValueFromSpreadsheetDocumentStorageContainer(ValueStorageContainer);
+		EndIf;
+		
+	ElsIf Parameters.SpreadsheetDocument = Undefined Then
 		If Not IsBlankString(Parameters.TemplateMetadataObjectName) Then
 			EditingDenied = Not Parameters.Edit;
 			LoadSpreadsheetDocumentFromMetadata(Parameters.LanguageCode);
@@ -38,6 +47,9 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	Items.Warning.Visible = IsTemplate And Parameters.Edit;
 	
 	Items.EditInExternalApplication.Visible = False;
+	Items.Write.Visible = False;
+	Items.WriteAndClose.Visible = False;
+	Items.Edit.Visible = False;
 	
 	If Not IsBlankString(Parameters.DocumentName) Then
 		DocumentName = Parameters.DocumentName;
@@ -93,6 +105,7 @@ EndProcedure
 
 &AtClient
 Procedure NotificationProcessing(EventName, Parameter, Source)
+	Возврат;
 	If EventName = "EditedSpreadsheetDocumentNamesRequest" And Source <> ThisObject Then
 		DocumentNames = Parameter; // Array -
 		DocumentNames.Add(DocumentName);
@@ -123,7 +136,16 @@ EndProcedure
 
 #EndRegion
 
-#Region FormCommandHandlers
+#Region FormCommandsEventHandlers
+
+&AtClient
+Procedure Apply(Команда)
+	If ReturningStorageForValueContainer Then
+		Close(UT_CommonClientServer.ValueOfTheSpreadsheetDocumentStorageContainer(SpreadsheetDocument));
+	Else
+		Close(SpreadsheetDocument);
+	EndIf;
+EndProcedure
 
 // Document actions
 
@@ -132,6 +154,8 @@ Procedure WriteAndClose(Command)
 	NotifyDescription = New NotifyDescription("CloseFormAfterWriteSpreadsheetDocument", ThisObject);
 	WriteSpreadsheetDocument(NotifyDescription);
 EndProcedure
+
+
 
 &AtClient
 Procedure Write(Command)
@@ -371,8 +395,7 @@ Procedure CloseFormAfterWriteSpreadsheetDocument(Close, AdditionalParameters) Ex
 EndProcedure
 
 &AtClient
-Procedure WriteSpreadsheetDocument(CompletionHandler = Undefined)
-	
+Procedure WriteSpreadsheetDocument(CompletionHandler = Undefined)	
 	If IsNew() Or EditingDenied Then
 		StartFileSavingDialog(CompletionHandler);
 		Return;
@@ -415,16 +438,16 @@ EndProcedure
 &AtClient
 Procedure StartFileSavingDialog(Val CompletionHandler)
 	
-	Var SaveFileDialog, ОписаниеОповещения;;
+	Var SaveFileDialog, CallbackDescription;;
 	
 	SaveFileDialog = New FileDialog(FileDialogMode.Save);
 	SaveFileDialog.FullFileName = UT_CommonClientServer.ReplaceProhibitedCharsInFileName(
 		DocumentName);
 	SaveFileDialog.Filter = NStr("ru = 'Табличный документ'; en = 'Spreadsheet documents'") + " (*.mxl)|*.mxl";
-	SaveFileDialog.Show(CompletionHandler);
-	// TODO Change String SaveFileDialog.Show(CompletionHandler);  to this :
-	//ОписаниеОповещения = Новый ОписаниеОповещения("ПриЗавершенииДиалогаВыбораФайла", ЭтотОбъект, ОбработчикЗавершения);
-	//ФайловаяСистемаКлиент.ПоказатьДиалогВыбора(ОписаниеОповещения, ДиалогСохраненияФайла);		
+	
+	CallbackDescription = New CallbackDescription("OnCompleteFileSelectionDialog", ThisObject, CompletionHandler);
+	UT_CommonClient.ShowFileDialog(CallbackDescription, SaveFileDialog);
+		
 EndProcedure
 
 &AtClient
