@@ -102,6 +102,8 @@
   <commonTemplates>CommonTemplate.UT_MonacoEditorWindows</commonTemplates>
   <commonTemplates>CommonTemplate.UT_AceColaborator</commonTemplates>
   <commonTemplates>CommonTemplate.UT_TemplateProcessing</commonTemplates>
+  <commonTemplates>CommonTemplate.UT_showdown</commonTemplates>
+  <commonTemplates>CommonTemplate.UT_ctool1cd</commonTemplates>
   <commonModules>CommonModule.AdditionalReportsAndDataProcessors</commonModules>
   <commonModules>CommonModule.AttachableCommandsOverridable</commonModules>
   <commonModules>CommonModule.UT_</commonModules>
