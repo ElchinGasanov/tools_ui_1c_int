@@ -139,6 +139,7 @@
   <commonModules>CommonModule.UT_CodeGenerator</commonModules>
   <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_21_ClientServer</commonModules>
   <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_18_Client</commonModules>
+  <commonModules>CommonModule.UT_ConfiguratorManagementClient</commonModules>
   <httpServices>HTTPService.UT_PublishedFunctions</httpServices>
   <commonCommands>CommonCommand.UT_Settings</commonCommands>
   <commonForms>CommonForm.UT_TimeConsumingOperation</commonForms>
