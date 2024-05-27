@@ -45,6 +45,10 @@
     <items xsi:type="form:Button">
       <name>Settings</name>
       <id>7</id>
+      <title>
+        <key>en</key>
+        <value>Settings</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -172,6 +176,10 @@
     <items xsi:type="form:Button">
       <name>ChangeVariant</name>
       <id>25</id>
+      <title>
+        <key>en</key>
+        <value>ChangeVariant</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>

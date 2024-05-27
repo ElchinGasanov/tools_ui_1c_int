@@ -61,7 +61,7 @@ Procedure ResultDetailProcessing(Item, Details, StandardProcessing, AdditionalPa
 	DetailProcessing = New DataCompositionDetailsProcess(DetailsDataURL,
 		New DataCompositionAvailableSettingsSource(ExecutedReportSchemaURL));
 	DetailProcessing.ShowActionChoice(New NotifyDescription("ResultDetailProcessingEnd1",
-		ThisForm, New Structure("Details", Details)), Details, , , , );
+		ThisObject, New Structure("Details", Details)), Details, , , , );
 EndProcedure
 
 &AtClient

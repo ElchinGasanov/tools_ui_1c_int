@@ -6,7 +6,7 @@
   </title>
   <title>
     <key>ru</key>
-    <value>Консоль системы компоновки данных</value>
+    <value>Reports console</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>MainCommandBar</name>
@@ -20,6 +20,14 @@
         <items xsi:type="form:Button">
           <name>NewReportsFile</name>
           <id>170</id>
+          <title>
+            <key>ru</key>
+            <value>Новый файл отчетов</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>New reports file</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -51,6 +59,14 @@
         <items xsi:type="form:Button">
           <name>OpenReportsFile</name>
           <id>167</id>
+          <title>
+            <key>ru</key>
+            <value>Открыть файл отчетов</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Open reports file</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -82,6 +98,14 @@
         <items xsi:type="form:Button">
           <name>SaveReportsToFile</name>
           <id>168</id>
+          <title>
+            <key>ru</key>
+            <value>Сохранить отчеты в файл</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Save reports to file</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -113,6 +137,14 @@
         <items xsi:type="form:Button">
           <name>SaveReportsToFileAS</name>
           <id>169</id>
+          <title>
+            <key>ru</key>
+            <value>Сохранить отчеты в файл как</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Save reports to file AS</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -147,12 +179,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Файл</value>
-        </title>
-        <title>
           <key>en</key>
           <value>File</value>
+        </title>
+        <title>
+          <key>ru</key>
+          <value>Файл</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -181,6 +213,14 @@
       <items xsi:type="form:Button">
         <name>Generate</name>
         <id>159</id>
+        <title>
+          <key>ru</key>
+          <value>Сформировать</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Generate</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -216,10 +256,6 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Командная панель действий</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Actions command bar</value>
       </title>
@@ -253,6 +289,14 @@
       <items xsi:type="form:Button">
         <name>Settings</name>
         <id>847</id>
+        <title>
+          <key>ru</key>
+          <value>Настройки</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Settings</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -283,6 +327,14 @@
       <items xsi:type="form:Button">
         <name>ButtonResultsPanel</name>
         <id>162</id>
+        <title>
+          <key>ru</key>
+          <value>Панель результатов</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Button results panel</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -317,10 +369,6 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Командная панель действий над панелями</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Actions on panels command bar</value>
       </title>
@@ -353,10 +401,6 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <title>
-      <key>ru</key>
-      <value>Главная командная панель</value>
-    </title>
     <title>
       <key>en</key>
       <value>Main command bar</value>
@@ -397,6 +441,14 @@
       <items xsi:type="form:Table">
         <name>ReportsTree</name>
         <id>125</id>
+        <title>
+          <key>ru</key>
+          <value>Дерево отчетов</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Reports tree</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -414,6 +466,10 @@
           <items xsi:type="form:FormField">
             <name>ReportsTreeRowType</name>
             <id>147</id>
+            <title>
+              <key>ru</key>
+              <value>Row type</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -462,6 +518,10 @@
           <items xsi:type="form:FormField">
             <name>ReportsTreeName</name>
             <id>128</id>
+            <title>
+              <key>ru</key>
+              <value>Name</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -547,6 +607,14 @@
           <items xsi:type="form:Button">
             <name>ReportsTreeAddDataCompositionSchema</name>
             <id>144</id>
+            <title>
+              <key>ru</key>
+              <value>Добавить схему компоновки данных</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Add data composition schema</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -621,6 +689,14 @@
           <items xsi:type="form:Button">
             <name>DataCompositionSchemaWizard</name>
             <id>142</id>
+            <title>
+              <key>ru</key>
+              <value>Конструктор схемы компоновки данных</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Data composition schema wizard</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -645,6 +721,44 @@
             <commandName>Form.Command.DataCompositionSchemaWizard</commandName>
             <representation>Picture</representation>
             <onlyInAllActions>false</onlyInAllActions>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
+          <items xsi:type="form:Button">
+            <name>ReportsTreeOpenInQueryConsole</name>
+            <id>875</id>
+            <title>
+              <key>ru</key>
+              <value>Открыть в консоли запросов</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Open in query console</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>ReportsTreeOpenInQueryConsoleExtendedTooltip</name>
+              <id>876</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <commandName>Form.Command.OpenInQueryConsole</commandName>
+            <representation>Auto</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
@@ -808,6 +922,14 @@
           <items xsi:type="form:Button">
             <name>ReportsTreeAddDataCompositionSchema1</name>
             <id>354</id>
+            <title>
+              <key>ru</key>
+              <value>Добавить схему компоновки данных</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Add data composition schema</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -846,7 +968,7 @@
             </userVisible>
             <title>
               <key>ru</key>
-              <value>Стандартные команды дерева отчета контекстное меню</value>
+              <value>Стандартные команды дерева отчетов</value>
             </title>
             <title>
               <key>en</key>
@@ -878,6 +1000,14 @@
           <items xsi:type="form:Button">
             <name>DataCompositionSchemaWizard1</name>
             <id>845</id>
+            <title>
+              <key>ru</key>
+              <value>Конструктор схемы компоновки данных</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Data composition schema wizard</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -900,6 +1030,44 @@
               </extInfo>
             </extendedTooltip>
             <commandName>Form.Command.DataCompositionSchemaWizard</commandName>
+            <representation>Auto</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
+          <items xsi:type="form:Button">
+            <name>ReportsTreeContextMenuOpenInQueryConsole</name>
+            <id>877</id>
+            <title>
+              <key>ru</key>
+              <value>Открыть в консоли запросов</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Open in query console</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>ReportsTreeContextMenuOpenInQueryConsoleExtendedTooltip</name>
+              <id>878</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <commandName>Form.Command.OpenInQueryConsole</commandName>
             <representation>Auto</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -945,10 +1113,6 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <title>
-        <key>ru</key>
-        <value>Группа отчетов</value>
-      </title>
       <title>
         <key>en</key>
         <value>Group reports</value>
@@ -1401,12 +1565,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>en</key>
-              <value>Parameters</value>
-            </title>
-            <title>
               <key>ru</key>
               <value>Параметры</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Parameters</value>
             </title>
             <extendedTooltip>
               <name>PageDataParametersExtendedTooltip</name>
@@ -1438,6 +1602,10 @@
             <items xsi:type="form:Table">
               <name>UserFields</name>
               <id>10</id>
+              <title>
+                <key>ru</key>
+                <value>Пользовательские поля</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
@@ -1636,12 +1804,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>en</key>
-              <value>User fields</value>
-            </title>
-            <title>
               <key>ru</key>
               <value>Пользовательские поля</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>User fields</value>
             </title>
             <extendedTooltip>
               <name>PageUserFieldsExtendedTooltip</name>
@@ -1678,6 +1846,10 @@
                 <items xsi:type="form:Table">
                   <name>AvailableGroupFields</name>
                   <id>16</id>
+                  <title>
+                    <key>en</key>
+                    <value>Available group fields</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -1875,6 +2047,10 @@
                 <items xsi:type="form:Table">
                   <name>GroupFields</name>
                   <id>19</id>
+                  <title>
+                    <key>en</key>
+                    <value>Group fields</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -2076,6 +2252,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
+                <title>
+                  <key>en</key>
+                  <value>Settings</value>
+                </title>
                 <extendedTooltip>
                   <name>GroupFieldsSettingsExtendedTooltip</name>
                   <id>441</id>
@@ -2219,12 +2399,12 @@ Browse the structure tree and select a grouping to view or edit grouping field s
               <common>true</common>
             </userVisible>
             <title>
-              <key>en</key>
-              <value>Group fields</value>
-            </title>
-            <title>
               <key>ru</key>
               <value>Группируемые поля</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Group fields</value>
             </title>
             <extendedTooltip>
               <name>PageGroupFieldsExtendedTooltip</name>
@@ -2259,6 +2439,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
               <title>
                 <key>ru</key>
                 <value>Текущий элемент имеет собственные настройки выбранных полей (для детальной настройки элемента)</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>The current item has its own settings for selected fields (for detailed item customization)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2316,6 +2500,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                 <items xsi:type="form:Table">
                   <name>SelectionAvailableFields</name>
                   <id>30</id>
+                  <title>
+                    <key>ru</key>
+                    <value>Selection available fields</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -2513,6 +2701,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                 <items xsi:type="form:Table">
                   <name>SelectionFields</name>
                   <id>33</id>
+                  <title>
+                    <key>en</key>
+                    <value>Selection fields</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -2716,6 +2908,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                 <userVisible>
                   <common>true</common>
                 </userVisible>
+                <title>
+                  <key>en</key>
+                  <value>Selected fields settings</value>
+                </title>
                 <extendedTooltip>
                   <name>SelectedFieldsSettingsExtendedTooltip</name>
                   <id>467</id>
@@ -2744,16 +2940,16 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                   <name>LocalSelectedFieldsLabel</name>
                   <id>37</id>
                   <title>
-                    <key>en</key>
-                    <value>The item adopts selected fields from the report.
-In the report structure tree, select the item and then select required fields.
-To add custom fields, select the check box above.</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Выбранные поля для текущего элемента будут автоматически формироваться на основании выбранных полей всего отчета.
 Выберите в дереве структуры элемент - отчет для редактирования его выбранных полей.
 Если необходимо, чтобы текущий элемент имел выбранные поля, отличные от выбранных полей отчета, установите флажок, расположенный над этим текстом.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>The item adopts selected fields from the report.
+In the report structure tree, select the item and then select required fields.
+To add custom fields, select the check box above.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2800,12 +2996,12 @@ To add custom fields, select the check box above.</value>
                   <name>GoToSelectedReportFields</name>
                   <id>39</id>
                   <title>
-                    <key>en</key>
-                    <value>View selected report fields</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к выбранным полям отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View selected report fields</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2887,14 +3083,14 @@ To add custom fields, select the check box above.</value>
                   <name>UnavailableSelectedFieldsLabel</name>
                   <id>42</id>
                   <title>
-                    <key>en</key>
-                    <value>Cannot add selected fields to the item.
-In the report structure tree, select the item and then select required fields.</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>У текущего элемента не могут быть установлены выбранные поля.
 Выберите в дереве структуры элемент - отчет для редактирования его выбранных полей.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Cannot add selected fields to the item.
+In the report structure tree, select the item and then select required fields.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2941,12 +3137,12 @@ In the report structure tree, select the item and then select required fields.</
                   <name>GoToSelectedReportFields1</name>
                   <id>44</id>
                   <title>
-                    <key>en</key>
-                    <value>View selected report fields</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к выбранным полям отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View selected report fields</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3090,12 +3286,12 @@ In the report structure tree, select the item and then select required fields.</
               <name>LocalFilter</name>
               <id>47</id>
               <title>
-                <key>en</key>
-                <value>Assign the item with personal filters to filter item records</value>
-              </title>
-              <title>
                 <key>ru</key>
                 <value>Текущий элемент имеет собственный отбор (для фильтрации записей, выводимых в элементе)</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Assign the item with personal filters to filter item records</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3587,16 +3783,16 @@ In the report structure tree, select the item and then select required fields.</
                   <name>LocalFilterLabel</name>
                   <id>58</id>
                   <title>
-                    <key>en</key>
-                    <value>No filter is assigned to the item.
-In the structure tree, select the report and edit report filters.
-To assign the item with a personal filter, select the check box above.</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>В текущем элементе отбор не установлен.
 Выберите в дереве структуры отчет для редактирования отбора отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственный отбор, установите флажок, расположенный над этим текстом.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>No filter is assigned to the item.
+In the structure tree, select the report and edit report filters.
+To assign the item with a personal filter, select the check box above.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3643,12 +3839,12 @@ To assign the item with a personal filter, select the check box above.</value>
                   <name>GoToReportFilter</name>
                   <id>60</id>
                   <title>
-                    <key>en</key>
-                    <value>View report filters</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к отбору отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View report filters</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3730,14 +3926,14 @@ To assign the item with a personal filter, select the check box above.</value>
                   <name>UnavailableFilterLabel</name>
                   <id>63</id>
                   <title>
-                    <key>en</key>
-                    <value>Cannot assign filters to the item.
-In the structure tree, select the report and edit report filters.</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>У текущего элемента не может быть установлен отбор.
 Выберите в дереве структуры отчет для редактирования отбора отчета в целом.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Cannot assign filters to the item.
+In the structure tree, select the report and edit report filters.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3784,12 +3980,12 @@ In the structure tree, select the report and edit report filters.</value>
                   <name>GoToReportFilter1</name>
                   <id>65</id>
                   <title>
-                    <key>en</key>
-                    <value>View report filters</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к отбору отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View report filters</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3899,12 +4095,12 @@ In the structure tree, select the report and edit report filters.</value>
               <common>true</common>
             </userVisible>
             <title>
-              <key>en</key>
-              <value>Filter</value>
-            </title>
-            <title>
               <key>ru</key>
               <value>Отбор</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Filter</value>
             </title>
             <extendedTooltip>
               <name>PageFilterExtendedTooltip</name>
@@ -3937,12 +4133,12 @@ In the structure tree, select the report and edit report filters.</value>
               <name>LocalOrder</name>
               <id>68</id>
               <title>
-                <key>en</key>
-                <value>Assign the item with personal sorts to sort item records</value>
-              </title>
-              <title>
                 <key>ru</key>
                 <value>Текущий элемент имеет собственную сортировку (для  упорядочивания записей, выводимых в элементе)</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Assign the item with personal sorts to sort item records</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4482,12 +4678,12 @@ To assign the item with a personal sort, select the check box above.</value>
                   <name>GoToReportOrder</name>
                   <id>81</id>
                   <title>
-                    <key>en</key>
-                    <value>View report sorts</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к сортировке отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View report sorts</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4569,14 +4765,14 @@ To assign the item with a personal sort, select the check box above.</value>
                   <name>UnavailableOrderLabel</name>
                   <id>84</id>
                   <title>
-                    <key>en</key>
-                    <value>Cannot assign sorts to the item.
-In the structure tree, select the report and edit report sorts.</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>У текущего элемента не может быть установлена сортировка.
 Выберите в дереве структуры отчет для редактирования сортировки отчета в целом.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Cannot assign sorts to the item.
+In the structure tree, select the report and edit report sorts.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4623,12 +4819,12 @@ In the structure tree, select the report and edit report sorts.</value>
                   <name>GoToReportOrder1</name>
                   <id>86</id>
                   <title>
-                    <key>en</key>
-                    <value>View report sorts</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к сортировке отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View report sorts</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4738,12 +4934,12 @@ In the structure tree, select the report and edit report sorts.</value>
               <common>true</common>
             </userVisible>
             <title>
-              <key>en</key>
-              <value>Order</value>
-            </title>
-            <title>
               <key>ru</key>
               <value>Сортировка</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Order</value>
             </title>
             <extendedTooltip>
               <name>OrderPageExtendedTooltip</name>
@@ -5132,12 +5328,12 @@ To assign the item with a personal conditional appearance, select the check box 
                   <name>GoToReportConditionalAppearance</name>
                   <id>99</id>
                   <title>
-                    <key>en</key>
-                    <value>View report conditional appearance</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к условному оформлению отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View report conditional appearance</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5219,14 +5415,14 @@ To assign the item with a personal conditional appearance, select the check box 
                   <name>UnavailableConditionalAppearanceLabel</name>
                   <id>102</id>
                   <title>
-                    <key>en</key>
-                    <value>Cannot assign conditional appearance to the item.
-In the structure tree, select the report and edit report conditional appearance.</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>У текущего элемента не может быть установлено условное оформление.
 Выберите в дереве структуры отчет для редактирования условного оформления отчета в целом.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Cannot assign conditional appearance to the item.
+In the structure tree, select the report and edit report conditional appearance.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5273,12 +5469,12 @@ In the structure tree, select the report and edit report conditional appearance.
                   <name>GoToReportConditionalAppearance1</name>
                   <id>104</id>
                   <title>
-                    <key>en</key>
-                    <value>View report conditional appearance</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к условному оформлению отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View report conditional appearance</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5426,12 +5622,12 @@ In the structure tree, select the report and edit report conditional appearance.
               <name>LocalOutputParameters</name>
               <id>107</id>
               <title>
-                <key>en</key>
-                <value>Assign the item with personal additional settings</value>
-              </title>
-              <title>
                 <key>ru</key>
                 <value>Текущий элемент имеет собственные дополнительные настройки</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Assign the item with personal additional settings</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5722,16 +5918,16 @@ In the structure tree, select the report and edit report conditional appearance.
                   <name>LocalOutputParametersLabel</name>
                   <id>115</id>
                   <title>
-                    <key>en</key>
-                    <value>No additional settings are assigned to the item.
-In the structure tree, select the report and edit report additional settings.
-To assign the item with personal additional settings, select the check box above.</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>В текущем элементе дополнительные настройки не установлены.
 Выберите в дереве структуры отчет для редактирования дополнительных настроек отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственные дополнительные настройки, установите флажок, расположенный над этим текстом.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>No additional settings are assigned to the item.
+In the structure tree, select the report and edit report additional settings.
+To assign the item with personal additional settings, select the check box above.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5865,14 +6061,14 @@ To assign the item with personal additional settings, select the check box above
                   <name>UnavailableOutputParametersLabel</name>
                   <id>120</id>
                   <title>
-                    <key>en</key>
-                    <value>Cannot assign additional settings to the item.
-In the structure tree, select the report and edit additional report settings.</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>У текущего элемента не могут быть установлены дополнительные настройки.
 Выберите в дереве структуры отчет для редактирования дополнительных настроек отчета в целом.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Cannot assign additional settings to the item.
+In the structure tree, select the report and edit additional report settings.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5919,12 +6115,12 @@ In the structure tree, select the report and edit additional report settings.</v
                   <name>GoToReportOutputParameters1</name>
                   <id>122</id>
                   <title>
-                    <key>en</key>
-                    <value>View additional report settings</value>
-                  </title>
-                  <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к дополнительным настройкам отчета.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>View additional report settings</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -6070,6 +6266,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <userVisible>
             <common>true</common>
           </userVisible>
+          <title>
+            <key>en</key>
+            <value>Settings pages</value>
+          </title>
           <height>8</height>
           <extendedTooltip>
             <name>SettingsPagesExtendedTooltip</name>
@@ -6098,12 +6298,12 @@ In the structure tree, select the report and edit additional report settings.</v
           <common>true</common>
         </userVisible>
         <title>
-          <key>en</key>
-          <value>Settings</value>
+          <key>ru</key>
+          <value>Вариант</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Настройки</value>
+          <key>en</key>
+          <value>Settings</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -6337,12 +6537,12 @@ In the structure tree, select the report and edit additional report settings.</v
           <common>true</common>
         </userVisible>
         <title>
-          <key>en</key>
-          <value>User settings</value>
-        </title>
-        <title>
           <key>ru</key>
           <value>Пользовательские настройки</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>User settings</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -6546,12 +6746,12 @@ In the structure tree, select the report and edit additional report settings.</v
           <common>true</common>
         </userVisible>
         <title>
-          <key>en</key>
-          <value>XML сomposition schema</value>
-        </title>
-        <title>
           <key>ru</key>
           <value>XML схемы компоновки</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>XML сomposition schema</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -6560,6 +6760,130 @@ In the structure tree, select the report and edit additional report settings.</v
         <extendedTooltip>
           <name>GroupDataCompositionSchemasExtendedTooltip</name>
           <id>398</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <type>Page</type>
+        <extInfo xsi:type="form:PageGroupExtInfo">
+          <group>Vertical</group>
+          <showTitle>true</showTitle>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormGroup">
+        <name>GroupDCSQuery</name>
+        <id>879</id>
+        <items xsi:type="form:FormGroup">
+          <name>DCSQueryCommands</name>
+          <id>881</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <title>
+            <key>ru</key>
+            <value>Group1</value>
+          </title>
+          <extendedTooltip>
+            <name>DCSQueryCommandsExtendedTooltip</name>
+            <id>882</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <type>UsualGroup</type>
+          <extInfo xsi:type="form:UsualGroupExtInfo">
+            <group>HorizontalIfPossible</group>
+            <showLeftMargin>true</showLeftMargin>
+            <united>true</united>
+            <throughAlign>Auto</throughAlign>
+            <currentRowUse>Auto</currentRowUse>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>ReportsTreeDCSQueryText</name>
+          <id>883</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Items.ReportsTree.CurrentData.DCSQueryText</segments>
+          </dataPath>
+          <titleLocation>None</titleLocation>
+          <extendedTooltip>
+            <name>ReportsTreeDCSQueryTextExtendedTooltip</name>
+            <id>885</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ReportsTreeDCSQueryTextContextMenu</name>
+            <id>884</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>TextDocumentField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:TextDocFieldExtInfo">
+            <width>50</width>
+            <autoMaxWidth>true</autoMaxWidth>
+            <height>10</height>
+            <autoMaxHeight>true</autoMaxHeight>
+            <horizontalStretch>true</horizontalStretch>
+            <verticalStretch>true</verticalStretch>
+          </extInfo>
+        </items>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <title>
+          <key>ru</key>
+          <value>Запрос из СКД</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>DCS Query</value>
+        </title>
+        <extendedTooltip>
+          <name>GroupDCSQueryExtendedTooltip</name>
+          <id>880</id>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -6882,12 +7206,12 @@ In the structure tree, select the report and edit additional report settings.</v
           <common>true</common>
         </userVisible>
         <title>
-          <key>en</key>
-          <value>External data sets</value>
-        </title>
-        <title>
           <key>ru</key>
           <value>Внешние наборы данных</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>External data sets</value>
         </title>
         <extendedTooltip>
           <name>GroupExternalDataSetsExtendedTooltip</name>
@@ -6954,10 +7278,6 @@ In the structure tree, select the report and edit additional report settings.</v
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Группа отчетов и настроек</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Group settings and reports</value>
     </title>
@@ -7003,6 +7323,14 @@ In the structure tree, select the report and edit additional report settings.</v
           <items xsi:type="form:Button">
             <name>SaveStandartSpreadsheetDocument</name>
             <id>306</id>
+            <title>
+              <key>ru</key>
+              <value>Сохранить эталон</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Save standart</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -7034,6 +7362,14 @@ In the structure tree, select the report and edit additional report settings.</v
           <items xsi:type="form:Button">
             <name>CompareWithStandartSpreadsheetDocument</name>
             <id>307</id>
+            <title>
+              <key>ru</key>
+              <value>Сравнить с эталоном</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Compare with standart</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -14106,6 +14442,24 @@ In the structure tree, select the report and edit additional report settings.</v
         <common>true</common>
       </edit>
     </columns>
+    <columns>
+      <name>DCSQueryText</name>
+      <title>
+        <key>ru</key>
+        <value>DCS query text</value>
+      </title>
+      <id>44</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
     <additionalColumns>
       <tablePath xsi:type="form:DataPath">
         <segments>ReportsTree.ExternalDataSets</segments>
@@ -15759,6 +16113,27 @@ In the structure tree, select the report and edit additional report settings.</v
         <name>Settings</name>
       </handler>
     </action>
+    <currentRowUse>Auto</currentRowUse>
+  </formCommands>
+  <formCommands>
+    <name>OpenInQueryConsole</name>
+    <title>
+      <key>ru</key>
+      <value>Open in query console</value>
+    </title>
+    <id>33</id>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.QueryWizard</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>OpenInQueryConsole</name>
+      </handler>
+    </action>
+    <representation>TextPicture</representation>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <commandInterface>

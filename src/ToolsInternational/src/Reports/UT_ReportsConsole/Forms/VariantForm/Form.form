@@ -1973,7 +1973,7 @@ In the report structure tree, select the item and then select required fields.</
             <extInfo xsi:type="form:LabelDecorationExtInfo">
               <handlers>
                 <event>Click</event>
-                <name>ПерейтиКОтчету</name>
+                <name>GoToReport</name>
               </handlers>
               <hyperlink>true</hyperlink>
               <horizontalAlign>Left</horizontalAlign>
@@ -2667,7 +2667,7 @@ To assign the item with a personal filter, select the check box above.</value>
             <extInfo xsi:type="form:LabelDecorationExtInfo">
               <handlers>
                 <event>Click</event>
-                <name>ПерейтиКОтчету</name>
+                <name>GoToReport</name>
               </handlers>
               <hyperlink>true</hyperlink>
               <horizontalAlign>Left</horizontalAlign>
