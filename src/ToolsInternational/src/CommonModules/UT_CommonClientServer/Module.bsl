@@ -404,7 +404,7 @@ EndFunction
 // 
 // Returns:
 // 	String - Warning text about the incorrect variable name
-Function TextWarningInvalidVariableName() Export
+Function WrongVariableNameWarningText() Export
 	Return NStr("ru = 'Неверное имя колонки! Имя должно состоять из одного слова, начинаться с буквы и не содержать специальных символов кроме """"_"""".""';en = 'en=''Invalid column name! The name must consist of a single word, start with a letter and contain no special characters other than """"_"""".""'");
 EndFunction
 
