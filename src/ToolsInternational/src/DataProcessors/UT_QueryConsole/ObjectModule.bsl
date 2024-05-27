@@ -1096,8 +1096,8 @@ Function Container_RestoreValue(SavedValue) Export
 			Result = New Boundary(SavedValue.Value, BoundaryType[SavedValue.BoundaryType]);
 		ElsIf SavedValue.Type = "PointInTime" Then
 			Result = New PointInTime(SavedValue.Date, SavedValue.Ref);
-		ElsIf SavedValue.Type = "PointInTime" Then
-			Result = SavedValue.UUID;
+		ElsIf SavedValue.Type = "ValueStorage" Then
+			Result = SavedValue.Storage;
 		ElsIf SavedValue.Type = "Type" Then
 			Result = Type(SavedValue.TypeName);
 		ElsIf SavedValue.Type = "ValueList" Then
