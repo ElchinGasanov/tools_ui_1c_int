@@ -9,9 +9,9 @@ Procedure CreateAlgorithm(DescriptionCompleteAlerts = Undefined,
 	FormOptions.Insert("CopyingValue", CopyAlgorithmIdentifier);
 
 	If DescriptionCompleteAlerts = Undefined Then
-		OpenForm("DataProcessor.UT_UT_Algorithm2.Form.ФормаЭлемента", FormOptions);
+		OpenForm("DataProcessor.UT_Algorithm2.Form.ItemForm", FormOptions);
 	Else
-		OpenForm("DataProcessor.UT_UT_Algorithm2.Form.ФормаЭлемента",
+		OpenForm("DataProcessor.UT_Algorithm2.Form.ItemForm",
 					 FormOptions,
 					 ,
 					 ,
@@ -27,9 +27,9 @@ Procedure EditAlgorithm(Identifier, DescriptionCompleteAlerts = Undefined) Expor
 	FormOptions.Insert("Key", Identifier);
 	
 	If DescriptionCompleteAlerts = Undefined Then
-		OpenForm("DataProcessor.UT_UT_Algorithm2.Form.ФормаЭлемента", FormOptions);
+		OpenForm("DataProcessor.UT_Algorithm2.Form.ItemForm", FormOptions);
 	Else
-		OpenForm("DataProcessor.UT_UT_Algorithm2.Form.ФормаЭлемента",
+		OpenForm("DataProcessor.UT_Algorithm2.Form.ItemForm",
 					 FormOptions,
 					 ,
 					 ,

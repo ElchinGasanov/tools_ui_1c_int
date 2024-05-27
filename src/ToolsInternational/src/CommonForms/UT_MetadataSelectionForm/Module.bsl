@@ -151,7 +151,6 @@ Procedure MetadataTreeSelection(Item, SelectedRow, Field, StandardProcessing)
 			SelectObject(Undefined);
 		EndIf;
 	EndIf;
-	
 EndProcedure
 
 &AtServerNoContext

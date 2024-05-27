@@ -9,10 +9,9 @@
 
 [RUSSIAN VERSION OF THIS DOCUMENT](https://github.com/i-neti/tools_ui_1c_international/blob/develop/README_RU.md)
 
-### Для разработчика 
-План разработки : https://github.com/i-neti/tools_ui_1c_international/blob/develop/docs/DEVELOPMENTPLAN.md
-Детальное соотвествие русских имен метаданных и имени функций и их англоязычного перевода https://github.com/i-neti/tools_ui_1c_international/blob/develop/docs/DETAILS.md
-Данный документ в работе и постоянно обновляется 
+This is freely distributed set of Universal tools: data processors  and reports. 
+May be useful for for developers and users for development and support.
+Works in ALL types of client applications and in all operating systems supported by the "1C:Enterprise" platform, except for mobile.
 
 ### Supported Operation Systems
 * Windows x86

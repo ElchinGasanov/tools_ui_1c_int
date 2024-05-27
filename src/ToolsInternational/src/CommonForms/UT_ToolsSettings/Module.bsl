@@ -1,16 +1,17 @@
 
-#Region EventHandlers
+#Region FormEventHandlers
 
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
+	Items.DataStorageInstrumentsDirectoryOnServer.InputHint = UT_Common.SatellitelibrarieToolsDataDefaultDirectory();
+	
 	ReadCodeEditorSettings();
-
-
 	SetItemsVisibility();
 EndProcedure
 
 &AtServer
 Procedure FillCheckProcessingAtServer(Cancel, CheckedAttributes)
+	
 	CodeEditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
 	
 	If EditorOf1CCode = CodeEditorVariants.Monaco Then
@@ -38,8 +39,7 @@ Procedure FillCheckProcessingAtServer(Cancel, CheckedAttributes)
 
 		FoundedRows = ConfigurationSourceFilesDirectories.FindRows(SearchStructure);
 
-		If FoundedRows.Count() > 1 Then
-			
+		If FoundedRows.Count() > 1 Then			
 			UT_CommonClientServer.MessageToUser(StrTemplate(NStr("ru = 'С источником исходного кода %1 обнаружено более одной строки. Запись невозможна';
 			|en = 'More than one line was detected with the source code source %1. Recording is not possible'"),Row.Source),,,, Cancel)
 		EndIf;
@@ -48,7 +48,7 @@ EndProcedure
 
 #EndRegion
 
-#Region FormHeaderEventsHandlers
+#Region FormHeaderItemsEventHandlers
 
 &AtClient
 Procedure EditorOf1CCodeOnChange(Item)
@@ -97,7 +97,7 @@ EndProcedure
 #EndRegion
 
 
-#Region FormCommandsHandlers
+#Region FormCommandsEventHandlers
 &AtClient
 Procedure Apply(Command)
 	If Not CheckFilling() Then
@@ -127,10 +127,17 @@ EndProcedure
 
 #EndRegion
 
-#Region Internal
+#Region Private
 
 &AtServer
 Procedure ReadCodeEditorSettings()
+	ПрочитатьПараметрыРедактораКода();
+	
+	DataStorageInstrumentsDirectoryOnServer = UT_Common.SatellitelibrarieToolsSettingsDataDirectory(); 
+КонецПроцедуры
+
+&AtServer
+Procedure ПрочитатьПараметрыРедактораКода()
 	SetChoiseListOfStructureItem(Items.EditorOf1CCode,
 		UT_CodeEditorClientServer.CodeEditorVariants());
 	
@@ -151,6 +158,7 @@ Procedure ReadCodeEditorSettings()
 	LinesHeight = EditorSettings.Monaco.LinesHeight;
 	DisplaySpacesAndTabs = EditorSettings.Monaco.DisplaySpacesAndTabs;
 	UseStandartCodeTemplates = EditorSettings.Monaco.UseStandartCodeTemplates;
+	UseCommandsForWorkingWithBufferInContextMenu = EditorSettings.Monaco.UseCommandsForWorkingWithBufferInContextMenu;
 
 	ConfigurationSourceFilesDirectories.Clear();
 	Items.ConfigurationSourceFilesDirectoriesSource.ChoiceList.Clear();
@@ -276,7 +284,10 @@ Procedure ApplyAtServer()
 	CodeEditorParameters.Monaco.UseScriptMap = UseScriptMap;
 	CodeEditorParameters.Monaco.HideLineNumbers = HideLineNumbers;
 	CodeEditorParameters.Monaco.LinesHeight = LinesHeight;
+	CodeEditorParameters.Monaco.DisplaySpacesAndTabs = DisplaySpacesAndTabs;
 	CodeEditorParameters.Monaco.UseStandartCodeTemplates = UseStandartCodeTemplates;
+	CodeEditorParameters.Monaco.UseCommandsForWorkingWithBufferInContextMenu = UseCommandsForWorkingWithBufferInContextMenu;
+	
 	For Each CurrentRow In ConfigurationSourceFilesDirectories Do
 		If Not ValueIsFilled(CurrentRow.Directory) Then
 			Continue;
@@ -295,5 +306,6 @@ Procedure ApplyAtServer()
 	
 	UT_CodeEditorServer.SetCodeEditorNewSettings(CodeEditorParameters);
 	
+	UT_Common.SaveToolsDataCatalogOnServerToolsDataCatalogOnSettings(DataStorageInstrumentsDirectoryOnServer);
 EndProcedure
 #EndRegion

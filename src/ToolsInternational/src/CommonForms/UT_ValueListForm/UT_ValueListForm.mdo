@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonForm xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="4f6c5a6e-0606-485b-abf2-f9724faf1057">
+  <name>UT_ValueListForm</name>
+  <synonym>
+    <key>ru</key>
+    <value>Values list​</value>
+  </synonym>
+  <usePurposes>PersonalComputer</usePurposes>
+  <usePurposes>MobileDevice</usePurposes>
+</mdclass:CommonForm>

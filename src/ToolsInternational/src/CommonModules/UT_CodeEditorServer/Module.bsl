@@ -139,7 +139,7 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 	
 	If EditorLanguage = "bsl" Then
 		DescriptionButtons = UT_Forms.ButtonCommandNewDescription();
-		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing(),
+		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeViaDataProcessor(),
 																				  EditorID);
 		DescriptionButtons.CommandName = DescriptionButtons.Name;
 		DescriptionButtons.Title = NStr("ru = 'Через обработку'; en = 'Through processing'");
@@ -642,10 +642,10 @@ EndFunction
 // Editors for build with converted text module.
 // 
 // Parameters:
-//  EditorsForBuild - Array from look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor - Editors for build
+//  EditorsForBuild - Array from look at UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor - Editors for build
 // 
 // Return values:
-// Array from look UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor 
+// Array from look at UT_CodeEditorClientServer.NewEditorDataForBuildDataProcessor 
 Function EditorsForBuildWithConvertedTextModule(EditorsForBuild) Export
 	For Each CurrentEditor In EditorsForBuild Do
 		CurrentEditor.ТекстРедактораДляОбработки = UT_Code.TextOfAlgorithmExecutionProcessingModule(CurrentEditor.TextEditor,
@@ -691,7 +691,7 @@ EndFunction
 //  FormId - UUID
 // 
 // Return values:
-//  look UT_CodeEditorClientServer.NewDataLibraryEditor
+//  look at UT_CodeEditorClientServer.NewDataLibraryEditor
 Function DataLibraryCommonTemplate(LayoutName, FormId) Export
 	LibraryData = UT_CodeEditorClientServer.NewDataLibraryEditor();
 
@@ -700,7 +700,7 @@ Function DataLibraryCommonTemplate(LayoutName, FormId) Export
 	CatalogOnServer = GetTempFileName();
 	CreateDirectory(CatalogOnServer);
 
-	Stream = BinaryDataLibraries.ОткрытьПотокДляЧтения();
+	Stream = BinaryDataLibraries.OpenStreamForRead();
 
 	ZipFileReader = New ZipFileReader(Stream);
 	ZipFileReader.ExtractAll(CatalogOnServer, ZIPRestoreFilePathsMode.Restore);
@@ -747,7 +747,7 @@ EndFunction
 // Return values:
 //  String -  Library address in temporary storage
 // Return values:
-//  look UT_CodeEditorClientServer.NewDataLibraryEditor
+//  look at UT_CodeEditorClientServer.NewDataLibraryEditor
 Function DataLibraryEditor(FormId, IsWindowsClient, IsWebClient, EditorType = Undefined)
 	If EditorType = Undefined Then
 		EditorType = CodeEditor1CCurrentVariant();
@@ -795,7 +795,7 @@ Function PutLibraryInTemporaryStorage(FormId, IsWindowsClient, IsWebClient,
 	CatalogOnServer = GetTempFileName();
 	CreateDirectory(CatalogOnServer);
 
-	Stream = BinaryDataLibraries.ОткрытьПотокДляЧтения();
+	Stream = BinaryDataLibraries.OpenStreamForRead();
 
 	ZipFileReader = Новый ZipFileReader(Stream);
 	ZipFileReader.ExtractAll(CatalogOnServer, ZIPRestoreFilePathsMode.Restore);
@@ -814,7 +814,7 @@ Function PutLibraryInTemporaryStorage(FormId, IsWindowsClient, IsWebClient,
 	Try
 		DeleteFiles(CatalogOnServer);
 	Except
-		// TODO:
+		
 	EndTry;
 
 	Return LibraryAddress;
@@ -823,7 +823,7 @@ EndFunction
 // Text fields HTML editor Ace.
 // 
 // Parameters:
-//  LibraryData - look UT_CodeEditorClientServer.NewLibraryDataРедактора
+//  LibraryData - look at UT_CodeEditorClientServer.NewLibraryDataРедактора
 // 
 // Return values:
 //  String
