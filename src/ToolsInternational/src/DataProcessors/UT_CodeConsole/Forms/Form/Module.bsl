@@ -1,21 +1,37 @@
-#Region VariablesDescription
+#Region Variables
+
 &AtClient
 Var FormCloseConfirmed;
+
 &AtClient
 Var UT_CodeEditorClientData Export;
 
+&AtClient
+Var UT_CurrentAlgorithmRowID; //Number
+
 #EndRegion
 
-#Region FormEvents
+#Region FormEventHandlers
 
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	UT_CodeEditorServer.FormOnCreateAtServer(ThisObject);
-	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "Server", Items.FieldAlgorithmServer);
-	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "Client", Items.FieldAlgorithmClient);
 	
-	UT_Common.ToolFormOnCreateAtServer(ThisObject, Cancel, StandardProcessing, Items.MainCommandBar);
+	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject
+		, "Code"
+		, Items.FieldAlgorithm
+		,
+		,
+		, Items.GroupFieldAlgorithmCommandPanel);
+		
+		
+		UT_Common.ToolFormOnCreateAtServer(ThisObject
+			, Cancel
+			, StandardProcessing
+			, Items.MainCommandBar);
 	
+	NewAlgorithmRow = Algorithms.GetItems().Add();
+	NewAlgorithmRow.Name = "Algorithms";
 EndProcedure
 
 &AtClient
@@ -25,11 +41,15 @@ Procedure BeforeClose(Cancel, Exit, WarningText, StandardProcessing)
 	EndIf;
 EndProcedure
 
-
 &AtClient
 Procedure OnOpen(Cancel)
+	FormCloseConfirmed = False;
 	UT_CodeEditorClient.FormOnOpen(ThisObject, New NotifyDescription("OnOpenEnd",ThisObject));
 EndProcedure
+
+#EndRegion
+
+#Region FormHeaderItemsEventHandlers
 
 //@skip-warning
 &AtClient
@@ -43,65 +63,189 @@ Procedure Attachable_EditorFieldOnClick(Item, EventData, StandardProcessing)
 	UT_CodeEditorClient.HTMLEditorFieldOnClick(ThisObject, Item, EventData, StandardProcessing);
 EndProcedure
 
-//@skip-warning
+#EndRegion
+
+#Region FormTableItemsEventHandlersAlgorithmsVariables
+
 &AtClient
-Procedure Attachable_CodeEditorDeferredInitializingEditors()
-	UT_CodeEditorClient.CodeEditorDeferredInitializingEditors(ThisObject);
+Procedure AlgorithmsVariablesOnEditEnd(Item, NewRow, CancelEdit)
+	AddAdditionalContextToCodeEditor();
 EndProcedure
 
-&AtClient 
-Procedure Attachable_CodeEditorInitializingCompletion() Export
-	If ValueIsFilled(AlgorithmFileName) Then
-		UT_CommonClient.ReadConsoleFromFile("CodeConsole", SavedFilesDescriptionStructure(),
-			New NotifyDescription("OpenFileEnd", ThisObject), True);
-	Else
-		SetEditorText("Client", TextAlgorithmClient,True);
-		SetEditorText("Server", TextAlgorithmServer,True);
+&AtClient
+Procedure AlgorithmsVariablesBeforeEditEnd(Item, NewRow, CancelEdit, Cancel)
+	If CancelEdit Then
+		Return;
+	EndIf;
+		
+	CurrentData = Items.AlgorithmsVariables.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	If Not UT_CommonClientServer.IsCorrectVariableName(CurrentData.Name) Then
+		Cancel = True;
 	EndIf;
 EndProcedure
 
 &AtClient
-Procedure Attachable_CodeEditorDeferProcessingOfEditorEvents() Export
-	UT_CodeEditorClient.EditorEventsDeferProcessing(ThisObject)
+Procedure AlgorithmsVariablesValueStartChoice(Item, ChoiceData, StandardProcessing)
+	CurrentData = Items.AlgorithmsVariables.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject
+		, Items
+		, "Value");	
+	HandlerParameters.AvailableContainer = True;
+	HandlerParameters.Value = CurrentData.Value;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.TypesSet = UT_CommonClientServer.AllEditingTypeSets();
+	
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
 EndProcedure
+
+&AtClient
+Procedure AlgorithmsVariablesValueOnChange(Item)
+	CurrentData = Items.AlgorithmsVariables.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	HandlerParameters = UT_CommonClient.NewProcessorInChangingEventsParameters(ThisObject
+		, Items
+		, "Value");		
+	HandlerParameters.AvailableContainer = True;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	
+	UT_CommonClient.FormFieldInChangeProcessor(HandlerParameters);
+EndProcedure
+
+&AtClient
+Procedure AlgorithmsVariablesValueClearing(Item, StandardProcessing)
+	CurrentData = Items.AlgorithmsVariables.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject
+		, Items
+		, "Value");		
+	HandlerParameters.AvailableContainer = True;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+	
+EndProcedure
+
+
 #EndRegion
 
-#Region FormCommandsEvents
+#Region FormTableItemsEventHandlersAlgorithms
+
+&AtClient
+Procedure AlgorithmsBeforeEditEnd(Item, NewRow, CancelEdit, Cancel)
+	If CancelEdit Then
+		Return;
+	EndIf;
+	
+	CurrentData = Items.Algorithms.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	If Not UT_CommonClientServer.IsCorrectVariableName(CurrentData.Name) Then
+		Cancel = True;
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure AlgorithmsOnActivateRow(Item)
+	SaveEditorDataInAlgorithmsTable();
+	
+	CurrentData = Items.Algorithms.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	UT_CurrentAlgorithmRowID = CurrentData.GetID();
+	
+	UT_CodeEditorClient.SetEditorText(ThisObject, "Code", CurrentData.Text);
+	UT_CodeEditorClient.SetEditorOriginalText(ThisObject, "Code", CurrentData.OriginalText);
+	UT_CodeEditorClient.SetUseModeDataProcessorToExecuteEditorCode(ThisObject
+		, "Code"
+		, CurrentData.UseProcessorForCodeExecution);
+	
+	AddAdditionalContextToCodeEditor();
+EndProcedure
+
+
+&AtClient
+Procedure AlgorithmsOnStartEdit(Item, NewRow, Clone)
+	CurrentData = Items.Algorithms.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	If NewRow Then
+		CurrentData.Name = "Algorithms" + Format(CurrentData.GetID(), "NG=0;");
+	EndIf;
+EndProcedure
+
+
+#EndRegion
+
+#Region FormCommandsEventHandlers
 &AtClient
 Procedure CloseConsole(Command)
-	ShowQueryBox(New NotifyDescription("CloseConsoleEnd", ThisForm),NStr("ru = 'Выйти из консоли кода?';en = 'Exit code console ?'"),
+	ShowQueryBox(New NotifyDescription("CloseConsoleEnd", ThisObject),NStr("ru = 'Выйти из консоли кода?';en = 'Exit code console ?'"),
 		QuestionDialogMode.YesNo);
 EndProcedure
 
 &AtClient
 Procedure ExecuteCode(Command)
-	//.1 Need to update the values of these algorithms
-	UpdateAlgorithmVariablesValueFromEditor();
+	If UT_CurrentAlgorithmRowID = Undefined Then
+		Return;
+	EndIf;
+	
+	SaveEditorDataInAlgorithmsTable();
+	
+	AlgorithmRow = Algorithms.FindByID(UT_CurrentAlgorithmRowID);
+	
+	AdditionalInfo = New Structure;
+	AdditionalInfo.Insert("AlgorithmRow", AlgorithmRow);
+	
+	If SaveBeforeExecution And ValueIsFilled(AlgorithmFileName) Then
+		SaveFileToDisk(, New CallbackDescription("ExecuteCodeAlgorithmFileSavingEnd", ThisObject
+		, AdditionalInfo));
+	Else
+		ExecuteCodeAlgorithmFileSavingEnd(True, AdditionalInfo);
+	EndIf;
+			
 
-	TransmittedStructure = New Structure;
-	ExecuteAlgorithmAtClient(TransmittedStructure);
-	ExecuteAlgorithmAtServer(TransmittedStructure);
 EndProcedure
 
 &AtClient
-Procedure EditClientVariableValue(Command)
-	EditVariableValue(Items.ClientVariables);
+Procedure EditVariableValue(Command)
+	CurrentData = Items.AlgorithmsVariables.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	UT_CommonClient.EditObject(CurrentData.Value);
 EndProcedure
 
-&AtClient
-Procedure EditServerVariableValue(Command)
-	EditVariableValue(Items.ServerVariables);
-EndProcedure
 
 &AtClient
 Procedure NewAlgorithm(Command)
+	AlgorithmsRows = Algorithms.GetItems();
+	AlgorithmsRows.Clear();
+	
+	NewAlgorithmRow = AlgorithmsRows.Add();
+	NewAlgorithmRow.Name = "Algorithm";
+	
 	AlgorithmFileName="";
-
-	TextAlgorithmClient="";
-	TextAlgorithmServer="";
-
-	SetEditorText("Client",TextAlgorithmClient,True);
-	SetEditorText("Server",TextAlgorithmServer,True);
 
 	SetTitle();
 EndProcedure
@@ -128,9 +272,108 @@ Procedure Attachable_ExecuteToolsCommonCommand(Command)
 	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
 EndProcedure
 
+&AtClient
+Procedure Attachable_ExecuteCodeEditorCommand(Command) 
+	UT_CodeEditorClient.ExecuteCodeEditorCommand(ThisObject, Command);
+EndProcedure
+
 #EndRegion
 
-#Region OtherFunctions
+#Region Private
+
+// Execute code - algorithm saving in file end.
+// 
+// Parameters:
+// 	Result - Boolean - Result
+//	 AdditionalParameters - Structure - Additional Parameters:
+//	 * AlgorithmString - FormDataTreeItem.
+&AtClient
+Procedure ExecuteCodeAlgorithmFileSavingEnd(Result, AdditionalParameters) Export
+	AlgorithmRow = AdditionalParameters.AlgorithmRow;
+	
+	ClientEditors = New Array;
+	If AlgorithmRow.AtClient Then
+		ClientEditors.Add("Code");
+	EndIf;
+	
+	StructureVariableEditorsNames = New Structure;
+	
+	ArrayNames = New Array;
+	For Each CurrentVar In AlgorithmRow.Variables Do
+		ArrayNames.Add(CurrentVar.Name);
+	EndDo;
+	ArrayNames.Add("TransmissionStructure");
+	StructureVariableEditorsNames.Insert("Code", ArrayNames);
+	
+	CallBackParameters = New Structure;
+	CallBackParameters.Insert("Begin", CurrentUniversalDateInMilliseconds());
+	CallBackParameters.Insert("AlgorithmRow", AlgorithmRow);
+
+	UT_CodeEditorClient.StartBuildDataProcessorForCodeExecution(ThisObject,
+		New CallbackDescription("ExecuteCodeAssemblingProcessorsEnd",
+			ThisObject, CallBackParameters)
+		, StructureVariableEditorsNames
+		, ClientEditors);
+
+	
+EndProcedure
+
+&AtClient
+Procedure SaveEditorDataInAlgorithmsTable()
+	If UT_CurrentAlgorithmRowID = Undefined Then
+		Return;
+	EndIf;
+	CurrentData = Algorithms.FindByID(UT_CurrentAlgorithmRowID);
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	
+	CurrentData.Text = UT_CodeEditorClient.EditorCodeText(ThisObject, "Code");
+	CurrentData.UseProcessorForCodeExecution = UT_CodeEditorClient.UsageModeDataProcessorToExecuteEditorCode(ThisObject, "Code");
+
+EndProcedure
+
+&AtClient
+Procedure ExecuteCodeAssemblingProcessorsEnd(Result, AdditionalParameters) Export
+
+	AlgorithmRow = AdditionalParameters.AlgorithmRow;
+	If Not ValueIsFilled(TrimAll(AlgorithmRow)) Then
+		Return;
+	EndIf;
+
+	If AlgorithmRow.AtClient Then
+		ExecuteCodeAtClient(AlgorithmRow.GetID());
+	Else
+		ExecuteCodeAtServer(AlgorithmRow.GetID());
+	EndIf;
+
+EndProcedure
+
+&AtClient
+Procedure ExecuteCodeAtClient(AlgorithmRowID)
+	ExecuteAlgorithmCode(ThisObject, Algorithms, AlgorithmRowID);
+EndProcedure
+
+&AtServer
+Procedure ExecuteCodeAtServer(AlgorithmRowID)
+	ExecuteAlgorithmCode(ThisObject, Algorithms, AlgorithmRowID);
+EndProcedure
+
+&AtClientAtServerNoContext
+Procedure ExecuteAlgorithmCode(Form, Algorithms, AlgorithmRowID)
+	AlgorithmRow = Algorithms.FindByID(AlgorithmRowID);
+	
+	ExecutionContext = AlgorithmExecutionContext(AlgorithmRow.Variables);
+	
+	Result = UT_CodeEditorClientServer.ExecuteAlgorithm(AlgorithmRow.Text
+		, ExecutionContext
+		, AlgorithmRow.AtClient
+		, Form
+		, "Code");
+		
+	AlgorithmRow.Info = String((Result.ExecutionTime) / 1000) + " sec.";
+
+EndProcedure
 
 &AtClient
 Function ContextVariables(VariablesTabularSection)
@@ -146,18 +389,18 @@ Function ContextVariables(VariablesTabularSection)
 	Return VariablesArray;
 EndFunction
 
+
 &AtClient
-Procedure AddAdditionalContextToCodeEditor(EditorID)
-	AdditionalContextStructure = New Structure;
-	AdditionalContextStructure.Insert("TransmittedStructure", "Structure");
-	
-	If EditorID = "Client" Then
-		VariablesTabularSection = ClientVariables;
-	Else
-		VariablesTabularSection = ServerVariables;
+Procedure AddAdditionalContextToCodeEditor()
+	If UT_CurrentAlgorithmRowID = Undefined Then
+		Return;
 	EndIf;
 	
-	ContextVariables =ContextVariables(VariablesTabularSection); 
+	AlgorithmRow = Algorithms.FindByID(UT_CurrentAlgorithmRowID);
+	
+	AdditionalContextStructure = New Structure;
+		
+	ContextVariables = ContextVariables(AlgorithmRow.Variables); 
 	For Each Variable In ContextVariables Do
 		If Not UT_CommonClientServer.IsCorrectVariableName(Variable.Name) Then
 			Continue;
@@ -166,7 +409,7 @@ Procedure AddAdditionalContextToCodeEditor(EditorID)
 		AdditionalContextStructure.Insert(Variable.Name, Variable.Type);
 	EndDo;
 	
-	UT_CodeEditorClient.AddCodeEditorContext(ThisObject, EditorID, AdditionalContextStructure);
+	UT_CodeEditorClient.AddCodeEditorContext(ThisObject, "Code", AdditionalContextStructure);
 EndProcedure
 
 &AtClient
@@ -184,12 +427,18 @@ Function SavedFilesDescriptionStructure()
 EndFunction
 
 &AtClient
-Procedure SaveFileToDisk(SaveAs = False)
-	UpdateAlgorithmVariablesValueFromEditor();
+Procedure SaveFileToDisk(SaveAs = False, CallbackDescriptionOnClose = Undefined)
+	SaveEditorDataInAlgorithmsTable();
 
+	AdditionalCallBackParameters = Undefined;
+	If CallbackDescriptionOnClose <> Undefined Then
+		AdditionalCallBackParameters = New Structure;
+		AdditionalCallBackParameters.Insert("CallbackDescriptionOnClose", CallbackDescriptionOnClose);
+	EndIf;
+			
 	UT_CommonClient.SaveConsoleDataToFile("CodeConsole", SaveAs,
 		SavedFilesDescriptionStructure(), GetSaveString(),
-		New NotifyDescription("SaveFileEnd", ThisObject));
+		New NotifyDescription("SaveFileEnd", ThisObject, AdditionalCallBackParameters));
 EndProcedure
 
 &AtClient
@@ -206,8 +455,11 @@ Procedure SaveFileEnd(SaveFileName, AdditionalParameters) Export
 	AlgorithmFileName=SaveFileName;
 	SetTitle();
 	
-	UT_CodeEditorClient.SetEditorOriginalTextEqualToCurrent(ThisObject, "Client");
-	UT_CodeEditorClient.SetEditorOriginalTextEqualToCurrent(ThisObject, "Server");
+	UT_CodeEditorClient.SetEditorOriginalTextEqualToCurrent(ThisObject, "Code");
+	
+	If AdditionalParameters <> Undefined Then
+		ExecuteNotifyProcessing(AdditionalParameters.CallbackDescriptionOnClose, True);
+	EndIf;
 //	Message("The algorithm has been successfully saved");
 
 EndProcedure
@@ -223,9 +475,6 @@ Procedure OpenFileEnd(Result, AdditionalParameters) Export
 
 	OpenAlgorithmAtServer(Result.URL);
 
-	SetEditorText("Client",TextAlgorithmClient,True);
-	SetEditorText("Server",TextAlgorithmServer,True);
-
 	SetTitle();
 EndProcedure
 
@@ -239,221 +488,203 @@ Procedure CloseConsoleEnd(Result, AdditionalParameters) Export
 
 EndProcedure
 
-&AtClient
-Procedure IdleHandlerSetCodeTextInTextEditorClient()
-	Try
-		SetEditorText("Client",TextAlgorithmClient);
-	Except
-		AttachIdleHandler("IdleHandlerSetCodeTextInTextEditorClient", 0.5, True);
-	EndTry;
-EndProcedure
-
-&AtClient
-Procedure IdleHandlerSetCodeTextInTextEditorServer()
-	Try
-		SetEditorText("Server",TextAlgorithmServer);
-	Except
-		AttachIdleHandler("IdleHandlerSetCodeTextInTextEditorServer", 0.5, True);
-	EndTry;
-EndProcedure
-
-&AtClient
-Procedure UpdateAlgorithmVariablesValueFromEditor()
-	TextAlgorithmClient=UT_CodeEditorClient.EditorCodeText(ThisObject, "Client");
-	TextAlgorithmServer=UT_CodeEditorClient.EditorCodeText(ThisObject, "Server");
-EndProcedure
-
-&AtClient
-Procedure SetEditorText(EditorID, AlgorithmText,SetOriginalText = False)
-	UT_CodeEditorClient.SetEditorText(ThisObject, EditorID, AlgorithmText,SetOriginalText);
-	AddAdditionalContextToCodeEditor(EditorID);	
-EndProcedure
-
 &AtClientAtServerNoContext
-Function AlgorithmExecutionContext(Variables, TransmittedStructure)
+Function AlgorithmExecutionContext(Variables)
 	ExecutionContext = New Structure;
-	ExecutionContext.Insert("TransmittedStructure", TransmittedStructure);
-
-	For Each TabularSectionRow ИЗ Variables Do
-		ExecutionContext.Insert(TabularSectionRow.Name, TabularSectionRow.Value);
-	EndDo;
-
-	Return ExecutionContext;	
-EndFunction
-
-&AtClientAtServerNoContext
-Function PreparedAlgorithmCode(CodeText, Variables)
-	PreparedCode="";
-
-	For VariableNumber = 0 To Variables.Count() - 1 Do
-		CurrentVariable=Variables[VariableNumber];
-		PreparedCode=PreparedCode + Chars.LF + CurrentVariable.Name + "=Variables[" + Format(VariableNumber,
-			"NZ=0; NG=0;") + "].Value;";
-	EndDo;
-
-	PreparedCode=PreparedCode + Chars.LF + CodeText;
-
-	Return PreparedCode;
-EndFunction
-
-&AtClientAtServerNoContext
-Function ExecuteAlgorithm(AlgorithmText, Variables, TransmittedStructure)
-	Successfully = True;
-	ErrorDescription = "";
-
-	BeginExecution = CurrentUniversalDateInMilliseconds();
-	Try
-		Execute (AlgorithmText);
-	Except
-		Successfully = False;
-		ErrorDescription = ErrorDescription();
-		Message(ErrorDescription);
-	EndTry;
-	EndExecution = CurrentUniversalDateInMilliseconds();
-
-	ExecutionResult = New Structure;
-	ExecutionResult.Insert("Successfully", Successfully);
-	ExecutionResult.Insert("ExecutionTime", EndExecution - BeginExecution);
-	ExecutionResult.Insert("ErrorDescription", ErrorDescription);
-
-	Return ExecutionResult;
-EndFunction
-
-&AtClient
-Procedure ExecuteAlgorithmAtClient(TransmittedStructure)
-	If Not ValueIsFilled(TrimAll(TextAlgorithmClient)) Then
-		Return;
-	EndIf;
-
-	ExecutionContext = AlgorithmExecutionContext(ClientVariables, TransmittedStructure);
-
-	ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(TextAlgorithmClient, ExecutionContext);
-
-	If ExecutionResult.Successfully Then
-		ItemTitle =StrTemplate(Nstr("ru = '&&НаКлиенте (Время выполнения кода: %1 сек.)';en = '&&AtClient (Code execution time: %1 seconds)'"),String((ExecutionResult.ExecutionTime)
-			/ 1000)); 
-	Else
-		ItemTitle = NSTR("ru = '&&НаКлиенте';en = '&&AtClient'");
-	EndIf;
-	Items.GroupClient.Title = ItemTitle;
-
-EndProcedure
-
-&AtServer
-Procedure ExecuteAlgorithmAtServer(TransmittedStructure)
-	If Not ValueIsFilled(TrimAll(TextAlgorithmServer)) Then
-		Return;
-	EndIf;
 	
-	ExecutionContext = AlgorithmExecutionContext(ServerVariables, TransmittedStructure);
-
-	ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(TextAlgorithmServer, ExecutionContext);
-
-	If ExecutionResult.Successfully Then
-		
-		ItemTitle =StrTemplate(Nstr("ru = '&&НаСервере (Время выполнения кода: %1 сек.)';en = '&&AtServer (Code execution time: %1 seconds)'"),String((ExecutionResult.ExecutionTime)
-			/ 1000));
-	Else
-		ItemTitle =NSTR("ru = '&&НаСервере';en = '&&AtServer'");
-	EndIf;
-	Items.GroupServer.Title = ItemTitle;
-
-EndProcedure
+	For Each CurrentRow In Variables Do
+		StorageFieldStructure = UT_CommonClientServer.NewStructureStoringAttributeOnFormContainer("Value");
+	
+		ExecutionContext.Insert(CurrentRow.Name
+			, UT_CommonClientServer.ValueContainerFieldValue(CurrentRow
+				, StorageFieldStructure));
+	EndDo;
+	
+	Return ExecutionContext;
+EndFunction
 
 &AtServer
 Function GetSaveString()
 
 	StoredData = New Structure;
-	StoredData.Insert("TextAlgorithmClient", TextAlgorithmClient);
-	StoredData.Insert("TextAlgorithmServer", TextAlgorithmServer);
+	StoredData.Insert("FormatVersion", 2);
+	StoredData.Insert("Algorithms", New Array);
 
-	VariablesArray=New Array;
-	For Each CurrentVariable In ClientVariables Do
-		VariableStructure=New Structure;
-		VariableStructure.Insert("Name", CurrentVariable.Name);
-		VariableStructure.Insert("Value", ValueToStringInternal(CurrentVariable.Value));
-
-		VariablesArray.Add(VariableStructure);
+	For Each AlgorithmRow In Algorithms.GetItems() Do
+		StoredData.Algorithms.Add(AlgorithmDescriptionForSavingToFile(AlgorithmRow));
 	EndDo;
-	StoredData.Insert("ClientVariables", VariablesArray);
 
-	VariablesArray=New Array;
-	For Each CurrentVariable In ServerVariables Do
-		VariableStructure=New Structure;
-		VariableStructure.Insert("Name", CurrentVariable.Name);
-		VariableStructure.Insert("Value", ValueToStringInternal(CurrentVariable.Value));
-
-		VariablesArray.Add(VariableStructure);
-	EndDo;
-	StoredData.Insert("ServerVariables", VariablesArray);
-
-	JSONWriter=New JSONWriter;
-	JSONWriter.SetString();
-
-	WriteJSON(JSONWriter, StoredData);
-
-	Return JSONWriter.Close();
+	Return UT_CommonClientServer.mWriteJSON(StoredData);
 
 EndFunction
+
+&AtServer
+Function AlgorithmDescriptionForSavingToFile(AlgorithmRow)
+	ValueStorageStructure = UT_CommonClientServer.NewStructureStoringAttributeOnFormContainer("Value");
+	
+	AlgorithmDescription = New Structure;
+	AlgorithmDescription.Insert("Name", AlgorithmRow.Name);
+	AlgorithmDescription.Insert("Text", AlgorithmRow.Text);
+	AlgorithmDescription.Insert("AtClient", AlgorithmRow.AtClient);
+	AlgorithmDescription.Insert("UseProcessorForCodeExecution"
+		, AlgorithmRow.UseProcessorForCodeExecution);
+
+	AlgorithmDescription.Insert("Variables", New Array);
+	For Each Variable In AlgorithmRow.Variables Do
+		VariableStructure = New Structure;
+		VariableStructure.Insert("Name", Variable.Name);
+		
+		VariableValue = UT_CommonClientServer.ValueContainerFieldValue(Variable
+			, ValueStorageStructure);
+			
+		VariableStructure.Insert("Value", ValueToStringInternal(VariableValue));
+		VariableStructure.Insert("Type", ValueToStringInternal(TypeOf(VariableValue)));
+		
+		AlgorithmDescription.Variables.Add(VariableStructure);
+	EndDo;
+	
+	AlgorithmDescription.Insert("Rows", New Array);
+	
+	For Each CurrentRow In AlgorithmRow.GetItems() Do
+		AlgorithmDescription.Rows.Add(AlgorithmDescriptionForSavingToFile(CurrentRow));
+	EndDo;
+		
+	Return AlgorithmDescription;	
+EndFunction
+
 &AtServer
 Procedure OpenAlgorithmAtServer(FileURLInTempStorage)
-	FileData=GetFromTempStorage(FileURLInTempStorage);
+	FileData = GetFromTempStorage(FileURLInTempStorage);
 
-	JSONReader=New JSONReader;
+	JSONReader = New JSONReader;
 	JSONReader.OpenStream(FileData.OpenStreamForRead());
 
-	FileStructure=ReadJSON(JSONReader);
+	FileStructure = ReadJSON(JSONReader);
 	JSONReader.Close();
 
-	TextAlgorithmClient=FileStructure.TextAlgorithmClient;
-	TextAlgorithmServer=FileStructure.TextAlgorithmServer;
+	FormatVersion = 1;
+	If FileStructure.Property("FormatVersion") Then
+		FormatVersion = FileStructure.FormatVersion;
+	EndIf;	
 
-	ClientVariables.Clear();
-	For Each Variable In FileStructure.ClientVariables Do
-		NewRow=ClientVariables.Add();
-		NewRow.Name=Variable.Name;
-		NewRow.Value=ValueFromStringInternal(Variable.Value);
-	EndDo;
+	Algorithms.GetItems().Clear();
 
-	ServerVariables.Clear();
-	For Each Variable In FileStructure.ServerVariables Do
-		NewRow=ServerVariables.Add();
-		NewRow.Name=Variable.Name;
-		NewRow.Value=ValueFromStringInternal(Variable.Value);
-	EndDo;
-
-EndProcedure
-&AtClient
-Procedure EditVariableValue(FormTable)
-	CurrentData=FormTable.CurrentData;
-	If CurrentData = Undefined Then
-		Return;
+	If FormatVersion = 1 Then
+		FillFormFormatVersion_1(FileStructure);
+	Else
+		FillAlgorithmsFormatVersion_2(FileStructure);				
 	EndIf;
+	
+EndProcedure
 
-	UT_CommonClient.EditObject(CurrentData.Value);
+&AtServer
+Procedure FillFormFormatVersion_1(FileStructure)
+	ValueStorageStructure = UT_CommonClientServer.NewStructureStoringAttributeOnFormContainer("Value");		
+	
+	AlgorithmItems = Algorithms.GetItems();
+	
+	If ValueIsFilled(FileStructure.TextAlgorithmClient) Or FileStructure.ClientVariables.Count() > 0 Then
+		NewAlgorithmRow = AlgorithmItems.Add();
+		NewAlgorithmRow.OriginalText = FileStructure.TextAlgorithmClient;
+		NewAlgorithmRow.Text = FileStructure.TextAlgorithmClient;
+		NewAlgorithmRow.AtClient = True;
+		NewAlgorithmRow.Name = "Client";
+	
+		For Each Variable In FileStructure.ClientVariables Do
+			NewVariable = NewAlgorithmRow.Variables.Add();
+			NewVariable.Name = Variable.Name;
+			
+			UT_CommonClientServer.SetContainerFieldValue(NewVariable
+				, ValueStorageStructure
+				, ValueFromStringInternal(Variable.Value));
+		EndDo;
+	EndIf;
+	
+	If ValueIsFilled(FileStructure.TextAlgorithmServer) Or FileStructure.ServerVariables.Count() > 0 Then
+		NewAlgorithmRow = AlgorithmItems.Add();
+		NewAlgorithmRow.OriginalText = FileStructure.TextAlgorithmServer;
+		NewAlgorithmRow.Text = FileStructure.TextAlgorithmServer;
+		NewAlgorithmRow.AtClient = False;
+		NewAlgorithmRow.Name = "Server";
+	
+		For Each Variable In FileStructure.ServerVariables Do
+			NewVariable = NewAlgorithmRow.Variables.Add();
+			NewVariable.Name = Variable.Name;
+			
+			UT_CommonClientServer.SetContainerFieldValue(NewVariable
+				, ValueStorageStructure
+				, ValueFromStringInternal(Variable.Value));
+		EndDo;
+	EndIf;
+	
+EndProcedure
+
+&AtServer
+Procedure FillAlgorithmsFormatVersion_2(FileStructure)
+	AlgorithmItems = Algorithms.GetItems();
+	
+	For Each CurrentAlgorithm In FileStructure.Algorithms Do
+		FillAlgorithmsFromFile(CurrentAlgorithm, AlgorithmItems);
+	EndDo;		
+	
+EndProcedure
+
+&AtServer
+Procedure FillAlgorithmsFromFile(FileAlgorithm, AlgorithmItemsCollection)
+	ValueStorageStructure = UT_CommonClientServer.NewStructureStoringAttributeOnFormContainer("Value");
+	
+	NewAlgorithmRow = AlgorithmItemsCollection.Add();
+	NewAlgorithmRow.Name = FileAlgorithm.Name;
+	NewAlgorithmRow.Text = FileAlgorithm.Text;
+	NewAlgorithmRow.OriginalText = FileAlgorithm.Text;
+	NewAlgorithmRow.AtClient = FileAlgorithm.AtClient;
+	NewAlgorithmRow.UseProcessorForCodeExecution = FileAlgorithm.UseProcessorForCodeExecution;
+	
+	For Each Variable In FileAlgorithm.Variables Do
+		NewVariable = NewAlgorithmRow.Variables.Add();	
+		NewVariable.Add = Variable.Name;
+		
+		UT_CommonClientServer.SetContainerFieldValue(NewVariable
+			, ValueStorageStructure
+			, ValueFromStringInternal(Variable.Value));
+	EndDo;
+	
+	RowCollection = NewAlgorithmRow.GetItems();
+	For Each SubAlgorithm In FileAlgorithm.Rows Do
+		FillAlgorithmsFromFile(SubAlgorithm, RowCollection);
+	EndDo;	
+	
 EndProcedure
 
 &AtClient
 Procedure SetTitle()
-	Title=AlgorithmFileName;
+	Title = AlgorithmFileName;
+EndProcedure
+
+
+//@skip-warning
+&AtClient
+Procedure Attachable_CodeEditorDeferredInitializingEditors()
+	UT_CodeEditorClient.CodeEditorDeferredInitializingEditors(ThisObject);
+EndProcedure
+
+&AtClient 
+Procedure Attachable_CodeEditorInitializingCompletion() Export
+	If ValueIsFilled(AlgorithmFileName) Then
+		UT_CommonClient.ReadConsoleFromFile("CodeConsole", SavedFilesDescriptionStructure(),
+			New NotifyDescription("OpenFileEnd", ThisObject), True);
+	EndIf;
 EndProcedure
 
 &AtClient
-Procedure FieldAlgorithmClientOnClick(Item, EventData, StandardProcessing)
-	
+Procedure Attachable_CodeEditorDeferProcessingOfEditorEvents() Export
+	UT_CodeEditorClient.EditorEventsDeferProcessing(ThisObject)
 EndProcedure
 
 
-&AtClient
-Procedure ServerVariablesOnEditEnd(Item, NewRow, CancelEdit)
-	AddAdditionalContextToCodeEditor("Server");
-EndProcedure
 
-&AtClient
-Procedure ClientVariablesOnEditEnd(Item, NewRow, CancelEdit)
-	AddAdditionalContextToCodeEditor("Client");
-EndProcedure
+
+
 
 #EndRegion
 
-FormCloseConfirmed=False;
