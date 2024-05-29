@@ -229,7 +229,7 @@ Procedure ExecuteCodeEditorCommand(Form, Сommand) Export
 	FormEditors =  UT_CodeEditorClientServer.FormEditors(Form);
 	EditorOptions = FormEditors[CommandStructure.EditorID];
 	
-	If CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing() Then
+	If CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameExecutionModeViaDataProcessor() Then
 		EditorOptions.UseDataProcessorToExecuteCode = Not EditorOptions.UseDataProcessorToExecuteCode;
 		Form.Items[Сommand.Name].Mark = EditorOptions.UseDataProcessorToExecuteCode;
 	ElsIf CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameShareAlgorithm() Then
@@ -570,7 +570,7 @@ Function EditorCodeText(Form, EditorID) Export
 	EndIf;
 	EditorSettings = FormEditors[EditorID];
 	If Not EditorSettings.Initialized Then
-		If Not EditorSettings.Visible
+		If Not EditorSettings.Visibility
 			And EditorSettings.TextEditorCache <> Undefined Then
 				
 			Return EditorSettings.TextEditorCache.Text;
@@ -628,7 +628,7 @@ Function CodeEditorOriginalText(Form, EditorID) Export
 
 	EditorParameters = FormEditors[EditorID];
 	If Not EditorParameters.Initialized Then
-		If Not EditorParameters.Visible
+		If Not EditorParameters.Visibility
 			And EditorParameters.TextEditorCache <> Undefined Then
 				
 			Return EditorParameters.TextEditorCache.OriginalText;
@@ -1176,7 +1176,7 @@ Procedure SwitchEditorVisibility(Form, EditorID, NewVisibility = Undefined) Expo
 	
 	Visible = NewVisibility;
 	If Visible = Undefined Then
-		Visible = Not EditorSettings.Visible;
+		Visible = Not EditorSettings.Visibility;
 	EndIf;
 	If Not Visible Then
 		TextEditorCache = UT_CodeEditorClientServer.NewTextCacheOfEditor();
@@ -1186,14 +1186,14 @@ Procedure SwitchEditorVisibility(Form, EditorID, NewVisibility = Undefined) Expo
 		EditorSettings.TextEditorCache = TextEditorCache;
 	EndIf;
 	
-	EditorSettings.Visible = Visible;
+	EditorSettings.Visibility = Visible;
 
 	If Not Visible And UT_CodeEditorClientServer.CodeEditorUsesHTMLField(EditorType) Then
 		EditorSettings.Initialized = False;
 	EndIf;
 	
 	
-	Form.Items[EditorSettings.EditorField].Visible = EditorSettings.Visible;
+	Form.Items[EditorSettings.EditorField].Visible = EditorSettings.Visibility;
 	
 EndProcedure
 
@@ -1410,7 +1410,7 @@ Procedure SetUseModeDataProcessorToExecuteEditorCode(Form, EditorID, Mode) Expor
 	EditorOptions = FormEditors[EditorID];
 	EditorOptions.UseDataProcessorToExecuteCode = Mode;
 
-	ButtonName = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing(),
+	ButtonName = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeViaDataProcessor(),
 																			  EditorID);
 																			  
 	Form.Items[ButtonName].Mark = Mode;

@@ -2693,7 +2693,7 @@ Procedure SetContainerPresentation(ValueContainer) Export
 																ValueContainer.ValueStorage.RowCount,
 																ValueContainer.ValueStorage.ColumnCount);
 	ElsIf ValueContainer.Type = ContainerTypes.ValueStorage Then
-		ValueContainer.Presentation = "Value storage: " + ValueContainer.ValueStorage.Type;
+		ValueContainer.Presentation = "Value storage: " + ValueContainer.Type;
 	ElsIf ValueContainer.Type = ContainerTypes.ValueList Then
 		ValueContainer.Presentation = "Value list: " + ValueContainer.ValueStorage.Presentation;
 	ElsIf ValueContainer.Type = ContainerTypes.Array Then

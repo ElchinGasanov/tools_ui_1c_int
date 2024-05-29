@@ -4974,7 +4974,7 @@ EndProcedure
 &AtClient
 Procedure LoadQueryBatchAfterQuestion(Result, AdditionalParameters)
 
-	If Result = DialogReturnCode.Yea Then
+	If Result = DialogReturnCode.Yes Then
 		SaveQueryBatch(New Structure);
 		LoadQueryBatch();
 	ElsIf Result = DialogReturnCode.No Then

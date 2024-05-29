@@ -82,7 +82,7 @@ Procedure TableColumnsBeforeEditEnd(Item, NewRow, CancelEdit, Cancel)
 
 	If Not UT_CommonClientServer.IsCorrectVariableName(ColumnName) Then
 		ShowMessageBox( ,
-			UT_CommonClientServer.TextWarningInvalidVariableName(),
+			UT_CommonClientServer.WrongVariableNameWarningText(),
 			, Title);
 		Cancel = True;
 		Return;
@@ -559,9 +559,9 @@ Function ResultValueTableToString()
 		EndIf;
 		ResultStructure.Insert("Presentation", StrTemplate(NSTR("ru = 'Строк: %1 Колонок: %2';en = 'Rows: %1 Columns: %2'"), 
 			ValueTable.Count(), 
-			ValueTable.Cols.Count()));
-		ResultStructure.Insert("LineCount", ValueTable.Count());
-		ResultStructure.Insert("ColumnsCount", ValueTable.Cols.Count());
+			ValueTable.Columns.Count()));
+		ResultStructure.Insert("RowCount", ValueTable.Count());
+		ResultStructure.Insert("ColumnsCount", ValueTable.Columns.Count());
 		Return ResultStructure;
 	EndIf;
 EndFunction
