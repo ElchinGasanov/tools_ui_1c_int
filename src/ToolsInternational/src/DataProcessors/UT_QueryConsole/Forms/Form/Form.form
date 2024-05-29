@@ -1306,7 +1306,7 @@
           <changeRowSet>true</changeRowSet>
           <changeRowOrder>true</changeRowOrder>
           <autoMaxWidth>true</autoMaxWidth>
-          <autoMaxHeight>true</autoMaxHeight>
+          <height>3</height>
           <autoMaxRowsCount>true</autoMaxRowsCount>
           <selectionMode>MultiRow</selectionMode>
           <header>true</header>
@@ -1335,7 +1335,7 @@
         </title>
         <title>
           <key>ru</key>
-          <value>Пакет запросов</value>
+          <value>Request package</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -1372,6 +1372,10 @@
         <items xsi:type="form:FormField">
           <name>SaveCommentsOption</name>
           <id>195</id>
+          <title>
+            <key>ru</key>
+            <value>Save comments in constructor</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1383,7 +1387,6 @@
             </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
-          <titleHeight>3</titleHeight>
           <handlers>
             <event>OnChange</event>
             <name>SaveCommentsOptionOnChange</name>
@@ -1423,6 +1426,10 @@
         <items xsi:type="form:FormField">
           <name>AutoSaveBeforeQueryExecutionOption</name>
           <id>272</id>
+          <title>
+            <key>ru</key>
+            <value>Save before execution</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1469,6 +1476,10 @@
         <items xsi:type="form:FormField">
           <name>OptionProcessing__</name>
           <id>353</id>
+          <title>
+            <key>ru</key>
+            <value>Macro-columns</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1556,6 +1567,7 @@ Example:
               <segments>AutoSaveIntervalOption</segments>
             </paths>
           </dataPath>
+          <titleLocation>Top</titleLocation>
           <handlers>
             <event>OnChange</event>
             <name>AutoSaveIntervalOptionOnChange</name>
@@ -1621,6 +1633,7 @@ Example:
               <segments>Object.AlgorithmExecutionUpdateIntervalOption</segments>
             </paths>
           </dataPath>
+          <titleLocation>Top</titleLocation>
           <handlers>
             <event>OnChange</event>
             <name>AlgorithmExecutionUpdateIntervalOptionOnChange</name>
@@ -1676,7 +1689,7 @@ Example:
         </title>
         <title>
           <key>ru</key>
-          <value>Опции</value>
+          <value>Options</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -1686,7 +1699,7 @@ Example:
           <key>ru</key>
           <value>Страница опции</value>
         </toolTip>
-        <width>1</width>
+        <horizontalStretch>true</horizontalStretch>
         <extendedTooltip>
           <name>OptionsPageExtendedTooltip</name>
           <id>191</id>
@@ -1729,7 +1742,8 @@ Example:
         <key>ru</key>
         <value>Группа список запросов</value>
       </toolTip>
-      <width>36</width>
+      <width>30</width>
+      <horizontalStretch>false</horizontalStretch>
       <extendedTooltip>
         <name>QueryListGroupExtendedTooltip</name>
         <id>187</id>
@@ -1768,10 +1782,14 @@ Example:
               <id>481</id>
               <items xsi:type="form:FormGroup">
                 <name>QueryCommandBarGroup</name>
-                <id>479</id>
+                <id>588</id>
                 <items xsi:type="form:Button">
                   <name>QueryWizard</name>
                   <id>102</id>
+                  <title>
+                    <key>ru</key>
+                    <value>Query wizard</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -1792,7 +1810,6 @@ Example:
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <type>UsualButton</type>
                   <commandName>Form.Command.QueryWizard</commandName>
                   <representation>Auto</representation>
                   <autoMaxWidth>true</autoMaxWidth>
@@ -1823,7 +1840,6 @@ Example:
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <type>UsualButton</type>
                   <commandName>Form.Command.QuerySyntaxCheck</commandName>
                   <representation>Picture</representation>
                   <autoMaxWidth>true</autoMaxWidth>
@@ -1855,9 +1871,163 @@ Example:
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <type>UsualButton</type>
                   <commandName>Form.Command.FormatQueryText</commandName>
                   <representation>Picture</representation>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <placementArea>UserCmds</placementArea>
+                  <picture xsi:type="form:FormPicture"/>
+                  <representationInContextMenu>Auto</representationInContextMenu>
+                </items>
+                <items xsi:type="form:Button">
+                  <name>AddCommentsToQueryText</name>
+                  <id>206</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <extendedTooltip>
+                    <name>AddCommentsToQueryTextExtendedTooltip</name>
+                    <id>207</id>
+                    <visible>true</visible>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <commandName>Form.Command.AddCommentsToText</commandName>
+                  <representation>Auto</representation>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <placementArea>UserCmds</placementArea>
+                  <picture xsi:type="form:FormPicture"/>
+                  <representationInContextMenu>Auto</representationInContextMenu>
+                  <commandUniqueness>false</commandUniqueness>
+                </items>
+                <items xsi:type="form:Button">
+                  <name>RemoveCommentsFromQueryText</name>
+                  <id>208</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <extendedTooltip>
+                    <name>RemoveCommentsFromQueryTextExtendedTooltip</name>
+                    <id>209</id>
+                    <visible>true</visible>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <commandName>Form.Command.RemoveCommentsFromText</commandName>
+                  <representation>Auto</representation>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <placementArea>UserCmds</placementArea>
+                  <picture xsi:type="form:FormPicture"/>
+                  <representationInContextMenu>Auto</representationInContextMenu>
+                  <commandUniqueness>false</commandUniqueness>
+                </items>
+                <items xsi:type="form:Button">
+                  <name>UT_ConvertQueryTextFromBuiltInLanguageExpression</name>
+                  <id>575</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <extendedTooltip>
+                    <name>UT_ConvertQueryTextFromBuiltInLanguageExpressionExtendedTooltip</name>
+                    <id>576</id>
+                    <visible>true</visible>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <commandName>Form.Command.UT_ConvertQueryTextFromBuiltInLanguageExpression</commandName>
+                  <representation>Auto</representation>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <placementArea>UserCmds</placementArea>
+                  <representationInContextMenu>Auto</representationInContextMenu>
+                </items>
+                <items xsi:type="form:Button">
+                  <name>InsertMacroColumn</name>
+                  <id>545</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <extendedTooltip>
+                    <name>InsertMacroColumnExtendedTooltip</name>
+                    <id>546</id>
+                    <visible>true</visible>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <commandName>Form.Command.InsertMacroColumn</commandName>
+                  <representation>Auto</representation>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <placementArea>UserCmds</placementArea>
+                  <representationInContextMenu>Auto</representationInContextMenu>
+                </items>
+                <items xsi:type="form:Button">
+                  <name>InsertPredefinedValue</name>
+                  <id>365</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <extendedTooltip>
+                    <name>InsertPredefinedValueExtendedTooltip</name>
+                    <id>366</id>
+                    <visible>true</visible>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <commandName>Form.Command.InsertPredefinedValue</commandName>
+                  <representation>Auto</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
@@ -1887,7 +2057,6 @@ Example:
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <type>UsualButton</type>
                   <commandName>Form.Command.AddLineFeedsToText</commandName>
                   <representation>Picture</representation>
                   <autoMaxWidth>true</autoMaxWidth>
@@ -1921,7 +2090,6 @@ Example:
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <type>UsualButton</type>
                   <commandName>Form.Command.RemoveLineFeedsFromText</commandName>
                   <representation>Picture</representation>
                   <autoMaxWidth>true</autoMaxWidth>
@@ -1932,159 +2100,18 @@ Example:
                   <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   <commandUniqueness>false</commandUniqueness>
                 </items>
-                <items xsi:type="form:Button">
-                  <name>AddCommentsToQueryText</name>
-                  <id>206</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <extendedTooltip>
-                    <name>AddCommentsToQueryTextExtendedTooltip</name>
-                    <id>207</id>
-                    <visible>true</visible>
-                    <enabled>true</enabled>
-                    <userVisible>
-                      <common>true</common>
-                    </userVisible>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <type>UsualButton</type>
-                  <commandName>Form.Command.AddCommentsToText</commandName>
-                  <representation>Auto</representation>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <placementArea>UserCmds</placementArea>
-                  <picture xsi:type="form:FormPicture"/>
-                  <representationInContextMenu>Auto</representationInContextMenu>
-                  <commandUniqueness>false</commandUniqueness>
-                </items>
-                <items xsi:type="form:Button">
-                  <name>RemoveCommentsFromQueryText</name>
-                  <id>208</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <extendedTooltip>
-                    <name>RemoveCommentsFromQueryTextExtendedTooltip</name>
-                    <id>209</id>
-                    <visible>true</visible>
-                    <enabled>true</enabled>
-                    <userVisible>
-                      <common>true</common>
-                    </userVisible>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <type>UsualButton</type>
-                  <commandName>Form.Command.RemoveCommentsFromText</commandName>
-                  <representation>Auto</representation>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <placementArea>UserCmds</placementArea>
-                  <picture xsi:type="form:FormPicture"/>
-                  <representationInContextMenu>Auto</representationInContextMenu>
-                  <commandUniqueness>false</commandUniqueness>
-                </items>
-                <items xsi:type="form:Button">
-                  <name>InsertPredefinedValue</name>
-                  <id>365</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <extendedTooltip>
-                    <name>InsertPredefinedValueExtendedTooltip</name>
-                    <id>366</id>
-                    <visible>true</visible>
-                    <enabled>true</enabled>
-                    <userVisible>
-                      <common>true</common>
-                    </userVisible>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <type>UsualButton</type>
-                  <commandName>Form.Command.InsertPredefinedValue</commandName>
-                  <representation>Auto</representation>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <placementArea>UserCmds</placementArea>
-                  <picture xsi:type="form:FormPicture"/>
-                  <representationInContextMenu>Auto</representationInContextMenu>
-                </items>
-                <items xsi:type="form:Button">
-                  <name>InsertMacroColumn</name>
-                  <id>545</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <extendedTooltip>
-                    <name>InsertMacroColumnExtendedTooltip</name>
-                    <id>546</id>
-                    <visible>true</visible>
-                    <enabled>true</enabled>
-                    <userVisible>
-                      <common>true</common>
-                    </userVisible>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <type>UsualButton</type>
-                  <commandName>Form.Command.InsertMacroColumn</commandName>
-                  <representation>Auto</representation>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <placementArea>UserCmds</placementArea>
-                  <representationInContextMenu>Auto</representationInContextMenu>
-                </items>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
                 <title>
-                  <key>en</key>
-                  <value>Query command bar group</value>
-                </title>
-                <title>
                   <key>ru</key>
-                  <value>Группа командная панель запроса</value>
+                  <value>Group1</value>
                 </title>
-                <toolTip>
-                  <key>en</key>
-                  <value>Query command bar group</value>
-                </toolTip>
-                <toolTip>
-                  <key>ru</key>
-                  <value>Группа командная панель запроса</value>
-                </toolTip>
                 <extendedTooltip>
                   <name>QueryCommandBarGroupExtendedTooltip</name>
-                  <id>480</id>
+                  <id>589</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -2097,13 +2124,9 @@ Example:
                     <horizontalAlign>Left</horizontalAlign>
                   </extInfo>
                 </extendedTooltip>
-                <type>UsualGroup</type>
-                <extInfo xsi:type="form:UsualGroupExtInfo">
-                  <group>AlwaysHorizontal</group>
-                  <showLeftMargin>true</showLeftMargin>
-                  <united>true</united>
-                  <throughAlign>Auto</throughAlign>
-                  <currentRowUse>Auto</currentRowUse>
+                <type>CommandBar</type>
+                <extInfo xsi:type="form:CommandBarExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
@@ -2495,6 +2518,49 @@ Example:
                   <excludedCommands>Find</excludedCommands>
                   <excludedCommands>ShowMultipleSelection</excludedCommands>
                   <excludedCommands>ShowRowRearrangement</excludedCommands>
+                  <items xsi:type="form:FormField">
+                    <name>QueryParametersUse</name>
+                    <id>581</id>
+                    <visible>true</visible>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <dataPath xsi:type="form:DataPath">
+                      <segments>QueryParameters.Use</segments>
+                    </dataPath>
+                    <extendedTooltip>
+                      <name>QueryParametersUseExtendedTooltip</name>
+                      <id>583</id>
+                      <visible>true</visible>
+                      <enabled>true</enabled>
+                      <userVisible>
+                        <common>true</common>
+                      </userVisible>
+                      <type>Label</type>
+                      <autoMaxWidth>true</autoMaxWidth>
+                      <autoMaxHeight>true</autoMaxHeight>
+                      <extInfo xsi:type="form:LabelDecorationExtInfo">
+                        <horizontalAlign>Left</horizontalAlign>
+                      </extInfo>
+                    </extendedTooltip>
+                    <contextMenu>
+                      <name>QueryParametersUseContextMenu</name>
+                      <id>582</id>
+                      <visible>true</visible>
+                      <enabled>true</enabled>
+                      <userVisible>
+                        <common>true</common>
+                      </userVisible>
+                      <autoFill>true</autoFill>
+                    </contextMenu>
+                    <type>CheckBoxField</type>
+                    <editMode>Enter</editMode>
+                    <showInHeader>true</showInHeader>
+                    <headerHorizontalAlign>Left</headerHorizontalAlign>
+                    <showInFooter>true</showInFooter>
+                    <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+                  </items>
                   <items xsi:type="form:FormField">
                     <name>QueryParametersName</name>
                     <id>66</id>
@@ -2960,6 +3026,10 @@ Example:
                     <event>OnChange</event>
                     <name>QueryParametersOnChange</name>
                   </handlers>
+                  <handlers>
+                    <event>OnStartEdit</event>
+                    <name>QueryParametersWhenEditingStarts</name>
+                  </handlers>
                   <searchStringAddition>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3267,7 +3337,7 @@ Example:
           </title>
           <title>
             <key>ru</key>
-            <value>Запрос</value>
+            <value>Request</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -3833,6 +3903,38 @@ Example:
         <items xsi:type="form:FormGroup">
           <name>AlgorithmTextBeforeExecutionPage</name>
           <id>549</id>
+          <items xsi:type="form:FormGroup">
+            <name>GroupAlgorithmBeforeExecutionCommandPanel</name>
+            <id>577</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <title>
+              <key>ru</key>
+              <value>Group1</value>
+            </title>
+            <extendedTooltip>
+              <name>GroupAlgorithmBeforeExecutionCommandPanelExtendedTooltip</name>
+              <id>578</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <type>CommandBar</type>
+            <extInfo xsi:type="form:CommandBarExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </items>
           <items xsi:type="form:FormField">
             <name>AlgorithmTextBeforeExecution</name>
             <id>551</id>
@@ -4133,6 +4235,38 @@ Example:
               <extendedTooltip>
                 <name>CodeCommandBarGroupExtendedTooltip</name>
                 <id>362</id>
+                <visible>true</visible>
+                <enabled>true</enabled>
+                <userVisible>
+                  <common>true</common>
+                </userVisible>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <type>CommandBar</type>
+              <extInfo xsi:type="form:CommandBarExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </items>
+            <items xsi:type="form:FormGroup">
+              <name>AlgorithmGroupCommandPanelCodeEditor</name>
+              <id>579</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <title>
+                <key>ru</key>
+                <value>Group1</value>
+              </title>
+              <extendedTooltip>
+                <name>AlgorithmGroupCommandPanelCodeEditorExtendedTooltip</name>
+                <id>580</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
@@ -4958,7 +5092,7 @@ Example:
       <key>ru</key>
       <value>Группа верхняя панель</value>
     </toolTip>
-    <width>100</width>
+    <height>6</height>
     <extendedTooltip>
       <name>TopPanelGroupExtendedTooltip</name>
       <id>24</id>
@@ -8595,6 +8729,23 @@ Example:
         <common>true</common>
       </edit>
     </columns>
+    <columns>
+      <name>Use</name>
+      <title>
+        <key>ru</key>
+        <value>Use</value>
+      </title>
+      <id>66</id>
+      <valueType>
+        <types>Boolean</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
   </attributes>
   <attributes>
     <name>QueryCount</name>
@@ -11475,14 +11626,22 @@ Example:
       <value>U t convert query text from built in language expression</value>
     </title>
     <id>47</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Convert from a built-in language expression - remove the &quot;|&quot; characters, replace two double quotes with one, remove the outer quotes.</value>
+    </toolTip>
     <use>
       <common>true</common>
     </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>CommonPicture.UT_ClearFormat</picture>
+    </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>UT_ConvertQueryTextFromBuiltInLanguageExpression</name>
       </handler>
     </action>
+    <representation>Picture</representation>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <commandInterface>

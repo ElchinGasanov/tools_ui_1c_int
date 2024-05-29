@@ -106,7 +106,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 
 		UT_FillWithDebugData();
 		
-		УИ_ЗаполнитьЗапросыИзСКД();
+		UT_FillRequestsFromDCS();
 
 		UT_CodeEditorServer.FormOnCreateAtServer(ThisObject);
 		
@@ -115,22 +115,22 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 												Items.AlgorithmText,
 												,
 												,
-												Элементы.ГруппаАлгоритмКоманднаяПанельРедактораКода);
+												Items.AlgorithmGroupCommandPanelCodeEditor);
 		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, 
 												"AlgorithmBeforeExecution",
 												Items.AlgorithmTextBeforeExecution,
 												,
-												, Элементы.ГруппаАлгоритмПередВыполнениемКоманднаяПанель);
+												, Items.GroupAlgorithmBeforeExecutionCommandPanel);
 		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, 
 												"Query", 
 												Items.QueryText,
 												,
 												"bsl_query",
-												Элементы.ГруппаКоманднаяПанельЗапроса);
+												Items.QueryCommandBarGroup);
 	EndIf;
 #EndRegion
 
-		AlgorithmHintBeforeExecution =NStr("ru = 'Доступны переменные: мЗапрос (Тип-Запрос)';en = 'Variables available: mQuery (Type-Query)'");
+		AlgorithmHintBeforeExecution =NStr("ru = 'Доступны переменные: mQuery (Тип-Запрос)';en = 'Variables available: mQuery (Type-Query)'");
 EndProcedure
 
 &AtClient
@@ -447,13 +447,13 @@ Procedure QueryParametersValueStartChoice(Item, ChoiceData, StandardProcessing)
 
 EndProcedure
 
-&НаКлиенте
-Процедура ПараметрыЗапросаПриНачалеРедактирования(Элемент, НоваяСтрока, Копирование) // new
-	Если НоваяСтрока И Не Копирование Тогда
-		стрПараметра = Элементы.ПараметрыЗапроса.ТекущиеДанные;
-		стрПараметра.Использовать = Истина;
-	КонецЕсли
-КонецПроцедуры
+&AtClient
+Procedure QueryParametersWhenEditingStarts(Item, NewRow, Copy) 
+	If NewRow И Not Copy Then
+		strParameter = Items.QueryParameters.CurrentData;
+		strParameter.Use = True;
+	EndIf
+EndProcedure
 
 
 #EndRegion
@@ -635,8 +635,8 @@ Procedure RemoveCommentsFromText_Command(Command)
 		RemoveCommentsFromText(Items.QueryText);
 	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmPage Then
 		RemoveCommentsFromText(Items.AlgorithmText);
-	ИначеЕсли Элементы.ГруппаЗапросСтраницы.ТекущаяСтраница = Элементы.СтраницаАлгоритмПередВыполнением Тогда // new
-		УбратьКомментированиеСтрокИзТекста(Элементы.ТекстАлгоритмПередВыполнением);
+	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmTextBeforeExecutionPage Then 
+		RemoveCommentsFromText(Items.AlgorithmTextBeforeExecutionPage);
 	EndIf;
 EndProcedure
 
@@ -940,14 +940,14 @@ Procedure LoadQueryBatch_Command(Command)
 
 EndProcedure
 
-&НаКлиенте
-Процедура AddRequestPackage_Command(Command) // new
+&AtClient
+Procedure AddRequestPackage_Command(Command) 
 	
-	ДополнительныеПараметры = Новый Структура("Добавление", Истина);
+	AdditionalParameters = New Structure("Addition", True);
 	
-	ЗагрузитьПакетЗапросов(ДополнительныеПараметры);
+	LoadQueryBatch(AdditionalParameters);
 	
-КонецПроцедуры
+EndProcedure
 
 
 &AtClient
@@ -1000,14 +1000,14 @@ EndProcedure
 &AtClient
 Procedure QueryParametersNextToText_Command(Command)
 	//https://github.com/cpr1c/tools_ui_1c/issues/481
-	УИ_РедакторКодаКлиент.ПереключитьВидимостьРедактора(ЭтотОбъект, "Алгоритм"); // new
-	УИ_РедакторКодаКлиент.ПереключитьВидимостьРедактора(ЭтотОбъект, "АлгоритмПередВыполнением");
+	UT_CodeEditorClient.SwitchEditorVisibility(ThisObject, "Algorithm"); 
+	UT_CodeEditorClient.SwitchEditorVisibility(ThisObject, "AlgorithmBeforeExecution");
 	
 	Items.QueryParametersNextToText.Check = Not Items.QueryParametersNextToText.Check;
 	SavedStates_Save("QueryParametersNextToText", Items.QueryParametersNextToText.Check);
 	QueryParametersNextToTextAtServer();
 	
-	ПодключитьОбработчикОжидания("Команда_ПараметрыЗапросаРядомСТекстом_ВключениеВидимостиРедакторов", 0.1, Истина);
+	AttachIdleHandler("Command_QueryParametersNearText_EnableVisibilityEditors", 0.1, True);
 		
 EndProcedure
 
@@ -1058,8 +1058,8 @@ Procedure AddLineFeedsToText_Command(Command)
 		AddLineFeedsToText(Items.QueryText);
 	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmPage Then
 		AddLineFeedsToText(Items.AlgorithmText);
-	ИначеЕсли Элементы.ГруппаЗапросСтраницы.ТекущаяСтраница = Элементы.СтраницаАлгоритмПередВыполнением Тогда
-		ДобавитьПереносСтрокВТекст(Элементы.ТекстАлгоритмПередВыполнением);		
+	ElsIf  Items.QueryGroupPages.CurrentPage = Items.AlgorithmTextBeforeExecutionPage Then
+		AddLineFeedsToText(Items.AlgorithmTextBeforeExecution);		
 	EndIf;
 EndProcedure
 
@@ -1069,8 +1069,8 @@ Procedure RemoveLineFeedsFromText_Command(Command)
 		RemoveLineFeedsFromText(Items.QueryText);
 	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmPage Then
 		RemoveLineFeedsFromText(Items.AlgorithmText);
-	ИначеЕсли Элементы.ГруппаЗапросСтраницы.ТекущаяСтраница = Элементы.СтраницаАлгоритмПередВыполнением Тогда
-		УбратьПереносСтрокИзТекста(Элементы.ТекстАлгоритмПередВыполнением);		
+	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmTextBeforeExecutionPage Then
+		RemoveLineFeedsFromText(Items.AlgorithmTextBeforeExecution);		
 	EndIf;
 EndProcedure
 
@@ -1080,8 +1080,8 @@ Procedure AddCommentsToText_Command(Command)
 		AddCommentsToText(Items.QueryText);
 	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmPage Then
 		AddCommentsToText(Items.AlgorithmText);
-	ИначеЕсли Элементы.ГруппаЗапросСтраницы.ТекущаяСтраница = Элементы.СтраницаАлгоритмПередВыполнением Тогда
-		ДобавитьКомментированиеСтрокВТекст(Элементы.ТекстАлгоритмПередВыполнением);
+	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmTextBeforeExecutionPage Then
+		AddCommentsToText(Items.AlgorithmTextBeforeExecution);
 	EndIf;
 EndProcedure
 
@@ -1109,10 +1109,10 @@ EndProcedure
 &AtClient
 Procedure ResultToSpreadsheetDocument_Command(Command)
 	
-	фОтображатьИтоги = Элементы.ОтобразитьСкрытьПанельРезультатаИтоги.Пометка; // new
+	fShowTotals = Items.ShowHideResultPanelTotals.Check; 
 	
-	OpeningParameters = New Structure("Object, QueryResultAddress, ResultInBatch, QueryName, ResultKind, фОтображатьИтоги",
-		Object, QueryResultAddress, ResultInBatch, ResultQueryName, ResultKind, фОтображатьИтоги);
+	OpeningParameters = New Structure("Object, QueryResultAddress, ResultInBatch, QueryName, ResultKind, fShowTotals",
+		Object, QueryResultAddress, ResultInBatch, ResultQueryName, ResultKind, fShowTotals);
 	
 	SpreadsheetDocumentForm = OpenForm(FormFullName("SpreadsheetDocumentForm"), OpeningParameters, ThisForm,
 		False);
@@ -1167,15 +1167,15 @@ Procedure ExecuteDataProcessor_Command(Command)
 		Return;
 	EndIf;
 
-	ИменаПеременных = Новый Массив;
-	ИменаПеременных.Добавить("Выборка");
-	ИменаПеременных.Добавить("Параметры");
-	СтруктураИменПеременных = Новый Структура("Алгоритм", ИменаПеременных);
+	VariableNames = New Array;
+	VariableNames.Add("Selection");
+	VariableNames.Add("Parameters");
+	StructureOfVariableNames = New Structure("Algorithm", VariableNames);
 
-	УИ_РедакторКодаКлиент.НачатьСборкуОбработокДляИсполненияКода(ЭтотОбъект,
-																 Новый ОписаниеОповещения("Команда_ВыполнитьОбработкуЗавершениеПодключенияОбработокИсполнения",
-		ЭтотОбъект),
-																 СтруктураИменПеременных);
+	UT_CodeEditorClient.StartBuildDataProcessorForCodeExecution(ThisObject,
+		New CallbackDescription("Command_ExecuteProcessingCompleteConnectionProcessingExecution",
+		ThisObject),
+		StructureOfVariableNames);
 
 EndProcedure
 
@@ -1268,66 +1268,66 @@ Procedure InsertMacroColumn(Command)
 EndProcedure
 
 
-&НаКлиенте // new
-Процедура UT_ConvertQueryTextFromBuiltInLanguageExpression(Команда)
-	УИ_РедакторКодаКлиент.ПреобразоватьТекстЗапросаИзВыраженияВстроенногоЯзыкаРедактораКода(ЭтотОбъект, "Запрос");
-КонецПроцедуры
+&AtClient 
+Procedure UT_ConvertQueryTextFromBuiltInLanguageExpression(Command)
+	UT_CodeEditorClient.ConvertQueryTextFromExpressionBuiltInLanguageCodeEditor(ThisObject, "Query");
+EndProcedure
 
 
 
-&НаКлиенте // new
-Процедура Подключаемый_ВыполнитьКомандуРедактораКода(Команда)
-	УИ_РедакторКодаКлиент.ВыполнитьКомандуРедактораКода(ЭтотОбъект, Команда);
-КонецПроцедуры
+&AtClient 
+Procedure Подключаемый_ВыполнитьКомандуРедактораКода(Command)
+	UT_CodeEditorClient.ExecuteCodeEditorCommand(ThisObject, Command);
+EndProcedure
 
-&НаКлиенте // new
-Процедура ShowHideQueryResult(Команда)
-	Элементы.ShowHideQueryResult.Пометка = Не Элементы.ShowHideQueryResult.Пометка;
-	Элементы.ГруппаНижняяПанель.Видимость = Элементы.ShowHideQueryResult.Пометка;
-КонецПроцедуры
+&AtClient 
+Procedure ShowHideQueryResult(Command)
+	Items.ShowHideQueryResult.Check = Not Items.ShowHideQueryResult.Check;
+	Items.BottomPanelGroup.Visible = Items.ShowHideQueryResult.Check;
+EndProcedure
 
 
 #EndRegion
 
 #Region Private
 
-&НаКлиенте
-Процедура Команда_ВыполнитьОбработкуЗавершениеПодключенияОбработокИсполнения(Результат, ДополнительныеПараметры) Экспорт
-	Если Результат <> Истина Тогда
-		Возврат;
-	КонецЕсли;
+&AtClient
+Procedure Command_ExecuteProcessingCompleteConnectionProcessingExecution(Result, AdditionalParameters) Export
+	If Result <> True Then
+		Return;
+	EndIf;
 	
-	Если МетодИсполненияКода = 0 Тогда
-		стРезультат = ВыполнитьАлгоритм(ТекущийТекстАлгоритма());
-	ИначеЕсли МетодИсполненияКода = 1 Тогда
-		стРезультат = ВыполнитьАлгоритмПострочно(АдресРезультатаЗапроса, РезультатВПакете, ТекущийТекстАлгоритма());
-	ИначеЕсли МетодИсполненияКода = 2 Тогда
-		стРезультат = ВыполнитьАлгоритмПострочноСИндикацией();
-	ИначеЕсли МетодИсполненияКода = 3 Тогда
-		//простое выполнение в фоне
-		стРезультат = ЗапуститьОбработкуНаСервере(ТекущийТекстАлгоритма(), Ложь);
-	ИначеЕсли МетодИсполненияКода = 4 Тогда
-		//построчное выполнение в фоне с индикацией
-		стРезультат = ЗапуститьОбработкуНаСервере(ТекущийТекстАлгоритма(), Истина);
-	Иначе
-		стРезультат = Новый Структура("Успешно, ОписаниеОшибки", Ложь, "Неверный метод исполнения кода");
-	КонецЕсли;
+	If CodeExecutionMethod = 0 Then
+		stResult = ExecuteAlgorithm(AlgorithmCurrentText());
+	ElsIf CodeExecutionMethod = 1 Then
+		stResult = ExecuteAlgorithmLineByLine(QueryResultAddress, ResultInBatch, AlgorithmCurrentText());
+	ElsIf CodeExecutionMethod = 2 Then
+		stResult = ExecuteAlgorithmLineByLineIndication();
+	ElsIf CodeExecutionMethod = 3 Then
+		// easy execution in the background
+		stResult = RunDataProcessorAtServer(AlgorithmCurrentText(), False);
+	ElsIf CodeExecutionMethod = 4 Then
+		// row-by-row execution in the background with indication
+		stResult = RunDataProcessorAtServer(AlgorithmCurrentText(), True);
+	Else
+		stResult = New Structure("Success, ErrorDescription", False, NStr("ru = 'Неверный метод исполнения кода'; en = 'Incorrect code execution method'"));
+	EndIf;
 
-	Если МетодИсполненияКода = 3 Или МетодИсполненияКода = 4 Тогда
-		Если стРезультат.Успешно Тогда
-			Элементы.ВыполнитьОбработку.Заголовок = "Прервать";
+	If CodeExecutionMethod = 3 Или CodeExecutionMethod = 4 Then
+		If stResult.Successfully Then
+			Items.ExecuteDataProcessor.Title = "Interrupt";
 			//Картинки = ПолучитьИзВременногоХранилища(Объект.Картинки);
-			//Элементы.ВыполнитьОбработку.Картинка = Картинки.ПрогрессВыполнения;
-			Элементы.ВыполнитьОбработку.Картинка = БиблиотекаКартинок.Остановить;
-			ОтобразитьСостояниеФоновогоЗадания();
-		КонецЕсли;
-	КонецЕсли;
+			//Items.ВыполнитьОбработку.Картинка = Картинки.ПрогрессВыполнения;
+			Items.ExecuteDataProcessor.Picture = PictureLib.Stop;
+			ShowBackgroundJobState();
+		EndIf;
+	EndIf;
 
-	Если Не стРезультат.Успешно Тогда
-		ПоказатьПредупреждениеКонсоли(стРезультат.ОписаниеОшибки);
-	КонецЕсли;
+	If Not stResult.Successfully Then
+		ShowConsoleMessageBox(stResult.ErrorDescription);
+	EndIf;
 	
-КонецПроцедуры
+EndProcedure
 
 &AtServer
 Procedure UT_FillWithDebugData()
@@ -1365,7 +1365,7 @@ Procedure UT_FillWithDebugData()
 		For Each CurParameter In DebugData.Parameters Do
 
 			NewParameter=New Structure;
-			НовыйПараметр.Вставить("Использовать", Истина); // new
+			NewParameter.Insert("Use", True); 
 			NewParameter.Insert("Name", CurParameter.Key);
 			NewParameter.Insert("ContainerType", GetValueFormCode(CurParameter.Value));
 
@@ -1412,9 +1412,9 @@ Procedure UT_FillWithDebugData()
 
 		For Each KeyValue In DebugData.TempTables Do
 			TempTable=New Structure;
-			TempTable.Вставить("Name", KeyValue.Key);
-			TempTable.Вставить("Container", DataProcessorObject.Container_SaveValue(KeyValue.Value));
-			TempTable.Вставить("Value", TempTable.Container.Presentation);
+			TempTable.Insert("Name", KeyValue.Key);
+			TempTable.Insert("Container", DataProcessorObject.Container_SaveValue(KeyValue.Value));
+			TempTable.Insert("Value", TempTable.Container.Presentation);
 
 			NewRow.TempTables.Add(TempTable);
 		EndDo;
@@ -1423,88 +1423,88 @@ Procedure UT_FillWithDebugData()
 EndProcedure
 
 &НаСервере
-Процедура УИ_ЗаполнитьЗапросыИзСКД()
-	Если Не Параметры.Свойство("АдресЗапросовИзСКД") Тогда
-		Возврат;
-	КонецЕсли;
+Procedure UT_FillRequestsFromDCS()
+	If Not Parameters.Property("AddressRequestsFromDCS") Then
+		Return;
+	EndIf;
 	
-	МассивЗапросовИзСКД = ПолучитьИзВременногоХранилища(Параметры.АдресЗапросовИзСКД);
+	ArrayOfQueriesFromDCS = GetFromTempStorage(Parameters.AddressRequestsFromDCS);
 
-	Если Объект.СохраняемыеСостояния = Неопределено Тогда
-		Объект.СохраняемыеСостояния = Новый Структура;
-	КонецЕсли;
+	If Object.SavedStates = Undefined Then
+		Object.SavedStates = New Structure;
+	EndIf;
 
-	Модифицированность = Ложь;
+	Modified = False;
 
-	ОпцияИнтервалАвтосохранения = 60;
-	ОпцияСохранятьКомментарии = Истина;
-	ОпцияАвтосохранениеПередВыполнениемЗапроса = Истина;
-	ОпцияИнтервалОбновленияВыполненияАлгоритма = 1000;
-	Объект.ОпцияОбрабатывать__ = Истина;
-	Объект.ОпцияИнтервалОбновленияВыполненияАлгоритма = 1000;
+	AutoSaveIntervalOption = 60;
+	SaveCommentsOption = True;
+	AutoSaveBeforeQueryExecutionOption = True;
+	AlgorithmExecutionUpdateIntervalOption = 1000;
+	Object.OptionProcessing__ = True;
+	Object.AlgorithmExecutionUpdateIntervalOption = 1000;
 
-	ОбработкаОбъект=РеквизитФормыВЗначение("Объект");
+	DataProcessorObject = FormAttributeToValue("Object");
 
-	УИ_Отладка=Истина;
+	UT_Debug = True;
 
-	СтрокиДерева=ПакетЗапросов.ПолучитьЭлементы();
+	TreeRows = QueryBatch.GetItems();
 	
-	Для Каждого ДанныеЗапроса Из МассивЗапросовИзСКД Цикл
+	For Each RequestData In ArrayOfQueriesFromDCS Do
 
-		НоваяСтрока=СтрокиДерева.Добавить();
-		НоваяСтрока.Имя=ДанныеЗапроса.Имя;
-		НоваяСтрока.ТекстЗапроса=ДанныеЗапроса.Текст;
-		НоваяСтрока.ПараметрыЗапроса=Новый СписокЗначений;
+		NewRow = TreeRows.Add();
+		NewRow.Name = RequestData.Name;
+		NewRow.QueryText = RequestData.Text;
+		NewRow.QueryParameters = New ValueList;
 	
-		Если ДанныеЗапроса.Свойство("Параметры") Тогда
-			Для Каждого ТекПараметр Из ДанныеЗапроса.Параметры Цикл
+		If RequestData.Property("Parameters") Then
+			For Each CurrentProperty In RequestData.Parameters Do
 	
-				НовыйПараметр=Новый Структура;
-				НовыйПараметр.Вставить("Использовать", Истина);
-				НовыйПараметр.Вставить("Имя", ТекПараметр.Ключ);
-				НовыйПараметр.Вставить("ТипКонтейнера", ПолучитьКодФормыЗначения(ТекПараметр.Значение));
+				NewParameter = New Structure;
+				NewParameter.Insert("Use", True);
+				NewParameter.Insert("Name", CurrentProperty.Key);
+				NewParameter.Insert("ContainerType", GetValueFormCode(CurrentProperty.Value));
 	
-				НовыйПараметр.Вставить("Контейнер", ОбработкаОбъект.Контейнер_СохранитьЗначение(ТекПараметр.Значение));
+				NewParameter.Insert("Container", DataProcessorObject.Container_SaveValue(CurrentProperty.Value));
 	
-				Если НовыйПараметр.ТипКонтейнера = 2 Тогда
-					МассивТипов=Новый Массив;
+				If NewParameter.ContainerType = 2 Then
+					TypesArray = New Array;
 	
-					Для Каждого ЗначениеМассива Из ТекПараметр.Значение Цикл
-						ТекТип=ТипЗнч(ЗначениеМассива);
-						Если МассивТипов.Найти(ТекТип) = Неопределено Тогда
-							МассивТипов.Добавить(ТекТип);
-						КонецЕсли;
-					КонецЦикла;
+					For Each ArrayValue In CurrentProperty.Value Do
+						CurrentType = TypeOf(ArrayValue);
+						If TypesArray.Find(CurrentType) = Undefined Then
+							TypesArray.Add(CurrentType);
+						EndIf;
+					EndDo;
 	
-					НовыйПараметр.Вставить("ТипЗначения", Новый ОписаниеТипов(МассивТипов));
-					НовыйПараметр.Вставить("Значение", НовыйПараметр.Контейнер.Представление);
-				ИначеЕсли НовыйПараметр.ТипКонтейнера = 1 Тогда
-					МассивТипов=Новый Массив;
+					NewParameter.Insert("ValueType", New TypeDescription(TypesArray));
+					NewParameter.Insert("Value", NewParameter.Container.Presentation);
+				ElsIf NewParameter.ContainerType = 1 Then
+					TypesArray = New Array;
 	
-					Для Каждого ЭлементСписка Из ТекПараметр.Значение Цикл
-						ТекТип=ТипЗнч(ЭлементСписка.Значение);
-						Если МассивТипов.Найти(ТекТип) = Неопределено Тогда
-							МассивТипов.Добавить(ТекТип);
-						КонецЕсли;
-					КонецЦикла;
+					For Each ListItem In CurrentProperty.Value Do
+						CurrentType = TypeOf(ListItem.Value);
+						If TypesArray.Find(CurrentType) = Undefined Then
+							TypesArray.Add(CurrentType);
+						EndIf;
+					EndDo;
 	
-					НовыйПараметр.Вставить("ТипЗначения", Новый ОписаниеТипов(МассивТипов));
-					НовыйПараметр.Вставить("Значение", НовыйПараметр.Контейнер.Представление);
-				ИначеЕсли НовыйПараметр.ТипКонтейнера = 3 Тогда
-					НовыйПараметр.Вставить("ТипЗначения", "Таблица значений");
-					НовыйПараметр.Вставить("Значение", НовыйПараметр.Контейнер.Представление);
-				Иначе
-					НовыйПараметр.Вставить("ТипЗначения", ОписаниеТиповПоТипу(ТипЗнч(ТекПараметр.Значение)));
-					НовыйПараметр.Вставить("Значение", НовыйПараметр.Контейнер);
+					NewParameter.Insert("ValueType", New TypeDescription(TypesArray));
+					NewParameter.Insert("Value", NewParameter.Container.Presentation);
+				ElsIf NewParameter.ContainerType = 3 Then
+					NewParameter.Insert("ValueType", NStr("ru = 'Таблица значений'; en = 'Value table'"));
+					NewParameter.Insert("Value", NewParameter.Container.Presentation);
+				Else
+					NewParameter.Insert("ValueType", TypeDescriptionByType(TypeOf(CurrentProperty.Value)));
+					NewParameter.Insert("Value", NewParameter.Container);
 	
-				КонецЕсли;
-				НоваяСтрока.ПараметрыЗапроса.Добавить(НовыйПараметр);
-			КонецЦикла;
-		КонецЕсли;
+				EndIf;
+				NewRow.QueryParameters.Add(NewParameter);
+			EndDo;
+		EndIf;
 	
-	КонецЦикла;
+	EndDo;
 
-КонецПроцедуры
+EndProcedure
 
 #Region FormEvents
 
@@ -2515,11 +2515,11 @@ Procedure LoadTempTable(TableName, vtData, arLoadQueries, TablesLoadQuery)
 														 |");
 
 		arLoadQueries.Add("
-							 |SELECT
-							 |" + FieldExpressions + "
-													 |INTO " + TempTableName + "
-																			   |FROM &" + TableName
-			+ " AS Table");
+							|SELECT
+							|" + FieldExpressions + "
+							|INTO " + TempTableName + "
+							|FROM &" + TableName
+						+ " AS Table");
 
 		If ValueIsFilled(AdditionalQueries) Then
 			arLoadQueries.Add(AdditionalQueries);
@@ -3189,7 +3189,7 @@ Procedure ExecuteAlgorithmBeforeQueryExecution(Query, AlgorithmText)
 		Context,
 		False,
 		ThisObject,
-		"АлгоритмПередВыполнением");
+		"AlgorithmBeforeExecution");
 	If Not	Result.Successfully Then
 		Raise Result.ErrorDescription;
 	EndIf;
@@ -3222,9 +3222,9 @@ Function ExecuteQueryAtServer(QueryText,TextOfAlgorithmBeforeExecution)
 
 	For Each ParameterRow In QueryParameters Do
 	
-		Если Не СтрокаПараметра.Использовать Тогда // new
-			Продолжить;
-		КонецЕсли;			
+		If Not ParameterRow.Use Then 
+			Continue;
+		EndIf;			
 			
 		If Object.OptionProcessing__ And StrStartsWith(ParameterRow.Name, MacroParameter) Then
 			Continue;
@@ -3554,7 +3554,7 @@ EndFunction
 &AtServer
 Procedure QueryParameters_SaveValue(RowID, Val Value)
 
-	ParameterRow = QueryParameters.НайтиПоИдентификатору(RowID);
+	ParameterRow = QueryParameters.FindByID(RowID);
 
 	If ParameterRow.ContainerType = 0 Then
 		ParameterRow.Container = FormAttributeToValue("Object").Container_SaveValue(Value);
@@ -3936,7 +3936,7 @@ Procedure QueryBatch_Save(Notification, strFileName, fTitleOnly = False)
 
 	BatchCurrentRow = Undefined;
 	If CurrentRow <> Undefined Then
-		BatchCurrentRow = QueryBatch.НайтиПоИдентификатору(CurrentRow);
+		BatchCurrentRow = QueryBatch.FindByID(CurrentRow);
 	EndIf;
 	
 	//saved states ++
@@ -4111,9 +4111,9 @@ Procedure QueryBatch_LoadCompletion(AdditionalParameters) Export
 
 	QueryCount = stLoadedData.QueryCount;
 	
-	Если Не ДополнительныеПараметры.Свойство("Добавление") Тогда
+	If Not AdditionalParameters.Property("Addition") Then
 		QueryBatch.GetItems().Clear();
-	КонецЕсли;
+	EndIf;
 	
 	QueryBatch_AddRowsFromArray(QueryBatch, stLoadedData.QueryBatch);
 
@@ -4505,7 +4505,7 @@ Procedure ProcessParameterNameChange(NewRow, CancelEditing, Cancel)
 	EndIf;
 
 	If Not NewRow And ValueIsFilled(PreviousValueParameterName) Then
-		strQueryText = ТекущийТекстЗапроса();
+		strQueryText = CurrentQueryText();
 		If ParameterExists(strQueryText, "&" + PreviousValueParameterName) Then
 			AdditionalParameters = New Structure("PreviousValueParameterName, ParameterName",
 				PreviousValueParameterName, strParameterName);
@@ -4632,7 +4632,7 @@ Procedure RowEditEnd(Result, AdditionalParameters) Export
 		ElsIf AdditionalParameters.Table = "TempTables" Then
 			TableRow = TempTables.FindByID(AdditionalParameters.Row);
 			
-			Container = Новый Структура("Type, RowCount, Value, Presentation", "ValueTable",
+			Container = New Structure("Type, RowCount, Value, Presentation", "ValueTable",
 				Result.RowCount, Result.Value, Result.Presentation);
 			
 			TableRow.Container = Container;
@@ -5133,7 +5133,7 @@ Procedure AfterSaveQueryBatch(FileToMove, AdditionalParameters) Export
 	Modified = False;
 
 	If AdditionalParameters.Property("Completion") Then
-		Закрыть();
+		Close();
 	ElsIf AdditionalParameters.Property("New") Then
 		QueryBatch_New();
 	Else
@@ -5173,7 +5173,7 @@ EndFunction
 
 
 &AtClient
-Procedure QueryWizard_CloseWizardNotification_Command(strQueryText, CurrentQuery) Экспорт
+Procedure QueryWizard_CloseWizardNotification_Command(strQueryText, CurrentQuery) Export
 
 	If Not Query_GetInWizard(CurrentQuery) Then
 		Return;
@@ -5196,65 +5196,65 @@ EndProcedure
 
 &AtClient
 Procedure ExecuteQuery(fUseSelection)
-	Если ОпцияАвтосохранениеПередВыполнениемЗапроса И Модифицированность Тогда
-		Автосохранить();
-	КонецЕсли;
+	If AutoSaveBeforeQueryExecutionOption И Modified Then
+		Autosave();
+	EndIf;
 
-	ИменаПеременных = Новый Массив;
-	ИменаПеременных.Добавить("мЗапрос");
+	VariableNames = New Array;
+	VariableNames.Add("mQuery");
 	
-	ПараметрыОповещения = Новый Структура;
-	ПараметрыОповещения.Вставить("фИспользоватьВыделение", фИспользоватьВыделение);
+	CallBackParameters = New Structure;
+	CallBackParameters.Insert("fUseSelection", fUseSelection);
 
-	УИ_РедакторКодаКлиент.НачатьСборкуОбработокДляИсполненияКода(ЭтотОбъект,
-																 Новый ОписаниеОповещения("ВыполнитьЗапросЗавершениеСохраненияОбработокИсполненияАлгоритмов",
-		ЭтотОбъект, ПараметрыОповещения),
-																 Новый Структура("АлгоритмПередВыполнением", ИменаПеременных));
+	UT_CodeEditorClient.StartBuildDataProcessorForCodeExecution(ThisObject,
+		New CallbackDescription("ExecuteRequestCompletionOfSavingProcessingExecutionOfAlgorithms",
+			ThisObject, CallBackParameters),
+			New Structure("AlgorithmBeforeExecution", VariableNames));
 
 EndProcedure
 
-&НаКлиенте
-Процедура ВыполнитьЗапросЗавершениеСохраненияОбработокИсполненияАлгоритмов(Результат, ДополнительныеПараметры) Экспорт
-	ГраницыВыделенияЗапроса = ГраницыВыделенияЗапроса();
-	фВесьТекст = Не ДополнительныеПараметры.фИспользоватьВыделение
-				 Или (ГраницыВыделенияЗапроса.НачалоСтроки = ГраницыВыделенияЗапроса.КонецСтроки
-					  И ГраницыВыделенияЗапроса.НачалоКолонки = ГраницыВыделенияЗапроса.КонецКолонки);
-	Если фВесьТекст Тогда
-		стрТекстЗапроса = ТекущийТекстЗапроса();
-	Иначе
-		стрТекстЗапроса = ВыделенныйТекстЗапроса();
-	КонецЕсли;
+&AtClient
+Procedure ExecuteRequestCompletionOfSavingProcessingExecutionOfAlgorithms(Результат, AdditionalParameters) Export
+	QuerySelectionBoundaries = QuerySelectionBoundaries();
+	fAllText = Not AdditionalParameters.fUseSelection
+				 Or (QuerySelectionBoundaries.RowBeginning = QuerySelectionBoundaries.RowEnd
+					  And QuerySelectionBoundaries.ColumnBeginning = QuerySelectionBoundaries.ColumnEnd);
+	If fAllText Then
+		strQueryText = CurrentQueryText();
+	Else
+		strQueryText = QuerySelectedText();
+	EndIf;
 
-	стРезультат = ВыполнитьЗапросНаСервере(стрТекстЗапроса, ТекущийАлгоритмПередВыполнением());
-	Если ЗначениеЗаполнено(стРезультат.ОписаниеОшибки) Тогда
-		ПоказатьПредупреждениеКонсоли(стРезультат.ОписаниеОшибки);
-		ТекущийЭлемент = Элементы.ТекстЗапроса;
-		Если ЗначениеЗаполнено(стРезультат.Строка) Тогда
-			Если фВесьТекст Тогда
-				УстановитьГраницыВыделенияЗапроса(стРезультат.Строка, стРезультат.Колонка,
-					стРезультат.Строка, стРезультат.Колонка);
-			Иначе
-			КонецЕсли;
-		КонецЕсли;
-	Иначе
+	stResult = ExecuteQueryAtServer(strQueryText, CurrentAlgorithmBeforeExecution());
+	If ValueIsFilled(stResult.ErrorDescription) Then
+		ShowConsoleMessageBox(stResult.ErrorDescription);
+		CurrentItem = Items.QueryText;
+		If ValueIsFilled(stResult.Row) Then
+			If fAllText Then
+				SetQuerySelectionBounds(stResult.Row, stResult.Column,
+					stResult.Row, stResult.Column);
+			Else
+			EndIf;
+		EndIf;
+	Else
 
-		РезультатНаФорме = -1;
-		КоличествоВозвращенныхСтрокРезультата = ИзвлечьРезультат(стРезультат.КоличествоРезультатов);
-		СтруктураЗаписиРезультата_Развернуть();
+		ResultInForm = -1;
+		ResultReturningRowsCount = ExtractResult(stResult.ResultCount);
+		ResultRecordStructure_Expand();
 
-		ТекущаяСтрокаПакета = ПакетЗапросов.НайтиПоИдентификатору(Элементы.ПакетЗапросов.ТекущаяСтрока);
-		ТекущаяСтрокаПакета.КоличествоСтрокРезультата = РезультатЗапроса.Количество();
-		ВремяВыполнения = ФорматироватьДлительность(стРезультат.ВремяОкончания - стРезультат.ВремяНачала);
-		Элементы.ПакетЗапросов.ТекущиеДанные.Инфо = Строка(КоличествоВозвращенныхСтрокРезультата) + " / "
-			+ ВремяВыполнения;
+		CurrentPackageRow = QueryBatch.FindByID(Items.QueryBatch.CurrentRow);
+		CurrentPackageRow.ResultRowCount = QueryResult.Count();
+		ExecutionTime = FormatDuration(stResult.FinishTime - stResult.StartTime);
+		Items.QueryBatch.CurrentData.Info = String(ResultReturningRowsCount) + " / "
+			+ ExecutionTime;
 
-	КонецЕсли;
+	EndIf;
 
-	ИмяЗапросаРезультата = Элементы.ПакетЗапросов.ТекущиеДанные.Имя;
-	ОбновитьСостояниеЭлементовФормыАлгоритма();
+	ResultQueryName = Items.QueryBatch.CurrentData.Name;
+	RefreshAlgorithmFormItems();
 
 	
-КонецПроцедуры
+EndProcedure
 
 &AtServer
 Function ParametersFillFromQueryAtServer()
@@ -5283,11 +5283,11 @@ Function ParametersFillFromQueryAtServer()
 			ParameterRow = arParameterRows[0];
 		Else
 			ParameterRow = QueryParameters.Add();
-			СтрокаПараметра.Использовать = Истина;
+			ParameterRow.Use = True;
 			ParameterRow.Name = Parameter.Name;
 			If Parameter.ValueType = New TypeDescription("ValueTable") Then
 				ParameterRow.ContainerType = 3;
-			КонецЕсли;
+			EndIf;
 			
 			QueryParameters_SaveValue(ParameterRow.GetID(),
 				Parameter.ValueType.AdjustValue(Undefined));
@@ -5547,20 +5547,20 @@ Function ExecuteAlgorithm(Algorithm)
 	qrSelection = stResult.Result;
 	selSelection = qrSelection.Select();
 
-	Контекст = Новый Структура;
-	Контекст.Вставить("Выборка", выбВыборка);
-	Контекст.Вставить("Параметры", стРезультатЗапроса.Параметры);
-	РезультатВыполнения = УИ_РедакторКодаКлиентСервер.ВыполнитьАлгоритм(Алгоритм, Контекст, Ложь, ЭтотОбъект, "Алгоритм");
+	Context = New Structure;
+	Context.Insert("Selection", selSelection);
+	Context.Insert("Parameters", stQueryResult.Parameters);
+	ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(Algorithm, Context, False, ThisObject, "Algorithm");
 
-	Если РезультатВыполнения.Успешно Тогда
+	If ExecutionResult.Successfully Then
 		Return New Structure("Success, Continue, ErrorDescription", True);
-	Иначе
-		Возврат New Structure("Success, Continue, ErrorDescription", False, False, РезультатВыполнения.ОписаниеОшибки);
-	КонецЕсли;
+	Else
+		Return New Structure("Success, Continue, ErrorDescription", False, False, ExecutionResult.ErrorDescription);
+	EndIf;
 
 EndFunction
 
-&AtServerNoContext
+&AtServer
 Function ExecuteAlgorithmLineByLine(QueryResultAddress, ResultInBatch, AlgorithmText)
 
 	stQueryResult = GetFromTempStorage(QueryResultAddress);
@@ -5569,27 +5569,27 @@ Function ExecuteAlgorithmLineByLine(QueryResultAddress, ResultInBatch, Algorithm
 	qrSelection = stResult.Result;
 	selSelection = qrSelection.Select();
 	
-	Контекст = Новый Структура;
-	Контекст.Вставить("Выборка", выбВыборка);
-	Контекст.Вставить("Параметры", стРезультатЗапроса.Параметры);
+	Context = New Structure;
+	Context.Insert("Selection", selSelection);
+	Context.Insert("Parameters", stQueryResult.Parameters);
 
-	Пока выбВыборка.Следующий() Цикл
-		РезультатВыполнения = УИ_РедакторКодаКлиентСервер.ВыполнитьАлгоритм(ТекстАлгоритма,
-																			Контекст,
-																			Ложь,
-																			ЭтотОбъект,
-																			"Алгоритм");
-		Если Не РезультатВыполнения.Успешно Тогда
+	While selSelection.Next() Do
+		ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(AlgorithmText,
+																			Context,
+																			False,
+																			ThisObject,
+																			"Algorithm");
+		If Not ExecutionResult.Successfully Then
 			Return New Structure("Success, Continue, ErrorDescription", False, False,
-				РезультатВыполнения.ОписаниеОшибки);
-		КонецЕсли;
-	КонецЦикла;
+				ExecutionResult.ErrorDescription);
+		EndIf;
+	EndDo;
 
 	Return New Structure("Success, Continue, ErrorDescription, Progress", True, False, Undefined, 100);
 
 EndFunction
 
-&AtServerNoContext
+&AtServer
 Function ExecuteAlgorithmAtServerLineByLine(StateAddress, QueryResultAddress, ResultInBatch, AlgorithmText,
 	AlgorithmExecutionUpdateIntervalOption)
 
@@ -5610,33 +5610,33 @@ Function ExecuteAlgorithmAtServerLineByLine(StateAddress, QueryResultAddress, Re
 	nCountDone = stStatus.CountDone;
 	nPortionFinishMoment = CurrentUniversalDateInMilliseconds() + AlgorithmExecutionUpdateIntervalOption;
 
-	//Попытка
-	Контекст = Новый Структура;
-	Контекст.Вставить("Выборка", выбВыборка);
-	Контекст.Вставить("Параметры", стСостояние.Параметры);
+	//Try
+	Context = New Structure;
+	Context.Insert("Selection", selSelection);
+	Context.Insert("Parameters", stStatus.Parameters);
 
-	fContinue = Ложь;
-	Пока выбВыборка.Следующий() Цикл
+	fContinue = False;
+	While selSelection.Next() Do
 
-		РезультатВыполнения = УИ_РедакторКодаКлиентСервер.ВыполнитьАлгоритм(ТекстАлгоритма,
-																			Контекст,
-																			Ложь,
-																			ЭтотОбъект,
-																			"Алгоритм");
-		Если Не РезультатВыполнения.Успешно Тогда
-			Возврат Новый Структура("Успешно, Продолжать, ОписаниеОшибки", Ложь, Ложь,
-				РезультатВыполнения.ОписаниеОшибки);
-		КонецЕсли;
-		чКоличествоСделано = чКоличествоСделано + 1;
+		ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(AlgorithmText,
+																			Context,
+																			False,
+																			ThisObject,
+																			"Algorithm");
+		If Not ExecutionResult.Successfully Then
+			Return New Structure("Success, Continue, ErrorDescription", False, False,
+				ExecutionResult.ErrorDescription);
+		EndIf;
+		nCountDone = nCountDone + 1;
 
-		Если ТекущаяУниверсальнаяДатаВМиллисекундах() >= чМоментОкончанияПорции Тогда
-			fContinue = Истина;
-			Прервать;
-		КонецЕсли;
+		If CurrentUniversalDateInMilliseconds() >= nPortionFinishMoment Then
+			fContinue = True;
+			Break;
+		EndIf;
 
-	КонецЦикла;
+	EndDo;
 
-	stStatus.КоличествоСделано = чКоличествоСделано;
+	stStatus.CountDone = nCountDone;
 
 
 	If fContinue Then
@@ -5835,9 +5835,9 @@ EndProcedure
 &AtClient
 Procedure AfterChoosingFileForLoadingQueryBatchCompletion(AdditionalParameters) Export
 	
-	Если Не ДополнительныеПараметры.Свойство("Добавление") Тогда
+	If Not AdditionalParameters.Property("Addition") Then
 		SetQueriesFileName(AdditionalParameters.FileName);
-	КонецЕсли;
+	EndIf;
 	
 	EditingQuery = -1;
 	QueryBatch_Save( , StateAutoSaveFileName, True);
@@ -6224,12 +6224,12 @@ EndFunction
 
 #EndRegion
 
-&НаКлиенте
-Процедура Команда_ПараметрыЗапросаРядомСТекстом_ВключениеВидимостиРедакторов()
-	//Бигфикс https://github.com/cpr1c/tools_ui_1c/issues/481
-	УИ_РедакторКодаКлиент.ПереключитьВидимостьРедактора(ЭтотОбъект, "Алгоритм");
-	УИ_РедакторКодаКлиент.ПереключитьВидимостьРедактора(ЭтотОбъект, "АлгоритмПередВыполнением");
-КонецПроцедуры
+&AtClient
+Procedure Command_QueryParametersNearText_EnableVisibilityEditors()
+	//Bugfix https://github.com/cpr1c/tools_ui_1c/issues/481
+	UT_CodeEditorClient.SwitchEditorVisibility(ThisObject, "Algorithm");
+	UT_CodeEditorClient.SwitchEditorVisibility(ThisObject, "AlgorithmBeforeExecution");
+EndProcedure
 
 #EndRegion
 

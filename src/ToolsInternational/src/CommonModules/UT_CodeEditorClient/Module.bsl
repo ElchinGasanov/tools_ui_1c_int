@@ -42,7 +42,7 @@ Procedure StartBuildDataProcessorForCodeExecution(Form, CallbackDescriptionAbout
 			For Each Str In EditorDataForBuild.NamesOfPredefinedVariables Do
 				If EditorDataProcessorCache.NamesOfPredefinedVariables.Найти(Lower(Str)) = Undefined Then
 					ВсеПеременныеЕстьВСобраннойОбработке = False;
-					Прервать;
+					Break;
 				EndIf;
 			EndDo;
 
@@ -258,7 +258,7 @@ Function AllFormEditorsInitialized(FormEditors)
 	Result = True;
 	For Each KeyValue In FormEditors Do
 		If Not KeyValue.Value.Initialized 
-			And KeyValue.Value.Visible Then
+			And KeyValue.Value.Visibility Then
 			Result = False;
 			Break;
 		EndIf;
@@ -1996,7 +1996,7 @@ Procedure StartBuildDataProcessorForCodeExecutionDataProcessorsCompletingSavingT
 		Return;
 	EndIf;
 	
-	УИ_УправлениеКонфигураторомКлиент.НачатьПолучениеКонтекстаКомандыКонфигуратора(New CallbackDescription("StartBuildDataProcessorForCodeExecutionCompletingGetContextEditor",
+	UT_ConfiguratorManagementClient.StartGettingContextConfiguratorCommand(New CallbackDescription("StartBuildDataProcessorForCodeExecutionCompletingGetContextEditor",
 		ThisObject, AdditionalParameters));
 
 
@@ -2088,7 +2088,7 @@ Procedure StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCom
 																				"DataProcessorTemplate.xml");
 	AdditionalParameters.Insert("DataProcessorFileName", DataProcessorFileName);
 
-	УИ_УправлениеКонфигураторомКлиент.НачатьСборкуОбработкиИзФайлов(AdditionalParameters.DataProcessorsBuildOptions.ConfiguratorCommandContext,
+	UT_ConfiguratorManagementClient.StartBuildProcessingFromFiles(AdditionalParameters.DataProcessorsBuildOptions.ConfiguratorCommandContext,
 																	DataProcessorSourceFileName,
 																	DataProcessorFileName,
 																	New CallbackDescription("StartBuildDataProcessorForCodeExecutionBuildProcessingForNextEditorCompletionOfFileFormationProcessing",
@@ -2233,7 +2233,7 @@ EndProcedure
 // Начать сборку обработок для исполнения кода завершение получения контекста редактора.
 // 
 // Parameters:
-//  ConfiguratorContext - см. УИ_УправлениеКонфигураторомКлиент.НовыйConfiguratorCommandContext, Undefined -Контекст конфигуратора
+//  ConfiguratorContext - см. UT_ConfiguratorManagementClient.NewContextConfiguratorCommand, Undefined -Контекст конфигуратора
 //  BuildOptions - см. NewBuildParametersDataProcessorsForEditors - Параметры сборки
 Procedure StartBuildDataProcessorForCodeExecutionCompletingGetContextEditor(ConfiguratorContext,
 	BuildOptions) Export
@@ -2288,10 +2288,10 @@ Procedure FormOnOpenEndEditorLibrarySaving(Result, AdditionalParameters) Export
 			//EditorAttributeName = UT_CodeEditorClientServer.AttributeNameCodeEditor(KeyValue.Value.AttributeName);	
 
 			If EditorType = EditorsTypes.Monaco Then
-				Form[KeyValue.Value.AttributeName] = EditorSaveDirectory(EditorType) 
+				Form[KeyValue.Value.PropsName] = EditorSaveDirectory(EditorType) 
 				+ GetPathSeparator() + "index.html";
 //			ElsIf EditorType = EditorsTypes.Ace Then
-//				Form[KeyValue.Value.AttributeName] = AceEditorFileNameForLanguage(KeyValue.Value.EditorLanguage);
+//				Form[KeyValue.Value.PropsName] = AceEditorFileNameForLanguage(KeyValue.Value.EditorLanguage);
 			EndIf;
 		EndDo;
 	Else
@@ -4111,7 +4111,7 @@ EndFunction
 // * EditorIndexForBuild - Number -
 // * CatalogTemplateProcessing - String -
 // * Form - ClientApplicationForm,Undefined -
-// * ConfiguratorCommandContext - см. УИ_УправлениеКонфигураторомКлиент.НовыйConfiguratorCommandContext, Undefined -
+// * ConfiguratorCommandContext - см. UT_ConfiguratorManagementClient.NewContextConfiguratorCommand, Undefined -
 Function NewBuildParametersDataProcessorsForEditors()
 	BuildOptions = New Structure();
 	BuildOptions.Insert("CallbackDescriptionAboutCompletion", Undefined);
