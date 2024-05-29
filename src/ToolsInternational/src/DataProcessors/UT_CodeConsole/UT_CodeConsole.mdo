@@ -19,9 +19,17 @@
     <key>ru</key>
     <value>Консоль кода</value>
   </extendedPresentation>
+  <extendedPresentation>
+    <key>en</key>
+    <value>Code console</value>
+  </extendedPresentation>
   <explanation>
     <key>ru</key>
     <value>Позволяет выполнять код из предприятия без создания внешних обработок. Есть подсветка синтаксиса и минимальная контекстная подсказка.</value>
+  </explanation>
+  <explanation>
+    <key>en</key>
+    <value>Allows you to execute code from the enterprise without creating external processing. There is syntax highlighting and minimal context hints.</value>
   </explanation>
   <forms uuid="c64c5360-b585-4331-9178-b5c3bcbaadb5">
     <name>Form</name>
