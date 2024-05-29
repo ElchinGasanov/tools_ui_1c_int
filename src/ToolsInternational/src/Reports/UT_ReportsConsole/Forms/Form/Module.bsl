@@ -1,3 +1,4 @@
+
 ////////////////////////////////////////////////////////////////////////////////
 // Common procedures and funtions 
 
@@ -376,7 +377,7 @@ EndProcedure
 //  Recursively - the need for recursive verification of the uniqueness of names
 //				 in collection ItemsCollection.
 //
-// Return value:
+// Returns:
 //   String - generated name.
 &AtServer
 Function GenerateNameAtServer(RowType, NameBasePart, ItemsCollection, Recursively)
@@ -411,7 +412,7 @@ EndFunction
 //  Recursively - the need for recursive verification of the uniqueness of names
 //				 in collection ItemsCollection.
 //
-// Return value:
+// Returns:
 //   String - generated name.
 &AtClient
 Function GenerateName(RowType, NameBasePart, ItemsCollection, Recursively)
@@ -457,9 +458,9 @@ Procedure FindRows(ItemsCollection, RowType, FoundRows)
 
 EndProcedure
 
-//generated name for  Data Composition Schema
+// Generated name for  Data Composition Schema
 //
-// Return value:
+// Returns:
 //  String - generated name of Data Composition Schema.
 &AtClient
 Function GenerateDataCompositionSchemaName()
@@ -473,7 +474,7 @@ EndFunction
 // Parameters:
 //  ItemsCollection - the collection of elements to which is added Report variant.
 //
-// Return value:
+// Returns:
 //  String - generated name of report variant.
 &AtClient
 Function GenerateReportVariantName(ItemsCollection)
@@ -488,7 +489,7 @@ EndFunction
 //  ItemsCollection - the collection of elements to which is added user setting 
 //
 //
-// Return value:
+// Returns:
 //  String - generated name of user setting.
 &AtClient
 Function GenerateUserSettingName(ItemsCollection)
@@ -502,7 +503,7 @@ EndFunction
 // Parameters:
 //  ItemsCollection - the collection of elements to which is addedпапка.
 //
-// Return value:
+// Returns:
 //  String - generated folder name.
 &AtClient
 Function GenerateFolderName(ItemsCollection)
@@ -572,7 +573,7 @@ EndProcedure
 // Parameters:
 //  Item - item - folder, the type of which is determined.
 //
-// Return value:
+// Returns:
 // Number - folder type;
 // Undefined if the folder type could not be determined.
 &AtClient
@@ -633,7 +634,7 @@ Procedure DownloadConsoleFileAfterAttachExtension(Attached, AdditionalParameters
 
 			BeginPuttingFiles(
 				New NotifyDescription("DownloadConsoleFileAfterAttachExtensionAfterPutFiles",
-				ThisForm), , FileChoose);
+				ThisObject), , FileChoose);
 
 		Else
 
@@ -642,14 +643,14 @@ Procedure DownloadConsoleFileAfterAttachExtension(Attached, AdditionalParameters
 
 			BeginPuttingFiles(
 				New NotifyDescription("DownloadConsoleFileAfterAttachExtensionAfterPutFiles",
-				ThisForm), PlacedFiles, , False);
+				ThisObject), PlacedFiles, , False);
 
 		EndIf;
 
 	Else
 
 		BeginPutFile(
-			New NotifyDescription("DownloadConsoleFileAfterAttachExtensionAfterPutFile", ThisForm), ,
+			New NotifyDescription("DownloadConsoleFileAfterAttachExtensionAfterPutFile", ThisObject), ,
 			DownloadableFileName, , DownloadableFileName = "");
 
 	EndIf;
@@ -769,8 +770,35 @@ Procedure DownloadConsoleFileAtServer(Address)
 	TempFileName = GetTempFileName();
 	Data = GetFromTempStorage(Address);
 	Data.Write(TempFileName);
-	ValueToFormAttribute(ValueFromFile(TempFileName), "ReportsTree");
+	
+	ReportsTree.GetItems().Clear();
+	FileTree = ValueFromFile(TempFileName);
+	
+	ReadFileTreeIntoReportTree(FileTree, ReportsTree);
+	
+	//ValueToFormAttribute(ValueFromFile(TempFileName), "ReportsTree");
 
+EndProcedure
+
+// Read the file tree row into the report tree.
+// 
+// Parameters:
+// FileTreeRow - ValueTree, ValueTreeRow - file tree row
+// ReportTreeRow - FormDataTree, FormDataTreeItem - report tree row
+&AtServer
+Procedure ReadFileTreeIntoReportTree(FileTreeRow, ReportTreeRow)
+	ReportTreeItems = ReportTreeRow.GetItems();
+	For Each CurrentRow In FileTreeRow.Rows Do
+		NewRow = ReportTreeItems.Add();
+		FillPropertyValues(NewRow, CurrentRow,, "ExternalDataSets");
+		
+		For Each ExternalDataRow In CurrentRow.ExternalDataSets Do
+			NewExternalDataSetsRow = NewRow.ExternalDataSets.Add();
+			FillPropertyValues(NewExternalDataSetsRow, ExternalDataRow);
+		EndDo;
+		
+		ReadFileTreeIntoReportTree(CurrentRow, NewRow);
+	EndDo;
 EndProcedure
 
 // Load Data Composition Schema  to Settings composer
@@ -780,6 +808,9 @@ EndProcedure
 //  LoadSettingsByDefault -Boolean. Indicates whether to load from the default Settings schema.
 &AtServer
 Procedure LoadDataCompositionSchemaToSettingsComposer(TreeItem, LoadSettingsByDefault)
+	If TreeItem.RowType = Undefined Then
+		Return;
+	EndIf;
 	If TreeItem.RowType = 4 Then
 		Return;
 	EndIf;
@@ -837,7 +868,7 @@ EndProcedure
 // Parameters:
 //  TreeItem - a tree item starting from which to find a tree item with a report.
 //
-// Return value:
+// Returns:
 //   FormDataTreeItem - founded tree item - Report;
 //   UNdefined - report not found.
 &AtServer
@@ -863,7 +894,7 @@ EndFunction
 
 // Save the data of the current row on the server.
 //
-// Return value:
+// Returns:
 //  True - current Row was changed;
 //  False -  current Row was not changed.
 &AtServer
@@ -872,10 +903,13 @@ Function SaveCurrentRowDataAtServer()
 	If CurrentRow <> Undefined Then
 
 		TreeItem = ReportsTree.FindByID(CurrentRow);
-
+		If TreeItem.RowType = Undefined Then
+			Return False;
+		EndIf;
+		
 		If TreeItem.RowType = 0 Then
 
-		// Report Variant .
+			// Report Variant .
 			XMLWriter = New XMLWriter;
 			XMLWriter.SetString();
 			XDTOSerializer.WriteXML(XMLWriter, Report.SettingsComposer.Settings, "Settings",
@@ -973,7 +1007,7 @@ EndProcedure
 &AtServer
 Procedure SaveCurrentRowDataAndLoadCurrentRowAtServer()
 
-//save the Settings of the current row to the tree.
+	//save the Settings of the current row to the tree.
 	SaveCurrentRowDataAtServer();
 
 	//  load Settings into the settings composer.
@@ -1012,7 +1046,7 @@ EndProcedure
 //  DataCompositionTemplate - Data Composition Template, which needs to be executed
 //  DetailsDataObject -details data object, which needs to be filled in.
 //
-// Return value:
+// Returns:
 //   String - XML  text of result data composition and details data.
 &AtServer
 Function GetTextOfDataCompositionResult(DataCompositionTemplate, DetailsDataObject)
@@ -1113,7 +1147,7 @@ EndProcedure
 
 // Generate at server current row to spreadsheet document.
 //
-// Return value:
+// Returns:
 //  String - error text Which should be shown to the user
 &AtServer
 Function GenerateAtServerToSpreadsheetDocument()
@@ -1129,12 +1163,19 @@ Function GenerateAtServerToSpreadsheetDocument()
 		If Item.RowType = 0 Then
 		// Report.
 			DataCompositionSchema = GetDataCompositionSchemaAtServer();
+			
 			TemplateComposer = New DataCompositionTemplateComposer;
+			
 			DataCompositionTemplate = TemplateComposer.Execute(DataCompositionSchema,
 				Report.SettingsComposer.Settings, DetailsDataObject);
+			
+			Item.DCSQueryText = GetQueryTextFromDCS(DataCompositionTemplate);
+				
 			ExecutedReportSchemaURL = PutToTempStorage(DataCompositionSchema, ?(
 				ExecutedReportSchemaURL <> "", ExecutedReportSchemaURL, UUID));
+			
 			OutputDataCompositionTemplateToSpreadsheetDocument(DataCompositionTemplate, DetailsDataObject);
+			
 			DisplayResultsPanel();
 
 			//		ElsIf Item.s = 1 Then
@@ -1253,8 +1294,12 @@ Function GenerateAtServerToCollection()
 		// Report.
 			DataCompositionSchema = GetDataCompositionSchemaAtServer();
 			TemplateComposer = New DataCompositionTemplateComposer;
+			
 			DataCompositionTemplate = TemplateComposer.Execute(DataCompositionSchema,
 				Report.SettingsComposer.Settings, , , Type("DataCompositionValueCollectionTemplateGenerator"));
+			
+			Item.DCSQueryText = GetQueryTextFromDCS(DataCompositionTemplate);
+			
 			OutputDataCompositionTemplateToTemplate(DataCompositionTemplate);
 			DisplayResultsPanel();
 
@@ -1288,7 +1333,7 @@ EndFunction
 
 // Generate at server report and output it's as XML.
 //
-// Return value:
+// Returns:
 //  String - message text to show to user
 &AtServer
 Function GenerateAtServerAsXML()
@@ -1341,17 +1386,17 @@ Function GenerateAtServerAsXML()
 			Return NStr(
 				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
 				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
-
 		EndIf;
 
 	EndIf;
 
 	Return Undefined;
+	
 EndFunction
 
 // Generate report result for collection and output as XML text .
 //
-// Return value:
+// Returns:
 //  String - message text to show to user
 &AtServer
 Function GenerateAtServerAsXMLCollection()
@@ -1411,7 +1456,7 @@ EndFunction
 // Parameters:
 //  DataCompositionTemplate - outputed template.
 //
-// Return value:
+// Returns:
 //  String - Data Composition Template  text as XML.
 &AtServer
 Procedure OutputDataCompositionTemplateToText(DataCompositionTemplate)
@@ -1426,7 +1471,7 @@ EndProcedure
 
 // Generate Data Composition Template.
 // 
-// Return value:
+// Returns:
 //  String - message text for show to user.
 &AtServer
 Function GenerateAtServerToDataCompositionTemplate()
@@ -1487,10 +1532,10 @@ Function GenerateAtServerToDataCompositionTemplate()
 
 EndFunction
 
-// output Data Composition Template for values collection as text.
+// Output Data Composition Template for values collection as text.
 //
 // Parameters:
-// DataCompositionTemplate - Data Composition Template, which need output.
+// 	DataCompositionTemplate - Data Composition Template, which need output.
 &AtServer
 Procedure OutputDataCompositionTemplateToTextForCollection(DataCompositionTemplate)
 
@@ -1504,7 +1549,7 @@ EndProcedure
 
 // Generate Data Composition Template for collection.
 //
-// Return value:
+// Returns:
 //  String - showed to user String.
 &AtServer
 Function GenerateAtServerToDataCompositionTemplateForCollection()
@@ -1563,7 +1608,7 @@ EndFunction
 
 // Generate executed Settings.
 //
-// Return value:
+// Returns:
 //  String - message for show to user.
 &AtServer
 Function GenerateAtServerToExecutedDataCompositionSettings()
@@ -1625,7 +1670,7 @@ EndFunction
 
 // Generate executed Settings as XML.
 //
-// Return value:
+// Returns:
 //  String - text for user.
 &AtServer
 Function GenerateAtServerToExecutedDataCompositionSettingsXML()
@@ -1681,7 +1726,7 @@ EndFunction
 
 // Generate отчет at server. The generation  is based on the current page of the results panel.
 //
-// Return value:
+// Returns:
 //  String - text for user.
 &AtServer
 Function GenerateAtServer()
@@ -1765,7 +1810,7 @@ EndProcedure
 
 // Get Data Composition Schema based on the schema text.
 //
-// Return value:
+// Returns:
 //  DataCompositionSchema - schema, read from the schema text.
 &AtServerNoContext
 Function GetDataCompositionSchema(SchemaText)
@@ -1791,7 +1836,7 @@ EndFunction
 
 // Get data composition schema for current row at server.
 //
-// Return value:
+// Returns:
 //  DataCompositionSchema - data composition schema for current row.
 &AtServer
 Function GetDataCompositionSchemaAtServer()
@@ -1803,7 +1848,7 @@ EndFunction
 
 // Get data composition schema for current row at client.
 //
-// Return value:
+// Returns:
 //  DataCompositionSchema - data composition schema for current row.
 &AtClient
 Function GetDataCompositionSchemaAtClient()
@@ -1930,9 +1975,9 @@ EndProcedure
 // Parameters:
 //  As - boolean. The need to request a file name from the user
 //
-// Return value:
-//  True  - saving was successful;
-//  False - the user canceled the save.
+// Returns:
+//  True  - Boolean - saving was successful
+//  False - Boolean - the user canceled the save.
 &AtClient
 Procedure Save(As, NotificationProcessing)
 	Var FileChoose;
@@ -2027,7 +2072,7 @@ EndFunction
 
 // If file of reports was changed, then ask the user if it needs to be saved.
 //
-// Return value:
+// Returns:
 //  True - closing confirmed;
 //  False - the user canceled the Close.
 &AtClient
@@ -2092,7 +2137,7 @@ EndProcedure
 
 // Get current node
 //
-// Return value:
+// Returns:
 //  Reports tree current node.
 &AtServer
 Function GetCurrentNode()
@@ -2131,7 +2176,7 @@ EndProcedure
 // Parameters:
 //  FullName - String. The name from which to get the base part.
 //
-// Return value:
+// Returns:
 //  String - the base part of the name. It is obtained by dropping the number located
 //           at the end of the full name.
 &AtServer
@@ -2309,7 +2354,7 @@ EndProcedure
 
 // Get name of  Spreadsheet document standart.
 //
-// Return value:
+// Returns:
 //  String - spreadsheet  document standart file name.
 &AtClient
 Function StandartFileNameOfSpreadsheetDocument()
@@ -2330,7 +2375,7 @@ EndFunction
 
 // Get Spreadsheet Document file name
 //
-// Return value:
+// Returns:
 //  String - Spreadsheet Document File name
 &AtClient
 Function SpreadsheetDocumentFileName()
@@ -2351,7 +2396,7 @@ EndFunction
 
 // Get template standart file name.
 //
-// Return value:
+// Returns:
 //  String - template standart file name
 &AtClient
 Function TemplateStandartFileName()
@@ -2372,7 +2417,7 @@ EndFunction
 
 // Get template  file name.
 //
-// Return value
+// Returns
 //  String - template  file name.
 &AtClient
 Function TemplateFileName()
@@ -2393,7 +2438,7 @@ EndFunction
 
 // Get executable settings file name.
 //
-// Return value:
+// Returns:
 //  String -  executable settings file name.
 &AtClient
 Function ExecutableSettingsStandartFileName()
@@ -2414,7 +2459,7 @@ EndFunction
 
 // Get executable settings file name.
 //
-// Return value:
+// Returns:
 //  String - executable settings file name.
 &AtClient
 Function ExecutableSettingsFileName()
@@ -2435,7 +2480,7 @@ EndFunction
 
 // Get name of XML result standart file.
 // 
-// Return value:
+// Returns:
 //  String - Get name of XML result standart file..
 &AtClient
 Function XMLResultStandartFileName()
@@ -2456,7 +2501,7 @@ EndFunction
 
 // Get name of XML result  file..
 //
-// Return value:
+// Returns:
 //  String - name of XML result  file.
 &AtClient
 Function XMLResultFileName()
@@ -2477,7 +2522,7 @@ EndFunction
 
 // Get file name of template standart for collection.
 //
-// Return value:
+// Returns:
 //  String - file name of template standart for collection.
 &AtClient
 Function TemplateStandartFileNameForCollection()
@@ -2498,7 +2543,7 @@ EndFunction
 
 // Get template file name for  collection.
 //
-// Return value:
+// Returns:
 //  String - template file name for  collection
 &AtClient
 Function TemplateFileNameForCollection()
@@ -2519,7 +2564,7 @@ EndFunction
 
 // Get name file  of XML Result Standart for collection.
 //
-// Return value:
+// Returns:
 //  String - name file  of XML Result Standart for collection.
 &AtClient
 Function XMLResultStandartFileNameForCollection()
@@ -2540,7 +2585,7 @@ EndFunction
 
 // Get file name of  XML result  for collection.
 //
-// Return value:
+// Returns:
 //  String - file name of  XML result  for collection.
 &AtClient
 Function XMLResultFileNameForCollection()
@@ -2737,9 +2782,9 @@ EndProcedure
 
 //Event handler BeforeClose.
 &AtClient
-Procedure BeforeClose(Cancel, StandardProcessing)
+Procedure BeforeClose(Cancel, Exit, WarningText, StandardProcessing)
 
-	If Modified Then
+	If Exit <> True And Modified Then 
 		Cancel = True;
 		ConfirmClose(New NotifyDescription("BeforeCloseOnEnd", ThisForm));
 	EndIf;
@@ -2757,10 +2802,12 @@ EndProcedure
 
 // Event handler OnClose.
 &AtClient
-Procedure OnClose()
+Procedure OnClose(Exit)
 
-	SaveConsoleSettings();
-
+	If Exit <> True Then
+		SaveConsoleSettings();
+	EndIf;
+	
 EndProcedure
 
 // Event handler OnOpen.
@@ -2876,7 +2923,7 @@ Procedure SaveReportsToFile(Command)
 
 //	SaveCurrentRowDataAndLoadCurrentRowAtServer();
 	SaveCurrentRowDataAtServer();
-	Save(False, New NotifyDescription("SaveToFileOnEnd", ThisForm));
+	Save(False, New NotifyDescription("SaveToFileOnEnd", ThisObject));
 
 EndProcedure
 
@@ -2884,7 +2931,7 @@ EndProcedure
 &AtClient
 Procedure SaveReportsToFileAS(Command)
 
-	Save(True, New NotifyDescription("SaveToFileOnEnd", ThisForm));
+	Save(True, New NotifyDescription("SaveToFileOnEnd", ThisObject));
 
 EndProcedure
 
@@ -2902,7 +2949,7 @@ EndProcedure
 &AtClient
 Procedure OpenReportsFile(Command)
 
-	ConfirmClose(New NotifyDescription("OpenReportsFileOnEnd", ThisForm));
+	ConfirmClose(New NotifyDescription("OpenReportsFileOnEnd", ThisObject));
 
 EndProcedure
 
@@ -2921,7 +2968,7 @@ EndProcedure
 &AtClient
 Procedure NewReportsFile(Command)
 
-	ConfirmClose(New NotifyDescription("NewReportsFileOnEnd", ThisForm));
+	ConfirmClose(New NotifyDescription("NewReportsFileOnEnd", ThisObject));
 
 EndProcedure
 
@@ -3201,7 +3248,7 @@ EndProcedure
 Procedure SaveSchemaToFile(Command)
 
 	BeginAttachingFileSystemExtension(New NotifyDescription("SaveSchemaToFileAfterAttachFileExtension",
-		ThisForm));
+		ThisObject));
 
 EndProcedure
 
@@ -3214,13 +3261,13 @@ Procedure SaveSchemaToFileAfterAttachFileExtension(Attached, AdditionalParameter
 	// Need to ask filename.
 		FileChoose = New FileDialog(FileDialogMode.Save);
 		FileChoose.Multiselect = False;
-		Filter = NStr("ru = 'Файл схемы компоновки данных (*.xml)|*.xml|Все файлы (*.*)|*.*';
-		|en = 'File of data composition schema (*.xml)|*.xml|All files (*.*)|*.*'");
+		Filter = NStr("ru = 'Файл схемы компоновки данных (*.xml)|*.xml|Все файлы (*.*)|*.*'; en = 'File of data composition schema (*.xml)|*.xml|All files (*.*)|*.*'");
 		FileChoose.Filter = Filter;
 		FileChoose.Extension = "xml";
 
 		FileChoose.Show(New NotifyDescription("SaveSchemaToFileAfterFileSelection", ThisForm,
 			New Structure("FileChoose", FileChoose)));
+	
 	Else
 
 		GetFile(PutDataCompositionSchemaToTempStorage(), , True);
@@ -3263,11 +3310,11 @@ Procedure LoadSchemaFromFile(Command)
 	Var Address;
 
 	BeginAttachingFileSystemExtension(
-		New NotifyDescription("LoadSchemaFromFileAfterAttachExtension", ThisForm, New Structure("Address",
+		New NotifyDescription("LoadSchemaFromFileAfterAttachExtension", ThisObject, New Structure("Address",
 		Address)));
 EndProcedure
 
-//  Handler  of loading schema from file after attach extension.
+// Handler of loading schema from file after attach extension.
 &AtClient
 Procedure LoadSchemaFromFileAfterAttachExtension(Attached, AdditionalParameters) Export
 
@@ -3277,10 +3324,10 @@ Procedure LoadSchemaFromFileAfterAttachExtension(Attached, AdditionalParameters)
 
 		FileChoose = New FileDialog(FileDialogMode.Opening);
 		FileChoose.Multiselect = False;
-		Filter = NStr("ru = 'Файл схемы компоновки данных (*.xml)|*.xml|Все файлы (*.*)|*.*';
-		|en = 'File of data composition schema  (*.xml)|*.xml|All files (*.*)|*.*'");
+		Filter = NStr("ru = 'Файл схемы компоновки данных (*.xml)|*.xml|Все файлы (*.*)|*.*'; en = 'File of data composition schema  (*.xml)|*.xml|All files (*.*)|*.*'");
 		FileChoose.Filter = Filter;
 		FileChoose.Extension = "xml";
+		
 		BeginPuttingFiles(New NotifyDescription("LoadSchemaFromFileAfterPutFiles", ThisForm), ,
 			FileChoose);
 
@@ -3336,7 +3383,7 @@ EndProcedure
 
 ////////////////////////////////////////////////////////////////////////////////
 // Procedures  - Form Attributes event Handlers 
-// 
+
 // Event handler OnActivateField of Structure table.
 // Activate settings page linked with column that user activated
 //
@@ -3712,7 +3759,7 @@ Procedure LocalConditionalAppearanceOnChange(Item)
 			Items.Structure.CurrentRow);
 		Report.SettingsComposer.Settings.ClearItemConditionalAppearance(SettingsItem);
 
-		EndIf;
+	EndIf;
 		
 EndProcedure
 
@@ -3775,7 +3822,7 @@ Procedure LocalOutputParameters1OnChange(Item)
 EndProcedure
 
 // Event handler OnActivateRow of item  ReportsTree.
-//Displays the corresponding tab - scheme, option, Custom Settings, etc.
+// Displays the corresponding tab - scheme, option, Custom Settings, etc.
 &AtClient
 Procedure ReportsTreeOnActivateRow(Item)
 	
@@ -3871,7 +3918,7 @@ EndProcedure
 &AtClient
 Procedure ReportsTreeBeforeAddRow(Item, Cancel, Clone, Parent, IsFolder, Parameter)
 	
-		If Clone Then
+	If Clone Then
 
 		Cancel = True;
 
@@ -3881,7 +3928,7 @@ Procedure ReportsTreeBeforeAddRow(Item, Cancel, Clone, Parent, IsFolder, Paramet
 
 		EndIf;
 
-		EndIf;
+	EndIf;
 		
 EndProcedure
 
@@ -3910,7 +3957,7 @@ Procedure ResultSpreadsheetDocumentAdditionalDetailProcessing(Item, Details, Sta
 	DetailProcessing = New DataCompositionDetailsProcess(DetailsDataURL,
 		New DataCompositionAvailableSettingsSource(ExecutedReportSchemaURL));
 	DetailProcessing.ShowActionChoice(
-		New NotifyDescription("ResultSpreadsheetDocumentDetailProcessingOnEnd", ThisForm,
+		New NotifyDescription("ResultSpreadsheetDocumentDetailProcessingOnEnd", ThisObject,
 		New Structure("Details", Details)), Details, , , , Items.ResultSpreadsheetDocument);
 		
 EndProcedure
@@ -3919,11 +3966,11 @@ EndProcedure
 &AtClient
 Procedure ResultSpreadsheetDocumentDetailProcessing(Item, Details, StandardProcessing, AdditionalParameters)
 		
-		StandardProcessing = False;
+	StandardProcessing = False;
 	DetailProcessing = New DataCompositionDetailsProcess(DetailsDataURL,
 		New DataCompositionAvailableSettingsSource(ExecutedReportSchemaURL));
 	DetailProcessing.ShowActionChoice(
-		New NotifyDescription("ResultSpreadsheetDocumentDetailProcessingOnEnd", ThisForm,
+		New NotifyDescription("ResultSpreadsheetDocumentDetailProcessingOnEnd", ThisObject,
 		New Structure("Details", Details)), Details, , , True, );
 		
 EndProcedure
@@ -4047,7 +4094,7 @@ EndProcedure
 
 &AtClient
 Procedure ExternalDataSetsPresentationStartChoice(Item, ChoiceData, StandardProcessing)
-		StandardProcessing=False;
+	StandardProcessing=False;
 	CurrentData=Items.ExternalDataSets.CurrentData;
 	If CurrentData=Undefined Then
 		Return;
@@ -4095,10 +4142,10 @@ Procedure ExternalDataSetsBeforeEditEnd(Item, NewRow, CancelEdit, Cancel)
 		Return;
 	EndIf;
 	
+	
 	ArrayOfNameString = TreeCurrentRow.ExternalDataSets.FindRows(New Structure("Name", CurrentData.Name));
 	If ArrayOfNameString.Count() > 1 Then
-		ShowMessageBox( , NSTR("ru = 'Колонка с таким именем уже есть! Введите другое имя';
-		|en = 'There is already a column with that name! Enter a different name'"), , Title);
+		ShowMessageBox( , NSTR("ru = 'Колонка с таким именем уже есть! Введите другое имя'; en = 'There is already a column with that name! Enter a different name'"), , Title);
 		Cancel = True;
 		Return;
 	EndIf;
@@ -4134,4 +4181,124 @@ Procedure Attachable_ExecuteToolsCommonCommand(Command)
 	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
 EndProcedure
 
+#Region QueryText
+
+&AtServer
+Function QueryTextStructure(DataSet, Query)
+	Return New Structure("DataSet,Query", DataSet,Query);
+EndFunction
+
+&AtServer
+Function GetQueryTextFromDCS(DataCompositionTemplate)
+
+	QueryTexts = "";
+	QueriesArray = New Array;
+	
+	If TypeOf(DataCompositionTemplate) = Type("DataCompositionTemplate") Then
+
+		GetQueriesFromDataSets(DataCompositionTemplate.DataSets, QueriesArray);
+
+		For Each QueryText In QueriesArray Do
+			QueryTexts = QueryTexts + StrTemplate("DATA SET ""%1"": %2%3", QueryText.DataSet, Chars.LF, QueryText.Query);
+			
+			QueryTexts = QueryTexts + Chars.LF + Chars.LF + "///////////////////////////////////////////////////////////"+ Chars.LF + Chars.LF;
+		EndDo;
+
+	EndIf;
+
+	Return QueryTexts;
+
+EndFunction
+
+&AtServer
+Function GetQueriesArrayFromDCS(DataCompositionTemplate)
+	
+	QueriesArray = New Array;
+	
+	If TypeOf(DataCompositionTemplate) = Type("DataCompositionTemplate") Then
+		GetQueriesFromDataSets(DataCompositionTemplate.DataSets, QueriesArray);
+	EndIf;
+	
+	Return QueriesArray;
+	
+EndFunction
+
+&AtServer
+Procedure GetQueriesFromDataSets(DataSets, QueriesArray)
+
+		For Each DataSet In DataSets Do
+			If TypeOf(DataSet) = Type("DataCompositionTemplateDataSetUnion") Then
+				If DataSet.Items.Count() Then
+					GetQueriesFromDataSets(DataSet.Items, QueriesArray);
+				EndIf;
+			EndIf;
+			
+			If TypeOf(DataSet) = Type("DataCompositionTemplateDataSetQuery") Then
+				GetRequestFromDataSetQuery(DataSet, QueriesArray);
+			EndIf;
+		EndDo;
+
+EndProcedure
+
+&AtServer
+Procedure GetRequestFromDataSetQuery(DataSet, QueriesArray)
+	If Not IsBlankString(DataSet.Query) Then
+		
+		QueryStructure = QueryTextStructure(DataSet.Name, DataSet.Query);
+		
+		QueriesArray.Add(QueryStructure);
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure OpenInQueryConsole(Command)
+	Address = PrepareQueriesDataForConsole();
+	
+	If ValueIsFilled(Address) Then
+		FormParameters = New Structure("DCSQueriesAddress", Address);
+		OpenForm("DataProcessor.UT_QueryConsole.Form", FormParameters, , True);
+	EndIf;
+EndProcedure
+
+&AtServer
+Function PrepareQueriesDataForConsole()
+
+	If Items.ReportsTree.CurrentRow <> Undefined Then
+
+		Item = ReportsTree.FindByID(Items.ReportsTree.CurrentRow);
+
+		If Item.RowType = 0 Then// Report
+		
+			DataCompositionSchema = GetDataCompositionSchemaAtServer();
+
+			CompositionTemplate = New DataCompositionTemplateComposer;
+
+			DataCompositionTemplate = CompositionTemplate.Execute(DataCompositionSchema, Report.SettingsComposer.Settings);
+
+			QueriesArray = GetQueriesArrayFromDCS(DataCompositionTemplate);
+			
+			QueriesArrayFromDCS = New Array;
+			QueryParameters = New Structure();
+			
+			For Each CurrentParameter In DataCompositionTemplate.ParameterValues Do
+				QueryParameters.Insert(CurrentParameter.Name, CurrentParameter.Value);
+			EndDo;
+			
+			For Each CurrentQuery In QueriesArray Do
+				QueriesData = New Structure("Name,Text,Parameters", CurrentQuery.DataSet, CurrentQuery.Query, QueryParameters);
+				QueriesArrayFromDCS.Add(QueriesData);
+			EndDo;
+			
+			TempStorageAddress = PutToTempStorage(QueriesArrayFromDCS);
+			
+			Return TempStorageAddress;
+
+		EndIf;
+
+	EndIf;
+
+	Return Undefined
+EndFunction
+
+#EndRegion
 ////////////////////////////////////////////////////////////////////////////////
