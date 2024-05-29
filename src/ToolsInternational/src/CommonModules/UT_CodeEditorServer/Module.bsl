@@ -44,8 +44,8 @@ Procedure FormOnCreateAtServer(Form, EditorType = Undefined) Export
 	AttributesArray=New Array;
 	AttributesArray.Add(New FormAttribute(AttributeNameEditorType, New TypeDescription("String", , 
 		New StringQualifiers(20,AllowedLength.Variable)), "", "", True));
-	AttributesArray.Add(New FormAttribute(AttributeNameLibraryURL, New TypeDescription("String", , 
-		New StringQualifiers(0,	AllowedLength.Variable)), "", "", True));
+	AttributesArray.Add(New FormAttribute(AttributeNameLibraryURL, New TypeDescription, "", "",
+		True));
 	AttributesArray.Add(New FormAttribute(AttributeNameCodeEditorFormCodeEditors, New TypeDescription, 
 		"", "", True));	
 	AttributesArray.Add(New FormAttribute(AttributeNameCodeEditorInitialInitializationPassed, New TypeDescription("Boolean"),
@@ -58,10 +58,10 @@ Procedure FormOnCreateAtServer(Form, EditorType = Undefined) Export
 	Form[AttributeNameLibraryURL] = New Structure;
 
 	Form[AttributeNameLibraryURL].Insert(EditorType,
-														  DataLibraryEditor(Form.UUID,
-																					IsWindowsClient,
-																					IsWebClient,
-																					EditorType));
+		DataLibraryEditor(Form.UUID,
+			IsWindowsClient,
+			IsWebClient,
+			EditorType));
 	
 	LibraryDataKeyInteractions = UT_CodeEditorClientServer.LibraryNameInteractionForDataForms(EditorType);
 	If EditorType = EditorVariants.Ace Then
@@ -115,7 +115,7 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 	EditorVariants = UT_CodeEditorClientServer.CodeEditorVariants();
 
 	EditorSettings = CodeEditorCurrentSettings();
-	EditorData.EditorOptions = EditorSettings;
+	EditorData.EditorSettings = EditorSettings;
 
 	If EditorType = EditorVariants.Monaco Then
 		For Each KeyValue In EditorSettings.Monaco Do
@@ -161,7 +161,7 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 
 //	DescriptionSubmenuIntegrationsPaste1C.Representation = UsualGroupRepresentation.None;
 	Submenu = UT_Forms.CreateGroupByDescription(Form, DescriptionSubmenuIntegrationsPaste1C);
-	If Не UT_CommonClientServer.IsPortableDistribution() Then
+	If Not UT_CommonClientServer.IsPortableDistribution() Then
 		Submenu.Картинка = PictureLib.UT_Share;
 	EndIf;
 	

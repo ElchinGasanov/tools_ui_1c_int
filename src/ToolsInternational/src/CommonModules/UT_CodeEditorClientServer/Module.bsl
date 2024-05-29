@@ -322,7 +322,7 @@ Function NewEditorFormData() Export
 	EditorData.Insert("EditorCommandBarName", "");
 	EditorData.Insert("PropsName", "");
 	EditorData.Insert("UseDataProcessorToExecuteCode", False);
-	EditorData.Insert("EditorOptions", Undefined);
+	EditorData.Insert("EditorSettings", Undefined);
 	EditorData.Insert("CacheResultsConnectionsDataProcessorExecution", Undefined);
 	EditorData.Insert("SettingsSessionsInteractions", Undefined);
 	

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <items xsi:type="form:FormField">
-    <name>ValueTypeDescriptionPresentation</name>
+    <name>ValuePresentationValueType</name>
     <id>1</id>
     <title>
       <key>ru</key>
@@ -13,10 +13,10 @@
       <common>true</common>
     </userVisible>
     <dataPath xsi:type="form:DataPath">
-      <segments>ValueTypeDescriptionPresentation</segments>
+      <segments>ValuePresentationValueType</segments>
     </dataPath>
     <extendedTooltip>
-      <name>ValueTypeDescriptionPresentationExtendedTooltip</name>
+      <name>ValuePresentationValueTypeExtendedTooltip</name>
       <id>3</id>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -31,7 +31,7 @@
       </extInfo>
     </extendedTooltip>
     <contextMenu>
-      <name>ValueTypeDescriptionPresentationContextMenu</name>
+      <name>ValuePresentationValueTypeContextMenu</name>
       <id>2</id>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -258,10 +258,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ValueTypeDescription</name>
+    <name>ValueValueType</name>
     <title>
       <key>ru</key>
-      <value>Value type description</value>
+      <value>Value value type</value>
     </title>
     <id>4</id>
     <valueType>
@@ -275,10 +275,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ValueTypeDescriptionPresentation</name>
+    <name>ValuePresentationValueType</name>
     <title>
       <key>ru</key>
-      <value>Value type description presentation</value>
+      <value>Value presentation value type</value>
     </title>
     <id>5</id>
     <valueType>

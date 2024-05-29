@@ -1608,7 +1608,7 @@ EndFunction
 // Returns:
 // 	String - satellite libraries
 Function SatelliteLibrariesCatalog(UserWorkingDirectory) Export
-	Return MergePaths(UserWorkingDirectory, "tools_ui_1c", Format(Version(), "NG=0;"))
+	Return MergePaths(UserWorkingDirectory, "tools_ui_1c_int", Format(Version(), "NG=0;"))
 EndFunction
 
 // Random file name.
@@ -2693,7 +2693,7 @@ Procedure SetContainerPresentation(ValueContainer) Export
 																ValueContainer.ValueStorage.RowCount,
 																ValueContainer.ValueStorage.ColumnCount);
 	ElsIf ValueContainer.Type = ContainerTypes.ValueStorage Then
-		ValueContainer.Presentation = "Value storage: " + ValueContainer.ValueStorage.Type;
+		ValueContainer.Presentation = "Value storage: " + ValueContainer.Type;
 	ElsIf ValueContainer.Type = ContainerTypes.ValueList Then
 		ValueContainer.Presentation = "Value list: " + ValueContainer.ValueStorage.Presentation;
 	ElsIf ValueContainer.Type = ContainerTypes.Array Then

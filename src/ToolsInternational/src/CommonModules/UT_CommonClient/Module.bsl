@@ -1049,10 +1049,10 @@ EndProcedure
 // 	CallbackDescriptionOnClose - CallbackDescription
 // 	FormOwner - Undefined, ClientApplicationForm, FormField - 
 // 	ContainerValue - see UT_CommonClientServer.NewValueContainer
-// 	UseDynamicListForSelectingRefValue - Boolean
+// 	UseDynamicListForRefValueSelection - Boolean
 // 	StandardProcessing - Boolean
 Procedure BeginSelectingRefEditSpecificValue(Value, CallbackDescriptionOnClose, FormOwner,
-	ContainerValue = Undefined, UseDynamicListForSelectingRefValue = False,
+	ContainerValue = Undefined, UseDynamicListForRefValueSelection = False,
 	StandardProcessing = True) Export
 	If ContainerValue <> Undefined Then
 		StandardProcessing = False;
@@ -1122,8 +1122,8 @@ Procedure BeginSelectingRefEditSpecificValue(Value, CallbackDescriptionOnClose, 
 			StartSelectingEnumerationValue(Value, CallbackDescriptionOnClose, FormOwner);
 		ElsIf UT_Common.IsReference(ValueType) Then
 			StandardProcessing = False;
-			ObjectName = UT_Common.TableNameByRef(ValueType);	
-			If UseDynamicListForSelectingRefValue Then
+			ObjectName = UT_Common.TableNameByRef(Value);	
+			If UseDynamicListForRefValueSelection Then
 				FormParameters = New Structure;
 				FormParameters.Insert("MetaDataObjectName", ObjectName);
 				FormParameters.Insert("ChoiceMode", True);
@@ -1163,10 +1163,10 @@ EndProcedure
 // * Element -FormField - Element
 // * AvailableContainer - Boolean - 
 // * StructureValueStorage - Undefined, ClientApplicationForm, FormDataStructure, FormDataTreeItem, FormDataCollectionItem -  
-// * FieldNameStructure - String - 
+// * StructureFieldName - String - 
 // * ContainerFieldName - String, Undefined - 
-// * FieldNameValueType - String, Undefined - 
-// * FieldNamePresentationValueType - String, Undefined - 
+// * ValueTypeFieldName - String, Undefined - 
+// * ValueTypePresentationFieldName - String, Undefined - 
 // * CurrentDescriptionValueTypes - Undefined, TypeDescription - 
 Function NewFormProcessorsEventsBaseParameters(Form, Element, FieldName) Export
 	ProcessorParameters = UT_CommonClientServer.NewStructureStoringAttributeOnFormContainer(FieldName);
@@ -1191,10 +1191,10 @@ EndFunction
 // * Form - ClientApplicationForm
 // * Element -FormField - Element 
 // * StructureValueStorage - Undefined, ClientApplicationForm, FormDataStructure, FormDataTreeItem, FormDataCollectionItem -  
-// * FieldNameStructure - String - 
+// * StructureFieldName - String - 
 // * ContainerFieldName - String, Undefined - 
-// * FieldNameValueType - String, Undefined - 
-// * FieldNamePresentationValueType - String, Undefined - 
+// * ValueTypeFieldName - String, Undefined - 
+// * ValueTypePresentationFieldName - String, Undefined - 
 // * AvailableContainer - Boolean -
 // * Value - Undefined, Arbitrary -
 // * CurrentDescriptionValueTypes - Undefined, TypeDescription -
@@ -1266,7 +1266,7 @@ Procedure FormFieldClear(ProcessorParameters, StandardProcessing) Export
 	Else
 		ProcessorParameters.Element.TypeRestriction = New TypeDescription;
 		
-		ProcessorParameters.StructureValueStorage[ProcessorParameters.FieldNameStructure] = NewValue;
+		ProcessorParameters.StructureValueStorage[ProcessorParameters.StructureFieldName] = NewValue;
 	EndIf;
 	
 EndProcedure
@@ -1285,7 +1285,7 @@ Procedure FormFieldInChangeProcessor(ProcessorParameters) Export
 		Return;
 	EndIf;
 	
-	ProcessorParameters.StructureValueStorage[ProcessorParameters.FieldNameStructure] = ContainerValue.Presentation;
+	ProcessorParameters.StructureValueStorage[ProcessorParameters.StructureFieldName] = ContainerValue.Presentation;
 EndProcedure
 
 // New processor value choice starting events.
@@ -1294,7 +1294,7 @@ EndProcedure
 // 	ProcessorParameters - see NewProcessorValueChoiceStartingEvents
 // 	StandardProcessing - Boolean - 
 Procedure FormFieldValueStartChoiceProcessor(ProcessorParameters, StandardProcessing) Export
-	Value = ProcessorParameters.StructureValueStorage[ProcessorParameters.FieldNameStructure];
+	Value = ProcessorParameters.StructureValueStorage[ProcessorParameters.StructureFieldName];
 	ContainerValue = Undefined;
 	
 	If ProcessorParameters.AvailableContainer Then
@@ -1330,7 +1330,7 @@ Procedure FormFieldValueStartChoiceProcessor(ProcessorParameters, StandardProces
 			If TypesArray.Count() = 1 Then
 				ChosenTypes = New Structure;
 				ChosenTypes.Insert("Description", ProcessorParameters.CurrentDescriptionValueTypes);
-				ChosenTypes.Insert("UseDynamicListForSelectingRefValue", False);
+				ChosenTypes.Insert("UseDynamicListForRefValueSelection", False);
 				
 				ExecuteNotifyProcessing(CallBackTypeChoiceNotifications, ChosenTypes);
 				Return;
@@ -1366,7 +1366,7 @@ EndProcedure
 // Parameters:
 // 	Result - Structure
 // 	* Description - TypeDescription -
-// 	* UseDynamicListForSelectingRefValueProcessing - Boolean -
+// 	* UseDynamicListForRefValueSelectionProcessing - Boolean -
 // 	AdditionalParameters - see NewProcessorValueChoiceStartingEvents
 Procedure FormFieldValueStartChoiceProcessorTypeChoiceEnding(Result, AdditionalParameters) Export
 	If Result = Undefined Then
@@ -1380,8 +1380,8 @@ Procedure FormFieldValueStartChoiceProcessorTypeChoiceEnding(Result, AdditionalP
 	
 	ValueType = Result.Description.Types()[0];
 	
-	FieldNameValueType = AdditionalParameters.FieldNameValueType;
-	FieldNamePresentationValueType = AdditionalParameters.FieldNamePresentationValueType;
+	ValueTypeFieldName = AdditionalParameters.ValueTypeFieldName;
+	ValueTypePresentationFieldName = AdditionalParameters.ValueTypePresentationFieldName;
 	ContainerFieldName = AdditionalParameters.ContainerFieldName;
 	
 	StoringInContainer = UT_CommonClientServer.TypeStoringInContainer(ValueType);
@@ -1398,23 +1398,23 @@ Procedure FormFieldValueStartChoiceProcessorTypeChoiceEnding(Result, AdditionalP
 	If AdditionalParameters.AvailableContainer Then
 	
 		If StoringInContainer Then
-			AdditionalParameters.StructureValueStorage[FieldNameValueType] = UT_CommonClientServer.DescriptionTypeString(100);
+			AdditionalParameters.StructureValueStorage[ValueTypeFieldName] = UT_CommonClientServer.DescriptionTypeString(100);
 			
 			AdditionalParameters.StructureValueStorage[ContainerFieldName] = UT_CommonClientServer.NewValueContainerByType(ValueType);
 		
 		Else
-			AdditionalParameters.StructureValueStorage[FieldNameValueType] = Result.Description;
+			AdditionalParameters.StructureValueStorage[ValueTypeFieldName] = Result.Description;
 			
 		EndIf;
-		EmptyValueTypeDescription = AdditionalParameters.StructureValueStorage[FieldNameValueType];
+		EmptyValueTypeDescription = AdditionalParameters.StructureValueStorage[ValueTypeFieldName];
 		
-		AdditionalParameters.StructureValueStorage[FieldNamePresentationValueType] = String(Result.Description);
+		AdditionalParameters.StructureValueStorage[ValueTypePresentationFieldName] = String(Result.Description);
 	Else
 		AdditionalParameters.Element.TypeRestriction = EmptyValueTypeDescription;
 	EndIf;
 			
 	EmptyTypeValue = UT_CommonClientServer.EmptyTypeValue(ValueType, StoringInContainer);
-	AdditionalParameters.StructureValueStorage[AdditionalParameters.FieldNameStructure] = EmptyTypeValue;
+	AdditionalParameters.StructureValueStorage[AdditionalParameters.StructureFieldName] = EmptyTypeValue;
 		
 	If ValueType = Type("Number") 
 		Or ValueType = Type("String")  
@@ -1431,13 +1431,13 @@ Procedure FormFieldValueStartChoiceProcessorTypeChoiceEnding(Result, AdditionalP
 			, CallBackChoiceNotificationsEnding
 			, AdditionalParameters.Element
 			, AdditionalParameters.StructureValueStorage[ContainerFieldName]
-			, Result.UseDynamicListForSelectingRefValue);		
+			, Result.UseDynamicListForRefValueSelection);		
 	Else
 		BeginSelectingRefEditSpecificValue(EmptyTypeValue
 			, CallBackChoiceNotificationsEnding
 			, AdditionalParameters.Element
 			, 
-			, Result.UseDynamicListForSelectingRefValue);
+			, Result.UseDynamicListForRefValueSelection);
 	EndIf;
 
 
@@ -1462,12 +1462,12 @@ Procedure FormFieldValueStartChoiceProcessorValueChoiceEnding(Result, Additional
 			CurrentContainerValue.ValueStorage = Result;
 			UT_CommonClientServer.SetContainerPresentation(CurrentContainerValue);
 			
-			AdditionalParameters.StructureValueStorage[AdditionalParameters.FieldNameStructure] = CurrentContainerValue.Presentation;
+			AdditionalParameters.StructureValueStorage[AdditionalParameters.StructureFieldName] = CurrentContainerValue.Presentation;
 		Else
-			AdditionalParameters.StructureValueStorage[AdditionalParameters.FieldNameStructure] = Result;
+			AdditionalParameters.StructureValueStorage[AdditionalParameters.StructureFieldName] = Result;
 		EndIf;
 	Else
-		AdditionalParameters.StructureValueStorage[AdditionalParameters.FieldNameStructure] = Result;
+		AdditionalParameters.StructureValueStorage[AdditionalParameters.StructureFieldName] = Result;
 	EndIf;
 	
 	If TypeOf(AdditionalParameters.CallBackChoiceNotificationsEnding) = Type("NotifyDescription") Then

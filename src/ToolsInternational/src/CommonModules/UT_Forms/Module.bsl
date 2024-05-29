@@ -210,7 +210,7 @@ Function CreateGroupByDescription(Form, Description) Export
 
 	FormGroup.Title = Description.Title;
 
-	If FormGroup.Type = FormGroupType.Popup Then
+	If FormGroup.Type <> FormGroupType.Popup Then
 		FillPropertyValues(FormGroup, Description, "GroupType,ShowTitle");
 	EndIf;
 	

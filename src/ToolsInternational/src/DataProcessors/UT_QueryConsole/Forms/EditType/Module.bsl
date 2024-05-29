@@ -323,7 +323,7 @@ Function GetTypeDescription()
 	
 	NumberQualifiers = New NumberQualifiers(NumberQualifiersLength, NumberQualifiersPrecision, ?(NumberQualifiersNonnegative, AllowedSign.Nonnegative, AllowedSign.Any));
 	StringQualifiers = New StringQualifiers(StringQualifiersLength, ?(StringQualifiersFixed, AllowedLength.Fixed, AllowedLength.Variable));
-	DateQualifiers = New DateQualifiers(?(DateQualifiersContent = "Date and time", DateFractions.DateTme, DateFractions[DateQualifiersContent]));
+	DateQualifiers = New DateQualifiers(?(DateQualifiersContent = NStr("ru = 'Дата и время'; en = 'Дата и время'"), DateFractions.DateTime, DateFractions[DateQualifiersContent]));
 	
 	Return New TypeDescription(arTypes, NumberQualifiers, StringQualifiers, DateQualifiers);
 	
