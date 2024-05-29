@@ -15,7 +15,7 @@ Procedure StartBuildDataProcessorForCodeExecution(Form, CallbackDescriptionAbout
 
 	EditorsForBuild = New Array;
 	For Each  KeyAndValue In CodeEditors Do
-		If Not KeyAndValue.Value.UseProcessingToExecuteCode Then
+		If Not KeyAndValue.Value.UseDataProcessorToExecuteCode Then
 			Continue;
 		EndIf;
 
@@ -127,9 +127,9 @@ Procedure HTMLEditorFieldOnClick(Form, Item, EventData, StandardProcessing) Expo
 	If Event = Undefined Then
 		Return;
 	EndIf;
-	Form.УИ_РедакторКодаКлиентскиеДанные.События.Добавить(Event);
+	Form.UT_CodeEditorClientData.Events.Add(Event);
 
-	Form.AttachIdleHandler("Подключаемый_РедакторКодаОтложеннаяОбработкаСобытийРедактора", 0.1, True);
+	Form.AttachIdleHandler("Attachable_CodeEditorDeferProcessingOfEditorEvents", 0.1, True);
 
 	
 EndProcedure
@@ -161,7 +161,7 @@ Procedure EditorEventsDeferProcessing(Form) Export
 				
 			EndIf;
 		Elsif CurrentEvent.EventName = "EVENT_CONTENT_CHANGED" 
-			Или CurrentEvent.ИмяСобытия = "ACE_EVENT_CONTENT_CHANGED" Then
+			Or CurrentEvent.EventName = "ACE_EVENT_CONTENT_CHANGED" Then
 			FormEditors = Form[UT_CodeEditorClientServer.AttributeNameCodeEditorFormCodeEditors()];
 			EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form,
 				CurrentEvent.Item);		
@@ -202,9 +202,9 @@ Procedure EditorEventsDeferProcessing(Form) Export
 				EndIf;
 			EndIf;
 		ElsIf CurrentEvent.EventName = "TOOLS_UI_1C_COPY_TO_CLIPBOARD" Then
-			ВыделенныйТекст = EditorSelectedTextFormItem(Form, CurrentEvent.Item);
-			UT_ClipboardClient.BeginCopyTextToClipboard(ВыделенныйТекст,
-															   New CallbackDescription("StartCopyingSelectedTextToClipboardFinish",
+			SelectedText = EditorSelectedTextFormItem(Form, CurrentEvent.Item);
+			UT_ClipboardClient.BeginCopyTextToClipboard(SelectedText,
+				New CallbackDescription("StartCopyingSelectedTextToClipboardFinish",
 				ThisObject, AdditionalParameters));
 		ElsIf CurrentEvent.EventName = "TOOLS_UI_1C_PASTE_FROM_CLIPBOARD" Then
 			UT_ClipboardClient.BeginGettingTextFormClipboard(New CallbackDescription("StartPastingFromClipboardCompletingReceiveText",
@@ -230,8 +230,8 @@ Procedure ExecuteCodeEditorCommand(Form, Сommand) Export
 	EditorOptions = FormEditors[CommandStructure.EditorID];
 	
 	If CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing() Then
-		EditorOptions.UseProcessingToExecuteCode = Not EditorOptions.UseProcessingToExecuteCode;
-		Form.Items[Сommand.Name].Mark = EditorOptions.UseProcessingToExecuteCode;
+		EditorOptions.UseDataProcessorToExecuteCode = Not EditorOptions.UseDataProcessorToExecuteCode;
+		Form.Items[Сommand.Name].Mark = EditorOptions.UseDataProcessorToExecuteCode;
 	ElsIf CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameShareAlgorithm() Then
 		TextOfAlgorithm = EditorCodeText(Form, CommandStructure.EditorID);
 		isRequest = EditorOptions.Language = "bsl_query";
@@ -306,10 +306,10 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 
 			Info = New SystemInfo;
 			DocumentView.init(Info.AppVersion);
-			If EditorSettings.EditorLanguage <> "bsl" Then
-				DocumentView.setLanguageMode(EditorSettings.EditorLanguage);
+			If EditorSettings.Language <> "bsl" Then
+				DocumentView.setLanguageMode(EditorSettings.Language);
 
-				If EditorSettings.EditorLanguage = "bsl_query" Then
+				If EditorSettings.Language = "bsl_query" Then
 					DocumentView.setOption("renderQueryDelimiters", True);
 					
 					AddMenuItem(DocumentView,
@@ -341,13 +341,13 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 
 			EditorThemes = UT_CodeEditorClientServer.MonacoEditorThemeVariants();
 			If EditorSettings.EditorSettings.Theme = EditorThemes.Dark Then
-				If EditorSettings.EditorLanguage = "bsl_query" Then
+				If EditorSettings.Language = "bsl_query" Then
 					DocumentView.setTheme("bsl-dark-query");
 				Else
 					DocumentView.setTheme("bsl-dark");
 				EndIf;
 			Else
-				If EditorSettings.EditorLanguage = "bsl_query" Then
+				If EditorSettings.Language = "bsl_query" Then
 					DocumentView.setTheme("bsl-white-query");
 				Else
 					DocumentView.setTheme("bsl-white");
@@ -378,7 +378,7 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 				DocumentView.setOption("generateModificationEvent", True);
 			EndIf;
 						
-			If EditorSettings.EditorSettings.ИспользоватьКомандыРаботыСБуферомВКонтекстномМеню Then
+			If EditorSettings.EditorSettings.UseCommandsForWorkingWithBufferInContextMenu Then
 				AddMenuItem(DocumentView,
 								  ThereAreAddedCommandsForEditorContextMenuMonaco,
 								  "TOOLS_UI_1C_COPY_TO_CLIPBOARD",
@@ -402,10 +402,10 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 			EndIf;
 		EndIf;
 	
-		If EditorSettings.EditorTextCache <> Undefined Then
-			SetEditorText(Form, KeyValue.Key, EditorSettings.EditorTextCache.Text);
-			SetEditorOriginalText(Form, KeyValue.Key, EditorSettings.EditorTextCache.OriginalText);
-			EditorSettings.EditorTextCache = Undefined;
+		If EditorSettings.TextEditorCache <> Undefined Then
+			SetEditorText(Form, KeyValue.Key, EditorSettings.TextEditorCache.Text);
+			SetEditorOriginalText(Form, KeyValue.Key, EditorSettings.TextEditorCache.OriginalText);
+			EditorSettings.TextEditorCache = Undefined;
 		EndIf;
 		
 		If EditorSettings.ViewOnly Then
@@ -571,9 +571,9 @@ Function EditorCodeText(Form, EditorID) Export
 	EditorSettings = FormEditors[EditorID];
 	If Not EditorSettings.Initialized Then
 		If Not EditorSettings.Visible
-			And EditorSettings.EditorTextCache <> Undefined Then
+			And EditorSettings.TextEditorCache <> Undefined Then
 				
-			Return EditorSettings.EditorTextCache.Text;
+			Return EditorSettings.TextEditorCache.Text;
 		EndIf;
 			
 		Return "";
@@ -629,9 +629,9 @@ Function CodeEditorOriginalText(Form, EditorID) Export
 	EditorParameters = FormEditors[EditorID];
 	If Not EditorParameters.Initialized Then
 		If Not EditorParameters.Visible
-			And EditorParameters.EditorTextCache <> Undefined Then
+			And EditorParameters.TextEditorCache <> Undefined Then
 				
-			Return EditorParameters.EditorTextCache.OriginalText;
+			Return EditorParameters.TextEditorCache.OriginalText;
 		EndIf;
 	
 		Return "";
@@ -1179,11 +1179,11 @@ Procedure SwitchEditorVisibility(Form, EditorID, NewVisibility = Undefined) Expo
 		Visible = Not EditorSettings.Visible;
 	EndIf;
 	If Not Visible Then
-		EditorTextCache = UT_CodeEditorClientServer.NewTextCacheOfEditor();
-		EditorTextCache.Text = EditorCodeText(Form, EditorID);
-		EditorTextCache.OriginalText = CodeEditorOriginalText(Form, EditorID);
+		TextEditorCache = UT_CodeEditorClientServer.NewTextCacheOfEditor();
+		TextEditorCache.Text = EditorCodeText(Form, EditorID);
+		TextEditorCache.OriginalText = CodeEditorOriginalText(Form, EditorID);
 		
-		EditorSettings.EditorTextCache = EditorTextCache;
+		EditorSettings.TextEditorCache = TextEditorCache;
 	EndIf;
 	
 	EditorSettings.Visible = Visible;
@@ -1378,7 +1378,7 @@ Function UsageModeDataProcessorToExecuteEditorCode(Form, EditorID) Export
 	
 	EditorOptions = FormEditors[EditorID];
 	
-	Return EditorOptions.UseProcessingToExecuteCode;
+	Return EditorOptions.UseDataProcessorToExecuteCode;
 EndFunction
 
 // Режим использования обработки для выполнения кода редактора.
@@ -1408,7 +1408,7 @@ Procedure SetUseModeDataProcessorToExecuteEditorCode(Form, EditorID, Mode) Expor
 	FormEditors = UT_CodeEditorClientServer.FormEditors(Form);
 	
 	EditorOptions = FormEditors[EditorID];
-	EditorOptions.UseProcessingToExecuteCode = Mode;
+	EditorOptions.UseDataProcessorToExecuteCode = Mode;
 
 	ButtonName = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeThroughProcessing(),
 																			  EditorID);
@@ -2291,7 +2291,7 @@ Procedure FormOnOpenEndEditorLibrarySaving(Result, AdditionalParameters) Export
 				Form[KeyValue.Value.PropsName] = EditorSaveDirectory(EditorType) 
 				+ GetPathSeparator() + "index.html";
 //			ElsIf EditorType = EditorsTypes.Ace Then
-//				Form[KeyValue.Value.PropsName] = AceEditorFileNameForLanguage(KeyValue.Value.EditorLanguage);
+//				Form[KeyValue.Value.PropsName] = AceEditorFileNameForLanguage(KeyValue.Value.Language);
 			EndIf;
 		EndDo;
 	Else
@@ -2311,11 +2311,11 @@ Procedure SaveEditorLibraryToDiskEndLibraryDirectoryCreation(DirectoryName, Addi
 
 	LibraryURL = AdditionalParameters.LibraryURL;
 	
-	ArrayOfSavedFiles = New Array;
-	MapOfLibraryFile = GetFromTempStorage(LibraryURL);
+	SavedFilesArray = New Array;
+	LibraryFilesMap = GetFromTempStorage(LibraryURL);
 
-	AdditionalParameters.Вставить("ArrayOfSavedFiles", ArrayOfSavedFiles);
-	AdditionalParameters.Вставить("MapOfLibraryFile", MapOfLibraryFile);
+	AdditionalParameters.Вставить("SavedFilesArray", SavedFilesArray);
+	AdditionalParameters.Вставить("LibraryFilesMap", LibraryFilesMap);
 
 	SaveEditorLibraryWriteBeginWritingNextFile(AdditionalParameters);
 EndProcedure
@@ -4083,7 +4083,7 @@ Procedure SaveEditorLibraryWriteBeginWritingNextFile(AdditionalParameters)
 				AdditionalParameters);
 		EndIf;
 		
-		KeyValue.Value.BeginWriting(CompletionNotify, FileName);
+		KeyValue.Value.BeginWrite(CompletionNotify, FileName);
 		Break;
 	EndDo;
 

@@ -1781,7 +1781,7 @@ EndProcedure
 #Region UniversalToolsSettings
 
 Function SatellitelibrarieToolsDataDefaultDirectory() Export
-	Return UT_CommonClientServer.MergePaths(TempFilesDir(), "tools_ui_1c");
+	Return UT_CommonClientServer.MergePaths(TempFilesDir(), "tools_ui_1c_int");
 
 EndFunction
 

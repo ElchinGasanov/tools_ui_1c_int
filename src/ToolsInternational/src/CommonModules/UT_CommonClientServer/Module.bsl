@@ -1608,7 +1608,7 @@ EndFunction
 // Returns:
 // 	String - satellite libraries
 Function SatelliteLibrariesCatalog(UserWorkingDirectory) Export
-	Return MergePaths(UserWorkingDirectory, "tools_ui_1c", Format(Version(), "NG=0;"))
+	Return MergePaths(UserWorkingDirectory, "tools_ui_1c_int", Format(Version(), "NG=0;"))
 EndFunction
 
 // Random file name.
