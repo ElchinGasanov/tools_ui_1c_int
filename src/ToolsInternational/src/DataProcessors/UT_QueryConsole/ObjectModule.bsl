@@ -1056,28 +1056,28 @@ EndFunction
 Function Container_SaveValue(Value) Export
 
 	ValueType = TypeOf(Value);
-	If ValueType = TypeOf("Boundary") Then
+	If ValueType = Type("Boundary") Then
 		Result = New Structure("Type, BoundaryType, Value, Presentation", "Boundary");
 		FillPropertyValues(Result, Value);
 		Result.BoundaryType = String(Result.BoundaryType);
 		Result.Presentation = Container_GetPresentation(Result);
-	ElsIf ValueType = TypeOf("PointInTime") Then
+	ElsIf ValueType = Type("PointInTime") Then
 		Result = New Structure("Type, Date, Ref, Presentation", "PointInTime");
 		FillPropertyValues(Result, Value);
 		Result.Presentation = Container_GetPresentation(Result);
-	ElsIf ValueType = TypeOf("Type") Then
+	ElsIf ValueType = Type("Type") Then
 		Result = New Structure("Type, TypeName, Presentation", "Type", GetTypeName(Value));
 		Result.Presentation = Container_GetPresentation(Result);
-	ElsIf ValueType = TypeOf("ValueStorage") Then
+	ElsIf ValueType = Type("ValueStorage") Then
 		Result = New Structure("Type, Storage, Presentation", "ValueStorage", ValueToString(Value));
 		Result.Presentation = Container_GetPresentation(Result);
-	ElsIf ValueType = TypeOf("Array") Then
+	ElsIf ValueType = Type("Array") Then
 		Result = New Structure("Type, ValueList, Presentation", "Array", ValueListFromArray(Value));
 		Result.Presentation = Container_GetPresentation(Result);
-	ElsIf ValueType = TypeOf("ValueList") Then
+	ElsIf ValueType = Type("ValueList") Then
 		Result = New Structure("Type, ValueList, Presentation", "ValueList", Value);
 		Result.Presentation = Container_GetPresentation(Result);
-	ElsIf ValueType = TypeOf("ValueTable") Then
+	ElsIf ValueType = Type("ValueTable") Then
 		Result = New Structure("Type, RowCount, Value, Presentation", "ValueTable",
 			Value.Count(), ValueToString(Value));
 		Result.Presentation = Container_GetPresentation(Result);

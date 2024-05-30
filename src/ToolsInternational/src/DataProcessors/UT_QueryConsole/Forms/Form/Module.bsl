@@ -1184,13 +1184,13 @@ Procedure InsertPredefinedValue_Command(Command)
 	
 	SelectionBoundaries=QuerySelectionBoundaries();
 	NotifyParameters = New Structure("BeginLine, BeginColumn, EndLine, EndColumn",
-		SelectionBoundaries.BeginLine, SelectionBoundaries.BeginColumn, SelectionBoundaries.EndLine, 
-		SelectionBoundaries.EndColumn);
+		SelectionBoundaries.RowBegining, SelectionBoundaries.ColumnBegining, SelectionBoundaries.RowEnd, 
+		SelectionBoundaries.ColumnEnd);
 	CloseFormNotifyDescription = New NotifyDescription("ChoicePredefinedCompletion",
 		ThisForm, NotifyParameters);
 	OpeningParameters = New Structure("Object, FormData, QueryText, BeginLine, BeginColumn, EndLine, EndColumn",
-		Object, FormDataChoicePredefined, CurrentQueryText(), SelectionBoundaries.BeginLine,
-		SelectionBoundaries.BeginColumn, SelectionBoundaries.EndLine,SelectionBoundaries.EndColumn);
+		Object, FormDataChoicePredefined, CurrentQueryText(), SelectionBoundaries.RowBegining,
+		SelectionBoundaries.ColumnBegining, SelectionBoundaries.RowEnd,SelectionBoundaries.ColumnEnd);
 
 	OpenForm(FormFullName("ChoicePredefined"), OpeningParameters, ThisForm, True, , ,
 		CloseFormNotifyDescription, FormWindowOpeningMode.LockOwnerWindow);
@@ -2643,7 +2643,7 @@ Function ExtractResultAsValueTable()
 		EndDo;
 
 	Else
-		vtResult = qrSelection.Select();
+		vtResult = qrSelection.Unload();
 	EndIf;
 
 	Return vtResult;
@@ -3779,9 +3779,9 @@ Procedure PutEditingQuery()
 			
 		Query_PutQueryData(EditingQuery, strQueryText, strAlgorithmText, CodeExecutionMethod,
 			QueryParametersToValueList(QueryParameters), TempTablesToValueList(TempTables),
-			QuerySelectionBoundaries.RowBeginning, QuerySelectionBoundaries.ColumnBeginning,
+			QuerySelectionBoundaries.RowBegining, QuerySelectionBoundaries.ColumnBegining,
 			QuerySelectionBoundaries.RowEnd, QuerySelectionBoundaries.ColumnEnd,
-			AlgorithmSelectionBoundaries.RowBeginning, AlgorithmSelectionBoundaries.ColumnBeginning,
+			AlgorithmSelectionBoundaries.RowBegining, AlgorithmSelectionBoundaries.ColumnBegining,
 			AlgorithmSelectionBoundaries.RowEnd, AlgorithmSelectionBoundaries.ColumnEnd,
 			strAlgorithmTextBeforeExecution);
 	EndIf;
@@ -5036,17 +5036,17 @@ Procedure NewQueryBatchAfterQuestion(Result, AdditionalParameters)
 EndProcedure
 
 &AtClient
-Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBeginning, ColumnBeginning, RowEnd,
+Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBegining, ColumnBegining, RowEnd,
 	ColumnEnd)
 
-	TextItem.GetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+	TextItem.GetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 
-	If RowBeginning = RowEnd And ColumnBeginning = ColumnEnd Then
+	If RowBegining = RowEnd And ColumnBegining = ColumnEnd Then
 		TextItem.SetTextSelectionBounds(1, 1, 1000000000, 1);
 	Else
 
-		If ColumnBeginning > 1 Then
-			ColumnBeginning = 1;
+		If ColumnBegining > 1 Then
+			ColumnBegining = 1;
 		EndIf;
 
 		If ColumnEnd > 1 Then
@@ -5054,7 +5054,7 @@ Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBeginning, ColumnBegin
 			ColumnEnd = 1;
 		EndIf;
 
-		TextItem.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		TextItem.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 
 	EndIf;
 
@@ -5217,8 +5217,8 @@ EndProcedure
 Procedure ExecuteRequestCompletionOfSavingProcessingExecutionOfAlgorithms(Результат, AdditionalParameters) Export
 	QuerySelectionBoundaries = QuerySelectionBoundaries();
 	fAllText = Not AdditionalParameters.fUseSelection
-				 Or (QuerySelectionBoundaries.RowBeginning = QuerySelectionBoundaries.RowEnd
-					  And QuerySelectionBoundaries.ColumnBeginning = QuerySelectionBoundaries.ColumnEnd);
+				 Or (QuerySelectionBoundaries.RowBegining = QuerySelectionBoundaries.RowEnd
+					  And QuerySelectionBoundaries.ColumnBegining = QuerySelectionBoundaries.ColumnEnd);
 	If fAllText Then
 		strQueryText = CurrentQueryText();
 	Else
@@ -5945,34 +5945,34 @@ EndFunction
 &AtClient
 Function ItemSelectionBounds(Item)
 	Bounds = New Structure;
-	Bounds.Insert("RowBeginning", 0);
-	Bounds.Insert("ColumnBeginning", 0);
+	Bounds.Insert("RowBegining", 0);
+	Bounds.Insert("ColumnBegining", 0);
 	Bounds.Insert("RowEnd", 0);
 	Bounds.Insert("ColumnEnd", 0);
 
-	Item.GetTextSelectionBounds(Bounds.RowBeginning, Bounds.ColumnBeginning, Bounds.RowEnd,
+	Item.GetTextSelectionBounds(Bounds.RowBegining, Bounds.ColumnBegining, Bounds.RowEnd,
 		Bounds.ColumnEnd);
 
 	Return Bounds;
 EndFunction
 
 &AtClient
-Procedure SetAlgorithmSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd)
+Procedure SetAlgorithmSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd)
 	If UT_IncludedInUniversalTools Then
-		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Algorithm", RowBeginning, ColumnBeginning,
+		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Algorithm", RowBegining, ColumnBegining,
 			RowEnd, ColumnEnd);
 	Else
-		Items.AlgorithmText.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		Items.AlgorithmText.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	EndIf;
 EndProcedure
 
 &AtClient
-Procedure SetQuerySelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd)
+Procedure SetQuerySelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd)
 	If UT_IncludedInUniversalTools Then
-		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Query", RowBeginning, ColumnBeginning,
+		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Query", RowBegining, ColumnBegining,
 			RowEnd, ColumnEnd);
 	Else
-		Items.QueryText.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		Items.QueryText.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	EndIf;
 EndProcedure
 
@@ -6090,8 +6090,8 @@ Procedure UT_ResultRowProperties(Command)
 	
 	RowPropertiesVisible = Not RowPropertiesVisible;
 
-	Items.UT_QueryResultRowProperty.Check = RowPropertiesVisible;
-	Items.UT_QueryResultTreeRowProperty.Check = RowPropertiesVisible;
+	Items.UT_QueryResultRowProperties.Check = RowPropertiesVisible;
+	Items.UT_QueryResultTreeRowProperties.Check = RowPropertiesVisible;
 	Items.UT_RowProperties.Visible = RowPropertiesVisible;
 	
 	If RowPropertiesVisible Then

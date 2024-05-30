@@ -357,7 +357,7 @@ Function GetTable(QueryText = Undefined)
 		
 		Column = Table.Columns.Add(StructureRow.Name, StructureRow.ValueType);
 		
-		arColumnExpressions.Add(StrTemplate(NStr("	%1.%2 AS %2"), ParameterName, Column.Name));
+		arColumnExpressions.Add(StrTemplate(NStr("ru = '	%1.%2 КАК %2'; en = '	%1.%2 AS %2'"), ParameterName, Column.Name));
 		
 		If ValueIsFilled(StructureRow.OldName) Then
 			stColumnMap.Insert(StructureRow.Name, StructureRow.OldName);
