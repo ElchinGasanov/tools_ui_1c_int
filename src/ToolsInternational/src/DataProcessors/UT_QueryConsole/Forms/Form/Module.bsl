@@ -1678,7 +1678,7 @@ Procedure OnOpenFollowUp(AdditionalParameters = Undefined) Export
 			Return;
 		EndIf;
 
-	ElsIf AdditionalParameters.FollowUp = "AfterLoadingMainFile" Then
+	ElsIf AdditionalParameters.FollowUpPoint = "AfterLoadingMainFile" Then
 
 		If AdditionalParameters.LoadedData = Undefined Then
 			QueryBatch_New();

@@ -359,7 +359,11 @@ Procedure GenerateCodeWithParameters()
 	
 	For j = 1 To QueryText.LineCount() Do
 		Line = QueryText.GetLine(j);
-		Text.AddLine(StrTemplate("|%1", Line));
+		If j = 1 Then
+			Text.AddLine(StrTemplate(Char(34) + "|%1", Line));
+		Else
+			Text.AddLine(StrTemplate("|%1", Line));
+		EndIf;
 	EndDo;
 	
 	Text.ReplaceLine(Text.LineCount(), Text.GetLine(Text.LineCount()) + """;
