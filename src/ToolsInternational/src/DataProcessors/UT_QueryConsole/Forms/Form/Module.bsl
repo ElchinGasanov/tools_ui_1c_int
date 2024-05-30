@@ -66,9 +66,9 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	ValueToFormAttribute(DataProcessorObject, "Object");
 
 	QueryInWizard = -1;
-	EditingQuery = -1;
+	EditingQuery = -1; 
 	
-	//UsedFileName = FormAttributeToValue("Object").UsedFileName;
+	ResultKind = "table"; Items.ShowHideQueryResult.Check = True; // bugfix 30.05.2024 //UsedFileName = FormAttributeToValue("Object").UsedFileName;
 
 	Items.TempTablesValue.ChoiceButtonPicture = PictureLib.Change;
 
@@ -966,7 +966,7 @@ EndProcedure
 
 &AtClient
 Procedure FillParametersFromQuery_Command(Command)
-	stError = ParametersFillFromQueryAtServer();
+	stError = ParametersFillFromQueryAtServer(CurrentQueryText());
 
 	If ValueIsFilled(stError) Then
 
@@ -984,7 +984,7 @@ EndProcedure
 
 &AtClient
 Procedure FillFromXML_Command(Command)
-	strError = FillFromXMLAtServer();
+	strError = FillFromXMLAtServer(CurrentQueryText());
 	If ValueIsFilled(strError) Then
 		ShowConsoleMessageBox(strError);
 	EndIf;
@@ -1184,13 +1184,13 @@ Procedure InsertPredefinedValue_Command(Command)
 	
 	SelectionBoundaries=QuerySelectionBoundaries();
 	NotifyParameters = New Structure("BeginLine, BeginColumn, EndLine, EndColumn",
-		SelectionBoundaries.BeginLine, SelectionBoundaries.BeginColumn, SelectionBoundaries.EndLine, 
-		SelectionBoundaries.EndColumn);
+		SelectionBoundaries.RowBegining, SelectionBoundaries.ColumnBegining, SelectionBoundaries.RowEnd, 
+		SelectionBoundaries.ColumnEnd);
 	CloseFormNotifyDescription = New NotifyDescription("ChoicePredefinedCompletion",
 		ThisForm, NotifyParameters);
 	OpeningParameters = New Structure("Object, FormData, QueryText, BeginLine, BeginColumn, EndLine, EndColumn",
-		Object, FormDataChoicePredefined, CurrentQueryText(), SelectionBoundaries.BeginLine,
-		SelectionBoundaries.BeginColumn, SelectionBoundaries.EndLine,SelectionBoundaries.EndColumn);
+		Object, FormDataChoicePredefined, CurrentQueryText(), SelectionBoundaries.RowBegining,
+		SelectionBoundaries.ColumnBegining, SelectionBoundaries.RowEnd,SelectionBoundaries.ColumnEnd);
 
 	OpenForm(FormFullName("ChoicePredefined"), OpeningParameters, ThisForm, True, , ,
 		CloseFormNotifyDescription, FormWindowOpeningMode.LockOwnerWindow);
@@ -1243,7 +1243,7 @@ Procedure GetCodeWithParameters_Command(Command)
 										|AlgorithmText,
 										|CodeExecutionMethod,
 										|Title,
-										|Content", Object, QueryName, QueryText,
+										|Content", Object, QueryName, CurrentQueryText(),
 		QueryParameters_GetAsString(), AlgorithmCurrentText(), CodeExecutionMethod, 
 		NStr("ru = 'Код для выполнения запроса на встроенном языке 1С'; en = 'Code for executing the query by 1C:Enterprise language'"));
 
@@ -1678,7 +1678,7 @@ Procedure OnOpenFollowUp(AdditionalParameters = Undefined) Export
 			Return;
 		EndIf;
 
-	ElsIf AdditionalParameters.FollowUp = "AfterLoadingMainFile" Then
+	ElsIf AdditionalParameters.FollowUpPoint = "AfterLoadingMainFile" Then
 
 		If AdditionalParameters.LoadedData = Undefined Then
 			QueryBatch_New();
@@ -2515,10 +2515,10 @@ Procedure LoadTempTable(TableName, vtData, arLoadQueries, TablesLoadQuery)
 														 |");
 
 		arLoadQueries.Add("
-							|SELECT
-							|" + FieldExpressions + "
-							|INTO " + TempTableName + "
-							|FROM &" + TableName
+						|SELECT
+						|" + FieldExpressions + "
+						|INTO " + TempTableName + "
+						|FROM &" + TableName
 						+ " AS Table");
 
 		If ValueIsFilled(AdditionalQueries) Then
@@ -2543,11 +2543,11 @@ Procedure LoadTempTable(TableName, vtData, arLoadQueries, TablesLoadQuery)
 													 |");
 
 	arLoadQueries.Add("
-						 |SELECT
-						 |" + FieldExpressions + "
-												 |INTO " + TableName + "
-																	   |FROM " + Source + " AS Table"
-		+ " " + AdditionalSources);
+					|SELECT
+					|" + FieldExpressions + "
+					|INTO " + TableName + "
+					|FROM " + Source + " AS Table"
+					+ " " + AdditionalSources);
 
 	TablesLoadQuery.SetParameter(TableName, vtData);
 
@@ -2643,7 +2643,7 @@ Function ExtractResultAsValueTable()
 		EndDo;
 
 	Else
-		vtResult = qrSelection.Select();
+		vtResult = qrSelection.Unload();
 	EndIf;
 
 	Return vtResult;
@@ -3779,9 +3779,9 @@ Procedure PutEditingQuery()
 			
 		Query_PutQueryData(EditingQuery, strQueryText, strAlgorithmText, CodeExecutionMethod,
 			QueryParametersToValueList(QueryParameters), TempTablesToValueList(TempTables),
-			QuerySelectionBoundaries.RowBeginning, QuerySelectionBoundaries.ColumnBeginning,
+			QuerySelectionBoundaries.RowBegining, QuerySelectionBoundaries.ColumnBegining,
 			QuerySelectionBoundaries.RowEnd, QuerySelectionBoundaries.ColumnEnd,
-			AlgorithmSelectionBoundaries.RowBeginning, AlgorithmSelectionBoundaries.ColumnBeginning,
+			AlgorithmSelectionBoundaries.RowBegining, AlgorithmSelectionBoundaries.ColumnBegining,
 			AlgorithmSelectionBoundaries.RowEnd, AlgorithmSelectionBoundaries.ColumnEnd,
 			strAlgorithmTextBeforeExecution);
 	EndIf;
@@ -4807,7 +4807,7 @@ Function FillFromXMLReader(XMLReader)
 	
 	//Reading query parameters
 	QueryText = strQueryText;
-	stError = ParametersFillFromQueryAtServer();
+	stError = ParametersFillFromQueryAtServer(QueryText);
 	If ValueIsFilled(stError) Then
 		Message(
 			NStr("ru = 'Не удалось получить параметры из текста запроса. Параметры будут заполнены только по объекту запроса('; en = 'Cannot get the parameters from the query text. Parameters will be filled up only by query object.'")
@@ -4908,10 +4908,10 @@ Procedure FillFromFile(strFileName)
 EndProcedure
 
 &AtServer
-Function FillFromXMLAtServer()
+Function FillFromXMLAtServer(CurrentQueryText)
 
 	strQuerySignatureString = "<Structure xmlns=""http://v8.1c.ru/8.1/data/core""";
-	strQueryWindowText = QueryText;
+	strQueryWindowText = CurrentQueryText;
 	If Left(strQueryWindowText, StrLen(strQuerySignatureString)) <> strQuerySignatureString Then
 		Return NStr("ru = 'В поле текста запроса должна быть строка, кодирующая запрос с параметрами. Подробности на закладке ""Информация"".'; en = 'Query text field must contain a string that encodes a query with a parameters. Details on the Info tab.'");
 	EndIf;
@@ -5036,17 +5036,17 @@ Procedure NewQueryBatchAfterQuestion(Result, AdditionalParameters)
 EndProcedure
 
 &AtClient
-Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBeginning, ColumnBeginning, RowEnd,
+Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBegining, ColumnBegining, RowEnd,
 	ColumnEnd)
 
-	TextItem.GetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+	TextItem.GetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 
-	If RowBeginning = RowEnd And ColumnBeginning = ColumnEnd Then
+	If RowBegining = RowEnd And ColumnBegining = ColumnEnd Then
 		TextItem.SetTextSelectionBounds(1, 1, 1000000000, 1);
 	Else
 
-		If ColumnBeginning > 1 Then
-			ColumnBeginning = 1;
+		If ColumnBegining > 1 Then
+			ColumnBegining = 1;
 		EndIf;
 
 		If ColumnEnd > 1 Then
@@ -5054,7 +5054,7 @@ Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBeginning, ColumnBegin
 			ColumnEnd = 1;
 		EndIf;
 
-		TextItem.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		TextItem.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 
 	EndIf;
 
@@ -5217,8 +5217,8 @@ EndProcedure
 Procedure ExecuteRequestCompletionOfSavingProcessingExecutionOfAlgorithms(Результат, AdditionalParameters) Export
 	QuerySelectionBoundaries = QuerySelectionBoundaries();
 	fAllText = Not AdditionalParameters.fUseSelection
-				 Or (QuerySelectionBoundaries.RowBeginning = QuerySelectionBoundaries.RowEnd
-					  And QuerySelectionBoundaries.ColumnBeginning = QuerySelectionBoundaries.ColumnEnd);
+				 Or (QuerySelectionBoundaries.RowBegining = QuerySelectionBoundaries.RowEnd
+					  And QuerySelectionBoundaries.ColumnBegining = QuerySelectionBoundaries.ColumnEnd);
 	If fAllText Then
 		strQueryText = CurrentQueryText();
 	Else
@@ -5257,12 +5257,12 @@ Procedure ExecuteRequestCompletionOfSavingProcessingExecutionOfAlgorithms(Рез
 EndProcedure
 
 &AtServer
-Function ParametersFillFromQueryAtServer()
+Function ParametersFillFromQueryAtServer(CurrentQueryText)
 	Var RowNumber, ColumnNumber;
 
 	DataProcessorObject = FormAttributeToValue("Object");
 	
-	Query = New Query(QueryText);
+	Query = New Query(CurrentQueryText);
 	Try
 		Query.TempTablesManager = LoadTempTables();
 		ParametersFound = Query.FindParameters();
@@ -5945,34 +5945,34 @@ EndFunction
 &AtClient
 Function ItemSelectionBounds(Item)
 	Bounds = New Structure;
-	Bounds.Insert("RowBeginning", 0);
-	Bounds.Insert("ColumnBeginning", 0);
+	Bounds.Insert("RowBegining", 0);
+	Bounds.Insert("ColumnBegining", 0);
 	Bounds.Insert("RowEnd", 0);
 	Bounds.Insert("ColumnEnd", 0);
 
-	Item.GetTextSelectionBounds(Bounds.RowBeginning, Bounds.ColumnBeginning, Bounds.RowEnd,
+	Item.GetTextSelectionBounds(Bounds.RowBegining, Bounds.ColumnBegining, Bounds.RowEnd,
 		Bounds.ColumnEnd);
 
 	Return Bounds;
 EndFunction
 
 &AtClient
-Procedure SetAlgorithmSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd)
+Procedure SetAlgorithmSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd)
 	If UT_IncludedInUniversalTools Then
-		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Algorithm", RowBeginning, ColumnBeginning,
+		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Algorithm", RowBegining, ColumnBegining,
 			RowEnd, ColumnEnd);
 	Else
-		Items.AlgorithmText.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		Items.AlgorithmText.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	EndIf;
 EndProcedure
 
 &AtClient
-Procedure SetQuerySelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd)
+Procedure SetQuerySelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd)
 	If UT_IncludedInUniversalTools Then
-		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Query", RowBeginning, ColumnBeginning,
+		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Query", RowBegining, ColumnBegining,
 			RowEnd, ColumnEnd);
 	Else
-		Items.QueryText.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		Items.QueryText.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	EndIf;
 EndProcedure
 
@@ -6090,8 +6090,8 @@ Procedure UT_ResultRowProperties(Command)
 	
 	RowPropertiesVisible = Not RowPropertiesVisible;
 
-	Items.UT_QueryResultRowProperty.Check = RowPropertiesVisible;
-	Items.UT_QueryResultTreeRowProperty.Check = RowPropertiesVisible;
+	Items.UT_QueryResultRowProperties.Check = RowPropertiesVisible;
+	Items.UT_QueryResultTreeRowProperties.Check = RowPropertiesVisible;
 	Items.UT_RowProperties.Visible = RowPropertiesVisible;
 	
 	If RowPropertiesVisible Then
