@@ -235,7 +235,7 @@ Function GetTypeQualifiersPresentation(ValueType)
 	
 	If ValueType.ContainsType(Type("String")) Then
 		StringQualifiersPresentation = NStr("ru  = 'Длина '; en = 'Length '") + ValueType.StringQualifiers.Length;
-		arQualifiers.Add(New Structure("Type", "String", StringQualifiersPresentation));
+		arQualifiers.Add(New Structure("Type, Qualifiers", "String", StringQualifiersPresentation));
 	EndIf;
 		
 	If ValueType.ContainsType(Type("Date")) Then

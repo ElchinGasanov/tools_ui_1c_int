@@ -66,9 +66,9 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	ValueToFormAttribute(DataProcessorObject, "Object");
 
 	QueryInWizard = -1;
-	EditingQuery = -1;
+	EditingQuery = -1; 
 	
-	//UsedFileName = FormAttributeToValue("Object").UsedFileName;
+	ResultKind = "table"; Items.ShowHideQueryResult.Check = True; // bugfix 30.05.2024 //UsedFileName = FormAttributeToValue("Object").UsedFileName;
 
 	Items.TempTablesValue.ChoiceButtonPicture = PictureLib.Change;
 
@@ -966,7 +966,7 @@ EndProcedure
 
 &AtClient
 Procedure FillParametersFromQuery_Command(Command)
-	stError = ParametersFillFromQueryAtServer();
+	stError = ParametersFillFromQueryAtServer(CurrentQueryText());
 
 	If ValueIsFilled(stError) Then
 
@@ -984,7 +984,7 @@ EndProcedure
 
 &AtClient
 Procedure FillFromXML_Command(Command)
-	strError = FillFromXMLAtServer();
+	strError = FillFromXMLAtServer(CurrentQueryText());
 	If ValueIsFilled(strError) Then
 		ShowConsoleMessageBox(strError);
 	EndIf;
@@ -1243,7 +1243,7 @@ Procedure GetCodeWithParameters_Command(Command)
 										|AlgorithmText,
 										|CodeExecutionMethod,
 										|Title,
-										|Content", Object, QueryName, QueryText,
+										|Content", Object, QueryName, CurrentQueryText(),
 		QueryParameters_GetAsString(), AlgorithmCurrentText(), CodeExecutionMethod, 
 		NStr("ru = 'Код для выполнения запроса на встроенном языке 1С'; en = 'Code for executing the query by 1C:Enterprise language'"));
 
@@ -2515,10 +2515,10 @@ Procedure LoadTempTable(TableName, vtData, arLoadQueries, TablesLoadQuery)
 														 |");
 
 		arLoadQueries.Add("
-							|SELECT
-							|" + FieldExpressions + "
-							|INTO " + TempTableName + "
-							|FROM &" + TableName
+						|SELECT
+						|" + FieldExpressions + "
+						|INTO " + TempTableName + "
+						|FROM &" + TableName
 						+ " AS Table");
 
 		If ValueIsFilled(AdditionalQueries) Then
@@ -2543,11 +2543,11 @@ Procedure LoadTempTable(TableName, vtData, arLoadQueries, TablesLoadQuery)
 													 |");
 
 	arLoadQueries.Add("
-						 |SELECT
-						 |" + FieldExpressions + "
-												 |INTO " + TableName + "
-																	   |FROM " + Source + " AS Table"
-		+ " " + AdditionalSources);
+					|SELECT
+					|" + FieldExpressions + "
+					|INTO " + TableName + "
+					|FROM " + Source + " AS Table"
+					+ " " + AdditionalSources);
 
 	TablesLoadQuery.SetParameter(TableName, vtData);
 
@@ -4807,7 +4807,7 @@ Function FillFromXMLReader(XMLReader)
 	
 	//Reading query parameters
 	QueryText = strQueryText;
-	stError = ParametersFillFromQueryAtServer();
+	stError = ParametersFillFromQueryAtServer(QueryText);
 	If ValueIsFilled(stError) Then
 		Message(
 			NStr("ru = 'Не удалось получить параметры из текста запроса. Параметры будут заполнены только по объекту запроса('; en = 'Cannot get the parameters from the query text. Parameters will be filled up only by query object.'")
@@ -4908,10 +4908,10 @@ Procedure FillFromFile(strFileName)
 EndProcedure
 
 &AtServer
-Function FillFromXMLAtServer()
+Function FillFromXMLAtServer(CurrentQueryText)
 
 	strQuerySignatureString = "<Structure xmlns=""http://v8.1c.ru/8.1/data/core""";
-	strQueryWindowText = QueryText;
+	strQueryWindowText = CurrentQueryText;
 	If Left(strQueryWindowText, StrLen(strQuerySignatureString)) <> strQuerySignatureString Then
 		Return NStr("ru = 'В поле текста запроса должна быть строка, кодирующая запрос с параметрами. Подробности на закладке ""Информация"".'; en = 'Query text field must contain a string that encodes a query with a parameters. Details on the Info tab.'");
 	EndIf;
@@ -5257,12 +5257,12 @@ Procedure ExecuteRequestCompletionOfSavingProcessingExecutionOfAlgorithms(Рез
 EndProcedure
 
 &AtServer
-Function ParametersFillFromQueryAtServer()
+Function ParametersFillFromQueryAtServer(CurrentQueryText)
 	Var RowNumber, ColumnNumber;
 
 	DataProcessorObject = FormAttributeToValue("Object");
 	
-	Query = New Query(QueryText);
+	Query = New Query(CurrentQueryText);
 	Try
 		Query.TempTablesManager = LoadTempTables();
 		ParametersFound = Query.FindParameters();
