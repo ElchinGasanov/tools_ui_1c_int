@@ -969,6 +969,10 @@
             <key>ru</key>
             <value>Дата</value>
           </presentation>
+          <presentation>
+            <key>en</key>
+            <value>Date</value>
+          </presentation>
           <value xsi:type="core:NumberValue">
             <value>0</value>
           </value>
@@ -978,6 +982,10 @@
             <key>ru</key>
             <value>Время</value>
           </presentation>
+          <presentation>
+            <key>en</key>
+            <value>Time</value>
+          </presentation>
           <value xsi:type="core:NumberValue">
             <value>1</value>
           </value>
@@ -986,6 +994,10 @@
           <presentation>
             <key>ru</key>
             <value>Дата и время</value>
+          </presentation>
+          <presentation>
+            <key>en</key>
+            <value>Date and time</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>2</value>

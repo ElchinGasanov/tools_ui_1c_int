@@ -65,6 +65,10 @@
       <choiceList>
         <presentation>
           <key>ru</key>
+          <value>Нет</value>
+        </presentation>
+        <presentation>
+          <key>en</key>
           <value>None</value>
         </presentation>
         <value xsi:type="core:NumberValue">
@@ -74,6 +78,10 @@
       <choiceList>
         <presentation>
           <key>ru</key>
+          <value>Список значений</value>
+        </presentation>
+        <presentation>
+          <key>en</key>
           <value>Value list</value>
         </presentation>
         <value xsi:type="core:NumberValue">
@@ -83,6 +91,10 @@
       <choiceList>
         <presentation>
           <key>ru</key>
+          <value>Массив</value>
+        </presentation>
+        <presentation>
+          <key>en</key>
           <value>Array</value>
         </presentation>
         <value xsi:type="core:NumberValue">
@@ -92,6 +104,10 @@
       <choiceList>
         <presentation>
           <key>ru</key>
+          <value>Таблица значений</value>
+        </presentation>
+        <presentation>
+          <key>en</key>
           <value>ValueTable</value>
         </presentation>
         <value xsi:type="core:NumberValue">
