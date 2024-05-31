@@ -90,7 +90,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		ElsIf TypeOf(DataType) = Type("String") Then 
 			//@skip-check empty-except-statement
 			Try
-				FillSelectedTypes = UT_Common.ValueFromXMLString(DataType, Type("TypeDescription"));
+				InitialDataType = UT_Common.ValueFromXMLString(DataType, Type("TypeDescription"));
 			Except
 			EndTry;
 		EndIf;
@@ -104,7 +104,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 				ContainerDataType = ValueFromStringInternal(StorageContainer.Value);
 				ArrayOfTypesForDescription = New Array();
 				ArrayOfTypesForDescription.Add(ContainerDataType);
-				FillSelectedTypes = New TypeDescription(ArrayOfTypesForDescription);
+				InitialDataType = New TypeDescription(ArrayOfTypesForDescription);
 			Except
 				UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось прочитать тип из контейнера.'; en = 'Failed to read type from container.'"));
 			EndTry;
@@ -117,7 +117,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		StorageContainer = Parameters.ValueDescriptionsTypeStorageContainer;//look at UT_CommonClientServer.NewValueStorageBoundaryType
 		If StorageContainer <> Undefined Then
 			Try
-				FillSelectedTypes = UT_Common.ValueFromXMLString(StorageContainer.Value,
+				InitialDataType = UT_Common.ValueFromXMLString(StorageContainer.Value,
 																			 Type("TypeDescription"));
 			Except
 				UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось прочитать описание типов из контейнера.'; en = 'Failed to read type description from container.'"));
@@ -170,7 +170,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	
 	FillQualifiersDataByOriginalDataType(InitialDataType);
 	
-	FillTypesTree(True);
+	FillTypesTree(InitialDataType);
 	
 	SetConditionalAppearance();
 EndProcedure
@@ -374,9 +374,9 @@ EndProcedure
 																	  AllowedLength.Fixed,
 																	  AllowedLength.Variable));
 	
-	If Form.СоставДаты = 1 Then
+	If Form.DateFormat = 1 Then
 		DateFraction = DateFractions.Time;
-	ElsIf Form.СоставДаты = 2 Then
+	ElsIf Form.DateFormat = 2 Then
 		DateFraction = DateFractions.DateTime;
 	Else
 		DateFraction = DateFractions.Date;
@@ -425,7 +425,7 @@ EndProcedure
 &НаКлиенте
 Процедура ChangeCheckTypeСhoiceHandler(СurrentRow)
 	
-	If СurrentRow.Check Then
+	If СurrentRow.Selected Then
 		If Not CompositeDataType Then
 			SelectedTypes.Очистить();
 		ElsIf СurrentRow.UnavailableForCompositeType Then
@@ -552,7 +552,7 @@ Function SystemEnumerationIsAvailable()
 EndFunction
 
 &AtServer
-Function AddTypeToTypesTree(FillSelectedTypes, TypeName, Picture, TypeRestrictionsDescription, Presentation = "", 
+Function AddTypeToTypesTree(InitialDataType, TypeName, Picture, TypeRestrictionsDescription, Presentation = "", 
 	TreeRow = Undefined, IsGroup = False, Group = False, UnavailableForCompositeType = False)
 	
 	If ValueIsFilled(Presentation) Then
@@ -593,8 +593,8 @@ Function AddTypeToTypesTree(FillSelectedTypes, TypeName, Picture, TypeRestrictio
 	NewRow.UnavailableForCompositeType = UnavailableForCompositeType;
 	NewRow.Group = Group;
 	
-	If FillSelectedTypes <> Undefined And CurrentType <> Undefined Then
-		If FillSelectedTypes.ContainsType(CurrentType) Then
+	If InitialDataType <> Undefined And CurrentType <> Undefined Then
+		If InitialDataType.ContainsType(CurrentType) Then
 			SelectedTypes.Add(NewRow.Name, , NewRow.UnavailableForCompositeType);
 		EndIf;
 	EndIf;
@@ -604,11 +604,11 @@ Function AddTypeToTypesTree(FillSelectedTypes, TypeName, Picture, TypeRestrictio
 EndFunction
 
 &AtServer
-Procedure FillTypesByObjectType(MetadataObjectsType, TypePrefix, Picture, FillSelectedTypes,
+Procedure FillTypesByObjectType(MetadataObjectsType, TypePrefix, Picture, InitialDataType,
 	TypeRestrictionsDescription)
 	ObjectsCollection = Metadata[MetadataObjectsType];
 
-	CollectionRow = AddTypeToTypesTree(FillSelectedTypes,
+	CollectionRow = AddTypeToTypesTree(InitialDataType,
 											TypePrefix,
 											Picture,
 											TypeRestrictionsDescription,
@@ -618,7 +618,7 @@ Procedure FillTypesByObjectType(MetadataObjectsType, TypePrefix, Picture, FillSe
 											True);
 
 	For Each  MetadataObject Из ObjectsCollection Do
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 								TypePrefix + "." + MetadataObject.Name,
 								Picture,
 								TypeRestrictionsDescription,
@@ -630,72 +630,72 @@ Procedure FillTypesByObjectType(MetadataObjectsType, TypePrefix, Picture, FillSe
 EndProcedure
 
 &AtServer
-Procedure FillPrimitiveTypes(FillSelectedTypes, TypeRestrictionsDescription)
+Procedure FillPrimitiveTypes(InitialDataType, TypeRestrictionsDescription)
 	//AddTypeToTypesTree("Arbitrary", PictureLib.UT_ArbitraryType);
 	If PrimitiveTypeIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"Number", PictureLib.UT_Number, TypeRestrictionsDescription);
-		AddTypeToTypesTree(FillSelectedTypes,"String", PictureLib.UT_String, TypeRestrictionsDescription);
-		AddTypeToTypesTree(FillSelectedTypes,"Date", PictureLib.UT_Date, TypeRestrictionsDescription);
-		AddTypeToTypesTree(FillSelectedTypes,"Boolean", PictureLib.UT_Boolean, TypeRestrictionsDescription);
+		AddTypeToTypesTree(InitialDataType,"Number", PictureLib.UT_Number, TypeRestrictionsDescription);
+		AddTypeToTypesTree(InitialDataType,"String", PictureLib.UT_String, TypeRestrictionsDescription);
+		AddTypeToTypesTree(InitialDataType,"Date", PictureLib.UT_Date, TypeRestrictionsDescription);
+		AddTypeToTypesTree(InitialDataType,"Boolean", PictureLib.UT_Boolean, TypeRestrictionsDescription);
 	EndIf;
 	If ValueStorageIsAvailable() Then      
-		AddTypeToTypesTree(FillSelectedTypes,"ValueStorage", New Picture, TypeRestrictionsDescription);
+		AddTypeToTypesTree(InitialDataType,"ValueStorage", New Picture, TypeRestrictionsDescription);
 	EndIf;
 	
 	If ValueCollectionIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"ValueTable",
 			PictureLib.UT_ValueTable,
 			TypeRestrictionsDescription);
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"ValueList", 
 			PictureLib.UT_ValueList,
 			TypeRestrictionsDescription);
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 		"Array",
 		 PictureLib.UT_Array,
 		 TypeRestrictionsDescription);
-		AddTypeToTypesTree(FillSelectedTypes, "Массив", БиблиотекаКартинок.УИ_Массив, TypeRestrictionsDescription,);
-		AddTypeToTypesTree(FillSelectedTypes, "Структура", New Картинка, TypeRestrictionsDescription);
-		AddTypeToTypesTree(FillSelectedTypes, "Соответствие", New Картинка, TypeRestrictionsDescription);		
+		AddTypeToTypesTree(InitialDataType, "Array", PictureLib.UT_Array, TypeRestrictionsDescription,);
+		AddTypeToTypesTree(InitialDataType, "Structure", New Picture, TypeRestrictionsDescription);
+		AddTypeToTypesTree(InitialDataType, "Map", New Picture, TypeRestrictionsDescription);		
 	EndIf;
 	If TypeTypeIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"Type", PictureLib.ChooseType, TypeRestrictionsDescription);
+		AddTypeToTypesTree(InitialDataType,"Type", PictureLib.ChooseType, TypeRestrictionsDescription);
 	EndIf;
-	If TypesSetAvailable(AvailableTypesSets.ОписаниеТипов) Then
-		AddTypeToTypesTree(FillSelectedTypes,
-								"ОписаниеТипов",
-								БиблиотекаКартинок.УИ_ОписаниеТипов,
+	If TypesSetAvailable(AvailableTypesSets.TypeDescription) Then
+		AddTypeToTypesTree(InitialDataType,
+								"TypeDescription",
+								PictureLib.UT_DescriptionOfTypes,
 								TypeRestrictionsDescription);
 	EndIf;
 	
 	If PointInTimeIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"PointInTime", 
 			PictureLib.UT_PointInTime,
 			TypeRestrictionsDescription);
 	EndIf;
 	If BoundaryIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"Boundary", 
 			PictureLib.UT_Boundary,
 			TypeRestrictionsDescription);
 	EndIf;
 	If UUIDIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"UUID", 
 			PictureLib.UT_UUID,
 			TypeRestrictionsDescription);
 	EndIf;
 	If NullIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,"Null", PictureLib.UT_Null,TypeRestrictionsDescription);
+		AddTypeToTypesTree(InitialDataType,"Null", PictureLib.UT_Null,TypeRestrictionsDescription);
 	EndIf;
 	
-	FillAdditionalTypes(FillSelectedTypes, TypeRestrictionsDescription);
+	FillAdditionalTypes(InitialDataType, TypeRestrictionsDescription);
 EndProcedure
 
 &AtServer
-Procedure FillCharacteristicsTypes(FillSelectedTypes, TypeRestrictionsDescription)
+Procedure FillCharacteristicsTypes(InitialDataType, TypeRestrictionsDescription)
 	If Not CompositeRefIsAvailable() Then
 		Return;
 	EndIf;
@@ -705,7 +705,7 @@ Procedure FillCharacteristicsTypes(FillSelectedTypes, TypeRestrictionsDescriptio
 		Return;
 	EndIf;
 	
-	CharacteristicsRow=AddTypeToTypesTree(FillSelectedTypes,
+	CharacteristicsRow=AddTypeToTypesTree(InitialDataType,
 		"Characteristics", 
 		PictureLib.Folder,
 		TypeRestrictionsDescription,
@@ -715,7 +715,7 @@ Procedure FillCharacteristicsTypes(FillSelectedTypes, TypeRestrictionsDescriptio
 		True);
 	
 	For Each Chart In Charts Do
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"Characteristic." + Chart.Name,
 			New Picture,
 			TypeRestrictionsDescription,
@@ -731,7 +731,7 @@ Procedure FillCharacteristicsTypes(FillSelectedTypes, TypeRestrictionsDescriptio
 EndProcedure
 
 &AtServer
-Procedure FillDefinedTypes(FillSelectedTypes, TypeRestrictionsDescription)
+Procedure FillDefinedTypes(InitialDataType, TypeRestrictionsDescription)
 	If Not CompositeRefIsAvailable() Then
 		Return;
 	EndIf;
@@ -742,7 +742,7 @@ Procedure FillDefinedTypes(FillSelectedTypes, TypeRestrictionsDescription)
 		Return;
 	EndIf;
 	
-	TypeAsString = AddTypeToTypesTree(FillSelectedTypes,
+	TypeAsString = AddTypeToTypesTree(InitialDataType,
 		"DefinedType", 
 		PictureLib.Folder,
 		TypeRestrictionsDescription,
@@ -752,7 +752,7 @@ Procedure FillDefinedTypes(FillSelectedTypes, TypeRestrictionsDescription)
 		True);
 	
 	For Each DefinedType In Types Do
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"DefinedType." + DefinedType.Name,
 			New Picture,
 			TypeRestrictionsDescription,
@@ -766,11 +766,11 @@ Procedure FillDefinedTypes(FillSelectedTypes, TypeRestrictionsDescription)
 EndProcedure
 
 &AtServer
-Procedure FillTypesOfSystemEnumerations(FillSelectedTypes, TypeRestrictionsDescription)
+Procedure FillTypesOfSystemEnumerations(InitialDataType, TypeRestrictionsDescription)
 	If Not SystemEnumerationIsAvailable() Then
 		Return;
 	EndIf;
-	TypeAsString=AddTypeToTypesTree(FillSelectedTypes,
+	TypeAsString=AddTypeToTypesTree(InitialDataType,
 		"SystemEnumerations", 
 		PictureLib.Folder,
 		TypeRestrictionsDescription,
@@ -779,31 +779,31 @@ Procedure FillTypesOfSystemEnumerations(FillSelectedTypes, TypeRestrictionsDescr
 		True,
 		True);
 
-	AddTypeToTypesTree(FillSelectedTypes,
+	AddTypeToTypesTree(InitialDataType,
 		"AccumulationRecordType",
 		PictureLib.UT_AccumulationRecordType,
 		TypeRestrictionsDescription,
 		,
 		TypeAsString);
-	AddTypeToTypesTree(FillSelectedTypes,
+	AddTypeToTypesTree(InitialDataType,
 		"AccountType",
 		PictureLib.ChartOfAccountsObject,
 		TypeRestrictionsDescription,
 		,
 		TypeAsString);
-	AddTypeToTypesTree(FillSelectedTypes,
+	AddTypeToTypesTree(InitialDataType,
 		"AccountingRecordType",
 		PictureLib.ChartOfAccounts,
 		TypeRestrictionsDescription,
 		,
 		TypeAsString);
-	AddTypeToTypesTree(FillSelectedTypes,
+	AddTypeToTypesTree(InitialDataType,
 		"AccumulationRegisterAggregateUse",
 		New Picture,
 		TypeRestrictionsDescription,
 		,
 		TypeAsString);
-	AddTypeToTypesTree(FillSelectedTypes,
+	AddTypeToTypesTree(InitialDataType,
 		"AccumulationRegisterAggregatePeriodicity",
 		New Picture,
 		TypeRestrictionsDescription,
@@ -814,50 +814,50 @@ Procedure FillTypesOfSystemEnumerations(FillSelectedTypes, TypeRestrictionsDescr
 EndProcedure
 
 &НаСервере
-Процедура FillAdditionalTypes(FillSelectedTypes, TypeRestrictionsDescription)
-	If TypesSetAvailable(AvailableTypesSets.ТабличныйДокумент) Then
-		AddTypeToTypesTree(FillSelectedTypes,
-								"ТабличныйДокумент",
-								БиблиотекаКартинок.ТабличныйДокументОтображатьЗаголовки,
+Процедура FillAdditionalTypes(InitialDataType, TypeRestrictionsDescription)
+	If TypesSetAvailable(AvailableTypesSets.SpreadsheetDocument) Then
+		AddTypeToTypesTree(InitialDataType,
+								"SpreadsheetDocument",
+								PictureLib.SpreadsheetShowHeaders,
 								TypeRestrictionsDescription);
 	EndIf;
-	If TypesSetAvailable(AvailableTypesSets.Картинка) Then
-		AddTypeToTypesTree(FillSelectedTypes,
-								"Картинка",
-								БиблиотекаКартинок.Картинка,
+	If TypesSetAvailable(AvailableTypesSets.Picture) Then
+		AddTypeToTypesTree(InitialDataType,
+								"Picture",
+								PictureLib.Picture,
 								TypeRestrictionsDescription);
 	EndIf;
-	If TypesSetAvailable(AvailableTypesSets.ДвоичныеДанные) Then
-		AddTypeToTypesTree(FillSelectedTypes,
-								"ДвоичныеДанные",
-								New Картинка,
+	If TypesSetAvailable(AvailableTypesSets.BinaryData) Then
+		AddTypeToTypesTree(InitialDataType,
+								"BinaryData",
+								New Picture,
 								TypeRestrictionsDescription);
 	EndIf;
 	
 КонецПроцедуры
 
 &НаСервере
-Процедура ЗаполнитьФиксированныеКоллекции(FillSelectedTypes, TypeRestrictionsDescription)
-	If Not TypesSetAvailable(AvailableTypesSets.ФиксированныеКоллекцииЗначений) Then
+Процедура ЗаполнитьФиксированныеКоллекции(InitialDataType, TypeRestrictionsDescription)
+	If Not TypesSetAvailable(AvailableTypesSets.FixedValueCollections) Then
 		Return;
 	EndIf;
 	
-	AddTypeToTypesTree(FillSelectedTypes,
-							"ФиксированныйМассив",
-							БиблиотекаКартинок.УИ_ФиксированныйМассив,
+	AddTypeToTypesTree(InitialDataType,
+							"FixedArray",
+							PictureLib.UT_FixedArray,
 							TypeRestrictionsDescription);
-	AddTypeToTypesTree(FillSelectedTypes, "ФиксированнаяСтруктура",
-							БиблиотекаКартинок.УИ_ФиксированныйМассив,
+	AddTypeToTypesTree(InitialDataType, "FixedStructure",
+							PictureLib.UT_FixedArray,
 							TypeRestrictionsDescription);
-	AddTypeToTypesTree(FillSelectedTypes,
-							"ФиксированноеСоответствие",
-							БиблиотекаКартинок.УИ_ФиксированныйМассив,
+	AddTypeToTypesTree(InitialDataType,
+							"FixedMap",
+							PictureLib.UT_FixedArray,
 							TypeRestrictionsDescription);
 
 КонецПроцедуры
 
 &AtServer
-Procedure FillTypesTree(FillSelectedTypes=False)
+Procedure FillTypesTree(InitialDataType = Undefined)
 	TypeRestrictionsDescription = Undefined;
 	If ValueIsFilled(TypeRestrictions) Then
 		//@skip-check empty-except-statement
@@ -871,80 +871,80 @@ Procedure FillTypesTree(FillSelectedTypes=False)
 	EndIf;
 	
 	TypesTree.GetItems().Clear();
-	FillPrimitiveTypes(FillSelectedTypes, TypeRestrictionsDescription);
+	FillPrimitiveTypes(InitialDataType, TypeRestrictionsDescription);
 	FillTypesByObjectType("Catalogs",
 		"CatalogRef",
 		PictureLib.Catalog,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	FillTypesByObjectType("Documents",
 		"DocumentRef",
 		PictureLib.Document,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	FillTypesByObjectType("ChartsOfCharacteristicTypes",
 		"ChartOfCharacteristicTypesRef",
 		PictureLib.ChartOfCharacteristicTypes,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	FillTypesByObjectType("ChartsOfAccounts", "ChartOfAccountsRef",
 		PictureLib.ChartOfAccounts,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	FillTypesByObjectType("ChartsOfCalculationTypes",
 		"ChartOfCalculationTypesRef",
 		PictureLib.ChartOfCalculationTypes,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	FillTypesByObjectType("ExchangePlans",
 		"ExchangePlanRef", 
 		PictureLib.ExchangePlan,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	FillTypesByObjectType("Enums", 
 		"EnumRef", 
 		PictureLib.Enum,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	FillTypesByObjectType("BusinessProcesses",
 		"BusinessProcessRef",
 		PictureLib.BusinessProcess,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	FillTypesByObjectType("Tasks",
 		"TaskRef",
 		PictureLib.Task,
-		FillSelectedTypes,
+		InitialDataType,
 		TypeRestrictionsDescription);
 	//FillTypesByObjectType("BusinessProcessRoutePointsRef", "BusinessProcessRoutePointRef");
 	
-	FillCharacteristicsTypes(FillSelectedTypes, TypeRestrictionsDescription);
+	FillCharacteristicsTypes(InitialDataType, TypeRestrictionsDescription);
 	//@skip-check empty-except-statement
 	Try
-		FillDefinedTypes(FillSelectedTypes, TypeRestrictionsDescription);
+		FillDefinedTypes(InitialDataType, TypeRestrictionsDescription);
 	Except
 	EndTry;
 	If CompositeRefIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 		"AnyRef",
 		New Picture,
 		TypeRestrictionsDescription,
 		"Any reference");
 	EndIf;
-	ЗаполнитьФиксированныеКоллекции(FillSelectedTypes, TypeRestrictionsDescription);
+	ЗаполнитьФиксированныеКоллекции(InitialDataType, TypeRestrictionsDescription);
 	If StandardPeriodIsAvailable() Then
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"StandardBeginningDate", 
 			New Picture,
 			TypeRestrictionsDescription,
 			"Standard beginning date");
-		AddTypeToTypesTree(FillSelectedTypes,
+		AddTypeToTypesTree(InitialDataType,
 			"StandardPeriod", 
 			New Picture,
 			TypeRestrictionsDescription, 
 			"Standard period");
 	EndIf;
-	FillTypesOfSystemEnumerations(FillSelectedTypes, TypeRestrictionsDescription);
+	FillTypesOfSystemEnumerations(InitialDataType, TypeRestrictionsDescription);
 	
 	SetSelectedTypesInTree(TypesTree,SelectedTypes);
 EndProcedure

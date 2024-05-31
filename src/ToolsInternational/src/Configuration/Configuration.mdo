@@ -26,7 +26,7 @@
   <configurationExtensionCompatibilityMode>8.3.12</configurationExtensionCompatibilityMode>
   <configurationExtensionPurpose>AddOn</configurationExtensionPurpose>
   <vendor>Neti LLC </vendor>
-  <version>2.4.14</version>
+  <version>24.1.4</version>
   <defaultLanguage>Language.English</defaultLanguage>
   <languages uuid="66bef324-e854-4c33-879a-3c081f6686cd">
     <name>Russian</name>
@@ -102,6 +102,8 @@
   <commonTemplates>CommonTemplate.UT_MonacoEditorWindows</commonTemplates>
   <commonTemplates>CommonTemplate.UT_AceColaborator</commonTemplates>
   <commonTemplates>CommonTemplate.UT_TemplateProcessing</commonTemplates>
+  <commonTemplates>CommonTemplate.UT_showdown</commonTemplates>
+  <commonTemplates>CommonTemplate.UT_ctool1cd</commonTemplates>
   <commonModules>CommonModule.AdditionalReportsAndDataProcessors</commonModules>
   <commonModules>CommonModule.AttachableCommandsOverridable</commonModules>
   <commonModules>CommonModule.UT_</commonModules>
@@ -139,6 +141,7 @@
   <commonModules>CommonModule.UT_CodeGenerator</commonModules>
   <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_21_ClientServer</commonModules>
   <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_18_Client</commonModules>
+  <commonModules>CommonModule.UT_ConfiguratorManagementClient</commonModules>
   <httpServices>HTTPService.UT_PublishedFunctions</httpServices>
   <commonCommands>CommonCommand.UT_Settings</commonCommands>
   <commonForms>CommonForm.UT_TimeConsumingOperation</commonForms>

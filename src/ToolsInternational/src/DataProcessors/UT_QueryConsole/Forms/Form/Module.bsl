@@ -66,9 +66,9 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	ValueToFormAttribute(DataProcessorObject, "Object");
 
 	QueryInWizard = -1;
-	EditingQuery = -1;
+	EditingQuery = -1; 
 	
-	//UsedFileName = FormAttributeToValue("Object").UsedFileName;
+	ResultKind = "table"; Items.ShowHideQueryResult.Check = True; // bugfix 30.05.2024 //UsedFileName = FormAttributeToValue("Object").UsedFileName;
 
 	Items.TempTablesValue.ChoiceButtonPicture = PictureLib.Change;
 
@@ -105,17 +105,32 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		Items.QueryResultTreeContextMenuUT_EditValue.Visible=True;
 
 		UT_FillWithDebugData();
+		
+		UT_FillRequestsFromDCS();
 
 		UT_CodeEditorServer.FormOnCreateAtServer(ThisObject);
 		
-		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "Algorithm", Items.AlgorithmText);
-		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "AlgorithmBeforeExecution",
-			Items.AlgorithmTextBeforeExecution);
-		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "Query", Items.QueryText, , "bsl_query");
+		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject,
+												"Algorithm",
+												Items.AlgorithmText,
+												,
+												,
+												Items.AlgorithmGroupCommandPanelCodeEditor);
+		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, 
+												"AlgorithmBeforeExecution",
+												Items.AlgorithmTextBeforeExecution,
+												,
+												, Items.GroupAlgorithmBeforeExecutionCommandPanel);
+		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, 
+												"Query", 
+												Items.QueryText,
+												,
+												"bsl_query",
+												Items.QueryCommandBarGroup);
 	EndIf;
 #EndRegion
 
-		AlgorithmHintBeforeExecution =NStr("ru = 'Доступны переменные: мЗапрос (Тип-Запрос)';en = 'Variables available: mQuery (Type-Query)'");
+		AlgorithmHintBeforeExecution =NStr("ru = 'Доступны переменные: mQuery (Тип-Запрос)';en = 'Variables available: mQuery (Type-Query)'");
 EndProcedure
 
 &AtClient
@@ -432,6 +447,15 @@ Procedure QueryParametersValueStartChoice(Item, ChoiceData, StandardProcessing)
 
 EndProcedure
 
+&AtClient
+Procedure QueryParametersWhenEditingStarts(Item, NewRow, Copy) 
+	If NewRow И Not Copy Then
+		strParameter = Items.QueryParameters.CurrentData;
+		strParameter.Use = True;
+	EndIf
+EndProcedure
+
+
 #EndRegion
 
 #Область TempTablesFormTableEventHandlers
@@ -611,6 +635,8 @@ Procedure RemoveCommentsFromText_Command(Command)
 		RemoveCommentsFromText(Items.QueryText);
 	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmPage Then
 		RemoveCommentsFromText(Items.AlgorithmText);
+	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmTextBeforeExecutionPage Then 
+		RemoveCommentsFromText(Items.AlgorithmTextBeforeExecutionPage);
 	EndIf;
 EndProcedure
 
@@ -915,6 +941,16 @@ Procedure LoadQueryBatch_Command(Command)
 EndProcedure
 
 &AtClient
+Procedure AddRequestPackage_Command(Command) 
+	
+	AdditionalParameters = New Structure("Addition", True);
+	
+	LoadQueryBatch(AdditionalParameters);
+	
+EndProcedure
+
+
+&AtClient
 Procedure QueryBatchSave_Command(Command)
 	SaveQueryBatch(New Structure);
 EndProcedure
@@ -930,7 +966,7 @@ EndProcedure
 
 &AtClient
 Procedure FillParametersFromQuery_Command(Command)
-	stError = ParametersFillFromQueryAtServer();
+	stError = ParametersFillFromQueryAtServer(CurrentQueryText());
 
 	If ValueIsFilled(stError) Then
 
@@ -948,7 +984,7 @@ EndProcedure
 
 &AtClient
 Procedure FillFromXML_Command(Command)
-	strError = FillFromXMLAtServer();
+	strError = FillFromXMLAtServer(CurrentQueryText());
 	If ValueIsFilled(strError) Then
 		ShowConsoleMessageBox(strError);
 	EndIf;
@@ -963,9 +999,16 @@ EndProcedure
 
 &AtClient
 Procedure QueryParametersNextToText_Command(Command)
+	//https://github.com/cpr1c/tools_ui_1c/issues/481
+	UT_CodeEditorClient.SwitchEditorVisibility(ThisObject, "Algorithm"); 
+	UT_CodeEditorClient.SwitchEditorVisibility(ThisObject, "AlgorithmBeforeExecution");
+	
 	Items.QueryParametersNextToText.Check = Not Items.QueryParametersNextToText.Check;
 	SavedStates_Save("QueryParametersNextToText", Items.QueryParametersNextToText.Check);
 	QueryParametersNextToTextAtServer();
+	
+	AttachIdleHandler("Command_QueryParametersNearText_EnableVisibilityEditors", 0.1, True);
+		
 EndProcedure
 
 &AtClient
@@ -1015,6 +1058,8 @@ Procedure AddLineFeedsToText_Command(Command)
 		AddLineFeedsToText(Items.QueryText);
 	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmPage Then
 		AddLineFeedsToText(Items.AlgorithmText);
+	ElsIf  Items.QueryGroupPages.CurrentPage = Items.AlgorithmTextBeforeExecutionPage Then
+		AddLineFeedsToText(Items.AlgorithmTextBeforeExecution);		
 	EndIf;
 EndProcedure
 
@@ -1024,6 +1069,8 @@ Procedure RemoveLineFeedsFromText_Command(Command)
 		RemoveLineFeedsFromText(Items.QueryText);
 	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmPage Then
 		RemoveLineFeedsFromText(Items.AlgorithmText);
+	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmTextBeforeExecutionPage Then
+		RemoveLineFeedsFromText(Items.AlgorithmTextBeforeExecution);		
 	EndIf;
 EndProcedure
 
@@ -1033,6 +1080,8 @@ Procedure AddCommentsToText_Command(Command)
 		AddCommentsToText(Items.QueryText);
 	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmPage Then
 		AddCommentsToText(Items.AlgorithmText);
+	ElsIf Items.QueryGroupPages.CurrentPage = Items.AlgorithmTextBeforeExecutionPage Then
+		AddCommentsToText(Items.AlgorithmTextBeforeExecution);
 	EndIf;
 EndProcedure
 
@@ -1059,9 +1108,12 @@ EndProcedure
 
 &AtClient
 Procedure ResultToSpreadsheetDocument_Command(Command)
-
-	OpeningParameters = New Structure("Object, QueryResultAddress, ResultInBatch, QueryName, ResultKind",
-		Object, QueryResultAddress, ResultInBatch, ResultQueryName, ResultKind);
+	
+	fShowTotals = Items.ShowHideResultPanelTotals.Check; 
+	
+	OpeningParameters = New Structure("Object, QueryResultAddress, ResultInBatch, QueryName, ResultKind, fShowTotals",
+		Object, QueryResultAddress, ResultInBatch, ResultQueryName, ResultKind, fShowTotals);
+	
 	SpreadsheetDocumentForm = OpenForm(FormFullName("SpreadsheetDocumentForm"), OpeningParameters, ThisForm,
 		False);
 
@@ -1115,35 +1167,15 @@ Procedure ExecuteDataProcessor_Command(Command)
 		Return;
 	EndIf;
 
-	If CodeExecutionMethod = 0 Then
-		stResult = ExecuteAlgorithm(AlgorithmCurrentText());
-	ElsIf CodeExecutionMethod = 1 Then
-		stResult = ExecuteAlgorithmLineByLine(QueryResultAddress, ResultInBatch, AlgorithmCurrentText());
-	ElsIf CodeExecutionMethod = 2 Then
-		stResult = ExecuteAlgorithmLineByLineIndication();
-	ElsIf CodeExecutionMethod = 3 Then
-		//execution in background
-		stResult = RunDataProcessorAtServer(AlgorithmCurrentText(), False);
-	ElsIf CodeExecutionMethod = 4 Then
-		//line-by-line execution in background with indication
-		stResult = RunDataProcessorAtServer(AlgorithmCurrentText(), True);
-	Else
-		stResult = New Structure("Success, ErrorDescription", False, NStr("ru = 'Неверный метод исполнения кода'; en = 'Code execution method is incorrect.'"));
-	EndIf;
+	VariableNames = New Array;
+	VariableNames.Add("Selection");
+	VariableNames.Add("Parameters");
+	StructureOfVariableNames = New Structure("Algorithm", VariableNames);
 
-	If CodeExecutionMethod = 3 Or CodeExecutionMethod = 4 Then
-		If stResult.Success Then
-			Items.ExecuteDataProcessor.Title = "Interrupt";
-			//Pictures = GetFromTempStorage(Object.Pictures);
-			//Items.ExecuteDataProcessor.Picture = Pictures.ExecutionPogress;
-			Items.ExecuteDataProcessor.Picture = PictureLib.Stop;
-			ShowBackgroundJobState();
-		EndIf;
-	EndIf;
-
-	If Not stResult.Success Then
-		ShowConsoleMessageBox(stResult.ErrorDescription);
-	EndIf;
+	UT_CodeEditorClient.StartBuildDataProcessorForCodeExecution(ThisObject,
+		New CallbackDescription("Command_ExecuteProcessingCompleteConnectionProcessingExecution",
+		ThisObject),
+		StructureOfVariableNames);
 
 EndProcedure
 
@@ -1152,13 +1184,13 @@ Procedure InsertPredefinedValue_Command(Command)
 	
 	SelectionBoundaries=QuerySelectionBoundaries();
 	NotifyParameters = New Structure("BeginLine, BeginColumn, EndLine, EndColumn",
-		SelectionBoundaries.BeginLine, SelectionBoundaries.BeginColumn, SelectionBoundaries.EndLine, 
-		SelectionBoundaries.EndColumn);
+		SelectionBoundaries.RowBegining, SelectionBoundaries.ColumnBegining, SelectionBoundaries.RowEnd, 
+		SelectionBoundaries.ColumnEnd);
 	CloseFormNotifyDescription = New NotifyDescription("ChoicePredefinedCompletion",
 		ThisForm, NotifyParameters);
 	OpeningParameters = New Structure("Object, FormData, QueryText, BeginLine, BeginColumn, EndLine, EndColumn",
-		Object, FormDataChoicePredefined, CurrentQueryText(), SelectionBoundaries.BeginLine,
-		SelectionBoundaries.BeginColumn, SelectionBoundaries.EndLine,SelectionBoundaries.EndColumn);
+		Object, FormDataChoicePredefined, CurrentQueryText(), SelectionBoundaries.RowBegining,
+		SelectionBoundaries.ColumnBegining, SelectionBoundaries.RowEnd,SelectionBoundaries.ColumnEnd);
 
 	OpenForm(FormFullName("ChoicePredefined"), OpeningParameters, ThisForm, True, , ,
 		CloseFormNotifyDescription, FormWindowOpeningMode.LockOwnerWindow);
@@ -1186,10 +1218,10 @@ EndProcedure
 
 &AtClient
 Procedure AlgorithmHelp_Command(Command)
-	CurrentLanguage = Upper(CurrentSystemLanguage());
-	OpeningParameters = New Structure("TemplateName, Title", "AlgorithmHelp_"+CurrentLanguage, NStr("ru = 'Обработка результата запроса кодом'; en = 'Query result processing by code'"));
+	OpeningParameters = New Structure("TemplateName, Title", "AlgorithmHelp_"+Upper(CurrentSystemLanguage()), NStr("ru = 'Обработка результата запроса кодом'; en = 'Query result processing by code'"));
 	OpenForm(FormFullName("Help"), OpeningParameters, ThisForm);
 EndProcedure
+
 &AtClient
 Procedure GetCodeWithParameters_Command(Command)
 
@@ -1211,7 +1243,7 @@ Procedure GetCodeWithParameters_Command(Command)
 										|AlgorithmText,
 										|CodeExecutionMethod,
 										|Title,
-										|Content", Object, QueryName, QueryText,
+										|Content", Object, QueryName, CurrentQueryText(),
 		QueryParameters_GetAsString(), AlgorithmCurrentText(), CodeExecutionMethod, 
 		NStr("ru = 'Код для выполнения запроса на встроенном языке 1С'; en = 'Code for executing the query by 1C:Enterprise language'"));
 
@@ -1235,9 +1267,67 @@ Procedure InsertMacroColumn(Command)
 	
 EndProcedure
 
+
+&AtClient 
+Procedure UT_ConvertQueryTextFromBuiltInLanguageExpression(Command)
+	UT_CodeEditorClient.ConvertQueryTextFromExpressionBuiltInLanguageCodeEditor(ThisObject, "Query");
+EndProcedure
+
+
+
+&AtClient 
+Procedure Подключаемый_ВыполнитьКомандуРедактораКода(Command)
+	UT_CodeEditorClient.ExecuteCodeEditorCommand(ThisObject, Command);
+EndProcedure
+
+&AtClient 
+Procedure ShowHideQueryResult(Command)
+	Items.ShowHideQueryResult.Check = Not Items.ShowHideQueryResult.Check;
+	Items.BottomPanelGroup.Visible = Items.ShowHideQueryResult.Check;
+EndProcedure
+
+
 #EndRegion
 
 #Region Private
+
+&AtClient
+Procedure Command_ExecuteProcessingCompleteConnectionProcessingExecution(Result, AdditionalParameters) Export
+	If Result <> True Then
+		Return;
+	EndIf;
+	
+	If CodeExecutionMethod = 0 Then
+		stResult = ExecuteAlgorithm(AlgorithmCurrentText());
+	ElsIf CodeExecutionMethod = 1 Then
+		stResult = ExecuteAlgorithmLineByLine(QueryResultAddress, ResultInBatch, AlgorithmCurrentText());
+	ElsIf CodeExecutionMethod = 2 Then
+		stResult = ExecuteAlgorithmLineByLineIndication();
+	ElsIf CodeExecutionMethod = 3 Then
+		// easy execution in the background
+		stResult = RunDataProcessorAtServer(AlgorithmCurrentText(), False);
+	ElsIf CodeExecutionMethod = 4 Then
+		// row-by-row execution in the background with indication
+		stResult = RunDataProcessorAtServer(AlgorithmCurrentText(), True);
+	Else
+		stResult = New Structure("Success, ErrorDescription", False, NStr("ru = 'Неверный метод исполнения кода'; en = 'Incorrect code execution method'"));
+	EndIf;
+
+	If CodeExecutionMethod = 3 Или CodeExecutionMethod = 4 Then
+		If stResult.Successfully Then
+			Items.ExecuteDataProcessor.Title = "Interrupt";
+			//Картинки = ПолучитьИзВременногоХранилища(Объект.Картинки);
+			//Items.ВыполнитьОбработку.Картинка = Картинки.ПрогрессВыполнения;
+			Items.ExecuteDataProcessor.Picture = PictureLib.Stop;
+			ShowBackgroundJobState();
+		EndIf;
+	EndIf;
+
+	If Not stResult.Successfully Then
+		ShowConsoleMessageBox(stResult.ErrorDescription);
+	EndIf;
+	
+EndProcedure
 
 &AtServer
 Procedure UT_FillWithDebugData()
@@ -1275,6 +1365,7 @@ Procedure UT_FillWithDebugData()
 		For Each CurParameter In DebugData.Parameters Do
 
 			NewParameter=New Structure;
+			NewParameter.Insert("Use", True); 
 			NewParameter.Insert("Name", CurParameter.Key);
 			NewParameter.Insert("ContainerType", GetValueFormCode(CurParameter.Value));
 
@@ -1321,13 +1412,97 @@ Procedure UT_FillWithDebugData()
 
 		For Each KeyValue In DebugData.TempTables Do
 			TempTable=New Structure;
-			TempTable.Вставить("Name", KeyValue.Key);
-			TempTable.Вставить("Container", DataProcessorObject.Container_SaveValue(KeyValue.Value));
-			TempTable.Вставить("Value", TempTable.Container.Presentation);
+			TempTable.Insert("Name", KeyValue.Key);
+			TempTable.Insert("Container", DataProcessorObject.Container_SaveValue(KeyValue.Value));
+			TempTable.Insert("Value", TempTable.Container.Presentation);
 
 			NewRow.TempTables.Add(TempTable);
 		EndDo;
 	EndIf;
+
+EndProcedure
+
+&НаСервере
+Procedure UT_FillRequestsFromDCS()
+	If Not Parameters.Property("AddressRequestsFromDCS") Then
+		Return;
+	EndIf;
+	
+	ArrayOfQueriesFromDCS = GetFromTempStorage(Parameters.AddressRequestsFromDCS);
+
+	If Object.SavedStates = Undefined Then
+		Object.SavedStates = New Structure;
+	EndIf;
+
+	Modified = False;
+
+	AutoSaveIntervalOption = 60;
+	SaveCommentsOption = True;
+	AutoSaveBeforeQueryExecutionOption = True;
+	AlgorithmExecutionUpdateIntervalOption = 1000;
+	Object.OptionProcessing__ = True;
+	Object.AlgorithmExecutionUpdateIntervalOption = 1000;
+
+	DataProcessorObject = FormAttributeToValue("Object");
+
+	UT_Debug = True;
+
+	TreeRows = QueryBatch.GetItems();
+	
+	For Each RequestData In ArrayOfQueriesFromDCS Do
+
+		NewRow = TreeRows.Add();
+		NewRow.Name = RequestData.Name;
+		NewRow.QueryText = RequestData.Text;
+		NewRow.QueryParameters = New ValueList;
+	
+		If RequestData.Property("Parameters") Then
+			For Each CurrentProperty In RequestData.Parameters Do
+	
+				NewParameter = New Structure;
+				NewParameter.Insert("Use", True);
+				NewParameter.Insert("Name", CurrentProperty.Key);
+				NewParameter.Insert("ContainerType", GetValueFormCode(CurrentProperty.Value));
+	
+				NewParameter.Insert("Container", DataProcessorObject.Container_SaveValue(CurrentProperty.Value));
+	
+				If NewParameter.ContainerType = 2 Then
+					TypesArray = New Array;
+	
+					For Each ArrayValue In CurrentProperty.Value Do
+						CurrentType = TypeOf(ArrayValue);
+						If TypesArray.Find(CurrentType) = Undefined Then
+							TypesArray.Add(CurrentType);
+						EndIf;
+					EndDo;
+	
+					NewParameter.Insert("ValueType", New TypeDescription(TypesArray));
+					NewParameter.Insert("Value", NewParameter.Container.Presentation);
+				ElsIf NewParameter.ContainerType = 1 Then
+					TypesArray = New Array;
+	
+					For Each ListItem In CurrentProperty.Value Do
+						CurrentType = TypeOf(ListItem.Value);
+						If TypesArray.Find(CurrentType) = Undefined Then
+							TypesArray.Add(CurrentType);
+						EndIf;
+					EndDo;
+	
+					NewParameter.Insert("ValueType", New TypeDescription(TypesArray));
+					NewParameter.Insert("Value", NewParameter.Container.Presentation);
+				ElsIf NewParameter.ContainerType = 3 Then
+					NewParameter.Insert("ValueType", NStr("ru = 'Таблица значений'; en = 'Value table'"));
+					NewParameter.Insert("Value", NewParameter.Container.Presentation);
+				Else
+					NewParameter.Insert("ValueType", TypeDescriptionByType(TypeOf(CurrentProperty.Value)));
+					NewParameter.Insert("Value", NewParameter.Container);
+	
+				EndIf;
+				NewRow.QueryParameters.Add(NewParameter);
+			EndDo;
+		EndIf;
+	
+	EndDo;
 
 EndProcedure
 
@@ -1503,7 +1678,7 @@ Procedure OnOpenFollowUp(AdditionalParameters = Undefined) Export
 			Return;
 		EndIf;
 
-	ElsIf AdditionalParameters.FollowUp = "AfterLoadingMainFile" Then
+	ElsIf AdditionalParameters.FollowUpPoint = "AfterLoadingMainFile" Then
 
 		If AdditionalParameters.LoadedData = Undefined Then
 			QueryBatch_New();
@@ -2340,11 +2515,11 @@ Procedure LoadTempTable(TableName, vtData, arLoadQueries, TablesLoadQuery)
 														 |");
 
 		arLoadQueries.Add("
-							 |SELECT
-							 |" + FieldExpressions + "
-													 |INTO " + TempTableName + "
-																			   |FROM &" + TableName
-			+ " AS Table");
+						|SELECT
+						|" + FieldExpressions + "
+						|INTO " + TempTableName + "
+						|FROM &" + TableName
+						+ " AS Table");
 
 		If ValueIsFilled(AdditionalQueries) Then
 			arLoadQueries.Add(AdditionalQueries);
@@ -2368,11 +2543,11 @@ Procedure LoadTempTable(TableName, vtData, arLoadQueries, TablesLoadQuery)
 													 |");
 
 	arLoadQueries.Add("
-						 |SELECT
-						 |" + FieldExpressions + "
-												 |INTO " + TableName + "
-																	   |FROM " + Source + " AS Table"
-		+ " " + AdditionalSources);
+					|SELECT
+					|" + FieldExpressions + "
+					|INTO " + TableName + "
+					|FROM " + Source + " AS Table"
+					+ " " + AdditionalSources);
 
 	TablesLoadQuery.SetParameter(TableName, vtData);
 
@@ -2468,7 +2643,7 @@ Function ExtractResultAsValueTable()
 		EndDo;
 
 	Else
-		vtResult = qrSelection.Select();
+		vtResult = qrSelection.Unload();
 	EndIf;
 
 	Return vtResult;
@@ -3005,12 +3180,16 @@ Function ExecuteBatch(Query, QuerySchema)
 EndFunction
 
 
-&AtServerNoContext
+&AtServer
 Procedure ExecuteAlgorithmBeforeQueryExecution(Query, AlgorithmText)
 	Context = New Structure;
 	Context.Insert("mQuery", Query);
 	
-	Result = UT_CodeEditorClientServer.ExecuteAlgorithm(AlgorithmText, Context);
+	Result = UT_CodeEditorClientServer.ExecuteAlgorithm(AlgorithmText, 
+		Context,
+		False,
+		ThisObject,
+		"AlgorithmBeforeExecution");
 	If Not	Result.Successfully Then
 		Raise Result.ErrorDescription;
 	EndIf;
@@ -3042,7 +3221,11 @@ Function ExecuteQueryAtServer(QueryText,TextOfAlgorithmBeforeExecution)
 	ExecutingQuery.TempTablesManager = LoadTempTables();
 
 	For Each ParameterRow In QueryParameters Do
-
+	
+		If Not ParameterRow.Use Then 
+			Continue;
+		EndIf;			
+			
 		If Object.OptionProcessing__ And StrStartsWith(ParameterRow.Name, MacroParameter) Then
 			Continue;
 		EndIf;
@@ -3371,7 +3554,7 @@ EndFunction
 &AtServer
 Procedure QueryParameters_SaveValue(RowID, Val Value)
 
-	ParameterRow = QueryParameters.НайтиПоИдентификатору(RowID);
+	ParameterRow = QueryParameters.FindByID(RowID);
 
 	If ParameterRow.ContainerType = 0 Then
 		ParameterRow.Container = FormAttributeToValue("Object").Container_SaveValue(Value);
@@ -3596,9 +3779,9 @@ Procedure PutEditingQuery()
 			
 		Query_PutQueryData(EditingQuery, strQueryText, strAlgorithmText, CodeExecutionMethod,
 			QueryParametersToValueList(QueryParameters), TempTablesToValueList(TempTables),
-			QuerySelectionBoundaries.RowBeginning, QuerySelectionBoundaries.ColumnBeginning,
+			QuerySelectionBoundaries.RowBegining, QuerySelectionBoundaries.ColumnBegining,
 			QuerySelectionBoundaries.RowEnd, QuerySelectionBoundaries.ColumnEnd,
-			AlgorithmSelectionBoundaries.RowBeginning, AlgorithmSelectionBoundaries.ColumnBeginning,
+			AlgorithmSelectionBoundaries.RowBegining, AlgorithmSelectionBoundaries.ColumnBegining,
 			AlgorithmSelectionBoundaries.RowEnd, AlgorithmSelectionBoundaries.ColumnEnd,
 			strAlgorithmTextBeforeExecution);
 	EndIf;
@@ -3753,7 +3936,7 @@ Procedure QueryBatch_Save(Notification, strFileName, fTitleOnly = False)
 
 	BatchCurrentRow = Undefined;
 	If CurrentRow <> Undefined Then
-		BatchCurrentRow = QueryBatch.НайтиПоИдентификатору(CurrentRow);
+		BatchCurrentRow = QueryBatch.FindByID(CurrentRow);
 	EndIf;
 	
 	//saved states ++
@@ -3927,8 +4110,11 @@ Procedure QueryBatch_LoadCompletion(AdditionalParameters) Export
 	EndIf;
 
 	QueryCount = stLoadedData.QueryCount;
-
-	QueryBatch.GetItems().Clear();
+	
+	If Not AdditionalParameters.Property("Addition") Then
+		QueryBatch.GetItems().Clear();
+	EndIf;
+	
 	QueryBatch_AddRowsFromArray(QueryBatch, stLoadedData.QueryBatch);
 
 	For Each BatchItem In QueryBatch.GetItems() Do
@@ -4318,15 +4504,8 @@ Procedure ProcessParameterNameChange(NewRow, CancelEditing, Cancel)
 		Return;
 	EndIf;
 
-	arNameRows = QueryParameters.FindRows(New Structure("Name", strParameterName));
-	If arNameRows.Count() > 1 Then
-		ShowConsoleMessageBox(NStr("ru = 'Параметр с таким именем уже есть! Введите другое имя.'; en = 'This parameter name already exists. Please enter another name.'"));
-		Cancel = True;
-		Return;
-	EndIf;
-
 	If Not NewRow And ValueIsFilled(PreviousValueParameterName) Then
-		strQueryText = QueryText;
+		strQueryText = CurrentQueryText();
 		If ParameterExists(strQueryText, "&" + PreviousValueParameterName) Then
 			AdditionalParameters = New Structure("PreviousValueParameterName, ParameterName",
 				PreviousValueParameterName, strParameterName);
@@ -4338,6 +4517,8 @@ Procedure ProcessParameterNameChange(NewRow, CancelEditing, Cancel)
 	EndIf;
 
 EndProcedure
+
+
 
 
 
@@ -4451,7 +4632,7 @@ Procedure RowEditEnd(Result, AdditionalParameters) Export
 		ElsIf AdditionalParameters.Table = "TempTables" Then
 			TableRow = TempTables.FindByID(AdditionalParameters.Row);
 			
-			Container = Новый Структура("Type, RowCount, Value, Presentation", "ValueTable",
+			Container = New Structure("Type, RowCount, Value, Presentation", "ValueTable",
 				Result.RowCount, Result.Value, Result.Presentation);
 			
 			TableRow.Container = Container;
@@ -4626,7 +4807,7 @@ Function FillFromXMLReader(XMLReader)
 	
 	//Reading query parameters
 	QueryText = strQueryText;
-	stError = ParametersFillFromQueryAtServer();
+	stError = ParametersFillFromQueryAtServer(QueryText);
 	If ValueIsFilled(stError) Then
 		Message(
 			NStr("ru = 'Не удалось получить параметры из текста запроса. Параметры будут заполнены только по объекту запроса('; en = 'Cannot get the parameters from the query text. Parameters will be filled up only by query object.'")
@@ -4727,10 +4908,10 @@ Procedure FillFromFile(strFileName)
 EndProcedure
 
 &AtServer
-Function FillFromXMLAtServer()
+Function FillFromXMLAtServer(CurrentQueryText)
 
 	strQuerySignatureString = "<Structure xmlns=""http://v8.1c.ru/8.1/data/core""";
-	strQueryWindowText = QueryText;
+	strQueryWindowText = CurrentQueryText;
 	If Left(strQueryWindowText, StrLen(strQuerySignatureString)) <> strQuerySignatureString Then
 		Return NStr("ru = 'В поле текста запроса должна быть строка, кодирующая запрос с параметрами. Подробности на закладке ""Информация"".'; en = 'Query text field must contain a string that encodes a query with a parameters. Details on the Info tab.'");
 	EndIf;
@@ -4766,8 +4947,13 @@ Procedure AfterChoosingFileForLoadingQueryBatch(Files, AdditionalParameters) Exp
 
 	strFileName = Files[0];
 
+	If AdditionalParameters = Undefined Then
+		AdditionalParameters = New Structure;
+	EndIf;
+		
 	AdditionalParameters = New Structure("FollowUp, FileName",
 		"AfterChoosingFileForLoadingQueryBatchCompletion", strFileName);
+	
 	QueryBatch_Load(AdditionalParameters);
 
 EndProcedure
@@ -4788,7 +4974,7 @@ EndProcedure
 &AtClient
 Procedure LoadQueryBatchAfterQuestion(Result, AdditionalParameters)
 
-	If Result = DialogReturnCode.Yea Then
+	If Result = DialogReturnCode.Yes Then
 		SaveQueryBatch(New Structure);
 		LoadQueryBatch();
 	ElsIf Result = DialogReturnCode.No Then
@@ -4850,17 +5036,17 @@ Procedure NewQueryBatchAfterQuestion(Result, AdditionalParameters)
 EndProcedure
 
 &AtClient
-Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBeginning, ColumnBeginning, RowEnd,
+Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBegining, ColumnBegining, RowEnd,
 	ColumnEnd)
 
-	TextItem.GetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+	TextItem.GetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 
-	If RowBeginning = RowEnd And ColumnBeginning = ColumnEnd Then
+	If RowBegining = RowEnd And ColumnBegining = ColumnEnd Then
 		TextItem.SetTextSelectionBounds(1, 1, 1000000000, 1);
 	Else
 
-		If ColumnBeginning > 1 Then
-			ColumnBeginning = 1;
+		If ColumnBegining > 1 Then
+			ColumnBegining = 1;
 		EndIf;
 
 		If ColumnEnd > 1 Then
@@ -4868,7 +5054,7 @@ Procedure SetSelectionBoundsForRowProcessing(TextItem, RowBeginning, ColumnBegin
 			ColumnEnd = 1;
 		EndIf;
 
-		TextItem.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		TextItem.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 
 	EndIf;
 
@@ -4947,7 +5133,7 @@ Procedure AfterSaveQueryBatch(FileToMove, AdditionalParameters) Export
 	Modified = False;
 
 	If AdditionalParameters.Property("Completion") Then
-		Закрыть();
+		Close();
 	ElsIf AdditionalParameters.Property("New") Then
 		QueryBatch_New();
 	Else
@@ -4987,7 +5173,7 @@ EndFunction
 
 
 &AtClient
-Procedure QueryWizard_CloseWizardNotification_Command(strQueryText, CurrentQuery) Экспорт
+Procedure QueryWizard_CloseWizardNotification_Command(strQueryText, CurrentQuery) Export
 
 	If Not Query_GetInWizard(CurrentQuery) Then
 		Return;
@@ -5010,27 +5196,41 @@ EndProcedure
 
 &AtClient
 Procedure ExecuteQuery(fUseSelection)
+	If AutoSaveBeforeQueryExecutionOption И Modified Then
+		Autosave();
+	EndIf;
+
+	VariableNames = New Array;
+	VariableNames.Add("mQuery");
 	
-	QuerySelectionBoundaries= QuerySelectionBoundaries();
-	fEntireText = Not fUseSelection
-				 Or (QuerySelectionBoundaries.RowBeginning = QuerySelectionBoundaries.RowEnd
-					  And QuerySelectionBoundaries.ColumnBeginning = QuerySelectionBoundaries.ColumnEnd);
-	If fEntireText Then
-		strQueryText =CurrentQueryText();
+	CallBackParameters = New Structure;
+	CallBackParameters.Insert("fUseSelection", fUseSelection);
+
+	UT_CodeEditorClient.StartBuildDataProcessorForCodeExecution(ThisObject,
+		New CallbackDescription("ExecuteRequestCompletionOfSavingProcessingExecutionOfAlgorithms",
+			ThisObject, CallBackParameters),
+			New Structure("AlgorithmBeforeExecution", VariableNames));
+
+EndProcedure
+
+&AtClient
+Procedure ExecuteRequestCompletionOfSavingProcessingExecutionOfAlgorithms(Результат, AdditionalParameters) Export
+	QuerySelectionBoundaries = QuerySelectionBoundaries();
+	fAllText = Not AdditionalParameters.fUseSelection
+				 Or (QuerySelectionBoundaries.RowBegining = QuerySelectionBoundaries.RowEnd
+					  And QuerySelectionBoundaries.ColumnBegining = QuerySelectionBoundaries.ColumnEnd);
+	If fAllText Then
+		strQueryText = CurrentQueryText();
 	Else
 		strQueryText = QuerySelectedText();
 	EndIf;
 
-	If AutoSaveBeforeQueryExecutionOption And Modified Then
-		AutoSave();
-	EndIf;
-
 	stResult = ExecuteQueryAtServer(strQueryText, CurrentAlgorithmBeforeExecution());
-	Если ValueIsFilled(stResult.ErrorDescription) Тогда
+	If ValueIsFilled(stResult.ErrorDescription) Then
 		ShowConsoleMessageBox(stResult.ErrorDescription);
 		CurrentItem = Items.QueryText;
 		If ValueIsFilled(stResult.Row) Then
-			Если fEntireText Тогда
+			If fAllText Then
 				SetQuerySelectionBounds(stResult.Row, stResult.Column,
 					stResult.Row, stResult.Column);
 			Else
@@ -5042,27 +5242,27 @@ Procedure ExecuteQuery(fUseSelection)
 		ResultReturningRowsCount = ExtractResult(stResult.ResultCount);
 		ResultRecordStructure_Expand();
 
-		CurrentBatchRow = QueryBatch.FindByID(Items.QueryBatch.CurrentRow);
-		CurrentBatchRow.ResultRowCount = QueryResult.Count();
-		Duration = FormatDuration(stResult.FinishTime - stResult.StartTime);
+		CurrentPackageRow = QueryBatch.FindByID(Items.QueryBatch.CurrentRow);
+		CurrentPackageRow.ResultRowCount = QueryResult.Count();
+		ExecutionTime = FormatDuration(stResult.FinishTime - stResult.StartTime);
 		Items.QueryBatch.CurrentData.Info = String(ResultReturningRowsCount) + " / "
-			+ Duration;
+			+ ExecutionTime;
 
 	EndIf;
 
 	ResultQueryName = Items.QueryBatch.CurrentData.Name;
 	RefreshAlgorithmFormItems();
 
+	
 EndProcedure
 
-
 &AtServer
-Function ParametersFillFromQueryAtServer()
+Function ParametersFillFromQueryAtServer(CurrentQueryText)
 	Var RowNumber, ColumnNumber;
 
 	DataProcessorObject = FormAttributeToValue("Object");
 	
-	Query = New Query(QueryText);
+	Query = New Query(CurrentQueryText);
 	Try
 		Query.TempTablesManager = LoadTempTables();
 		ParametersFound = Query.FindParameters();
@@ -5083,10 +5283,11 @@ Function ParametersFillFromQueryAtServer()
 			ParameterRow = arParameterRows[0];
 		Else
 			ParameterRow = QueryParameters.Add();
+			ParameterRow.Use = True;
 			ParameterRow.Name = Parameter.Name;
 			If Parameter.ValueType = New TypeDescription("ValueTable") Then
 				ParameterRow.ContainerType = 3;
-			КонецЕсли;
+			EndIf;
 			
 			QueryParameters_SaveValue(ParameterRow.GetID(),
 				Parameter.ValueType.AdjustValue(Undefined));
@@ -5337,11 +5538,6 @@ Procedure ShowBackgroundJobState() Export
 
 EndProcedure
 
-&AtServerNoContext
-Procedure ExecuteCode(ThisCode, Selection, Parameters)
-	Execute (ThisCode);
-EndProcedure
-
 &AtServer
 Function ExecuteAlgorithm(Algorithm)
 
@@ -5351,18 +5547,20 @@ Function ExecuteAlgorithm(Algorithm)
 	qrSelection = stResult.Result;
 	selSelection = qrSelection.Select();
 
-	Try
-		ExecuteCode(Algorithm, selSelection, stQueryResult.Parameters);
-	Except
-		strErrorMessage = ErrorDescription();
-		Return New Structure("Success, Continue, ErrorDescription", False, False, strErrorMessage);
-	EndTry;
+	Context = New Structure;
+	Context.Insert("Selection", selSelection);
+	Context.Insert("Parameters", stQueryResult.Parameters);
+	ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(Algorithm, Context, False, ThisObject, "Algorithm");
 
-	Return New Structure("Success, Continue, ErrorDescription", True);
+	If ExecutionResult.Successfully Then
+		Return New Structure("Success, Continue, ErrorDescription", True);
+	Else
+		Return New Structure("Success, Continue, ErrorDescription", False, False, ExecutionResult.ErrorDescription);
+	EndIf;
 
 EndFunction
 
-&AtServerNoContext
+&AtServer
 Function ExecuteAlgorithmLineByLine(QueryResultAddress, ResultInBatch, AlgorithmText)
 
 	stQueryResult = GetFromTempStorage(QueryResultAddress);
@@ -5370,21 +5568,28 @@ Function ExecuteAlgorithmLineByLine(QueryResultAddress, ResultInBatch, Algorithm
 	stResult = arQueryResult[Number(ResultInBatch) - 1];
 	qrSelection = stResult.Result;
 	selSelection = qrSelection.Select();
+	
+	Context = New Structure;
+	Context.Insert("Selection", selSelection);
+	Context.Insert("Parameters", stQueryResult.Parameters);
 
-	Try
-		While selSelection.Next() Do
-			ExecuteCode(AlgorithmText, selSelection, stQueryResult.Parameters);
-		EndDo;
-	Except
-		strErrorMessage = ErrorDescription();
-		Return New Structure("Success, Continue, ErrorDescription", False, False, strErrorMessage);
-	EndTry;
+	While selSelection.Next() Do
+		ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(AlgorithmText,
+																			Context,
+																			False,
+																			ThisObject,
+																			"Algorithm");
+		If Not ExecutionResult.Successfully Then
+			Return New Structure("Success, Continue, ErrorDescription", False, False,
+				ExecutionResult.ErrorDescription);
+		EndIf;
+	EndDo;
 
 	Return New Structure("Success, Continue, ErrorDescription, Progress", True, False, Undefined, 100);
 
 EndFunction
 
-&AtServerNoContext
+&AtServer
 Function ExecuteAlgorithmAtServerLineByLine(StateAddress, QueryResultAddress, ResultInBatch, AlgorithmText,
 	AlgorithmExecutionUpdateIntervalOption)
 
@@ -5405,27 +5610,34 @@ Function ExecuteAlgorithmAtServerLineByLine(StateAddress, QueryResultAddress, Re
 	nCountDone = stStatus.CountDone;
 	nPortionFinishMoment = CurrentUniversalDateInMilliseconds() + AlgorithmExecutionUpdateIntervalOption;
 
-	Try
+	//Try
+	Context = New Structure;
+	Context.Insert("Selection", selSelection);
+	Context.Insert("Parameters", stStatus.Parameters);
 
-		fContinue = False;
-		While selSelection.Next() Do
+	fContinue = False;
+	While selSelection.Next() Do
 
-			ExecuteCode(AlgorithmText, selSelection, stStatus.Parameters);
-			nCountDone = nCountDone + 1;
+		ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(AlgorithmText,
+																			Context,
+																			False,
+																			ThisObject,
+																			"Algorithm");
+		If Not ExecutionResult.Successfully Then
+			Return New Structure("Success, Continue, ErrorDescription", False, False,
+				ExecutionResult.ErrorDescription);
+		EndIf;
+		nCountDone = nCountDone + 1;
 
-			If CurrentUniversalDateInMilliseconds() >= nPortionFinishMoment Then
-				fContinue = True;
-				Break;
-			EndIf;
+		If CurrentUniversalDateInMilliseconds() >= nPortionFinishMoment Then
+			fContinue = True;
+			Break;
+		EndIf;
 
-		EndDo;
+	EndDo;
 
-		stStatus.CountDone = nCountDone;
+	stStatus.CountDone = nCountDone;
 
-	Except
-		strErrorMessage = ErrorDescription();
-		Return New Structure("Success, Continue, ErrorDescription", False, False, strErrorMessage);
-	EndTry;
 
 	If fContinue Then
 		stStatus.Selection = selSelection;
@@ -5622,9 +5834,14 @@ EndProcedure
 
 &AtClient
 Procedure AfterChoosingFileForLoadingQueryBatchCompletion(AdditionalParameters) Export
-	SetQueriesFileName(AdditionalParameters.FileName);
+	
+	If Not AdditionalParameters.Property("Addition") Then
+		SetQueriesFileName(AdditionalParameters.FileName);
+	EndIf;
+	
 	EditingQuery = -1;
 	QueryBatch_Save( , StateAutoSaveFileName, True);
+	
 EndProcedure
 
 &AtClient
@@ -5728,34 +5945,34 @@ EndFunction
 &AtClient
 Function ItemSelectionBounds(Item)
 	Bounds = New Structure;
-	Bounds.Insert("RowBeginning", 0);
-	Bounds.Insert("ColumnBeginning", 0);
+	Bounds.Insert("RowBegining", 0);
+	Bounds.Insert("ColumnBegining", 0);
 	Bounds.Insert("RowEnd", 0);
 	Bounds.Insert("ColumnEnd", 0);
 
-	Item.GetTextSelectionBounds(Bounds.RowBeginning, Bounds.ColumnBeginning, Bounds.RowEnd,
+	Item.GetTextSelectionBounds(Bounds.RowBegining, Bounds.ColumnBegining, Bounds.RowEnd,
 		Bounds.ColumnEnd);
 
 	Return Bounds;
 EndFunction
 
 &AtClient
-Procedure SetAlgorithmSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd)
+Procedure SetAlgorithmSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd)
 	If UT_IncludedInUniversalTools Then
-		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Algorithm", RowBeginning, ColumnBeginning,
+		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Algorithm", RowBegining, ColumnBegining,
 			RowEnd, ColumnEnd);
 	Else
-		Items.AlgorithmText.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		Items.AlgorithmText.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	EndIf;
 EndProcedure
 
 &AtClient
-Procedure SetQuerySelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd)
+Procedure SetQuerySelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd)
 	If UT_IncludedInUniversalTools Then
-		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Query", RowBeginning, ColumnBeginning,
+		UT_CodeEditorClient.SetTextSelectionBorders(ThisObject, "Query", RowBegining, ColumnBegining,
 			RowEnd, ColumnEnd);
 	Else
-		Items.QueryText.SetTextSelectionBounds(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		Items.QueryText.SetTextSelectionBounds(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	EndIf;
 EndProcedure
 
@@ -5873,8 +6090,8 @@ Procedure UT_ResultRowProperties(Command)
 	
 	RowPropertiesVisible = Not RowPropertiesVisible;
 
-	Items.UT_QueryResultRowProperty.Check = RowPropertiesVisible;
-	Items.UT_QueryResultTreeRowProperty.Check = RowPropertiesVisible;
+	Items.UT_QueryResultRowProperties.Check = RowPropertiesVisible;
+	Items.UT_QueryResultTreeRowProperties.Check = RowPropertiesVisible;
 	Items.UT_RowProperties.Visible = RowPropertiesVisible;
 	
 	If RowPropertiesVisible Then
@@ -6004,6 +6221,15 @@ Function UT_SelectRowPictureAtServer(Value)
 	Return Picture;
 	
 EndFunction
-#EndRegion
 
 #EndRegion
+
+&AtClient
+Procedure Command_QueryParametersNearText_EnableVisibilityEditors()
+	//Bugfix https://github.com/cpr1c/tools_ui_1c/issues/481
+	UT_CodeEditorClient.SwitchEditorVisibility(ThisObject, "Algorithm");
+	UT_CodeEditorClient.SwitchEditorVisibility(ThisObject, "AlgorithmBeforeExecution");
+EndProcedure
+
+#EndRegion
+

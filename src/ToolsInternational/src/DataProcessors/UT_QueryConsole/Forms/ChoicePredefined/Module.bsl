@@ -37,18 +37,18 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	EndIf;
 	
 	vlTypeList = Items.ObjectType.ChoiceList;
-	vlTypeList.Add("AccumulationRecordType", "AccumulationRecordType", , Pictures.AccumulationRecordType);      
-	vlTypeList.Add("AccountingRecordType", "AccountingRecordType", , Pictures.AccountingRecordType);      
-	vlTypeList.Add("AccountType", "AccountType", , Pictures.AccountType);
-	vlTypeList.Add("Catalogs", "Catalog", , Pictures.Type_CatalogRef);
-	vlTypeList.Add("Documents", "Document", , Pictures.Type_DocumentRef);
-	vlTypeList.Add("Enums", "Enum", , Pictures.Type_EnumRef);
-	vlTypeList.Add("ChartsOfCharacteristicTypes", "Chart of characteristic types", , Pictures.Type_ChartOfCharacteristicTypesRef);
-	vlTypeList.Add("ChartsOfAccounts", "Chart of accounts", , Pictures.Type_ChartOfAccountsRef);
-	vlTypeList.Add("ChartsOfCalculationTypes", "Chart of calculation types", , Pictures.Type_ChartOfCalculationTypesRef);
-	vlTypeList.Add("ExchangePlans", "Exchange plan", , Pictures.Type_ExchangePlanRef);
-	vlTypeList.Add("BusinessProcesses", "Business process", , Pictures.Type_BusinessProcessRef);
-	vlTypeList.Add("Tasks", "Task", , Pictures.Type_TaskRef);
+	vlTypeList.Add("AccumulationRecordType", "AccumulationRecordType", , 				PictureLib.UT_AccumulationRecordType); // Pictures.AccumulationRecordType     
+	vlTypeList.Add("AccountingRecordType", "AccountingRecordType", , 					PictureLib.UT_AccumulationRecordType); // Pictures.AccountingRecordType      
+	vlTypeList.Add("AccountType", "AccountType", , 										PictureLib.UT_AccumulationRecordType); // Pictures.AccountType
+	vlTypeList.Add("Catalogs", "Catalog", , 											PictureLib.Catalog); // Pictures.Type_CatalogRef
+	vlTypeList.Add("Documents", "Document", , 											PictureLib.Document); // Pictures.Type_DocumentRef
+	vlTypeList.Add("Enums", "Enum", , 													PictureLib.Enum); // Pictures.Type_EnumRef
+	vlTypeList.Add("ChartsOfCharacteristicTypes", "Chart of characteristic types", , 	PictureLib.ChartOfCharacteristicTypes); // Pictures.Type_ChartOfCharacteristicTypesRef
+	vlTypeList.Add("ChartsOfAccounts", "Chart of accounts", , 							PictureLib.ChartOfAccounts); // Pictures.Type_ChartOfAccountsRef
+	vlTypeList.Add("ChartsOfCalculationTypes", "Chart of calculation types", , 			PictureLib.ChartOfCalculationTypes); // Pictures.Type_ChartOfCalculationTypesRef
+	vlTypeList.Add("ExchangePlans", "Exchange plan", , 									PictureLib.ExchangePlan); // Pictures.Type_ExchangePlanRef
+	vlTypeList.Add("BusinessProcesses", "Business process", , 							PictureLib.BusinessProcess); // Pictures.Type_BusinessProcessRef
+	vlTypeList.Add("Tasks", "Task", , 													PictureLib.Task); // Pictures.Type_TaskRef
 	
 	If ValueType <> Undefined Then
 		

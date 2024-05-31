@@ -85,6 +85,8 @@ Procedure GenerateDocument(Parameters)
 	arQueryResult = stQueryResult.Result;
 	stBatchResult = arQueryResult[Number(Parameters.ResultInBatch) - 1];
 	qrSelection = stBatchResult.Result;
+	maColumnsList = New Array; 
+	
 	ResultName = stBatchResult.ResultName;
 	stMacrocolumns = stBatchResult.Macrocolumns;
 	MacrocolumnsExists = stMacrocolumns.Count() > 0;
@@ -108,6 +110,7 @@ Procedure GenerateDocument(Parameters)
 		
 		Column = qrSelection.Columns[j - 1];
         ColumnName = Column.Name;
+        maColumnsList.Add(ColumnName);
 		
 		//data row
         FillingArea = OutputRow.Area(1, j, 1, j);
@@ -160,6 +163,12 @@ Procedure GenerateDocument(Parameters)
 		
 	EndDo;
 	
+	Если Parameters.Property("fShowTotals") And Parameters.fShowTotals Then 
+		TotalTable = stBatchResult.Result.Unload();
+		ColumnsListAsString = StrConcat(maColumnsList, ",");	
+		TotalTable.GroupBy("", ColumnsListAsString);
+	EndIf;	
+		
     TitleRow = Document.GetArea(1, 1);
 	TitleArea = TitleRow.Area(1, 1, 1, 1);
 	TitleArea.Text = Parameters.QueryName;
@@ -204,6 +213,11 @@ Procedure GenerateDocument(Parameters)
 		
 		EndDo;	
 		
+		If Parameters.Property("fShowTotals") And Parameters.fShowTotals Then 
+			OutputRow.Parameters.Fill(TotalTable[0]);
+			Document.Put(OutputRow);
+		EndIf;
+				
 		arColumnSizes = GetColumnSizes(vtDataSizes);
 		
 		For j = 0 To arColumnSizes.Count() - 1 Do
