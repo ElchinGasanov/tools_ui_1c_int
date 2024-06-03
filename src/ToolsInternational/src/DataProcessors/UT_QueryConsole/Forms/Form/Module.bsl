@@ -5979,7 +5979,7 @@ EndProcedure
 &AtClient
 Procedure SetQuerySelectionBoundsByPosition(Begin, End)
 	
-	Items.QueryText.SetTextSelectionBounds(Begin, End);
+	// Items.QueryText.SetTextSelectionBounds(Begin, End); // HTMLDocumentField doesn't have SetTextSelectionBounds
 	
 EndProcedure
 

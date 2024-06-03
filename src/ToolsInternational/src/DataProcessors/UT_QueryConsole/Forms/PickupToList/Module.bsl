@@ -46,6 +46,180 @@ Function FullFormName(FormName)
 	Return StrTemplate("%1.Form.%2", Object.MetadataPath, FormName);
 EndFunction
 
+&AtClient
+Procedure CommandFillFromClipboard(Command)
+	If Not ItemList.ValueType.ContainsType(Type("String")) Then
+		Return;
+	EndIf;
+
+	UT_ClipboardClient.BeginGettingTextFormClipboard(New CallbackDescription("CommandFillFromClipboardFinish",
+		ThisObject));
+EndProcedure
+
+&AtClient
+Procedure CommandFillFromClipboardFinish(Result, AdditionalParameters) Export
+	If Result = Undefined Then
+		Return;
+	EndIf;
+
+	If Not ValueIsFilled(Result) Then
+		Return;
+	EndIf;
+
+	TextDocument = New TextDocument();
+	TextDocument.SetText(Result);
+	LineCount = TextDocument.LineCount();
+	For i = 1 To LineCount Do
+		TextLine = TextDocument.GetLine(i);
+		ItemList.Add(TextLine);
+	EndDo;
+
+EndProcedure
+
+&AtClient
+Procedure CommandFillFromFile(Command)
+
+	Mode = FileDialogMode.Open;
+	OpenFileDialog = New FileDialog(Mode);
+	OpenFileDialog.FullFileName = "";
+	Filter = НСтр("ru = 'Текст'; en = 'Text'") + "(*.txt)|*.txt";
+	OpenFileDialog.Filter = Filter;
+	OpenFileDialog.Multiselect = True;
+	OpenFileDialog.Title = NStr("ru = 'Выберите файлы'; en = 'Choose files'");
+
+	CallbackDescription = New CallbackDescription("ChooseFileFinish", ThisObject);
+
+	OpenFileDialog.Show(CallbackDescription);
+	
+EndProcedure
+
+&AtClient
+Procedure CommandTransferToStringInternal(Command)
+
+	Mode = FileDialogMode.Save;
+	OpenFileDialog = New FileDialog(Mode);
+	OpenFileDialog.FullFileName = ""; Filter = НСтр("ru = 'Текст'; en = 'Text'") + "(*.txt)|*.txt"; OpenFileDialog.Filter = Filter; // bugfix 31.05.2024
+	OpenFileDialog.Title = NStr("ru = 'Сохранить файл'; en = 'Save file'");
+	AdditionalParameters = Новый Структура("FileAddress", GetFileListValuesInRowInternal());
+	CallbackDescription = New CallbackDescription("SavingFileFinish", 
+												  ThisObject,
+												  AdditionalParameters);
+
+	OpenFileDialog.Show(CallbackDescription);
+EndProcedure
+
+&AtClient
+Procedure SavingFileFinish(Result, AdditionalParameters) Export
+	If Result = Undefined Then
+		Return;
+	EndIf;
+
+	BinaryData = GetFromTempStorage(AdditionalParameters.FileAddress);
+	BinaryData.Write(Result[0]);
+
+EndProcedure
+
+&AtClient
+Procedure CommandFillFromStringInternal(Command)
+
+	Mode = FileDialogMode.Open;
+	OpenFileDialog = New FileDialog(Mode);
+	OpenFileDialog.FullFileName = "";
+	OpenFileDialog.Multiselect = Ложь;
+	OpenFileDialog.Title = NStr("ru = 'Выберите файлы'; en = 'Choose files'");
+
+
+	CallbackDescription = New CallbackDescription("CommandFillFromLineIntFinish", 
+												  ThisObject);
+
+	OpenFileDialog.Show(CallbackDescription);
+EndProcedure
+
+&AtClient
+Procedure CommandFillFromLineIntFinish(ChosenFiles, AdditionalParameters) Export
+	If ChosenFiles = Undefined Then
+		Return;
+	EndIf;
+	BinaryData = New BinaryData(ChosenFiles[0]);
+
+	StorageAddress = PutToTempStorage(BinaryData, UUID);
+	FillStringsInternalListAtServer(StorageAddress);
+
+EndProcedure
+&AtServer
+Procedure FillStringsInternalListAtServer(StorageAddress)
+	VTRowInternal = GetStringFromBinaryData(GetFromTempStorage(StorageAddress));
+	VList = ValueFromStringInternal(VTRowInternal);
+	If TypeOf(VList) = Type("ValueList") Then
+		ItemList = VList;
+	EndIf;
+EndProcedure
+&AtServer
+Function GetFileListValuesInRowInternal()
+	Return PutToTempStorage(GetBinaryDataFromString(ValueToStringInternal(ItemList)),
+										  UUID);	
+EndFunction
+
+&AtClient
+Procedure ChooseFileFinish(ChosenFiles, AdditionalParameters) Export
+	If ChosenFiles = Undefined Then
+		Return;
+	EndIf;
+	BinaryDataArray = New Array();
+	If TypeOf(ChosenFiles) = Type("Array") Then
+		For Each CurrenRow In ChosenFiles Do
+			BinaryData = New BinaryData(CurrenRow);
+			BinaryDataArray.Add(BinaryData);
+		EndDo;
+		StorageAddress = PutToTempStorage(BinaryDataArray, UUID);
+		FillFilesListAtServer(StorageAddress);
+	EndIf;
+
+EndProcedure
+&AtServer
+Procedure FillFilesListAtServer(StorageAddress)
+	FileArray = GetFromTempStorage(StorageAddress);
+	For Each CurrentFile In FileArray Do
+		FileName = GetTempFileName("txt");
+		CurrentFile.Write(FileName);
+
+		TextDocument = New TextDocument();
+		TextDocument.Read(FileName);
+		LineCount = TextDocument.LineCount();
+		For i = 1 To LineCount Do
+			TextLine = TextDocument.GetLine(i);
+			ItemList.Add(TextLine);
+		EndDo;
+
+		DeleteFiles(FileName);
+	EndDo;
+EndProcedure
+
+&AtClient
+Procedure CommandTransferToClipboard(Command)
+
+		UT_ClipboardClient.BeginCopyTextToClipboard(GenerateTextForCopying(),
+			New CallbackDescription("CommandTransferToClipboardFinish", ThisObject));
+EndProcedure
+
+&AtServer
+Function GenerateTextForCopying()
+
+	TextDocument = New TextDocument();
+	For Each CurrenRow In ItemList Do
+		TextDocument.AddLine(TrimAll(CurrenRow));
+	EndDo;	
+
+	Return TextDocument.GetText();
+EndFunction
+
+&AtClient
+Procedure CommandTransferToClipboardFinish(Result, CallOptions, AdditionalParameters) Export
+	If Result = True Then
+		Status(NStr("ru = 'Скопировано в буфер обмена'; en = 'Copied to clipboard'"));
+	EndIf;
+EndProcedure
+
 &AtServer
 Function GetReturnValue()
 	
@@ -104,7 +278,7 @@ EndProcedure
 &AtClient
 Procedure ItemListValueStartChoice(Item, ChoiceData, StandardProcessing)
 	
-	Value = Items.ItemList.CurretData.Value;
+	Value = Items.ItemList.CurrentData.Value;
 	
 	EditingValueType = TypeOf(Value);
 	

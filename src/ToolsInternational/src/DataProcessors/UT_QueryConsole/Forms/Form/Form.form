@@ -7580,7 +7580,6 @@ Example:
             <common>true</common>
           </userVisible>
           <horizontalAlign>Left</horizontalAlign>
-          <autoFill>true</autoFill>
         </autoCommandBar>
         <handlers>
           <event>Selection</event>
@@ -7752,13 +7751,12 @@ Example:
           <userVisible>
             <common>true</common>
           </userVisible>
-          <autoFill>true</autoFill>
         </contextMenu>
         <readOnly>true</readOnly>
         <changeRowSet>true</changeRowSet>
         <changeRowOrder>true</changeRowOrder>
         <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
+        <height>5</height>
         <autoMaxRowsCount>true</autoMaxRowsCount>
         <selectionMode>MultiRow</selectionMode>
         <header>true</header>
@@ -10105,10 +10103,7 @@ Example:
         <value>Значение</value>
       </title>
       <id>57</id>
-      <valueType>
-        <types>String</types>
-        <stringQualifiers/>
-      </valueType>
+      <valueType/>
       <view>
         <common>true</common>
       </view>

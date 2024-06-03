@@ -472,7 +472,7 @@ EndProcedure
 Procedure RemovePointInTimeBoundaryFromTree(vtTree)
 	
 	If vtTree.Rows[4].Name = "Boundary" Then
-		vtTree.Rows.Delete(vtTree.Rpws[4]);
+		vtTree.Rows.Delete(vtTree.Rows[4]);
 	EndIf;
 	
 	If vtTree.Rows[4].Name = "PointInTime" Then
