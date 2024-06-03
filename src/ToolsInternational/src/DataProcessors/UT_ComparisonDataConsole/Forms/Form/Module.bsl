@@ -33,7 +33,7 @@ Procedure CompareDataOnServer(StructureParametersFromClient, RepresentationHeade
 	ProcessingObject = FormAttributeToValue("Object");
 	ProcessingObject.RefreshDataPeriod();
 	ProcessingObject.CompareDataOnServer(TextErrors);
-	RepresentationHeadersAttributes = ProcessingObject.RepresentationHeadersAttributes;	
+	RepresentationHeadersAttributes = ProcessingObject.ViewsHeadersAttributes;	
 	ValueToFormAttribute(ProcessingObject, "Object");
 	
 	For AttributesCounter = 1 To NumberOfAttributes Do 
@@ -465,7 +465,7 @@ EndProcedure
 Function UploadResultToFileAtServer(ForClient, RepresentationHeadersAttributes)
 	
 	AttributeObject = FormAttributeToValue("Object");
-	AttributeObject.RepresentationHeadersAttributes = RepresentationHeadersAttributes;
+	AttributeObject.ViewsHeadersAttributes = RepresentationHeadersAttributes;
 	FileAddress = AttributeObject.UploadResultToFileAtServer(ForClient);
 	Return FileAddress;
 	
@@ -554,7 +554,7 @@ Procedure SourcePreviewAtClientEnd(BaseID, MaximumRowsCount, OnlyDuplicates, Tem
 EndProcedure
 
 &AtServer
-Function GetSpreadsheetDocumentDataFromSourceAtServer(BaseID, MaxRows = 0, OnlyDuplicates = False, Connection = Undefined,TemporaryStorageAddressFile="")
+Function GetSpreadsheetDocumentDataFromSourceAtServer(BaseID, MaxRows = 0, OnlyDuplicates = False, TemporaryStorageAddressFile="")
 
 
 	//If source is file stored at client computer
@@ -583,12 +583,14 @@ Function GetSpreadsheetDocumentDataFromSourceAtServer(BaseID, MaxRows = 0, OnlyD
 		EndIf;
 		
 		Return Undefined;
+		
 	EndIf;
 	
 	Connection = Undefined;
 	ValueTable = ProcessingObject.ReadDataAndGetValueTable(BaseID, TextError, Connection);
 	
 	If ValueTable = Undefined Then
+		
 		Message(Format(CurrentDate(),"DLF=DT") + ": " + TextError);
 		
 		///If source is file stored at client computer
@@ -750,22 +752,16 @@ Procedure CheckAbilityToConnectToSourceAtServer(BaseID)
 	
 EndProcedure
 
-
 #Region Visibility_Availability_of_form_elements
-
 &AtClient
 Procedure UpdateVisibilityAccessibilityFormItems()
 		
 	UpdateVisibilityAccessibilityFormItemsByBaseID("A");
 	UpdateVisibilityAccessibilityFormItemsByBaseID("B");
-	//Items.ResultKey2.Visible = Object.NumberColumnsInKey > 1;
-	//Items.ResultKey3.Visible = Object.NumberColumnsInKey > 2;
-	//Items.ResultColumnType1Key.Visible = Object.DisplayKeyColumnTypes;
-	//Items.ResultColumnType2Key.Visible = Object.DisplayKeyColumnTypes And Object.NumberColumnsInKey > 1;
-	//Items.ResultColumnType3Key.Visible = Object.DisplayKeyColumnTypes And Object.NumberColumnsInKey > 2;
 	Items.ResultCommandVisibilityTypesColumnsKey.Check = Object.DisplayKeyColumnTypes;
 	Items.ResultCommandVisibilityKey2.Visible = Object.NumberColumnsInKey > 1;
 	Items.ResultCommandVisibilityKey3.Visible = Object.NumberColumnsInKey > 2;
+	
 	UpdateVisibilityKeysTP();
 		
 	//If Object.PeriodTypeAbsolute Then
@@ -820,9 +816,7 @@ Procedure UpdateTotalsByAttributesTP(BaseID)
 	For AttributesCounter = 1 To NumberOfAttributes Do
 	
 		AttributeName = "Attribute" + BaseID + AttributesCounter;
-		Items["Result" + AttributeName].FooterText = ?(Object["SettingsFile" + BaseID].Count() >= AttributesCounter И Object["SettingsFile" + BaseID][AttributesCounter - 1].CalculateTotal
-			, Object["ValueTotal" + AttributeName]
-			, "");
+		Items["Result" + AttributeName].FooterText = ?(Object["SettingsFile" + BaseID].Count() >= AttributesCounter И Object["SettingsFile" + BaseID][AttributesCounter - 1].CalculateTotal, Object["ValueTotal" + AttributeName], "");
 	
 	EndDo; 
 		
@@ -841,94 +835,101 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 	Items["GroupPageTable" + BaseID].Visible = Object["BaseType" + BaseID] = 4;
 		
 //#Region _1C_8_External
+
 	If Object["BaseType" + BaseID] = 1 Then
 		
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= True;
-		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 						= True;
+		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 					= True;
 		If Object["WorkOptionExternalBase" + BaseID] = 1 Then
-			Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 				= True;
+			Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 			= True;
 			Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 			= Nstr("ru = 'Имя базы';en = 'Database name'");
 		Else
-			Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 				= False;
+			Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 			= False;
 			Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 			= Nstr("ru = 'Путь к базе';en = 'Path to Database'");
 		EndIf;
-		Items["ConnectionToExternalBase" + BaseID + "DriverSQL"].Visible 				= False;
-		Items["GroupPageTextQuery" + BaseID].Visible 							= True;
-		Items["GroupPageTextQuery" + BaseID].Title							= Nstr("ru = 'Тект запроса';en = 'Query text'");
-		Items["DecorationQueryText" + BaseID].Visible									= True;
+		Items["ConnectionToExternalBase" + BaseID + "DriverSQL"].Visible 			= False;
+		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
+		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса';en = 'Query text'");
+		Items["DecorationQueryText" + BaseID].Visible								= True;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= True;
 		
 		Items["GroupSettingsConnectionsFile" + BaseID].Visible 						= False;	
-		//Items["FileColumnsParametersGroup" + BaseID].Visible 							= False;
+		//Items["FileColumnsParametersGroup" + BaseID].Visible 						= False;
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= False;
 		
 		Items["GroupCollapseTable" + BaseID].Visible 								= False;
 		
-		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible 	= True;
-		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 	= True;
-		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 	= True;
+		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible 							= True;
+		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 						= True;
+		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 						= True;
 		Items["ColumnNumberKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey3FromFile" + BaseID].Visible 							= False;
-		Items["ColumnNameKeyFromFile" + BaseID].Visible 								= False;
+		Items["ColumnNameKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey3FromFile" + BaseID].Visible 							= False;
 		
 		Items["CastKeyToString" + BaseID].Visible 									= Not Object["UseAsKeyUniqueIdentifier" + BaseID];
-		Items["CastKey2ToString" + BaseID].Visible 								= Not Object["UseAsKey2UniqueIdentifier" + BaseID];
-		Items["CastKey3ToString" + BaseID].Visible 								= Not Object["UseAsKey3UniqueIdentifier" + BaseID];
+		Items["CastKey2ToString" + BaseID].Visible 									= Not Object["UseAsKey2UniqueIdentifier" + BaseID];
+		Items["CastKey3ToString" + BaseID].Visible 									= Not Object["UseAsKey3UniqueIdentifier" + BaseID];
 		Items["KeyLengthWhenCastingToString" + BaseID].Visible 						= Not Object["UseAsKeyUniqueIdentifier" + BaseID];
-		Items["KeyLength2WhenCastingToString" + BaseID].Visible 						= Not Object["UseAsKey2UniqueIdentifier" + BaseID];
-		Items["KeyLength3WhenCastingToString" + BaseID].Visible 						= Not Object["UseAsKey3UniqueIdentifier" + BaseID];
+		Items["KeyLength2WhenCastingToString" + BaseID].Visible 					= Not Object["UseAsKey2UniqueIdentifier" + BaseID];
+		Items["KeyLength3WhenCastingToString" + BaseID].Visible 					= Not Object["UseAsKey3UniqueIdentifier" + BaseID];
 		Items["KeyLengthWhenCastingToString" + BaseID].ReadOnly 					= Not Object["CastKeyToString" + BaseID];
 		Items["KeyLength2WhenCastingToString" + BaseID].ReadOnly 					= Not Object["CastKey2ToString" + BaseID];
 		Items["KeyLength3WhenCastingToString" + BaseID].ReadOnly 					= Not Object["CastKey3ToString" + BaseID];
 		
-		Items["SettingsFile" + BaseID + "ColumnName"].Visible							= False;
-		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible = True;					
+		Items["SettingsFile" + BaseID + "ColumnName"].Visible						= False;
+		
+		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible = True;
+							
 //#EndRegion
 
 //#Region SQL
+	
 	ElsIf Object["BaseType" + BaseID] = 2 Then
 		
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= True;
-		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 						= False;
-		Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 					= True;
+		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 					= False;
+		Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 				= True;
 		Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 				= Nstr("ru = 'Имя базы данных';en = 'Database name'");
 		Items["ConnectionToExternalBase" + BaseID + "DriverSQL"].Visible 				= True;
 		Items["GroupSettingsConnectionsFile" + BaseID].Visible 						= False;
-		//Items["FileColumnsParametersGroup" + BaseID].Visible 							= False;
+		//Items["FileColumnsParametersGroup" + BaseID].Visible 						= False;
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= False;		
-		Items["GroupPageTextQuery" + BaseID].Visible 							= True;
-		Items["GroupPageTextQuery" + BaseID].Title							= Nstr("ru = 'Тект запроса';en = 'Query text'");
-		Items["DecorationQueryText" + BaseID].Visible									= True;
+		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
+		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса';en = 'Query text'");
+		Items["DecorationQueryText" + BaseID].Visible								= True;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= False;
 		
 		Items["GroupCollapseTable" + BaseID].Visible 								= False;
 		
-		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible 	= False;
-		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 	= False;
-		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 	= False;
+		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible 							= False;
+		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 						= False;
+		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 						= False;
 		Items["ColumnNumberKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey3FromFile" + BaseID].Visible 							= False;
-		Items["ColumnNameKeyFromFile" + BaseID].Visible 								= False;
+		Items["ColumnNameKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey3FromFile" + BaseID].Visible 							= False;
 		
 		Items["CastKeyToString" + BaseID].Visible 									= True;
-		Items["CastKey2ToString" + BaseID].Visible 								= True;
-		Items["CastKey3ToString" + BaseID].Visible 								= True;
+		Items["CastKey2ToString" + BaseID].Visible 									= True;
+		Items["CastKey3ToString" + BaseID].Visible 									= True;
 		//Casting is performed simply to a string without specifying the length
 		Items["KeyLengthWhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength2WhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength3WhenCastingToString" + BaseID].Visible 						= False;
+		Items["KeyLength2WhenCastingToString" + BaseID].Visible 					= False;
+		Items["KeyLength3WhenCastingToString" + BaseID].Visible 					= False;
 		
-		Items["SettingsFile" + BaseID + "ColumnName"].Visible							= False;
+		Items["SettingsFile" + BaseID + "ColumnName"].Visible						= False;
+		
 		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible = True;		                                                                       						
+
 //#EndRegion 
 
-//#Region Файл
+//#Region File
+	
 	ElsIf Object["BaseType" + BaseID] = 3 Then
 		
 		FileFormatXML = Object["ConnectionToExternalBase" + BaseID + "FileFormat" ] = "XML";
@@ -936,65 +937,62 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		FileFormatDOC = Object["ConnectionToExternalBase" + BaseID + "FileFormat" ] = "DOC";
 				
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= False;
-		Items["GroupPageTextQuery" + BaseID].Visible							= False;
+		Items["GroupPageTextQuery" + BaseID].Visible								= False;
 		
 		Items["GroupSettingsConnectionsFile" + BaseID].Visible 						= True;
-		Items["GroupSettingsConnectionsToFileGeneral" + BaseID].Visible					= True;
+		Items["GroupSettingsConnectionsToFileGeneral" + BaseID].Visible				= True;
 		Items["GroupSettingsConnectionsToXMLJSON" + BaseID].Visible 				= FileFormatXML;
 		Items["GroupSettingsConnectionsToXML" + BaseID].Visible 					= FileFormatXML;
-		Items["GroupSettingsConnectionsToNonXMLFile" + BaseID].Visible					= Not FileFormatXML;
-		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Visible		= FileFormatXLS Or FileFormatDOC;
+		Items["GroupSettingsConnectionsToNonXMLFile" + BaseID].Visible				= Not FileFormatXML;
+		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Visible	= FileFormatXLS Or FileFormatDOC;
+		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Title		= ?(FileFormatXLS, Nstr("ru = 'Номер книги';en = 'Book number'"), Nstr("ru = 'Номер таблицы';en = 'Table number'"));
 		
-		ConnectionToExternalBaseTitle = ?(FileFormatXLS
-			, Nstr("ru = 'Номер книги';en = 'Book number'")
-			, Nstr("ru = 'Номер таблицы';en = 'Table number'"));
-		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Title		= ConnectionToExternalBaseTitle;
-		
-		//Items["FileColumnsParametersGroup" + BaseID].Visible 							= True;		
+		//Items["FileColumnsParametersGroup" + BaseID].Visible 						= True;		
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= True;
-		
+	
 		Items["GroupCollapseTable" + BaseID].Visible 								= True;
 		
 		Items["ColumnNumberKeyFromFile" + BaseID].Visible 							= Not FileFormatXML;
 		Items["ColumnNumberKey2FromFile" + BaseID].Visible 							= Not FileFormatXML;
 		Items["ColumnNumberKey3FromFile" + BaseID].Visible 							= Not FileFormatXML;
-		Items["ColumnNameKeyFromFile" + BaseID].Visible 								= FileFormatXML;
+		Items["ColumnNameKeyFromFile" + BaseID].Visible 							= FileFormatXML;
 		Items["ColumnNameKey2FromFile" + BaseID].Visible 							= FileFormatXML;
 		Items["ColumnNameKey3FromFile" + BaseID].Visible 							= FileFormatXML;
 				
-		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible 	= False;
-		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 	= False;
-		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 	= False;
+		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible 							= False;
+		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 						= False;
+		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 						= False;
 		
 		Items["CastKeyToString" + BaseID].Visible 									= Not FileFormatXML;
-		Items["CastKey2ToString" + BaseID].Visible 								= Not FileFormatXML;
-		Items["CastKey3ToString" + BaseID].Visible 								= Not FileFormatXML;
+		Items["CastKey2ToString" + BaseID].Visible 									= Not FileFormatXML;
+		Items["CastKey3ToString" + BaseID].Visible 									= Not FileFormatXML;
 		//Casting is performed simply to a string without specifying the length
 		Items["KeyLengthWhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength2WhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength3WhenCastingToString" + BaseID].Visible 						= False;
+		Items["KeyLength2WhenCastingToString" + BaseID].Visible 					= False;
+		Items["KeyLength3WhenCastingToString" + BaseID].Visible 					= False;
 		
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= Not FileFormatXML;
-		Items["SettingsFile" + BaseID + "ColumnName"].Visible							= FileFormatXML;
+		Items["SettingsFile" + BaseID + "ColumnName"].Visible						= FileFormatXML;
 		
 		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible = True;
 							
 //#EndRegion 
 
 //#Region Table
+
 	ElsIf Object["BaseType" + BaseID] = 4 Then
 		
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= False;
-		Items["GroupPageTextQuery" + BaseID].Visible 							= False;
+		Items["GroupPageTextQuery" + BaseID].Visible 								= False;
 		
 		Items["GroupSettingsConnectionsFile" + BaseID].Visible 						= True;
-		Items["GroupSettingsConnectionsToFileGeneral" + BaseID].Visible					= False;
-		Items["GroupSettingsConnectionsToXMLJSON" + BaseID].Visible				= False;
-		Items["GroupSettingsConnectionsToXML" + BaseID].Visible					= False;
-		Items["GroupSettingsConnectionsToNonXMLFile" + BaseID].Visible					= True;
-		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Visible		= False;
+		Items["GroupSettingsConnectionsToFileGeneral" + BaseID].Visible				= False;
+		Items["GroupSettingsConnectionsToXMLJSON" + BaseID].Visible					= False;
+		Items["GroupSettingsConnectionsToXML" + BaseID].Visible						= False;
+		Items["GroupSettingsConnectionsToNonXMLFile" + BaseID].Visible				= True;
+		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Visible	= False;
 		
-		//Items["FileColumnsParametersGroup" + BaseID].Visible							= True;
+		//Items["FileColumnsParametersGroup" + BaseID].Visible						= True;
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= True;
 		
 		Items["GroupCollapseTable" + BaseID].Visible 								= True;
@@ -1002,7 +1000,7 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["ColumnNumberKeyFromFile" + BaseID].Visible 							= True;
 		Items["ColumnNumberKey2FromFile" + BaseID].Visible 							= True;
 		Items["ColumnNumberKey3FromFile" + BaseID].Visible 							= True;
-		Items["ColumnNameKeyFromFile" + BaseID].Visible 								= False;
+		Items["ColumnNameKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey3FromFile" + BaseID].Visible 							= False;
 		
@@ -1011,82 +1009,83 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 	= False;
 		
 		Items["CastKeyToString" + BaseID].Visible 									= True;
-		Items["CastKey2ToString" + BaseID].Visible 								= True;
-		Items["CastKey3ToString" + BaseID].Visible 								= True;
+		Items["CastKey2ToString" + BaseID].Visible 									= True;
+		Items["CastKey3ToString" + BaseID].Visible 									= True;
 		//Casting is performed simply to a string without specifying the length
 		Items["KeyLengthWhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength2WhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength3WhenCastingToString" + BaseID].Visible 						= False;
+		Items["KeyLength2WhenCastingToString" + BaseID].Visible 					= False;
+		Items["KeyLength3WhenCastingToString" + BaseID].Visible 					= False;
 		
-		Items["SettingsFile" + BaseID + "ColumnName"].Visible							= False;
+		Items["SettingsFile" + BaseID + "ColumnName"].Visible						= False;
 		
 		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible = True;
-		
+
 //#EndRegion 
 
 //#Region _1C_7_7_external
+
 	ElsIf Object["BaseType" + BaseID] = 5 Then
 		
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= True;
-		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 						= False;
-		Items["ConnectionToExternalBase" + BaseID + "DriverSQL"].Visible 				= False;
-		Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 					= False;
+		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 					= False;
+		Items["ConnectionToExternalBase" + BaseID + "DriverSQL"].Visible 			= False;
+		Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 				= False;
 		Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 				= Nstr("ru = 'Путь к базе';en = 'Path to base'");
-		Items["GroupPageTextQuery" + BaseID].Visible 							= True;
-		Items["GroupPageTextQuery" + BaseID].Title							= Nstr("ru = 'Тект запроса';en = 'Query text'");
-		Items["DecorationQueryText" + BaseID].Visible									= True;
+		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
+		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса';en = 'Query text'");
+		Items["DecorationQueryText" + BaseID].Visible								= True;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= False;
 		
 		Items["GroupSettingsConnectionsFile" + BaseID].Visible 						= False;
-		//Items["FileColumnsParametersGroup" + BaseID].Visible 							= False;     		
+		//Items["FileColumnsParametersGroup" + BaseID].Visible 						= False;     		
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= False;
-		
 		
 		Items["GroupCollapseTable" + BaseID].Visible 								= False;
 		
-		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible 	= False;
-		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 	= False;
-		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 	= False;
+		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible 							= False;
+		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 						= False;
+		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 						= False;
 		Items["ColumnNumberKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey3FromFile" + BaseID].Visible 							= False;
-		Items["ColumnNameKeyFromFile" + BaseID].Visible 								= False;
+		Items["ColumnNameKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey3FromFile" + BaseID].Visible 							= False;
 		
 		Items["CastKeyToString" + BaseID].Visible 									= True;
-		Items["CastKey2ToString" + BaseID].Visible 								= True;
-		Items["CastKey3ToString" + BaseID].Visible 								= True;
+		Items["CastKey2ToString" + BaseID].Visible 									= True;
+		Items["CastKey3ToString" + BaseID].Visible 									= True;
 		Items["KeyLengthWhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength2WhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength3WhenCastingToString" + BaseID].Visible 						= False;
+		Items["KeyLength2WhenCastingToString" + BaseID].Visible 					= False;
+		Items["KeyLength3WhenCastingToString" + BaseID].Visible 					= False;
 		
-		Items["SettingsFile" + BaseID + "ColumnName"].Visible							= False;
+		Items["SettingsFile" + BaseID + "ColumnName"].Visible						= False;
 		
-		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible = True;
+		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible 				= True;
 
 //#EndRegion 
 
 //#Region Строка_JSON
+	
 	ElsIf Object["BaseType" + BaseID] = 6 Then
 	
-		Items["GroupPageTextQuery" + BaseID].Visible 							= True;
-		Items["GroupPageTextQuery" + BaseID].Title							= NStr("ru = 'Строка JSON';en = 'JSON string'");
+		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
+		Items["GroupPageTextQuery" + BaseID].Title									= NStr("ru = 'Строка JSON';en = 'JSON string'");
 		
-		Items["DecorationQueryText" + BaseID].Visible									= False;
+		Items["DecorationQueryText" + BaseID].Visible								= False;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= False;
 		
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= False;
 		
 		Items["GroupSettingsConnectionsFile" + BaseID].Visible 						= True;
-		Items["GroupSettingsConnectionsToFileGeneral" + BaseID].Visible					= False;
+		Items["GroupSettingsConnectionsToFileGeneral" + BaseID].Visible				= False;
 		Items["GroupSettingsConnectionsToXMLJSON" + BaseID].Visible 				= True;
 		Items["GroupSettingsConnectionsToXML" + BaseID].Visible 					= False;
-		Items["GroupSettingsConnectionsToNonXMLFile" + BaseID].Visible					= False;
-		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Visible		= False;
+		Items["GroupSettingsConnectionsToNonXMLFile" + BaseID].Visible				= False;
+		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Visible	= False;
 		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Title		= False;
 		
-		//Items["FileColumnsParametersGroup" + BaseID].Visible 							= True;		
+		//Items["FileColumnsParametersGroup" + BaseID].Visible 						= True;		
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= True;
 		
 		Items["GroupCollapseTable" + BaseID].Visible 								= True;
@@ -1094,7 +1093,7 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["ColumnNumberKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey3FromFile" + BaseID].Visible 							= False;
-		Items["ColumnNameKeyFromFile" + BaseID].Visible 								= True;
+		Items["ColumnNameKeyFromFile" + BaseID].Visible 							= True;
 		Items["ColumnNameKey2FromFile" + BaseID].Visible 							= True;
 		Items["ColumnNameKey3FromFile" + BaseID].Visible 							= True;
 				
@@ -1103,31 +1102,32 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 	= False;
 		
 		Items["CastKeyToString" + BaseID].Visible 									= False;
-		Items["CastKey2ToString" + BaseID].Visible 								= False;
-		Items["CastKey3ToString" + BaseID].Visible 								= False;
+		Items["CastKey2ToString" + BaseID].Visible 									= False;
+		Items["CastKey3ToString" + BaseID].Visible 									= False;
 		//Casting is performed simply to a string without specifying the length
 		Items["KeyLengthWhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength2WhenCastingToString" + BaseID].Visible 						= False;
-		Items["KeyLength3WhenCastingToString" + BaseID].Visible 						= False;
+		Items["KeyLength2WhenCastingToString" + BaseID].Visible 					= False;
+		Items["KeyLength3WhenCastingToString" + BaseID].Visible 					= False;
 		
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= False;
-		Items["SettingsFile" + BaseID + "ColumnName"].Visible							= True;
+		Items["SettingsFile" + BaseID + "ColumnName"].Visible						= True;
 		
 		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible = True;
 							
 //#EndRegion 
 
 //#Region _1C_8_Current
+	
 	Else 
 		
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= False;
-		Items["GroupPageTextQuery" + BaseID].Visible 							= True;
-		Items["GroupPageTextQuery" + BaseID].Title							= Nstr("ru = 'Тект запроса';en = 'Query text'");
-		Items["DecorationQueryText" + BaseID].Visible									= True;
+		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
+		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса';en = 'Query text'");
+		Items["DecorationQueryText" + BaseID].Visible								= True;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= True;
 		
 		Items["GroupSettingsConnectionsFile" + BaseID].Visible 						= False;
-		//Items["FileColumnsParametersGroup" + BaseID].Visible 							= False;
+		//Items["FileColumnsParametersGroup" + BaseID].Visible 						= False;
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= False;
 		
 		Items["GroupCollapseTable" + BaseID].Visible 								= False;
@@ -1135,25 +1135,25 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["ColumnNumberKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNumberKey3FromFile" + BaseID].Visible 							= False;
-		Items["ColumnNameKeyFromFile" + BaseID].Visible 								= False;
+		Items["ColumnNameKeyFromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey2FromFile" + BaseID].Visible 							= False;
 		Items["ColumnNameKey3FromFile" + BaseID].Visible 							= False;
 		
-		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible		= True;
-		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 	= True;
-		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 	= True;
+		Items["UseAsKeyUniqueIdentifier" + BaseID].Visible							= True;
+		Items["UseAsKey2UniqueIdentifier" + BaseID].Visible 						= True;
+		Items["UseAsKey3UniqueIdentifier" + BaseID].Visible 						= True;
 		
 		Items["CastKeyToString" + BaseID].Visible 									= Not Object["UseAsKeyUniqueIdentifier" + BaseID];
-		Items["CastKey2ToString" + BaseID].Visible 								= Not Object["UseAsKey2UniqueIdentifier" + BaseID];
-		Items["CastKey3ToString" + BaseID].Visible 								= Not Object["UseAsKey3UniqueIdentifier" + BaseID];
+		Items["CastKey2ToString" + BaseID].Visible 									= Not Object["UseAsKey2UniqueIdentifier" + BaseID];
+		Items["CastKey3ToString" + BaseID].Visible 									= Not Object["UseAsKey3UniqueIdentifier" + BaseID];
 		Items["KeyLengthWhenCastingToString" + BaseID].Visible 						= Not Object["UseAsKeyUniqueIdentifier" + BaseID];
-		Items["KeyLength2WhenCastingToString" + BaseID].Visible 						= Not Object["UseAsKey2UniqueIdentifier" + BaseID];
-		Items["KeyLength3WhenCastingToString" + BaseID].Visible 						= Not Object["UseAsKey3UniqueIdentifier" + BaseID];
+		Items["KeyLength2WhenCastingToString" + BaseID].Visible 					= Not Object["UseAsKey2UniqueIdentifier" + BaseID];
+		Items["KeyLength3WhenCastingToString" + BaseID].Visible 					= Not Object["UseAsKey3UniqueIdentifier" + BaseID];
 		Items["KeyLengthWhenCastingToString" + BaseID].ReadOnly 					= Not Object["CastKeyToString" + BaseID];
 		Items["KeyLength2WhenCastingToString" + BaseID].ReadOnly 					= Not Object["CastKey2ToString" + BaseID];
 		Items["KeyLength3WhenCastingToString" + BaseID].ReadOnly 					= Not Object["CastKey3ToString" + BaseID];
 		
-		Items["SettingsFile" + BaseID + "ColumnName"].Visible							= False;
+		Items["SettingsFile" + BaseID + "ColumnName"].Visible						= False;
 		
 		Items["CommandCheckAbilityToConnectToSource"+BaseID].Visible = True;
 							
@@ -1706,7 +1706,6 @@ EndProcedure
 
 
 #Region Commands
-
 &AtClient
 Procedure CompareData(Command)
 	
@@ -1769,7 +1768,7 @@ EndProcedure
 &AtClient
 Procedure OpenSettingsFromBase(Command)
 	
-	//SelectedItem = Undefined; 
+	SelectedItem = Undefined; 
 	
 	OpenForm("Catalog.VS_DataComparisonOperations.ChoiceForm",,,,,, New NotifyDescription("OpenSettingsFromBaseEnd", ThisForm), FormWindowOpeningMode.LockWholeInterface);
 	
@@ -1778,7 +1777,7 @@ EndProcedure
 &AtClient
 Procedure LoadSettingsAndSpreadsheetDocumentsFromDatabase(Command)
 	
-	//SelectedItem = Undefined; 
+	SelectedItem = Undefined; 
 	
 	OpenForm("Catalog.VS_DataComparisonOperations.ChoiceForm",,	,,,, New NotifyDescription("OpenSettingsFromBaseEnd", ThisForm, New Structure("UploadSpreadsheetDocuments", True)), FormWindowOpeningMode.LockWholeInterface);
 	
@@ -2256,52 +2255,6 @@ Procedure ConnectionToExternalBaseBPathToFileStartChoiceEnd(SelectedFiles, Addit
 EndProcedure
 
 &AtClient
-Procedure SettingsFileBAggregateFunctionCalculationTotalClearing(Item, StandardProcessing)
-	
-	StandardProcessing = False;
-	CurrentRow = Items.SettingsFileB.CurrentData;
-	If CurrentRow <> Undefined Then
-		CurrentRow.AggregateFunctionCalculationTotal = "Sum";
-	EndIf;
-	
-EndProcedure
-
-&AtClient
-Procedure SettingsFileAAggregateFunctionCalculationTotalClearing(Item, StandardProcessing)
-	
-	StandardProcessing = False;
-	CurrentRow = Items.SettingsFileA.CurrentData;
-	If CurrentRow <> Undefined Then
-		CurrentRow.AggregateFunctionCalculationTotal = "Sum";
-	EndIf;
-
-EndProcedure
-
-&AtClient
-Procedure SettingsFileAOnChange(Item)
-	
-	CurrentRow = Items.SettingsFileA.CurrentData;
-	If CurrentRow <> Undefined Then
-		If IsBlankString(CurrentRow.AggregateFunctionCalculationTotal) Then
-			CurrentRow.AggregateFunctionCalculationTotal = "Sum";
-		EndIf;
-	EndIf;
-	
-EndProcedure
-
-&AtClient
-Procedure SettingsFileBOnChange(Item)
-	
-	CurrentRow = Items.SettingsFileB.CurrentData;
-	If CurrentRow <> Undefined Then
-		If IsBlankString(CurrentRow.AggregateFunctionCalculationTotal) Then
-			CurrentRow.AggregateFunctionCalculationTotal = "Sum";
-		EndIf;
-	EndIf;
-	
-EndProcedure
-
-&AtClient
 Procedure SettingsFileABeforeAddRow(Item, Cancel, Copy, Parent, Group, Parameter)
 	
 	If Object.SettingsFileA.Count() = 5 Then
@@ -2447,14 +2400,9 @@ Procedure CommandUploadResultToFileOnServer(Command)
 		Return;
 	EndIf;
 			
-	//Ответ = Undefined; 	
-	ShowQueryBox(New NotifyDescription("CommandUploadResultToFileOnServerEnd", ThisForm)
-		, Nstr("ru = 'Выгрузить таблицу в файл на сервере?';en = 'Download table to file on server?'")
-		, QuestionDialogMode.YesNo
-		, 
-		, DialogReturnCode.None
-		, Nstr("ru = 'Выгрузка';en = 'Unloading'"));
-	
+	Ответ = Undefined; 	
+	ShowQueryBox(New NotifyDescription("CommandUploadResultToFileOnServerEnd", ThisForm), Nstr("ru = 'Выгрузить таблицу в файл на сервере?';en = 'Download table to file on server?'")
+		, QuestionDialogMode.YesNo,, DialogReturnCode.None, Nstr("ru = 'Выгрузка';en = 'Unloading'"));	
 EndProcedure
 
 &AtClient
@@ -2515,13 +2463,8 @@ Procedure CommandUploadResultToFileOnClient(Command)
 		Return;
 	EndIf;
 	
-	ShowQueryBox(New NotifyDescription("CommandUploadResultToFileOnClientEndQuestion", ThisForm)
-		, Nstr("ru = 'Выгрузить таблицу в файл на клиенте?';en = 'Download table to file on client?'")
-		, QuestionDialogMode.YesNo
-		,
-		, DialogReturnCode.None
-		, Nstr("ru = 'Выгрузка';en = 'Unloading'"));
-	
+	ShowQueryBox(New NotifyDescription("CommandUploadResultToFileOnClientEndQuestion", ThisForm), Nstr("ru = 'Выгрузить таблицу в файл на клиенте?';en = 'Download table to file on client?'")
+		, QuestionDialogMode.YesNo,, DialogReturnCode.None, Nstr("ru = 'Выгрузка';en = 'Unloading'"));	
 EndProcedure
 
 &AtClient
@@ -2586,17 +2529,10 @@ EndProcedure
 &AtClient
 Procedure OrderSortTableDifferencesStartChoice(Item, ChoiceData, StandardProcessing)
 	
-	//ReturnValue = Undefined;
+	ReturnValue = Undefined;
 	
-	OpenForm(StrReplace(FormName, "Form", "SortingSettingsForm")
-		, New Structure("OrderSortTableDifferences", Object.OrderSortTableDifferences)
-		,
-		,
-		,
-		,
-		, New NotifyDescription("OrderSortTableDifferencesStartChoiceEnd", ThisForm)
-		, FormWindowOpeningMode.LockWholeInterface);
-	
+	OpenForm(StrReplace(FormName, "Form", "SortingSettingsForm"), New Structure("OrderSortTableDifferences", Object.OrderSortTableDifferences)
+		,,,,, New NotifyDescription("OrderSortTableDifferencesStartChoiceEnd", ThisForm), FormWindowOpeningMode.LockWholeInterface);	
 EndProcedure
 
 &AtClient
@@ -2610,13 +2546,63 @@ Procedure OrderSortTableDifferencesStartChoiceEnd(Result, AdditionalParameters) 
 EndProcedure
 
 &AtClient
+Procedure SettingsFileBAggregateFunctionCalculationTotalClearing(Item, StandardProcessing)
+	
+	StandardProcessing = False;
+	CurrentRow = Items.SettingsFileB.CurrentData;
+	If CurrentRow <> Undefined Then
+		CurrentRow.AggregateFunctionCalculationTotal = "Sum";
+	EndIf;
+	
+EndProcedure
+
+&AtClient
+Procedure SettingsFileAAggregateFunctionCalculationTotalClearing(Item, StandardProcessing)
+	
+	StandardProcessing = False;
+	CurrentRow = Items.SettingsFileA.CurrentData;
+	If CurrentRow <> Undefined Then
+		CurrentRow.AggregateFunctionCalculationTotal = "Sum";
+	EndIf;
+
+EndProcedure
+
+&AtClient
+Procedure SettingsFileAOnChange(Item)
+	
+	CurrentRow = Items.SettingsFileA.CurrentData;
+	If CurrentRow <> Undefined Then
+		If IsBlankString(CurrentRow.AggregateFunctionCalculationTotal) Then
+			CurrentRow.AggregateFunctionCalculationTotal = "Sum";
+		EndIf;
+	EndIf;
+	
+EndProcedure
+
+&AtClient
+Procedure SettingsFileBOnChange(Item)
+	
+	CurrentRow = Items.SettingsFileB.CurrentData;
+	If CurrentRow <> Undefined Then
+		If IsBlankString(CurrentRow.AggregateFunctionCalculationTotal) Then
+			CurrentRow.AggregateFunctionCalculationTotal = "Sum";
+		EndIf;
+	EndIf;
+	
+EndProcedure
+
+&AtClient
 Procedure CommandCheckAbilityToConnectToSourceA(Command)
+	
 	CheckAbilityToConnectToSourceAtServer("A");
+
 EndProcedure
 
 &AtClient
 Procedure CommandCheckAbilityToConnectToSourceB(Command)
+	
 	CheckAbilityToConnectToSourceAtServer("B");
+
 EndProcedure
 
 //@skip-warning
@@ -2624,7 +2610,6 @@ EndProcedure
 Procedure Attachable_ExecuteToolsCommonCommand(Command) 
 	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
 EndProcedure
-
 #EndRegion
 
 ClosingFormConfirmed = False;
