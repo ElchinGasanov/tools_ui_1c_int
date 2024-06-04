@@ -223,7 +223,7 @@
           <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
         </items>
         <items xsi:type="form:FormGroup">
-          <name>FilterByPurposiesGroup</name>
+          <name>FilterByPurposeGroup</name>
           <id>202</id>
           <items xsi:type="form:Table">
             <name>FilterByPurposies</name>
@@ -569,9 +569,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <changeRowSet>true</changeRowSet>
-            <changeRowOrder>true</changeRowOrder>
-            <autoMaxWidth>true</autoMaxWidth>
+            <width>50</width>
             <autoMaxHeight>true</autoMaxHeight>
             <autoMaxRowsCount>true</autoMaxRowsCount>
             <selectionMode>MultiRow</selectionMode>
@@ -584,8 +582,6 @@
             <verticalLines>true</verticalLines>
             <searchOnInput>Auto</searchOnInput>
             <initialListView>Auto</initialListView>
-            <horizontalStretch>true</horizontalStretch>
-            <verticalStretch>true</verticalStretch>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -596,8 +592,12 @@
             <key>ru</key>
             <value>Фильтр по назначению</value>
           </title>
+		<title>
+            <key>en</key>
+            <value>By purpose</value>
+          </title>
           <extendedTooltip>
-            <name>FilterByPurposiesGroupExtendedTooltip</name>
+            <name>FilterByPurposeGroupExtendedTooltip</name>
             <id>203</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -971,7 +971,7 @@
             </contextMenu>
             <changeRowSet>true</changeRowSet>
             <changeRowOrder>true</changeRowOrder>
-            <autoMaxWidth>true</autoMaxWidth>
+            <width>50</width>
             <autoMaxHeight>true</autoMaxHeight>
             <autoMaxRowsCount>true</autoMaxRowsCount>
             <selectionMode>MultiRow</selectionMode>
@@ -984,8 +984,6 @@
             <verticalLines>true</verticalLines>
             <searchOnInput>Auto</searchOnInput>
             <initialListView>Auto</initialListView>
-            <horizontalStretch>true</horizontalStretch>
-            <verticalStretch>true</verticalStretch>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1032,7 +1030,7 @@
           <common>true</common>
         </userVisible>
         <shortcut>- на цифр. клав.</shortcut>
-        <horizontalStretch>true</horizontalStretch>
+        <horizontalStretch>false</horizontalStretch>
         <extendedTooltip>
           <name>AdditionalFiltersExtendedTooltip</name>
           <id>172</id>
@@ -1050,6 +1048,7 @@
         </extendedTooltip>
         <type>UsualGroup</type>
         <extInfo xsi:type="form:UsualGroupExtInfo">
+          <group>AlwaysHorizontal</group>
           <showLeftMargin>true</showLeftMargin>
           <united>true</united>
           <throughAlign>Auto</throughAlign>
@@ -1350,10 +1349,10 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormGroup">
-      <name>PagesSettingsGettingSizesTablesGroup</name>
+      <name>PageSettingsReceiptDimensions</name>
       <id>256</id>
       <items xsi:type="form:FormGroup">
-        <name>PageSettingsReceiptDimensionsNo</name>
+        <name>PageSettingsReceiptDimensionsNone</name>
         <id>268</id>
         <items xsi:type="form:Decoration">
           <name>FeaturesWorkWithoutReceivingSizesDecoration</name>
@@ -1416,7 +1415,7 @@
           <value>Group1</value>
         </title>
         <extendedTooltip>
-          <name>PageSettingsReceiptDimensionsNoExtendedTooltip</name>
+          <name>PageSettingsReceiptDimensionsNoneExtendedTooltip</name>
           <id>269</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -2457,7 +2456,7 @@ The utility is included in the delivery of tools.</value>
       </title>
       <horizontalStretch>true</horizontalStretch>
       <extendedTooltip>
-        <name>PagesSettingsGettingSizesTablesGroupExtendedTooltip</name>
+        <name>PageSettingsReceiptDimensionsExtendedTooltip</name>
         <id>257</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -2767,289 +2766,6 @@ The utility is included in the delivery of tools.</value>
       <items xsi:type="form:FormGroup">
         <name>ResultGroupSiziesTables</name>
         <id>340</id>
-        <items xsi:type="form:FormGroup">
-          <name>ResultGroupSiziesTables1</name>
-          <id>371</id>
-          <items xsi:type="form:FormField">
-            <name>ResultRowCount1</name>
-            <id>373</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Result.RowCount</segments>
-            </dataPath>
-            <extendedTooltip>
-              <name>ResultRowCount1ExtendedTooltip</name>
-              <id>375</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <contextMenu>
-              <name>ResultRowCount1ContextMenu</name>
-              <id>374</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <autoFill>true</autoFill>
-            </contextMenu>
-            <type>InputField</type>
-            <editMode>Enter</editMode>
-            <showInHeader>true</showInHeader>
-            <headerHorizontalAlign>Left</headerHorizontalAlign>
-            <showInFooter>true</showInFooter>
-            <extInfo xsi:type="form:InputFieldExtInfo">
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <wrap>true</wrap>
-              <chooseType>true</chooseType>
-              <typeDomainEnabled>true</typeDomainEnabled>
-              <textEdit>true</textEdit>
-            </extInfo>
-          </items>
-          <items xsi:type="form:FormField">
-            <name>ResultDataSize1</name>
-            <id>376</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Result.DataSize</segments>
-            </dataPath>
-            <extendedTooltip>
-              <name>ResultDataSize1ExtendedTooltip</name>
-              <id>378</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <contextMenu>
-              <name>ResultDataSize1ContextMenu</name>
-              <id>377</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <autoFill>true</autoFill>
-            </contextMenu>
-            <type>InputField</type>
-            <editMode>Enter</editMode>
-            <showInHeader>true</showInHeader>
-            <headerHorizontalAlign>Left</headerHorizontalAlign>
-            <showInFooter>true</showInFooter>
-            <extInfo xsi:type="form:InputFieldExtInfo">
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <wrap>true</wrap>
-              <chooseType>true</chooseType>
-              <typeDomainEnabled>true</typeDomainEnabled>
-              <textEdit>true</textEdit>
-            </extInfo>
-          </items>
-          <items xsi:type="form:FormField">
-            <name>ResultIndexSize1</name>
-            <id>379</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Result.IndexSize</segments>
-            </dataPath>
-            <extendedTooltip>
-              <name>ResultIndexSize1ExtendedTooltip</name>
-              <id>381</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <contextMenu>
-              <name>ResultIndexSize1ContextMenu</name>
-              <id>380</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <autoFill>true</autoFill>
-            </contextMenu>
-            <type>InputField</type>
-            <editMode>Enter</editMode>
-            <showInHeader>true</showInHeader>
-            <headerHorizontalAlign>Left</headerHorizontalAlign>
-            <showInFooter>true</showInFooter>
-            <extInfo xsi:type="form:InputFieldExtInfo">
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <wrap>true</wrap>
-              <chooseType>true</chooseType>
-              <typeDomainEnabled>true</typeDomainEnabled>
-              <textEdit>true</textEdit>
-            </extInfo>
-          </items>
-          <items xsi:type="form:FormField">
-            <name>ResultReserved1</name>
-            <id>382</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Result.Reserved</segments>
-            </dataPath>
-            <extendedTooltip>
-              <name>ResultReserved1ExtendedTooltip</name>
-              <id>384</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <contextMenu>
-              <name>ResultReserved1ContextMenu</name>
-              <id>383</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <autoFill>true</autoFill>
-            </contextMenu>
-            <type>InputField</type>
-            <editMode>Enter</editMode>
-            <showInHeader>true</showInHeader>
-            <headerHorizontalAlign>Left</headerHorizontalAlign>
-            <showInFooter>true</showInFooter>
-            <extInfo xsi:type="form:InputFieldExtInfo">
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <wrap>true</wrap>
-              <chooseType>true</chooseType>
-              <typeDomainEnabled>true</typeDomainEnabled>
-              <textEdit>true</textEdit>
-            </extInfo>
-          </items>
-          <items xsi:type="form:FormField">
-            <name>ResultFreeSize1</name>
-            <id>385</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Result.FreeSize</segments>
-            </dataPath>
-            <extendedTooltip>
-              <name>ResultFreeSize1ExtendedTooltip</name>
-              <id>387</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <contextMenu>
-              <name>ResultFreeSize1ContextMenu</name>
-              <id>386</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <autoFill>true</autoFill>
-            </contextMenu>
-            <type>InputField</type>
-            <editMode>Enter</editMode>
-            <showInHeader>true</showInHeader>
-            <headerHorizontalAlign>Left</headerHorizontalAlign>
-            <showInFooter>true</showInFooter>
-            <extInfo xsi:type="form:InputFieldExtInfo">
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <wrap>true</wrap>
-              <chooseType>true</chooseType>
-              <typeDomainEnabled>true</typeDomainEnabled>
-              <textEdit>true</textEdit>
-            </extInfo>
-          </items>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <title>
-            <key>ru</key>
-            <value>Result group1</value>
-          </title>
-          <readOnly>true</readOnly>
-          <extendedTooltip>
-            <name>ResultGroupSiziesTables1ExtendedTooltip</name>
-            <id>372</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <type>ColumnGroup</type>
-          <extInfo xsi:type="form:ColumnGroupExtInfo">
-            <showTitle>true</showTitle>
-          </extInfo>
-        </items>
         <items xsi:type="form:FormField">
           <name>ResultRowCount</name>
           <id>342</id>
@@ -5117,7 +4833,7 @@ The utility is included in the delivery of tools.</value>
       </title>
       <title>
         <key>en</key>
-        <value>Data size (KB)</value>
+        <value>Data (KB)</value>
       </title>
       <id>30</id>
       <valueType>
@@ -5660,7 +5376,7 @@ The utility is included in the delivery of tools.</value>
       </title>
       <title>
         <key>en</key>
-        <value> Data size (KB)</value>
+        <value> Data (KB)</value>
       </title>
       <id>23</id>
       <valueType>
@@ -5714,8 +5430,11 @@ The utility is included in the delivery of tools.</value>
       </title>
       <id>25</id>
       <valueType>
-        <types>String</types>
-        <stringQualifiers/>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
       </valueType>
       <view>
         <common>true</common>
