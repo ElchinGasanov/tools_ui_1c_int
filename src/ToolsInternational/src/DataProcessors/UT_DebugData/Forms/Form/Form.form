@@ -13,6 +13,55 @@
     </dataPath>
     <titleLocation>None</titleLocation>
     <items xsi:type="form:FormField">
+      <name>SavedSettingsTablePicture</name>
+      <id>51</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>SavedSettingsTable.Picture</segments>
+      </dataPath>
+      <titleLocation>None</titleLocation>
+      <extendedTooltip>
+        <name>SavedSettingsTablePictureExtendedTooltip</name>
+        <id>53</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>SavedSettingsTablePictureContextMenu</name>
+        <id>52</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>PictureField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:ImageFieldExtInfo">
+        <width>2</width>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <verticalStretch>true</verticalStretch>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>SavedSettingsTableDebuggingObjectType</name>
       <id>34</id>
       <visible>true</visible>
@@ -162,6 +211,64 @@
         <textEdit>true</textEdit>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>SavedSettingsTableDebuggingObjectName</name>
+      <id>54</id>
+      <title>
+        <key>ru</key>
+        <value>Наименование</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Name</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>SavedSettingsTable.DebuggingObjectName</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>SavedSettingsTableDebuggingObjectNameExtendedTooltip</name>
+        <id>56</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>SavedSettingsTableDebuggingObjectNameContextMenu</name>
+        <id>55</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+      </extInfo>
+    </items>
     <autoCommandBar>
       <name>SavedSettingsTableCommandBar</name>
       <id>2</id>
@@ -193,7 +300,6 @@
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
-        <toolTipRepresentation>Auto</toolTipRepresentation>
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
       <items xsi:type="form:Button">
@@ -224,7 +330,6 @@
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
-        <toolTipRepresentation>Auto</toolTipRepresentation>
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
       <items xsi:type="form:Button">
@@ -255,7 +360,6 @@
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
-        <toolTipRepresentation>Auto</toolTipRepresentation>
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
       <visible>true</visible>
@@ -425,7 +529,6 @@
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
-        <toolTipRepresentation>Auto</toolTipRepresentation>
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
       <visible>true</visible>
@@ -517,28 +620,6 @@
       <common>true</common>
     </edit>
     <columns>
-      <name>SettingsKey</name>
-      <title>
-        <key>ru</key>
-        <value>Ключ настроек</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Settings key</value>
-      </title>
-      <id>3</id>
-      <valueType>
-        <types>String</types>
-        <stringQualifiers/>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
       <name>CreationDate</name>
       <title>
         <key>en</key>
@@ -626,6 +707,88 @@
         <common>true</common>
       </edit>
     </columns>
+    <columns>
+      <name>DebuggingDataStoreAddress</name>
+      <title>
+        <key>ru</key>
+        <value>Адрес в хранилище данных отладки</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Debugging data store address</value>
+      </title>
+      <id>9</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>DebuggingObjectName</name>
+      <title>
+        <key>ru</key>
+        <value>Имя объекта отладки</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Debugging object name</value>
+      </title>
+      <id>10</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>Picture</name>
+      <title>
+        <key>ru</key>
+        <value>Картинка</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Picture</value>
+      </title>
+      <id>11</id>
+      <valueType>
+        <types>Picture</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>IsFile</name>
+      <title>
+        <key>ru</key>
+        <value>Is file</value>
+      </title>
+      <id>12</id>
+      <valueType>
+        <types>Boolean</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
   </attributes>
   <attributes>
     <name>SettingsObjectKey</name>
@@ -638,6 +801,28 @@
       <value>Ключ объекта настроек</value>
     </title>
     <id>7</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>DataDirectoryDebuggingAtServer</name>
+    <title>
+      <key>ru</key>
+      <value>Каталог даных отладки на сервере</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Data directory debugging at server</value>
+    </title>
+    <id>13</id>
     <valueType>
       <types>String</types>
       <stringQualifiers/>
@@ -718,19 +903,6 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>Delete</name>
-      </handler>
-    </action>
-    <currentRowUse>Auto</currentRowUse>
-  </formCommands>
-  <formCommands>
-    <name>Command1</name>
-    <id>4</id>
-    <use>
-      <common>true</common>
-    </use>
-    <action xsi:type="form:FormCommandHandlerContainer">
-      <handler>
-        <name>Command1</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>

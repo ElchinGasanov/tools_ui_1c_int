@@ -102,15 +102,15 @@ Procedure CompareDataOnServer(ErrorsText = "") Export
 		ThisObject["VisibilityAttributeA" + AttributesCounter] = ThisObject["VisibilityAttributeA" + AttributesCounter] And NumberOfColumnsValueTable_A >= AttributesCounter;
 		ThisObject["VisibilityAttributeB" + AttributesCounter] = ThisObject["VisibilityAttributeB" + AttributesCounter] And NumberOfColumnsValueTable_B >= AttributesCounter;
 		
-		TotalsByAttributesMap.Insert("AttributeA" + AttributesCounter, New Structure("ErrorWhenCalculating, CalculateTotal, AggregateFunctionCalculationTotal, ValueTotal, SumOfValues, NumberOfValues"
-				, False, ?(SettingsFileA.Count() < AttributesCounter, False, SettingsFileA[AttributesCounter - 1].CalculateTotal)
-				, ?(SettingsFileA.Count() < AttributesCounter, "Sum", SettingsFileA[AttributesCounter - 1].AggregateFunctionCalculationTotal)
-				, Undefined, 0, 0));
-		TotalsByAttributesMap.Insert("AttributeB" + AttributesCounter, New Structure("ErrorWhenCalculating, CalculateTotal, AggregateFunctionCalculationTotal, ValueTotal, SumOfValues, NumberOfValues"
-				, False, ?(SettingsFileB.Count() < AttributesCounter, False, SettingsFileB[AttributesCounter - 1].CalculateTotal)
-				, ?(SettingsFileB.Count() < AttributesCounter, "Sum", SettingsFileB[AttributesCounter - 1].AggregateFunctionCalculationTotal)
-				, Undefined, 0, 0));
+		TotalsByAttributesMap.Insert("AttributeA" + AttributesCounter, New Structure(
+			"ErrorWhenCalculating, CalculateTotal, AggregateFunctionCalculationTotal, ValueTotal, SumOfValues, NumberOfValues", 
+			False, ?(SettingsFileA.Count() < AttributesCounter, False, SettingsFileA[AttributesCounter - 1].CalculateTotal), ?(SettingsFileA.Count() < AttributesCounter, "Sum", SettingsFileA[AttributesCounter - 1].AggregateFunctionCalculationTotal), Undefined, 0, 0));
+		TotalsByAttributesMap.Insert("AttributeB" + AttributesCounter, New Structure(
+			"ErrorWhenCalculating, CalculateTotal, AggregateFunctionCalculationTotal, ValueTotal, SumOfValues, NumberOfValues", 
+			False, ?(SettingsFileB.Count() < AttributesCounter, False, SettingsFileB[AttributesCounter - 1].CalculateTotal), ?(SettingsFileB.Count() < AttributesCounter, "Sum", SettingsFileB[AttributesCounter - 1].AggregateFunctionCalculationTotal), Undefined, 0, 0));
+	
 	EndDo;
+	
 	Result.Clear();
 	
 	
@@ -593,13 +593,13 @@ Procedure CompareDataOnServer(ErrorsText = "") Export
 		EndIf;
 		
 	EndDo;
+	
 	If SortTableDifferences Then
 		Result.Sort(OrderSortTableDifferences);
 	EndIf;
+	
 	If MessageHaveMultipleRowsOneKey Then
-		MessageText = StrTemplate(Nstr("ru = '%1: Обнаружены дубликаты (подсвечены красным цветом), настройки отбора на них не распространяются. Просмотреть дублирующиеся строки можно на форме предварительного просмотра.';en = '%1: Duplicates were found (highlighted in red), filtering settings do not apply to them. You can view duplicate lines on the preview form.'")
-			, Format(CurrentDate(),"DLF=DT") ); 
-		Message(MessageText);
+		Message(StrTemplate(Nstr("ru = '%1: Обнаружены дубликаты (подсвечены красным цветом), настройки отбора на них не распространяются. Просмотреть дублирующиеся строки можно на форме предварительного просмотра.';en = '%1: Duplicates were found (highlighted in red), filtering settings do not apply to them. You can view duplicate lines on the preview form.'"), Format(CurrentDate(),"DLF=DT")));
 	EndIf;
 	
 	MessageText = StrTemplate("ru = 'Число записей, удаленных из таблицы расхождений в соответствии с условиями вывода и запрета вывода: %1';en = 'The number of records deleted from the discrepancy table in accordance with output and not output conditions '", DiscrepanciesTableDeletedRowsCount);
@@ -1177,26 +1177,26 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 					Try
 					    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-							, Key2, BaseID, ErrorDescription());						
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
 				EndIf;
 				RowValueTable.Key2 = KeyCurrent;
 			EndIf;
+			
 			If NumberColumnsInKey > 2 Then
 				KeyCurrent = Key3;
 				If ThisObject["ExecuteArbitraryKeyCode3" + BaseID] Then
 					Try
 					    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-							, Key3, BaseID, ErrorDescription());						
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
 				EndIf;
 				RowValueTable.Key3 = KeyCurrent;
 			EndIf;
+			
 #EndRegion 
 			
 		For ColumnCounter = 1 To Min(NumberOfRequisites, ColumnsCount - NumberColumnsInKey) Do    
@@ -1344,9 +1344,9 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 					
 				Except
 					
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3';en = 'Error processing key in row %1 of fetch from base %2: %3'")
-						, RowsCounter, BaseID, ErrorDescription());
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3';en = 'Error processing key in row %1 of fetch from base %2: %3'"), RowsCounter, BaseID, ErrorDescription());
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
+				
 				EndTry;
 				
 				If NumberColumnsInKey > 1 Then
@@ -1628,9 +1628,9 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 				
 			Except
 				
-				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3';en = 'Error processing key in row %1 of fetch from base %2: %3'")
-						, RowsCounter, BaseID, ErrorDescription());
+				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3';en = 'Error processing key in row %1 of fetch from base %2: %3'"), RowsCounter, BaseID, ErrorDescription());
 				ErrorsText = ErrorsText + Chars.LF + ErrorText;
+				
 			EndTry;
 			
 			If NumberColumnsInKey > 1 Then
@@ -1651,9 +1651,9 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 				
 				Except
 					
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 2 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 2 of key in row %1 of fetch from base %2: %3'")
-						, RowsCounter, BaseID, ErrorDescription());					
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 2 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 2 of key in row %1 of fetch from base %2: %3'"), RowsCounter, BaseID, ErrorDescription());					
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
+				
 				EndTry;
 				
 			EndIf;
@@ -1676,46 +1676,46 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 				
 				Except
 					
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 3 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 3 of key in row %1 of fetch from base %2: %3'")
-						, RowsCounter, BaseID, ErrorDescription());					
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 3 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 3 of key in row %1 of fetch from base %2: %3'"), RowsCounter, BaseID, ErrorDescription());					
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
+					
 				EndTry;
 				
 			EndIf;
 			          			
 //#Region Arbitrary_key_processing_code
+			
 			KeyCurrent = Key1;
 			If ThisObject["ExecuteArbitraryKeyCode1" + BaseID] Then
 				Try
 				    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 				Except
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-						, Key1, BaseID, ErrorDescription());					
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());					
 					Message(ErrorText);
 				EndTry;
 			EndIf;
 			RowValueTable.Key1 = KeyCurrent;
+			
 			If NumberColumnsInKey > 1 Then
 				KeyCurrent = Key2;				
 				If ThisObject["ExecuteArbitraryKeyCode2" + BaseID] Then
 					Try
 					    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-						, Key2, BaseID, ErrorDescription());						
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
 				EndIf;
 				RowValueTable.Key2 = KeyCurrent;
 			EndIf;
+			
 			If NumberColumnsInKey > 2 Then
 				KeyCurrent = Key3;
 				If ThisObject["ExecuteArbitraryKeyCode3" + BaseID] Then
 					Try
 					    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-						, Key3, BaseID, ErrorDescription());						
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -1814,10 +1814,10 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 		Try
 			NumberLastRow = File.Cells.SpecialCells(xlCellTypeLastCell).Row;			
 		Except
-			ErrorText = Nstr("ru = 'Ошибка при определении номера последней строки в файле. Номер последней строки установлен в 1000';en = 'An error occurred while determining the number of the last line in the file. Last row number set to 1000'");			
-			Message(ErrorText); 
+			Message(Nstr("ru = 'Ошибка при определении номера последней строки в файле. Номер последней строки установлен в 1000';en = 'An error occurred while determining the number of the last line in the file. Last row number set to 1000'")); 
 			NumberLastRow = 1000;
 		EndTry;
+		
 		Try
 			NumberLastColumn = File.Cells.SpecialCells(xlCellTypeLastCell).Column;
 		Except			
@@ -1850,35 +1850,35 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 			Word.Quit();
 			Return Undefined;
 		EndTry;
+		
 		Try
 			NumberLastRow = File.Rows.count;
 		Except
-			ErrorText = Nstr("ru = 'Ошибка при определении номера последней строки в файле. Номер последней строки установлен в 1000';en = 'An error occurred while determining the number of the last line in the file. Last row number set to 1000'");
-			Message(ErrorText);
+			Message(Nstr("ru = 'Ошибка при определении номера последней строки в файле. Номер последней строки установлен в 1000';en = 'An error occurred while determining the number of the last line in the file. Last row number set to 1000'"));
 			NumberLastRow = 1000;
 		EndTry;
 		
 	ElsIf FileFormat = "CSV" Or FileFormat = "TXT" Then
+		
 		Try
 			File = New TextDocument();
 			File.Read(PathToFile);
 			NumberLastRow = File.LineCount(); 
 		Except
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии %1-файла %2: %3';en = 'Error opening .%1 file %2: %3'")
-				, FileFormat, PathToFile, ErrorDescription());			
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии %1-файла %2: %3';en = 'Error opening .%1 file %2: %3'"), FileFormat, PathToFile, ErrorDescription());			
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Return Undefined;
 		EndTry;
 		
 	ElsIf FileFormat = "DBF" Then 
+		
 		Try
 			FileDBF = New XBase;
 			FileDBF.OpenFile(PathToFile,,True);
 			NumberLastRow = FileDBF.RecCount();
 			FileDBF.First();
 		Except
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии DBF-файла %1: %2';en = 'Error opening .DBF file %1: %2'")
-				, PathToFile, ErrorDescription());
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии DBF-файла %1: %2';en = 'Error opening .DBF file %1: %2'"), PathToFile, ErrorDescription());
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Return Undefined;
 		EndTry;
@@ -1999,11 +1999,11 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 							Try
 							    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 							Except
-								ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-									, Key1, BaseID, ErrorDescription());								
+								ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 								Message(ErrorText);
 							EndTry;
 						EndIf;
+						
 						RowReceiver.Key1 = KeyCurrent;
 						
 						If NumberColumnsInKey > 1 Then
@@ -2013,12 +2013,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 								Try
 								    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 								Except
-									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-										, Key2, BaseID, ErrorDescription());									
+									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());									
 									Message(ErrorText);
 								EndTry;
 							EndIf;
 							RowReceiver.Key2 = KeyCurrent;
+							
 						EndIf;
 						
 						If NumberColumnsInKey > 2 Then
@@ -2028,12 +2028,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 								Try
 								    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 								Except
-									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-										, Key3, BaseID, ErrorDescription());
+									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 									Message(ErrorText);
 								EndTry;
 							EndIf;
 							RowReceiver.Key3 = KeyCurrent;
+							
 						EndIf;
 						
 //#EndRegion  
@@ -2148,12 +2148,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 							Try
 							    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 							Except
-								ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-									, Key1, BaseID, ErrorDescription());								
+								ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 								Message(ErrorText);
 							EndTry;
 						EndIf;
 						RowReceiver.Key1 = KeyCurrent;
+						
 						If NumberColumnsInKey > 1 Then
 							
 							KeyCurrent = RowReceiver.Key2;
@@ -2161,21 +2161,21 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 								Try
 								    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 								Except
-									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-										, Key2, BaseID, ErrorDescription());
+									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 									Message(ErrorText);
 								EndTry;
 							EndIf;
 							RowReceiver.Key2 = KeyCurrent;
+							
 						EndIf;
+						
 						If NumberColumnsInKey > 2 Then
 							KeyCurrent = RowReceiver.Key3;
 							If ThisObject["ExecuteArbitraryKeyCode3" + BaseID] Then
 								Try
 								    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 								Except
-									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-										, Key3, BaseID, ErrorDescription());
+									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 									Message(ErrorText);
 								EndTry;
 							EndIf;
@@ -2215,14 +2215,14 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 				
 						AttributeName = "Attribute" + RowSettingsFile.LineNumber;
 						CurrentAttribute = RowReceiver[AttributeName];
+						
 						Try
 							Execute RowSettingsFile.ArbitraryCode;
 						Except
 							ErrorText = ErrorDescription();
-							ErrorMessage = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'")
-								, RowSettingsFile.LineNumber, ErrorText);	
-							Message(ErrorMessage);
+							Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
 						EndTry;
+						
 						If ThisObject["CollapseTable" + BaseID] Then
 							Try
 								Execute CodeCastingAttributeToTypeNumber;
@@ -2258,9 +2258,9 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 			If FileFormat = "XLS" Then
 				
 				NumberOfColumnsInFileLessThanRequired = False;
+				
 				If ColumnNumberWithKey > NumberLastColumn Then					
-					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбцов ключа';en = 'File %1 contains %2 columns, check key column settings'")
-						, BaseID, NumberLastColumn);					
+					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбцов ключа';en = 'File %1 contains %2 columns, check key column settings'"), BaseID, NumberLastColumn);					
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNumberKeyFromFile " + BaseID;
@@ -2268,9 +2268,9 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
 					NumberOfColumnsInFileLessThanRequired = True;
 				EndIf;
+				
 				If NumberColumnsInKey > 1 And ColumnNumberWithKey2 > NumberLastColumn Then					
-					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбца 2 ключа';en = 'File %1 contains %2 columns, check column 2 key settings'")
-						, BaseID, NumberLastColumn);					
+					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбца 2 ключа';en = 'File %1 contains %2 columns, check column 2 key settings'"), BaseID, NumberLastColumn);					
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNumberKey2FromFile " + BaseID;
@@ -2278,9 +2278,9 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
 					NumberOfColumnsInFileLessThanRequired = True;
 				EndIf;
+				
 				If NumberColumnsInKey > 2 And ColumnNumberWithKey3 > NumberLastColumn Then					
-					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбца 3 ключа';en = 'File %1 contains %2 columns, check column 3 key settings'")
-						, BaseID, NumberLastColumn);
+					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбца 3 ключа';en = 'File %1 contains %2 columns, check column 3 key settings'"), BaseID, NumberLastColumn);
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNumberKey3FromFile " + BaseID;
@@ -2355,12 +2355,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-							, Key1, BaseID, ErrorDescription());								
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 						Message(ErrorText);
 					EndTry;
 				EndIf;
 				RowReceiver.Key = KeyCurrent;
+				
 				If NumberColumnsInKey > 1 Then
 					
 					KeyCurrent = Key2;
@@ -2368,12 +2368,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-								, Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key2 = KeyCurrent;
+					
 				EndIf;
 				
 				If NumberColumnsInKey > 2 Then
@@ -2383,12 +2383,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-								, Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key3 = KeyCurrent;
+					
 				EndIf;
 				
 //#EndRegion
@@ -2402,8 +2402,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					AttributeName = "Attribute" + RowSettingsFile.LineNumber;
 					
 					If RowSettingsFile.NumberColumn > NumberLastColumn Then						
-						ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки колонок реквизитов';en = 'File %1 contains %2 columns, check attribute column settings'")
-							, BaseID, NumberLastColumn);						
+						ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки колонок реквизитов';en = 'File %1 contains %2 columns, check attribute column settings'"), BaseID, NumberLastColumn);						
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.SettingsFile" + BaseID;
@@ -2411,6 +2410,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 						Return ValueTable;
 					EndIf;
+					
 					RowReceiver[AttributeName] = TrimAll(File.Cells(NumberCurrentRow, RowSettingsFile.NumberColumn).Value);
 					
 					//FillType variables to be used in arbitrary code
@@ -2509,12 +2509,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-							, Key1, BaseID, ErrorDescription());								
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 						Message(ErrorText);
 					EndTry;
 				EndIf;
 				RowReceiver.Key = KeyCurrent;
+				
 				If NumberColumnsInKey > 1 Then
 					
 					KeyCurrent = Key2;
@@ -2522,14 +2522,14 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-								, Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key2 = KeyCurrent;
 					
 				EndIf;
+				
 				If NumberColumnsInKey > 2 Then
 					
 					KeyCurrent = Key3;
@@ -2537,12 +2537,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-								, Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key3 = KeyCurrent;
+					
 				EndIf;
 				
 //#EndRegion
@@ -2652,12 +2652,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-							, Key1, BaseID, ErrorDescription());								
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 						Message(ErrorText);
 					EndTry;
 				EndIf;
 				RowReceiver.Key1 = KeyCurrent;
+				
 				If NumberColumnsInKey > 1 Then
 					
 					KeyCurrent = Key2;
@@ -2665,14 +2665,14 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-								, Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key2 = KeyCurrent;
 					
 				EndIf;
+				
 				If NumberColumnsInKey > 2 Then
 					
 					KeyCurrent = Key3;
@@ -2680,14 +2680,14 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-								, Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key3 = KeyCurrent;
-				EndIf;
 				
+				EndIf;
+								
 //#EndRegion 
 
 				FillVariablesPWithDefaultValues();
@@ -2784,12 +2784,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-							, Key1, BaseID, ErrorDescription());								
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 						Message(ErrorText);
 					EndTry;
 				EndIf;
 				RowReceiver.Key1 = KeyCurrent;
+				
 				If NumberColumnsInKey > 1 Then
 
 					KeyCurrent = Key2;
@@ -2797,14 +2797,14 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-								, Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key2 = KeyCurrent;
 					
 				EndIf;
+				
 				If NumberColumnsInKey > 2 Then
 					
 					KeyCurrent = Key3;
@@ -2812,12 +2812,12 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-								, Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key3 = KeyCurrent;
+					
 				EndIf;
 				
 //#EndRegion  
@@ -2865,9 +2865,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Execute RowSettingsFile.ArbitraryCode;
 				Except
 					ErrorText = ErrorDescription();
-					ErrorMessage = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'")
-						, RowSettingsFile.LineNumber, ErrorText);
-					Message(ErrorMessage);
+					Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
 				EndTry;
 				
 				If ThisObject["CollapseTable" + BaseID] Then
@@ -2877,7 +2875,9 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						CurrentAttribute = 0;
 					EndTry;
 				EndIf;
+				
 				RowReceiver[AttributeName] = CurrentAttribute;
+			
 			EndDo;
 			
 //#EndRegion 
@@ -2984,8 +2984,7 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 				
 				Try				
 					If Not CurrentValueJSON.Property(ColumnNameWithKey) Then
-						RaiseMessage = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey);
-						Raise RaiseMessage;
+						Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey);
 					EndIf;
 				Except
 					ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey);
@@ -3001,18 +3000,19 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 				If ThisObject["DeleteFromKeyCurlyBrackets" + BaseID] Then
 					Key1 = TrimAll(StrReplace(StrReplace(String(Key1), "{", ""), "}", ""));
 				EndIf;
+				
 				If NumberColumnsInKey > 1 Then
 				
 					Try				
 						If Not CurrentValueJSON.Property(ColumnNameWithKey2) Then
-							RaiseMessage = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey2);
-							Raise RaiseMessage;							
+							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey2);							
 						EndIf;
 					Except
 						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey2);
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 						Return Undefined;
-					EndTry; 
+					EndTry;
+					 
 					Key2 = CurrentValueJSON[ColumnNameWithKey2];
 							
 					If ThisObject["CastKey2ToString" + BaseID] Then
@@ -3033,14 +3033,14 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 				
 					Try				
 						If Not CurrentValueJSON.Property(ColumnNameWithKey3) Then
-							RaiseMessage = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey3);
-							Raise RaiseMessage;
+							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey3);
 						EndIf;
 					Except
 						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey3);
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 						Return Undefined;
 					EndTry; 
+					
 					Key3 = CurrentValueJSON[ColumnNameWithKey3];
 							
 					If ThisObject["CastKey3ToString" + BaseID] Then
@@ -3064,13 +3064,13 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-							, Key1, BaseID, ErrorDescription());							
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());							
 						Message(ErrorText);
 					EndTry;
 				EndIf;
 				
 				RowReceiver.Key1 = KeyCurrent;
+				
 				If NumberColumnsInKey > 1 Then
 					
 					KeyCurrent = Key2;
@@ -3078,14 +3078,14 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-								, Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key2 = KeyCurrent;
 					
 				EndIf;
+				
 				If NumberColumnsInKey > 2 Then
 					
 					KeyCurrent = Key3;
@@ -3093,12 +3093,12 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-								, Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
 					RowReceiver.Key3 = KeyCurrent;
+					
 				EndIf;
 				
 //#EndRegion  
@@ -3114,14 +3114,14 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 					AttributeName = "Attribute" + RowSettingsFile.LineNumber;
 					Try				
 						If Not CurrentValueJSON.Property(RowSettingsFile.ColumnName) Then
-							RaiseMessage = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), RowSettingsFile.ColumnName);
-							Raise RaiseMessage;							
+							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), RowSettingsFile.ColumnName);
 						EndIf;
 					Except
 						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), RowSettingsFile.ColumnName);								
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 						Return Undefined;
-					EndTry; 
+					EndTry;
+					 
 					RowReceiver[AttributeName] = CurrentValueJSON[RowSettingsFile.ColumnName];
 										
 					//FillType variables to be used in arbitrary code
@@ -3147,14 +3147,14 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 					
 					AttributeName = "Attribute" + RowSettingsFile.LineNumber;
 					CurrentAttribute = RowReceiver[AttributeName];
+					
 					Try
 						Execute RowSettingsFile.ArbitraryCode;
 					Except
 						ErrorText = ErrorDescription();
-						ErrorMessage = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'")
-							, RowSettingsFile.LineNumber, ErrorText);
-						Message(ErrorMessage);
+						Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
 					EndTry;
+					
 					If ThisObject["CollapseTable" + BaseID] Then
 						Try
 							Execute CodeCastingAttributeToTypeNumber;
@@ -3315,12 +3315,12 @@ Function GetDataFromSpreadsheetDocument(BaseID, ErrorsText = "")
 			Try
 			    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 			Except
-				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
-					, Key1, BaseID, ErrorDescription()); 				
+				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription()); 				
 				Message(ErrorText);
 			EndTry;
 		EndIf;
 		RowReceiver.Key1 = KeyCurrent;
+		
 		If NumberColumnsInKey > 1 Then
 			
 			KeyCurrent = Key2;
@@ -3328,14 +3328,14 @@ Function GetDataFromSpreadsheetDocument(BaseID, ErrorsText = "")
 				Try
 				    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 				Except
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
-						, Key2, BaseID, ErrorDescription());
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 					Message(ErrorText);
 				EndTry;
 			EndIf;
 			RowReceiver.Key2 = KeyCurrent;
 			
 		EndIf;
+		
 		If NumberColumnsInKey > 2 Then
 			
 			KeyCurrent = Key3;
@@ -3343,14 +3343,14 @@ Function GetDataFromSpreadsheetDocument(BaseID, ErrorsText = "")
 				Try
 				    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 				Except
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
-						, Key3, BaseID, ErrorDescription());
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 					Message(ErrorText);
 				EndTry;
 			EndIf;
 			RowReceiver.Key3 = KeyCurrent;
 			
 		EndIf;
+		
 //#EndRegion 
 		
 		For Each RowSettingsFile In SettingsFile Do
@@ -3378,14 +3378,14 @@ Function GetDataFromSpreadsheetDocument(BaseID, ErrorsText = "")
 				
 			AttributeName = "Attribute" + RowSettingsFile.LineNumber;
 			CurrentAttribute = RowReceiver[AttributeName];
+			
 			Try
 				Execute RowSettingsFile.ArbitraryCode;
 			Except
 				ErrorText = ErrorDescription();
-				ErrorMessage = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'")
-					, RowSettingsFile.LineNumber, ErrorText);
-				Message(ErrorMessage);		
+				Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'"), RowSettingsFile.LineNumber, ErrorText));	
 			EndTry;
+			
 			If ThisObject["CollapseTable" + BaseID] Then
 				Try
 					Execute CodeCastingAttributeToTypeNumber;
@@ -3441,7 +3441,7 @@ EndFunction
 #EndRegion
 
 
-//#Region Auxiliary_procedures_and_functions
+#Region Auxiliary_procedures_and_functions
 Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 	
 	AttributesFilledOutCorrectly = True;
@@ -3466,7 +3466,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 		ErrorsText = ErrorsText + Chars.LF + ErrorText;
 	EndIf;
 	
-#Region _1С_8_1С_77_SQL
+//#Region _1С_8_1С_77_SQL
 
 	If IsBlankString(SourceForPreview) Or SourceForPreview = "A" Then
 	
@@ -3504,10 +3504,10 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 		
 	EndIf;
 	
-#EndRegion 
+//#EndRegion 
 
 
-#Region File_Spreadsheet_Document
+//#Region File_Spreadsheet_Document
 
 	If IsBlankString(SourceForPreview) Or SourceForPreview = "A" Then
 	
@@ -3809,10 +3809,10 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 		
 	EndIf;
 	
-#EndRegion 
+//#EndRegion 
 
 
- #Region JSON
+ //#Region JSON
  
 	 If IsBlankString(SourceForPreview) Or SourceForPreview = "A" Then
 		 
@@ -3938,7 +3938,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 		EndIf;
 		
 	EndIf;
- #EndRegion 
+ //#EndRegion 
 
  	If IsBlankString(SourceForPreview) Then
 	 
@@ -4083,8 +4083,7 @@ Function SaveSettingsToBaseAtServer(SettingRef, SaveSpreadsheetDocuments) Export
 		StorageExternal = New ValueStorage(Data);
 		SettingObject.Операция = StorageExternal;
 		SettingObject.Write();
-		MessageText = StrTemplate(Nstr("ru = 'Данные успешно записаны в операцию %1';en = 'Data was successfully written to the operation %1'"), SettingObject.Title);
-		Message(MessageText);
+		Message(StrTemplate(Nstr("ru = 'Данные успешно записаны в операцию %1';en = 'Data was successfully written to the operation %1'"), SettingObject.Title));
 		RelatedDataComparisonOperation = SettingRef;
 		Title = SettingObject.Title;
 	Except
@@ -4094,6 +4093,7 @@ Function SaveSettingsToBaseAtServer(SettingRef, SaveSpreadsheetDocuments) Export
 	EndTry;
 
 	Return OperationCompletedSuccessfully;
+	
 EndFunction
 
 Procedure OpenSettingsFromBaseAtServer(SettingRef, UploadSpreadsheetDocuments = False) Export
@@ -4250,7 +4250,7 @@ Function GetDataAsStructureOnServer(SaveSpreadsheetDocuments = False) Export
 	DataStructure.Insert("ConnectionToExternalBaseBPathToFile",					ConnectionToExternalBaseBPathToFile);
 	DataStructure.Insert("ConnectingToExternalBaseADeviceStorageFile",			ConnectingToExternalBaseADeviceStorageFile);
 	DataStructure.Insert("ConnectingToExternalBaseBDeviceStorageFile",			ConnectingToExternalBaseBDeviceStorageFile);
-	DataStructure.Insert("ConnectionToExternalBaseANumberTableInFile",		ConnectionToExternalBaseANumberTableInFile);
+	DataStructure.Insert("ConnectionToExternalBaseANumberTableInFile",			ConnectionToExternalBaseANumberTableInFile);
 	DataStructure.Insert("ConnectionToExternalDatabaseBNumberTableInFile",		ConnectionToExternalBaseBNumberTableInFile);
 	
 	DataStructure.Insert("CodeForOutputRows", 									CodeForOutputRows);
@@ -4263,7 +4263,6 @@ Function GetDataAsStructureOnServer(SaveSpreadsheetDocuments = False) Export
 	DataStructure.Insert("ConditionsProhibitOutputRowsDisabled", 				ConditionsProhibitOutputRowsDisabled);
 	
 	DataStructure.Insert("RelationalOperation",   								RelationalOperation);
-	
 	DataStructure.Insert("PeriodTypeAbsolute",									PeriodTypeAbsolute);
 	DataStructure.Insert("PeriodType",											PeriodType);
 	DataStructure.Insert("AbsolutePeriodValue",									AbsolutePeriodValue);
@@ -4279,6 +4278,7 @@ Function GetDataAsStructureOnServer(SaveSpreadsheetDocuments = False) Export
 	DataStructure.Insert("UploadFileFormat",									UploadFileFormat);
 	DataStructure.Insert("SortTableDifferences",								SortTableDifferences);
 	DataStructure.Insert("OrderSortTableDifferences",							OrderSortTableDifferences);
+	
 			
 	DataStructure.Insert("NumberFirstRowFileA",									NumberFirstRowFileA);
 	DataStructure.Insert("NumberFirstRowFileB",									NumberFirstRowFileB);
@@ -4453,8 +4453,8 @@ Function UploadResultToFileAtServer(ForClient = False) Export
 		DeleteFiles(PathToTemporaryFile);	
 	Except EndTry;
 	
-	MessageText = StrTemplate(NStr("ru = '%1 Выгрузка в файл ""%2"" формата ""%3"" начата';en = '%1 Upload to file ""%2"" of format ""%3"" started'"), Format(CurrentDate(), "DLF=DT"), PathToTemporaryFile, UploadFileFormat);
-	Message(MessageText);
+	Message(StrTemplate(NStr("ru = '%1 Выгрузка в файл ""%2"" формата ""%3"" начата';en = '%1 Upload to file ""%2"" of format ""%3"" started'"), Format(CurrentDate(), "DLF=DT"), PathToTemporaryFile, UploadFileFormat));
+	
 	If UploadFileFormat = "CSV" Then
 		
 		ColumnSeparator = ";";
@@ -4662,10 +4662,10 @@ Function UploadResultToFileAtServer(ForClient = False) Export
 		Return FileAddress;
 		
 	Else
-		MessageText = StrTemplate(NStr("ru = 'Выгрузка в файл ""%1"" формата ""%2"" завершена (число строк: %3)';en = 'Upload to file ""%1"" of format ""%2"" completed (number of rows: %3)'")
-			, Format(CurrentDate(), "DLF=DT"), PathToTemporaryFile, UploadFileFormat, RowsCounter);
-		Message(MessageText);
+		
+		Message(StrTemplate(NStr("ru = 'Выгрузка в файл ""%1"" формата ""%2"" завершена (число строк: %3)';en = 'Upload to file ""%1"" of format ""%2"" completed (number of rows: %3)'"), Format(CurrentDate(), "DLF=DT"), PathToTemporaryFile, UploadFileFormat, RowsCounter));
 		Return Undefined;
+		
 	EndIf;
 	
 EndFunction
@@ -4841,7 +4841,7 @@ Function CheckAbilityToConnectToSQLDatabase(BaseID, ErrorsText)
 	Return ConnectionCompletedSuccessfully;
 	
 EndFunction
-//#EndRegion
+#EndRegion
 
 NumberOfRequisites = 5;
 CodeCastingAttributeToTypeNumber = "CurrentAttribute = Number(CurrentAttribute);";

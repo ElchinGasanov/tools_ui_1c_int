@@ -58,7 +58,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		FillFormValueTableByTable(Table);
 	EndIf;
 	
-	If TableColumns.Количество() = 0 Then
+	If TableColumns.Count() = 0 Then
 		Items.GroupTableColumns.Show();
 	EndIf;
 	
@@ -244,7 +244,7 @@ EndFunction
 &AtClient
 Procedure CreateColumnsTablesValuesFormsHandlerExpectations()
 	CreateFormValueTableColumns();
-	Items.TableColumns.Enabled = True;
+	Items.ValueTable.Enabled = True;
 EndProcedure
 
 &AtServerNoContext
@@ -395,7 +395,7 @@ EndProcedure
 
 
 &AtServer
-Procedure FillFormValueTableByTable(ValueTable)
+Procedure FillFormValueTableByTable(TableSource)
 	ValueTable = ThisObject[StorageAttributeName];
 	ValueTable.Clear();
 
@@ -406,7 +406,7 @@ Procedure FillFormValueTableByTable(ValueTable)
 			TableColumnStorageStructureOnForm(ColumnRow.Name));
 	EndDo;
 
-	For Each Row In ValueTable Do
+	For Each Row In TableSource Do
 		NewRow = ValueTable.Add();
 
 		For Each ColumnRow In TableColumns Do

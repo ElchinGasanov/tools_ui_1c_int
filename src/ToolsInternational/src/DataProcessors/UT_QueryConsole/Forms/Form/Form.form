@@ -5443,19 +5443,19 @@ Example:
               <choiceList>
                 <presentation>
                   <key>ru</key>
-                  <value>таблица</value>
+                  <value>table</value>
                 </presentation>
                 <value xsi:type="core:StringValue">
-                  <value>таблица</value>
+                  <value>table</value>
                 </value>
               </choiceList>
               <choiceList>
                 <presentation>
                   <key>ru</key>
-                  <value>дерево</value>
+                  <value>tree</value>
                 </presentation>
                 <value xsi:type="core:StringValue">
-                  <value>дерево</value>
+                  <value>tree</value>
                 </value>
               </choiceList>
             </extInfo>
@@ -7580,7 +7580,6 @@ Example:
             <common>true</common>
           </userVisible>
           <horizontalAlign>Left</horizontalAlign>
-          <autoFill>true</autoFill>
         </autoCommandBar>
         <handlers>
           <event>Selection</event>
@@ -7752,13 +7751,12 @@ Example:
           <userVisible>
             <common>true</common>
           </userVisible>
-          <autoFill>true</autoFill>
         </contextMenu>
         <readOnly>true</readOnly>
         <changeRowSet>true</changeRowSet>
         <changeRowOrder>true</changeRowOrder>
         <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
+        <height>5</height>
         <autoMaxRowsCount>true</autoMaxRowsCount>
         <selectionMode>MultiRow</selectionMode>
         <header>true</header>
@@ -10105,10 +10103,7 @@ Example:
         <value>Значение</value>
       </title>
       <id>57</id>
-      <valueType>
-        <types>String</types>
-        <stringQualifiers/>
-      </valueType>
+      <valueType/>
       <view>
         <common>true</common>
       </view>
@@ -11386,21 +11381,21 @@ Example:
   <formCommands>
     <name>UT_ResultRowProperties</name>
     <title>
-      <key>en</key>
-      <value>U t result row properties</value>
+      <key>ru</key>
+      <value>Свойства</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>У и результат свойства строки</value>
+      <key>en</key>
+      <value>Properties</value>
     </title>
     <id>38</id>
     <toolTip>
-      <key>en</key>
-      <value>Show row property bar</value>
-    </toolTip>
-    <toolTip>
       <key>ru</key>
       <value>Показать панель свойств строки</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Show row property bar</value>
     </toolTip>
     <use>
       <common>true</common>

@@ -231,7 +231,7 @@ Procedure ExecuteCodeEditorCommand(Form, Сommand) Export
 	
 	If CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameExecutionModeViaDataProcessor() Then
 		EditorOptions.UseDataProcessorToExecuteCode = Not EditorOptions.UseDataProcessorToExecuteCode;
-		Form.Items[Сommand.Name].Mark = EditorOptions.UseDataProcessorToExecuteCode;
+		Form.Items[Сommand.Name].Check = EditorOptions.UseDataProcessorToExecuteCode;
 	ElsIf CommandStructure.CommandName = UT_CodeEditorClientServer.CommandNameShareAlgorithm() Then
 		TextOfAlgorithm = EditorCodeText(Form, CommandStructure.EditorID);
 		isRequest = EditorOptions.Language = "bsl_query";
@@ -692,22 +692,22 @@ Function EditorSelectionBorders(Form, EditorID) Export
 	If EditorType = EditorsTypes.Text Then
 		EditorItem = Form.Items[EditorSettings.EditorField];
 
-		EditorItem.GetTextSelectionBounds(SelectionBounds.RowBeginning, SelectionBounds.ColumnBeginning,
+		EditorItem.GetTextSelectionBounds(SelectionBounds.RowBegining, SelectionBounds.ColumnBegining,
 			SelectionBounds.RowEnd, SelectionBounds.ColumnEnd);
 	ElsIf EditorType = EditorsTypes.Ace Then
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		SelectedArea = HTMLDocument.editor.getSelectionRange();
 
-		SelectionBounds.RowBeginning= SelectedArea.start.row;
-		SelectionBounds.ColumnBeginning = SelectedArea.start.column;
+		SelectionBounds.RowBegining= SelectedArea.start.row;
+		SelectionBounds.ColumnBegining = SelectedArea.start.column;
 		SelectionBounds.RowEnd = SelectedArea.end.row;
 		SelectionBounds.ColumnEnd = SelectedArea.end.column;
 	ElsIf EditorType = EditorsTypes.Monaco Then
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 
 		Select = HTMLDocument.getSelection();
-		SelectionBounds.RowBeginning= Select.startLineNumber;
-		SelectionBounds.ColumnBeginning = Select.startColumn;
+		SelectionBounds.RowBegining= Select.startLineNumber;
+		SelectionBounds.ColumnBegining = Select.startColumn;
 		SelectionBounds.RowEnd = Select.endLineNumber;
 		SelectionBounds.ColumnEnd = Select.endColumn;
 	EndIf;
@@ -738,12 +738,12 @@ EndFunction
 // Parameters:
 //  Form - ClientApplicationForm.
 //  EditorID - String - An editor ID.
-//  RowBeginning - Number - Beginning of a row.
-//  ColumnBeginning - Number - Beginning of a column.
+//  RowBegining - Number - Beginning of a row.
+//  ColumnBegining - Number - Beginning of a column.
 //  RowEnd - Number - End of a row.
 //  ColumnEnd - Number - End of a column.
 //
-Procedure SetTextSelectionBorders(Form, EditorID, RowBeginning, ColumnBeginning, RowEnd, ColumnEnd) Export
+Procedure SetTextSelectionBorders(Form, EditorID, RowBegining, ColumnBegining, RowEnd, ColumnEnd) Export
 
 	EditorsTypes = UT_CodeEditorClientServer.CodeEditorVariants();
 	EditorType = UT_CodeEditorClientServer.FormCodeEditorType(Form);
@@ -761,13 +761,13 @@ Procedure SetTextSelectionBorders(Form, EditorID, RowBeginning, ColumnBeginning,
 	If EditorType = EditorsTypes.Text Then
 		EditorItem = Form.Items[EditorSettings.EditorField];
 
-		EditorItem.SetTextSelectionBorders(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		EditorItem.SetTextSelectionBorders(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	ElsIf EditorType = EditorsTypes.Ace Then
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
-		HTMLDocument.setSelection(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		HTMLDocument.setSelection(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	ElsIf EditorType = EditorsTypes.Monaco Then
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
-		HTMLDocument.setSelection(RowBeginning, ColumnBeginning, RowEnd, ColumnEnd);
+		HTMLDocument.setSelection(RowBegining, ColumnBegining, RowEnd, ColumnEnd);
 	EndIf;
 
 EndProcedure
@@ -777,11 +777,11 @@ EndProcedure
 // Parameters:
 //  Form - ClientApplicationForm.
 //  Item - FormField - An editor form item.
-//  RowBeginning - Number - Beginning of a row.
-//  ColumnBeginning - Number - Beginning of a column.
+//  RowBegining - Number - Beginning of a row.
+//  ColumnBegining - Number - Beginning of a column.
 //  RowEnd - Number - End of a row.
 //  ColumnEnd - Number - End of a column.
-Procedure SetTextSelectionBordersFormItem(Form, Item, RowBeginning, ColumnBeginning, LineEnd, 
+Procedure SetTextSelectionBordersFormItem(Form, Item, RowBegining, ColumnBegining, LineEnd, 
 	ColumnEnd) Export
 
 	EditorID = UT_CodeEditorClientServer.EditorIDByFormItem(Form, Item);
@@ -789,7 +789,7 @@ Procedure SetTextSelectionBordersFormItem(Form, Item, RowBeginning, ColumnBeginn
 		Return;
 	EndIf;
 
-	SetTextSelectionBorders(Form, EditorID, RowBeginning, ColumnBeginning, LineEnd, ColumnEnd);
+	SetTextSelectionBorders(Form, EditorID, RowBegining, ColumnBegining, LineEnd, ColumnEnd);
 
 EndProcedure
 
@@ -921,27 +921,27 @@ Procedure AddCommentsToEditorLines(Form, EditorID) Export
 		AddAdditionToTextAtLineBeginningBySelectionBorders(CodeText, SelectionBorders, "//");
 		Form[EditorSettings.AttributeName] = CodeText;
 
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning, SelectionBorders.ColumnBeginning + 2,
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining, SelectionBorders.ColumnBegining + 2,
 			SelectionBorders.RowEnd, SelectionBorders.ColumnEnd + 2);
 	ElsIf EditorType = EditorsTypes.Ace Then
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		CodeText = HTMLDocument.editor.getValue();
 
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
-		SelectionBorders.RowBeginning= SelectionBorders.RowBeginning + 1;
+		SelectionBorders.RowBegining= SelectionBorders.RowBegining + 1;
 		SelectionBorders.RowEnd = SelectionBorders.RowEnd + 1;
 
 		AddAdditionToTextAtLineBeginningBySelectionBorders(CodeText, SelectionBorders, "//");
 
 		HTMLDocument.editor.setValue(CodeText, -1);
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning - 1, SelectionBorders.ColumnBeginning
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining - 1, SelectionBorders.ColumnBegining
 			+ 2, SelectionBorders.RowEnd - 1, SelectionBorders.ColumnEnd + 2);
 	ElsIf EditorType = EditorsTypes.Monaco Then
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		CodeText = HTMLDocument.addComment();
 
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning, SelectionBorders.ColumnBeginning + 2,
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining, SelectionBorders.ColumnBegining + 2,
 			SelectionBorders.RowEnd, SelectionBorders.ColumnEnd + 2);
 
 	EndIf;
@@ -987,27 +987,27 @@ Procedure DeleteEditorLinesComments(Form, EditorID) Export
 		DeleteTextAdditionInLineBeginningBySelectionBorders(CodeText, SelectionBorders, "//");
 		Form[EditorSettings.AttributeName] = CodeText;
 
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning, SelectionBorders.ColumnBeginning + 2,
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining, SelectionBorders.ColumnBegining + 2,
 			SelectionBorders.RowEnd, SelectionBorders.ColumnEnd + 2);
 	ElsIf EditorType = EditorsTypes.Ace Then
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		CodeText = HTMLDocument.editor.getValue();
 
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
-		SelectionBorders.RowBeginning= SelectionBorders.RowBeginning + 1;
+		SelectionBorders.RowBegining= SelectionBorders.RowBegining + 1;
 		SelectionBorders.RowEnd = SelectionBorders.RowEnd + 1;
 
 		DeleteTextAdditionInLineBeginningBySelectionBorders(CodeText, SelectionBorders, "//");
 
 		HTMLDocument.editor.setValue(CodeText, -1);
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning - 1, SelectionBorders.ColumnBeginning
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining - 1, SelectionBorders.ColumnBegining
 			+ 2, SelectionBorders.RowEnd - 1, SelectionBorders.ColumnEnd + 2);
 	ElsIf EditorType = EditorsTypes.Monaco Then
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		CodeText = HTMLDocument.removeComment();
 
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning, SelectionBorders.ColumnBeginning + 2,
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining, SelectionBorders.ColumnBegining + 2,
 			SelectionBorders.RowEnd, SelectionBorders.ColumnEnd + 2);
 
 	EndIf;
@@ -1053,27 +1053,27 @@ Procedure AddEditorLineBreaks(Form, EditorID) Export
 		AddAdditionToTextAtLineBeginningBySelectionBorders(CodeText, SelectionBorders, "|");
 		Form[EditorSettings.AttributeName] = CodeText;
 
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning, SelectionBorders.ColumnBeginning + 2,
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining, SelectionBorders.ColumnBegining + 2,
 			SelectionBorders.RowEnd, SelectionBorders.ColumnEnd + 2);
 	ElsIf EditorType = EditorsTypes.Ace Then
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		CodeText = HTMLDocument.editor.getValue();
 
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
-		SelectionBorders.RowBeginning= SelectionBorders.RowBeginning + 1;
+		SelectionBorders.RowBegining= SelectionBorders.RowBegining + 1;
 		SelectionBorders.RowEnd = SelectionBorders.RowEnd + 1;
 
 		AddAdditionToTextAtLineBeginningBySelectionBorders(CodeText, SelectionBorders, "|");
 
 		HTMLDocument.editor.setValue(CodeText, -1);
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning - 1, SelectionBorders.ColumnBeginning
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining - 1, SelectionBorders.ColumnBegining
 			+ 2, SelectionBorders.RowEnd - 1, SelectionBorders.ColumnEnd + 2);
 	ElsIf EditorType = EditorsTypes.Monaco Then
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		CodeText = HTMLDocument.addWordWrap();
 
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning, SelectionBorders.ColumnBeginning + 2,
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining, SelectionBorders.ColumnBegining + 2,
 			SelectionBorders.RowEnd, SelectionBorders.ColumnEnd + 2);
 
 	EndIf;
@@ -1119,27 +1119,27 @@ Procedure DeleteEditorLineBreaks(Form, EditorID) Export
 		DeleteTextAdditionInLineBeginningBySelectionBorders(CodeText, SelectionBorders, "|");
 		Form[EditorSettings.AttributeName] = CodeText;
 
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning, SelectionBorders.ColumnBeginning + 2,
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining, SelectionBorders.ColumnBegining + 2,
 			SelectionBorders.RowEnd, SelectionBorders.ColumnEnd + 2);
 	ElsIf EditorType = EditorsTypes.Ace Then
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		CodeText = HTMLDocument.editor.getValue();
 
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
-		SelectionBorders.RowBeginning= SelectionBorders.RowBeginning + 1;
+		SelectionBorders.RowBegining= SelectionBorders.RowBegining + 1;
 		SelectionBorders.RowEnd = SelectionBorders.RowEnd + 1;
 
 		DeleteTextAdditionInLineBeginningBySelectionBorders(CodeText, SelectionBorders, "|");
 
 		HTMLDocument.editor.setValue(CodeText, -1);
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning - 1, SelectionBorders.ColumnBeginning
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining - 1, SelectionBorders.ColumnBegining
 			+ 2, SelectionBorders.RowEnd - 1, SelectionBorders.ColumnEnd + 2);
 	ElsIf EditorType = EditorsTypes.Monaco Then
 		SelectionBorders = EditorSelectionBorders(Form, EditorID);
 		HTMLDocument=Form.Items[EditorSettings.EditorField].Document.defaultView;
 		CodeText = HTMLDocument.removeWordWrap();
 
-		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBeginning, SelectionBorders.ColumnBeginning + 2,
+		SetTextSelectionBorders(Form, EditorID, SelectionBorders.RowBegining, SelectionBorders.ColumnBegining + 2,
 			SelectionBorders.RowEnd, SelectionBorders.ColumnEnd + 2);
 
 	EndIf;
@@ -2865,19 +2865,19 @@ Procedure AddAdditionToTextAtLineBeginningBySelectionBorders(CodeText, Selection
 	Text.SetText(CodeText);
 
 	If SelectionBorders = Undefined Then
-		RowBeginning = 1;
+		RowBegining = 1;
 		RowEnd = Text.Count();
 	Else
 			
-		If Not ValueIsFilled(SelectionBorders.RowBeginning) And Not ValueIsFilled(SelectionBorders.RowEnd) Then
+		If Not ValueIsFilled(SelectionBorders.RowBegining) And Not ValueIsFilled(SelectionBorders.RowEnd) Then
 			Return;
 		EndIf;
-		RowBeginning = SelectionBorders.RowBeginning;
+		RowBegining = SelectionBorders.RowBegining;
 		RowEnd = SelectionBorders.RowEnd;
 				
 	EndIf;
 
-	For LineNumber = RowBeginning To RowEnd Do
+	For LineNumber = RowBegining To RowEnd Do
 		TextLine = Text.GetLine(LineNumber);
 		Text.ReplaceLine(LineNumber, Addition + TextLine);
 	EndDo;
@@ -2889,19 +2889,19 @@ Procedure DeleteTextAdditionInLineBeginningBySelectionBorders(CodeText, Selectio
 	Text.SetText(CodeText);
 	
 	If SelectionBorders = Undefined Then
-		RowBeginning = 1;
+		RowBegining = 1;
 		RowEnd = Text.Count();
 	Else
 
-		If Not ValueIsFilled(SelectionBorders.RowBeginning) And Not ValueIsFilled(SelectionBorders.RowEnd) Then
+		If Not ValueIsFilled(SelectionBorders.RowBegining) And Not ValueIsFilled(SelectionBorders.RowEnd) Then
 			Return;
 		EndIf;
-		RowBeginning = SelectionBorders.RowBeginning;
+		RowBegining = SelectionBorders.RowBegining;
 		RowEnd = SelectionBorders.RowEnd;
 
 	EndIf;
 	
-	For LineNumber = RowBeginning To RowEnd Do
+	For LineNumber = RowBegining To RowEnd Do
 		TextLine = Text.GetLine(LineNumber);
 		If StrStartsWith(TextLine, Addition) Then
 			TextLine = Mid(TextLine, StrLen(Addition) + 1);
@@ -2933,8 +2933,8 @@ EndFunction
 
 Function NewSelectionBorders()
 	Borders = New Structure;
-	Borders.Insert("RowBeginning", 1);
-	Borders.Insert("ColumnBeginning", 1);
+	Borders.Insert("RowBegining", 1);
+	Borders.Insert("ColumnBegining", 1);
 	Borders.Insert("RowEnd", 1);
 	Borders.Insert("ColumnEnd", 1);
 
@@ -3088,8 +3088,8 @@ Function HTMLEditorFieldOnClickMonaco(Form, Item, EventData, StandardProcessing)
 			SelectionBorders = EditorSelectionBordersFormItem(Form, Item);
 			DataOfEventForProcessing = New Structure;
 			DataOfEventForProcessing.Insert("isQueryMode", True);
-			DataOfEventForProcessing.Insert("startLineNumber", SelectionBorders.RowBeginning);
-			DataOfEventForProcessing.Insert("startColumn", SelectionBorders.ColumnBeginning);
+			DataOfEventForProcessing.Insert("startLineNumber", SelectionBorders.RowBegining);
+			DataOfEventForProcessing.Insert("startColumn", SelectionBorders.ColumnBegining);
 			DataOfEventForProcessing.Insert("endLineNumber", SelectionBorders.RowEnd);
 			DataOfEventForProcessing.Insert("endColumn", SelectionBorders.ColumnEnd);
 			DataOfEventForProcessing.Insert("text", DocumentHTMLView.getText());
