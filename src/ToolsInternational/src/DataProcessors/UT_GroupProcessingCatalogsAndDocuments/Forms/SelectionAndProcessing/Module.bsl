@@ -254,6 +254,11 @@ EndProcedure
 
 &AtClient
 Procedure FindLinks(Command)
+	
+	If TableFieldTypesObjects.Count() = 0 Then
+		Return;
+	EndIf;
+		
 	Status(Nstr("ru = 'Поиск ссылок...';en = 'Search for links...'"));
 	FindLinksByFilter();
 	Items.GroupPages.CurrentPage = Items.GroupFoundObjects;
@@ -408,7 +413,12 @@ Procedure ExecuteProcessing(Command)
 
 		Processing = GetForm(GetFullFormName(ProcessingFormName), StructureParameters, ThisForm);
 		Processing.DownloadSettings();
-		Processing.ExecuteProcessing();
+		If ProcessingFormName = "ArbitraryAlgorithm" Then
+			Processing.ExecuteProcessing();
+		Else
+			ObjectRecordingParameters = UT_CommonClientServer.FormWriteSettings(ЭтотОбъект);
+			Processing.ExecuteProcessing(ObjectRecordingParameters);
+		EndIf;
 	EndDo;
 EndProcedure
 
@@ -705,6 +715,8 @@ Function AddRow(CurrentLine)
 	Setting.Insert("Other", Undefined);
 
 	NewRow.Setting.Add(Setting);
+	
+	NewRow.Processing = CurrentLine.Processing;
 
 	Items.AvailableDataProcessors.CurrentLine = NewRow.GetID();
 	Items.AvailableDataProcessors.ChangeRow();
@@ -867,6 +879,10 @@ EndFunction
 
 &AtClient
 Procedure AvailableDataProcessorsEditEnd(Item, NewRow, CancelEdit)
+	If TableFieldTypesObjects.Count() = 0 Then
+		Return;
+	EndIf;
+		
 	If Item.CurrentData.GetParent() = Undefined Then
 		Return;
 	EndIf;
@@ -1148,6 +1164,41 @@ Procedure QueryInitialization()
 				AttributeMetadata.Type.Types()));
 
 		EndDo;
+		
+		//{{issues470
+		AdditionalDetailsArray  = AddMetadataAttributesWithCommonAttributes(Object.ObjectType, KindName);
+		
+		For Each ArrayItem In AdditionalDetailsArray  Do
+			
+			If ArrayItem.Type = DescriptionTypeStorage Then
+				Continue;
+			ElsIf ArrayItem.Name = "Type" Then
+				Continue;
+			EndIf;
+
+			StructureAttributesHeaders.Insert(ArrayItem.Name, ?(StructureAttributesHeaders.Property(
+				ArrayItem.Name, PastValue), PastValue + 1, 1));
+
+			Filter = New Structure;
+			Filter.Insert("Name", ArrayItem.Name);
+			Filter.Insert("ThisTP", False);
+			RowArray = TableAttributes.FindRows(Filter);
+
+			If RowArray.Count() > 0 Then
+				RowAttributes = RowArray[0];
+			Else
+				RowAttributes = TableAttributes.Add();
+				RowAttributes.Name = ArrayItem.Name;
+				RowAttributes.Presentation = ArrayItem.Synonym;
+				RowAttributes.Type = ArrayItem.Type;
+				RowAttributes.ThisTP = False;
+			EndIf;
+
+			RowAttributes.Type = New TypeDescription(TruncateArray(RowAttributes.Type.Types(),
+				ArrayItem.Type.Types()));
+			
+		EndDo;
+		//}}issues470
 
 		If Object.ProcessTabularParts Then
 
@@ -1776,4 +1827,30 @@ EndProcedure
 Procedure Attachable_ExecuteToolsCommonCommand(Command) Export
 	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
 EndProcedure
+
+//{{issues470
+&AtServer
+Function AddMetadataAttributesWithCommonAttributes(ObjectType, TypeName)
+	
+	AdditionalDetailsArray = New Array;
+	
+	For Each CommonAttribut In Metadata.CommonAttributes Do
+		For Each ContentItem In CommonAttribut.Content Do
+			If ContentItem.Use = Metadata.ObjectProperties.CommonAttributeUse.Use
+				  And ObjectType = 1 Then
+				If ContentItem.Metadata = Metadata.Documents[TypeName] Then
+					AdditionalDetailsArray.Add(CommonAttribut);
+				EndIf;
+			ElsIf ContentItem.Use = Metadata.ObjectProperties.CommonAttributeUse.Use Then
+				If ContentItem.Metadata = Metadata.Catalogs[TypeName] Then
+					AdditionalDetailsArray.Add(CommonAttribut);
+				EndIf;
+			EndIf;
+		EndDo;
+	EndDo;
+	
+	Return AdditionalDetailsArray;
+	
+EndFunction
+//}}issues470
 

@@ -1160,7 +1160,7 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>SaveSettings</name>
+        <name>SaveSettingsCommand</name>
       </handler>
     </action>
     <representation>TextPicture</representation>
