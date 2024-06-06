@@ -1,3 +1,4 @@
+
 #Region FormEvents
 
 &AtServer
@@ -27,6 +28,8 @@ EndProcedure
 
 &AtClient
 Procedure MetadataTreeSelection(Item, RowSelected, Field, StandardProcessing)
+	StandardProcessing = False;
+	
 	SetDynamicListParametersAtServer(RowSelected);
 EndProcedure
 
@@ -65,6 +68,18 @@ Procedure EditObject(Command)
 
 	UT_CommonClient.EditObject(CurrentRef);
 EndProcedure
+
+&AtClient
+Procedure SearchStringOnChange(Item)
+	FillMetadataTree();
+	If ValueIsFilled(SearchString) Then
+		DeleteTreeRowsIfNotChildsAtSearch();	
+		For each TreeRow In MetadataTree.GetItems() Do 
+			Items.MetadataTree.Expand(TreeRow.GetID());
+		EndDo;
+	EndIf;
+EndProcedure
+
 #EndRegion
 
 #Region FormCommandsHandlers
@@ -170,9 +185,9 @@ Procedure SetDynamicListParametersAtServer(RowSelected)
 	EndDo;
 	FormItem.ChoiceMode=ChoiceMode;
 	
-	//Need to add buttons to the command panel
+	// Need to add buttons to the command panel
 	GroupCommandBar=Items[FormAttributeName + "CommandBar"];
-	//OpenButton
+	// OpenButton
 	ButtonDescription=UT_Forms.ButtonCommandNewDescription();
 	ButtonDescription.Name=FormAttributeName + "EditObject";
 	ButtonDescription.ItemParent=GroupCommandBar;
@@ -180,6 +195,7 @@ Procedure SetDynamicListParametersAtServer(RowSelected)
 	ButtonDescription.CommandName="EditObject";
 	UT_Forms.CreateButtonByDescription(ThisObject, ButtonDescription);
 
+	// OpenButton
 	ButtonDescription=UT_Forms.ButtonCommandNewDescription();
 	ButtonDescription.Name=FormAttributeName + "DeleteSelectedObjects";
 	ButtonDescription.ItemParent=GroupCommandBar;
@@ -193,7 +209,6 @@ Procedure SetDynamicListParametersAtServer(RowSelected)
 		Items.GroupDynamicListChoosePages.CurrentPage = Items.GroupNotAvailableTable;
 	EndIf;
 EndProcedure
-
 &AtServer
 Function AttributesTablesArrayForMetaObject(MetadataObject)
 	AttributesTablesArray = New Array;
@@ -248,7 +263,9 @@ Procedure AddObjectTypeToTree(Picture, MetadataTypeName, ObjectTypeName, Present
 			И StrFind(Upper(MetadaObjectSynonym), Upper(SearchString)) = 0 Then
 			
 			Continue;
-	     EndIf;
+			
+		EndIf;
+		
 		IsDocumentJournal=UT_Common.IsDocumentJournal(ObjectMD);
 
 		RowOfType = TreeRowItems.Add();
@@ -281,17 +298,6 @@ Procedure AddObjectTypeToTree(Picture, MetadataTypeName, ObjectTypeName, Present
 		EndDo;
 	EndDo;
 
-EndProcedure
-
-&AtClient
-Procedure SearchStringOnChange(Item)
-	FillMetadataTree();
-	If ValueIsFilled(SearchString) Then
-		DeleteTreeRowsIfNotChildsAtSearch();	
-		For each TreeRow In MetadataTree.GetItems() Do 
-			Items.MetadataTree.Expand(TreeRow.GetID());
-		EndDo;
-	EndIf;
 EndProcedure
 
 &AtClient
@@ -333,6 +339,7 @@ Procedure DeleteSelectedObjectsEnd(QuestionResult, AdditionalParameters) Export
 	EndIf;
 	DeleteSelectedObjectsAtServer(AdditionalParameters.RefsArray);
 	Items[AdditionalParameters.FormAttributeName].Update();
+	
 EndProcedure
 
 &AtServerNoContext
@@ -351,10 +358,8 @@ Procedure DeleteSelectedObjectsAtServer(RefsArray)
 EndProcedure
 
 &НаСервере
-Procedure FillMetadataTree()
-	
-	MetadataTree.GetItems().Clear();
-	
+Procedure FillMetadataTree()	
+	MetadataTree.GetItems().Clear();	
 	AddObjectTypeToTree(PictureLib.Catalog, "Catalogs", "Catalog", "Catalogs");
 	AddObjectTypeToTree(PictureLib.Document, "Documents", "Document", "Documents");
 	AddObjectTypeToTree(PictureLib.DocumentJournal, "DocumentJournals", "DocumentJournal", "Document journals");
@@ -373,8 +378,7 @@ Procedure FillMetadataTree()
 	AddObjectTypeToTree(PictureLib.AccountingRegister, "AccountingRegisters", "AccountingRegister",
 		"Accounting registers");
 	AddObjectTypeToTree(PictureLib.BusinessProcess, "BusinessProcesses", "BusinessProcess", "Business processes");
-	AddObjectTypeToTree(PictureLib.Task, "Tasks", "Task", "Tasks");
-		
+	AddObjectTypeToTree(PictureLib.Task, "Tasks", "Task", "Tasks");		
 EndProcedure
 
 &AtClient
