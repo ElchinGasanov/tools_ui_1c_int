@@ -665,6 +665,21 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>ObjectType</name>
+    <title>
+      <key>ru</key>
+      <value>Object type</value>
+    </title>
+    <id>7</id>
+    <valueType/>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <formCommands>
     <name>ОК</name>
     <title>
