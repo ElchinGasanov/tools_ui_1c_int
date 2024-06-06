@@ -134,7 +134,7 @@ EndProcedure
 #Область FormTableItemsEventHandlersValueTable
 
 &AtClient 
-Procedure Подключаемый_ПолеТаблицыЗначенийПриИзменении(Item)
+Procedure Attachable_ValueTableFieldOnChange(Item)
 	CurrentData = Items.ValueTable.CurrentData;
 	If CurrentData = Undefined Then
 		Return;
@@ -159,7 +159,7 @@ Procedure Подключаемый_ПолеТаблицыЗначенийПри�
 EndProcedure
 
 &AtClient
-Procedure Подключаемый_ПолеТаблицыЗначенийНачалоВыбора(Item, ChosenData, StandardProcessing)
+Procedure Attachable_ValueTableFieldStartChoice(Item, ChosenData, StandardProcessing)
 	CurrentData = Items.ValueTable.CurrentData;
 	If CurrentData = Undefined Then
 		Return;
@@ -186,7 +186,7 @@ Procedure Подключаемый_ПолеТаблицыЗначенийНач�
 EndProcedure
 
 &AtClient
-Procedure Подключаемый_ПолеТаблицыЗначенийОчистка(Item, StandardProcessing)
+Procedure Attachable_ValueTableFieldClearing(Item, StandardProcessing)
 	CurrentData = Items.ValueTable.CurrentData;
 	If CurrentData = Undefined Then
 		Return;
@@ -364,9 +364,9 @@ Procedure CreateFormValueTableColumns()
 		ItemDescription.Insert("DataPath", StorageAttributeName + "." + CurrentColumn.Name);
 		ItemDescription.Insert("ItemParent", Items.ValueTable);
 
-		ItemDescription.Actions.Insert("OnChange", "Подключаемый_ПолеТаблицыЗначенийПриИзменении");
-		ItemDescription.Actions.Insert("StartChoice", "Подключаемый_ПолеТаблицыЗначенийНачалоВыбора");
-		ItemDescription.Actions.Insert("Clearing", "Подключаемый_ПолеТаблицыЗначенийОчистка");
+		ItemDescription.Actions.Insert("OnChange", "Attachable_ValueTableFieldOnChange");
+		ItemDescription.Actions.Insert("StartChoice", "Attachable_ValueTableFieldStartChoice");
+		ItemDescription.Actions.Insert("Clearing", "Attachable_ValueTableFieldClearing");
 
 		NewItem = UT_Forms.CreateItemByDescription(ThisObject, ItemDescription);
 		NewItem.ChooseType = False;

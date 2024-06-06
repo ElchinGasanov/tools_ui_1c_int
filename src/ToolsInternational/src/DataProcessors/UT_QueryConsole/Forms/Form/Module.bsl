@@ -1276,7 +1276,7 @@ EndProcedure
 
 
 &AtClient 
-Procedure Подключаемый_ВыполнитьКомандуРедактораКода(Command)
+Procedure Attachable_ExecuteCodeEditorCommand(Command)
 	UT_CodeEditorClient.ExecuteCodeEditorCommand(ThisObject, Command);
 EndProcedure
 
