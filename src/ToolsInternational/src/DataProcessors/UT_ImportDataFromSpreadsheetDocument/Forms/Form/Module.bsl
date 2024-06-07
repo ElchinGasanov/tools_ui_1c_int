@@ -1253,7 +1253,7 @@ EndFunction // ()
 &AtServer
 Function GetNamePresentationList(TypeDescription)
 
-	ChioceList = New ValueList;
+	ChoiceList = New ValueList;
 	If TypeDescription.Types().Count() = 1 Then
 
 		Type = TypeDescription.Types()[0];
@@ -1274,21 +1274,21 @@ Function GetNamePresentationList(TypeDescription)
 			If TypeMetadata.DefaultPresentation = DefaultPresentationType.AsCode Then
 
 				If CodeExists Then
-					ChioceList.Add("Code", "Code");
+					ChoiceList.Add("Code", "Code");
 				EndIf;
 
 				If NameExists Then
-					ChioceList.Add("Description", "Description");
+					ChoiceList.Add("Description", "Description");
 				EndIf;
 
 			Else
 
 				If NameExists Then
-					ChioceList.Add("Description", "Description");
+					ChoiceList.Add("Description", "Description");
 				EndIf;
 
 				If CodeExists Then
-					ChioceList.Add("Code", "Code");
+					ChoiceList.Add("Code", "Code");
 				EndIf;
 
 			EndIf;
@@ -1298,7 +1298,7 @@ Function GetNamePresentationList(TypeDescription)
 				If Not Attribute.Indexing = Metadata.ObjectProperties.Indexing.DontIndex
 					And Attribute.Type.Types().Count() = 1 And Attribute.Type.Types()[0] = Type("String") Then
 
-					ChioceList.Add(Attribute.Name, Attribute.Presentation());
+					ChoiceList.Add(Attribute.Name, Attribute.Presentation());
 
 				EndIf;
 
@@ -1308,7 +1308,7 @@ Function GetNamePresentationList(TypeDescription)
 		EndIf;
 
 	EndIf;
-	Return ChioceList;
+	Return ChoiceList;
 EndFunction // ()
 
 // Returns a list of imported attribute links by type.
@@ -1436,7 +1436,7 @@ Function GetLinkByOwnerChoiceList(AttributeName)
 	VT = FormAttributeToValue("LinkByOwnerChoiceLists");
 	Str = VT.Find(AttributeName, "AttributeName");
 
-	Return Str.ChioceList;
+	Return Str.ChoiceList;
 
 EndFunction // GetLinkByOwnerChoiceList()
 
@@ -2983,7 +2983,6 @@ Procedure OnClose(Exit)
 EndProcedure
 
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // FORM ITEMS EVENT HANDLERS
 
@@ -2991,7 +2990,7 @@ EndProcedure
 Procedure ImportModeOnChange(Item)
 	Object.CatalogObjectType	= Undefined;
 	Object.SourceRef			= Undefined;
-	Object.RegisterTypeName			= Undefined;
+	Object.RegisterTypeName		= Undefined;
 	Object.SourceTabularSection	= Undefined;
 	SetTabularSectionsList();
 	SetSource();
@@ -3011,7 +3010,7 @@ Procedure ObjectTypeOpening(Item, StandardProcessing)
 		Return;
 	EndIf;
 
-	Form = GetForm("Catalog" + Object.CatalogObjectType + ".ListForm");
+	Form = GetForm("Catalog." + Object.CatalogObjectType + ".ListForm");
 	Form.Open();
 EndProcedure
 
@@ -3058,11 +3057,13 @@ Procedure ImportedAttributesTableAdditionalConditionsPresentationStartChoice(Ite
 	CurData = Items.ImportedAttributesTable.CurrentData;
 	StandardProcessing = False;
 	If CurData.ImportMode = "Evaluate" Then
-		EditExpressionForm = GetForm(DataProcessorID() + ".Form.EditExpressionForm", ,
+		FormOptions = New Structure;
+		FormOptions.Insert("Expression", 	CurData.Expression);
+		FormOptions.Insert("ResultType", 	CurData.TypeDescription);
+		FormOptions.Insert("ColumnsRows", 	Object.AdditionalProperties.Columns);
+		EditExpressionForm = GetForm(DataProcessorID() + ".Form.EditExpressionForm",
+			FormOptions,
 			ThisForm);
-
-		TextDocumentField = EditExpressionForm.TextDocumentField;
-		TextDocumentField.SetText(CurData.Expression);
 
 		EditExpressionForm.Open();
 		//If EditExpressionForm.Open() = True Then
@@ -3085,7 +3086,7 @@ Procedure ImportedAttributesTableAdditionalConditionsPresentationStartChoice(Ite
 			List.Add(ListItem.Value, ListItem.Presentation);
 		EndDo;
 
-		List = EditLinkForm.Item.LinkByOwner.ChoiceList;
+		List = EditLinkForm.Items.LinkByOwner.ChoiceList;
 		List.Clear();
 		For Each ListItem In OwnerChoiceList Do
 			List.Add(ListItem.Value, ListItem.Presentation);
@@ -3130,7 +3131,7 @@ Procedure ChoiceProcessing(SelectedValue, ChoiceSource)
 		If SelectedValue.Source = "EditEventsForm" И SelectedValue.Result = True Then
 			Object.BeforeWriteObject		= SelectedValue.BeforeWriteObject;
 			Object.OnWriteObject			= SelectedValue.OnWriteObject;
-			Object.AfterAddRow	= SelectedValue.AfterAddRow;
+			Object.AfterAddRow				= SelectedValue.AfterAddRow;
 		ElsIf SelectedValue.Source = "EditExpressionForm" И SelectedValue.Result = True Then
 			CurData = Items.ImportedAttributesTable.CurrentData;
 			CurData.Expression = SelectedValue.Expression;
@@ -3140,7 +3141,7 @@ Procedure ChoiceProcessing(SelectedValue, ChoiceSource)
 			CurData.SearchBy = SelectedValue.SearchBy;
 			CurData.LinkByOwner = SelectedValue.LinkByOwner;
 			CurData.AdditionalConditionsPresentation = ?(IsBlankString(CurData.SearchBy), "", NStr("ru = 'Искать по '; en = 'Search by '")
-				+ CurData.SearchBy) + ?(IsBlankString(CurData.СвязьПоВладельцу), "", NStr("ru = ' по владельцу '; en = ' by owner '")
+				+ CurData.SearchBy) + ?(IsBlankString(CurData.LinkByOwner), "", NStr("ru = ' по владельцу '; en = ' by owner '")
 				+ CurData.LinkByOwner);
 		EndIf;
 

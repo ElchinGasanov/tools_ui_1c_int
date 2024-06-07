@@ -54,8 +54,7 @@
     <headerHorizontalAlign>Left</headerHorizontalAlign>
     <showInFooter>true</showInFooter>
     <extInfo xsi:type="form:InputFieldExtInfo">
-      <autoMaxWidth>true</autoMaxWidth>
-      <height>5</height>
+      <height>7</height>
       <autoMaxHeight>true</autoMaxHeight>
       <wrap>true</wrap>
       <multiLine>true</multiLine>
@@ -101,7 +100,6 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <autoFill>true</autoFill>
     </contextMenu>
     <type>TextDocumentField</type>
     <editMode>Enter</editMode>
@@ -244,6 +242,10 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <handlers>
+    <event>OnOpen</event>
+    <name>OnOpen</name>
+  </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
@@ -302,7 +304,66 @@
     </title>
     <id>3</id>
     <valueType>
-      <types>TextDocument</types>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ColumnsRows</name>
+    <title>
+      <key>ru</key>
+      <value>Колонки cтроки</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>ColumnsRows</value>
+    </title>
+    <id>4</id>
+    <valueType/>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ExpressionText</name>
+    <title>
+      <key>ru</key>
+      <value>Текст выражения</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Expression text</value>
+    </title>
+    <id>5</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ResultType</name>
+    <title>
+      <key>ru</key>
+      <value>Result type</value>
+    </title>
+    <id>6</id>
+    <valueType>
+      <types>TypeDescription</types>
     </valueType>
     <view>
       <common>true</common>

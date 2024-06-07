@@ -78,10 +78,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BeforeWriteObject</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>FieldBeforeWriteObject</segments>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -107,7 +105,6 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <autoFill>true</autoFill>
         </contextMenu>
         <type>TextDocumentField</type>
         <editMode>Enter</editMode>
@@ -176,10 +173,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>OnWriteObject</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>FieldOnWriteObject</segments>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -205,7 +200,6 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <autoFill>true</autoFill>
         </contextMenu>
         <type>TextDocumentField</type>
         <editMode>Enter</editMode>
@@ -274,10 +268,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>AfterAddRow</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>FieldAfterAddRow</segments>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -303,7 +295,6 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <autoFill>true</autoFill>
         </contextMenu>
         <type>TextDocumentField</type>
         <editMode>Enter</editMode>
@@ -435,6 +426,7 @@
       </extendedTooltip>
       <commandName>Form.Command.ОК</commandName>
       <representation>Auto</representation>
+      <defaultButton>true</defaultButton>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
@@ -532,6 +524,10 @@
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
+  </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
@@ -590,7 +586,8 @@
     </title>
     <id>3</id>
     <valueType>
-      <types>TextDocument</types>
+      <types>String</types>
+      <stringQualifiers/>
     </valueType>
     <view>
       <common>true</common>
@@ -611,7 +608,8 @@
     </title>
     <id>4</id>
     <valueType>
-      <types>TextDocument</types>
+      <types>String</types>
+      <stringQualifiers/>
     </valueType>
     <view>
       <common>true</common>
@@ -632,7 +630,8 @@
     </title>
     <id>5</id>
     <valueType>
-      <types>TextDocument</types>
+      <types>String</types>
+      <stringQualifiers/>
     </valueType>
     <view>
       <common>true</common>
@@ -673,6 +672,72 @@
     </title>
     <id>7</id>
     <valueType/>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>FieldBeforeWriteObject</name>
+    <title>
+      <key>ru</key>
+      <value>Перед записью объекта</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Before write object</value>
+    </title>
+    <id>8</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>FieldAfterAddRow</name>
+    <title>
+      <key>ru</key>
+      <value>После добавления строки</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>After add row</value>
+    </title>
+    <id>9</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>FieldOnWriteObject</name>
+    <title>
+      <key>ru</key>
+      <value>При записи объекта</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>On write object</value>
+    </title>
+    <id>10</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
     <view>
       <common>true</common>
     </view>
