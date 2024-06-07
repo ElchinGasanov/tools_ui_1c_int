@@ -49,6 +49,7 @@ EndProcedure
 //
 //	Parameters:
 //		Str - String - a delimited text.
+//		
 //		Separator - String - a text separator, "," by default.
 //
 //
@@ -91,7 +92,6 @@ EndFunction
 //  Presentation - String - a number presentation.
 //  TypeDescription - TypeDescription - a description of number type.
 //  Comment - String - an error description.
-//
 // Return value:
 //  Number - Adjusted value.
 //
@@ -133,7 +133,6 @@ EndFunction // mAdjustToNumber()
 //  Presentation - String - a date presentation.
 //  AttributeType - TypeDescription - a description of date type.
 //  Comment - String - an error description.
-//
 // Return value:
 //  Date - Adjusted value.
 //
@@ -238,7 +237,6 @@ EndFunction // ()
 //
 // Return value:
 //  CatalogManager, DocumentManager, etc.
-//
 &AtServer
 Function GetManagerByType(ValueType) Export
 
@@ -371,6 +369,9 @@ EndProcedure // ()
 
 // Generates a structure of columns of imported attributes from ImportedAttributesTable table.
 //
+// Параметры:
+//  нет
+//
 &AtServer
 Procedure GenerateColumnsStructure()
 
@@ -466,6 +467,9 @@ EndProcedure // GenerateSpreadsheetDocumentHeader()
 
 // Returns source metadata.
 //
+// Параметры:
+//  нет
+//
 // Return value:
 //  Metadata object.
 //
@@ -506,8 +510,7 @@ Function GetSourceQuestionText()
 	SourceQuestionText = "";
 
 	If Object.ImportMode = 0 Then
-		SourceQuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(
-			NStr("ru = 'элементов в справочник: ""%1""'; en = 'Import items into %1 catalog'"), SourceMetadata.Presentation());
+		SourceQuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'элементов в справочник: ""%1""'; en = 'Import items into %1 catalog'"), SourceMetadata.Presentation());
 
 	ElsIf Object.ImportMode = 1 Then
 
@@ -515,14 +518,12 @@ Function GetSourceQuestionText()
 			Error = NStr("ru = 'Не выбрана ссылка'; en = 'Reference not selected.'");
 		Else
 			SourceObject = Object.SourceRef.GetObject();
-			SourceQuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(
-				NStr("ru = 'строк в табличную часть: ""%1""'; en = 'Import rows into %1 tabular section'"), SourceMetadata.Presentation());
+			SourceQuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'строк в табличную часть: ""%1""'; en = 'Import rows into %1 tabular section'"), SourceMetadata.Presentation());
 		EndIf;
 
 	ElsIf Object.ImportMode = 2 Then
 
-		SourceQuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(
-			NStr("ru = 'записей в регистр сведений: ""%1""'; en = 'Import records into %1 information register'"), SourceMetadata.Представление());
+		SourceQuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'записей в регистр сведений: ""%1""'; en = 'Import records into %1 information register'"), SourceMetadata.Представление());
 
 	EndIf;
 
@@ -587,9 +588,7 @@ Function ImportDataServer()
 			EndIf;
 		EndDo;
 	EndIf;
-	Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-		NStr("ru = 'Выполняется загрузка %1'; en = '%1 is in progress.'"), SourceQuestionText),
-	MessageStatus.Information);
+	Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Выполняется загрузка %1'; en = '%1 is in progress.'"), SourceQuestionText),MessageStatus.Information);
 	Message(NStr("ru = 'Всего: '; en = 'Total: '") + ItemsCount, MessageStatus.Information);
 	Message("---------------------------------------------", MessageStatus.WithoutStatus);
 	CurrentRowNumber = 0;
@@ -620,8 +619,7 @@ Function ImportDataServer()
 
 				If Not IsBlankString(ErrorString) Then
 					Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-						NStr("ru = 'Строка %1 не может быть записана. Не указано значение ключевых реквизитов: %2';
-							 |en = 'Unable to write row %1. Key attributes %2 are not defined.'"), CurrentRowNumber, ErrorString),
+						NStr("ru = 'Строка %1 не может быть записана. Не указано значение ключевых реквизитов: %2';en = 'Unable to write row %1. Key attributes %2 are not defined.'"), CurrentRowNumber, ErrorString),
 						MessageStatus.Important);
 					Continue;
 				EndIf;
@@ -689,19 +687,13 @@ Function ImportDataServer()
 			If Not Cancel And WriteObject(ImportedObject, CellsTexts, Object.BeforeWriteObject,
 				Object.OnWriteObject) Then
 				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-					NStr("ru = '%1 %2 справочника: %3'; en = 'Catalog %2 %3 was %1.'"),
-						?(ObjectFound, NStr("ru = 'Изменен'; en = 'changed'"), NStr("ru = 'Загружен'; en = 'imported'")),
-						?(ImportedObject.IsFolder, NStr("ru = 'группа'; en = 'folder'"), NStr("ru = 'элемент'; en = 'item'")),
+					NStr("ru = '%1 %2 справочника: %3'; en = 'Catalog %2 %3 was %1.'"),?(ObjectFound, NStr("ru = 'Изменен'; en = 'changed'"), NStr("ru = 'Загружен'; en = 'imported'")),?(ImportedObject.IsFolder, NStr("ru = 'группа'; en = 'folder'"), NStr("ru = 'элемент'; en = 'item'")),
 						ImportedObject.Ref), 
 					MessageStatus.Information);
 				Imported = Imported + 1;
 			Else
-				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-					NStr("ru = 'Объект не %1. %2 справочника: %3'; en = 'Object was not %1. Catalog %2 %3.'"),
-						?(ObjectFound, NStr("ru = 'изменен'; en = 'changed'"), NStr("ru = 'загружен'; en = 'imported'")),
-						?(ImportedObject.IsFolder, NStr("ru = 'Группа'; en = 'folder'"), NStr("ru = 'Элемент'; en = 'item'")),
-						ImportedObject),
-					MessageStatus.Important);
+				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Объект не %1. %2 справочника: %3'; en = 'Object was not %1. Catalog %2 %3.'"),?(ObjectFound, NStr("ru = 'изменен'; en = 'changed'"), NStr("ru = 'загружен'; en = 'imported'")),
+						?(ImportedObject.IsFolder, NStr("ru = 'Группа'; en = 'folder'"), NStr("ru = 'Элемент'; en = 'item'")),ImportedObject),MessageStatus.Important);
 			EndIf;
 		ElsIf Object.ImportMode = 1 Then
 
@@ -711,11 +703,9 @@ Function ImportDataServer()
 			EndIf;
 
 			If Not Cancel Then
-				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-					NStr("ru = 'Добавлена строка: %1; 'Row %1 added.'"), (Imported + 1)));
+				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Добавлена строка: %1; 'Row %1 added.'"), (Imported + 1)));
 			Else
-				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-				NStr("ru = 'При добавлении строки %1 возникли ошибки.'; en = 'An error occured while adding row %1.'"), (Imported + 1)));
+				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'При добавлении строки %1 возникли ошибки.'; en = 'An error occured while adding row %1.'"), (Imported + 1)));
 				WriteObject = False;
 			EndIf;
 
@@ -724,14 +714,10 @@ Function ImportDataServer()
 		ElsIf Object.ImportMode = 2 Then
 			If Not Cancel And WriteObject(ImportedObject, CellsTexts, Object.BeforeWriteObject,
 				Object.OnWriteObject) Then
-				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-					NStr("ru = '%1 запись № %2.'; en = 'Record %2 was %1.'"),
-					?(ObjectFound, NStr("ru = 'Изменена'; en = 'changed'"), NStr("ru = 'Добавлена'; en = 'added'")), CurrentRowNumber));
+				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = '%1 запись № %2.'; en = 'Record %2 was %1.'"),?(ObjectFound, NStr("ru = 'Изменена'; en = 'changed'"), NStr("ru = 'Добавлена'; en = 'added'")), CurrentRowNumber));
 				Imported = Imported + 1;
 			Else
-				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-					NStr("ru = 'Запись не %1. № записи: %2.'; en = 'Record was not %1. Record no. %2.'"),
-					?(ObjectFound, NStr("ru = 'изменена'; en = 'changed'"), NStr("ru = 'загружена'; en = 'imported'")), CurrentRowNumber), 
+				Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Запись не %1. № записи: %2.'; en = 'Record was not %1. Record no. %2.'"),?(ObjectFound, NStr("ru = 'изменена'; en = 'changed'"), NStr("ru = 'загружена'; en = 'imported'")), CurrentRowNumber), 
 				MessageStatus.Important);
 			EndIf;
 		EndIf;
@@ -743,34 +729,20 @@ Function ImportDataServer()
 		If WriteObject And WriteObject(SourceObject, "", Object.BeforeWriteObject,
 			Object.OnWriteObject) Then
 
-			Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-				NStr("ru = 'Выполнена загрузка %1'; en = '%1 was executed'"), SourceQuestionText), 
-			MessageStatus.Information);
-			Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-				NStr("ru = '%1 из %2 элементов.'; en = '%1 out of %2 items.'"), Imported, ItemsCount), 
-			MessageStatus.Information);
+			Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Выполнена загрузка %1'; en = '%1 was executed'"), SourceQuestionText), MessageStatus.Information);
+			Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = '%1 из %2 элементов.'; en = '%1 out of %2 items.'"), Imported, ItemsCount), MessageStatus.Information);
 			Return True;
 		Else
-			Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-				NStr("ru = 'Объект не записан: %1.'; en = 'Object %1 was not written.'"), ImportedObject),
-			MessageStatus.Important);
+			Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Объект не записан: %1.'; en = 'Object %1 was not written.'"), ImportedObject),MessageStatus.Important);
 			Return False;
 		EndIf;
 	ElsIf Object.ImportMode = 0 Then
-		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-			NStr("ru = 'Выполнена загрузка %1'; en = '%1 was executed'"), SourceQuestionText), 
-		MessageStatus.Information);
-		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-			NStr("ru = '%1 из %2 элементов.'; en = '%1 out of %2 items.'"), Imported, ItemsCount), 
-		MessageStatus.Information);
+		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Выполнена загрузка %1'; en = '%1 was executed'"), SourceQuestionText), MessageStatus.Information);
+		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = '%1 из %2 элементов.'; en = '%1 out of %2 items.'"), Imported, ItemsCount), MessageStatus.Information);
 		Return True;
 	ElsIf Object.ImportMode = 2 Then
-		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-			NStr("ru = 'Выполнена загрузка %1'; en = '%1 was executed'"), SourceQuestionText), 
-		MessageStatus.Information);
-		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-			NStr("ru = '%1 из %2 записей.'; en = '%1 out of %2 records.'"), Imported, ItemsCount), 
-		MessageStatus.Information);
+		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Выполнена загрузка %1'; en = '%1 was executed'"), SourceQuestionText), MessageStatus.Information);
+		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = '%1 из %2 записей.'; en = '%1 out of %2 records.'"), Imported, ItemsCount), MessageStatus.Information);
 		Return True;
 	EndIf;
 
@@ -803,7 +775,6 @@ EndFunction // ()
 //
 // Return value:
 //  Structure - Result and ErrorDescription.
-//
 &AtServerNoContext
 Function EvaluateCellValue(Val Expression, Val CurrentData, Val CellText, Val CellsTexts, Val Result)
 
@@ -821,7 +792,6 @@ EndFunction
 
 // Writes an object to the infodatabase
 // using events defined by the user in the event edit form.
-//
 // Parameters:
 //  Object - CatalogObject, DocumentObject, etc - an object to write.
 //  CellsTexts - Array - a texts of a imported row cells.
@@ -830,7 +800,6 @@ EndFunction
 //
 // Return value:
 //  Boolean - True, If object successfully written, False - if there was an error.
-//
 &AtServerNoContext
 Function WriteObject(Object, CellsTexts = Undefined, BeforeWriteObject, OnWriteObject)
 
@@ -900,7 +869,6 @@ EndFunction // ()
 //  CurrentData  - Structure - imported values.
 //  CellsTexts    - Array - a texts of a current row cells.
 //  AfterAddRow - String - after add row event handler.
-//
 // Return value:
 //  True, If Cancel was not set in the AfterAddRow event handler.
 //
@@ -931,6 +899,7 @@ EndFunction // ()
 // Parameters:
 //  SpreadsheetDocument - spreadsheet document to generate the header.
 //
+//
 &AtServer
 Procedure FillControl(SpreadsheetDocument) Export
 
@@ -938,17 +907,14 @@ Procedure FillControl(SpreadsheetDocument) Export
 
 	ErrorCount = 0;
 	For K = 0 To ItemCount - 1 Do
-		//Status(UT_StringFunctionsClientServer.SubstituteParametersToString(
-		//NStr("ru = 'Выполняется контроль заполнения строки № %1'; en = 'Row no. %1 fill control is in progress.'"), (К + 1)));
+		//Status(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Выполняется контроль заполнения строки № %1'; en = 'Row no. %1 fill control is in progress.'"), (К + 1)));
 		RowFillControl(SpreadsheetDocument, K + Object.SpreadsheetDocumentFirstDataRow, ,
 			ErrorCount);
 	EndDo;
 
-	Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-		NStr("ru = 'Контроль заполнения завершен. Проверено строк: %1'; en = 'Fill control completed. %1 rows was checked.'"), ItemCount));
+	Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Контроль заполнения завершен. Проверено строк: %1'; en = 'Fill control completed. %1 rows was checked.'"), ItemCount));
 	If ErrorCount Then
-		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-			NStr("ru = 'Выявлено ячеек, содержащих ошибки/неоднозначное представление: %1'; en = '%1 cells with errors/ambiguous presentation was found.'"), ErrorCount));
+		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Выявлено ячеек, содержащих ошибки/неоднозначное представление: %1'; en = '%1 cells with errors/ambiguous presentation was found.'"), ErrorCount));
 	Else
 		Message(NStr("ru = 'Ячеек, содержащих ошибки не выявлено'; en = 'No error cell was found.'"));
 	EndIf;
@@ -957,18 +923,15 @@ EndProcedure // FillControl()
 
 // Controls a spreadsheet document row data filling.
 // Messages an errors and writes an error cells comments.
-//
 // Параметры:
 //  SpreadsheetDocument - spreadsheet document to generate the header.
 //  RowNumber       - Number - spreadsheet document row number.
 //  CellsTexts    - Array - a texts of a row cells.
 //  ErrorCount 	- Number - a count of errors.
-//
 // Return value:
 //  Structure - 
 //  	Key - imported attrubure name.
 //  	Value - imported attribute value.
-//
 &AtServer
 Function RowFillControl(SpreadsheetDocument, RowNumber, CellsTexts = Undefined, ErrorCount = 0)
 
@@ -1069,8 +1032,7 @@ Function ProcessArea(Area, Column, CurrentData, CellsTexts)
 			Result = FoundValues[0];
 		Else
 
-			Note = UT_StringFunctionsClientServer.SubstituteParametersToString(
-				NStr("ru = 'Не однозначное представление. Вариантов: %1'; en = 'Ambiguous presentation. %1 options.'"), FoundValues.Количество()) + 
+			Note = UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Не однозначное представление. Вариантов: %1'; en = 'Ambiguous presentation. %1 options.'"), FoundValues.Количество()) + 
 				?(Note = "", "", Chars.LF + Note);
 
 			Found = False;
@@ -1291,7 +1253,7 @@ EndFunction // ()
 &AtServer
 Function GetNamePresentationList(TypeDescription)
 
-	ChioceList = New ValueList;
+	ChoiceList = New ValueList;
 	If TypeDescription.Types().Count() = 1 Then
 
 		Type = TypeDescription.Types()[0];
@@ -1312,21 +1274,21 @@ Function GetNamePresentationList(TypeDescription)
 			If TypeMetadata.DefaultPresentation = DefaultPresentationType.AsCode Then
 
 				If CodeExists Then
-					ChioceList.Add("Code", "Code");
+					ChoiceList.Add("Code", "Code");
 				EndIf;
 
 				If NameExists Then
-					ChioceList.Add("Description", "Description");
+					ChoiceList.Add("Description", "Description");
 				EndIf;
 
 			Else
 
 				If NameExists Then
-					ChioceList.Add("Description", "Description");
+					ChoiceList.Add("Description", "Description");
 				EndIf;
 
 				If CodeExists Then
-					ChioceList.Add("Code", "Code");
+					ChoiceList.Add("Code", "Code");
 				EndIf;
 
 			EndIf;
@@ -1336,7 +1298,7 @@ Function GetNamePresentationList(TypeDescription)
 				If Not Attribute.Indexing = Metadata.ObjectProperties.Indexing.DontIndex
 					And Attribute.Type.Types().Count() = 1 And Attribute.Type.Types()[0] = Type("String") Then
 
-					ChioceList.Add(Attribute.Name, Attribute.Presentation());
+					ChoiceList.Add(Attribute.Name, Attribute.Presentation());
 
 				EndIf;
 
@@ -1346,7 +1308,7 @@ Function GetNamePresentationList(TypeDescription)
 		EndIf;
 
 	EndIf;
-	Return ChioceList;
+	Return ChoiceList;
 EndFunction // ()
 
 // Returns a list of imported attribute links by type.
@@ -1354,7 +1316,6 @@ EndFunction // ()
 // Parameters:
 //  ImportedAttribute - ValueTableRow - imported attribute.
 //  VT - ValueTable - imported attributes table.
-//
 // Return value:
 //  ValueList - list of link column names or link item references.
 //
@@ -1401,7 +1362,6 @@ EndFunction // ()
 // Parameters:
 //  TypeDescription - type description.
 //  ColumnTable - ValueTable - a table of link by owner columns.
-//
 // Return value:
 //  ValueList - list of link column names or link item references.
 //
@@ -1434,6 +1394,7 @@ Function GetLinkByOwnerList(TypeDescription, ColumnTable)
 					For Each LinkByOwnerColumn In ColumnTable Do
 						If LinkByOwnerColumn.TypeDescription.Types()[0] = OwnerType
 							And ChoiceList.FindByValue(LinkByOwnerColumn.AttributeName) = Undefined Then
+							// It may be necessary to go through all types
 							ChoiceList.Add(LinkByOwnerColumn.AttributeName,
 								LinkByOwnerColumn.AttributeName);
 						EndIf;
@@ -1465,6 +1426,7 @@ EndFunction // ()
 // Parameters:
 //  AttributeName  - String - name of an attribute to get a related choice list.
 //
+//
 // Return value:
 //   ValueList - list of values to choice.
 //
@@ -1474,7 +1436,7 @@ Function GetLinkByOwnerChoiceList(AttributeName)
 	VT = FormAttributeToValue("LinkByOwnerChoiceLists");
 	Str = VT.Find(AttributeName, "AttributeName");
 
-	Return Str.ChioceList;
+	Return Str.ChoiceList;
 
 EndFunction // GetLinkByOwnerChoiceList()
 
@@ -1483,6 +1445,7 @@ EndFunction // GetLinkByOwnerChoiceList()
 // Parameters:
 //  AttributeName  - String - name of an attribute to save a related choice list.
 //  NewChoiceList  - ValueList - list of values to save.
+//
 //
 &AtServer
 Procedure SaveLinkByOwnerChoiceList(AttributeName, Val NewChoiceList)
@@ -1502,17 +1465,14 @@ Procedure FillControlServer()
 
 	ErrorCount = 0;
 	For K = 0 To ItemCount - 1 Do
-		//Status(UT_StringFunctionsClientServer.SubstituteParametersToString(
-		//NStr("ru = 'Выполняется контроль заполнения строки № %1'; en = 'Row no. %1 fill control is in progress.'"), (К + 1)));
+		//Status(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Выполняется контроль заполнения строки № %1'; en = 'Row no. %1 fill control is in progress.'"), (К + 1)));
 		RowFillControl(SpreadsheetDocument, K + Object.SpreadsheetDocumentFirstDataRow, ,
 			ErrorCount);
 	EndDo;
 
-	Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-		NStr("ru = 'Контроль заполнения завершен. Проверено строк: %1'; en = 'Fill control completed. %1 rows was checked.'"), ItemCount));
+	Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Контроль заполнения завершен. Проверено строк: %1'; en = 'Fill control completed. %1 rows was checked.'"), ItemCount));
 	If ErrorCount Then
-		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(
-			NStr("ru = 'Выявлено ячеек, содержащих ошибки/неоднозначное представление: %1'; en = '%1 cells with errors/ambiguous presentation was found.'"), ErrorCount));
+		Message(UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Выявлено ячеек, содержащих ошибки/неоднозначное представление: %1'; en = '%1 cells with errors/ambiguous presentation was found.'"), ErrorCount));
 	Else
 		Message(NStr("ru = 'Ячеек, содержащих ошибки не выявлено'; en = 'No error cell was found.'"));
 	EndIf;
@@ -1551,7 +1511,8 @@ Procedure FillColumnSettings(Settings)
 				+ "C5").Text);
 			If RestoredImportModeText = NStr("ru = 'в справочник'; en = 'to catalog'") Or RestoredImportModeText = "" Then
 				RestoredImportMode = 0;
-			ElsIf RestoredImportModeText = NStr("ru = 'в табличную часть'; en = 'to tabular section'") Or RestoredImportModeText = "Х" Then
+			ElsIf RestoredImportModeText = NStr("ru = 'в табличную часть'; en = 'to tabular section'") Or RestoredImportModeText 
+				= "Х" Then
 				RestoredImportMode = 1;
 			ElsIf RestoredImportModeText = NStr("ru = 'в регистр сведений'; en = 'to information register'") Then
 				RestoredImportMode = 2;
@@ -2281,6 +2242,10 @@ EndProcedure
 //  FileName - String - a name of an Excel file to read.
 //  ExcelSheetNumber - Number - a number of an Excel book sheet to read.
 //
+//
+// Return values:
+//  True, if the file is read, False - Other
+//
 &AtClient
 Procedure mImportSpreadsheetDocumentFromExcel(FileName, ExcelSheetNumber = 1) Export
 
@@ -2336,6 +2301,10 @@ EndProcedure
 //
 // Parameters:
 //  FileName - String - a name of a TXT file to read.
+//
+//
+// Return values:
+//  True, if the file is read, False - Other
 //
 &AtClient
 Procedure mImportSpreadsheetDocumentFromText(FileName) Export
@@ -2399,6 +2368,10 @@ EndProcedure
 //
 // Parameters:
 //  FileName - String - a name of a dBase III file to read.
+//  
+//  
+// Return values:
+//  True, if the file is read, False - Other
 //
 &AtClient
 Procedure mImportSpreadsheetDocumentFromDBF(FileName) Export
@@ -2609,8 +2582,7 @@ Procedure OpenCommand(Command)
 	FileDialog = New FileDialog(FileDialogMode.Open);
 
 	FileDialog.Title = NStr("ru = 'Прочитать табличный документ из файла'; en = 'Import a spreadsheet document from file'");
-	FileDialog.Filter    = NStr("ru = 'Табличный документ (*.mxl)|*.mxl|Лист Excel (*.xls,*.xlsx)|*.xls;*.xlsx|Текстовый документ (*.txt)|*.txt|dBase III (*.dbf)|*.dbf|';
-								|en = 'Spreadsheet document (*.mxl)|*.mxl|Excel sheet (*.xls,*.xlsx)|*.xls;*.xlsx|Text document (*.txt)|*.txt|dBase III (*.dbf)|*.dbf|'");
+	FileDialog.Filter    = NStr("ru = 'Табличный документ (*.mxl)|*.mxl|Лист Excel (*.xls,*.xlsx)|*.xls;*.xlsx|Текстовый документ (*.txt)|*.txt|dBase III (*.dbf)|*.dbf|';en = 'Spreadsheet document (*.mxl)|*.mxl|Excel sheet (*.xls,*.xlsx)|*.xls;*.xlsx|Text document (*.txt)|*.txt|dBase III (*.dbf)|*.dbf|'");
 	FileDialog.Show(New NotifyDescription("OpenCommandCompletion", ThisForm,
 		New Structure("FileDialog", FileDialog)));
 
@@ -2644,8 +2616,7 @@ Procedure SaveCommand(Command)
 	FileDialog = New FileDialog(FileDialogMode.Save);
 
 	FileDialog.Title = NStr("ru = 'Сохранить табличный документ в файл'; en = 'Save a spreadsheet document to file'");
-	FileDialog.Filter    = NStr("ru = 'Табличный документ (*.mxl)|*.mxl|Лист Excel (*.xls)|*.xls|Текстовый документ (*.txt)|*.txt|'
-								|en = 'Spreadsheet document (*.mxl)|*.mxl|Excel sheet (*.xls)|*.xls|Text document (*.txt)|*.txt|'");
+	FileDialog.Filter    = NStr("ru = 'Табличный документ (*.mxl)|*.mxl|Лист Excel (*.xls)|*.xls|Текстовый документ (*.txt)|*.txt|'en = 'Spreadsheet document (*.mxl)|*.mxl|Excel sheet (*.xls)|*.xls|Text document (*.txt)|*.txt|'");
 	FileDialog.Show(New NotifyDescription("SaveCommandCompletion", ThisForm,
 		New Structure("FileDialog", FileDialog)));
 
@@ -2751,8 +2722,7 @@ Procedure RestoreValuesFromFileCommand(Command)
 
 	FileDialog = New FileDialog(FileDialogMode.Open);
 	FileDialog.Title	= NStr("ru = 'Восстановить значения из файла'; en = 'Restore values from file'");
-	FileDialog.Filter	= NStr("ru = 'Настройка загрузки в табличный документ (*.mxlz)|*.mxlz|Все файлы (*.*)|*.*|'
-							   |en = 'Spreadsheet document import settings (*.mxlz)|*.mxlz|All files (*.*)|*.*|'");
+	FileDialog.Filter	= NStr("ru = 'Настройка загрузки в табличный документ (*.mxlz)|*.mxlz|Все файлы (*.*)|*.*|'en = 'Spreadsheet document import settings (*.mxlz)|*.mxlz|All files (*.*)|*.*|'");
 
 	FileDialog.Show(New NotifyDescription("RestoreValuesFromFileCommandCompletion1", ThisForm,
 		New Structure("FileDialog", FileDialog)));
@@ -2800,8 +2770,7 @@ Procedure SaveValuesToFileCommand(Command)
 	FileDialog = New FileDialog(FileDialogMode.Save);
 
 	FileDialog.Title = NStr("ru = 'Сохранить значения настройки в файл'; en = 'Save setting values to file'");
-	FileDialog.Filter    = NStr("ru = 'Настройка загрузки в табличный документ (*.mxlz)|*.mxlz|Все файлы (*.*)|*.*|'
-								|en = 'Spreadsheet document import settings (*.mxlz)|*.mxlz|All Files (*.*)|*.*|'");
+	FileDialog.Filter    = NStr("ru = 'Настройка загрузки в табличный документ (*.mxlz)|*.mxlz|Все файлы (*.*)|*.*|'en = 'Spreadsheet document import settings (*.mxlz)|*.mxlz|All Files (*.*)|*.*|'");
 	FileDialog.Show(New NotifyDescription("SaveValuesToFileCommandCompletion", ThisForm,
 		New Structure("FileDialog, Settings", FileDialog, Settings)));
 
@@ -2913,24 +2882,32 @@ EndProcedure
 &AtClient
 Procedure EventsCommand(Command)
 
-	EditEventsForm = GetForm(DataProcessorID() + ".Form.EditEventsForm", ,
+	FormOptions = New Structure;
+	If Object.ImportMode = 0 Then
+		SourceType = New TypeDescription("CatalogRef." + Object.CatalogObjectType);
+	ElsIf Object.ImportMode = 1 Then
+		If ValueIsFilled(Object.SourceRef) Then
+			TypesArray = New Array;
+			TypesArray.Add(TypeOf(Object.SourceRef));
+			SourceType = New TypeDescription(TypesArray);
+		Else
+			SourceType = New TypeDescription;
+		EndIf;
+	ElsIf Object.ImportMode = 2 Then
+		SourceType = "informationregisters." + Lower(Object.RegisterTypeName);
+	EndIf;
+	
+	FormOptions.Insert("ObjectType", SourceType);
+	FormOptions.Insert("ImportMode", Object.ImportMode);
+	FormOptions.Insert("BeforeWriteObject", Object.BeforeWriteObject);
+	FormOptions.Insert("OnWriteObject", Object.OnWriteObject);
+	FormOptions.Insert("AfterAddRow", Object.AfterAddRow);
+	
+	EditEventsForm = GetForm(DataProcessorID() + ".Form.EditEventsForm", 
+		FormOptions,
 		ThisForm);
 
-	EditEventsForm.ImportMode = Object.ImportMode;
-
-	EditEventsForm.BeforeWriteObject.SetText(Object.BeforeWriteObject);
-	EditEventsForm.OnWriteObject.SetText(Object.OnWriteObject);
-	EditEventsForm.AfterAddRow.SetText(Object.AfterAddRow);
-
 	EditEventsForm.Open();
-
-	If True = True Then
-
-		Object.BeforeWriteObject   = EditEventsForm.BeforeWriteObject.GetText();
-		Object.OnWriteObject      = EditEventsForm.OnWriteObject.GetText();
-		Object.AfterAddRow = EditEventsForm.AfterAddRow.GetText();
-
-	EndIf;
 
 EndProcedure
 
@@ -3006,7 +2983,6 @@ Procedure OnClose(Exit)
 EndProcedure
 
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // FORM ITEMS EVENT HANDLERS
 
@@ -3014,7 +2990,7 @@ EndProcedure
 Procedure ImportModeOnChange(Item)
 	Object.CatalogObjectType	= Undefined;
 	Object.SourceRef			= Undefined;
-	Object.RegisterTypeName			= Undefined;
+	Object.RegisterTypeName		= Undefined;
 	Object.SourceTabularSection	= Undefined;
 	SetTabularSectionsList();
 	SetSource();
@@ -3034,7 +3010,7 @@ Procedure ObjectTypeOpening(Item, StandardProcessing)
 		Return;
 	EndIf;
 
-	Form = GetForm("Catalog" + Object.CatalogObjectType + ".ListForm");
+	Form = GetForm("Catalog." + Object.CatalogObjectType + ".ListForm");
 	Form.Open();
 EndProcedure
 
@@ -3081,11 +3057,13 @@ Procedure ImportedAttributesTableAdditionalConditionsPresentationStartChoice(Ite
 	CurData = Items.ImportedAttributesTable.CurrentData;
 	StandardProcessing = False;
 	If CurData.ImportMode = "Evaluate" Then
-		EditExpressionForm = GetForm(DataProcessorID() + ".Form.EditExpressionForm", ,
+		FormOptions = New Structure;
+		FormOptions.Insert("Expression", 	CurData.Expression);
+		FormOptions.Insert("ResultType", 	CurData.TypeDescription);
+		FormOptions.Insert("ColumnsRows", 	Object.AdditionalProperties.Columns);
+		EditExpressionForm = GetForm(DataProcessorID() + ".Form.EditExpressionForm",
+			FormOptions,
 			ThisForm);
-
-		TextDocumentField = EditExpressionForm.TextDocumentField;
-		TextDocumentField.SetText(CurData.Expression);
 
 		EditExpressionForm.Open();
 		//If EditExpressionForm.Open() = True Then
@@ -3108,7 +3086,7 @@ Procedure ImportedAttributesTableAdditionalConditionsPresentationStartChoice(Ite
 			List.Add(ListItem.Value, ListItem.Presentation);
 		EndDo;
 
-		List = EditLinkForm.Item.LinkByOwner.ChoiceList;
+		List = EditLinkForm.Items.LinkByOwner.ChoiceList;
 		List.Clear();
 		For Each ListItem In OwnerChoiceList Do
 			List.Add(ListItem.Value, ListItem.Presentation);
@@ -3153,7 +3131,7 @@ Procedure ChoiceProcessing(SelectedValue, ChoiceSource)
 		If SelectedValue.Source = "EditEventsForm" И SelectedValue.Result = True Then
 			Object.BeforeWriteObject		= SelectedValue.BeforeWriteObject;
 			Object.OnWriteObject			= SelectedValue.OnWriteObject;
-			Object.AfterAddRow	= SelectedValue.AfterAddRow;
+			Object.AfterAddRow				= SelectedValue.AfterAddRow;
 		ElsIf SelectedValue.Source = "EditExpressionForm" И SelectedValue.Result = True Then
 			CurData = Items.ImportedAttributesTable.CurrentData;
 			CurData.Expression = SelectedValue.Expression;
@@ -3163,7 +3141,7 @@ Procedure ChoiceProcessing(SelectedValue, ChoiceSource)
 			CurData.SearchBy = SelectedValue.SearchBy;
 			CurData.LinkByOwner = SelectedValue.LinkByOwner;
 			CurData.AdditionalConditionsPresentation = ?(IsBlankString(CurData.SearchBy), "", NStr("ru = 'Искать по '; en = 'Search by '")
-				+ CurData.SearchBy) + ?(IsBlankString(CurData.СвязьПоВладельцу), "", NStr("ru = ' по владельцу '; en = ' by owner '")
+				+ CurData.SearchBy) + ?(IsBlankString(CurData.LinkByOwner), "", NStr("ru = ' по владельцу '; en = ' by owner '")
 				+ CurData.LinkByOwner);
 		EndIf;
 
