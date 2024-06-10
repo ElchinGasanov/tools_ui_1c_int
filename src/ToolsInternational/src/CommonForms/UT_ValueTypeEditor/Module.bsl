@@ -231,7 +231,7 @@ Procedure TypesTreeSelection(Item, RowSelected, Field, StandardProcessing)
 		Return;
 	EndIf;
 	
-	СurrentRow.Check = True;
+	СurrentRow.Selected = True;
 	ChangeCheckTypeСhoiceHandler(СurrentRow);
 	
 	If ChoiceMode И Не CompositeDataType Then
