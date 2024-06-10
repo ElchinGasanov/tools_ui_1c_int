@@ -421,9 +421,9 @@ Procedure FieldsPresentationExpressionOpening(Item, StandardProcessing)
 
 	OpenEditExpressionForm(CurrentData.PresentationExpression,
 		New NotifyDescription("FieldsPresentationExpressionOpeningOnEnd", ThisObject, AdditionalParameters), False,
-		StrTemplate(NSTR("ru = 'Редактирование выражения ресурса для %1';en = 'Editing resource expression for %1'"),CurrentData.DataPath));
-	 
+		StrTemplate(NSTR("ru = 'Редактирование выражения ресурса для %1';en = 'Editing resource expression for %1'"),CurrentData.DataPath));	 
 EndProcedure
+
 #EndRegion
 
 #Region DataSetLinks
@@ -728,8 +728,8 @@ Procedure DCSParametersExpressionOpening(Item, StandardProcessing)
      OpenEditExpressionForm(CurrentData.Expression,
 		New NotifyDescription("DCSParametersExpressionOpeningEND", ThisObject, AdditionalParameters), True,
 		NSTR("ru = 'Редактирование выражения для';en = 'Edit expression for'") + CurrentData.Name);
-
 EndProcedure
+
 
 &AtClient
 Procedure DCSParametersNameOnChange(Item)
@@ -1051,7 +1051,9 @@ Procedure DeleteDataSet(Command)
 	For Each Row In ArrayToDelete Do
 		DataSetLinks.Delete(Row);
 	EndDo;
-
+	
+	DeleteQueryParameters(QueriesParameters, DCSParameters, CurrentRowID);
+	
 EndProcedure
 
 &AtClient
@@ -1164,7 +1166,7 @@ EndProcedure
 &AtClient
 Procedure SaveSchemaToFileEND(Result, AdditionalParameters) Export
 	FD=New FileDialog(FileDialogMode.Save);
-	FD.Extension="xml";
+//	FD.Extension="xml"; no props Extension
 	FD.Filter="File XML(*.xml)|*.xml";
 	FD.Multiselect=False;
 	FD.Show(New NotifyDescription("SaveSchemaToFileFileNameChoiceEND", ThisObject));
@@ -1186,8 +1188,7 @@ Procedure SaveSchemaToFileFileNameChoiceEND(SelectedFiles, AdditionalParameters)
 	Text.SetText(GetFromTempStorage(TextURL));
 	Text.BeginWriting(New NotifyDescription("SaveSchemaToFileOnEndSaving", ThisObject),
 					   SelectedFiles[0],
-					   "utf-8");
-					   
+					   "utf-8");					   
 EndProcedure
 
 &AtClient
@@ -1198,6 +1199,7 @@ Procedure SaveSchemaToFileOnEndSaving(Result, AdditionalParameters) Export
 	
 	UT_CodeEditorClient.SetEditorOriginalTextEqualToCurrent(ThisObject,"Query");
 EndProcedure
+
 &AtServer
 Function PrepareDSCForSaveFile()
 	SaveToFormTableCurrentSettingsVariantSetting();
@@ -1210,8 +1212,8 @@ EndFunction
 
 &AtClient
 Procedure ReadSchemaFromFileEND(Result, AdditionalParameters) Export
-	FD=New FileDialog(FileDialogMode.Opening);
-	FD.Extension="xml";
+	FD=New FileDialog(FileDialogMode.Open);
+//	FD.Extension="xml"; no props Extension
 	FD.Filter="File XML(*.xml)|*.xml";
 	FD.Multiselect=False;
 
@@ -1282,33 +1284,115 @@ EndProcedure
 
 &AtServer
 Procedure FillDCSParametersOnDataSetQueryChange(DataSetRowID)
-	DataSetRow=DataSets.FindByID(DataSetRowID);
-
+	
+	DataSetRow = DataSets.FindByID(DataSetRowID);
+	
+	DeleteQueryParameters(QueriesParameters, DCSParameters, DataSetRowID);
+	
 	If Not ValueIsFilled(DataSetRow.Query) Then
 		Return;
 	EndIf;
 
-	Query=New Query;
-	Query.Text=DataSetRow.Query;
-	QueryOptions=Query.FindParameters();
+	AddQueryParameters(QueriesParameters, DCSParameters, DataSetRowID, DataSetRow.Query)
 
-	For Each ParameterDescription In QueryOptions Do
-		SearchStructure=New Structure;
+EndProcedure
+
+// Remove request parameters.
+// 
+// Parameters:
+//  QueriesParameters - FormDataCollection - Query parameters
+//  DCSParameters - FormDataCollection - Parameters DCS
+//  QueryID - Number - Request ID
+&AtClientAtServerNoContext
+Procedure DeleteQueryParameters(QueriesParameters, DCSParameters, QueryID)
+	
+	SelectionParametersByID = New Structure;
+	SelectionParametersByID.Insert("QueryID", QueryID);
+	
+	FoundParameters = QueriesParameters.FindRows(SelectionParametersByID);
+	
+	ChosenParametersByName = New Structure("Name");
+	
+	For Each Parameter In FoundParameters Do
+		QueriesParameters.Delete(Parameter);
+		
+		ChosenParametersByName.Name = Parameter.Name;
+		ParametersOfOtherQueries = QueriesParameters.FindRows(ChosenParametersByName);
+		FoundParametersDCS = DCSParameters.FindRows(ChosenParametersByName);
+		
+		For Each ParameterDCS In FoundParametersDCS Do
+			If ParametersOfOtherQueries.Count() = 0 Then
+				DCSParameters.Delete(ParameterDCS);
+			Else
+				FillParameterTypeDCS(ParameterDCS, QueriesParameters);
+			EndIf;
+		EndDo;
+		
+	EndDo;
+		
+EndProcedure
+
+// Add request parameters.
+// 
+// Parameters:
+//  QueriesParameters - FormDataCollection - Queries parameters
+//  DCSParameters - FormDataCollection - Parameters DCS
+//  QueryID - Number - Request ID
+//  QueryText - String - Query text
+&AtServerNoContext
+Procedure AddQueryParameters(QueriesParameters, DCSParameters, QueryID, QueryText)
+	
+	Query = New Query;
+	Query.Text = QueryText;
+	QueryParameters = Query.FindParameters();
+	
+	For Each ParameterDescription In QueryParameters Do
+		
+		QueriesParametersRow = QueriesParameters.Add();
+		QueriesParametersRow.QueryID = QueryID;
+		QueriesParametersRow.Name = ParameterDescription.Name;
+		QueriesParametersRow.ValueType = ParameterDescription.ValueType;
+		
+		SearchStructure = New Structure;
 		SearchStructure.Insert("Name", ParameterDescription.Name);
 
-		ParametersFoundRows=DCSParameters.FindRows(SearchStructure);
-		If ParametersFoundRows.Count() = 0 Then
-			ParameterRow=DCSParameters.Add();
-			ParameterRow.Name=ParameterDescription.Name;
-			ParameterRow.Title=ParameterDescription.Name;
-			ParameterRow.ValueType=ParameterDescription.ValueType;
-			ParameterRow.IncludeInAvailableFields=True;
-		Else
-			ParameterRow=ParametersFoundRows[0];
+		FoundStringsParameters = DCSParameters.FindRows(SearchStructure);
+		Если FoundStringsParameters.Count() = 0 Then
+			RowParameter = DCSParameters.Add();
+			RowParameter.Name = ParameterDescription.Name;
+			RowParameter.Title = ParameterDescription.Name;
+			RowParameter.IncludeInAvailableFields = False;
+		Иначе
+			RowParameter = FoundStringsParameters[0];
 		EndIf;
-		ParameterRow.AddedAutomatically=True;
+
+		RowParameter.AddedAutomatically = False;
+		FillParameterTypeDCS(RowParameter, QueriesParameters);
+		
 	EndDo;
+
 EndProcedure
+
+// Fill in parameter type DCS.
+// 
+// Parameters:
+//  ParameterDCS - FormDataCollectionItem - Parameter DCS
+//  QueriesParameters - FormDataCollection - Queries parameters
+&AtClientAtServerNoContext
+Procedure FillParameterTypeDCS(ParameterDCS, QueriesParameters)
+	
+	QueryParameterTypes = New Array;
+	
+	SelectionParameters = New Structure("Name", ParameterDCS.Name);
+	FoundQueryParameters = QueriesParameters.FindRows(SelectionParameters);
+	For Each RequestParameter In FoundQueryParameters Do
+		UT_CommonClientServer.SupplementArray(QueryParameterTypes, RequestParameter.ValueType.Types());		
+	EndDo;
+
+	ParameterDCS.ValueType = New TypeDescription(QueryParameterTypes);	
+		
+EndProcedure
+
 &AtServer
 Procedure AddDataSetField(DataSetRow, Column, DataSetFieldsTypes, FieldsArray, ParentColumn = Undefined)
 	RestrictionField=False;
@@ -2560,16 +2644,27 @@ EndProcedure
 
 &AtServer
 Procedure ReadRoleOfDataSetFieldsToFormData(EditorRole, DataSetRole)
-	EditorRole=NewStructureOfDataSetFieldRoleEditing();
+	EditorRole = NewStructureOfDataSetFieldRoleEditing();
 
 	FillPropertyValues(EditorRole, DataSetRole, , "AccountingBalanceType,BalanceType");
+	
+	If ValueIsFilled(DataSetRole.ВыражениеВидаСчета) Then
+		EditorRole.Dimension = Ложь;
+	EndIf;
+	
+	EditorRole.AccountingBalanceType = String(DataSetRole.AccountingBalanceType);
+	If DataSetRole.BalanceType = DataCompositionBalanceType.None Then
+		BalanceType = "None";
+	ElsIf DataSetRole.BalanceType = DataCompositionBalanceType.OpeningBalance Then
+		BalanceType = "OpeningBalance";	
+	ElsIf DataSetRole.BalanceType = DataCompositionBalanceType.ClosingBalance Then
+		BalanceType = "ClosingBalance";
+	EndIf;
+	EditorRole.AccountingBalanceType = BalanceType;
 
-	EditorRole.AccountingBalanceType=String(DataSetRole.AccountingBalanceType);
-	EditorRole.AccountingBalanceType=String(DataSetRole.BalanceType);
+	EditorRole.PeriodAdditional = DataSetRole.PeriodType = DataCompositionPeriodType.Additional;
 
-	EditorRole.PeriodAdditional=DataSetRole.PeriodType = DataCompositionPeriodType.Additional;
-
-	EditorRole.Period=DataSetRole.PeriodNumber <> 0;
+	EditorRole.Period = DataSetRole.PeriodNumber <> 0;
 EndProcedure
 
 &AtServer
