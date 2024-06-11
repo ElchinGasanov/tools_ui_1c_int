@@ -1,6 +1,5 @@
 
 #Region FormEventHandlers
-
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	Objects.Clear();
@@ -9,7 +8,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	EndIF;
 	GenerateAtServer();
 	
-	//UT_Common.ToolFormOnCreateAtServer(ThisObject, Cancel, StandardProcessing);
+	UT_Common.ToolFormOnCreateAtServer(ThisObject, Cancel, StandardProcessing);
 	
 EndProcedure
 
@@ -19,23 +18,40 @@ EndProcedure
 
 &AtClient
 Procedure ObjectsValueStartChoice(Item, ChoiceData, StandardProcessing)
-	CurData = Items.Objects.CurrentData;
-	If CurData = Undefined Then
+	CurrentData = Items.Objects.CurrentData;
+	If CurrentData = Undefined Then
 		Return;
 	EndIf;
-	
-	NotifyParameters = New Structure;
-	NotifyParameters.Insert("RowID", Items.Objects.CurrentRow);
 
-	UT_CommonClient.FormFieldValueStartChoice(ThisObject, Item, CurData.Value,
-		StandardProcessing, New NotifyDescription("ObjectsValueStartChoiceBlankValueChoiceCompletion",
-		ThisObject, NotifyParameters), "Refs");
+	AvailableTypesSets = UT_CommonClientServer.AvailableEditingTypesSets();
+
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																			Item,
+																			"Value");
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.Value = CurrentData.Value;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.TypesSet = AvailableTypesSets.References;
+
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
 EndProcedure
 
 &AtClient
 Procedure ObjectsValueClearing(Item, StandardProcessing)
-	UT_CommonClient.FormFieldClear(ThisObject, Item, StandardProcessing);
+	CurrentData = Items.Objects.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																			Item,
+																			"Value");
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentData;
+
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+
 EndProcedure
+
 
 #EndRegion
 
@@ -49,8 +65,7 @@ Procedure Generate(Command)
 		CurrentItem = Items.Objects;
 		Return;
 	EndIf;
-	GenerateAtServer();
-	
+	GenerateAtServer();	
 EndProcedure
 
 &AtClient
@@ -76,18 +91,11 @@ Procedure Attachable_ExecuteToolsCommonCommand(Command)
 	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
 EndProcedure
 
+
+
 #EndRegion
 
 #Region Private
-
-&AtClient
-Procedure ObjectsValueStartChoiceBlankValueChoiceCompletion(Result, AdditionalParameters) Export
-	ObjectsRow = Objects.FindByID(AdditionalParameters.RowID);
-	If ObjectsRow = Undefined Then
-		Return;
-	EndIf;
-	ObjectsRow.Value = Result;
-EndProcedure
 
 &AtServerNoContext
 Procedure AddToTree(VT, ObjectRef)
@@ -119,13 +127,12 @@ Procedure AddToTree(VT, ObjectRef)
 		Row[GUUID] = ObjectRef[AttributeName]; 
 	EndDo;
 		
-
 	//Tabular section
 	For Each TS In MD.TabularSections Do
 		IF ObjectRef[TS.Name].Count() = 0 Then Continue; Endif;
 		AttributeName = TS.Name; 
 		
-		Rows = TS.Rows;
+		Rows = VT.Rows;
 		Row = Rows.Find(AttributeName, "Attribute");
 		If Row = Undefined Then
 			Row = Rows.Add();
@@ -135,7 +142,7 @@ Procedure AddToTree(VT, ObjectRef)
 		//Rows tabular section
 		RowsSet = Row.Rows;
 		For Each RowTS In ObjectRef[TS.Name] Do
-			NumberRow = "Row # " + Format(RowTS.NumberRow, "ND=4; NLZ=; NG=");
+			NumberRow = "Row # " + Format(RowTS.LineNumber, "ND=4; NLZ=; NG=");
 			RowSet = RowsSet.Find(NumberRow, "Attribute");
 			If RowSet = Undefined Then 
 				RowSet = RowsSet.Add();
@@ -144,15 +151,15 @@ Procedure AddToTree(VT, ObjectRef)
 			
 			//Values of the rows tabular section
 			RowsRS = RowSet.Rows;
-			For Each Attribute In MD.TabularSections[MD.Name].Attribute Do
+			For Each Attribute In MD.TabularSections[TS.Name].Attributes Do
 				AttributeName = Attribute.Name; 
 
 				RowRS = RowsRS.Find(AttributeName, "Attribute");
 				If RowRS = Undefined Then
 					RowRS = RowsRS.Add();
-					RowRS.Name = AttributeName;
+					RowRS.Attribute = AttributeName;
 				EndIf;
-				Value = RowRS[AttributeName];
+				Value = RowTS[AttributeName];
 				RowRS[GUUID] = ?(ValueIsFilled(Value), Value, Undefined);
 			EndDo;
 
@@ -264,6 +271,7 @@ Procedure CheckoutArea(Area)
 	Area.CurrentArea.BackColor = StyleColors.ReportHeaderBackColor;
 EndProcedure
 
+
 &AtServer
 Procedure GenerateAtServer()
 	GeneratePrintFormObjectsComparison();
@@ -288,4 +296,6 @@ Procedure ClearObjectsAddedToTheComparisonAtServer()
 EndProcedure
 
 #EndRegion
+
+
 
