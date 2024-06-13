@@ -1,3 +1,169 @@
+
+#Region FormEventHandlers
+
+&AtServer
+Procedure OnCreateAtServer(Cancel, StandardProcessing)
+	ShowSynonym = True;
+	SetFormConditionalAppearance();
+	
+	FillConstantsTable();
+
+	UT_Forms.CreateWriteParametersAttributesFormOnCreateAtServer(ThisObject,
+		Items.GroupWriteParametrs);
+	UT_Common.ToolFormOnCreateAtServer(ThisObject, Cancel, StandardProcessing);
+
+EndProcedure
+
+#EndRegion
+
+#Region FormHeaderItemsEventHandlers
+
+
+&AtClient
+Procedure SearchBarOnChange(Item)
+	ProcessSearchConstant();
+EndProcedure
+
+&AtClient
+Procedure SearchBarClearing(Item, StandardProcessing)
+	ProcessSearchConstant();
+EndProcedure
+
+&AtClient
+Procedure ShowSynonymOnChange(Item)
+	Items.ConstantsTableConstantSynonym.Visible = ShowSynonym;	
+EndProcedure
+
+#EndRegion
+
+#Region FormTableItemsEventHandlers_ConstantsTable
+
+&AtClient
+Procedure ConstantsTableConstantValueStartChoice(Item, ChoiceData, StandardProcessing)
+	CurrentDate = Items.ConstantsTable.CurrentData;
+	Если CurrentDate = Undefined Then
+		Return;
+	EndIf;
+
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																			Item,
+																			"ConstantValue");
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentDate;
+	HandlerParameters.Value = CurrentDate.ConstantValue;
+	HandlerParameters.CurrentDescriptionValueTypes = CurrentDate.TypeDescription;
+
+	CallbackParameters = New Structure;
+	CallbackParameters.Insert("CurrentRow", CurrentDate.GetID());
+
+	HandlerParameters.CallBackChoiceNotificationsEnding = New CallbackDescription("ConstantsTableConstantValueStartSelectionFinish",
+		ThisObject, CallbackParameters);
+	
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
+EndProcedure
+
+&AtClient
+Procedure ConstantsTableConstantValueOnChange(Item)
+	CurrentDate = Items.ConstantsTable.CurrentData;
+	Если CurrentDate = Undefined Then
+		Return;
+	EndIf;
+	
+	ConstantOnChange(CurrentDate);
+EndProcedure
+
+&AtClient
+Procedure ConstantsTableConstantValueClearing(Item, StandardProcessing)
+	CurrentDate = Items.ConstantsTable.CurrentData;
+	Если CurrentDate = Undefined Then
+		Return;
+	EndIf;
+
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																			Item,
+																			"ConstantValue");
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentDate;
+	HandlerParameters.CurrentDescriptionValueTypes = CurrentDate.TypeDescription;
+
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+	
+	ConstantOnChange(CurrentDate);
+EndProcedure
+
+
+#EndRegion
+
+
+#Region FormCommandsEventHandlers
+
+
+&AtClient
+Procedure Reread(Command)
+	If IsChangedConstants() Then
+		ShowQueryBox(New NotifyDescription("RereadEnd", ThisObject),
+		NStr("en = 'Some constants has changed. Write changed before rereading?'; ru = 'Есть измененные константы. Произвести запись перед чтением?'"), QuestionDialogMode.YesNoCancel);
+	Иначе
+		ReadConstants();
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure WriteConstants(Command)
+	WriteAtServer();
+EndProcedure
+
+//@skip-warning 
+&AtClient
+Procedure Attachable_SetWriteSettings(Command)
+	UT_CommonClient.EditWriteSettings(ThisObject);
+EndProcedure
+
+&AtClient
+Procedure Attachable_ExecuteToolsCommonCommand(Command) Export
+	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
+EndProcedure
+#EndRegion
+
+#Region Private
+
+
+&AtClient
+Procedure ConstantsTableConstantValueStartSelectionFinish(Result, AdditionalParameters) Export
+	CurrentDate = ConstantsTable.FindByID(AdditionalParameters.CurrentRow);
+	Если CurrentDate = Undefined Then
+		Return;
+	EndIf;
+	
+	ConstantOnChange(CurrentDate);
+EndProcedure
+
+&AtServer
+Procedure SetFormConditionalAppearance()
+	ConditionalAppearance.Items.Clear();
+	
+	// Highlight changed constants with color
+	NewItemAppearance = ConditionalAppearance.Items.Add();
+	NewItemAppearance.Use = True;
+	
+	UT_CommonClientServer.SetFilterItem(NewItemAppearance.Filter,
+															"ConstantsTable.IsChanged",
+															True);
+	
+	NewItemAppearance.Appearance.SetParameterValue("BackColor", WebColors.PaleTurquoise);
+	
+	AppearanceField = NewItemAppearance.Fields.Items.Add();
+	AppearanceField.Use = True;
+	AppearanceField.Field = New DataCompositionField("ConstantsTable");
+EndProcedure
+
+&AtClient
+Procedure ConstantOnChange(ConstantRow)
+	ConstantRow.IsChanged = True;
+EndProcedure
+
 &AtServer
 Procedure FillConstantsTable()
 
@@ -6,19 +172,14 @@ Procedure FillConstantsTable()
 	ConstantsTable.Clear();
 	
 	For Each Constant In Metadata.Constants Do
+		
 		NewRow = ConstantsTable.Add();
 		NewRow.ConstantName = Constant.Name;
 		NewRow.ConstantSynonym = Constant.Synonym;
 		NewRow.TypeDescription = Constant.Type;
 		NewRow.ConstantValue = Constants[Constant.Name].Get();
-		NewRow.HasValueStorage = Constant.Type.ContainsType(Type("ValueStorage"));
-
-		ConstantValueType = New TypeDescription(Constant.Type, , "ValueStorage");
-		if ConstantValueType.Types().Count() = 0 Then
-			NewRow.ValueStorageOnly = True;
-		EndIf;
+		
 	EndDo;
-	
 	
 	// Fill constants functional options
 	For Each FunctionalOption In Metadata.FunctionalOptions do
@@ -30,7 +191,7 @@ Procedure FillConstantsTable()
 		SearchStructure.Insert("ConstantName",FunctionalOption.Location.Name);
 
 		FoundRows = ConstantsTable.FindRows(SearchStructure);
-		If FoundRows.Количество() = 0 Then
+		If FoundRows.Count() = 0 Then
 			Continue;
 		EndIf;
 
@@ -39,103 +200,8 @@ Procedure FillConstantsTable()
 	EndDo;
 
 EndProcedure
-&AtServer
-Procedure PutConstantItemsOnForm()
-	AddedAtrubutesArray = New Array;
 
-	For each CurrentConstant in ConstantsTable Do
-		ConstantValueType = CurrentConstant.TypeDescription;
-		If CurrentConstant.HasValueStorage И CurrentConstant.ValueStorageOnly Then
-			ConstantValueType = New TypeDescription("String");
-		EndIf;
 
-		NewAttribute = New FormAttribute(CurrentConstant.ConstantName, ConstantValueType, "",
-			CurrentConstant.ConstantSynonym, True);
-		AddedAtrubutesArray.Add(NewAttribute);
-	EndDo;
-
-	ChangeAttributes(AddedAtrubutesArray, );
-
-	// Put on form Constant with description
-	ConstantsFormGroup = Items.GroupConstantsList;
-
-	For each CurrentConstant In ConstantsTable Do
-		// Create form group for each Constant , for set up UI attributes
-		GroupDescription = UT_Forms.FormGroupNewDescription();
-		GroupDescription.Name = "Group_" + CurrentConstant.ConstantName;
-		GroupDescription.Title = CurrentConstant.ConstantSynonym;
-		GroupDescription.GroupType = ChildFormItemsGroup.Horizontal;
-		GroupDescription.ShowTitle = False;
-		GroupDescription.Parent = ConstantsFormGroup;
-
-		CurrentConstantGroup = UT_Forms.CreateGroupByDescription(ThisObject, GroupDescription);
-		CurrentConstantGroup.ThroughAlign=ThroughAlign.Use;
-		CurrentConstantGroup.HorizontalStretch	=True;
-				
-		// Constant Ui item decoration settings
-		ItemDescription = UT_Forms.ItemAttributeNewDescription();
-		ItemDescription.CreateAttribute = False;
-		ItemDescription.CreateItem = True;
-		ItemDescription.Name = "Title_" + CurrentConstant.ConstantName;
-		ItemDescription.Title=ConstantItemTitle(CurrentConstant.ConstantName, CurrentConstant.ConstantSynonym,
-			ShowSynonym);
-		ItemDescription.ItemParent = CurrentConstantGroup;
-		ItemDescription.Properties.FieldType =Type("FormDecoration");
-		ItemDescription.Properties.Insert("Type", FormDecorationType.Label);
-		ItemDescription.Properties.Insert("HorizontalStretch", True);
-
-		UT_Forms.CreateItemByDescription(ThisObject, ItemDescription);
-		
-		// Item for Editing Constant
-		ItemDescription = UT_Forms.ItemAttributeNewDescription();
-		ItemDescription.CreateAttribute = False;
-		ItemDescription.CreateItem = True;
-		ItemDescription.Name = CurrentConstant.ConstantName;
-		ItemDescription.DataPath = CurrentConstant.ConstantName;
-		ItemDescription.Insert("AttributePath", CurrentConstant.ConstantName);
-		ItemDescription.ItemParent = CurrentConstantGroup;
-
-		If (CurrentConstant.TypeDescription.Types().Count() = 1 И CurrentConstant.TypeDescription.ContainsType(Type(
-			"Boolean"))) Then
-			ItemDescription.Properties.Insert("Type", FormFieldType.CheckBoxField);
-		EndIf;
-		If CurrentConstant.HasValueStorage Then
-			ItemDescription.Properties.Insert("Type", FormFieldType.LabelField);
-			ItemDescription.Properties.Insert("Hyperlink", True);
-			ItemDescription.Actions.Insert("Click", "ConstantClick");
-
-		EndIf;
-		ItemDescription.Properties.Insert("TitleLocation", FormItemTitleLocation.None);
-		ItemDescription.Properties.Insert("HorizontalStretch", True);
-
-		ItemDescription.Actions.Insert("OnChange", "ConstantOnChange");
-
-		UT_Forms.CreateItemByDescription(ThisObject, ItemDescription);
-	EndDo;
-
-EndProcedure
-
-&AtServer
-Procedure OnCreateAtServer(Cancel, StandardProcessing)
-	ShowSynonym=True;
-
-	FillConstantsTable();
-	PutConstantItemsOnForm();
-	SetConstantValuesToFormAttribute();
-
-	UT_Forms.CreateWriteParametersAttributesFormOnCreateAtServer(ThisObject,
-		Items.GroupWriteParametrs);
-	UT_Common.ToolFormOnCreateAtServer(ThisObject,Cancel,StandardProcessing);
-
-EndProcedure
-
-&AtServer
-Procedure SetConstantValuesToFormAttribute ()
-	For each CurrentConstant In ConstantsTable Do
-		ThisObject[CurrentConstant.ConstantName] = CurrentConstant.ConstantValue;
-		Items["Group_" + CurrentConstant.ConstantName].BackColor = New Color;
-	EndDo;
-EndProcedure
 
 &AtServer
 Procedure WriteAtServer()
@@ -144,23 +210,18 @@ Procedure WriteAtServer()
 		If Не ConstantRow.IsChanged Then
 			Continue;
 		EndIf;
-		If ConstantRow.HasValueStorage Then
-			Continue;
-		EndIf;
 
 		ConstantManager = Constants[ConstantRow.ConstantName].CreateValueManager();
 		ConstantManager.Read();
-		ConstantManager.Value = ThisObject[ConstantRow.ConstantName];
+		ConstantManager.Value = ConstantRow.ConstantValue;
 
 		If UT_Common.WriteObjectToDB(ConstantManager,
 			UT_CommonClientServer.FormWriteSettings(ThisObject)) Then
 			ConstantRow.IsChanged = False;
 
-			// Set color of changed Constant to it's Ui Group
-			ItemGroup = Items["Group_" + ConstantRow.ConstantName];
-			ItemGroup.BackColor = New Color;
 		Else
 			IsSuccessfully = False;
+			
 		EndIf;
 
 	EndDo;
@@ -173,32 +234,21 @@ EndProcedure
 &AtServer
 Procedure ReadConstants()
 	FillConstantsTable();
-	SetConstantValuesToFormAttribute();
 	Modified = False;
 EndProcedure
 
 &AtClient
 Function IsChangedConstants()
 	IsChanged = False;
-	For each ConstantRow In ConstantsTable Do
+	For Each ConstantRow In ConstantsTable Do
 		If ConstantRow.IsChanged Then
 			IsChanged = True;
 			Break;
 		EndIf;
 	EndDo;
 
-	Возврат IsChanged;
+	Return IsChanged;
 EndFunction
-
-&AtClient
-Procedure Reread(Command)
-	If IsChangedConstants() Then
-		ShowQueryBox(New NotifyDescription("RereadEnd", ThisObject),
-		NStr("en = 'Some constants has changed. Write changed before rereading?'; ru = 'Есть измененные константы. Произвести запись перед чтением?'"), QuestionDialogMode.YesNoCancel);
-	Иначе
-		ReadConstants();
-	EndIf;
-EndProcedure
 
 &AtClient
 Procedure RereadEnd(Result, AdditionalParameters) Export
@@ -212,126 +262,24 @@ Procedure RereadEnd(Result, AdditionalParameters) Export
 EndProcedure
 
 &AtClient
-Procedure WriteConstants(Command)
-	WriteAtServer();
-EndProcedure
-
-&AtClient
-Procedure ProcessConstantsSearch(SearchStringTransfered)
-	SearchString =TrimAll(Lower(SearchStringTransfered));
-	For each CurrentRow In ConstantsTable Do
-		ConstantIsVisible=True;
-		If ValueIsFilled(SearchString) Then
-			ConstantIsVisible=StrFind(Lower(CurrentRow.ConstantName), SearchString) > 0 Или StrFind(
-				Lower(CurrentRow.ConstantSynonym), SearchString) > 0;
-		EndIf;
-
-		Items["Group_" + CurrentRow.ConstantName].Visible=ConstantIsVisible;
-		Items["Title_" + CurrentRow.ConstantName].Title=ConstantItemTitle(
-			CurrentRow.ConstantName, CurrentRow.ConstantSynonym, ShowSynonym, SearchString);
+Procedure ProcessSearchConstant()
+	Search = TrimAll(Lower(SearchBar));
+	
+	If Not ValueIsFilled(Search) Then
+		Items.ConstantsTable.RowFilter = Undefined;
+	EndIf;	
+	
+	RowFilter = New Structure;
+	RowFilter.Insert("Found", True);
+	Items.ConstantsTable.RowFilter = New FixedStructure(RowFilter);
+	
+	For Each CurrentRowConstants In ConstantsTable Do
+		CurrentRowConstants.Found = StrFind(Lower(CurrentRowConstants.ConstantName), Search) > 0
+								   Or StrFind(Lower(CurrentRowConstants.ConstantSynonym), Search) > 0;
 	EndDo;
 
 EndProcedure
 
-&AtClient
-Procedure SearchBarEditTextChange(Item, Text, StandardProcessing)
-	SearchBar=Text;
-	ProcessConstantsSearch(Text);
-EndProcedure
 
-&AtClientAtServerNoContext
-Function ConstantItemTitle(ConstantName, ConstantSynonym, ShowSynonym, SearchString = "")
-	Title = ConstantName;
-	If ShowSynonym Then
-		Title = Title + ": (" + ConstantSynonym + ")";
-	EndIf;
+#EndRegion
 
-	If ValueIsFilled(SearchString) Then
-		OriginalTitle=Title;
-		SearchTitle=Lower(OriginalTitle);
-		NewTitle="";
-		SearchStrLen=StrLen(SearchString);
-
-		CharPosition=StrFind(SearchTitle, SearchString);
-		While CharPosition > 0 Do
-			FixedSearchString=New FormattedString(Mid(OriginalTitle, CharPosition,
-				SearchStrLen), New Font(, , , True), WebColors.Red);
-			NewTitle=New FormattedString(NewTitle, Left(OriginalTitle, CharPosition - 1),
-				FixedSearchString);
-
-			OriginalTitle=Mid(OriginalTitle, CharPosition + SearchStrLen);
-			SearchTitle=Lower(OriginalTitle);
-
-			CharPosition=StrFind(SearchTitle, SearchString);
-
-		EndDo;
-
-		If ValueIsFilled(NewTitle) Then
-			NewTitle=New FormattedString (NewTitle, OriginalTitle);
-			Title=NewTitle;
-		EndIf;
-	EndIf;
-	Возврат Title;
-EndFunction
-
-&AtClient
-Procedure ShowSynonymOnChange(Item)
-	For each CurrentConstant In ConstantsTable Do
-		Items["Title_" + CurrentConstant.ConstantName].Title=ConstantItemTitle(
-			CurrentConstant.ConstantName, CurrentConstant.ConstantSynonym, ShowSynonym, Lower(TrimAll(SearchBar)));
-	EndDo;
-EndProcedure
-
-&AtClient
-Procedure SearchBarClearing(Item, StandardProcessing)
-	ProcessConstantsSearch("");
-EndProcedure
-
-
-
-//@skip-warning 
-&AtClient
-Procedure Attachable_SetWriteSettings(Command)
-	UT_CommonClient.EditWriteSettings(ThisObject);
-EndProcedure
-
-//@skip-warning
-&AtClient
-Procedure ConstantClick(Item, StandardProcessing)
-	StandardProcessing=False;
-
-	ConstantName = Item.Имя;
-
-	SearchStructure = New Structure;
-	SearchStructure.Insert("ConstantName", ConstantName);
-
-	FindedRows = ConstantsTable.FindRows(SearchStructure);
-	If FindedRows.Count() = 0 Then
-		Return;
-	EndIf;
-
-	UT_CommonClient.EditValueStorage(ThisObject, FindedRows[0].ConstantValue);
-EndProcedure
-
-&AtClient
-Procedure Attachable_ExecuteToolsCommonCommand(Command) Export
-	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
-EndProcedure
-
-//@skip-warning
-&AtClient
-Procedure ConstantOnChange(Item)
-	ConstantName = Item.Name;
-
-	// Set color of changed Constant at Form
-	ItemGroup = Items["Group_" + ConstantName];
-	ItemGroup.BackColor = WebColors.PaleTurquoise;
-
-	SearchStructure = New Structure;
-	SearchStructure.Insert("ConstantName", ConstantName);
-
-	FindedRows = ConstantsTable.FindRows(SearchStructure);
-	For each Constant In FindedRows Do
-		Constant.IsChanged = True;
-	EndDo;
-EndProcedure
