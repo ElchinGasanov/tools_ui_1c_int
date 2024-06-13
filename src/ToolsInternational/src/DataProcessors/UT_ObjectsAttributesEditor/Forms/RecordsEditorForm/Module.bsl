@@ -1,3 +1,6 @@
+
+#Region Variables
+
 &AtClient
 Var mCloseFormWithoutQuestion;
 
@@ -9,20 +12,11 @@ Var mRegistersTableCurrRowOld;
 
 &AtClient
 Var mLastUUID;
-&AtClient
-Procedure vShowMessageBox(MessageText)
-	ShowMessageBox( , MessageText, 20);
-EndProcedure
 
-&AtClient
-Procedure vShowQueryBox(ProcedureName, QueryText, AdditionalParameters = Undefined)
-	ShowQueryBox(New NotifyDescription(ProcedureName, ThisForm, AdditionalParameters), QueryText,
-		QuestionDialogMode.YesNoCancel, 20);
-EndProcedure
-&AtServer
-Function vGetDataProcessor()
-	Return FormAttributeToValue("Object");
-EndFunction
+#EndRegion
+
+#Region FormEventHandlers
+
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	mObjectRef = Parameters.mObjectRef;
@@ -56,14 +50,6 @@ Procedure BeforeCloseAtClient(Cancel, Exit, WarningText, StandardProcessing)
 EndProcedure
 
 &AtClient
-Procedure vCloseForm(QueryResult, AdditionalParameters = Undefined) Export
-	If QueryResult = DialogReturnCode.Yes Then
-		mCloseFormWithoutQuestion = True;
-		ThisForm.Close();
-	EndIf;
-EndProcedure
-
-&AtClient
 Procedure OnOpen(Cancel)
 	mRegistersTableCurrRow = Undefined;
 	mRegistersTableCurrRowOld = Undefined;
@@ -71,10 +57,13 @@ Procedure OnOpen(Cancel)
 	AttachIdleHandler("vAfterOpen", 0.1, True);
 EndProcedure
 
-&AtClient
-Procedure vAfterOpen() Export
-	_Refresh(Undefined);
-EndProcedure
+
+
+
+#EndRegion
+
+#Region FormHeaderItemsEventHandlers
+
 &AtClient
 Procedure mObjectRefOnChange(Item)
 	_Refresh(Undefined);
@@ -82,31 +71,137 @@ EndProcedure
 
 &AtClient
 Procedure mObjectRefStartChoice(Item, ChoiceData, StandardProcessing)
-	If mObjectRef = Undefined Then
-		StandardProcessing = False;
-		ParamStruct = New Structure("CloseOnOwnerClose, MetadataGroups", True, "Documents");
-		OpenForm("CommonForm.UT_MetadataSelectionForm", ParamStruct, Item, , , , ,
-			FormWindowOpeningMode.LockOwnerWindow);
-	Else
-		Array = New Array;
-		Array.Add(TypeOf(mObjectRef));
-		Item.TypeRestriction = New TypeDescription(Array);
-	EndIf;
+	AvailableTypesSets = UT_CommonClientServer.AvailableEditingTypesSets();
+	
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																			Item,
+																			"mObjectRef");
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.Value = mObjectRef;
+	HandlerParameters.StructureValueStorage = ThisObject;
+	HandlerParameters.TypesSet = AvailableTypesSets.References;
+	HandlerParameters.CallBackChoiceNotificationsEnding = New CallbackDescription("mObjectReferenceStartSelectionEndSelectionValues",
+		ThisObject);
+
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
 EndProcedure
 
 &AtClient
 Procedure mObjectRefClearing(Item, StandardProcessing)
-	Item.TypeRestriction = New TypeDescription;
-EndProcedure
-&AtClient
-Function vCheckRecorder()
-	If Not ValueIsFilled(mObjectRef) Then
-		vShowMessageBox(NSTR("ru = 'Не задан объект для записи движений!';en = 'Object for write records is not set.'"));
-		Return False;
-	EndIf;
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																			Item,
+																			"mObjectRef");
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = ThisObject;
 
-	Return True;
-EndFunction
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+EndProcedure
+
+&AtClient
+Procedure _ValueToFillStartChoice(Item, ChoiceData, StandardProcessing)
+	EventProcessingOptions = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																											   Item,
+																											   "_ValueToFill");
+																											   
+	EventProcessingOptions.AvailableContainer = False;																											   
+	EventProcessingOptions.Значение = _ValueToFill;
+	EventProcessingOptions.StructureValueStorage = ThisObject;
+	
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(EventProcessingOptions, StandardProcessing);
+EndProcedure
+
+&AtClient
+Procedure _ValueToFillClearing(Item, StandardProcessing)
+	EventProcessingOptions = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																					Item,
+																					"_ValueToFill");
+
+	EventProcessingOptions.AvailableContainer = False;																											   
+	EventProcessingOptions.StructureValueStorage = ThisObject;
+
+	UT_CommonClient.FormFieldClear(EventProcessingOptions, StandardProcessing);
+EndProcedure
+
+
+
+#EndRegion
+
+#Region FormTableItemsEventHandlers_TabRegisters
+
+&AtClient
+Procedure _TabRegistersOnActivateRow(Item)
+	CurrRow = Item.CurrentRow;
+	If CurrRow <> mRegistersTableCurrRow Then
+		mRegistersTableCurrRowOld = mRegistersTableCurrRow;
+		mRegistersTableCurrRow = CurrRow;
+		AttachIdleHandler("vOnActivateRegistersTableRow", 0.1, True);
+	EndIf;
+EndProcedure
+
+
+#EndRegion
+
+#Region FormTableItemsEventHandlersRecordsSet
+
+&AtClient
+Procedure Attachable_RecordsAttributeOnChange(Item)
+	CurrentDate = Items._TabRegisters.CurrentData;
+	If CurrentDate <> Undefined Then
+		CurrentDate.Changed = True;
+		CurrentDate.Write = True;
+		CurrentDate.RecordCount = ThisForm[Item.Name].Count();
+		CurrentDate.RecordsExists = (CurrentDate.RecordCount <> 0);
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure Attachable_RecordsAttributeSetStartChoice(Item, ChosenData, StandardProcessing)
+	TableFormElement = Item.Parent;
+		
+	CurrentDate = TableFormElement.CurrentData;
+	If CurrentDate = Undefined Then
+		Return;
+	EndIf;
+	ColumnName = Mid(Item.Name, StrLen(TableFormElement.Name) + 2);
+	
+
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																				Item,
+																				ColumnName);
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentDate;
+	HandlerParameters.Value = CurrentDate[ColumnName];
+	HandlerParameters.CurrentDescriptionValueTypes = Item.AvailableTypes;
+	
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
+EndProcedure
+
+&AtClient
+Procedure Attachable_RecordsAttributeSetClearing(Item, StandardProcessing)
+	TableFormElement = Item.Parent;
+		
+	CurrentDate = TableFormElement.CurrentData;
+	If CurrentDate = Undefined Then
+		Return;
+	EndIf;
+	ColumnName = Mid(Item.Name, StrLen(TableFormElement.Name) + 2);
+
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																				Item,
+																				ColumnName);
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentDate;
+	HandlerParameters.CurrentDescriptionValueTypes = Item.AvailableTypes;
+
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+EndProcedure
+
+
+#EndRegion
+
+#Region FormCommandsEventHandlers
 
 &AtClient
 Procedure _OpenInNewWindow(Command)
@@ -141,13 +236,6 @@ Procedure _Write(Command)
 
 	vShowQueryBox("_WriteNext", StrTemplate(NSTR("ru = 'Отмеченные регистры (%1 шт) будут записаны в базу. Продолжить?';en = 'Selected registers  (%1 pcs) will be written to database. Do you want to continue?'"),
 		Value));
-EndProcedure
-
-&AtClient
-Procedure _WriteNext(QueryResult, AdditionalParameters) Export
-	If QueryResult = DialogReturnCode.Yes Then
-		vWrite();
-	EndIf;
 EndProcedure
 
 &AtClient
@@ -193,30 +281,6 @@ Procedure _ClearRecords(Command)
 EndProcedure
 
 &AtClient
-Procedure _ClearRecordsNext(QueryResult, AdditionalParameters) Export
-	If QueryResult = DialogReturnCode.Yes Then
-		SelectedRows = Items._TabRegisters.SelectedRows;
-		For Each Item In SelectedRows Do
-			RowData = _TabRegisters.FindByID(Item);
-			If RowData <> Undefined Then
-				AttributeName = vGetAttributeName(RowData.FullName);
-
-				Try
-					TabData = ThisForm[AttributeName];
-					If TabData.Count() <> 0 Then
-						TabData.Clear();
-						RowData.Write = True;
-						RowData.Changed = True;
-						RowData.RecordsExists = False;
-						RowData.RecordCount = 0;
-					EndIf;
-				Except
-				EndTry;
-			EndIf;
-		EndDo;
-	EndIf;
-EndProcedure
-&AtClient
 Procedure _RefreshSet(Command)
 	CurrData = Items._TabRegisters.CurrentData;
 	If CurrData <> Undefined Then
@@ -257,18 +321,6 @@ Procedure _WriteSet(Command)
 EndProcedure
 
 &AtClient
-Procedure _WriteSetNext(QueryResult, AdditionalParameters) Export
-	If QueryResult = DialogReturnCode.Yes Then
-		CurrData = Items._TabRegisters.CurrentData;
-		If CurrData <> Undefined Then
-			If vWriteRecordSet(CurrData.RegisterType, CurrData.Name) Then
-				_RefreshSet(Undefined);
-			EndIf;
-		EndIf;
-	EndIf;
-EndProcedure
-
-&AtClient
 Procedure _SwitchRecordsActivity(Command)
 	CurrData = Items._TabRegisters.CurrentData;
 	If CurrData <> Undefined Then
@@ -279,7 +331,7 @@ Procedure _SwitchRecordsActivity(Command)
 				Str.Active = Not Str.Active;
 			EndDo;
 
-			RecordSetOnChange(Items[AttributeName]);
+			Attachable_RecordsAttributeOnChange(Items[AttributeName]);
 		EndIf;
 	EndIf;
 EndProcedure
@@ -342,6 +394,180 @@ Procedure _ShowValueType(Command)
 
 	_CurrentFieldValueType = TypeName;
 EndProcedure
+
+&AtClient
+Procedure _FillCurrentColumnData(Command)
+	CurrData = Items._TabRegisters.CurrentData;
+	If CurrData <> Undefined Then
+		AttributeName = vGetAttributeName(CurrData.FullName);
+		CurrTab = ThisForm[AttributeName];
+
+		If CurrTab.Count() > 0 Then
+
+			pValue = _ValueToFill;
+
+			CurrData.Write = True;
+			CurrData.Changed = True;
+
+			CurrTabFI = Items[AttributeName];
+			CurrFieldFI = CurrTabFI.CurrentItem;
+
+			pField = Mid(CurrFieldFI.Name, StrLen(AttributeName) + 2);
+
+			If _ProcessOnlySelectedRowsOnFilling Then
+				For Each Item In CurrTabFI.SelectedRows Do
+					Str = CurrTab.FindByID(Item);
+					Str[pField] = pValue;
+				EndDo;
+			Else
+				For Each Str In CurrTab Do
+					Str[pField] = pValue;
+				EndDo;
+			EndIf;
+		EndIf;
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure _LoadOtherDocumentRecords(Command)
+	If Not vCheckRecorder() Then
+		Return;
+	EndIf;
+
+	ParamStruct = New Structure("CloseOnOwnerClose, MetadataGroups", True, "Documents");
+	OpenForm("CommonForm.UT_MetadataSelectionForm", ParamStruct, ThisForm, , , , ,
+		FormWindowOpeningMode.LockOwnerWindow);
+EndProcedure
+
+&AtClient
+Procedure _InsertUUID(Command)
+	CurrTable = ThisForm.CurrentItem;
+
+	If CurrTable.Name = "_ValueToFill" Then
+		pStruct = New Structure("Table", CurrTable.Name);
+		ShowInputString(New NotifyDescription("vProcessInput_UUID", ThisForm, pStruct), mLastUUID,
+			NStr("ru = 'Введите уникальный идентификатор';en = 'Enter a unique identifier (UUID)'"), , False);
+		Return;
+	ElsIf TypeOf(CurrTable) <> Тип("FormTable") Then
+		Return;
+	EndIf;
+
+	CurrColumn = CurrTable.CurrentItem;
+	If CurrColumn = Undefined Or CurrColumn.ReadOnly Then
+		Return;
+	EndIf;
+
+	Try
+		pAvailableTypes = CurrColumn.AvailableTypes.Types();
+		If pAvailableTypes.Count() <> 0 And pAvailableTypes.Find(Type("UUID")) <> 0 Then
+			Return;
+		EndIf;
+	Except
+	EndTry;
+
+	CurrData = Items[CurrTable.Name].CurrentData;
+	If CurrData <> Undefined Then
+		pStruct = New Structure("Table", CurrTable.Name);
+
+		pStruct.Insert("Field", Mid(CurrColumn.Name, StrLen(CurrTable.Name) + 2));
+
+		ShowInputString(New NotifyDescription("vProcessInput_UUID", ThisForm, pStruct), mLastUUID,
+			NStr("ru = 'Введите уникальный идентификатор';en = 'Enter a unique identifier (UUID)'"), , False);
+	EndIf;
+EndProcedure
+
+
+#EndRegion
+
+#Region Private
+
+&AtClient
+Procedure mObjectReferenceStartSelectionEndSelectionValues(Result, AdditionalParameters) Export
+	_Refresh(Undefined);
+EndProcedure
+
+
+&AtClient
+Procedure vShowMessageBox(MessageText)
+	ShowMessageBox( , MessageText, 20);
+EndProcedure
+
+&AtClient
+Procedure vShowQueryBox(ProcedureName, QueryText, AdditionalParameters = Undefined)
+	ShowQueryBox(New NotifyDescription(ProcedureName, ThisForm, AdditionalParameters), QueryText,
+		QuestionDialogMode.YesNoCancel, 20);
+EndProcedure
+&AtServer
+Function vGetDataProcessor()
+	Return FormAttributeToValue("Object");
+EndFunction
+
+&AtClient
+Procedure vCloseForm(QueryResult, AdditionalParameters = Undefined) Export
+	If QueryResult = DialogReturnCode.Yes Then
+		mCloseFormWithoutQuestion = True;
+		ThisForm.Close();
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure vAfterOpen() Export
+	_Refresh(Undefined);
+EndProcedure
+&AtClient
+Function vCheckRecorder()
+	If Not ValueIsFilled(mObjectRef) Then
+		vShowMessageBox(NSTR("ru = 'Не задан объект для записи движений!';en = 'Object for write records is not set.'"));
+		Return False;
+	EndIf;
+
+	Return True;
+EndFunction
+
+&AtClient
+Procedure _WriteNext(QueryResult, AdditionalParameters) Export
+	If QueryResult = DialogReturnCode.Yes Then
+		vWrite();
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure _ClearRecordsNext(QueryResult, AdditionalParameters) Export
+	If QueryResult = DialogReturnCode.Yes Then
+		SelectedRows = Items._TabRegisters.SelectedRows;
+		For Each Item In SelectedRows Do
+			RowData = _TabRegisters.FindByID(Item);
+			If RowData <> Undefined Then
+				AttributeName = vGetAttributeName(RowData.FullName);
+
+				Try
+					TabData = ThisForm[AttributeName];
+					If TabData.Count() <> 0 Then
+						TabData.Clear();
+						RowData.Write = True;
+						RowData.Changed = True;
+						RowData.RecordsExists = False;
+						RowData.RecordCount = 0;
+					EndIf;
+				Except
+				EndTry;
+			EndIf;
+		EndDo;
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure _WriteSetNext(QueryResult, AdditionalParameters) Export
+	If QueryResult = DialogReturnCode.Yes Then
+		CurrData = Items._TabRegisters.CurrentData;
+		If CurrData <> Undefined Then
+			If vWriteRecordSet(CurrData.RegisterType, CurrData.Name) Then
+				_RefreshSet(Undefined);
+			EndIf;
+		EndIf;
+	EndIf;
+EndProcedure
+
 
 &AtClient
 Procedure vShowValueVS(Value)
@@ -611,7 +837,7 @@ Procedure vCreateRecordSetsAttributes(CreateAttributes = True)
 
 		VTItem = ThisForm.Items.Add(AttributeName, Type("FormTable"), NewPage);
 		VTItem.DataPath = AttributeName;
-		VTItem.SetAction("OnChange", "RecordSetOnChange");
+		VTItem.SetAction("OnChange", "Attachable_RecordsAttributeOnChange");
 
 		Item = ThisForm.Items.Add("_" + AttributeName + "_SwitchRecordsActivity", Type("FormButton"),
 			VTItem.CommandBar);
@@ -650,10 +876,10 @@ Procedure vCreateRecordSetsAttributes(CreateAttributes = True)
 			Item.Type = FormFieldType.InputField;
 			Item.AvailableTypes = Column.ValueType;
 			Item.ClearButton = True;
-
-			If Column.ValueType.ContainsType(TypeVS) Then // version 033
-				Item.ReadOnly = True;
-			EndIf;
+			Item.ChoiceButton = True;
+			
+			Item.SetAction("StartChoice", "Attachable_RecordsAttributeSetStartChoice");
+			Item.SetAction("Clearing", "Attachable_RecordsAttributeSetClearing");
 		EndDo;
 	EndDo;
 EndProcedure
@@ -684,6 +910,10 @@ Procedure vRefresh()
 			_DocumentFullName = MDObject.FullName();
 
 			For Each MDRegisterObject In MDObject.RegisterRecords Do
+				If _TabRegisters.FindRows(New Structure("Name", MDRegisterObject.Name)).Count() Then
+					Continue;
+				EndIf;
+								
 				NR = _TabRegisters.Add();
 				NR.Name = MDRegisterObject.Name;
 				NR.Presentation = MDRegisterObject.Presentation();
@@ -696,26 +926,6 @@ Procedure vRefresh()
 	EndIf;
 
 	vCreateRecordSetsAttributes(CreateAttributes);
-EndProcedure
-&AtClient
-Procedure RecordSetOnChange(Item)
-	CurrData = Items._TabRegisters.CurrentData;
-	If CurrData <> Undefined Then
-		CurrData.Changed = True;
-		CurrData.Write = True;
-		CurrData.RecordCount = ThisForm[Item.Name].Count();
-		CurrData.RecordsExists = (CurrData.RecordCount <> 0);
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure _TabRegistersOnActivateRow(Item)
-	CurrRow = Item.CurrentRow;
-	If CurrRow <> mRegistersTableCurrRow Then
-		mRegistersTableCurrRowOld = mRegistersTableCurrRow;
-		mRegistersTableCurrRow = CurrRow;
-		AttachIdleHandler("vOnActivateRegistersTableRow", 0.1, True);
-	EndIf;
 EndProcedure
 
 &AtClient
@@ -740,60 +950,6 @@ Procedure vOnActivateRegistersTableRow() Export
 		Items.RecordSetsPages.CurrentPage = Items.StrExample;
 	EndIf;
 EndProcedure
-&AtClient
-Procedure _FillCurrentColumnData(Command)
-	CurrData = Items._TabRegisters.CurrentData;
-	If CurrData <> Undefined Then
-		AttributeName = vGetAttributeName(CurrData.FullName);
-		CurrTab = ThisForm[AttributeName];
-
-		If CurrTab.Count() > 0 Then
-
-			pValue = _ValueToFill;
-
-			CurrData.Write = True;
-			CurrData.Changed = True;
-
-			CurrTabFI = Items[AttributeName];
-			CurrFieldFI = CurrTabFI.CurrentItem;
-
-			pField = Mid(CurrFieldFI.Name, StrLen(AttributeName) + 2);
-
-			If _ProcessOnlySelectedRowsOnFilling Then
-				For Each Item In CurrTabFI.SelectedRows Do
-					Str = CurrTab.FindByID(Item);
-					Str[pField] = pValue;
-				EndDo;
-			Else
-				For Each Str In CurrTab Do
-					Str[pField] = pValue;
-				EndDo;
-			EndIf;
-		EndIf;
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure _ValueToFillStartChoice(Item, ChoiceData, StandardProcessing)
-	If _ValueToFill = Undefined Then
-		StandardProcessing = False;
-		ParamStruct = New Structure("CloseOnOwnerClose, TypesToFillValues", True, True);
-		OpenForm("CommonForm.UT_MetadataSelectionForm", ParamStruct, Item, , , , ,
-			FormWindowOpeningMode.LockOwnerWindow);
-	ElsIf TypeOf(_ValueToFill) = Type("UUID") Then
-		StandardProcessing = False;
-	Else
-		Array = New Array;
-		Array.Add(TypeOf(_ValueToFill));
-		Item.TypeRestriction = New TypeDescription(Array);
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure _ValueToFillClearing(Item, StandardProcessing)
-	Item.TypeRestriction = New TypeDescription;
-EndProcedure
-
 
 // Loading records from another document.
 &AtServerNoContext
@@ -811,17 +967,6 @@ Function vGetRecordingPeriod(DocRef, TableName)
 
 	Return ?(Selection.Next(), Selection.Date, Undefined);
 EndFunction
-&AtClient
-Procedure _LoadOtherDocumentRecords(Command)
-	If Not vCheckRecorder() Then
-		Return;
-	EndIf;
-
-	ParamStruct = New Structure("CloseOnOwnerClose, MetadataGroups", True, "Documents");
-	OpenForm("CommonForm.UT_MetadataSelectionForm", ParamStruct, ThisForm, , , , ,
-		FormWindowOpeningMode.LockOwnerWindow);
-EndProcedure
-
 &AtClient
 Procedure ChoiceProcessingAtClient(SelectedValue, ChoiceSource)
 	ShowInputValue(New NotifyDescription("vHandleDocumentSelectionForLoadingRecords", ThisForm),
@@ -885,43 +1030,6 @@ Function vLoadRecordsFromDocumentAtServer(DocRef)
 	Return pResult;
 EndFunction
 &AtClient
-Procedure _InsertUUID(Command)
-	CurrTable = ThisForm.CurrentItem;
-
-	If CurrTable.Name = "_ValueToFill" Then
-		pStruct = New Structure("Table", CurrTable.Name);
-		ShowInputString(New NotifyDescription("vProcessInput_UUID", ThisForm, pStruct), mLastUUID,
-			NStr("ru = 'Введите уникальный идентификатор';en = 'Enter a unique identifier (UUID)'"), , False);
-		Return;
-	ElsIf TypeOf(CurrTable) <> Тип("FormTable") Then
-		Return;
-	EndIf;
-
-	CurrColumn = CurrTable.CurrentItem;
-	If CurrColumn = Undefined Or CurrColumn.ReadOnly Then
-		Return;
-	EndIf;
-
-	Try
-		pAvailableTypes = CurrColumn.AvailableTypes.Types();
-		If pAvailableTypes.Count() <> 0 And pAvailableTypes.Find(Type("UUID")) <> 0 Then
-			Return;
-		EndIf;
-	Except
-	EndTry;
-
-	CurrData = Items[CurrTable.Name].CurrentData;
-	If CurrData <> Undefined Then
-		pStruct = New Structure("Table", CurrTable.Name);
-
-		pStruct.Insert("Field", Сред(CurrColumn.Name, StrLen(CurrTable.Name) + 2));
-
-		ShowInputString(New NotifyDescription("vProcessInput_UUID", ThisForm, pStruct), mLastUUID,
-			NStr("ru = 'Введите уникальный идентификатор';en = 'Enter a unique identifier (UUID)'"), , False);
-	EndIf;
-EndProcedure
-
-&AtClient
 Procedure vProcessInput_UUID(String, pStruct = Undefined) Export
 	If String <> Undefined And Not isBlankString(String) Then
 		Try
@@ -946,3 +1054,7 @@ Procedure vProcessInput_UUID(String, pStruct = Undefined) Export
 		EndIf;
 	EndIf;
 EndProcedure
+
+#EndRegion
+
+

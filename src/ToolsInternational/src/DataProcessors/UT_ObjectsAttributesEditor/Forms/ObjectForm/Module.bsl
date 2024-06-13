@@ -1,3 +1,6 @@
+
+#Region Variables
+
 &AtClient
 Var mTypeVS;
 
@@ -6,10 +9,10 @@ Var mTypeUUID;
 
 &AtClient
 Var mLastUUID;
-&AtServer
-Function vGetDataProcessor()
-	Return FormAttributeToValue("Object");
-EndFunction
+
+#EndRegion
+
+#Region FormEventHandlers
 
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
@@ -48,58 +51,59 @@ Procedure OnOpen(Cancel)
 	RefreshObjectData(Undefined);
 EndProcedure
 
+&AtServer
+Procedure BeforeLoadDataFromSettingsAtServer(Settings)
+//	If Settings["_AdditionalProperties"] = Undefined Then
+//		AdditionalProperties.Clear();
+//	EndIf;
+EndProcedure
+
+&AtServer
+Procedure OnLoadDataFromSettingsAtServer(Settings)
+	//If ValueIsFilled(mObjectRef) Then
+	If mObjectRef <> Undefined Then
+		vRefreshObjectData();
+	EndIf;
+EndProcedure
+
+
+
+
+#EndRegion
+
+#Region FormHeaderItemsEventHandlers
+
 &AtClient
 Procedure mObjectRefStartChoice(Item, ChoiceData, StandardProcessing)
-	UT_CommonClient.FormFieldValueStartChoice(ThisObject, Item, mObjectRef, StandardProcessing,
-		New NotifyDescription("mObjectRefStartChoiceBlankValueChoiceCompletion", ThisObject), "Refs");
+	AvailableTypesSets = UT_CommonClientServer.AvailableEditingTypesSets();
+	
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																			Item,
+																			"mObjectRef");
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.Value = mObjectRef;
+	HandlerParameters.StructureValueStorage = ThisObject;
+	HandlerParameters.TypesSet = AvailableTypesSets.References;
+	HandlerParameters.CallBackChoiceNotificationsEnding = New CallbackDescription("mObjectRefStartChoiceBlankValueChoiceCompletion",
+		ThisObject);
+
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
 EndProcedure
 
 &AtClient
-Procedure mObjectRefStartChoiceBlankValueChoiceCompletion(Result, AdditionalParameters) Export
-	mObjectRef = Result;
-	OnChangeMRef();
+Procedure mObjectRefClearing(Item, StandardProcessing)
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																		Item,
+																		"mObjectRef");
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = ThisObject;
+
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
 EndProcedure
 
 &AtClient
 Procedure mObjectRefOnChange(Item)
 	OnChangeMRef();
-EndProcedure
-
-&AtClient
-Procedure OnChangeMRef()
-	ThisForm.UniqueKey = mObjectRef;
-
-	_URL = "";
-
-	If mObjectRef <> Undefined Then
-		_UUID = "";
-	EndIf;
-
-	RefreshObjectData(Undefined);
-EndProcedure
-
-&AtClient
-Procedure mObjectRefClearing(Item, StandardProcessing)
-	UT_CommonClient.FormFieldClear(ThisObject, Item, StandardProcessing);
-EndProcedure
-
-&AtClient
-Procedure _SelectDeletedObject(Command)
-	ShowInputString(New NotifyDescription("vProcessInputString_ObjectNotFound", ThisForm), ,
-		NSTR("ru = 'Введите битую ссылку: <Объект не найден> ... ';en = 'Enter the broken ref: <Object not found> ...'"), , False);
-EndProcedure
-
-&AtClient
-Procedure vProcessInputString_ObjectNotFound(String, AddParam = Undefined) Export
-	If String <> Undefined And Not IsBlankString(String) Then
-		pStruct = vGetRemoteObjectRef(String);
-		If Not pStruct.Cancel Then
-			mObjectRef = pStruct.Ref;
-			RefreshObjectData(Undefined);
-		ElsIf Not IsBlankString(pStruct.CancelCause) Then
-			Message(pStruct.CancelCause);
-		EndIf;
-	EndIf;
 EndProcedure
 
 &AtClient
@@ -112,6 +116,196 @@ EndProcedure
 &AtClient
 Procedure _RecordSetNameOnChange(Item)
 	vRefreshRecordSet();
+EndProcedure
+
+&AtClient
+Procedure _ValueToFillStartChoice(Item, ChoiceData, StandardProcessing)
+	EventProcessingOptions = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																					Item,
+																					"_ValueToFill");
+																											   
+	EventProcessingOptions.AvailableContainer = False;																											   
+	EventProcessingOptions.Value = _ValueToFill;
+	EventProcessingOptions.StructureValueStorage = ThisObject;
+	
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(EventProcessingOptions, StandardProcessing);
+EndProcedure
+
+&AtClient
+Procedure _ValueToFillClearing(Item, StandardProcessing)
+	EventProcessingOptions = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																					Item,
+																					"_ValueToFill");
+
+	EventProcessingOptions.AvailableContainer = False;																											   
+	EventProcessingOptions.StructureValueStorage = ThisObject;
+
+	UT_CommonClient.FormFieldClear(EventProcessingOptions, StandardProcessing);
+EndProcedure
+
+
+#EndRegion
+
+#Region FormTableItemsEventHandlers_ObjectAttributes
+
+&AtClient
+Procedure ObjectAttributesValueStartChoice(Item, ChoiceData, StandardProcessing)
+	CurrentData = Items.ObjectAttributes.CurrentData;
+	Если CurrentData = Undefined Then
+		Return;
+	EndIf;
+
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																			Item,
+																			"Value");
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.Value = CurrentData.Value;
+	HandlerParameters.CurrentDescriptionValueTypes = CurrentData.ValueType;
+	
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
+EndProcedure
+
+&AtClient
+Procedure ObjectAttributesValueClearing(Item, StandardProcessing)
+	CurrentData = Items.ObjectAttributes.CurrentData;
+	Если CurrentData = Undefined Then
+		Return;
+	EndIf;
+
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																			Item,
+																			"Value");
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.CurrentDescriptionValueTypes = CurrentData.ValueType;
+
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+EndProcedure
+
+
+#EndRegion
+
+#Region FormTableItemsEventHandlers_TabularPart
+
+&AtClient
+Procedure Attachable_TabularSectionOnEditEnd(Item, NewRow, CancelEditing)
+	Если CancelEditing Then
+		Return;
+	EndIf;
+	
+	RefreshTabularSectionPageTitle(Item);
+EndProcedure
+
+&AtClient
+Procedure Attachable_TabularSectionAfterDeleteRow(Item)
+	RefreshTabularSectionPageTitle(Item);
+EndProcedure
+
+&AtClient
+Procedure Attachable_TabularSectionAttributeStartChoice(Item, ChosenData, StandardProcessing)
+	TableFormElement = Item.Parent;
+		
+	CurrentData = TableFormElement.CurrentData;
+	Если CurrentData = Undefined Then
+		Return;
+	EndIf;
+	ColumnName = Mid(Item.Name, StrLen(TableFormElement.Name) + 1);
+	
+
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																			Item,
+																			ColumnName);
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.Value = CurrentData[ColumnName];
+	HandlerParameters.CurrentDescriptionValueTypes = Item.AvailableTypes;
+	
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
+EndProcedure
+
+&AtClient
+Procedure Attachable_TabularSectionAttributeClearing(Item, StandardProcessing)
+	TableFormElement = Item.Parent;
+		
+	CurrentData = TableFormElement.CurrentData;
+	Если CurrentData = Undefined Then
+		Return;
+	EndIf;
+	ColumnName = Mid(Item.Name, StrLen(TableFormElement.Name) + 1);
+
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																			Item,
+																			ColumnName);
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.CurrentDescriptionValueTypes = Item.AvailableTypes;
+
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+EndProcedure
+
+#EndRegion
+
+#Region FormTableItemsEventHandlers_RecordSet
+
+&AtClient
+Procedure Attachable_RecordsAttributeSetStartChoice(Item, ChosenData, StandardProcessing)
+	TableFormElement = Items._RecordSet;
+		
+	CurrentData = TableFormElement.CurrentData;
+	Если CurrentData = Undefined Then
+		Return;
+	EndIf;
+	ColumnName = Mid(Item.Name, StrLen(TableFormElement.Name) + 2);
+	
+
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																			Item,
+																			ColumnName);
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.Value = CurrentData[ColumnName];
+	HandlerParameters.CurrentDescriptionValueTypes = Item.AvailableTypes;
+	
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
+EndProcedure
+
+&AtClient
+Procedure Attachable_RecordsAttributeSetClearing(Item, StandardProcessing)
+	TableFormElement = Items._RecordSet;
+		
+	CurrentData = TableFormElement.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	ColumnName = Mid(Item.Name, StrLen(TableFormElement.Name) + 2);
+
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																			Item,
+																			ColumnName);
+
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = CurrentData;
+	HandlerParameters.CurrentDescriptionValueTypes = Item.AvailableTypes;
+
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
+EndProcedure
+
+
+
+#EndRegion
+
+#Region FormCommandsEventHandlers
+
+&AtClient
+Procedure _SelectDeletedObject(Command)
+	ShowInputString(New NotifyDescription("vProcessInputString_ObjectNotFound", ThisForm), ,
+		NSTR("ru = 'Введите битую ссылку: <Объект не найден> ... ';en = 'Enter the broken ref: <Object not found> ...'"), , False);
 EndProcedure
 
 &AtClient
@@ -132,22 +326,6 @@ Procedure _FillBySample(Command)
 		FormWindowOpeningMode.LockOwnerWindow);
 EndProcedure
 
-&AtClient
-Procedure pProcessFillingSampleSelection(ClosingResult, AddParam = Undefined) Export
-	If ClosingResult <> Undefined Then
-		pObjectRef = mObjectRef;
-		mObjectRef = ClosingResult;
-
-		Try
-			vRefreshObjectData();
-		Except
-		EndTry;
-
-		mObjectRef = pObjectRef;
-		_UUID = mObjectRef.UUID();
-		_URL  = vGetURL(mObjectRef);
-	EndIf;
-EndProcedure
 &AtClient
 Procedure WriteObject(Command)
 	If Not ValueIsFilled(mObjectRef) Then
@@ -178,13 +356,10 @@ Procedure _WriteObjectAsNewWithSpecifiedUUID(Command)
 		Return;
 	EndIf;
 
-		pText =	StrTemplate(NSTR("ru = 'В базу будет записан New объект с заданным UUID.
+	pText =	StrTemplate(NSTR("ru = 'В базу будет записан New объект с заданным UUID.
 							 |UUID: %1
 							 |
-							 |Продолжить?';en = 'New object with  specified UUID will be written to database.
-							 |UUID: %1
-							 |
-							 |Continue?'"),_UUID);
+							 |Продолжить?';en = 'New object with  specified UUID will be written to database." + Chars.LF + "UUID: %1" + Chars.LF + Chars.LF + "Continue?'"),_UUID);
 	ShowQueryBox(New NotifyDescription("WriteObjectAsNewNext", ThisForm, _UUID), pText,
 		QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
@@ -198,52 +373,9 @@ Procedure _DeleteObject(Command)
 	QueryText = NSTR("ru = 'Объект будет удален из базы!
 				  |Никакие проверки производиться не будут (возможно появление битых ссылок)!
 				  |
-				  |Продолжить?';en = 'The object will be deleted from the database!
-				  |No checks will be performed (broken  references may appear)!
-				  |
-				  |Continue?'");
+				  |Продолжить?';en = 'The object will be deleted from the database!"  + Chars.LF + "No checks will be performed (broken  references may appear)!" + Chars.LF + Chars.LF + "Continue?'");
 	ShowQueryBox(New NotifyDescription("DeleteObjectNext", ThisForm), QueryText,
 		QuestionDialogMode.YesNoCancel, 20);
-EndProcedure
-
-&AtClient
-Procedure WriteObjectNext(QueryResult, AdditionalParameters) Export
-	If QueryResult = DialogReturnCode.Yes Then
-		If vWriteObject(False) Then
-			RepresentDataChange(mObjectRef, DataChangeType.Update);
-		EndIf;
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure WriteObjectAsNewNext(QueryResult, AdditionalParameters = Undefined) Export
-	If QueryResult = DialogReturnCode.Yes Then
-		If vWriteObject(True, AdditionalParameters) Then
-			RepresentDataChange(mObjectRef, DataChangeType.Create);
-			If AdditionalParameters <> Undefined Then
-				RepresentDataChange(mObjectRef, DataChangeType.Update);
-				//ShowMessageBox(,NStr("ru = 'Объект успешно записан!
-				//|Для отображения новой ссылки необходимо перевыбрать объект.';
-				//|en = 'Object successfully written.
-				//|Reselect object to display new reference.'"), 20);
-			EndIf;
-		EndIf;
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure DeleteObjectNext(QueryResult, AdditionalParameters) Export
-	If QueryResult = DialogReturnCode.Yes Then
-		pArray = New Array;
-		pArray.Add(TypeOf(mObjectRef));
-		pTypeDescription = New TypeDescription(pArray);
-
-		If vDeleteObjectAtServer(mObjectRef) Then
-			RepresentDataChange(mObjectRef, DataChangeType.Delete);
-			mObjectRef = pTypeDescription.AdjustValue();
-			RefreshObjectData(Undefined);
-		EndIf;
-	EndIf;
 EndProcedure
 
 &AtClient
@@ -270,13 +402,6 @@ Procedure _WriteRecordSet(Command)
 	EndIf;
 	ShowQueryBox(New NotifyDescription("_WriteRecordSetNext", ThisForm),
 		NSTR("ru = 'Набор записей будет записан в базу. Продолжить?';en = 'Recordset will be saved to database. Continue?'"), QuestionDialogMode.YesNoCancel, 20);
-EndProcedure
-
-&AtClient
-Procedure _WriteRecordSetNext(QueryResult, AdditionalParameters) Export
-	If QueryResult = DialogReturnCode.Yes Then
-		vWriteRecordSet();
-	EndIf;
 EndProcedure
 
 &AtClient
@@ -385,6 +510,295 @@ Procedure _ShowValueType(Command)
 	EndIf;
 
 	_CurrentFieldValueType = TypeName;
+EndProcedure
+
+&AtClient
+Procedure _OpenRecordsEditor(Command)
+	ParamStruct = New Structure("FormsPath, mObjectRef", FormsPath, mObjectRef);
+	Try
+		OpenForm("DataProcessor.UT_ObjectsAttributesEditor.Form.RecordsEditorForm", ParamStruct, , mObjectRef);
+	Except
+		Message(NSTR("ru = 'Не найдена форма ""RecordsEditorForm""!';en = 'RecordsEditorForm form not found.'"));
+	EndTry;
+EndProcedure
+
+&AtClient
+Procedure _OpenAdditionalRecordsEditor(Command)
+	ParamStruct = New Structure("FormsPath, mObjectRef", FormsPath, mObjectRef);
+	Try
+		OpenForm("DataProcessor.UT_ObjectsAttributesEditor.Form.RecordsEditorAdditionalForm", ParamStruct, ,
+			mObjectRef);
+	Except
+		Message(NSTR("ru = 'Не найдена форма ""RecordsEditorAdditionalForm""!';en = 'RecordsEditorAdditionalForm form not found.'"));
+	EndTry;
+EndProcedure
+
+&AtClient
+Procedure _FillCurrentColumnData(Command)
+	CurrPage = Items.PagesGroup.CurrentPage;
+	If CurrPage.Name = "PageObjectAttributes" Or CurrPage.Name = "PageSettings" Then
+		Return;
+	EndIf;
+
+	CurrTab = Undefined;
+	For Each Item In CurrPage.ChildItems Do
+		If TypeOf(Item) = Type("FormTable") Then
+			CurrTab = Item;
+			Break;
+		EndIf;
+	EndDo;
+
+	pValue = _ValueToFill;
+
+	If CurrTab <> Undefined Then
+		StructData = vGetTableFieldProperties(CurrTab.Name);
+		If Not StructData.Cancel Then
+			pTable = ThisForm[StructData.Table];
+			pField = StructData.Field;
+
+			If pTable.Count() <> 0 Then
+
+				If _ProcessOnlySelectedRows Then
+					For Each Item In CurrTab.SelectedRows Do
+						Str = pTable.FindByID(Item);
+						Str[pField] = pValue;
+					EndDo;
+				Else
+					For Each Str In pTable Do
+						Str[pField] = pValue;
+					EndDo;
+				EndIf;
+
+			EndIf;
+
+		EndIf;
+	EndIf;
+EndProcedure
+
+// documents
+&AtClient
+Procedure _PostDocument(Command)
+	If Not ValueIsFilled(mObjectRef) Then
+		ShowMessageBox( , NSTR("ru = 'Не задан документ для обработки';en = 'No document set for processing.'"), 20);
+		Return;
+	EndIf;
+
+	If Not _PostingIsAllowed Then
+		ShowMessageBox( , NSTR("ru = 'Проведение документов данного типа запрещено!';en = 'Posting of this type documents is prohibited.'"), 20);
+		Return;
+	EndIf;
+
+	ShowQueryBox(New NotifyDescription("vPostDocumentNext", ThisForm),
+		NSTR("ru = 'Документ будет перепроведен. Продолжить?';en = 'Document will be reposted. Do you want to continue?'"), QuestionDialogMode.YesNoCancel, 20);
+EndProcedure
+
+&AtClient
+Procedure _UndoPosting(Command)
+	If Not ValueIsFilled(mObjectRef) Then
+		ShowMessageBox( , NSTR("ru = 'Не задан документ для обработки';en = 'No document set for processing.'"), 20);
+		Return;
+	EndIf;
+
+	If Not _PostingIsAllowed Then
+		ShowMessageBox( , NSTR("ru = 'Проведение документов данного типа запрещено!';en = 'Posting of this type documents is prohibited.'"), 20);
+		Return;
+	EndIf;
+
+	ShowQueryBox(New NotifyDescription("vUndoPostingNext", ThisForm),
+		NSTR("ru = 'Для документа будет выполнена отмена проведения. Продолжить?';en = 'Undo posting will be performed for document. Do you want to continue?'"), QuestionDialogMode.YesNoCancel, 20);
+EndProcedure
+
+&AtClient
+Procedure _UnloadRecordSet(Command)
+	If Not ValueIsFilled(mObjectRef) Then
+		ShowMessageBox( , NSTR("ru = 'Не задан объект для выгрузки движений';en = 'Object for records unloading is not set.'"), 20);
+		Return;
+	EndIf;
+	If IsBlankString(_RecordSetName) Then
+		ShowMessageBox( ,NSTR("ru = 'Не задан набор записей для выгрузки';en = 'Recordset for unloading is not specified.'") , 20);
+		Return;
+	EndIf;
+
+	vUnloadObject(4);
+EndProcedure
+
+&AtClient
+Procedure _UnloadObject(Command)
+	vUnloadObject(1);
+EndProcedure
+
+&AtClient
+Procedure _UnloadObjectWithRecords(Command)
+	vUnloadObject(2);
+EndProcedure
+
+&AtClient
+Procedure _UnloadObjectRecords(Command)
+	vUnloadObject(3);
+EndProcedure
+
+&AtClient
+Procedure _LoadXMLData(Command)
+	Dialog = vGetXMLFileDialog(True);
+	Dialog.Show(New NotifyDescription("vLoadDataFromFile", ThisForm));
+EndProcedure
+
+&AtClient
+Procedure _InsertUUID(Command)
+	CurrTable = ThisForm.CurrentItem;
+
+	If CurrTable.Name = "_ValueToFill" Then
+		pStruct = New Structure("Table", CurrTable.Name);
+		ShowInputString(New NotifyDescription("vProcessInputUUID", ThisForm, pStruct), mLastUUID,
+			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'"), , False);
+		Return;
+	ElsIf TypeOf(CurrTable) <> Type("FormTable") Then
+		Return;
+	EndIf;
+
+	CurrColumn = CurrTable.CurrentItem;
+	If CurrColumn = Undefined Or CurrColumn.ReadOnly Then
+		Return;
+	EndIf;
+
+	Try
+		pAvailableTypes = CurrColumn.AvailableTypes.Types();
+		If pAvailableTypes.Count() <> 0 And pAvailableTypes.Find(Type("UUID")) <> 0 Then
+			Return;
+		EndIf;
+	Except
+	EndTry;
+
+	CurrData = Items[CurrTable.Name].CurrentData;
+	If CurrData <> Undefined Then
+		pStruct = New Structure("Table", CurrTable.Name);
+
+		If CurrTable.Name = "ObjectAttributes" Then
+			pStruct.Insert("Field", "Value");
+//		ElsIf CurrTable.Name = "_AdditionalProperties" Then
+//			pStruct.Insert("Field", "Value");
+		Else
+			pStruct.Insert("Field", Mid(CurrColumn.Name, StrLen(CurrTable.Name) + 1));
+		EndIf;
+
+		ShowInputString(New NotifyDescription("vProcessInputUUID", ThisForm, pStruct), mLastUUID,
+			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'"), , False);
+	EndIf;
+EndProcedure
+
+//@skip-warning
+&AtClient
+Procedure Attachable_ExecuteToolsCommonCommand(Command) 
+	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
+EndProcedure
+
+//@skip-warning
+&AtClient
+Procedure Attachable_SetWriteSettings(Command)
+	UT_CommonClient.EditWriteSettings(ThisObject);
+EndProcedure
+
+
+#EndRegion
+
+#Region Private
+
+&AtServer
+Function vGetDataProcessor()
+	Return FormAttributeToValue("Object");
+EndFunction
+
+&AtClient
+Procedure mObjectRefStartChoiceBlankValueChoiceCompletion(Result, AdditionalParameters) Export
+	mObjectRef = Result;
+	OnChangeMRef();
+EndProcedure
+
+&AtClient
+Procedure OnChangeMRef()
+	ThisForm.UniqueKey = mObjectRef;
+
+	_URL = "";
+
+	If mObjectRef <> Undefined Then
+		_UUID = "";
+	EndIf;
+
+	RefreshObjectData(Undefined);
+EndProcedure
+
+&AtClient
+Procedure vProcessInputString_ObjectNotFound(String, AddParam = Undefined) Export
+	If String <> Undefined And Not IsBlankString(String) Then
+		pStruct = vGetRemoteObjectRef(String);
+		If Not pStruct.Cancel Then
+			mObjectRef = pStruct.Ref;
+			RefreshObjectData(Undefined);
+		ElsIf Not IsBlankString(pStruct.CancelCause) Then
+			Message(pStruct.CancelCause);
+		EndIf;
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure pProcessFillingSampleSelection(ClosingResult, AddParam = Undefined) Export
+	If ClosingResult <> Undefined Then
+		pObjectRef = mObjectRef;
+		mObjectRef = ClosingResult;
+
+		Try
+			vRefreshObjectData();
+		Except
+		EndTry;
+
+		mObjectRef = pObjectRef;
+		_UUID = mObjectRef.UUID();
+		_URL  = vGetURL(mObjectRef);
+	EndIf;
+EndProcedure
+&AtClient
+Procedure WriteObjectNext(QueryResult, AdditionalParameters) Export
+	If QueryResult = DialogReturnCode.Yes Then
+		If vWriteObject(False) Then
+			RepresentDataChange(mObjectRef, DataChangeType.Update);
+		EndIf;
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure WriteObjectAsNewNext(QueryResult, AdditionalParameters = Undefined) Export
+	If QueryResult = DialogReturnCode.Yes Then
+		If vWriteObject(True, AdditionalParameters) Then
+			RepresentDataChange(mObjectRef, DataChangeType.Create);
+			If AdditionalParameters <> Undefined Then
+				RepresentDataChange(mObjectRef, DataChangeType.Update);
+				//ShowMessageBox(,NStr("ru = 'Объект успешно записан!
+				//|Для отображения новой ссылки необходимо перевыбрать объект.';en = 'Object successfully written.Reselect object to display new reference.'"), 20);
+			EndIf;
+		EndIf;
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure DeleteObjectNext(QueryResult, AdditionalParameters) Export
+	If QueryResult = DialogReturnCode.Yes Then
+		pArray = New Array;
+		pArray.Add(TypeOf(mObjectRef));
+		pTypeDescription = New TypeDescription(pArray);
+
+		If vDeleteObjectAtServer(mObjectRef) Then
+			RepresentDataChange(mObjectRef, DataChangeType.Delete);
+			mObjectRef = pTypeDescription.AdjustValue();
+			RefreshObjectData(Undefined);
+		EndIf;
+	EndIf;
+EndProcedure
+
+&AtClient
+Procedure _WriteRecordSetNext(QueryResult, AdditionalParameters) Export
+	If QueryResult = DialogReturnCode.Yes Then
+		vWriteRecordSet();
+	EndIf;
 EndProcedure
 
 &AtClient
@@ -757,7 +1171,7 @@ Function vWriteObject(Val AsNew = False, Val pStringUUID = Undefined)
 		IsFolder = ?(IsHierarchyFoldersAndItems, ObjectToWrite.IsFolder, False);
 
 		For Each Str In ObjectAttributes Do
-			If Not Struct.Property(Str.Name) And Str.Категория <> -1 Then
+			If Not Struct.Property(Str.Name) And Str.Category  <> -1 Then
 				If IsHierarchyFoldersAndItems Then
 					If (IsFolder And Str.ForFolderAndItem = 1) Or (Not IsFolder And Str.ForFolderAndItem = -1) Then
 						Continue;
@@ -797,7 +1211,6 @@ Function vWriteObject(Val AsNew = False, Val pStringUUID = Undefined)
 //		EndIf;
 //
 //		ObjectToWrite.Write();
-
 		If UT_Common.WriteObjectToDB(ObjectToWrite,
 			UT_CommonClientServer.FormWriteSettings(ThisObject)) Then
 			mObjectRef = ObjectToWrite.Ref;
@@ -937,10 +1350,11 @@ Procedure vRefreshRecordSet()
 					Item.Type=FormFieldType.InputField;
 					Item.AvailableTypes=Column.ValueType;
 					Item.ClearButton = True;
-
-					If Column.ValueType.ContainsType(TypeVS) Then // 033 version
-						Item.ReadOnly = True;
-					EndIf;
+					Item.ChoiceButton = True;
+		
+					Item.SetAction("StartChoice", "Attachable_RecordsAttributeSetStartChoice");
+					Item.SetAction("Clearing", "Attachable_RecordsAttributeSetClearing");
+					
 				EndDo;
 			EndIf;
 
@@ -1147,20 +1561,19 @@ Procedure vFillObjectData(CreateAttributes)
 					NewColumn.Type = FormFieldType.InputField;
 					NewColumn.DataPath = TabName + "." + Item.Name;
 					NewColumn.ClearButton = True;
+					NewColumn.КнопкаВыбора = Истина;
 					If Not Item.Type.ContainsType(pTypeVS) Then
-						//If Not Item.Type.ContainsType(StructTypes.mTypeUUID) Then
-						//	NewColumn.AvailableTypes = Item.Type;
-						//EndIf;
 						NewColumn.AvailableTypes = Item.Type;
-					Else
-						NewColumn.ReadOnly = True;
 					EndIf;
+					
+					NewColumn.SetAction("StartChoice", "Attachable_TabularSectionAttributeStartChoice");
+					NewColumn.SetAction("Clearing", "Attachable_TabularSectionAttributeClearing");					
 				EndDo;
 
-				NewTable.SetAction("Selection", "TabularSectionSelection");
-				NewTable.SetAction("OnEditEnd", "TabularSectionOnEditEnd");
-				NewTable.SetAction("AfterDeleteRow", "TabularSectionAfterDeleteRow");
-				
+				NewTable.SetAction("OnEditEnd",
+										"Attachable_TabularSectionOnEditEnd");
+				NewTable.SetAction("AfterDeleteRow", "Attachable_TabularSectionAfterDeleteRow");
+						
 				// context menu
 				ButtonGroup = Items.Add("Group_" + TabName, Type("FormGroup"), NewTable.ContextMenu);
 				ButtonGroup.Type = FormGroupType.ButtonGroup;
@@ -1634,7 +2047,7 @@ EndFunction
 Procedure vFillStandardAttributes(MDObject)
 	Var NR;
 
-	AttributeList = "Code, Number, Date, Posted, DeletionMark, IsFolder, Description, Owner, Parent, BusinessProcess, Executed, Completed, Started, SentNo, ReceivedNo, ThisNode";
+	AttributeList = "Code, Number, Date, Posted, DeletionMark, IsFolder, Description, Owner, Parent, BusinessProcess, Executed, Completed, Started, SentNo, ReceivedNo, ThisNode, PredefinedDataName";
 	PropertyList = "CodeType, NumberType, CodeLength, CodeAllowedLength, NumberLength, DescriptionLength, Hierarchical, HierarchyType, Owners";
 
 	StructAttributes = New Structure(AttributeList);
@@ -1731,6 +2144,23 @@ Procedure vFillStandardAttributes(MDObject)
 		NR.Value = StructAttributes.Owner;
 	EndIf;
 
+	If StructAttributes.PredefinedDataName <> Undefined Then
+		NR = ObjectAttributes.Add();
+		NR.Name = "PredefinedDataName";
+		NR.Presentation = NR.Name;
+		NR.Category  = 0;
+		NR.ValueType = vNumberTypeDescription(150);
+		NR.Value = StructAttributes.PredefinedDataName;
+		
+//		NR = ObjectAttributes.Add();
+//		NR.Name = "Predefined";
+//		NR.Presentation = NR.Name;
+//		NR.Category  = 0;
+//		NR.ValueType = New Boolean("Boolean");
+//		NR.Value = StructAttributes.Predefined;
+		
+	EndIf;
+
 	If Metadata.Documents.Contains(MDObject) Then
 		NR = ObjectAttributes.Add();
 		NR.Name = "Posted";
@@ -1820,204 +2250,7 @@ Procedure vRefreshObjectData()
 	EndIf;
 EndProcedure
 
-&AtClient
-Procedure ObjectAttributesOnActivateRow(Item)
-	Return;
-	CurrData = Items.ObjectAttributes.CurrentData;
-	If CurrData <> Undefined Then
-		Items.ObjectAttributesValue.TypeRestriction = CurrData.ValueType;
-		//Items.ObjectAttributesValue.AvailableTypes = CurrData.ValueType;
-	EndIf;
-EndProcedure
 
-&AtClient
-Procedure ObjectAttributesBeforeRowChange(Item, Cancel)
-	CurrData = Item.CurrentData;
-	If CurrData <> Undefined Then
-		Value = CurrData["Value"];
-		
-		//If TypeOf(Value) = mTypeVS Or TypeOf(Value) = mTypeUUID Then
-		If TypeOf(Value) = mTypeVS Then
-			Cancel = True;
-		EndIf;
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure ObjectAttributesSelection(Item, SelectedRow, Field, StandardProcessing)
-	If Field.Name = "ObjectAttributesValue" Then
-		CurrData = Item.CurrentData;
-		If CurrData <> Undefined Then
-			Value = CurrData["Value"];
-
-			If TypeOf(Value) = mTypeVS Then
-				StandardProcessing = False;
-				vShowValueVS(Value);
-			EndIf;
-		EndIf;
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure TabularSectionSelection(Item, SelectedRow, Field, StandardProcessing)
-	CurrData = Item.CurrentData;
-	If CurrData <> Undefined Then
-		ColumnName = Сред(Field.Name, StrLen(Item.Name) + 1);
-		Value = CurrData[ColumnName];
-
-		If TypeOf(Value) = mTypeVS Then
-			StandardProcessing = False;
-			vShowValueVS(Value);
-		EndIf;
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure TabularSectionOnEditEnd(Item, NewItem, CancelEdit)
-	If CancelEdit Then
-		Return;
-	EndIf;
-	
-	RefreshTabularSectionPageTitle(Item);
-EndProcedure
-
-
-&AtClient
-Procedure TabularSectionAfterDeleteRow(Item)
-	RefreshTabularSectionPageTitle(Item);
-EndProcedure
-
-&AtServer
-Procedure BeforeLoadDataFromSettingsAtServer(Settings)
-//	If Settings["_AdditionalProperties"] = Undefined Then
-//		AdditionalProperties.Clear();
-//	EndIf;
-EndProcedure
-
-&AtServer
-Procedure OnLoadDataFromSettingsAtServer(Settings)
-	//If ValueIsFilled(mObjectRef) Then
-	If mObjectRef <> Undefined Then
-		vRefreshObjectData();
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure _OpenRecordsEditor(Command)
-	ParamStruct = New Structure("FormsPath, mObjectRef", FormsPath, mObjectRef);
-	Try
-		OpenForm("DataProcessor.UT_ObjectsAttributesEditor.Form.RecordsEditorForm", ParamStruct, , mObjectRef);
-	Except
-		Message(NSTR("ru = 'Не найдена форма ""RecordsEditorForm""!';en = 'RecordsEditorForm form not found.'"));
-	EndTry;
-EndProcedure
-
-&AtClient
-Procedure _OpenAdditionalRecordsEditor(Command)
-	ParamStruct = New Structure("FormsPath, mObjectRef", FormsPath, mObjectRef);
-	Try
-		OpenForm("DataProcessor.UT_ObjectsAttributesEditor.Form.RecordsEditorAdditionalForm", ParamStruct, ,
-			mObjectRef);
-	Except
-		Message(NSTR("ru = 'Не найдена форма ""RecordsEditorAdditionalForm""!';en = 'RecordsEditorAdditionalForm form not found.'"));
-	EndTry;
-EndProcedure
-&AtClient
-Procedure _FillCurrentColumnData(Command)
-	CurrPage = Items.PagesGroup.CurrentPage;
-	If CurrPage.Name = "PageObjectAttributes" Or CurrPage.Name = "PageSettings" Then
-		Return;
-	EndIf;
-
-	CurrTab = Undefined;
-	For Each Item In CurrPage.ChildItems Do
-		If TypeOf(Item) = Type("FormTable") Then
-			CurrTab = Item;
-			Break;
-		EndIf;
-	EndDo;
-
-	pValue = _ValueToFill;
-
-	If CurrTab <> Undefined Then
-		StructData = vGetTableFieldProperties(CurrTab.Name);
-		If Not StructData.Cancel Then
-			pTable = ThisForm[StructData.Table];
-			pField = StructData.Field;
-
-			If pTable.Count() <> 0 Then
-
-				If _ProcessOnlySelectedRows Then
-					For Each Item In CurrTab.SelectedRows Do
-						Str = pTable.FindByID(Item);
-						Str[pField] = pValue;
-					EndDo;
-				Else
-					For Each Str In pTable Do
-						Str[pField] = pValue;
-					EndDo;
-				EndIf;
-
-			EndIf;
-
-		EndIf;
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure _ValueToFillStartChoice(Item, ChoiceData, StandardProcessing)
-	If _ValueToFill = Undefined Then
-		StandardProcessing = False;
-		ParamStruct = New Structure("CloseOnOwnerClose, TypesToFillValues", True, True);
-		OpenForm("CommonForm.UT_MetadataSelectionForm", ParamStruct, Item, , , , ,
-			FormWindowOpeningMode.LockOwnerWindow);
-	ElsIf TypeOf(_ValueToFill) = Type("UUID") Then
-		StandardProcessing = False;
-	Else
-		Array = New Array;
-		Array.Add(TypeOf(_ValueToFill));
-		Item.TypeRestriction = New TypeDescription(Array);
-	EndIf;
-EndProcedure
-
-&AtClient
-Procedure _ValueToFillClearing(Item, StandardProcessing)
-	Item.TypeRestriction = New TypeDescription;
-EndProcedure
-
-
-// documents
-&AtClient
-Procedure _PostDocument(Command)
-	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан документ для обработки';en = 'No document set for processing.'"), 20);
-		Return;
-	EndIf;
-
-	If Not _PostingIsAllowed Then
-		ShowMessageBox( , NSTR("ru = 'Проведение документов данного типа запрещено!';en = 'Posting of this type documents is prohibited.'"), 20);
-		Return;
-	EndIf;
-
-	ShowQueryBox(New NotifyDescription("vPostDocumentNext", ThisForm),
-		NSTR("ru = 'Документ будет перепроведен. Продолжить?';en = 'Document will be reposted. Do you want to continue?'"), QuestionDialogMode.YesNoCancel, 20);
-EndProcedure
-
-&AtClient
-Procedure _UndoPosting(Command)
-	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан документ для обработки';en = 'No document set for processing.'"), 20);
-		Return;
-	EndIf;
-
-	If Not _PostingIsAllowed Then
-		ShowMessageBox( , NSTR("ru = 'Проведение документов данного типа запрещено!';en = 'Posting of this type documents is prohibited.'"), 20);
-		Return;
-	EndIf;
-
-	ShowQueryBox(New NotifyDescription("vUndoPostingNext", ThisForm),
-		NSTR("ru = 'Для документа будет выполнена отмена проведения. Продолжить?';en = 'Undo posting will be performed for document. Do you want to continue?'"), QuestionDialogMode.YesNoCancel, 20);
-EndProcedure
 
 &AtClient
 Procedure vPostDocumentNext(QueryResult, AdditionalParameters = Undefined) Export
@@ -2066,6 +2299,7 @@ Function vPostUndoPostingDocument(Ref, Post = True, pParamStruct = Undefined)
 EndFunction
 
 
+
 // loading / unloading object via XML
 &AtClient
 Function vGetXMLFileDialog(Open = True, FilePath = "")
@@ -2078,41 +2312,6 @@ Function vGetXMLFileDialog(Open = True, FilePath = "")
 
 	Return Dialog;
 EndFunction
-
-&AtClient
-Procedure _UnloadRecordSet(Command)
-	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан объект для выгрузки движений';en = 'Object for records unloading is not set.'"), 20);
-		Return;
-	EndIf;
-	If IsBlankString(_RecordSetName) Then
-		ShowMessageBox( ,NSTR("ru = 'Не задан набор записей для выгрузки';en = 'Recordset for unloading is not specified.'") , 20);
-		Return;
-	EndIf;
-
-	vUnloadObject(4);
-EndProcedure
-
-&AtClient
-Procedure _UnloadObject(Command)
-	vUnloadObject(1);
-EndProcedure
-
-&AtClient
-Procedure _UnloadObjectWithRecords(Command)
-	vUnloadObject(2);
-EndProcedure
-
-&AtClient
-Procedure _UnloadObjectRecords(Command)
-	vUnloadObject(3);
-EndProcedure
-
-&AtClient
-Procedure _LoadXMLData(Command)
-	Dialog = vGetXMLFileDialog(True);
-	Dialog.Show(New NotifyDescription("vLoadDataFromFile", ThisForm));
-EndProcedure
 
 &AtClient
 Procedure vLoadDataFromFile(SelectedFiles, AddParam = Undefined) Export
@@ -2364,49 +2563,6 @@ Function vFindAdditionalRegisters(Val pDocumentFullName)
 	Return pStruct;
 EndFunction
 &AtClient
-Procedure _InsertUUID(Command)
-	CurrTable = ThisForm.CurrentItem;
-
-	If CurrTable.Name = "_ValueToFill" Then
-		pStruct = New Structure("Table", CurrTable.Name);
-		ShowInputString(New NotifyDescription("vProcessInputUUID", ThisForm, pStruct), mLastUUID,
-			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'"), , False);
-		Return;
-	ElsIf TypeOf(CurrTable) <> Type("FormTable") Then
-		Return;
-	EndIf;
-
-	CurrColumn = CurrTable.CurrentItem;
-	If CurrColumn = Undefined Or CurrColumn.ReadOnly Then
-		Return;
-	EndIf;
-
-	Try
-		pAvailableTypes = CurrColumn.AvailableTypes.Types();
-		If pAvailableTypes.Count() <> 0 And pAvailableTypes.Find(Type("UUID")) <> 0 Then
-			Return;
-		EndIf;
-	Except
-	EndTry;
-
-	CurrData = Items[CurrTable.Name].CurrentData;
-	If CurrData <> Undefined Then
-		pStruct = New Structure("Table", CurrTable.Name);
-
-		If CurrTable.Name = "ObjectAttributes" Then
-			pStruct.Insert("Field", "Value");
-//		ElsIf CurrTable.Name = "_AdditionalProperties" Then
-//			pStruct.Insert("Field", "Value");
-		Else
-			pStruct.Insert("Field", Mid(CurrColumn.Name, StrLen(CurrTable.Name) + 1));
-		EndIf;
-
-		ShowInputString(New NotifyDescription("vProcessInputUUID", ThisForm, pStruct), mLastUUID,
-			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'"), , False);
-	EndIf;
-EndProcedure
-
-&AtClient
 Procedure vProcessInputUUID(String, pStruct = Undefined) Export
 	If String <> Undefined And Not IsBlankString(String) Then
 		Try
@@ -2457,14 +2613,8 @@ Procedure RefreshTabularSectionPageTitle(TabularSectionItem)
 
 EndProcedure
 
-//@skip-warning
-&AtClient
-Procedure Attachable_ExecuteToolsCommonCommand(Command) 
-	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
-EndProcedure
 
-//@skip-warning
-&AtClient
-Procedure Attachable_SetWriteSettings(Command)
-	UT_CommonClient.EditWriteSettings(ThisObject);
-EndProcedure
+#EndRegion
+
+
+
