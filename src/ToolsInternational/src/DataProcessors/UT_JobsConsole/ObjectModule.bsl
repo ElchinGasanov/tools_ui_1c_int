@@ -5,7 +5,6 @@
 //
 // SSL
 // 
-
 // Data processor information for registration as external.
 //
 // Returning value:
