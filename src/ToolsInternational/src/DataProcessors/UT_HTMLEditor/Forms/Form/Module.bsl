@@ -13,12 +13,12 @@ Var UT_CodeEditorClientData Export;
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	UT_CodeEditorServer.FormOnCreateAtServer(ThisObject, "Ace");
-	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "BODY", Items.BODYEditor, "html");
-	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "CSS", Items.CSSEditor, "css");
-	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "HEAD", Items.HEADEditor, "html");
-	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "JS", Items.JSEditor, "javascript");
-	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "HTML", Items.GeneratedHTMLEditor, "html");
-	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "LIBRARY", Items.LibraryEditor, "javascript");
+	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "BODY", Items.BODYEditor,, "html");
+	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "CSS", Items.CSSEditor,, "css");
+	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "HEAD", Items.HEADEditor,, "html");
+	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "JS", Items.JSEditor,, "javascript");
+	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "HTML", Items.GeneratedHTMLEditor,, "html");
+	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "LIBRARY", Items.LibraryEditor,, "javascript");
 	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "COMPLETE", Items.DocumentCompleteEventEditor);
 	UT_CodeEditorServer.CreateCodeEditorItems(ThisObject, "CLICK", Items.OnClickEventEditor);
 
@@ -42,6 +42,7 @@ EndProcedure
 
 &AtClient
 Procedure OnOpen(Cancel)
+	FormCloseConfirmed = False;
 	UT_CodeEditorClient.FormOnOpen(ThisObject, New NotifyDescription("OnOpenComplete", ThisObject));
 	
 EndProcedure
@@ -320,6 +321,138 @@ EndProcedure
 
 #EndRegion
 
+#Область СлужебныеПроцедурыИФункции
+
+&AtClient
+Procedure Attachable_EditorFieldDocumentGenerated(Item)
+	UT_CodeEditorClient.HTMLEditorFieldDocumentGenerated(ThisObject, Item);
+EndProcedure
+
+&AtClient
+Procedure Attachable_EditorFieldOnClick(Item, EventData, StandardProcessing)
+	UT_CodeEditorClient.HTMLEditorFieldOnClick(ThisObject, Item, EventData, StandardProcessing);
+EndProcedure
+
+//@skip-warning
+&AtClient
+Procedure Attachable_CodeEditorDeferredInitializingEditors()
+	UT_CodeEditorClient.CodeEditorDeferredInitializingEditors(ThisObject);
+EndProcedure
+
+&AtClient 
+Procedure Attachable_CodeEditorInitializingCompletion() Export
+	
+EndProcedure
+
+&AtClient
+Procedure Attachable_CodeEditorDeferProcessingOfEditorEvents() Export
+	UT_CodeEditorClient.EditorEventsDeferProcessing(ThisObject)
+EndProcedure
+
+
+&AtClient
+Procedure OnOpenComplete(Result, AdditionalParams) Export
+
+EndProcedure
+
+&AtClient
+Procedure UpdateResultConsoleOutput()
+	Try
+		DocumentResultView=Items.GeneratedHTML.Document.defaultView;
+
+		DocView=Items.GeneratedHTMLConsoleOutput.Document.defaultView;
+		DocView.clearConsole();
+		DocView.outputInfo(DocumentResultView.my__consoleOutput__string());
+	Except
+	EndTry;	
+EndProcedure
+
+&AtServer
+Function GeneratedHTMLConsoleText()
+	Text =
+	"<!DOCTYPE html>
+	|<html>
+	|    <head>
+	|        <meta http-equiv=""content-type"" content=""text/html; charset=utf-8"" />
+	|        <script type=""text/javascript"" src=""https://unpkg.com/html-console-output""></script>    
+	|    </head>
+	|    <body>
+	|        <script type=""text/javascript"" charset=""utf-8"">
+	|        	function clearConsole(){
+	|				//document.body.innerHTML = "";
+	|				var elems=document.getElementsByClassName('console-block');
+	|				if (elems.length>0){
+	|					elems[0].innerHTML='';
+	|				}
+	|			}
+	|
+	|			function outputInfo(info) {
+	|				var objectInfo=JSON.parse(info);
+	|				objectInfo.forEach(function(item, i, arr) {
+	|					if (typeof item =='object') {
+	|						var args=[]
+	|						
+	|						for (var key in item) {
+	|							args.push(item[key]);
+	|						}
+	|						console.log.apply(console, args)
+	|					} else {
+	|						console.log(item)
+	|					}
+	|				});
+	|			}
+	|        </script>
+	|    </body>
+	|</html>";
+
+	Return Text;
+EndFunction
+&AtClient
+Function EditorItemText(EditorItemField)
+	Return UT_CodeEditorClient.EditorCodeTextItemForm(ThisObject,EditorItemField);
+EndFunction
+
+&AtClient
+Procedure SetEditorText(EditorItem, SetupText)
+	UT_CodeEditorClient.SetFormItemEditorText(ThisObject, EditorItem, SetupText);
+EndProcedure
+
+&AtClient
+Procedure AddLinkedLibrary(Path, AdditionalParameters)
+	Rec 						= LinkedLibraries.Add();
+	Rec.Path					= Path;
+	Rec.AdditionalParameters	= AdditionalParameters;
+EndProcedure
+
+&AtClient
+Procedure SetupLibraryEditorText()
+	CurrentData = Items.LinkedLibraries.CurrentData;
+	If CurrentData = Undefined Then
+		Return;
+	EndIf;
+	If Not ValueIsFilled(CurrentData.Path) Then
+		Return;
+	EndIf;
+	
+	FileReading = New TextReader(CurrentData.Path);
+	LibraryEditorText = FileReading.Read();
+	FileReading.Close();
+	
+	SetEditorText(Items.LibraryEditor, LibraryEditorText);
+EndProcedure
+&AtClient
+Procedure LinkedLibrarySelection(SelectedFiles, AdditionalParams) Export
+	If SelectedFiles = Undefined Then
+		Return;
+	EndIf;
+	AdditionalParams.CurrentData.Path = SelectedFiles[0];
+EndProcedure
+
+&AtClient
+Procedure ToggleEditorVisibility(EditorItem)
+	UT_CodeEditorClient.SwitchFormItemEditorVisibility(ThisObject, EditorItem);	
+EndProcedure
+
 #Region ToolsStandardProcedures
 
 &AtClient
@@ -478,137 +611,7 @@ Procedure SetupTitle()
 EndProcedure
 
 #EndRegion
-#Region UtilizationProceduresAndFunctions
 
-&AtClient
-Procedure Attachable_EditorFieldDocumentGenerated(Item)
-	UT_CodeEditorClient.HTMLEditorFieldDocumentGenerated(ThisObject, Item);
-EndProcedure
 
-&AtClient
-Procedure Attachable_EditorFieldOnClick(Item, EventData, StandardProcessing)
-	UT_CodeEditorClient.HTMLEditorFieldOnClick(ThisObject, Item, EventData, StandardProcessing);
-EndProcedure
-
-//@skip-warning
-&AtClient
-Procedure Attachable_CodeEditorDeferredInitializingEditors()
-	UT_CodeEditorClient.CodeEditorDeferredInitializingEditors(ThisObject);
-EndProcedure
-
-&AtClient 
-Procedure Attachable_CodeEditorInitializingCompletion() Export
-	
-EndProcedure
-
-&AtClient
-Procedure Attachable_CodeEditorDeferProcessingOfEditorEvents() Export
-	UT_CodeEditorClient.EditorEventsDeferProcessing(ThisObject)
-EndProcedure
-
-&AtClient
-Procedure OnOpenComplete(Result, AdditionalParams) Export
-
-EndProcedure
-
-&AtClient
-Procedure UpdateResultConsoleOutput()
-	Try
-		DocumentResultView=Items.GeneratedHTML.Document.defaultView;
-
-		DocView=Items.GeneratedHTMLConsoleOutput.Document.defaultView;
-		DocView.clearConsole();
-		DocView.outputInfo(DocumentResultView.my__consoleOutput__string());
-	Except
-	EndTry;
-	
-EndProcedure
-
-&AtServer
-Function GeneratedHTMLConsoleText()
-	Text =
-	"<!DOCTYPE html>
-	|<html>
-	|    <head>
-	|        <meta http-equiv=""content-type"" content=""text/html; charset=utf-8"" />
-	|        <script type=""text/javascript"" src=""https://unpkg.com/html-console-output""></script>    
-	|    </head>
-	|    <body>
-	|        <script type=""text/javascript"" charset=""utf-8"">
-	|        	function clearConsole(){
-	|				//document.body.innerHTML = "";
-	|				var elems=document.getElementsByClassName('console-block');
-	|				if (elems.length>0){
-	|					elems[0].innerHTML='';
-	|				}
-	|			}
-	|
-	|			function outputInfo(info) {
-	|				var objectInfo=JSON.parse(info);
-	|				objectInfo.forEach(function(item, i, arr) {
-	|					if (typeof item =='object') {
-	|						var args=[]
-	|						
-	|						for (var key in item) {
-	|							args.push(item[key]);
-	|						}
-	|						console.log.apply(console, args)
-	|					} else {
-	|						console.log(item)
-	|					}
-	|				});
-	|			}
-	|        </script>
-	|    </body>
-	|</html>";
-
-	Return Text;
-EndFunction
-&AtClient
-Function EditorItemText(EditorItemField)
-	Return UT_CodeEditorClient.EditorCodeTextItemForm(ThisObject,EditorItemField);
-EndFunction
-
-&AtClient
-Procedure SetEditorText(EditorItem, SetupText)
-	UT_CodeEditorClient.SetFormItemEditorText(ThisObject, EditorItem, SetupText);
-EndProcedure
-
-&AtClient
-Procedure AddLinkedLibrary(Path, AdditionalParameters)
-	Rec 						= LinkedLibraries.Add();
-	Rec.Path					= Path;
-	Rec.AdditionalParameters	= AdditionalParameters;
-EndProcedure
-
-&AtClient
-Procedure SetupLibraryEditorText()
-	CurrentData = Items.LinkedLibraries.CurrentData;
-	If CurrentData = Undefined Then
-		Return;
-	EndIf;
-	If Not ValueIsFilled(CurrentData.Path) Then
-		Return;
-	EndIf;
-	
-	FileReading = New TextReader(CurrentData.Path);
-	LibraryEditorText = FileReading.Read();
-	FileReading.Close();
-	
-	SetEditorText(Items.LibraryEditor, LibraryEditorText);
-EndProcedure
-&AtClient
-Procedure LinkedLibrarySelection(SelectedFiles, AdditionalParams) Export
-	If SelectedFiles = Undefined Then
-		Return;
-	EndIf;
-	AdditionalParams.CurrentData.Path = SelectedFiles[0];
-EndProcedure
-
-&AtClient
-Procedure ToggleEditorVisibility(EditorItem)
-	UT_CodeEditorClient.SwitchFormItemEditorVisibility(ThisObject, EditorItem);	
-EndProcedure
 #EndRegion
 
-FormCloseConfirmed = False;
