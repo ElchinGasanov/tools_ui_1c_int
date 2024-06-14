@@ -1744,6 +1744,14 @@
             <headerHorizontalAlign>Left</headerHorizontalAlign>
             <showInFooter>true</showInFooter>
             <extInfo xsi:type="form:InputFieldExtInfo">
+              <handlers>
+                <event>StartChoice</event>
+                <name>ObjectAttributesValueStartChoice</name>
+              </handlers>
+              <handlers>
+                <event>Clearing</event>
+                <name>ObjectAttributesValueClearing</name>
+              </handlers>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <wrap>true</wrap>
@@ -1880,18 +1888,6 @@
             </userVisible>
             <horizontalAlign>Left</horizontalAlign>
           </autoCommandBar>
-          <handlers>
-            <event>Selection</event>
-            <name>ObjectAttributesSelection</name>
-          </handlers>
-          <handlers>
-            <event>OnActivateRow</event>
-            <name>ObjectAttributesOnActivateRow</name>
-          </handlers>
-          <handlers>
-            <event>BeforeRowChange</event>
-            <name>ObjectAttributesBeforeRowChange</name>
-          </handlers>
           <searchStringAddition>
             <visible>true</visible>
             <enabled>true</enabled>

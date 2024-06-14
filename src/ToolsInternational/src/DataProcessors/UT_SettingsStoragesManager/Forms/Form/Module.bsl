@@ -44,18 +44,22 @@ EndProcedure
 Procedure ConfigurationObjectsRepresentationVariantOnChange(Item)
 	
 	UpdateItemsPresentation(Item.Name);
+	
 	UpdateOwnerSettings(Undefined);
 	
 EndProcedure
 
 &AtClient
 Procedure ConfigurationTreeCheckOnChange(Item)
+	
 	CurrentData = Items.ConfigurationTree.CurrentData;
 	CheckManagement(CurrentData);
+	
 EndProcedure
 
 &AtClient
 Procedure ConfigurationTreeOnActivateRow(Item)
+	
 	CurrentData = Items.ConfigurationTree.CurrentData;
 	If CurrentData = Undefined Then
 		Return;
@@ -82,7 +86,8 @@ EndProcedure
 
 &AtClient
 Procedure SettingsTableCheckOnChange(Item)
-		TreeRow = Items.ConfigurationTree.CurrentData;
+		
+	TreeRow = Items.ConfigurationTree.CurrentData;
 	If TreeRow = Undefined Then
 		Return;
 	EndIf;
@@ -109,11 +114,13 @@ Procedure SettingsTableCheckOnChange(Item)
 	EndIf;
 
 	CheckManagement(TreeRow, False);
+	
 EndProcedure
 
 &AtClient
 Procedure SettingsTableSettingsAdditionalOpening(Item, StandardProcessing)
-		StandardProcessing = False;
+		
+	StandardProcessing = False;
 
 	CurrentData = Items.SettingsTable.CurrentData;
 	If CurrentData = Undefined Then
@@ -122,6 +129,7 @@ Procedure SettingsTableSettingsAdditionalOpening(Item, StandardProcessing)
 
 	ViewSettingsAtServer(CurrentData.SettingsStorageName, CurrentData.ObjectKey, CurrentData.SettingsKey,
 		SettingsOwner);
+		
 EndProcedure
 
 &AtClient
@@ -148,7 +156,8 @@ EndProcedure
 
 &AtClient
 Procedure UsersTableCheckOnChange(Item)
-		CurrentData = Items.Users.CurrentData;
+		
+	CurrentData = Items.Users.CurrentData;
 	If CurrentData = Undefined Then
 		Return;
 	EndIf;
@@ -156,6 +165,7 @@ Procedure UsersTableCheckOnChange(Item)
 	If CurrentData.Check Then
 		CurrentData.Check = False;
 	EndIf;
+	
 EndProcedure
 
 &AtClient
@@ -228,6 +238,8 @@ EndProcedure
 Procedure Attachable_ExecuteToolsCommonCommand(Command) 
 	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
 EndProcedure
+
+
 
 #EndRegion
 

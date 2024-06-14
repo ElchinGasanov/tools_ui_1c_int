@@ -1206,7 +1206,7 @@ Procedure InitializeFilterComposerAndRules(FormSettings)
 	
 	// 6. Extension functionality in applied rules.
 	AppliedRulesDetails = Undefined;
-	If SettingsTableRow.EventDuplicateSearchParameters Then
+	If SettingsTableRow.DuplicatesSearchParametersEvent Then
 		DefaultParameters = New Structure;
 		DefaultParameters.Insert("SearchRules",        RulesTable);
 		DefaultParameters.Insert("ComparisonRestrictions", New Array);

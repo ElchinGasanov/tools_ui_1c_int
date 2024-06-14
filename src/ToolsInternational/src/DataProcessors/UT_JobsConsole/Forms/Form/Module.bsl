@@ -761,8 +761,43 @@ Procedure PutBackgroundJobs()
 		Return;
 	EndTry;
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// by method name/key
+	
 	BackgroundJobsList.Clear();
+	
 	For Each Background In Background_ Do
 		NewRow = BackgroundJobsList.Add();
 		

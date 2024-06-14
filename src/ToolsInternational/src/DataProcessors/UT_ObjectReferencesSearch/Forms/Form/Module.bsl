@@ -8,6 +8,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	EndIf;
 	
 	UT_Common.ToolFormOnCreateAtServer(ThisObject, Cancel, StandardProcessing);	
+	
 EndProcedure
 
 &AtClient
@@ -20,7 +21,6 @@ EndProcedure
 
 #EndRegion
 
-
 #Region FormHeaderItemsEventHandlers
 
 &AtClient
@@ -30,20 +30,35 @@ EndProcedure
 
 &AtClient
 Procedure SourceObjectClearing(Item, StandardProcessing)
-	UT_CommonClient.FormFieldClear(ThisObject, Item, StandardProcessing);
+	HandlerParameters = UT_CommonClient.NewProcessorClearingEventsParameters(ThisObject,
+																				Item,
+																				"SourceObject");
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.StructureValueStorage = Object;
+	
+	UT_CommonClient.FormFieldClear(HandlerParameters, StandardProcessing);
 EndProcedure
 
 &AtClient
 Procedure SourceObjectStartChoice(Item, ChoiceData, StandardProcessing)
-	UT_CommonClient.FormFieldValueStartChoice(ThisObject, Item, Object.SourceObject,
-		StandardProcessing, New NotifyDescription("SourceObjectStartChoiceTypeBlankValueChoiceCompletion",
-		ThisObject), "Refs");
+	AvailableTypesSets = UT_CommonClientServer.AvailableEditingTypesSets();
+	
+	HandlerParameters = UT_CommonClient.NewProcessorValueChoiceStartingEvents(ThisObject,
+																				Item,
+																				"SourceObject");
+	HandlerParameters.AvailableContainer = False;
+	HandlerParameters.Value = Object.SourceObject;
+	HandlerParameters.StructureValueStorage = Object;
+	HandlerParameters.TypesSet = AvailableTypesSets.References;
+	HandlerParameters.CallBackChoiceNotificationsEnding = New CallbackDescription("SourceObjectStartChoiceTypeBlankValueChoiceCompletion",
+		ThisObject);
+
+	UT_CommonClient.FormFieldValueStartChoiceProcessor(HandlerParameters, StandardProcessing);
 EndProcedure
 
 &AtClient
 Procedure SearchResultSelection(Item, RowSelected, Field, StandardProcessing)
-	StandardProcessing = False;
-	
+	StandardProcessing = False;	
 	OpenCurrentRowObject();
 EndProcedure
 
@@ -129,6 +144,7 @@ Procedure InputURLCompletion(InputResult, AdditionalParameters) Export
 		Object.SourceObject = FoundObject;
 		SourceObjectOnChange(Undefined);
 	EndIf;
+	
 EndProcedure
 
 //@skip-warning
@@ -139,8 +155,8 @@ EndProcedure
 
 #EndRegion
 
-
 #Region Private
+
 
 &AtClient
 Procedure OnChangeSourceObject()
@@ -157,15 +173,13 @@ EndProcedure
 
 &AtClient
 Procedure SourceObjectStartChoiceTypeBlankValueChoiceCompletion(Result, AdditionalParameters) Export
-	Object.SourceObject = Result;
 	OnChangeSourceObject();
 EndProcedure
 
 &AtServer
 Procedure ExecuteReferencesSearchAtServer()
 	If NOT ValueIsFilled(Object.SourceObject) Then
-		Msg = NStr("ru = 'Не выбран объект, на который необходимо найти ссылки'; en = 'Object to find references is not selected'");
-		UT_CommonClientServer.MessageToUser(Msg, ,
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбран объект, на который необходимо найти ссылки'; en = 'Object to find references is not selected'"), ,
 			"Object.SourceObject");
 		Return;
 	EndIf;
@@ -185,8 +199,7 @@ Procedure ExecuteReferencesSearchAtServer()
 	MapCanBeOpened.Insert(11, True); // 11 Chart of calculation types
 	MapCanBeOpened.Insert(12, True); // 12 Chart of accounts
 	MapCanBeOpened.Insert(13, True); // 13 External data source set
-	MapCanBeOpened.Insert(14, True); // 14 External data source reference
-	
+	MapCanBeOpened.Insert(14, True); // 14 External data source reference	
 	MapReferenceType = New Map;
 	MapReferenceType.Insert(0, False); // 0
 	MapReferenceType.Insert(1, False); // 1 Constant
@@ -203,7 +216,6 @@ Procedure ExecuteReferencesSearchAtServer()
 	MapReferenceType.Insert(12, True); // 12 Chart of accounts
 	MapReferenceType.Insert(13, False); // 13 External data source set
 	MapReferenceType.Insert(14, True); // 14 External data source reference
-	
 	MapOfPictures = New Map;
 	MapOfPictures.Insert(0, New Picture); // 0
 	MapOfPictures.Insert(1, PictureLib.Constant); // 1 Constant
@@ -219,8 +231,7 @@ Procedure ExecuteReferencesSearchAtServer()
 	MapOfPictures.Insert(11, PictureLib.ChartOfCalculationTypes); // 11 Chart of calculation types
 	MapOfPictures.Insert(12, PictureLib.ChartOfAccounts); // 12 Chart of accounts
 	MapOfPictures.Insert(13, PictureLib.ExternalDataSourceTable); // 13 External data source set
-	MapOfPictures.Insert(14, PictureLib.ExternalDataSourceTable); // 14 External data source reference
-	
+	MapOfPictures.Insert(14, PictureLib.ExternalDataSourceTable); // 14 External data source reference	
 	ArrayOfSearch = New Array;
 	ArrayOfSearch.Add(Object.SourceObject);
 
@@ -251,10 +262,15 @@ Procedure ExecuteReferencesSearchAtServer()
 		EndIf;
 
 		If First Then
+			
 			Items.SearchResult.CurrentRow = NewRow.GetID();
 			First = False;
+			
 		EndIf;
+		
+		
 	EndDo;
+	
 EndProcedure
 
 &AtClient
@@ -268,108 +284,121 @@ Procedure OpenCurrentRowObject()
 	EndIf;
 
 	ShowValue( , CurrentData.FoundObject);
+	
 EndProcedure
-
 &AtClient
 Procedure ExecuteReferencesSearch()
 	If NOT ValueIsFilled(Object.SourceObject) Then
-		Msg = NStr("ru = 'Не выбран объект, на который необходимо найти ссылки'; en = 'Object to find references is not selected'");
-		UT_CommonClientServer.MessageToUser(Msg, ,
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбран объект, на который необходимо найти ссылки'; en = 'Object to find references is not selected'"), ,
 			"Object.SourceObject");
 		Return;
 	EndIf;
 
-	Msg = NStr("ru = 'Выполняется поиск ссылок на объект'; en = 'Object references search in progress'");
-	Status(Msg, , , PictureLib.SearchControl);
-	
+	Status(NStr("ru = 'Выполняется поиск ссылок на объект'; en = 'Object references search in progress'"), , , PictureLib.SearchControl);	
 	ExecuteReferencesSearchAtServer();
-	
-	Msg = NStr("ru = 'Поиск ссылок на объект завершен'; en = 'Object references search completed'");
-	Status(Msg, , , PictureLib.SearchControl);
+	Status(NStr("ru = 'Поиск ссылок на объект завершен'; en = 'Object references search completed'"), , , PictureLib.SearchControl);
 
 	ThisObject.CurrentItem = Items.SearchResult;
+	
 EndProcedure
 
 &AtServerNoContext
 Function FoundObjectPresentation(BaseTypeByNumber, ObjectMetadata, FoundObject)
-	Presentation = TrimAll(FoundObject);
 	
-	If BaseTypeByNumber = 2 
-		OR BaseTypeByNumber = 3 
-		OR BaseTypeByNumber = 8 
-		OR BaseTypeByNumber = 9
-		OR BaseTypeByNumber = 10 
-		OR BaseTypeByNumber = 11 
-		OR BaseTypeByNumber = 12 
-		OR BaseTypeByNumber = 14 Then
+	Presentation = TrimAll(FoundObject);	
+	If BaseTypeByNumber = 2 OR BaseTypeByNumber = 3 OR BaseTypeByNumber = 8 OR BaseTypeByNumber = 9
+		OR BaseTypeByNumber = 10 OR BaseTypeByNumber = 11 OR BaseTypeByNumber = 12 OR BaseTypeByNumber = 14 Then
 
-	ElsIf BaseTypeByNumber = 4 
-		OR BaseTypeByNumber = 5 
-		OR BaseTypeByNumber = 6 
-		OR BaseTypeByNumber = 7 Then
-		Presentation = "";
+	ElsIf BaseTypeByNumber = 4 OR BaseTypeByNumber = 5 OR BaseTypeByNumber = 6 OR BaseTypeByNumber = 7 Then
 		
+		Presentation = "";		
 		If ObjectMetadata.InformationRegisterPeriodicity
 			<> Metadata.ObjectProperties.InformationRegisterPeriodicity.Nonperiodical Then
+				
 			Presentation = String(FoundObject.Period);
+			
 		EndIf;
 
 		If ObjectMetadata.WriteMode = Metadata.ObjectProperties.RegisterWriteMode.RecorderSubordinate Then
+			
 			Presentation = ?(StrLen(Presentation) = 0, "", Presentation + "; ") + String(
 				FoundObject.Recorder);
+				
 		EndIf;
 
 		For Each Dimension In ObjectMetadata.Dimensions Do
+			
 			Presentation = ?(StrLen(Presentation) = 0, "", Presentation + "; ") + String(
 				FoundObject[Dimension.Name]);
+				
 		EndDo;
-	ElsIf BaseTypeByNumber = 13 Then
-		Presentation = "";
 		
+	ElsIf BaseTypeByNumber = 13 Then
+		
+		Presentation = "";		
 		For Each Dimension In ObjectMetadata.KeyFields Do
+			
 			Presentation = ?(StrLen(Presentation) = 0, "", Presentation + "; ") + String(
 				FoundObject[Dimension.Name]);
+				
 		EndDo;
 	EndIf;
 
 	Return Presentation;
+	
 EndFunction
 
 &AtServerNoContext
 Function MetadataTypyByNumber(ObjectMetadata)
-	MetadataType = 0;
 	
+	MetadataType = 0;	
 	If Metadata.Constants.Contains(ObjectMetadata) Then
+		
 		MetadataType = 1;
 	ElsIf Metadata.Catalogs.Contains(ObjectMetadata) Then
+		
 		MetadataType = 2;
 	ElsIf Metadata.Documents.Contains(ObjectMetadata) Then
+		
 		MetadataType = 3;
 	ElsIf Metadata.AccumulationRegisters.Contains(ObjectMetadata) Then
+		
 		MetadataType = 4;
 	ElsIf Metadata.AccountingRegisters.Contains(ObjectMetadata) Then
+		
 		MetadataType = 5;
 	ElsIf Metadata.CalculationRegisters.Contains(ObjectMetadata) Then
+		
 		MetadataType = 6;
 	ElsIf Metadata.InformationRegisters.Contains(ObjectMetadata) Then
+		
 		MetadataType = 7;
 	ElsIf Metadata.BusinessProcesses.Contains(ObjectMetadata) Then
+		
 		MetadataType = 8;
 	ElsIf Metadata.Tasks.Contains(ObjectMetadata) Then
+		
 		MetadataType = 9;
 	ElsIf Metadata.ChartsOfCharacteristicTypes.Contains(ObjectMetadata) Then
+		
 		MetadataType = 10;
 	ElsIf Metadata.ChartsOfCalculationTypes.Contains(ObjectMetadata) Then
+		
 		MetadataType = 11;
 	ElsIf Metadata.ChartsOfAccounts.Contains(ObjectMetadata) Then
+		
 		MetadataType = 12;
 	Else
 		For Each ExternalSource In Metadata.ExternalDataSources Do
+			
 			If ExternalSource.Tables.Contains(ObjectMetadata) Then
+				
 				If ObjectMetadata.TableDataType
 					= Metadata.ObjectProperties.ExternalDataSourceTableDataType.ObjectData Then
+						
 					MetadataType = 14; // object table
 				Else
+					
 					MetadataType = 13; // non-object table
 				EndIf;
 				Break;
@@ -378,6 +407,7 @@ Function MetadataTypyByNumber(ObjectMetadata)
 	EndIf;
 
 	Return MetadataType;
+	
 EndFunction
 
 //TODO This function has to be moved to common modules. It is copied from UT_ObjectsAttributesEditor.ObjectForm
@@ -386,8 +416,7 @@ Function FindObjectByURL(Val URL)
 	Pos1 = Find(URL, "e1cib/data/");
 	Pos2 = Find(URL, "?ref=");
 
-	If Pos1 = 0
-		OR Pos2 = 0 Then
+	If Pos1 = 0 OR Pos2 = 0 Then
 		Return Undefined;
 	EndIf;
 

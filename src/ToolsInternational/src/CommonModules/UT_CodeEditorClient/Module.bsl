@@ -295,7 +295,7 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 			
 			DocumentView.appTo1C.setMode(CurrentLanguage);
 			
-			If ValueIsFilled(EditorSettings.СобытияРедактора.ПриИзменении) Then
+			If ValueIsFilled(EditorSettings.EditorEvents.OnChange) Then
 				DocumentView.appTo1C.setGenerateModificationEvent(True);
 			EndIf;
 						
