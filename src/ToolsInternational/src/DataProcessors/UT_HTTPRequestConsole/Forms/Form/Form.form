@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <items xsi:type="form:FormGroup">
-    <name>ГруппаОсновная</name>
+    <name>MainGroup</name>
     <id>1</id>
     <items xsi:type="form:FormGroup">
-      <name>ГруппаДеревоЗапросов</name>
+      <name>TreeRequestsGroup</name>
       <id>359</id>
       <items xsi:type="form:Table">
-        <name>ДеревоЗапросов</name>
+        <name>RequestsTree</name>
         <id>361</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -15,14 +15,14 @@
           <common>true</common>
         </userVisible>
         <dataPath xsi:type="form:DataPath">
-          <segments>RequestTree</segments>
+          <segments>RequestsTree</segments>
         </dataPath>
         <titleLocation>None</titleLocation>
         <items xsi:type="form:FormGroup">
-          <name>ДеревоЗапросовГруппаИмя</name>
+          <name>RequestTreeNameGroup</name>
           <id>450</id>
           <items xsi:type="form:FormField">
-            <name>ДеревоЗапросовИмя</name>
+            <name>RequestTreeName</name>
             <id>374</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -30,11 +30,11 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>RequestTree.Name</segments>
+              <segments>RequestsTree.Name</segments>
             </dataPath>
             <defaultItem>true</defaultItem>
             <extendedTooltip>
-              <name>ДеревоЗапросовИмяРасширеннаяПодсказка</name>
+              <name>RequestTreeNameExtendedTooltip</name>
               <id>376</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -49,7 +49,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ДеревоЗапросовИмяКонтекстноеМеню</name>
+              <name>RequestTreeNameContextMenu</name>
               <id>375</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -73,7 +73,7 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormField">
-            <name>ДеревоЗапросовЗапросHTTP</name>
+            <name>RequestTreeRequestHTTP</name>
             <id>447</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -81,10 +81,10 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>RequestTree.HTTPRequest</segments>
+              <segments>RequestsTree.HTTPRequest</segments>
             </dataPath>
             <extendedTooltip>
-              <name>ДеревоЗапросовЗапросHTTPРасширеннаяПодсказка</name>
+              <name>RequestTreeRequestHTTPExtendedTooltip</name>
               <id>449</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -99,7 +99,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ДеревоЗапросовЗапросHTTPКонтекстноеМеню</name>
+              <name>RequestTreeRequestHTTPContextMenu</name>
               <id>448</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -130,9 +130,13 @@
             <key>ru</key>
             <value>Дерево запросов группа1</value>
           </title>
+          <title>
+            <key>en</key>
+            <value>Request tree name group</value>
+          </title>
           <enableContentChange>true</enableContentChange>
           <extendedTooltip>
-            <name>ДеревоЗапросовГруппаИмяРасширеннаяПодсказка</name>
+            <name>RequestTreeNameGroupExtendedTooltip</name>
             <id>451</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -153,10 +157,10 @@
           </extInfo>
         </items>
         <autoCommandBar>
-          <name>ДеревоЗапросовКоманднаяПанель</name>
+          <name>RequestsTreeCommandBar</name>
           <id>362</id>
           <items xsi:type="form:Button">
-            <name>ДеревоЗапросовДобавить</name>
+            <name>RequestTreeAdd</name>
             <id>420</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -164,7 +168,7 @@
               <common>true</common>
             </userVisible>
             <extendedTooltip>
-              <name>ДеревоЗапросовДобавитьРасширеннаяПодсказка</name>
+              <name>RequestTreeAddExtendedTooltip</name>
               <id>421</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -178,7 +182,7 @@
                 <horizontalAlign>Left</horizontalAlign>
               </extInfo>
             </extendedTooltip>
-            <commandName>Form.Item.ДеревоЗапросов.StandardCommand.Add</commandName>
+            <commandName>Form.Item.RequestsTree.StandardCommand.Add</commandName>
             <representation>Picture</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -187,7 +191,7 @@
             <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
-            <name>ДеревоЗапросовСкопировать</name>
+            <name>RequestTreeCopy</name>
             <id>422</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -195,7 +199,7 @@
               <common>true</common>
             </userVisible>
             <extendedTooltip>
-              <name>ДеревоЗапросовСкопироватьРасширеннаяПодсказка</name>
+              <name>RequestTreeCopyExtendedTooltip</name>
               <id>423</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -209,7 +213,7 @@
                 <horizontalAlign>Left</horizontalAlign>
               </extInfo>
             </extendedTooltip>
-            <commandName>Form.Item.ДеревоЗапросов.StandardCommand.Copy</commandName>
+            <commandName>Form.Item.RequestsTree.StandardCommand.Copy</commandName>
             <representation>Picture</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -218,7 +222,7 @@
             <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
-            <name>ДеревоЗапросовИзменить</name>
+            <name>RequestTreeChange</name>
             <id>424</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -226,7 +230,7 @@
               <common>true</common>
             </userVisible>
             <extendedTooltip>
-              <name>ДеревоЗапросовИзменитьРасширеннаяПодсказка</name>
+              <name>RequestTreeChangeExtendedTooltip</name>
               <id>425</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -240,7 +244,7 @@
                 <horizontalAlign>Left</horizontalAlign>
               </extInfo>
             </extendedTooltip>
-            <commandName>Form.Item.ДеревоЗапросов.StandardCommand.Change</commandName>
+            <commandName>Form.Item.RequestsTree.StandardCommand.Change</commandName>
             <representation>Picture</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -249,7 +253,7 @@
             <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
-            <name>ДеревоЗапросовУдалить</name>
+            <name>RequestTreeDelete</name>
             <id>426</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -257,7 +261,7 @@
               <common>true</common>
             </userVisible>
             <extendedTooltip>
-              <name>ДеревоЗапросовУдалитьРасширеннаяПодсказка</name>
+              <name>RequestTreeDeleteExtendedTooltip</name>
               <id>427</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -271,7 +275,7 @@
                 <horizontalAlign>Left</horizontalAlign>
               </extInfo>
             </extendedTooltip>
-            <commandName>Form.Item.ДеревоЗапросов.StandardCommand.Delete</commandName>
+            <commandName>Form.Item.RequestsTree.StandardCommand.Delete</commandName>
             <representation>Picture</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -280,7 +284,7 @@
             <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
-            <name>ДеревоЗапросовДеревоЗапросовПереместитьНаУровеньВверх</name>
+            <name>RequestTreeMoveToLevelUp</name>
             <id>432</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -288,7 +292,7 @@
               <common>true</common>
             </userVisible>
             <extendedTooltip>
-              <name>ДеревоЗапросовДеревоЗапросовПереместитьНаУровеньВверхРасширеннаяПодсказка</name>
+              <name>RequestTreeMoveToLevelUpExtendedTooltip</name>
               <id>433</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -302,7 +306,7 @@
                 <horizontalAlign>Left</horizontalAlign>
               </extInfo>
             </extendedTooltip>
-            <commandName>Form.Command.ДеревоЗапросовПереместитьНаУровеньВверх</commandName>
+            <commandName>Form.Command.RequestTreeMoveToLevelUp</commandName>
             <representation>Auto</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -310,7 +314,7 @@
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
-            <name>ДеревоЗапросовПереместитьВверх</name>
+            <name>RequestTreeMoveUp</name>
             <id>428</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -318,7 +322,7 @@
               <common>true</common>
             </userVisible>
             <extendedTooltip>
-              <name>ДеревоЗапросовПереместитьВверхРасширеннаяПодсказка</name>
+              <name>RequestTreeMoveUpExtendedTooltip</name>
               <id>429</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -332,7 +336,7 @@
                 <horizontalAlign>Left</horizontalAlign>
               </extInfo>
             </extendedTooltip>
-            <commandName>Form.Item.ДеревоЗапросов.StandardCommand.MoveUp</commandName>
+            <commandName>Form.Item.RequestsTree.StandardCommand.MoveUp</commandName>
             <representation>Picture</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -341,7 +345,7 @@
             <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
-            <name>ДеревоЗапросовПереместитьВниз</name>
+            <name>RequestTreeMoveDown</name>
             <id>430</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -349,7 +353,7 @@
               <common>true</common>
             </userVisible>
             <extendedTooltip>
-              <name>ДеревоЗапросовПереместитьВнизРасширеннаяПодсказка</name>
+              <name>RequestTreeMoveDownExtendedTooltip</name>
               <id>431</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -363,7 +367,7 @@
                 <horizontalAlign>Left</horizontalAlign>
               </extInfo>
             </extendedTooltip>
-            <commandName>Form.Item.ДеревоЗапросов.StandardCommand.MoveDown</commandName>
+            <commandName>Form.Item.RequestsTree.StandardCommand.MoveDown</commandName>
             <representation>Picture</representation>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -396,10 +400,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <name>ДеревоЗапросовСтрокаПоиска</name>
+          <name>RequestsTreeSearchString</name>
           <id>365</id>
           <extendedTooltip>
-            <name>ДеревоЗапросовСтрокаПоискаРасширеннаяПодсказка</name>
+            <name>RequestsTreeSearchStringExtendedTooltip</name>
             <id>367</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -414,7 +418,7 @@
             </extInfo>
           </extendedTooltip>
           <contextMenu>
-            <name>ДеревоЗапросовСтрокаПоискаКонтекстноеМеню</name>
+            <name>RequestsTreeSearchStringContextMenu</name>
             <id>366</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -423,7 +427,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>ДеревоЗапросовСтрокаПоиска</source>
+          <source>RequestsTreeSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -434,10 +438,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <name>ДеревоЗапросовСостояниеПросмотра</name>
+          <name>RequestsTreeViewStatus</name>
           <id>371</id>
           <extendedTooltip>
-            <name>ДеревоЗапросовСостояниеПросмотраРасширеннаяПодсказка</name>
+            <name>RequestsTreeViewStatusExtendedTooltip</name>
             <id>373</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -452,7 +456,7 @@
             </extInfo>
           </extendedTooltip>
           <contextMenu>
-            <name>ДеревоЗапросовСостояниеПросмотраКонтекстноеМеню</name>
+            <name>RequestsTreeViewStatusContextMenu</name>
             <id>372</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -462,7 +466,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>ДеревоЗапросовСостояниеПросмотра</source>
+          <source>RequestsTreeViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -473,10 +477,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <name>ДеревоЗапросовУправлениеПоиском</name>
+          <name>RequestsTreeSearchControl</name>
           <id>368</id>
           <extendedTooltip>
-            <name>ДеревоЗапросовУправлениеПоискомРасширеннаяПодсказка</name>
+            <name>RequestsTreeSearchControlExtendedTooltip</name>
             <id>370</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -491,7 +495,7 @@
             </extInfo>
           </extendedTooltip>
           <contextMenu>
-            <name>ДеревоЗапросовУправлениеПоискомКонтекстноеМеню</name>
+            <name>RequestsTreeSearchControlContextMenu</name>
             <id>369</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -501,13 +505,13 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>ДеревоЗапросовУправлениеПоиском</source>
+          <source>RequestsTreeSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
         </searchControlAddition>
         <extendedTooltip>
-          <name>ДеревоЗапросовРасширеннаяПодсказка</name>
+          <name>RequestsTreeExtendedTooltip</name>
           <id>364</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -522,7 +526,7 @@
           </extInfo>
         </extendedTooltip>
         <contextMenu>
-          <name>ДеревоЗапросовКонтекстноеМеню</name>
+          <name>RequestsTreeContextMenu</name>
           <id>363</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -554,10 +558,10 @@
         <enableDrag>true</enableDrag>
       </items>
       <items xsi:type="form:FormGroup">
-        <name>ГруппаНастройки</name>
+        <name>SettingsGroup</name>
         <id>636</id>
         <items xsi:type="form:FormField">
-          <name>СохранятьПередВыполнением</name>
+          <name>SaveBeforeExecution</name>
           <id>638</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -571,9 +575,13 @@
             <key>ru</key>
             <value>Будет выполнено сохранение файла запросов перед выполнением запроса</value>
           </toolTip>
+          <toolTip>
+            <key>en</key>
+            <value>Will save the requests file before executing the request</value>
+          </toolTip>
           <toolTipRepresentation>Button</toolTipRepresentation>
           <extendedTooltip>
-            <name>СохранятьПередВыполнениемРасширеннаяПодсказка</name>
+            <name>SaveBeforeExecutionExtendedTooltip</name>
             <id>640</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -588,7 +596,7 @@
             </extInfo>
           </extendedTooltip>
           <contextMenu>
-            <name>СохранятьПередВыполнениемКонтекстноеМеню</name>
+            <name>SaveBeforeExecutionContextMenu</name>
             <id>639</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -613,8 +621,12 @@
           <key>ru</key>
           <value>Настройки</value>
         </title>
+        <title>
+          <key>en</key>
+          <value>Settings</value>
+        </title>
         <extendedTooltip>
-          <name>ГруппаНастройкиРасширеннаяПодсказка</name>
+          <name>SettingsGroupExtendedTooltip</name>
           <id>637</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -647,7 +659,7 @@
       <width>20</width>
       <horizontalStretch>false</horizontalStretch>
       <extendedTooltip>
-        <name>ГруппаДеревоЗапросовРасширеннаяПодсказка</name>
+        <name>TreeRequestsGroupExtendedTooltip</name>
         <id>360</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -672,16 +684,16 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormGroup">
-      <name>ГруппаВыполнениеЗапроса</name>
+      <name>RequestExecutionGroup</name>
       <id>291</id>
       <items xsi:type="form:FormGroup">
-        <name>ГруппаЗапрос</name>
+        <name>RequestGroup</name>
         <id>30</id>
         <items xsi:type="form:FormGroup">
-          <name>ГруппаСтрокаЗапроса</name>
+          <name>RequestStringGroup</name>
           <id>32</id>
           <items xsi:type="form:FormField">
-            <name>ЗапросHTTP</name>
+            <name>HTTPRequest</name>
             <id>34</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -689,11 +701,11 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>Items.ДеревоЗапросов.CurrentData.HTTPRequest</segments>
+              <segments>Items.RequestsTree.CurrentData.HTTPRequest</segments>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
-              <name>ПолеРасширеннаяПодсказка4</name>
+              <name>HTTPRequestExtendedTooltip</name>
               <id>36</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -708,7 +720,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ПолеКонтекстноеМеню4</name>
+              <name>HTTPRequestContextMenu</name>
               <id>35</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -734,7 +746,7 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormField">
-            <name>URLЗапроса</name>
+            <name>RequestURL</name>
             <id>37</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -742,15 +754,15 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>Items.ДеревоЗапросов.CurrentData.RequestURL</segments>
+              <segments>Items.RequestsTree.CurrentData.RequestURL</segments>
             </dataPath>
             <titleLocation>None</titleLocation>
             <handlers>
               <event>OnChange</event>
-              <name>URLЗапросаПриИзменении</name>
+              <name>RequestURLOnChange</name>
             </handlers>
             <extendedTooltip>
-              <name>ПолеРасширеннаяПодсказка5</name>
+              <name>RequestURLExtendedTooltip</name>
               <id>39</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -765,7 +777,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ПолеКонтекстноеМеню5</name>
+              <name>RequestURLContextMenu</name>
               <id>38</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -793,13 +805,13 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormGroup">
-            <name>ГруппаВыполнитьЗапросКоманднаяПанель</name>
+            <name>RequestExecuteCommandPanelGroup</name>
             <id>472</id>
             <items xsi:type="form:FormGroup">
-              <name>ГруппаПодменюВыполнитьЗапрос</name>
+              <name>RequestExecuteSubmenulGroup</name>
               <id>474</id>
               <items xsi:type="form:Button">
-                <name>ВыполнитьЗапрос1</name>
+                <name>RequestExecute1</name>
                 <id>476</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -807,7 +819,7 @@
                   <common>true</common>
                 </userVisible>
                 <extendedTooltip>
-                  <name>ВыполнитьЗапрос1РасширеннаяПодсказка</name>
+                  <name>RequestExecute1ExtendedTooltip</name>
                   <id>477</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -821,7 +833,7 @@
                     <horizontalAlign>Left</horizontalAlign>
                   </extInfo>
                 </extendedTooltip>
-                <commandName>Form.Command.ВыполнитьЗапрос</commandName>
+                <commandName>Form.Command.RequestExecute</commandName>
                 <representation>Auto</representation>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
@@ -836,9 +848,13 @@
                 <key>ru</key>
                 <value>доп</value>
               </title>
+              <title>
+                <key>en</key>
+                <value>add.</value>
+              </title>
               <enableContentChange>true</enableContentChange>
               <extendedTooltip>
-                <name>ГруппаПодменюВыполнитьЗапросРасширеннаяПодсказка</name>
+                <name>RequestExecuteSubmenulGroupExtendedTooltip</name>
                 <id>475</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -868,7 +884,7 @@
             <enableContentChange>true</enableContentChange>
             <horizontalStretch>false</horizontalStretch>
             <extendedTooltip>
-              <name>ГруппаВыполнитьЗапросКоманднаяПанельРасширеннаяПодсказка</name>
+              <name>RequestExecuteCommandPanelGroupExtendedTooltip</name>
               <id>473</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -893,7 +909,7 @@
             <common>true</common>
           </userVisible>
           <extendedTooltip>
-            <name>Группа1РасширеннаяПодсказка3</name>
+            <name>RequestStringGroupExtendedTooltip</name>
             <id>33</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -918,20 +934,24 @@
           </extInfo>
         </items>
         <items xsi:type="form:FormGroup">
-          <name>ГруппаСтраницыЗапроса</name>
+          <name>RequestPagesGroup</name>
           <id>434</id>
           <items xsi:type="form:FormGroup">
-            <name>ГруппаСтраницаЗапросаТело</name>
+            <name>BodyRequestPageGroup</name>
             <id>436</id>
             <items xsi:type="form:FormGroup">
-              <name>ГруппаЗаголовокТела</name>
+              <name>BodyTitleGroup</name>
               <id>52</id>
               <items xsi:type="form:FormField">
-                <name>ВидТелаЗапроса</name>
+                <name>RequestBodyType</name>
                 <id>158</id>
                 <title>
                   <key>ru</key>
                   <value>Как</value>
+                </title>
+                <title>
+                  <key>en</key>
+                  <value>As</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -939,15 +959,15 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.BodyType</segments>
+                  <segments>Items.RequestsTree.CurrentData.BodyType</segments>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <handlers>
                   <event>OnChange</event>
-                  <name>ВидТелаЗапросаПриИзменении</name>
+                  <name>RequestBodyTypeOnChange</name>
                 </handlers>
                 <extendedTooltip>
-                  <name>ПолеРасширеннаяПодсказка25</name>
+                  <name>RequestBodyTypeExtendedTooltip</name>
                   <id>160</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -962,7 +982,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПолеКонтекстноеМеню25</name>
+                  <name>RequestBodyTypeContextMenu</name>
                   <id>159</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -989,8 +1009,12 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
+              <title>
+                <key>ru</key>
+                <value>Body title group</value>
+              </title>
               <extendedTooltip>
-                <name>Группа1РасширеннаяПодсказка6</name>
+                <name>BodyTitleGroupExtendedTooltip</name>
                 <id>53</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -1014,20 +1038,24 @@
               </extInfo>
             </items>
             <items xsi:type="form:FormGroup">
-              <name>ГруппаСтраницыТелаЗапроса</name>
+              <name>RequestBodyPageGroup</name>
               <id>161</id>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаСтраницаТелаЗапросаСтрокой</name>
+                <name>RequestBodyStringPageGroup</name>
                 <id>163</id>
                 <items xsi:type="form:FormGroup">
-                  <name>ГруппаСвойстваСтроковогоТелаЗапроса</name>
+                  <name>RequestBodyStringPropertyGroup</name>
                   <id>179</id>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовТипСтроковогоСодержимого</name>
+                    <name>RequestsTreeTypeOfStringContent</name>
                     <id>540</id>
                     <title>
                       <key>ru</key>
                       <value>Тип</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>Type</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1035,14 +1063,14 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.TypeOfStringContent</segments>
+                      <segments>Items.RequestsTree.CurrentData.TypeOfStringContent</segments>
                     </dataPath>
                     <handlers>
                       <event>OnChange</event>
-                      <name>ДеревоЗапросовТипСтроковогоСодержимогоПриИзменении</name>
+                      <name>RequestsTreeTypeOfStringContentOnChange</name>
                     </handlers>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовТипСтроковогоСодержимогоРасширеннаяПодсказка</name>
+                      <name>RequestsTreeTypeOfStringContentExtendedTooltip</name>
                       <id>542</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1057,7 +1085,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовТипСтроковогоСодержимогоКонтекстноеМеню</name>
+                      <name>RequestsTreeTypeOfStringContentContextMenu</name>
                       <id>541</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1082,10 +1110,14 @@
                     </extInfo>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>ИспользоватьBOM</name>
+                    <name>UseBOM</name>
                     <id>60</id>
                     <title>
                       <key>ru</key>
+                      <value>BOM</value>
+                    </title>
+                    <title>
+                      <key>en</key>
                       <value>BOM</value>
                     </title>
                     <visible>true</visible>
@@ -1094,11 +1126,11 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.UseBOM</segments>
+                      <segments>Items.RequestsTree.CurrentData.UseBOM</segments>
                     </dataPath>
                     <titleLocation>Top</titleLocation>
                     <extendedTooltip>
-                      <name>ПолеРасширеннаяПодсказка9</name>
+                      <name>UseBOMExtendedTooltip</name>
                       <id>62</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1113,7 +1145,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ПолеКонтекстноеМеню9</name>
+                      <name>UseBOMContextMenu</name>
                       <id>61</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1140,6 +1172,10 @@
                           <key>ru</key>
                           <value>Авто</value>
                         </presentation>
+                        <presentation>
+                          <key>en</key>
+                          <value>Auto</value>
+                        </presentation>
                         <value xsi:type="core:NumberValue">
                           <value>0</value>
                         </value>
@@ -1148,6 +1184,10 @@
                         <presentation>
                           <key>ru</key>
                           <value>Использовать</value>
+                        </presentation>
+                        <presentation>
+                          <key>en</key>
+                          <value>Use</value>
                         </presentation>
                         <value xsi:type="core:NumberValue">
                           <value>1</value>
@@ -1158,6 +1198,10 @@
                           <key>ru</key>
                           <value>Не использовать</value>
                         </presentation>
+                        <presentation>
+                          <key>en</key>
+                          <value>Don't use</value>
+                        </presentation>
                         <value xsi:type="core:NumberValue">
                           <value>2</value>
                         </value>
@@ -1165,7 +1209,7 @@
                     </extInfo>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>КодировкаТелаЗапроса</name>
+                    <name>RequestBodyEncoding</name>
                     <id>57</id>
                     <title>
                       <key>ru</key>
@@ -1177,15 +1221,15 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.BodyEncoding</segments>
+                      <segments>Items.RequestsTree.CurrentData.BodyEncoding</segments>
                     </dataPath>
                     <titleLocation>Top</titleLocation>
                     <handlers>
                       <event>OnChange</event>
-                      <name>КодировкаТелаЗапросаПриИзменении</name>
+                      <name>RequestBodyEncodingOnChange</name>
                     </handlers>
                     <extendedTooltip>
-                      <name>ПолеРасширеннаяПодсказка8</name>
+                      <name>RequestBodyEncodingExtendedTooltip</name>
                       <id>59</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1200,7 +1244,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ПолеКонтекстноеМеню8</name>
+                      <name>RequestBodyEncodingContextMenu</name>
                       <id>58</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1228,14 +1272,18 @@
                           <key>ru</key>
                           <value>Авто</value>
                         </presentation>
+                        <presentation>
+                          <key>en</key>
+                          <value>Auto</value>
+                        </presentation>
                         <value xsi:type="core:StringValue">
-                          <value>Авто</value>
+                          <value>Auto</value>
                         </value>
                       </choiceList>
                     </extInfo>
                   </items>
                   <items xsi:type="form:Button">
-                    <name>РедактироватьТелоЗапросаВРедактореJSON</name>
+                    <name>EditRequestBodyInJSONEditor</name>
                     <id>587</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1243,7 +1291,7 @@
                       <common>true</common>
                     </userVisible>
                     <extendedTooltip>
-                      <name>РедактироватьТелоЗапросаВРедактореJSONРасширеннаяПодсказка</name>
+                      <name>EditRequestBodyInJSONEditorExtendedTooltip</name>
                       <id>588</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1258,7 +1306,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <type>Hyperlink</type>
-                    <commandName>Form.Command.РедактироватьТелоЗапросаВРедактореJSON</commandName>
+                    <commandName>Form.Command.EditRequestBodyInJSONEditor</commandName>
                     <representation>Picture</representation>
                     <width>4</width>
                     <height>1</height>
@@ -1272,7 +1320,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>Группа1РасширеннаяПодсказка23</name>
+                    <name>RequestBodyStringPropertyGroupExtendedTooltip</name>
                     <id>180</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1297,7 +1345,7 @@
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormField">
-                  <name>ТелоЗапроса</name>
+                  <name>RequestBody</name>
                   <id>49</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1305,11 +1353,11 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.BodyAsString</segments>
+                    <segments>Items.RequestsTree.CurrentData.BodyAsString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
-                    <name>ПолеРасширеннаяПодсказка7</name>
+                    <name>RequestBodyExtendedTooltip</name>
                     <id>51</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1324,7 +1372,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ПолеКонтекстноеМеню7</name>
+                    <name>RequestBodyContextMenu</name>
                     <id>50</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1352,12 +1400,8 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <title>
-                  <key>ru</key>
-                  <value>Группа страница тела запроса строкой</value>
-                </title>
                 <extendedTooltip>
-                  <name>Группа1РасширеннаяПодсказка20</name>
+                  <name>RequestBodyStringPageGroupExtendedTooltip</name>
                   <id>164</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1378,14 +1422,18 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаСтраницаТелаЗапросаДвоичныеДанные</name>
+                <name>BinaryDataRequestBodyPageGroup</name>
                 <id>165</id>
                 <items xsi:type="form:Button">
-                  <name>ЗаполнитьДвоичныеДанныеТелаИзФайла</name>
+                  <name>FillBodyBinaryDataFromFile</name>
                   <id>177</id>
                   <title>
                     <key>ru</key>
                     <value>Заполнить из файла</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Fill from file</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1393,7 +1441,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>ЗаполнитьДвоичныеДанныеТелаИзФайлаРасширеннаяПодсказка</name>
+                    <name>FillBodyBinaryDataFromFileExtendedTooltip</name>
                     <id>178</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1408,7 +1456,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <type>Hyperlink</type>
-                  <commandName>Form.Command.ЗаполнитьДвоичныеДанныеТелаИзФайла</commandName>
+                  <commandName>Form.Command.FillBodyBinaryDataFromFile</commandName>
                   <representation>Auto</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
@@ -1416,7 +1464,7 @@
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:FormField">
-                  <name>ТелоЗапросаДвоичныеДанныеСтрокой</name>
+                  <name>BinaryDataRequestBodyString</name>
                   <id>167</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1428,7 +1476,7 @@
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
-                    <name>ПолеРасширеннаяПодсказка26</name>
+                    <name>BinaryDataRequestBodyStringExtendedTooltip</name>
                     <id>169</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1443,7 +1491,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ПолеКонтекстноеМеню26</name>
+                    <name>BinaryDataRequestBodyStringContextMenu</name>
                     <id>168</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1475,10 +1523,10 @@
                 </userVisible>
                 <title>
                   <key>ru</key>
-                  <value>Группа страница тела запроса двоичные данные</value>
+                  <value>Binary data request body page group</value>
                 </title>
                 <extendedTooltip>
-                  <name>Группа1РасширеннаяПодсказка21</name>
+                  <name>BinaryDataRequestBodyPageGroupExtendedTooltip</name>
                   <id>166</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1499,14 +1547,18 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаСтраницаТелаЗапросаИмяФайлаТела</name>
+                <name>BadyFileNameRequestBodyPageGroup</name>
                 <id>170</id>
                 <items xsi:type="form:FormField">
-                  <name>ИмяФайлаТелаЗапроса</name>
+                  <name>BodyFileName</name>
                   <id>172</id>
                   <title>
                     <key>ru</key>
                     <value>Имя файла</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>File name</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1514,11 +1566,11 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.BodyFileName</segments>
+                    <segments>Items.RequestsTree.CurrentData.BodyFileName</segments>
                   </dataPath>
                   <titleLocation>Top</titleLocation>
                   <extendedTooltip>
-                    <name>ПолеРасширеннаяПодсказка27</name>
+                    <name>BodyFileNameExtendedTooltip</name>
                     <id>174</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1533,7 +1585,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ПолеКонтекстноеМеню27</name>
+                    <name>BodyFileNameContextMenu</name>
                     <id>173</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1568,10 +1620,10 @@
                 </userVisible>
                 <title>
                   <key>ru</key>
-                  <value>Группа страница тела запроса имя файла тела</value>
+                  <value>Bady file name request body page group</value>
                 </title>
                 <extendedTooltip>
-                  <name>Группа1РасширеннаяПодсказка22</name>
+                  <name>BadyFileNameRequestBodyPageGroupExtendedTooltip</name>
                   <id>171</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1592,14 +1644,18 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаСтраницаТелаЗапросаБезТела</name>
+                <name>RequestBodyBodylessPageGroup</name>
                 <id>629</id>
                 <items xsi:type="form:Decoration">
-                  <name>ДекорацияНадписьБезТелаЗапроса</name>
+                  <name>FormDecorationInscriptionRequestBodyless</name>
                   <id>631</id>
                   <title>
                     <key>ru</key>
                     <value>Установка тела запроса не будет произведена</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>The request body will not be set</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1607,7 +1663,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>ДекорацияНадписьБезТелаЗапросаРасширеннаяПодсказка</name>
+                    <name>FormDecorationInscriptionRequestBodylessExtendedTooltip</name>
                     <id>633</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1622,7 +1678,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ДекорацияНадписьБезТелаЗапросаКонтекстноеМеню</name>
+                    <name>FormDecorationInscriptionRequestBodylessContextMenu</name>
                     <id>632</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1644,12 +1700,8 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <title>
-                  <key>ru</key>
-                  <value>Группа1</value>
-                </title>
                 <extendedTooltip>
-                  <name>ГруппаСтраницаТелаЗапросаБезТелаРасширеннаяПодсказка</name>
+                  <name>RequestBodyBodylessPageGroupExtendedTooltip</name>
                   <id>630</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1670,10 +1722,10 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаСтраницаТелаМультипарт</name>
+                <name>BodyMultypartPageGroup</name>
                 <id>543</id>
                 <items xsi:type="form:Table">
-                  <name>ДеревоЗапросовТелоМультипарт</name>
+                  <name>MultipartBodyRequestsTree</name>
                   <id>602</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1681,15 +1733,19 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody</segments>
+                    <segments>Items.RequestsTree.CurrentData.MultipartBody</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовТелоМультипартИспользование</name>
+                    <name>MultipartBodyRequestsTreeUsing</name>
                     <id>615</id>
                     <title>
                       <key>ru</key>
                       <value>Исп.</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>Use</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1697,10 +1753,10 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody.Using</segments>
+                      <segments>Items.RequestsTree.CurrentData.MultipartBody.Using</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовТелоМультипартИспользованиеРасширеннаяПодсказка</name>
+                      <name>MultipartBodyRequestsTreeUsingExtendedTooltip</name>
                       <id>617</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1715,7 +1771,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовТелоМультипартИспользованиеКонтекстноеМеню</name>
+                      <name>MultipartBodyRequestsTreeUsingContextMenu</name>
                       <id>616</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1732,7 +1788,7 @@
                     <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовТелоМультипартИмя</name>
+                    <name>MultipartBodyRequestsTreeName</name>
                     <id>618</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1740,10 +1796,10 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody.Name</segments>
+                      <segments>Items.RequestsTree.CurrentData.MultipartBody.Name</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовТелоМультипартИмяРасширеннаяПодсказка</name>
+                      <name>MultipartBodyRequestsTreeNameExtendedTooltip</name>
                       <id>620</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1758,7 +1814,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовТелоМультипартИмяКонтекстноеМеню</name>
+                      <name>MultipartBodyRequestsTreeNameContextMenu</name>
                       <id>619</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1782,7 +1838,7 @@
                     </extInfo>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовТелоМультипартЗначение</name>
+                    <name>MultipartBodyRequestsTreeValue</name>
                     <id>624</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1790,10 +1846,10 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody.Value</segments>
+                      <segments>Items.RequestsTree.CurrentData.MultipartBody.Value</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовТелоМультипартЗначениеРасширеннаяПодсказка</name>
+                      <name>MultipartBodyRequestsTreeValueExtendedTooltip</name>
                       <id>626</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1808,7 +1864,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовТелоМультипартЗначениеКонтекстноеМеню</name>
+                      <name>MultipartBodyRequestsTreeValueContextMenu</name>
                       <id>625</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1825,7 +1881,7 @@
                     <extInfo xsi:type="form:InputFieldExtInfo">
                       <handlers>
                         <event>StartChoice</event>
-                        <name>ДеревоЗапросовТелоМультипартЗначениеНачалоВыбора</name>
+                        <name>MultipartBodyRequestsTreeValueStartChoice</name>
                       </handlers>
                       <autoMaxWidth>true</autoMaxWidth>
                       <autoMaxHeight>true</autoMaxHeight>
@@ -1837,7 +1893,7 @@
                     </extInfo>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовТелоМультипартВид</name>
+                    <name>MultipartBodyRequestsTreeType</name>
                     <id>621</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1845,10 +1901,10 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.MultipartBody.Type</segments>
+                      <segments>Items.RequestsTree.CurrentData.MultipartBody.Type</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовТелоМультипартВидРасширеннаяПодсказка</name>
+                      <name>MultipartBodyRequestsTreeTypeExtendedTooltip</name>
                       <id>623</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1863,7 +1919,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовТелоМультипартВидКонтекстноеМеню</name>
+                      <name>MultipartBodyRequestsTreeTypeContextMenu</name>
                       <id>622</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1887,7 +1943,7 @@
                     </extInfo>
                   </items>
                   <autoCommandBar>
-                    <name>ДеревоЗапросовТелоМультипартКоманднаяПанель</name>
+                    <name>MultipartBodyRequestsTreeCommandBar</name>
                     <id>603</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -1899,7 +1955,7 @@
                   </autoCommandBar>
                   <handlers>
                     <event>OnStartEdit</event>
-                    <name>ДеревоЗапросовТелоМультипартПриНачалеРедактирования</name>
+                    <name>MultipartBodyRequestsTreeOnStartEdit</name>
                   </handlers>
                   <searchStringAddition>
                     <visible>true</visible>
@@ -1907,10 +1963,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <name>ДеревоЗапросовТелоМультипартСтрокаПоиска</name>
+                    <name>MultipartBodyRequestsTreeSearchString</name>
                     <id>606</id>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовТелоМультипартСтрокаПоискаРасширеннаяПодсказка</name>
+                      <name>MultipartBodyRequestsTreeSearchStringExtendedTooltip</name>
                       <id>608</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1925,7 +1981,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовТелоМультипартСтрокаПоискаКонтекстноеМеню</name>
+                      <name>MultipartBodyRequestsTreeSearchStringContextMenu</name>
                       <id>607</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1934,7 +1990,7 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>ДеревоЗапросовТелоМультипартСтрокаПоиска</source>
+                    <source>MultipartBodyRequestsTreeSearchString</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -1945,10 +2001,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <name>ДеревоЗапросовТелоМультипартСостояниеПросмотра</name>
+                    <name>MultipartBodyRequestsTreeViewStatus</name>
                     <id>612</id>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовТелоМультипартСостояниеПросмотраРасширеннаяПодсказка</name>
+                      <name>MultipartBodyRequestsTreeViewStatusExtendedTooltip</name>
                       <id>614</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1963,7 +2019,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовТелоМультипартСостояниеПросмотраКонтекстноеМеню</name>
+                      <name>MultipartBodyRequestsTreeViewStatusContextMenu</name>
                       <id>613</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -1973,7 +2029,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>ДеревоЗапросовТелоМультипартСостояниеПросмотра</source>
+                    <source>MultipartBodyRequestsTreeViewStatus</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -1984,10 +2040,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <name>ДеревоЗапросовТелоМультипартУправлениеПоиском</name>
+                    <name>MultipartBodyRequestsTreeSearchControl</name>
                     <id>609</id>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовТелоМультипартУправлениеПоискомРасширеннаяПодсказка</name>
+                      <name>MultipartBodyRequestsTreeSearchControlExtendedTooltip</name>
                       <id>611</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2002,7 +2058,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовТелоМультипартУправлениеПоискомКонтекстноеМеню</name>
+                      <name>MultipartBodyRequestsTreeSearchControlContextMenu</name>
                       <id>610</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2012,13 +2068,13 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>ДеревоЗапросовТелоМультипартУправлениеПоиском</source>
+                    <source>MultipartBodyRequestsTreeSearchControl</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
                   </searchControlAddition>
                   <extendedTooltip>
-                    <name>ДеревоЗапросовТелоМультипартРасширеннаяПодсказка</name>
+                    <name>MultipartBodyRequestsTreeExtendedTooltip</name>
                     <id>605</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2033,7 +2089,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ДеревоЗапросовТелоМультипартКонтекстноеМеню</name>
+                    <name>MultipartBodyRequestsTreeContextMenu</name>
                     <id>604</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2066,12 +2122,8 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <title>
-                  <key>ru</key>
-                  <value>Группа1</value>
-                </title>
                 <extendedTooltip>
-                  <name>ГруппаСтраницаТелаМультипартРасширеннаяПодсказка</name>
+                  <name>BodyMultypartPageGroupExtendedTooltip</name>
                   <id>544</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2096,12 +2148,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <title>
-                <key>ru</key>
-                <value>Группа страницы тела запроса</value>
-              </title>
               <extendedTooltip>
-                <name>Группа1РасширеннаяПодсказка19</name>
+                <name>RequestBodyPageGroupExtendedTooltip</name>
                 <id>162</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2129,8 +2177,12 @@
               <key>ru</key>
               <value>Тело</value>
             </title>
+            <title>
+              <key>en</key>
+              <value>Body</value>
+            </title>
             <extendedTooltip>
-              <name>ГруппаСтраницаЗапросаТелоРасширеннаяПодсказка</name>
+              <name>BodyRequestPageGroupExtendedTooltip</name>
               <id>437</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2151,10 +2203,10 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormGroup">
-            <name>ГруппаСтраницаЗапросаАутентификация</name>
+            <name>AuthenticationRequestPageGroup</name>
             <id>486</id>
             <items xsi:type="form:FormField">
-              <name>ДеревоЗапросовАутентификацияВид</name>
+              <name>RequestsTreeAuthenticationType</name>
               <id>553</id>
               <title>
                 <key>ru</key>
@@ -2166,14 +2218,14 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationType</segments>
+                <segments>Items.RequestsTree.CurrentData.AuthenticationType</segments>
               </dataPath>
               <handlers>
                 <event>OnChange</event>
-                <name>ДеревоЗапросовАутентификацияВидПриИзменении</name>
+                <name>RequestsTreeAuthenticationTypeOnChange</name>
               </handlers>
               <extendedTooltip>
-                <name>ДеревоЗапросовАутентификацияВидРасширеннаяПодсказка</name>
+                <name>RequestsTreeAuthenticationTypeExtendedTooltip</name>
                 <id>555</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2188,7 +2240,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>ДеревоЗапросовАутентификацияВидКонтекстноеМеню</name>
+                <name>RequestsTreeAuthenticationTypeContextMenu</name>
                 <id>554</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2212,14 +2264,18 @@
               </extInfo>
             </items>
             <items xsi:type="form:FormGroup">
-              <name>ГруппаНастройкиАутентификацииЗапроса</name>
+              <name>RequestsAuthenticationSettingsGroup</name>
               <id>561</id>
               <items xsi:type="form:FormField">
-                <name>ДеревоЗапросовАутентификацияИспользовать</name>
+                <name>RequestsTreeUseAuthentication</name>
                 <id>556</id>
                 <title>
                   <key>ru</key>
                   <value>Использовать</value>
+                </title>
+                <title>
+                  <key>en</key>
+                  <value>Use</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2227,10 +2283,10 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.UseAuthentication</segments>
+                  <segments>Items.RequestsTree.CurrentData.UseAuthentication</segments>
                 </dataPath>
                 <extendedTooltip>
-                  <name>ДеревоЗапросовАутентификацияИспользоватьРасширеннаяПодсказка</name>
+                  <name>RequestsTreeUseAuthenticationExtendedTooltip</name>
                   <id>558</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2245,7 +2301,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ДеревоЗапросовАутентификацияИспользоватьКонтекстноеМеню</name>
+                  <name>RequestsTreeUseAuthenticationContextMenu</name>
                   <id>557</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2262,17 +2318,21 @@
                 <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаСтраницыВидыАутентификации</name>
+                <name>AuthenticationTypePageGroup</name>
                 <id>559</id>
                 <items xsi:type="form:FormGroup">
-                  <name>ГруппаСтраницаАутентифкацияБазовая</name>
+                  <name>BaseAuthenticationPageGroup</name>
                   <id>563</id>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовАутентификацияПользователь</name>
+                    <name>RequestsTreeUserAuthentication</name>
                     <id>565</id>
                     <title>
                       <key>ru</key>
                       <value>Пользователь</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>User</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2280,10 +2340,10 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationUser</segments>
+                      <segments>Items.RequestsTree.CurrentData.AuthenticationUser</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовАутентификацияПользовательРасширеннаяПодсказка</name>
+                      <name>RequestsTreeUserAuthenticationExtendedTooltip</name>
                       <id>567</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2298,7 +2358,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовАутентификацияПользовательКонтекстноеМеню</name>
+                      <name>RequestsTreeUserAuthenticationContextMenu</name>
                       <id>566</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2322,11 +2382,15 @@
                     </extInfo>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовАутентификацияПароль</name>
+                    <name>RequestsTreePasswordAuthentication</name>
                     <id>568</id>
                     <title>
                       <key>ru</key>
                       <value>Пароль</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>Password</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2334,10 +2398,10 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationPassword</segments>
+                      <segments>Items.RequestsTree.CurrentData.AuthenticationPassword</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовАутентификацияПарольРасширеннаяПодсказка</name>
+                      <name>RequestsTreePasswordAuthenticationExtendedTooltip</name>
                       <id>570</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2352,7 +2416,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовАутентификацияПарольКонтекстноеМеню</name>
+                      <name>RequestsTreePasswordAuthenticationContextMenu</name>
                       <id>569</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2381,12 +2445,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <title>
-                    <key>ru</key>
-                    <value>Группа1</value>
-                  </title>
                   <extendedTooltip>
-                    <name>ГруппаСтраницаАутентифкацияБазоваяРасширеннаяПодсказка</name>
+                    <name>BaseAuthenticationPageGroupExtendedTooltip</name>
                     <id>564</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2407,14 +2467,18 @@
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormGroup">
-                  <name>ГруппаСтраницаАутентификацияТокен</name>
+                  <name>TokenAuthenticationPageGroup</name>
                   <id>571</id>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовАутентификацияПароль1</name>
+                    <name>TokenAuthentication</name>
                     <id>573</id>
                     <title>
                       <key>ru</key>
                       <value>Токен</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>Token</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2422,10 +2486,10 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationPassword</segments>
+                      <segments>Items.RequestsTree.CurrentData.AuthenticationPassword</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовАутентификацияПароль1РасширеннаяПодсказка</name>
+                      <name>TokenAuthenticationExtendedTooltip</name>
                       <id>575</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2440,7 +2504,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовАутентификацияПароль1КонтекстноеМеню</name>
+                      <name>TokenAuthenticationContextMenu</name>
                       <id>574</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2467,11 +2531,15 @@
                     </extInfo>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>ДеревоЗапросовАутентификацияПрефиксТокена</name>
+                    <name>RequestsTreeUserAuthenticationTokenPrefix</name>
                     <id>579</id>
                     <title>
                       <key>ru</key>
                       <value>Префикс</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>Prefix</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2479,10 +2547,10 @@
                       <common>true</common>
                     </userVisible>
                     <dataPath xsi:type="form:DataPath">
-                      <segments>Items.ДеревоЗапросов.CurrentData.AuthenticationTokenPrefix</segments>
+                      <segments>Items.RequestsTree.CurrentData.AuthenticationTokenPrefix</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ДеревоЗапросовАутентификацияПрефиксТокенаРасширеннаяПодсказка</name>
+                      <name>RequestsTreeUserAuthenticationTokenPrefixExtendedTooltip</name>
                       <id>581</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2497,7 +2565,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДеревоЗапросовАутентификацияПрефиксТокенаКонтекстноеМеню</name>
+                      <name>RequestsTreeUserAuthenticationTokenPrefixContextMenu</name>
                       <id>580</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2525,12 +2593,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <title>
-                    <key>ru</key>
-                    <value>Группа1</value>
-                  </title>
                   <extendedTooltip>
-                    <name>ГруппаСтраницаАутентификацияТокенРасширеннаяПодсказка</name>
+                    <name>TokenAuthenticationPageGroupExtendedTooltip</name>
                     <id>572</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2551,10 +2615,10 @@
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormGroup">
-                  <name>ГруппаСтраницаАутентифкацияЗаглушка</name>
+                  <name>StubAuthenticationPageGroup</name>
                   <id>582</id>
                   <items xsi:type="form:Decoration">
-                    <name>ДекорацияСтраницаАутентифкацияЗаглушка</name>
+                    <name>FormDecorationStubAuthentication</name>
                     <id>584</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2562,7 +2626,7 @@
                       <common>true</common>
                     </userVisible>
                     <extendedTooltip>
-                      <name>ДекорацияСтраницаАутентифкацияЗаглушкаРасширеннаяПодсказка</name>
+                      <name>FormDecorationStubAuthenticationExtendedTooltip</name>
                       <id>586</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2577,7 +2641,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ДекорацияСтраницаАутентифкацияЗаглушкаКонтекстноеМеню</name>
+                      <name>FormDecorationStubAuthenticationContextMenu</name>
                       <id>585</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2598,12 +2662,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <title>
-                    <key>ru</key>
-                    <value>Группа1</value>
-                  </title>
                   <extendedTooltip>
-                    <name>ГруппаСтраницаАутентифкацияЗаглушкаРасширеннаяПодсказка</name>
+                    <name>StubAuthenticationPageGroupExtendedTooltip</name>
                     <id>583</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2628,12 +2688,8 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <title>
-                  <key>ru</key>
-                  <value>Группа1</value>
-                </title>
                 <extendedTooltip>
-                  <name>ГруппаСтраницыВидыАутентификацииРасширеннаяПодсказка</name>
+                  <name>AuthenticationTypePageGroupExtendedTooltip</name>
                   <id>560</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2657,12 +2713,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <title>
-                <key>ru</key>
-                <value>Группа1</value>
-              </title>
               <extendedTooltip>
-                <name>ГруппаНастройкиАутентификацииЗапросаРасширеннаяПодсказка</name>
+                <name>RequestsAuthenticationSettingsGroupExtendedTooltip</name>
                 <id>562</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2696,8 +2748,12 @@
               <value>Аутентификация
 </value>
             </title>
+            <title>
+              <key>en</key>
+              <value>Authentication</value>
+            </title>
             <extendedTooltip>
-              <name>ГруппаСтраницаЗапросаАутентификацияРасширеннаяПодсказка</name>
+              <name>AuthenticationRequestPageGroupExtendedTooltip</name>
               <id>487</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2718,17 +2774,21 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormGroup">
-            <name>ГруппаСтраницаЗапросаЗаголовки</name>
+            <name>HeadingsRequestPageGroup</name>
             <id>438</id>
             <items xsi:type="form:FormGroup">
-              <name>ГруппаЗаголовокГруппыЗаголовкаЗапроса</name>
+              <name>HeadingRequestHeadingGroup</name>
               <id>122</id>
               <items xsi:type="form:FormField">
-                <name>РедактированиеЗаголовковТаблицей</name>
+                <name>EditHeadersWithTable</name>
                 <id>155</id>
                 <title>
                   <key>ru</key>
                   <value>Редактировать</value>
+                </title>
+                <title>
+                  <key>en</key>
+                  <value>Edit</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2741,10 +2801,10 @@
                 <titleLocation>Left</titleLocation>
                 <handlers>
                   <event>OnChange</event>
-                  <name>РедактированиеЗаголовковТаблицейПриИзменении</name>
+                  <name>EditHeadersWithTableOnChange</name>
                 </handlers>
                 <extendedTooltip>
-                  <name>ПолеРасширеннаяПодсказка24</name>
+                  <name>EditHeadersWithTableExtendedTooltip</name>
                   <id>157</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2759,7 +2819,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПолеКонтекстноеМеню24</name>
+                  <name>EditHeadersWithTableContextMenu</name>
                   <id>156</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2777,7 +2837,7 @@
                   <checkBoxType>Tumbler</checkBoxType>
                   <editFormat>
                     <key>ru</key>
-                    <value>БЛ=Строкой; БИ=Таблицей</value>
+                    <value>BF=String; BT=Table</value>
                   </editFormat>
                 </extInfo>
               </items>
@@ -2788,7 +2848,7 @@
               </userVisible>
               <horizontalStretch>true</horizontalStretch>
               <extendedTooltip>
-                <name>Группа1РасширеннаяПодсказка15</name>
+                <name>HeadingRequestHeadingGroupExtendedTooltip</name>
                 <id>123</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2813,13 +2873,13 @@
               </extInfo>
             </items>
             <items xsi:type="form:FormGroup">
-              <name>ГруппаСраницыРедактированияЗаголовковЗапроса</name>
+              <name>EditRequestHeadersPagesGroup</name>
               <id>127</id>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаСтраницаРедактированияЗаголовковЗапросаТекстом</name>
+                <name>EditRequestHeadersPageGroupAsText</name>
                 <id>129</id>
                 <items xsi:type="form:FormField">
-                  <name>ЗаголовкиСтрока</name>
+                  <name>HeadersString</name>
                   <id>44</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2835,7 +2895,7 @@
                     <name>ЗаголовкиСтрокаПриИзменении</name>
                   </handlers>
                   <extendedTooltip>
-                    <name>ПолеРасширеннаяПодсказка6</name>
+                    <name>HeadersStringExtendedTooltip</name>
                     <id>46</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2850,7 +2910,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ПолеКонтекстноеМеню6</name>
+                    <name>HeadersStringContextMenu</name>
                     <id>45</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2878,12 +2938,8 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <title>
-                  <key>ru</key>
-                  <value>Группа страница редактирования заголовков запроса текстом</value>
-                </title>
                 <extendedTooltip>
-                  <name>Группа1РасширеннаяПодсказка17</name>
+                  <name>EditRequestHeadersPageGroupAsTextExtendedTooltip</name>
                   <id>130</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2904,10 +2960,10 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаСтраницаРедактированияЗаголовковЗапросаТаблицей</name>
+                <name>EditRequestHeadersPageGroupAsTable</name>
                 <id>131</id>
                 <items xsi:type="form:Table">
-                  <name>ТаблицаЗаголовковЗапроса</name>
+                  <name>RequestHeadersTable</name>
                   <id>136</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2919,11 +2975,15 @@
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <items xsi:type="form:FormField">
-                    <name>ТаблицаЗаголовковЗапросаИспользование</name>
+                    <name>TableRequestHeadersUsing</name>
                     <id>552</id>
                     <title>
                       <key>ru</key>
                       <value>Исп.</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>Use</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2934,7 +2994,7 @@
                       <segments>RequestHeadersTable.Using</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ТаблицаЗаголовковЗапросаИспользованиеРасширеннаяПодсказка</name>
+                      <name>TableRequestHeadersUsingExtendedTooltip</name>
                       <id>499</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2949,7 +3009,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ТаблицаЗаголовковЗапросаИспользованиеКонтекстноеМеню</name>
+                      <name>TableRequestHeadersUsingContextMenu</name>
                       <id>498</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2966,7 +3026,7 @@
                     <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>ТаблицаЗаголовковЗапросаКлюч</name>
+                    <name>TableRequestHeadersKey</name>
                     <id>149</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2977,7 +3037,7 @@
                       <segments>RequestHeadersTable.Key</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ПолеРасширеннаяПодсказка22</name>
+                      <name>TableRequestHeadersKeyExtendedTooltip</name>
                       <id>151</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -2992,7 +3052,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ПолеКонтекстноеМеню22</name>
+                      <name>TableRequestHeadersKeyContextMenu</name>
                       <id>150</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3009,7 +3069,7 @@
                     <extInfo xsi:type="form:InputFieldExtInfo">
                       <handlers>
                         <event>AutoComplete</event>
-                        <name>ТаблицаЗаголовковЗапросаКлючАвтоПодбор</name>
+                        <name>TableRequestHeadersTableKeyAutoComplete</name>
                       </handlers>
                       <autoMaxWidth>true</autoMaxWidth>
                       <autoMaxHeight>true</autoMaxHeight>
@@ -3020,7 +3080,7 @@
                     </extInfo>
                   </items>
                   <items xsi:type="form:FormField">
-                    <name>ТаблицаЗаголовковЗапросаЗначение</name>
+                    <name>TableRequestHeadersValue</name>
                     <id>152</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3031,7 +3091,7 @@
                       <segments>RequestHeadersTable.Value</segments>
                     </dataPath>
                     <extendedTooltip>
-                      <name>ПолеРасширеннаяПодсказка23</name>
+                      <name>TableRequestHeadersValueExtendedTooltip</name>
                       <id>154</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3046,7 +3106,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ПолеКонтекстноеМеню23</name>
+                      <name>TableRequestHeadersValueContextMenu</name>
                       <id>153</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3070,7 +3130,7 @@
                     </extInfo>
                   </items>
                   <autoCommandBar>
-                    <name>ТаблицаКоманднаяПанель1</name>
+                    <name>RequestHeadersTableCommandBar</name>
                     <id>137</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3081,12 +3141,12 @@
                     <autoFill>true</autoFill>
                   </autoCommandBar>
                   <handlers>
-                    <event>OnStartEdit</event>
-                    <name>ТаблицаЗаголовковЗапросаПриНачалеРедактирования</name>
+                    <event>OnChange</event>
+                    <name>RequestHeadersTableOnChange</name>
                   </handlers>
                   <handlers>
-                    <event>OnChange</event>
-                    <name>ТаблицаЗаголовковЗапросаПриИзменении</name>
+                    <event>OnStartEdit</event>
+                    <name>RequestHeadersTableOnStartEdit</name>
                   </handlers>
                   <searchStringAddition>
                     <visible>true</visible>
@@ -3094,10 +3154,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <name>ТаблицаСтрокаПоиска</name>
+                    <name>RequestHeadersTableSearchString</name>
                     <id>140</id>
                     <extendedTooltip>
-                      <name>ExtendedTooltip</name>
+                      <name>RequestHeadersTableSearchStringExtendedTooltip</name>
                       <id>142</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3112,7 +3172,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ContextMenu</name>
+                      <name>RequestHeadersTableSearchStringContextMenu</name>
                       <id>141</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3121,7 +3181,7 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>ТаблицаСтрокаПоиска</source>
+                    <source>RequestHeadersTableSearchString</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3132,10 +3192,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <name>ТаблицаСостояниеПросмотра</name>
+                    <name>RequestHeadersTableViewStatus</name>
                     <id>146</id>
                     <extendedTooltip>
-                      <name>ExtendedTooltip</name>
+                      <name>RequestHeadersTableViewStatusExtendedTooltip</name>
                       <id>148</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3150,7 +3210,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ContextMenu</name>
+                      <name>RequestHeadersTableViewStatusContextMenu</name>
                       <id>147</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3160,7 +3220,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>ТаблицаСостояниеПросмотра</source>
+                    <source>RequestHeadersTableViewStatus</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -3172,10 +3232,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <name>ТаблицаУправлениеПоиском</name>
+                    <name>RequestHeadersTableSearchControl</name>
                     <id>143</id>
                     <extendedTooltip>
-                      <name>ExtendedTooltip</name>
+                      <name>RequestHeadersTableSearchControlExtendedTooltip</name>
                       <id>145</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3190,7 +3250,7 @@
                       </extInfo>
                     </extendedTooltip>
                     <contextMenu>
-                      <name>ContextMenu</name>
+                      <name>RequestHeadersTableSearchControlContextMenu</name>
                       <id>144</id>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3200,13 +3260,13 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>ТаблицаУправлениеПоиском</source>
+                    <source>RequestHeadersTableSearchControl</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
                   </searchControlAddition>
                   <extendedTooltip>
-                    <name>ТаблицаРасширеннаяПодсказка</name>
+                    <name>RequestHeadersTableExtendedTooltip</name>
                     <id>139</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3221,7 +3281,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ТаблицаКонтекстноеМеню</name>
+                    <name>RequestHeadersTableContextMenu</name>
                     <id>138</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3255,12 +3315,8 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <title>
-                  <key>ru</key>
-                  <value>Группа страница редактирования заголовков запроса таблицей</value>
-                </title>
                 <extendedTooltip>
-                  <name>Группа1РасширеннаяПодсказка18</name>
+                  <name>EditRequestHeadersPageGroupAsTableExtendedTooltip</name>
                   <id>132</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3285,12 +3341,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <title>
-                <key>ru</key>
-                <value>Группа сраницы редактирования заголовков запроса</value>
-              </title>
               <extendedTooltip>
-                <name>Группа1РасширеннаяПодсказка16</name>
+                <name>EditRequestHeadersPagesGroupExtendedTooltip</name>
                 <id>128</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3318,8 +3370,12 @@
               <key>ru</key>
               <value>Заголовки</value>
             </title>
+            <title>
+              <key>en</key>
+              <value>Headings</value>
+            </title>
             <extendedTooltip>
-              <name>ГруппаСтраницаЗапросаЗаголовкиРасширеннаяПодсказка</name>
+              <name>HeadingsRequestPageGroupExtendedTooltip</name>
               <id>439</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3340,10 +3396,10 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormGroup">
-            <name>ГруппаСтраницаЗапросаПараметрыURL</name>
+            <name>URLRequestParametersPageGroup</name>
             <id>440</id>
             <items xsi:type="form:Table">
-              <name>ПараметрыURL</name>
+              <name>URLParameters</name>
               <id>297</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3351,15 +3407,19 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.URLParameters</segments>
+                <segments>Items.RequestsTree.CurrentData.URLParameters</segments>
               </dataPath>
               <titleLocation>None</titleLocation>
               <items xsi:type="form:FormField">
-                <name>ПараметрыURLИспользовать</name>
+                <name>URLParametersUsing</name>
                 <id>488</id>
                 <title>
                   <key>ru</key>
                   <value>Исп.</value>
+                </title>
+                <title>
+                  <key>en</key>
+                  <value>Use</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3367,10 +3427,10 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.URLParameters.Использование</segments>
+                  <segments>Items.RequestsTree.CurrentData.URLParameters.Using</segments>
                 </dataPath>
                 <extendedTooltip>
-                  <name>ПараметрыURLИспользоватьРасширеннаяПодсказка</name>
+                  <name>URLParametersUsingExtendedTooltip</name>
                   <id>490</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3385,7 +3445,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПараметрыURLИспользоватьКонтекстноеМеню</name>
+                  <name>URLParametersUsingContextMenu</name>
                   <id>489</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3402,7 +3462,7 @@
                 <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
               </items>
               <items xsi:type="form:FormField">
-                <name>ПараметрыURLИмя</name>
+                <name>URLParametersName</name>
                 <id>545</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3410,10 +3470,10 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.URLParameters.Имя</segments>
+                  <segments>Items.RequestsTree.CurrentData.URLParameters.Name</segments>
                 </dataPath>
                 <extendedTooltip>
-                  <name>ПараметрыURLИмяРасширеннаяПодсказка</name>
+                  <name>URLParametersNameExtendedTooltip</name>
                   <id>548</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3428,7 +3488,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПараметрыURLИмяКонтекстноеМеню</name>
+                  <name>URLParametersNameContextMenu</name>
                   <id>547</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3451,61 +3511,11 @@
                   <textEdit>true</textEdit>
                 </extInfo>
               </items>
-              <items xsi:type="form:FormField">
-                <name>ПараметрыURLЗначение</name>
-                <id>491</id>
-                <visible>true</visible>
-                <enabled>true</enabled>
-                <userVisible>
-                  <common>true</common>
-                </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.URLParameters.Значение</segments>
-                </dataPath>
-                <extendedTooltip>
-                  <name>ПараметрыURLЗначениеРасширеннаяПодсказка</name>
-                  <id>549</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <type>Label</type>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <extInfo xsi:type="form:LabelDecorationExtInfo">
-                    <horizontalAlign>Left</horizontalAlign>
-                  </extInfo>
-                </extendedTooltip>
-                <contextMenu>
-                  <name>ПараметрыURLЗначениеКонтекстноеМеню</name>
-                  <id>492</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <autoFill>true</autoFill>
-                </contextMenu>
-                <type>InputField</type>
-                <editMode>Enter</editMode>
-                <showInHeader>true</showInHeader>
-                <headerHorizontalAlign>Left</headerHorizontalAlign>
-                <showInFooter>true</showInFooter>
-                <extInfo xsi:type="form:InputFieldExtInfo">
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <wrap>true</wrap>
-                  <chooseType>true</chooseType>
-                  <typeDomainEnabled>true</typeDomainEnabled>
-                  <textEdit>true</textEdit>
-                </extInfo>
-              </items>
               <autoCommandBar>
-                <name>ПараметрыURLКоманднаяПанель</name>
+                <name>URLParametersCommandBar</name>
                 <id>298</id>
                 <items xsi:type="form:Button">
-                  <name>ПараметрыЗапросаДобавить</name>
+                  <name>RequestParametersAdd</name>
                   <id>319</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3513,7 +3523,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>ПараметрыЗапросаДобавитьРасширеннаяПодсказка</name>
+                    <name>RequestParametersAddExtendedTooltip</name>
                     <id>320</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3527,7 +3537,7 @@
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <commandName>Form.Item.ПараметрыURL.StandardCommand.Add</commandName>
+                  <commandName>Form.Item.URLParameters.StandardCommand.Add</commandName>
                   <representation>Picture</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
@@ -3535,7 +3545,7 @@
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
-                  <name>ПараметрыЗапросаСкопировать</name>
+                  <name>RequestParametersCopy</name>
                   <id>321</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3543,7 +3553,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>ПараметрыЗапросаСкопироватьРасширеннаяПодсказка</name>
+                    <name>RequestParametersCopyExtendedTooltip</name>
                     <id>322</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3557,7 +3567,7 @@
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <commandName>Form.Item.ПараметрыURL.StandardCommand.Copy</commandName>
+                  <commandName>Form.Item.URLParameters.StandardCommand.Copy</commandName>
                   <representation>Picture</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
@@ -3566,7 +3576,7 @@
                   <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
-                  <name>ПараметрыЗапросаУдалить</name>
+                  <name>RequestParametersDelete</name>
                   <id>325</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3574,7 +3584,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>ПараметрыЗапросаУдалитьРасширеннаяПодсказка</name>
+                    <name>RequestParametersDeleteExtendedTooltip</name>
                     <id>326</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3588,7 +3598,7 @@
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <commandName>Form.Item.ПараметрыURL.StandardCommand.Delete</commandName>
+                  <commandName>Form.Item.URLParameters.StandardCommand.Delete</commandName>
                   <representation>Picture</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
@@ -3597,7 +3607,7 @@
                   <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
-                  <name>ПараметрыЗапросаПереместитьВверх</name>
+                  <name>RequestParametersMoveUp</name>
                   <id>327</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3605,7 +3615,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>ПараметрыЗапросаПереместитьВверхРасширеннаяПодсказка</name>
+                    <name>RequestParametersMoveUpExtendedTooltip</name>
                     <id>328</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3619,7 +3629,7 @@
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <commandName>Form.Item.ПараметрыURL.StandardCommand.MoveUp</commandName>
+                  <commandName>Form.Item.URLParameters.StandardCommand.MoveUp</commandName>
                   <representation>Auto</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
@@ -3627,7 +3637,7 @@
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
-                  <name>ПараметрыЗапросаПереместитьВниз</name>
+                  <name>RequestParametersMoveDown</name>
                   <id>329</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3635,7 +3645,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>ПараметрыЗапросаПереместитьВнизРасширеннаяПодсказка</name>
+                    <name>RequestParametersMoveDownExtendedTooltip</name>
                     <id>330</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3649,7 +3659,7 @@
                       <horizontalAlign>Left</horizontalAlign>
                     </extInfo>
                   </extendedTooltip>
-                  <commandName>Form.Item.ПараметрыURL.StandardCommand.MoveDown</commandName>
+                  <commandName>Form.Item.URLParameters.StandardCommand.MoveDown</commandName>
                   <representation>Auto</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
@@ -3677,10 +3687,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <name>ПараметрыURLСтрокаПоиска</name>
+                <name>URLParametersSearchString</name>
                 <id>301</id>
                 <extendedTooltip>
-                  <name>ПараметрыURLСтрокаПоискаРасширеннаяПодсказка</name>
+                  <name>URLParametersSearchStringExtendedTooltip</name>
                   <id>303</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3695,7 +3705,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПараметрыURLСтрокаПоискаКонтекстноеМеню</name>
+                  <name>URLParametersSearchStringContextMenu</name>
                   <id>302</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3704,7 +3714,7 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>ПараметрыURLСтрокаПоиска</source>
+                <source>URLParametersSearchString</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -3715,10 +3725,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <name>ПараметрыURLСостояниеПросмотра</name>
+                <name>URLParametersViewStatus</name>
                 <id>307</id>
                 <extendedTooltip>
-                  <name>ПараметрыURLСостояниеПросмотраРасширеннаяПодсказка</name>
+                  <name>URLParametersViewStatusExtendedTooltip</name>
                   <id>309</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3733,7 +3743,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПараметрыURLСостояниеПросмотраКонтекстноеМеню</name>
+                  <name>URLParametersViewStatusContextMenu</name>
                   <id>308</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3743,7 +3753,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>ПараметрыURLСостояниеПросмотра</source>
+                <source>URLParametersViewStatus</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -3754,10 +3764,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <name>ПараметрыURLУправлениеПоиском</name>
+                <name>URLParametersSearchControl</name>
                 <id>304</id>
                 <extendedTooltip>
-                  <name>ПараметрыURLУправлениеПоискомРасширеннаяПодсказка</name>
+                  <name>URLParametersSearchControlExtendedTooltip</name>
                   <id>306</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3772,7 +3782,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПараметрыURLУправлениеПоискомКонтекстноеМеню</name>
+                  <name>URLParametersSearchControlContextMenu</name>
                   <id>305</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3782,13 +3792,13 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>ПараметрыURLУправлениеПоиском</source>
+                <source>URLParametersSearchControl</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
               </searchControlAddition>
               <extendedTooltip>
-                <name>ПараметрыURLРасширеннаяПодсказка</name>
+                <name>URLParametersExtendedTooltip</name>
                 <id>300</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3803,7 +3813,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>ПараметрыURLКонтекстноеМеню</name>
+                <name>URLParametersContextMenu</name>
                 <id>299</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3833,7 +3843,7 @@
               <rowFilter xsi:type="core:UndefinedValue"/>
             </items>
             <items xsi:type="form:FormField">
-              <name>URLПредварительный</name>
+              <name>PreliminaryURL</name>
               <id>598</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3845,7 +3855,7 @@
               </dataPath>
               <titleLocation>Top</titleLocation>
               <extendedTooltip>
-                <name>URLПредварительныйРасширеннаяПодсказка</name>
+                <name>PreliminaryURLExtendedTooltip</name>
                 <id>600</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3860,7 +3870,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>URLПредварительныйКонтекстноеМеню</name>
+                <name>PreliminaryURLContextMenu</name>
                 <id>599</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3893,8 +3903,12 @@
               <key>ru</key>
               <value>URL параметры</value>
             </title>
+            <title>
+              <key>en</key>
+              <value>URL parameters</value>
+            </title>
             <extendedTooltip>
-              <name>ГруппаСтраницаЗапросаПараметрыURLРасширеннаяПодсказка</name>
+              <name>URLRequestParametersPageGroupExtendedTooltip</name>
               <id>441</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3915,14 +3929,18 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormGroup">
-            <name>ГруппаСтраницаЗапросаПрочее</name>
+            <name>OtherRequestPageGroup</name>
             <id>480</id>
             <items xsi:type="form:FormField">
-              <name>ДеревоЗапросовНаКлиенте</name>
+              <name>RequestsTreeAtClient</name>
               <id>595</id>
               <title>
                 <key>ru</key>
                 <value>Контекст</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Context</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3930,10 +3948,10 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.AtClient</segments>
+                <segments>Items.RequestsTree.CurrentData.AtClient</segments>
               </dataPath>
               <extendedTooltip>
-                <name>ДеревоЗапросовНаКлиентеРасширеннаяПодсказка</name>
+                <name>RequestsTreeAtClientExtendedTooltip</name>
                 <id>597</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3948,7 +3966,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>ДеревоЗапросовНаКлиентеКонтекстноеМеню</name>
+                <name>RequestsTreeAtClientContextMenu</name>
                 <id>596</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3971,7 +3989,7 @@
               </extInfo>
             </items>
             <items xsi:type="form:FormField">
-              <name>Таймаут</name>
+              <name>Timeout</name>
               <id>283</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3979,14 +3997,14 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.Timeout</segments>
+                <segments>Items.RequestsTree.CurrentData.Timeout</segments>
               </dataPath>
               <toolTip>
                 <key>ru</key>
                 <value>Таймаут осуществляемого соединения и операций, в секундах. 0 - не устанавливать таймаут.</value>
               </toolTip>
               <extendedTooltip>
-                <name>ТаймаутРасширеннаяПодсказка</name>
+                <name>TimeoutExtendedTooltip</name>
                 <id>285</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -4001,7 +4019,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>ТаймаутКонтекстноеМеню</name>
+                <name>TimeoutContextMenu</name>
                 <id>284</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -4025,10 +4043,10 @@
               </extInfo>
             </items>
             <items xsi:type="form:FormGroup">
-              <name>ГруппаНастройкиПрокси</name>
+              <name>ProxySettingsGroup</name>
               <id>215</id>
               <items xsi:type="form:FormField">
-                <name>ИспользоватьПрокси</name>
+                <name>UseProxy</name>
                 <id>217</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -4036,10 +4054,10 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.UseProxy</segments>
+                  <segments>Items.RequestsTree.CurrentData.UseProxy</segments>
                 </dataPath>
                 <extendedTooltip>
-                  <name>ПолеРасширеннаяПодсказка32</name>
+                  <name>UseProxyExtendedTooltip</name>
                   <id>219</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4054,7 +4072,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПолеКонтекстноеМеню32</name>
+                  <name>UseProxyContextMenu</name>
                   <id>218</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4071,10 +4089,10 @@
                 <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаНастройкиПроксиСервер</name>
+                <name>ProxyServerSettingsGroup</name>
                 <id>226</id>
                 <items xsi:type="form:FormField">
-                  <name>ПроксиСервер</name>
+                  <name>ProxyServer</name>
                   <id>220</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4082,10 +4100,10 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ProxyServer</segments>
+                    <segments>Items.RequestsTree.CurrentData.ProxyServer</segments>
                   </dataPath>
                   <extendedTooltip>
-                    <name>ПолеРасширеннаяПодсказка33</name>
+                    <name>ProxyServerExtendedTooltip</name>
                     <id>222</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4100,7 +4118,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ПолеКонтекстноеМеню33</name>
+                    <name>ProxyServerContextMenu</name>
                     <id>221</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4124,7 +4142,7 @@
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormField">
-                  <name>ПроксиПорт</name>
+                  <name>ProxyPort</name>
                   <id>223</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4132,10 +4150,10 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ProxyPort</segments>
+                    <segments>Items.RequestsTree.CurrentData.ProxyPort</segments>
                   </dataPath>
                   <extendedTooltip>
-                    <name>ПолеРасширеннаяПодсказка34</name>
+                    <name>ProxyPortExtendedTooltip</name>
                     <id>225</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4150,7 +4168,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ПолеКонтекстноеМеню34</name>
+                    <name>ProxyPortContextMenu</name>
                     <id>224</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4179,7 +4197,7 @@
                   <common>true</common>
                 </userVisible>
                 <extendedTooltip>
-                  <name>Группа1РасширеннаяПодсказка34</name>
+                  <name>ProxyServerSettingsGroupExtendedTooltip</name>
                   <id>227</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4204,10 +4222,10 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>ГруппаНастройкиПроксиПользователь</name>
+                <name>UserProxySettingsGroup</name>
                 <id>228</id>
                 <items xsi:type="form:FormField">
-                  <name>ПроксиПользователь</name>
+                  <name>ProxyUser</name>
                   <id>230</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4215,10 +4233,10 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ProxyUser</segments>
+                    <segments>Items.RequestsTree.CurrentData.ProxyUser</segments>
                   </dataPath>
                   <extendedTooltip>
-                    <name>ПолеРасширеннаяПодсказка35</name>
+                    <name>ProxyUserExtendedTooltip</name>
                     <id>232</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4233,7 +4251,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ПолеКонтекстноеМеню35</name>
+                    <name>ProxyUserContextMenu</name>
                     <id>231</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4257,7 +4275,7 @@
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormField">
-                  <name>ПроксиПароль</name>
+                  <name>ProxyPassword</name>
                   <id>233</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4265,10 +4283,10 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.ДеревоЗапросов.CurrentData.ProxyPassword</segments>
+                    <segments>Items.RequestsTree.CurrentData.ProxyPassword</segments>
                   </dataPath>
                   <extendedTooltip>
-                    <name>ПолеРасширеннаяПодсказка36</name>
+                    <name>ProxyPasswordExtendedTooltip</name>
                     <id>235</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4283,7 +4301,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ПолеКонтекстноеМеню36</name>
+                    <name>ProxyPasswordContextMenu</name>
                     <id>234</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4312,7 +4330,7 @@
                   <common>true</common>
                 </userVisible>
                 <extendedTooltip>
-                  <name>Группа1РасширеннаяПодсказка35</name>
+                  <name>UserProxySettingsGroupExtendedTooltip</name>
                   <id>229</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4337,7 +4355,7 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormField">
-                <name>ПроксиАутентификацияОС</name>
+                <name>ProxyOSAuthentication</name>
                 <id>236</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -4345,10 +4363,10 @@
                   <common>true</common>
                 </userVisible>
                 <dataPath xsi:type="form:DataPath">
-                  <segments>Items.ДеревоЗапросов.CurrentData.ProxyOSAuthentication</segments>
+                  <segments>Items.RequestsTree.CurrentData.ProxyOSAuthentication</segments>
                 </dataPath>
                 <extendedTooltip>
-                  <name>ПолеРасширеннаяПодсказка37</name>
+                  <name>ProxyOSAuthenticationExtendedTooltip</name>
                   <id>238</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4363,7 +4381,7 @@
                   </extInfo>
                 </extendedTooltip>
                 <contextMenu>
-                  <name>ПолеКонтекстноеМеню37</name>
+                  <name>ProxyOSAuthenticationContextMenu</name>
                   <id>237</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4388,11 +4406,15 @@
                 <key>ru</key>
                 <value>Настройки прокси</value>
               </title>
+              <title>
+                <key>en</key>
+                <value>Proxy settings</value>
+              </title>
               <titleFont xsi:type="core:FontDef">
                 <height>11.0</height>
               </titleFont>
               <extendedTooltip>
-                <name>Группа1РасширеннаяПодсказка33</name>
+                <name>ProxySettingsGroupExtendedTooltip</name>
                 <id>216</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -4426,8 +4448,12 @@
               <key>ru</key>
               <value>Прочее</value>
             </title>
+            <title>
+              <key>en</key>
+              <value>Other</value>
+            </title>
             <extendedTooltip>
-              <name>ГруппаСтраницаЗапросаПрочееРасширеннаяПодсказка</name>
+              <name>OtherRequestPageGroupExtendedTooltip</name>
               <id>481</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4448,10 +4474,10 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormGroup">
-            <name>ГруппаСтраницаЗапросаКомментарий</name>
+            <name>CommentRequestPageGroup</name>
             <id>493</id>
             <items xsi:type="form:FormField">
-              <name>ДеревоЗапросовКомментарий</name>
+              <name>RequestsTreeComment</name>
               <id>495</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4459,11 +4485,11 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.Comment</segments>
+                <segments>Items.RequestsTree.CurrentData.Comment</segments>
               </dataPath>
               <titleLocation>None</titleLocation>
               <extendedTooltip>
-                <name>ДеревоЗапросовКомментарийРасширеннаяПодсказка</name>
+                <name>RequestsTreeCommentExtendedTooltip</name>
                 <id>497</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -4478,7 +4504,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>ДеревоЗапросовКомментарийКонтекстноеМеню</name>
+                <name>RequestsTreeCommentContextMenu</name>
                 <id>496</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -4509,8 +4535,12 @@
               <key>ru</key>
               <value>Комментарий</value>
             </title>
+            <title>
+              <key>en</key>
+              <value>Comment</value>
+            </title>
             <extendedTooltip>
-              <name>ГруппаСтраницаЗапросаКомментарийРасширеннаяПодсказка</name>
+              <name>CommentRequestPageGroupExtendedTooltip</name>
               <id>494</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4535,12 +4565,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <title>
-            <key>ru</key>
-            <value>Группа1</value>
-          </title>
           <extendedTooltip>
-            <name>ГруппаСтраницыЗапросаРасширеннаяПодсказка</name>
+            <name>RequestPagesGroupExtendedTooltip</name>
             <id>435</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -4569,8 +4595,12 @@
           <key>ru</key>
           <value>Выполнить запрос</value>
         </title>
+        <title>
+          <key>en</key>
+          <value>Execute request</value>
+        </title>
         <extendedTooltip>
-          <name>Группа1РасширеннаяПодсказка2</name>
+          <name>RequestGroupExtendedTooltip</name>
           <id>31</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -4601,11 +4631,15 @@
       </userVisible>
       <title>
         <key>ru</key>
-        <value>Группа выполнение запроса</value>
+        <value>Группа выполнения запроса</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Request execution group</value>
       </title>
       <width>25</width>
       <extendedTooltip>
-        <name>ГруппаВыполнениеЗапросаРасширеннаяПодсказка</name>
+        <name>RequestExecutionGroupExtendedTooltip</name>
         <id>292</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -4630,20 +4664,24 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormGroup">
-      <name>СтраницыРезультата</name>
+      <name>ResultPages</name>
       <id>377</id>
       <items xsi:type="form:FormGroup">
-        <name>СтраницаРезультатВыполнения</name>
+        <name>PageResultExecution</name>
         <id>379</id>
         <items xsi:type="form:FormGroup">
-          <name>ГруппаРезультатШапка</name>
+          <name>GroupResultHeader</name>
           <id>404</id>
           <items xsi:type="form:FormField">
-            <name>КодСостояния</name>
+            <name>StatusCode</name>
             <id>393</id>
             <title>
               <key>ru</key>
               <value>Код ответа</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Response code</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -4654,7 +4692,7 @@
               <segments>StatusCode</segments>
             </dataPath>
             <extendedTooltip>
-              <name>КодСостоянияРасширеннаяПодсказка</name>
+              <name>StatusCodeExtendedTooltip</name>
               <id>395</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4669,7 +4707,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>КодСостоянияКонтекстноеМеню</name>
+              <name>StatusCodeContextMenu</name>
               <id>394</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4694,11 +4732,15 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormField">
-            <name>ДлительностьВМилисекундах</name>
+            <name>DurationInMilliseconds</name>
             <id>384</id>
             <title>
               <key>ru</key>
               <value>Длительность, мс</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Duration, ms</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -4709,7 +4751,7 @@
               <segments>DurationInMilliseconds</segments>
             </dataPath>
             <extendedTooltip>
-              <name>ДлительностьВМилисекундахРасширеннаяПодсказка</name>
+              <name>DurationInMillisecondsExtendedTooltip</name>
               <id>386</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4724,7 +4766,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ДлительностьВМилисекундахКонтекстноеМеню</name>
+              <name>DurationInMillisecondsContextMenu</name>
               <id>385</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4754,7 +4796,7 @@
             <common>true</common>
           </userVisible>
           <extendedTooltip>
-            <name>ГруппаРезультатШапкаРасширеннаяПодсказка</name>
+            <name>GroupResultHeaderExtendedTooltip</name>
             <id>405</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -4779,19 +4821,19 @@
           </extInfo>
         </items>
         <items xsi:type="form:FormGroup">
-          <name>СтратицыОтвета</name>
+          <name>AnswerPages</name>
           <id>396</id>
           <items xsi:type="form:FormGroup">
-            <name>СтраницаОтветаТело</name>
+            <name>BodyAnswerPage</name>
             <id>482</id>
             <items xsi:type="form:FormGroup">
-              <name>ГруппаСтраницыТелоОтвета</name>
+              <name>BodyAnswerPageGroup</name>
               <id>484</id>
               <items xsi:type="form:FormGroup">
-                <name>СтраницаТелоСтрокой</name>
+                <name>BodyPageString</name>
                 <id>398</id>
                 <items xsi:type="form:FormField">
-                  <name>ТелоОтветаСтрокой</name>
+                  <name>ResponseBodyString</name>
                   <id>381</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4803,7 +4845,7 @@
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
-                    <name>ТелоОтветаСтрокойРасширеннаяПодсказка</name>
+                    <name>ResponseBodyStringExtendedTooltip</name>
                     <id>383</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4818,7 +4860,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ТелоОтветаСтрокойКонтекстноеМеню</name>
+                    <name>ResponseBodyStringContextMenu</name>
                     <id>382</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4843,7 +4885,7 @@
                   </extInfo>
                 </items>
                 <items xsi:type="form:Button">
-                  <name>РедактироватьТелоОтветаВРедактореJSONАнализируемогоЗапроса1</name>
+                  <name>EditResponseBodyInJSONEditorAnalyzedRequest</name>
                   <id>406</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4851,7 +4893,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>РедактироватьТелоОтветаВРедактореJSONАнализируемогоЗапроса1РасширеннаяПодсказка</name>
+                    <name>EditResponseBodyInJSONEditorAnalyzedRequestExtendedTooltip</name>
                     <id>407</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4866,7 +4908,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <type>UsualButton</type>
-                  <commandName>Form.Command.РедактироватьТелоОтветаВРедактореJSONАнализируемогоЗапроса</commandName>
+                  <commandName>Form.Command.EditResponseBodyInJSONEditorAnalyzedRequest</commandName>
                   <representation>Auto</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
@@ -4882,8 +4924,12 @@
                   <key>ru</key>
                   <value>Строка</value>
                 </title>
+                <title>
+                  <key>en</key>
+                  <value>String</value>
+                </title>
                 <extendedTooltip>
-                  <name>СтраницаТелоСтрокойРасширеннаяПодсказка</name>
+                  <name>BodyPageStringExtendedTooltip</name>
                   <id>399</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4904,10 +4950,10 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>СтраницаДвоичныеДанные</name>
+                <name>BinaryDataPage</name>
                 <id>400</id>
                 <items xsi:type="form:FormField">
-                  <name>ТелоОтветаДвоичныеДанныеСтрокой1</name>
+                  <name>ResponseBodyString1</name>
                   <id>387</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4919,7 +4965,7 @@
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
-                    <name>ТелоОтветаДвоичныеДанныеСтрокой1РасширеннаяПодсказка</name>
+                    <name>ResponseBodyString1ExtendedTooltip</name>
                     <id>389</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4934,7 +4980,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <contextMenu>
-                    <name>ТелоОтветаДвоичныеДанныеСтрокой1КонтекстноеМеню</name>
+                    <name>ResponseBodyString1ContextMenu</name>
                     <id>388</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4958,11 +5004,15 @@
                   </extInfo>
                 </items>
                 <items xsi:type="form:Button">
-                  <name>СохранитьДвоичныеДанныеТелаОтвета</name>
+                  <name>SaveBodyResponseBinaryData</name>
                   <id>408</id>
                   <title>
                     <key>ru</key>
                     <value>Сохранить в файл</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Save to file</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4970,7 +5020,7 @@
                     <common>true</common>
                   </userVisible>
                   <extendedTooltip>
-                    <name>СохранитьДвоичныеДанныеТелаОтветаРасширеннаяПодсказка</name>
+                    <name>SaveBodyResponseBinaryDataExtendedTooltip</name>
                     <id>409</id>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -4985,7 +5035,7 @@
                     </extInfo>
                   </extendedTooltip>
                   <type>UsualButton</type>
-                  <commandName>Form.Command.СохранитьДвоичныеДанныеТелаОтвета</commandName>
+                  <commandName>Form.Command.SaveBodyResponseBinaryData</commandName>
                   <representation>Auto</representation>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
@@ -5001,8 +5051,12 @@
                   <key>ru</key>
                   <value>Двоичные данные</value>
                 </title>
+                <title>
+                  <key>en</key>
+                  <value>BinaryData</value>
+                </title>
                 <extendedTooltip>
-                  <name>СтраницаДвоичныеДанныеРасширеннаяПодсказка</name>
+                  <name>BinaryDataPageExtendedTooltip</name>
                   <id>401</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5027,12 +5081,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <title>
-                <key>ru</key>
-                <value>Группа1</value>
-              </title>
               <extendedTooltip>
-                <name>ГруппаСтраницыТелоОтветаРасширеннаяПодсказка</name>
+                <name>BodyAnswerPageGroupExtendedTooltip</name>
                 <id>485</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5061,8 +5111,12 @@
               <key>ru</key>
               <value>Тело</value>
             </title>
+            <title>
+              <key>en</key>
+              <value>Body</value>
+            </title>
             <extendedTooltip>
-              <name>СтраницаОтветаТелоРасширеннаяПодсказка</name>
+              <name>BodyAnswerPageExtendedTooltip</name>
               <id>483</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5083,10 +5137,10 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormGroup">
-            <name>СтраницаЗаголовки</name>
+            <name>HeadersAnswerPage</name>
             <id>402</id>
             <items xsi:type="form:FormField">
-              <name>ЗаголовкиОтвета</name>
+              <name>ResponseHeaders</name>
               <id>390</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5098,7 +5152,7 @@
               </dataPath>
               <titleLocation>None</titleLocation>
               <extendedTooltip>
-                <name>ЗаголовкиОтветаРасширеннаяПодсказка</name>
+                <name>ResponseHeadersExtendedTooltip</name>
                 <id>392</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5113,7 +5167,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>ЗаголовкиОтветаКонтекстноеМеню</name>
+                <name>ResponseHeadersContextMenu</name>
                 <id>391</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5136,6 +5190,56 @@
                 <textEdit>true</textEdit>
               </extInfo>
             </items>
+            <items xsi:type="form:FormField">
+              <name>ValueURLParameters</name>
+              <id>491</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Items.RequestsTree.CurrentData.URLParameters.Value</segments>
+              </dataPath>
+              <extendedTooltip>
+                <name>ValueURLParametersExtendedTooltip</name>
+                <id>549</id>
+                <visible>true</visible>
+                <enabled>true</enabled>
+                <userVisible>
+                  <common>true</common>
+                </userVisible>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ValueURLParametersContextMenu</name>
+                <id>492</id>
+                <visible>true</visible>
+                <enabled>true</enabled>
+                <userVisible>
+                  <common>true</common>
+                </userVisible>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>InputField</type>
+              <editMode>Enter</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Left</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <extInfo xsi:type="form:InputFieldExtInfo">
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <wrap>true</wrap>
+                <chooseType>true</chooseType>
+                <typeDomainEnabled>true</typeDomainEnabled>
+                <textEdit>true</textEdit>
+              </extInfo>
+            </items>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -5145,8 +5249,12 @@
               <key>ru</key>
               <value>Заголовки</value>
             </title>
+            <title>
+              <key>en</key>
+              <value>Headers</value>
+            </title>
             <extendedTooltip>
-              <name>СтраницаЗаголовкиРасширеннаяПодсказка</name>
+              <name>HeadersAnswerPageExtendedTooltip</name>
               <id>403</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5171,13 +5279,9 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <title>
-            <key>ru</key>
-            <value>Стратицы ответа</value>
-          </title>
           <readOnly>true</readOnly>
           <extendedTooltip>
-            <name>СтратицыОтветаРасширеннаяПодсказка</name>
+            <name>AnswerPagesExtendedTooltip</name>
             <id>397</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -5206,8 +5310,12 @@
           <key>ru</key>
           <value>Результат выполнения</value>
         </title>
+        <title>
+          <key>en</key>
+          <value>Execution result</value>
+        </title>
         <extendedTooltip>
-          <name>СтраницаРезультатВыполненияРасширеннаяПодсказка</name>
+          <name>PageResultExecutionExtendedTooltip</name>
           <id>380</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5228,10 +5336,10 @@
         </extInfo>
       </items>
       <items xsi:type="form:FormGroup">
-        <name>СтраницаИстория</name>
+        <name>PageHistory</name>
         <id>500</id>
         <items xsi:type="form:Table">
-          <name>ДеревоЗапросовИсторияЗапросов</name>
+          <name>RequestsTreeRequestsHistory</name>
           <id>502</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5239,15 +5347,19 @@
             <common>true</common>
           </userVisible>
           <dataPath xsi:type="form:DataPath">
-            <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory</segments>
+            <segments>Items.RequestsTree.CurrentData.RequestsHistory</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <items xsi:type="form:FormField">
-            <name>ДеревоЗапросовИсторияЗапросовКодСостояния</name>
+            <name>RequestsTreeRequestsHistoryStatusCode</name>
             <id>527</id>
             <title>
               <key>ru</key>
               <value>Код</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Code</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -5255,10 +5367,10 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.StatusCode</segments>
+              <segments>Items.RequestsTree.CurrentData.RequestsHistory.StatusCode</segments>
             </dataPath>
             <extendedTooltip>
-              <name>ДеревоЗапросовИсторияЗапросовКодСостоянияРасширеннаяПодсказка</name>
+              <name>RequestsTreeRequestsHistoryStatusCodeExtendedTooltip</name>
               <id>529</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5273,7 +5385,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ДеревоЗапросовИсторияЗапросовКодСостоянияКонтекстноеМеню</name>
+              <name>RequestsTreeRequestsHistoryStatusCodeContextMenu</name>
               <id>528</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5298,10 +5410,10 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormGroup">
-            <name>ДеревоЗапросовИсторияЗапросовГруппаURL</name>
+            <name>RequestsTreeRequestsHistoryURLGroup</name>
             <id>530</id>
             <items xsi:type="form:FormField">
-              <name>ДеревоЗапросовИсторияЗапросовHTTPФункция</name>
+              <name>RequestsTreeRequestsHistoryHTTPFunction</name>
               <id>518</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5309,10 +5421,10 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.HTTPFunction</segments>
+                <segments>Items.RequestsTree.CurrentData.RequestsHistory.HTTPFunction</segments>
               </dataPath>
               <extendedTooltip>
-                <name>ДеревоЗапросовИсторияЗапросовHTTPФункцияРасширеннаяПодсказка</name>
+                <name>RequestsTreeRequestsHistoryHTTPFunctionExtendedTooltip</name>
                 <id>520</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5327,7 +5439,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>ДеревоЗапросовИсторияЗапросовHTTPФункцияКонтекстноеМеню</name>
+                <name>RequestsTreeRequestsHistoryHTTPFunctionContextMenu</name>
                 <id>519</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5351,7 +5463,7 @@
               </extInfo>
             </items>
             <items xsi:type="form:FormField">
-              <name>ДеревоЗапросовИсторияЗапросовURL</name>
+              <name>RequestsTreeRequestsHistoryRequestURL</name>
               <id>521</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5359,10 +5471,10 @@
                 <common>true</common>
               </userVisible>
               <dataPath xsi:type="form:DataPath">
-                <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.RequestURL</segments>
+                <segments>Items.RequestsTree.CurrentData.RequestsHistory.RequestURL</segments>
               </dataPath>
               <extendedTooltip>
-                <name>ДеревоЗапросовИсторияЗапросовURLРасширеннаяПодсказка</name>
+                <name>RequestsTreeRequestsHistoryRequestURLExtendedTooltip</name>
                 <id>523</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5377,7 +5489,7 @@
                 </extInfo>
               </extendedTooltip>
               <contextMenu>
-                <name>ДеревоЗапросовИсторияЗапросовURLКонтекстноеМеню</name>
+                <name>RequestsTreeRequestsHistoryRequestURLContextMenu</name>
                 <id>522</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5405,12 +5517,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <title>
-              <key>ru</key>
-              <value>Дерево запросов история запросов группа1</value>
-            </title>
             <extendedTooltip>
-              <name>ДеревоЗапросовИсторияЗапросовГруппаURLРасширеннаяПодсказка</name>
+              <name>RequestsTreeRequestsHistoryURLGroupExtendedTooltip</name>
               <id>531</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5431,11 +5539,15 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormField">
-            <name>ДеревоЗапросовИсторияЗапросовДлительностьВыполнения</name>
+            <name>RequestsTreeRequestsHistoryExecutionDuration</name>
             <id>524</id>
             <title>
               <key>ru</key>
               <value>Время,мс</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Time, ms</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -5443,10 +5555,10 @@
               <common>true</common>
             </userVisible>
             <dataPath xsi:type="form:DataPath">
-              <segments>Items.ДеревоЗапросов.CurrentData.RequestsHistory.ExecutionDuration</segments>
+              <segments>Items.RequestsTree.CurrentData.RequestsHistory.ExecutionDuration</segments>
             </dataPath>
             <extendedTooltip>
-              <name>ДеревоЗапросовИсторияЗапросовДлительностьВыполненияРасширеннаяПодсказка</name>
+              <name>RequestsTreeRequestsHistoryExecutionDurationExtendedTooltip</name>
               <id>526</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5461,7 +5573,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ДеревоЗапросовИсторияЗапросовДлительностьВыполненияКонтекстноеМеню</name>
+              <name>RequestsTreeRequestsHistoryExecutionDurationContextMenu</name>
               <id>525</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5486,14 +5598,18 @@
             </extInfo>
           </items>
           <autoCommandBar>
-            <name>ДеревоЗапросовИсторияЗапросовКоманднаяПанель</name>
+            <name>RequestsTreeRequestsHistoryCommandBar</name>
             <id>503</id>
             <items xsi:type="form:Button">
-              <name>ДеревоЗапросовИсторияЗапросовПодробнаяИнформацияПоЗаписиИсторииЗапроса</name>
+              <name>RecordHistoryRequestDetailedInformation</name>
               <id>534</id>
               <title>
                 <key>ru</key>
                 <value>Подробно</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Details</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5501,7 +5617,7 @@
                 <common>true</common>
               </userVisible>
               <extendedTooltip>
-                <name>ДеревоЗапросовИсторияЗапросовПодробнаяИнформацияПоЗаписиИсторииЗапросаРасширеннаяПодсказка</name>
+                <name>RecordHistoryRequestDetailedInformationExtendedTooltip</name>
                 <id>535</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5515,7 +5631,7 @@
                   <horizontalAlign>Left</horizontalAlign>
                 </extInfo>
               </extendedTooltip>
-              <commandName>Form.Command.ПодробнаяИнформацияПоЗаписиИсторииЗапроса</commandName>
+              <commandName>Form.Command.RecordHistoryRequestDetailedInformation</commandName>
               <representation>Auto</representation>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
@@ -5523,11 +5639,15 @@
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
-              <name>ДеревоЗапросовИсторияЗапросовСкопироватьДанныеСтрокиИсторииВЗапрос</name>
+              <name>CopyRowDataHistoryToRequest</name>
               <id>536</id>
               <title>
                 <key>ru</key>
                 <value>В запрос</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>In request</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5535,7 +5655,7 @@
                 <common>true</common>
               </userVisible>
               <extendedTooltip>
-                <name>ДеревоЗапросовИсторияЗапросовСкопироватьДанныеСтрокиИсторииВЗапросРасширеннаяПодсказка</name>
+                <name>CopyRowDataHistoryToRequestExtendedTooltip</name>
                 <id>537</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5549,7 +5669,7 @@
                   <horizontalAlign>Left</horizontalAlign>
                 </extInfo>
               </extendedTooltip>
-              <commandName>Form.Command.СкопироватьДанныеСтрокиИсторииВЗапрос</commandName>
+              <commandName>Form.Command.CopyRowDataHistoryToRequest</commandName>
               <representation>Auto</representation>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
@@ -5569,10 +5689,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <name>ДеревоЗапросовИсторияЗапросовСтрокаПоиска</name>
+            <name>RequestsTreeRequestsHistorySearchString</name>
             <id>506</id>
             <extendedTooltip>
-              <name>ДеревоЗапросовИсторияЗапросовСтрокаПоискаРасширеннаяПодсказка</name>
+              <name>RequestsTreeRequestsHistorySearchStringExtendedTooltip</name>
               <id>508</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5587,7 +5707,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ДеревоЗапросовИсторияЗапросовСтрокаПоискаКонтекстноеМеню</name>
+              <name>RequestsTreeRequestsHistorySearchStringContextMenu</name>
               <id>507</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5596,7 +5716,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>ДеревоЗапросовИсторияЗапросовСтрокаПоиска</source>
+            <source>RequestsTreeRequestsHistorySearchString</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -5607,10 +5727,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <name>ДеревоЗапросовИсторияЗапросовСостояниеПросмотра</name>
+            <name>RequestsTreeRequestsHistoryViewStatus</name>
             <id>512</id>
             <extendedTooltip>
-              <name>ДеревоЗапросовИсторияЗапросовСостояниеПросмотраРасширеннаяПодсказка</name>
+              <name>RequestsTreeRequestsHistoryViewStatusExtendedTooltip</name>
               <id>514</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5625,7 +5745,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ДеревоЗапросовИсторияЗапросовСостояниеПросмотраКонтекстноеМеню</name>
+              <name>RequestsTreeRequestsHistoryViewStatusContextMenu</name>
               <id>513</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5635,7 +5755,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>ДеревоЗапросовИсторияЗапросовСостояниеПросмотра</source>
+            <source>RequestsTreeRequestsHistoryViewStatus</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -5646,10 +5766,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <name>ДеревоЗапросовИсторияЗапросовУправлениеПоиском</name>
+            <name>RequestsTreeRequestsHistorySearchControl</name>
             <id>509</id>
             <extendedTooltip>
-              <name>ДеревоЗапросовИсторияЗапросовУправлениеПоискомРасширеннаяПодсказка</name>
+              <name>RequestsTreeRequestsHistorySearchControlExtendedTooltip</name>
               <id>511</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5664,7 +5784,7 @@
               </extInfo>
             </extendedTooltip>
             <contextMenu>
-              <name>ДеревоЗапросовИсторияЗапросовУправлениеПоискомКонтекстноеМеню</name>
+              <name>RequestsTreeRequestsHistorySearchControlContextMenu</name>
               <id>510</id>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5674,13 +5794,13 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>ДеревоЗапросовИсторияЗапросовУправлениеПоиском</source>
+            <source>RequestsTreeRequestsHistorySearchControl</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
           </searchControlAddition>
           <extendedTooltip>
-            <name>ДеревоЗапросовИсторияЗапросовРасширеннаяПодсказка</name>
+            <name>RequestsTreeRequestsHistoryExtendedTooltip</name>
             <id>505</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -5695,14 +5815,18 @@
             </extInfo>
           </extendedTooltip>
           <contextMenu>
-            <name>ДеревоЗапросовИсторияЗапросовКонтекстноеМеню</name>
+            <name>RequestsTreeRequestsHistoryContextMenu</name>
             <id>504</id>
             <items xsi:type="form:Button">
-              <name>ДеревоЗапросовИсторияЗапросовКонтекстноеМенюПодробнаяИнформацияПоЗаписиИсторииЗапроса</name>
+              <name>RequestsTreeRequestsHistoryContextMenuRecordHistoryRequestDetailedInformation</name>
               <id>532</id>
               <title>
                 <key>ru</key>
                 <value>Подробно</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Details</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5710,7 +5834,7 @@
                 <common>true</common>
               </userVisible>
               <extendedTooltip>
-                <name>ДеревоЗапросовИсторияЗапросовКонтекстноеМенюПодробнаяИнформацияПоЗаписиИсторииЗапросаРасширеннаяПодсказка</name>
+                <name>RequestsTreeRequestsHistoryContextMenuRecordHistoryRequestDetailedInformationExtendedTooltip</name>
                 <id>533</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5724,7 +5848,7 @@
                   <horizontalAlign>Left</horizontalAlign>
                 </extInfo>
               </extendedTooltip>
-              <commandName>Form.Command.ПодробнаяИнформацияПоЗаписиИсторииЗапроса</commandName>
+              <commandName>Form.Command.RecordHistoryRequestDetailedInformation</commandName>
               <representation>Auto</representation>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
@@ -5732,11 +5856,15 @@
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
-              <name>ДеревоЗапросовИсторияЗапросовКонтекстноеМенюСкопироватьДанныеСтрокиИсторииВЗапрос</name>
+              <name>RequestsTreeRequestsHistoryContextMenuCopyRowDataHistoryToRequest</name>
               <id>538</id>
               <title>
                 <key>ru</key>
                 <value>Скопировать в запрос</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Copy to request</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5744,7 +5872,7 @@
                 <common>true</common>
               </userVisible>
               <extendedTooltip>
-                <name>ДеревоЗапросовИсторияЗапросовКонтекстноеМенюСкопироватьДанныеСтрокиИсторииВЗапросРасширеннаяПодсказка</name>
+                <name>RequestsTreeRequestsHistoryContextMenuCopyRowDataHistoryToRequestExtendedTooltip</name>
                 <id>539</id>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -5758,7 +5886,7 @@
                   <horizontalAlign>Left</horizontalAlign>
                 </extInfo>
               </extendedTooltip>
-              <commandName>Form.Command.СкопироватьДанныеСтрокиИсторииВЗапрос</commandName>
+              <commandName>Form.Command.CopyRowDataHistoryToRequest</commandName>
               <representation>Auto</representation>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
@@ -5800,8 +5928,12 @@
           <key>ru</key>
           <value>История</value>
         </title>
+        <title>
+          <key>en</key>
+          <value>History</value>
+        </title>
         <extendedTooltip>
-          <name>СтраницаИсторияРасширеннаяПодсказка</name>
+          <name>PageHistoryExtendedTooltip</name>
           <id>501</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5829,7 +5961,7 @@
       <width>25</width>
       <horizontalStretch>true</horizontalStretch>
       <extendedTooltip>
-        <name>СтраницыРезультатаРасширеннаяПодсказка</name>
+        <name>ResultPagesExtendedTooltip</name>
         <id>378</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -5855,7 +5987,7 @@
       <common>true</common>
     </userVisible>
     <extendedTooltip>
-      <name>Группа1РасширеннаяПодсказка</name>
+      <name>MainGroupExtendedTooltip</name>
       <id>2</id>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -5883,10 +6015,10 @@
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
     <items xsi:type="form:FormGroup">
-      <name>ГруппаФайл</name>
+      <name>GroupFile</name>
       <id>265</id>
       <items xsi:type="form:Button">
-        <name>НовыйФайлЗапросов</name>
+        <name>NewRequestFile</name>
         <id>267</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -5894,7 +6026,7 @@
           <common>true</common>
         </userVisible>
         <extendedTooltip>
-          <name>НовыйФайлЗапросовРасширеннаяПодсказка</name>
+          <name>NewRequestFileExtendedTooltip</name>
           <id>268</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5908,7 +6040,7 @@
             <horizontalAlign>Left</horizontalAlign>
           </extInfo>
         </extendedTooltip>
-        <commandName>Form.Command.НовыйФайлЗапросов</commandName>
+        <commandName>Form.Command.NewRequestFile</commandName>
         <representation>Auto</representation>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -5916,7 +6048,7 @@
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
       <items xsi:type="form:Button">
-        <name>ОткрытьФайлЗапросов</name>
+        <name>OpenRequestFile</name>
         <id>269</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -5924,7 +6056,7 @@
           <common>true</common>
         </userVisible>
         <extendedTooltip>
-          <name>ОткрытьФайлЗапросовРасширеннаяПодсказка</name>
+          <name>OpenRequestFileExtendedTooltip</name>
           <id>270</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5938,7 +6070,7 @@
             <horizontalAlign>Left</horizontalAlign>
           </extInfo>
         </extendedTooltip>
-        <commandName>Form.Command.ОткрытьФайлЗапросов</commandName>
+        <commandName>Form.Command.OpenRequestFile</commandName>
         <representation>Auto</representation>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -5946,7 +6078,7 @@
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
       <items xsi:type="form:Button">
-        <name>СохранитьЗапросыВФайл</name>
+        <name>SaveRequestsToFile</name>
         <id>271</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -5954,7 +6086,7 @@
           <common>true</common>
         </userVisible>
         <extendedTooltip>
-          <name>СохранитьЗапросыВФайлРасширеннаяПодсказка</name>
+          <name>SaveRequestsToFileExtendedTooltip</name>
           <id>272</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5968,7 +6100,7 @@
             <horizontalAlign>Left</horizontalAlign>
           </extInfo>
         </extendedTooltip>
-        <commandName>Form.Command.СохранитьЗапросыВФайл</commandName>
+        <commandName>Form.Command.SaveRequestsToFile</commandName>
         <representation>Auto</representation>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -5976,7 +6108,7 @@
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
       <items xsi:type="form:Button">
-        <name>СохранитьЗапросыВФайлКак</name>
+        <name>SaveRequestsToFileAs</name>
         <id>273</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -5984,7 +6116,7 @@
           <common>true</common>
         </userVisible>
         <extendedTooltip>
-          <name>СохранитьЗапросыВФайлКакРасширеннаяПодсказка</name>
+          <name>SaveRequestsToFileAsExtendedTooltip</name>
           <id>274</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5998,7 +6130,7 @@
             <horizontalAlign>Left</horizontalAlign>
           </extInfo>
         </extendedTooltip>
-        <commandName>Form.Command.СохранитьЗапросыВФайлКак</commandName>
+        <commandName>Form.Command.SaveRequestsToFileAs</commandName>
         <representation>Auto</representation>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -6014,8 +6146,12 @@
         <key>ru</key>
         <value>Файл</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>File</value>
+      </title>
       <extendedTooltip>
-        <name>Группа1РасширеннаяПодсказка40</name>
+        <name>GroupFileExtendedTooltip</name>
         <id>266</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -6035,15 +6171,23 @@
       </extInfo>
     </items>
     <items xsi:type="form:Button">
-      <name>ФормаИзменитьФорму</name>
+      <name>FormChangeForm</name>
       <id>627</id>
+      <title>
+        <key>ru</key>
+        <value>Изменить форму</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Customize form</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
       <extendedTooltip>
-        <name>ФормаИзменитьФормуРасширеннаяПодсказка</name>
+        <name>FormChangeFormExtendedTooltip</name>
         <id>628</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -6065,7 +6209,7 @@
       <representationInContextMenu>Auto</representationInContextMenu>
     </items>
     <items xsi:type="form:Button">
-      <name>ФормаСгенерироватьКодИсполнения</name>
+      <name>FormGenerateExecutionCode</name>
       <id>634</id>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -6073,7 +6217,7 @@
         <common>true</common>
       </userVisible>
       <extendedTooltip>
-        <name>ФормаСгенерироватьКодИсполненияРасширеннаяПодсказка</name>
+        <name>FormGenerateExecutionCodeExtendedTooltip</name>
         <id>635</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -6087,7 +6231,7 @@
           <horizontalAlign>Left</horizontalAlign>
         </extInfo>
       </extendedTooltip>
-      <commandName>Form.Command.СгенерироватьКодИсполнения</commandName>
+      <commandName>Form.Command.GenerateExecutionCode</commandName>
       <representation>Auto</representation>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
@@ -6095,7 +6239,7 @@
       <representationInContextMenu>Auto</representationInContextMenu>
     </items>
     <items xsi:type="form:Button">
-      <name>ВыполнитьЗапрос</name>
+      <name>RequestExecute</name>
       <id>40</id>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -6103,7 +6247,7 @@
         <common>true</common>
       </userVisible>
       <extendedTooltip>
-        <name>ВыполнитьЗапросРасширеннаяПодсказка</name>
+        <name>RequestExecuteExtendedTooltip</name>
         <id>41</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -6117,7 +6261,7 @@
           <horizontalAlign>Left</horizontalAlign>
         </extInfo>
       </extendedTooltip>
-      <commandName>Form.Command.ВыполнитьЗапрос</commandName>
+      <commandName>Form.Command.RequestExecute</commandName>
       <representation>Auto</representation>
       <defaultButton>true</defaultButton>
       <autoMaxWidth>true</autoMaxWidth>
@@ -6213,6 +6357,10 @@
       <name>Key</name>
       <title>
         <key>ru</key>
+        <value>Ключ</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Key</value>
       </title>
       <id>25</id>
@@ -6231,6 +6379,10 @@
       <name>Value</name>
       <title>
         <key>ru</key>
+        <value>Значение</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Value</value>
       </title>
       <id>26</id>
@@ -6249,6 +6401,10 @@
       <name>Using</name>
       <title>
         <key>ru</key>
+        <value>Использование</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Using</value>
       </title>
       <id>107</id>
@@ -6384,10 +6540,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>RequestTree</name>
+    <name>RequestsTree</name>
     <title>
       <key>ru</key>
-      <value>Request tree</value>
+      <value>Requests tree</value>
     </title>
     <id>67</id>
     <valueType>
@@ -6404,6 +6560,10 @@
       <name>Name</name>
       <title>
         <key>ru</key>
+        <value>Имя</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Name</value>
       </title>
       <id>68</id>
@@ -6422,7 +6582,11 @@
       <name>HTTPRequest</name>
       <title>
         <key>ru</key>
-        <value>HTTPRequest</value>
+        <value>HTTP Запрос</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>HTTP Request</value>
       </title>
       <id>76</id>
       <valueType>
@@ -6583,6 +6747,10 @@
       <name>UseProxy</name>
       <title>
         <key>ru</key>
+        <value>Использовать прокси</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Use proxy</value>
       </title>
       <id>88</id>
@@ -6600,6 +6768,10 @@
       <name>ProxyServer</name>
       <title>
         <key>ru</key>
+        <value>Сервер</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Server</value>
       </title>
       <id>89</id>
@@ -6618,6 +6790,10 @@
       <name>ProxyPort</name>
       <title>
         <key>ru</key>
+        <value>Порт</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Port</value>
       </title>
       <id>90</id>
@@ -6638,6 +6814,10 @@
       <name>ProxyUser</name>
       <title>
         <key>ru</key>
+        <value>Пользователь</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>User</value>
       </title>
       <id>91</id>
@@ -6656,6 +6836,10 @@
       <name>ProxyPassword</name>
       <title>
         <key>ru</key>
+        <value>Пароль</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Password</value>
       </title>
       <id>92</id>
@@ -6674,6 +6858,10 @@
       <name>ProxyOSAuthentication</name>
       <title>
         <key>ru</key>
+        <value>Прокси АутентификацияОС</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Proxy OSAuthentication</value>
       </title>
       <id>93</id>
@@ -6887,6 +7075,10 @@
       <name>MultipartBody</name>
       <title>
         <key>ru</key>
+        <value>Тело несколько частей</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>Multipart body</value>
       </title>
       <id>148</id>
@@ -6904,6 +7096,10 @@
       <name>AtClient</name>
       <title>
         <key>ru</key>
+        <value>На клиенте</value>
+      </title>
+      <title>
+        <key>en</key>
         <value>At client</value>
       </title>
       <id>150</id>
@@ -6919,7 +7115,7 @@
     </columns>
     <additionalColumns>
       <tablePath xsi:type="form:DataPath">
-        <segments>RequestTree.Headers</segments>
+        <segments>RequestsTree.Headers</segments>
       </tablePath>
       <columns>
         <name>Key</name>
@@ -6977,13 +7173,17 @@
     </additionalColumns>
     <additionalColumns>
       <tablePath xsi:type="form:DataPath">
-        <segments>RequestTree.URLParameters</segments>
+        <segments>RequestsTree.URLParameters</segments>
       </tablePath>
       <columns>
-        <name>Использование</name>
+        <name>Using</name>
         <title>
           <key>ru</key>
           <value>Использование</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Using</value>
         </title>
         <id>97</id>
         <valueType>
@@ -6997,10 +7197,14 @@
         </edit>
       </columns>
       <columns>
-        <name>Значение</name>
+        <name>Value</name>
         <title>
           <key>ru</key>
           <value>Значение</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Value</value>
         </title>
         <id>98</id>
         <valueType>
@@ -7015,10 +7219,14 @@
         </edit>
       </columns>
       <columns>
-        <name>Имя</name>
+        <name>Name</name>
         <title>
           <key>ru</key>
           <value>Имя</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Name</value>
         </title>
         <id>99</id>
         <valueType>
@@ -7035,7 +7243,7 @@
     </additionalColumns>
     <additionalColumns>
       <tablePath xsi:type="form:DataPath">
-        <segments>RequestTree.RequestsHistory</segments>
+        <segments>RequestsTree.RequestsHistory</segments>
       </tablePath>
       <columns>
         <name>BOM</name>
@@ -7062,6 +7270,10 @@
         <title>
           <key>ru</key>
           <value>Метод</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Method</value>
         </title>
         <id>111</id>
         <valueType>
@@ -7553,12 +7765,16 @@
     </additionalColumns>
     <additionalColumns>
       <tablePath xsi:type="form:DataPath">
-        <segments>RequestTree.MultipartBody</segments>
+        <segments>RequestsTree.MultipartBody</segments>
       </tablePath>
       <columns>
         <name>Using</name>
         <title>
           <key>ru</key>
+          <value>Используется</value>
+        </title>
+        <title>
+          <key>en</key>
           <value>Using</value>
         </title>
         <id>148</id>
@@ -7576,6 +7792,10 @@
         <name>Name</name>
         <title>
           <key>ru</key>
+          <value>Имя</value>
+        </title>
+        <title>
+          <key>en</key>
           <value>Name</value>
         </title>
         <id>149</id>
@@ -7594,6 +7814,10 @@
         <name>Type</name>
         <title>
           <key>ru</key>
+          <value>Тип</value>
+        </title>
+        <title>
+          <key>en</key>
           <value>Type</value>
         </title>
         <id>150</id>
@@ -7612,6 +7836,10 @@
         <name>Value</name>
         <title>
           <key>ru</key>
+          <value>Значение</value>
+        </title>
+        <title>
+          <key>en</key>
           <value>Value</value>
         </title>
         <id>151</id>
@@ -7811,10 +8039,14 @@
     </edit>
   </attributes>
   <formCommands>
-    <name>ВыполнитьЗапрос</name>
+    <name>RequestExecute</name>
     <title>
       <key>ru</key>
       <value>Выполнить запрос</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Request execute</value>
     </title>
     <id>1</id>
     <use>
@@ -7825,95 +8057,99 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>ВыполнитьЗапрос</name>
+        <name>RequestExecute</name>
       </handler>
     </action>
     <representation>TextPicture</representation>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>ЗаполнитьДвоичныеДанныеТелаИзФайла</name>
-    <title>
-      <key>ru</key>
-      <value>Заполнить двоичные данные тела из файла</value>
-    </title>
+    <name>FillBodyBinaryDataFromFile</name>
     <id>2</id>
     <use>
       <common>true</common>
     </use>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>ЗаполнитьДвоичныеДанныеТелаИзФайла</name>
+        <name>FillBodyBinaryDataFromFile</name>
       </handler>
     </action>
     <modifiesStoredData>true</modifiesStoredData>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>СохранитьДвоичныеДанныеТелаЗапросаИзИстории</name>
-    <title>
-      <key>ru</key>
-      <value>Сохранить двоичные данные тела запроса из истории</value>
-    </title>
+    <name>SaveBodyRequestBinaryDataFromHistory</name>
     <id>3</id>
     <use>
       <common>true</common>
     </use>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>СохранитьДвоичныеДанныеТелаЗапросаИзИстории</name>
+        <name>SaveBodyRequestBinaryDataFromHistory</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>СохранитьТелоОтветаДвоичныеДанныеВФайл</name>
-    <title>
-      <key>ru</key>
-      <value>Сохранить тело ответа двоичные данные в файл</value>
-    </title>
+    <name>SaveBinaryDataBodyAnswerInFile</name>
     <id>4</id>
     <use>
       <common>true</common>
     </use>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>СохранитьТелоОтветаДвоичныеДанныеВФайл</name>
+        <name>SaveBinaryDataBodyAnswerInFile</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>НовыйФайлЗапросов</name>
+    <name>NewRequestFile</name>
     <title>
       <key>ru</key>
       <value>Новый</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>New</value>
     </title>
     <id>5</id>
     <toolTip>
       <key>ru</key>
       <value>Новый файл отчетов</value>
     </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>New report file</value>
+    </toolTip>
     <use>
       <common>true</common>
     </use>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>НовыйФайлЗапросов</name>
+        <name>NewRequestFile</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>ОткрытьФайлЗапросов</name>
+    <name>OpenRequestFile</name>
     <title>
       <key>ru</key>
       <value>Открыть...</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Open...</value>
     </title>
     <id>6</id>
     <toolTip>
       <key>ru</key>
       <value>Открыть файл отчетов</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Open report file</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -7923,13 +8159,13 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>ОткрытьФайлЗапросов</name>
+        <name>OpenRequestFile</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>СохранитьЗапросыВФайл</name>
+    <name>SaveRequestsToFile</name>
     <title>
       <key>ru</key>
       <value>Сохранить</value>
@@ -7938,6 +8174,10 @@
     <toolTip>
       <key>ru</key>
       <value>Сохранить отчеты в файл</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Save reports to file</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -7948,37 +8188,49 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>СохранитьЗапросыВФайл</name>
+        <name>SaveRequestsToFile</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>СохранитьЗапросыВФайлКак</name>
+    <name>SaveRequestsToFileAs</name>
     <title>
       <key>ru</key>
       <value>Сохранить как...</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Save as...</value>
     </title>
     <id>8</id>
     <toolTip>
       <key>ru</key>
       <value>Сохранить отчеты в файл как</value>
     </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Save reports to file as</value>
+    </toolTip>
     <use>
       <common>true</common>
     </use>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>СохранитьЗапросыВФайлКак</name>
+        <name>SaveRequestsToFileAs</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>РедактироватьТелоЗапросаВРедактореJSON</name>
+    <name>EditRequestBodyInJSONEditor</name>
     <title>
       <key>ru</key>
       <value>Редактировать тело запроса в редакторе JSON</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Edit request body in JSON Editor</value>
     </title>
     <id>9</id>
     <use>
@@ -7989,18 +8241,14 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>РедактироватьТелоЗапросаВРедактореJSON</name>
+        <name>EditRequestBodyInJSONEditor</name>
       </handler>
     </action>
     <representation>Picture</representation>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>РедактироватьТелоЗапросаВРедактореJSONАнализируемогоЗапроса</name>
-    <title>
-      <key>ru</key>
-      <value>Редактировать тело запроса в редакторе JSONАнализируемого запроса</value>
-    </title>
+    <name>EditRequestBodyInJSONEditorAnalyzedRequest</name>
     <id>10</id>
     <use>
       <common>true</common>
@@ -8010,17 +8258,21 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>РедактироватьТелоЗапросаВРедактореJSONАнализируемогоЗапроса</name>
+        <name>EditRequestBodyInJSONEditorAnalyzedRequest</name>
       </handler>
     </action>
     <representation>Picture</representation>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>РедактироватьТелоОтветаВРедактореJSONАнализируемогоЗапроса</name>
+    <name>EditResponseBodyInJSONEditorAnalyzedRequest</name>
     <title>
       <key>ru</key>
       <value>Редактировать тело ответа в редакторе JSONАнализируемого запроса</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Edit response body in JSON Editor analyzed request</value>
     </title>
     <id>11</id>
     <use>
@@ -8031,17 +8283,21 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>РедактироватьТелоОтветаВРедактореJSONАнализируемогоЗапроса</name>
+        <name>EditResponseBodyInJSONEditorAnalyzedRequest</name>
       </handler>
     </action>
     <representation>Picture</representation>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>СохранитьДвоичныеДанныеТелаОтвета</name>
+    <name>SaveBodyResponseBinaryData</name>
     <title>
       <key>ru</key>
       <value>Сохранить двоичные данные тела ответа</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Save body response binary data</value>
     </title>
     <id>12</id>
     <use>
@@ -8052,17 +8308,21 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>СохранитьДвоичныеДанныеТелаОтвета</name>
+        <name>SaveBodyResponseBinaryData</name>
       </handler>
     </action>
     <representation>TextPicture</representation>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>ДеревоЗапросовПереместитьНаУровеньВверх</name>
+    <name>RequestTreeMoveToLevelUp</name>
     <title>
       <key>ru</key>
       <value>Уровень вверх</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Level up</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -8077,59 +8337,59 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>ДеревоЗапросовПереместитьНаУровеньВверх</name>
+        <name>RequestTreeMoveToLevelUp</name>
       </handler>
     </action>
     <representation>Picture</representation>
     <currentRowUse>DontUse</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>ПодробнаяИнформацияПоЗаписиИсторииЗапроса</name>
-    <title>
-      <key>ru</key>
-      <value>Подробная информация по записи истории запроса</value>
-    </title>
+    <name>RecordHistoryRequestDetailedInformation</name>
     <id>16</id>
     <use>
       <common>true</common>
     </use>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>ПодробнаяИнформацияПоЗаписиИсторииЗапроса</name>
+        <name>RecordHistoryRequestDetailedInformation</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>СкопироватьДанныеСтрокиИсторииВЗапрос</name>
-    <title>
-      <key>ru</key>
-      <value>Скопировать данные строки истории в запрос</value>
-    </title>
+    <name>CopyRowDataHistoryToRequest</name>
     <id>17</id>
     <use>
       <common>true</common>
     </use>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>СкопироватьДанныеСтрокиИсторииВЗапрос</name>
+        <name>CopyRowDataHistoryToRequest</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>СгенерироватьКодИсполнения</name>
+    <name>GenerateExecutionCode</name>
     <title>
       <key>ru</key>
       <value>Код исполнения</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>
+Execution code</value>
     </title>
     <id>18</id>
     <use>
       <common>true</common>
     </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>CommonPicture.UT_GeneratedCode</picture>
+    </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>СгенерироватьКодИсполнения</name>
+        <name>GenerateExecutionCode</name>
       </handler>
     </action>
     <representation>TextPicture</representation>
