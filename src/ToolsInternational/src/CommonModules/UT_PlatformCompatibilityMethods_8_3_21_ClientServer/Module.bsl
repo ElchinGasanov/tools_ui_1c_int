@@ -63,7 +63,7 @@ EndFunction
 // 
 // Return values:
 //  HTTPRequest - New HTTPRequest
-Function НовыйHTTPЗапрос(ResourceAddress, Headings = Undefined) Export
+Function NewHTTPRequest(ResourceAddress, Headings = Undefined) Export
 	//@skip-check type-not-defined
 	Return New HTTPRequest(ResourceAddress, Headings);
 EndFunction

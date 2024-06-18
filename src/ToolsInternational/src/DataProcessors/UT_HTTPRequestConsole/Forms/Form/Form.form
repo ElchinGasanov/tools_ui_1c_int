@@ -1353,7 +1353,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>Items.RequestsTree.CurrentData.BodyAsString</segments>
+                    <segments>Items.RequestsTree.CurrentData.BodyString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
@@ -1472,7 +1472,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>RequestBodyBinaryDataAsString</segments>
+                    <segments>RequestBodyBinaryDataString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
@@ -4841,7 +4841,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>ResponseBodyAsString</segments>
+                    <segments>ResponseBodyString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
@@ -4961,7 +4961,7 @@
                     <common>true</common>
                   </userVisible>
                   <dataPath xsi:type="form:DataPath">
-                    <segments>ResponseBodyBinaryDataAsString</segments>
+                    <segments>ResponseBodyBinaryDataString</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <extendedTooltip>
@@ -6463,10 +6463,10 @@
     </extInfo>
   </attributes>
   <attributes>
-    <name>RequestBodyBinaryDataAsString</name>
+    <name>RequestBodyBinaryDataString</name>
     <title>
       <key>ru</key>
-      <value>Request body binary data as string</value>
+      <value>Request body binary data string</value>
     </title>
     <id>32</id>
     <valueType>
@@ -6483,10 +6483,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ResponseBodyAsString</name>
+    <name>ResponseBodyString</name>
     <title>
       <key>ru</key>
-      <value>Response body as string</value>
+      <value>Response body string</value>
     </title>
     <id>39</id>
     <valueType>
@@ -6876,10 +6876,10 @@
       </edit>
     </columns>
     <columns>
-      <name>BodyAsString</name>
+      <name>BodyString</name>
       <title>
         <key>ru</key>
-        <value>Body as string</value>
+        <value>Body string</value>
       </title>
       <id>104</id>
       <valueType>
@@ -7917,10 +7917,10 @@
     </edit>
   </attributes>
   <attributes>
-    <name>ResponseBodyBinaryDataAsString</name>
+    <name>ResponseBodyBinaryDataString</name>
     <title>
       <key>ru</key>
-      <value>Response body binary data as string</value>
+      <value>Response body binary data string</value>
     </title>
     <id>72</id>
     <valueType>
