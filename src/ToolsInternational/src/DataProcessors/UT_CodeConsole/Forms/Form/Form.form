@@ -692,7 +692,7 @@
           <common>true</common>
         </userVisible>
         <dataPath xsi:type="form:DataPath">
-          <segments>Items.Algorithms.CurrentData.Variables.ValueTypeOfPresentation</segments>
+          <segments>Items.Algorithms.CurrentData.Variables.ValueTypeofPresentation</segments>
         </dataPath>
         <extendedTooltip>
           <name>VariablesValueTypeOfPresentationExtendedTooltip</name>
@@ -1580,10 +1580,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ValueTypeOfPresentation</name>
+        <name>ValueTypeofPresentation</name>
         <title>
           <key>en</key>
-          <value>Value type of presentation</value>
+          <value>Value typeof presentation</value>
         </title>
         <id>25</id>
         <valueType>
