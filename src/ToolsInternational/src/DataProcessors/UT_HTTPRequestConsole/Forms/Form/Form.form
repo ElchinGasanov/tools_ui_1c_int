@@ -7324,10 +7324,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ResponseBodyAddressAsString</name>
+        <name>ResponseBodyAddressString</name>
         <title>
           <key>ru</key>
-          <value>Response body address as string</value>
+          <value>Response body address string</value>
         </title>
         <id>114</id>
         <valueType>
@@ -7673,10 +7673,10 @@
         </edit>
       </columns>
       <columns>
-        <name>RequestBodyBinaryDataAsString</name>
+        <name>RequestBodyBinaryDataString</name>
         <title>
           <key>ru</key>
-          <value>Request body binary data as string</value>
+          <value>Request body binary data string</value>
         </title>
         <id>133</id>
         <valueType>
@@ -7745,10 +7745,10 @@
         </edit>
       </columns>
       <columns>
-        <name>ResponseBodyBinaryDataAsString</name>
+        <name>ResponseBodyBinaryDataString</name>
         <title>
           <key>ru</key>
-          <value>Response body binary data as string</value>
+          <value>Response body binary data string</value>
         </title>
         <id>137</id>
         <valueType>
