@@ -384,15 +384,15 @@
         </autoCommandBar>
         <handlers>
           <event>BeforeEditEnd</event>
-          <name>ДеревоЗапросовПередОкончаниемРедактирования</name>
+          <name>RequestsTreeBeforeEditEnd</name>
         </handlers>
         <handlers>
           <event>OnActivateRow</event>
-          <name>ДеревоЗапросовПриАктивизацииСтроки</name>
+          <name>RequestsTreeOnActivateRow</name>
         </handlers>
         <handlers>
           <event>OnStartEdit</event>
-          <name>ДеревоЗапросовПриНачалеРедактирования</name>
+          <name>RequestsTreeOnStartEdit</name>
         </handlers>
         <searchStringAddition>
           <visible>true</visible>
@@ -800,6 +800,10 @@
               <textEdit>true</textEdit>
               <inputHint>
                 <key>ru</key>
+                <value>http://example.com/request</value>
+              </inputHint>
+              <inputHint>
+                <key>en</key>
                 <value>http://example.com/request</value>
               </inputHint>
             </extInfo>
@@ -1547,7 +1551,7 @@
                 </extInfo>
               </items>
               <items xsi:type="form:FormGroup">
-                <name>BadyFileNameRequestBodyPageGroup</name>
+                <name>BodyFileNameRequestBodyPageGroup</name>
                 <id>170</id>
                 <items xsi:type="form:FormField">
                   <name>BodyFileName</name>
@@ -1602,7 +1606,7 @@
                   <extInfo xsi:type="form:InputFieldExtInfo">
                     <handlers>
                       <event>StartChoice</event>
-                      <name>ИмяФайлаТелаЗапросаНачалоВыбора</name>
+                      <name>BodyFileNameStartChoice</name>
                     </handlers>
                     <autoMaxHeight>true</autoMaxHeight>
                     <horizontalStretch>true</horizontalStretch>
@@ -1620,10 +1624,10 @@
                 </userVisible>
                 <title>
                   <key>ru</key>
-                  <value>Bady file name request body page group</value>
+                  <value>Body file name request body page group</value>
                 </title>
                 <extendedTooltip>
-                  <name>BadyFileNameRequestBodyPageGroupExtendedTooltip</name>
+                  <name>BodyFileNameRequestBodyPageGroupExtendedTooltip</name>
                   <id>171</id>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2837,6 +2841,10 @@
                   <checkBoxType>Tumbler</checkBoxType>
                   <editFormat>
                     <key>ru</key>
+                    <value>BF=Строкой; BT=Таблицей</value>
+                  </editFormat>
+                  <editFormat>
+                    <key>en</key>
                     <value>BF=String; BT=Table</value>
                   </editFormat>
                 </extInfo>
@@ -2892,7 +2900,7 @@
                   <titleLocation>None</titleLocation>
                   <handlers>
                     <event>OnChange</event>
-                    <name>ЗаголовкиСтрокаПриИзменении</name>
+                    <name>HeadersStringOnChange</name>
                   </handlers>
                   <extendedTooltip>
                     <name>HeadersStringExtendedTooltip</name>
@@ -3511,6 +3519,56 @@
                   <textEdit>true</textEdit>
                 </extInfo>
               </items>
+              <items xsi:type="form:FormField">
+                <name>URLParametersValue</name>
+                <id>641</id>
+                <visible>true</visible>
+                <enabled>true</enabled>
+                <userVisible>
+                  <common>true</common>
+                </userVisible>
+                <dataPath xsi:type="form:DataPath">
+                  <segments>Items.RequestsTree.CurrentData.URLParameters.Value</segments>
+                </dataPath>
+                <extendedTooltip>
+                  <name>URLParametersValueExtendedTooltip</name>
+                  <id>643</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>URLParametersValueContextMenu</name>
+                  <id>642</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>InputField</type>
+                <editMode>Enter</editMode>
+                <showInHeader>true</showInHeader>
+                <headerHorizontalAlign>Left</headerHorizontalAlign>
+                <showInFooter>true</showInFooter>
+                <extInfo xsi:type="form:InputFieldExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <wrap>true</wrap>
+                  <chooseType>true</chooseType>
+                  <typeDomainEnabled>true</typeDomainEnabled>
+                  <textEdit>true</textEdit>
+                </extInfo>
+              </items>
               <autoCommandBar>
                 <name>URLParametersCommandBar</name>
                 <id>298</id>
@@ -3675,11 +3733,11 @@
               </autoCommandBar>
               <handlers>
                 <event>OnStartEdit</event>
-                <name>ПараметрыURLПриНачалеРедактирования</name>
+                <name>URLParametersOnStartEdit</name>
               </handlers>
               <handlers>
                 <event>OnChange</event>
-                <name>ПараметрыЗапросаПриИзменении</name>
+                <name>URLParametersOnChange</name>
               </handlers>
               <searchStringAddition>
                 <visible>true</visible>
@@ -3985,6 +4043,10 @@
                 <editFormat>
                   <key>ru</key>
                   <value>БЛ='На сервере'; БИ='На клиенте'</value>
+                </editFormat>
+                <editFormat>
+                  <key>en</key>
+                  <value>BF='At server'; BT='At client'</value>
                 </editFormat>
               </extInfo>
             </items>
@@ -6278,15 +6340,15 @@
   </autoCommandBar>
   <handlers>
     <event>OnOpen</event>
-    <name>ПриОткрытии</name>
+    <name>OnOpen</name>
   </handlers>
   <handlers>
     <event>OnLoadDataFromSettingsAtServer</event>
-    <name>ПриЗагрузкеДанныхИзНастроекНаСервере</name>
+    <name>OnLoadDataFromSettingsAtServer</name>
   </handlers>
   <handlers>
     <event>OnCreateAtServer</event>
-    <name>ПриСозданииНаСервере</name>
+    <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <saveDataInSettings>UseList</saveDataInSettings>
@@ -6604,7 +6666,11 @@
       <name>RequestURL</name>
       <title>
         <key>ru</key>
-        <value>Request URL</value>
+        <value>URL</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>URL</value>
       </title>
       <id>80</id>
       <valueType>
@@ -6858,11 +6924,11 @@
       <name>ProxyOSAuthentication</name>
       <title>
         <key>ru</key>
-        <value>Прокси АутентификацияОС</value>
+        <value>Прокси Аутентификация ОС</value>
       </title>
       <title>
         <key>en</key>
-        <value>Proxy OSAuthentication</value>
+        <value>Proxy OS authentication</value>
       </title>
       <id>93</id>
       <valueType>
@@ -8004,6 +8070,10 @@
     <name>SaveBeforeExecution</name>
     <title>
       <key>ru</key>
+      <value>Сохранять перед выполнением</value>
+    </title>
+    <title>
+      <key>en</key>
       <value>Save before execution</value>
     </title>
     <id>152</id>
@@ -8025,6 +8095,10 @@
     <title>
       <key>ru</key>
       <value>URL предварительный</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Preliminary URL </value>
     </title>
     <id>151</id>
     <valueType>
@@ -8169,6 +8243,10 @@
     <title>
       <key>ru</key>
       <value>Сохранить</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Save</value>
     </title>
     <id>7</id>
     <toolTip>

@@ -17,7 +17,7 @@ EndFunction
 // New HTTPConnection.
 // 
 // Parameters:
-//  Server - String - Server
+//  Host - String - Host
 //  Port - Undefined, Number -  Port
 //  User - Undefined, String -  User
 //  Password - Undefined, String -  Password
@@ -29,7 +29,7 @@ EndFunction
 // Return values:
 //  HTTPConnection -  New HTTPConnection
 //@skip-check method-too-many-params
-Function NewHTTPConnection(Server, Port = Undefined, User = Undefined, Password = Undefined,
+Function NewHTTPConnection(Host, Port = Undefined, User = Undefined, Password = Undefined,
 	Proxy = Undefined, Timeout = 0, SecureConnection = Undefined,
 	UseOSAuthentication = Undefined) Export  
 	
@@ -45,10 +45,10 @@ Function NewHTTPConnection(Server, Port = Undefined, User = Undefined, Password 
 	
 	If UseOSAuthentication = Undefined Then
 		//@skip-check type-not-defined
-		HTTPConnection = New HTTPConnection(Server, Port, , , Proxy, Timeout, SecureConnectionForConstructor);
+		HTTPConnection = New HTTPConnection(Host, Port, , , Proxy, Timeout, SecureConnectionForConstructor);
 	Else
 		//@skip-check type-not-defined
-		HTTPConnection = New HTTPConnection(Server, Port, , , Proxy, Timeout, SecureConnectionForConstructor,
+		HTTPConnection = New HTTPConnection(Host, Port, , , Proxy, Timeout, SecureConnectionForConstructor,
 			UseOSAuthentication);
 	EndIf;
 	

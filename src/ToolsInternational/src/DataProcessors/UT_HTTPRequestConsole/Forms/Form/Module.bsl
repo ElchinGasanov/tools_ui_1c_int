@@ -1,56 +1,56 @@
-#Region ОписаниеПеременных
+#Region Variables
 
 &AtClient
 Перем UT_CurrentRequestsRowID; //Number
 
 #EndRegion
 
-#Region ОбработчикиСобытийФормы
+#Region FormEventHandlers
 
 &AtServer
-Procedure ПриСозданииНаСервере(Отказ, СтандартнаяОбработка)
+Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	InitialHeader = Title;
 
 	InitializeForm();
 
 
-	Если Параметры.Property("ДанныеОтладки") Then
+	If Parameters.Property("DebugData") Then
 		//@skip-check unknown-form-parameter-access
-		FillByDebaggingData(Параметры.ДанныеОтладки);
+		FillByDebaggingData(Parameters.DebugData);
 	EndIf;
 
-	УИ_ОбщегоНазначения.ФормаИнструментаПриСозданииНаСервере(ThisObject,
-															 Отказ,
-															 СтандартнаяОбработка,
-															 КоманднаяПанель);
+	UT_Common.ToolFormOnCreateAtServer(ThisObject,
+										Cancel,
+										StandardProcessing,
+										CommandBar);
 
 EndProcedure
 
 &AtClient
-Procedure ПриОткрытии(Отказ)
+Procedure OnOpen(Cancel)
 	UpdateTitle();
 	SetRequestHeaderEditingPage();
 
-	Если ValueIsFilled(RequestsFileName) Then
+	If ValueIsFilled(RequestsFileName) Then
 		LoadFileConsole(True);
 	EndIf;
 EndProcedure
 
 &AtServer
-Procedure ПриЗагрузкеДанныхИзНастроекНаСервере(Настройки)
-	Если Параметры.Property("ДанныеОтладки") Then
+Procedure OnLoadDataFromSettingsAtServer(Settings)
+	If Parameters.Property("DebugData") Then
 		RequestsFileName = "";
 	EndIf;
 EndProcedure
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовШапкиФормы
+#Region FormHeaderItemsEventHandlers
 
 #Region RequestHeaders
 
 &AtClient
-Procedure EditHeadersWithTableOnChange(Элемент)
+Procedure EditHeadersWithTableOnChange(Item)
 	SetRequestHeaderEditingPage();
 EndProcedure
 
@@ -74,20 +74,20 @@ Procedure RequestBodyTypeOnChange(Item)
 EndProcedure
 
 &AtClient
-Procedure BodyFileNameЗапросаНачалоВыбора(Элемент, ДанныеВыбора, СтандартнаяОбработка)
+Procedure BodyFileNameStartChoice(Item, ChoseData, StandardProcessing)
 	RequestString = CurrentRequestRow();	
 	Если RequestString = Undefined Then
 		Return;
 	EndIf;
 	
-	ДВФ = Новый ДиалогВыбораФайла(РежимДиалогаВыбораФайла.Открытие);
-	ДВФ.МножественныйВыбор = False;
-	ДВФ.ПолноеFileName = RequestString.NameФайлаТела;
+	FileDialog = New FileDialog(FileDialogMode.Open);
+	FileDialog.Multiselect = False;
+	FileDialog.FullFileName = RequestString.BodyFileName;
 
-	ПараметрыОповещения = New Structure;
-	ПараметрыОповещения.Insert("RowID", RequestString.GetID());
+	CallBackParameters = New Structure;
+	CallBackParameters.Insert("RowID", RequestString.GetID());
 
-	ДВФ.Показать(New CallbackDescription("RequestBodyFileNameStartChooseFinish", ThisObject, ПараметрыОповещения));
+	FileDialog.Show(New CallbackDescription("RequestBodyFileNameStartChooseFinish", ThisObject, CallBackParameters));
 EndProcedure
 
 
@@ -97,38 +97,38 @@ Procedure RequestURLOnChange(Item)
 EndProcedure
 
 &AtClient
-Procedure HeadersStringПриИзменении(Элемент)
+Procedure HeadersStringOnChange(Item)
 	//FillJSONStructureInRequestsTree();
 EndProcedure
 
 
 &AtClient
-Procedure RequestsTreeAuthenticationTypeOnChange(Элемент)
+Procedure RequestsTreeAuthenticationTypeOnChange(Item)
 	OnChangeRequestAuthenticationType();
 EndProcedure
 
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовТаблицыФормыДеревоЗапросов
+#Region FormTableItemsEventHandlers_RequestsTree
 
 &AtClient
-Procedure ДеревоЗапросовПриАктивизацииСтроки(Элемент)
-	ПодключитьОбработчикОжидания("ОбработчикОжиданияАктивизацииСтрокиДереваЗапросов", 0.1, True);
+Procedure RequestsTreeOnActivateRow(Item)
+	AttachIdleHandler("RequestsTreeRowWaitHandlerActivation", 0.1, True);
 EndProcedure
 
 
 &AtClient
-Procedure ДеревоЗапросовПриНачалеРедактирования(Элемент, NewRow, Копирование)
+Procedure RequestsTreeOnStartEdit(Item, NewRow, Copy)
 	If Not NewRow Then
 		Return;
 	EndIf;
-	Если Копирование Then
+	If Copy Then
 		Return;
 	EndIf;
 	
-	CurrentData = Items.RequestsTree.ТекущиеДанные;
-	Если CurrentData = Undefined Then
+	CurrentData = Items.RequestsTree.CurrentData;
+	If CurrentData = Undefined Then
 		Return;
 	EndIf;
 	
@@ -136,18 +136,18 @@ Procedure ДеревоЗапросовПриНачалеРедактирован
 EndProcedure
 
 &AtClient
-Procedure ДеревоЗапросовПередОкончаниемРедактирования(Элемент, NewRow, ОтменаРедактирования, Отказ)
-	Если ОтменаРедактирования Then
+Procedure RequestsTreeBeforeEditEnd(Item, NewRow, EditCancel, Cancel)
+	If EditCancel Then
 		Return;
 	EndIf;	
 	
-	CurrentData = Items.RequestsTree.ТекущиеДанные;
-	Если CurrentData = Undefined Then
+	CurrentData = Items.RequestsTree.CurrentData;
+	If CurrentData = Undefined Then
 		Return;
 	EndIf;
 	
 	If Not ValueIsFilled(CurrentData.Name) Then
-		Отказ = True;
+		Cancel = True;
 	EndIf;
 
 EndProcedure
@@ -155,7 +155,7 @@ EndProcedure
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовТаблицыФормыТаблицаЗаголовковЗапроса
+#Region FormTableItemsEventHandlers_RequestHeadersTable
 
 
 &AtClient
@@ -163,11 +163,11 @@ Procedure RequestHeadersTableOnStartEdit(Item, NewRow, Clone)
 	If Not NewRow Then
 		Return;
 	EndIf;
-	Если Копирование Then
+	Если Clone Then
 		Return;
 	EndIf;
 	
-	CurrentData = Items.RequestHeadersTable.ТекущиеДанные;
+	CurrentData = Items.RequestHeadersTable.CurrentData;
 	Если CurrentData = Undefined Then
 		Return;
 	EndIf;
@@ -176,7 +176,7 @@ Procedure RequestHeadersTableOnStartEdit(Item, NewRow, Clone)
 EndProcedure
 
 &AtClient
-Procedure RequestHeadersTableOnChange(Элемент)
+Procedure RequestHeadersTableOnChange(Item)
 	//FillJSONStructureInRequestsTree();
 EndProcedure
 
@@ -184,17 +184,17 @@ EndProcedure
 Procedure TableRequestHeadersTableKeyAutoComplete(Item, Text, ChoiceData, DataGetParameters, Waiting, 
 	StandardProcessing)
 
-	СтандартнаяОбработка = False;
+	StandardProcessing = False;
 
-	If Not ValueIsFilled(Текст) Then
+	If Not ValueIsFilled(Text) Then
 		Return;
 	EndIf;
 
-	ДанныеВыбора = Новый СписокЗначений;
+	ChoseData = New ValueList;
 
-	For Each ЭлементСписка In ListOfUsedHeaders Do
-		Если СтрНайти(Lower(ЭлементСписка.Value), Lower(Текст)) > 0 Then
-			ДанныеВыбора.Add(ЭлементСписка.Value);
+	For Each ListItem In ListOfUsedHeaders Do
+		If СтрНайти(Lower(ListItem.Value), Lower(Text)) > 0 Then
+			ChoseData.Add(ListItem.Value);
 		EndIf;
 	EndDo;
 
@@ -202,48 +202,48 @@ EndProcedure
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовТаблицыФормыДеревоЗапросовТелоМультипарт
+#Region FormTableItemsEventHandlers_RequestsTreeMultipartBody
 &AtClient
-Procedure MultipartBodyRequestsTreeOnStartEdit(Элемент, NewRow, Копирование)
+Procedure MultipartBodyRequestsTreeOnStartEdit(Item, NewRow, Copy)
 	If Not NewRow Then
 		Return;
 	EndIf;
-	Если Копирование Then
+	If Copy Then
 		Return;
 	EndIf;
 	
-	CurrentData = Items.MultipartBodyRequestsTree.ТекущиеДанные;
-	Если CurrentData = Undefined Then
+	CurrentData = Items.MultipartBodyRequestsTree.CurrentData;
+	If CurrentData = Undefined Then
 		Return;
 	EndIf;
 	CurrentData.Using = True;
-	CurrentData.Вид = MultypartItemsType().File;
+	CurrentData.Type = MultypartItemsType().File;
 EndProcedure
 
 &AtClient
 Procedure MultipartBodyRequestsTreeValueStartChoice(Item, ChoiceData, StandardProcessing)
-	CurrentData = Items.MultipartBodyRequestsTree.ТекущиеДанные;
-	Если CurrentData = Undefined Then
+	CurrentData = Items.MultipartBodyRequestsTree.CurrentData;
+	If CurrentData = Undefined Then
 		Return;
 	EndIf;
 	
 	Types = MultypartItemsType();
 	
-	ПараметрыОповещения = New Structure;
-	ПараметрыОповещения.Insert("RowRequestIdentifier", UT_CurrentRequestsRowID);
-	ПараметрыОповещения.Insert("ИдентификаторСтрокиТела", CurrentData.GetID());
+	CallBackParameters = New Structure;
+	CallBackParameters.Insert("RowRequestIdentifier", UT_CurrentRequestsRowID);
+	CallBackParameters.Insert("BodyRowIdentifier", CurrentData.GetID());
 
-	ОписаниеОповещенияОЗавершении = New CallbackDescription("ДеревоЗапросовТелоМультипартЗначениеНачалоВыбораЗавершениеВыбора",
-		ThisObject, ПараметрыОповещения);
+	CallbackDescriptionAboutFinish = New CallbackDescription("TreeRequestsBodyMultipartValueStartChoseFinishChose",
+		ThisObject, CallBackParameters);
 
-	Если CurrentData.Вид = Types.File Then
-		ДиалогВыбора = Новый ДиалогВыбораФайла(РежимДиалогаВыбораФайла.Открытие);
-		ДиалогВыбора.ПроверятьСуществованиеФайла = True;
-		ДиалогВыбора.МножественныйВыбор = False;
-		ДиалогВыбора.Показать(New CallbackDescription("ДеревоЗапросовТелоМультипартЗначениеНачалоВыбораЗавершениеВыбораФайла",
-			ThisObject, New Structure("ОписаниеОЗавершении", ОписаниеОповещенияОЗавершении)));
+	Если CurrentData.Type = Types.File Then
+		FileDialog = New FileDialog(FileDialogMode.Open);
+		FileDialog.CheckFileExistence = True;
+		FileDialog.Multiselect = False;
+		FileDialog.Show(New CallbackDescription("FileTreeRequestsBodyMultipartValueStartChoseFinishChose",
+			ThisObject, New Structure("CallbackDescriptionAboutFinish", CallbackDescriptionAboutFinish)));
 	Else
-		УИ_ОбщегоНазначенияКлиент.ОткрытьФормуРедактированияТекста(CurrentData.Value, ОписаниеОповещенияОЗавершении);
+		UT_CommonClient.OpenTextEditingForm(CurrentData.Value, CallbackDescriptionAboutFinish);
 	EndIf;
 EndProcedure
 
@@ -251,20 +251,20 @@ EndProcedure
 
 #EndRegion
 
-#Region ОбработчикиСобытийЭлементовТаблицыФормыПараметрыURL
+#Region FormTableItemsEventHandlers_URLParameters
 
 &AtClient
-Procedure ПараметрыURLПриНачалеРедактирования(Элемент, NewRow, Копирование)
+Procedure URLParametersOnStartEdit(Item, NewRow, Copy)
 
 	If Not NewRow Then
 		Return;
 	EndIf;
 
-	Если Копирование Then
+	If Copy Then
 		Return;
 	EndIf;
-	CurrentData = Items.URLParameters.ТекущиеДанные;
-	Если CurrentData = Undefined Then
+	CurrentData = Items.URLParameters.CurrentData;
+	If CurrentData = Undefined Then
 		Return;
 	EndIf;
 	
@@ -272,30 +272,30 @@ Procedure ПараметрыURLПриНачалеРедактирования(Э
 EndProcedure
 
 &AtClient
-Procedure RequestParametersПриИзменении(Элемент)
+Procedure URLParametersOnChange(Item)
 	SetPreliminaryURL(UT_CurrentRequestsRowID);
 EndProcedure
 
 
 #EndRegion
 
-#Region ОбработчикиКомандФормы
+#Region FormCommandsEventHandlers
 
 &AtClient
-Procedure RequestTreeMoveToLevelUp(Команда)
+Procedure RequestTreeMoveToLevelUp(Command)
 	
-	Строка = RequestsTree.FindByID(Items.RequestsTree.CurrentRow);
-	Родитель = Строка.GetРодителя();
+	Row = RequestsTree.FindByID(Items.RequestsTree.CurrentRow);
+	Parent = Row.GetParent();
 
-	Если Родитель <> Undefined Then
-		РодительРодителя = Родитель.GetParent();
-		Если РодительРодителя = Undefined Then
-			InsertIndex = RequestsTree.GetItems().Индекс(Родитель) + 1;
+	Если Parent <> Undefined Then
+		ParentsParent = Parent.GetParent();
+		Если ParentsParent = Undefined Then
+			InsertIndex = RequestsTree.GetItems().Index(Parent) + 1;
 		Else
-			InsertIndex = РодительРодителя.GetItems().Индекс(Родитель) + 1;
+			InsertIndex = ParentsParent.GetItems().Index(Parent) + 1;
 		EndIf;
 		
-		NewRow = MoveTreeRow(RequestsTree, Строка, InsertIndex, РодительРодителя);
+		NewRow = MoveTreeRow(RequestsTree, Row, InsertIndex, ParentsParent);
 		
 		Items.RequestsTree.CurrentRow = NewRow.GetID();
 	EndIf;
@@ -309,7 +309,7 @@ Procedure RequestExecute(Command)
 	SaveRequestDataInRequestsTree();
 	
 	RequestString  = CurrentRequestRow();
-	Если RequestString = Undefined Then
+	If RequestString = Undefined Then
 		Return;
 	EndIf;
 	
@@ -317,89 +317,89 @@ Procedure RequestExecute(Command)
 		Return;	
 	EndIf;
 	
-	ДопПараметры = New Structure;
-	ДопПараметры.Insert("RequestString", RequestString);
-	Если СохранятьПередВыполнением И ValueIsFilled(RequestsFileName) Then
-		ExecuteSavingRequestsToFile( , New CallbackDescription("ВыполнитьЗапросЗавершениеСохраненияФайла",
-			ThisObject, ДопПараметры));
+	AdditionalParameters = New Structure;
+	AdditionalParameters.Insert("RequestString", RequestString);
+	If SaveBeforeExecution And ValueIsFilled(RequestsFileName) Then
+		ExecuteSavingRequestsToFile( , New CallbackDescription("ExecuteRequestFinishFileSaving",
+			ThisObject, AdditionalParameters));
 	Else
-		ВыполнитьЗапросЗавершениеСохраненияФайла(True, ДопПараметры);
+		ExecuteRequestFinishFileSaving(True, AdditionalParameters);
 	EndIf;
 EndProcedure
 
 &AtClient
-Procedure FillBodyBinaryDataFromFile(Команда)
-	Если UT_CurrentRequestsRowID = Undefined Then
+Procedure FillBodyBinaryDataFromFile(Command)
+	If UT_CurrentRequestsRowID = Undefined Then
 		Return;
 	EndIf;
 	
-	ПараметрыОповещения = New Structure();
-	ПараметрыОповещения.Insert("CurrentRowID", UT_CurrentRequestsRowID);
+	CallBackParameters = New Structure();
+	CallBackParameters.Insert("CurrentRowID", UT_CurrentRequestsRowID);
 	
-	НачатьПомещениеФайла(New CallbackDescription("FillBodyBinaryDataFromFileFinish", ThisObject,
-		ПараметрыОповещения), , "", True, UUID);
+	BeginPutFile(New CallbackDescription("FillBodyBinaryDataFromFileFinish", ThisObject,
+		CallBackParameters), , "", True, UUID);
 EndProcedure
 
 &AtClient
-Procedure SaveBodyRequestBinaryDataFromHistory(Команда)
-	ТекДанныеИсторииЗапроса = Items.RequestsHistory.ТекущиеДанные;
-	Если ТекДанныеИсторииЗапроса = Undefined Then
+Procedure SaveBodyRequestBinaryDataFromHistory(Command)
+	CurrentDataRequestHistory = Items.RequestsHistory.CurrentData;
+	If CurrentDataRequestHistory = Undefined Then
 		Return;
 	EndIf;
 
-	If Not IsTempStorageURL(ТекДанныеИсторииЗапроса.RequestBodyBinaryDataAddress) Then
+	If Not IsTempStorageURL(CurrentDataRequestHistory.RequestBodyBinaryDataAddress) Then
 		Return;
 	EndIf;
 
-	ДВФ = Новый ДиалогВыбораФайла(РежимДиалогаВыбораФайла.Сохранение);
-	ДВФ.МножественныйВыбор = False;
+	FileDialog = New FileDialog(FileDialogMode.Save);
+	FileDialog.Multiselect = False;
 
-	ПараметрыСохранения = УИ_ОбщегоНазначенияКлиент.НовыйПараметрыСохраненияФайла();
-	ПараметрыСохранения.ДиалогВыбораФайла = ДВФ;
-	ПараметрыСохранения.АдресФайлаВоВременномХранилище = ТекДанныеИсторииЗапроса.RequestBodyBinaryDataAddress;
-	УИ_ОбщегоНазначенияКлиент.НачатьСохранениеФайла(ПараметрыСохранения);
-
-EndProcedure
-
-&AtClient
-Procedure SaveBinaryDataBodyAnswerInFile(Команда)
-	ТекДанныеИсторииЗапроса = Items.RequestsHistory.ТекущиеДанные;
-	Если ТекДанныеИсторииЗапроса = Undefined Then
-		Return;
-	EndIf;
-
-	If Not IsTempStorageURL(ТекДанныеИсторииЗапроса.ResponseBodyBinaryDataAddress) Then
-		Return;
-	EndIf;
-
-	ДВФ = Новый ДиалогВыбораФайла(РежимДиалогаВыбораФайла.Сохранение);
-	ДВФ.МножественныйВыбор = False;
-
-	ПараметрыСохранения = УИ_ОбщегоНазначенияКлиент.НовыйПараметрыСохраненияФайла();
-	ПараметрыСохранения.ДиалогВыбораФайла = ДВФ;
-	ПараметрыСохранения.АдресФайлаВоВременномХранилище = ТекДанныеИсторииЗапроса.ResponseBodyBinaryDataAddress;
-	УИ_ОбщегоНазначенияКлиент.НачатьСохранениеФайла(ПараметрыСохранения);
+	SaveParameters = UT_CommonClient.NewFileSavingParameters();
+	SaveParameters.FileDialog = FileDialog;
+	SaveParameters.TempStorageFileDirectory = CurrentDataRequestHistory.RequestBodyBinaryDataAddress;
+	UT_CommonClient.BeginFileSaving(SaveParameters);
 
 EndProcedure
 
 &AtClient
-Procedure RecordHistoryRequestDetailedInformation(Команда)
+Procedure SaveBinaryDataBodyAnswerInFile(Command)
+	CurrentDataRequestHistory = Items.RequestsHistory.CurrentData;
+	If CurrentDataRequestHistory = Undefined Then
+		Return;
+	EndIf;
+
+	If Not IsTempStorageURL(CurrentDataRequestHistory.ResponseBodyBinaryDataAddress) Then
+		Return;
+	EndIf;
+
+	FileDialog = New FileDialog(FileDialogMode.Save);
+	FileDialog.Multiselect = False;
+
+	SaveParameters = UT_CommonClient.NewFileSavingParameters();
+	SaveParameters.FileDialog = FileDialog;
+	SaveParameters.TempStorageFileDirectory = CurrentDataRequestHistory.ResponseBodyBinaryDataAddress;
+	UT_CommonClient.BeginFileSaving(SaveParameters);
+
+EndProcedure
+
+&AtClient
+Procedure RecordHistoryRequestDetailedInformation(Command)
 	RequestString = CurrentRequestRow();
-	Если RequestString = Undefined Then
+	If RequestString = Undefined Then
 		Return;
 	EndIf;
 	
-	CurrentData = Items.RequestsTreeRequestsHistory.ТекущиеДанные;
-	Если CurrentData = Undefined Then
+	CurrentData = Items.RequestsTreeRequestsHistory.CurrentData;
+	If CurrentData = Undefined Then
 		Return;
 	EndIf;
 	
-	ПараметрыФормы = New Structure;
-	ПараметрыФормы.Insert("RequestString", RequestString.GetID());
-	ПараметрыФормы.Insert("HistoryRow", CurrentData.GetID());
+	FormParameters = New Structure;
+	FormParameters.Insert("RequestRow", RequestString.GetID());
+	FormParameters.Insert("HistoryRow", CurrentData.GetID());
 
-	ОткрытьФорму("DataProcessor.UT_HTTPRequestConsole.Form.FormRequestDetails",
-				 ПараметрыФормы,
+	OpenForm("DataProcessor.UT_HTTPRequestConsole.Form.FormRequestDetails",
+				 FormParameters,
 				 ThisObject,
 				 ""
 				 + UUID
@@ -409,400 +409,400 @@ EndProcedure
 
 
 &AtClient
-Procedure SaveBodyResponseBinaryData(Команда)
+Procedure SaveBodyResponseBinaryData(Command)
 	If Not IsTempStorageURL(ResponseBodyBinaryDataAddress) Then
 		Return;
 	EndIf;
 
-	ДВФ = Новый ДиалогВыбораФайла(РежимДиалогаВыбораФайла.Сохранение);
-	ДВФ.МножественныйВыбор = False;
+	FileDialog = New FileDialog(FileDialogMode.Save);
+	FileDialog.Multiselect = False;
 
-	ПараметрыСохранения = УИ_ОбщегоНазначенияКлиент.НовыйПараметрыСохраненияФайла();
-	ПараметрыСохранения.ДиалогВыбораФайла = ДВФ;
-	ПараметрыСохранения.АдресФайлаВоВременномХранилище = ResponseBodyBinaryDataAddress;
-	УИ_ОбщегоНазначенияКлиент.НачатьСохранениеФайла(ПараметрыСохранения);
+	SaveParameters = UT_CommonClient.NewFileSavingParameters();
+	SaveParameters.FileDialog = FileDialog;
+	SaveParameters.TempStorageFileDirectory = ResponseBodyBinaryDataAddress;
+	UT_CommonClient.BeginFileSaving(SaveParameters);
 EndProcedure
 
 &AtClient
-Procedure NewRequestFile(Команда)
-	Если RequestsTree.GetItems().Count() = 0 Then
+Procedure NewRequestFile(Command)
+	If RequestsTree.GetItems().Count() = 0 Then
 		InitializeConsole();
 	Else
-		ПоказатьВопрос(New CallbackDescription("NewRequestFileFinish", ThisObject),
-			"Дерево запросов непустое. Continue?", РежимДиалогаВопрос.ДаНет, 15, DialogReturnCode.Нет);
+		ShowQueryBox(New CallbackDescription("NewRequestFileFinish", ThisObject),
+			NStr("ru = 'Дерево запросов непустое. Продолжить?'; en = 'The query tree is not empty. Continue?'"), QuestionDialogMode.YesNo, 15, DialogReturnCode.No);
 	EndIf;
 EndProcedure
 
 &AtClient
-Procedure OpenRequestFile(Команда)
-	Если RequestsTree.GetItems().Count() = 0 Then
+Procedure OpenRequestFile(Command)
+	If RequestsTree.GetItems().Count() = 0 Then
 		LoadFileConsole();
 	Else
-		ПоказатьВопрос(New CallbackDescription("OpenReportFileFinish", ThisObject),
-			"Дерево запросов непустое. Continue?", РежимДиалогаВопрос.ДаНет, 15, DialogReturnCode.Нет);
+		ShowQueryBox(New CallbackDescription("OpenReportFileFinish", ThisObject),
+			NStr("ru = 'Дерево запросов непустое. Продолжить?'; en = 'The query tree is not empty. Continue?'"), QuestionDialogMode.YesNo, 15, DialogReturnCode.No);
 	EndIf;
 EndProcedure
 
 &AtClient
-Procedure SaveRequestsToFile(Команда)
+Procedure SaveRequestsToFile(Command)
 	ExecuteSavingRequestsToFile();
 EndProcedure
 
 &AtClient
-Procedure SaveRequestsToFileAs(Команда)
+Procedure SaveRequestsToFileAs(Command)
 	ExecuteSavingRequestsToFile(True);
 EndProcedure
 
 &AtClient
-Procedure EditRequestBodyInJSONEditor(Команда)
+Procedure EditRequestBodyInJSONEditor(Command)
 	TreeRow = CurrentRequestRow();
 	Если TreeRow = Undefined Then
 		Return;
 	EndIf;
 	
-	ПараметрыОповещения = New Structure;
-	ПараметрыОповещения.Insert("ТекущаяСтрока", TreeRow.GetID());
+	CallBackParameters = New Structure;
+	CallBackParameters.Insert("CurrentRow", TreeRow.GetID());
 
-	УИ_ОбщегоНазначенияКлиент.РедактироватьJSON(TreeRow.BodyString,
-												False,
-												New CallbackDescription("EditRequestBodyInJSONEditorFinish",
-		ThisObject, ПараметрыОповещения));
+	UT_CommonClient.EditJSON(TreeRow.BodyString,
+		False,
+		New CallbackDescription("EditRequestBodyInJSONEditorFinish",
+		ThisObject, CallBackParameters));
 EndProcedure
 
 &AtClient
-Procedure EditRequestBodyInJSONEditorAnalyzedRequest(Команда)
-	УИ_ОбщегоНазначенияКлиент.РедактироватьJSON(Items.RequestsHistory.ТекущиеДанные.RequestBodyString, True);
+Procedure EditRequestBodyInJSONEditorAnalyzedRequest(Command)
+	UT_CommonClient.EditJSON(Items.RequestsHistory.CurrentData.RequestBodyString, True);
 EndProcedure
 
 &AtClient
-Procedure EditResponseBodyInJSONEditorAnalyzedRequest(Команда)
-	УИ_ОбщегоНазначенияКлиент.РедактироватьJSON(ResponseBodyString, True);
+Procedure EditResponseBodyInJSONEditorAnalyzedRequest(Command)
+	UT_CommonClient.EditJSON(ResponseBodyString, True);
 EndProcedure
 
 &AtClient
-Procedure CopyRowDataHistoryToRequest(Команда)
+Procedure CopyRowDataHistoryToRequest(Command)
 	RequestString = CurrentRequestRow();
-	Если RequestString = Undefined Then
+	If RequestString = Undefined Then
 		Return;
 	EndIf;
 	
-	HistoryRow = Items.RequestsTreeRequestsHistory.ТекущиеДанные;
-	Если RequestString = Undefined Then
+	HistoryRow = Items.RequestsTreeRequestsHistory.CurrentData;
+	If RequestString = Undefined Then
 		Return;
 	EndIf;
 	CopyDataRowHistoryToRequestAtServer(RequestString.GetID(),
-												   HistoryRow.GetID());
-	ИзвлечьДанныеЗапросаИзСтрокиДерева();
+										HistoryRow.GetID());
+	ExtractRequestDataFromTreeRow();
 EndProcedure
 
 &AtClient
 Procedure GenerateExecutionCode(Command)
-	CurrentData = Items.RequestsTree.ТекущиеДанные;
+	CurrentData = Items.RequestsTree.CurrentData;
 	Если CurrentData = Undefined Then
 		Return;
 	EndIf;
 	SaveRequestDataInRequestsTree();
 
-	СгенерированныйКод = GeneratedExecutionCodeAtServer(CurrentData.GetID());
+	GeneratedCode = GeneratedExecutionCodeAtServer(CurrentData.GetID());
 
-	УИ_ОбщегоНазначенияКлиент.ОткрытьСтрокуКодаВСпециальнойФорме(СгенерированныйКод, "HTTP запрос: " + CurrentData.Name, ""
-																													  + UUID
-																													  + CurrentData.GetID());
+	UT_CommonClient.OpenCodeStringCodeSpecialForm(GeneratedCode, "HTTP request: " + CurrentData.Name, ""
+												+ UUID
+												+ CurrentData.GetID());
 EndProcedure
 
 //@skip-warning
 &AtClient
-Procedure Подключаемый_ВыполнитьОбщуюКомандуИнструментов(Команда) 
-	УИ_ОбщегоНазначенияКлиент.Подключаемый_ВыполнитьОбщуюКомандуИнструментов(ThisObject, Команда);
+Procedure Attachable_ExecuteToolsCommonCommand(Command) 
+	UT_CommonClient.Attachable_ExecuteToolsCommonCommand(ThisObject, Command);
 EndProcedure
 
 #EndRegion
 
-#Region СлужебныеПроцедурыИФункции
+#Region Private
 
 &AtClient
-Procedure ВыполнитьЗапросЗавершениеСохраненияФайла(Result, AdditionalParameters) Export
-	Если Result <> True Then
+Procedure ExecuteRequestFinishFileSaving(Result, AdditionalParameters) Export
+	If Result <> True Then
 		Return;
 	EndIf;
 	RequestString = AdditionalParameters.RequestString;
 	
-	ПараметрыСледующегоШага = New Structure;
-	ПараметрыСледующегоШага.Insert("RowID", RequestString.GetID());
-	ПараметрыСледующегоШага.Insert("Файл", Undefined);
-	ПараметрыСледующегоШага.Insert("AtClient", RequestString.AtClient);
+	NextStepParameters = New Structure;
+	NextStepParameters.Insert("RowID", RequestString.GetID());
+	NextStepParameters.Insert("File", Undefined);
+	NextStepParameters.Insert("AtClient", RequestString.AtClient);
 	
-	Если RequestString.BodyType = TypesOfRequestBody.File Then
-		Если RequestString.AtClient Then
-			ПараметрыСледующегоШага.File = New Structure;
-			ПараметрыСледующегоШага.File.Insert("ПолноеИмя", RequestString.BodyFileName);
-			ExecuteRequestPreparatoryActionsFinish(ПараметрыСледующегоШага);
+	If RequestString.BodyType = TypesOfRequestBody.File Then
+		If RequestString.AtClient Then
+			NextStepParameters.File = New Structure;
+			NextStepParameters.File.Insert("FullName", RequestString.BodyFileName);
+			ExecuteRequestPreparatoryActionsFinish(NextStepParameters);
 		Else
-			ПараметрыЧтенияФайла = УИ_ОбщегоНазначенияКлиент.НовыйПараметрыЧтенияФайла(UUID);
-			ПараметрыЧтенияФайла.ПолноеИмяФайла = RequestString.BodyFileName;
-			ПараметрыЧтенияФайла.ОповещениеОЗавершении = New CallbackDescription("ExecuteRequestReadingFilesMultiFinishInTemporaryStorage",
-				ThisObject, ПараметрыСледующегоШага);
+			ReadingParametersФайла = UT_CommonClient.NewFileReadingParameters(UUID);
+			ReadingParametersФайла.FullFileName = RequestString.BodyFileName;
+			ReadingParametersФайла.EndingCallbackDescription = New CallbackDescription("ExecuteRequestReadingFilesMultiFinishInTemporaryStorage",
+				ThisObject, NextStepParameters);
 
-			УИ_ОбщегоНазначенияКлиент.НачатьЧтениеФайла(ПараметрыЧтенияФайла);
+			UT_CommonClient.BeginFileReading(ReadingParametersФайла);
 		EndIf;
 	ElsIf RequestString.BodyType = TypesOfRequestBody.MultypartForm Then
-		НачатьПомещениеФайловВоВременноеХранилищеДляСтрокТелаМультипарт(RequestString,
-																		New CallbackDescription("ExecuteRequestReadingFilesMultiPartFinishInTemporaryStorage",
-			ThisObject, ПараметрыСледующегоШага));
+		GetStartedPuttingFilesInTemporaryStorageForBodyRowsMultipart(RequestString,
+			New CallbackDescription("ExecuteRequestReadingFilesMultiPartFinishInTemporaryStorage",
+			ThisObject, NextStepParameters));
 	Else
-		ExecuteRequestPreparatoryActionsFinish(ПараметрыСледующегоШага);
+		ExecuteRequestPreparatoryActionsFinish(NextStepParameters);
 	EndIf;
 	
 EndProcedure
 
 &AtClient
-Procedure НачатьПомещениеФайловВоВременноеХранилищеДляСтрокТелаМультипарт(RequestString, ОписаниеОповещенияОЗавершении)
-	ПараметрыОповещений = New Structure;
-	ПараметрыОповещений.Insert("ОписаниеОповещенияОЗавершении", ОписаниеОповещенияОЗавершении);
-	ПараметрыОповещений.Insert("RequestsTreeRow", RequestString);
-	ПараметрыОповещений.Insert("ИндексСтрокиМультипарт", 0);
-	ПараметрыОповещений.Insert("СоответствиеПомещенныхФайлов", New Map);
+Procedure GetStartedPuttingFilesInTemporaryStorageForBodyRowsMultipart(RequestString, CallbackDescriptionAboutFinish)
+	FormDataTreeItem = New Structure;
+	FormDataTreeItem.Insert("CallbackDescriptionAboutFinish", CallbackDescriptionAboutFinish);
+	FormDataTreeItem.Insert("RequestsTreeRow", RequestString);
+	FormDataTreeItem.Insert("RowsMultipartIndex", 0);
+	FormDataTreeItem.Insert("PlacedFilesMap", New Map);
 
-	УИ_ОбщегоНазначенияКлиент.ПодключитьРасширениеРаботыСФайламиСВозможнойУстановкой(New CallbackDescription("НачатьПомещениеФайловВоВременноеХранилищеДляСтрокТелаМультипартЗавершениеПодключенияРасширенияРаботыСФайлам",
-		ThisObject, ПараметрыОповещений));
+	UT_CommonClient.AttachFileSystemExtensionWithPossibleInstallation(New CallbackDescription("GetStartedPuttingFilesInTemporaryStorageForBodyRowsMultipartCompletingConnectionsExtensionsWorkingWithFiles",
+		ThisObject, FormDataTreeItem));
 EndProcedure
 
 
 // Начать помещение файлов во временное хранилище для строк тела мультипарт завершение подключения расширения работы с файлам.
 // 
 // Parameters:
-//  Подключено - Boolean- Подключено
+//  Connected - Boolean- Connected
 //  AdditionalParameters - Structure:
-//  * ОписаниеОповещенияОЗавершении - ОписаниеОповещения
-//  * RequestsTreeRow - ДанныеФормыЭлементДерева
+//  * CallbackDescriptionAboutFinish - CallbackDescription
+//  * RequestsTreeRow - FormDataTreeItem
 &AtClient
-Procedure НачатьПомещениеФайловВоВременноеХранилищеДляСтрокТелаМультипартЗавершениеПодключенияРасширенияРаботыСФайлам(Подключено,
+Procedure GetStartedPuttingFilesInTemporaryStorageForBodyRowsMultipartCompletingConnectionsExtensionsWorkingWithFiles(Connected,
 	AdditionalParameters) Export
-	If Not Подключено Then
+	If Not Connected Then
 		Return;
 	EndIf;
 	
-	ПоместитьОчереднойФайлМультипарт(AdditionalParameters);
+	PlaceNextFileMultipart(AdditionalParameters);
 EndProcedure
 
-// Поместить очередной файл мультипарт.
+// Place another multipart file.
 // 
 // Parameters:
 //  AdditionalParameters - Structure:
-//  * ОписаниеОповещенияОЗавершении - ОписаниеОповещения
-//  * RequestsTreeRow - ДанныеФормыЭлементДерева
-//  * СоответствиеПомещенныхФайлов - Map из КлючИЗначение
-//  * ИндексСтрокиМультипарт - Number
+//  * CallbackDescriptionAboutFinish - CallbackDescription
+//  * RequestsTreeRow - FormDataTreeItem
+//  * PlacedFilesMap - Map из KeyAndValue
+//  * RowsMultipartIndex - Number
 &AtClient
-Procedure ПоместитьОчереднойФайлМультипарт(AdditionalParameters)
-	TypesМультипарт = MultypartItemsType();
+Procedure PlaceNextFileMultipart(AdditionalParameters)
+	MultipartTypes = MultypartItemsType();
 	
-	Для ТекИндекс = AdditionalParameters.ИндексСтрокиМультипарт По AdditionalParameters.RequestsTreeRow.MultipartBody.Count()
+	For Index = AdditionalParameters.RowsMultipartIndex To AdditionalParameters.RequestsTreeRow.MultipartBody.Count()
 																	  - 1 Do
-		MultypartItemRow = AdditionalParameters.RequestsTreeRow.MultipartBody[ТекИндекс];
-		Если MultypartItemRow.Type <> TypesМультипарт.File Then
+		MultypartItemRow = AdditionalParameters.RequestsTreeRow.MultipartBody[Index];
+		If MultypartItemRow.Type <> MultipartTypes.File Then
 			Continue;
 		EndIf;
 		If Not ValueIsFilled(MultypartItemRow.Value) Then
 			Continue;
 		EndIf;
 
-		AdditionalParameters.ИндексСтрокиМультипарт = ТекИндекс;
+		AdditionalParameters.RowsMultipartIndex = Index;
 
-		ПараметрыЧтения = УИ_ОбщегоНазначенияКлиент.НовыйПараметрыЧтенияФайла(UUID);
-		ПараметрыЧтения.РасширениеРаботыСФайламиПодключено = True;
-		ПараметрыЧтения.ПолноеИмяФайла = MultypartItemRow.Value;
-		ПараметрыЧтения.ОповещениеОЗавершении = New CallbackDescription("ПоместитьОчереднойФайлМультипартЗавершениеЧтенияОчередногоФайла",
+		ReadingParameters = UT_CommonClient.NewFileReadingParameters(UUID);
+		ReadingParameters.FileSystemExtensionAttached = True;
+		ReadingParameters.FullFileName = MultypartItemRow.Value;
+		ReadingParameters.EndingCallbackDescription = New CallbackDescription("PlaceNextFileMultipartCompletingReadingNextFile",
 			ThisObject, AdditionalParameters);
 
-		УИ_ОбщегоНазначенияКлиент.НачатьЧтениеФайла(ПараметрыЧтения);
+		UT_CommonClient.BeginFileReading(ReadingParameters);
 		Return;
 	EndDo;
 
-	RunCallback(AdditionalParameters.ОписаниеОповещенияОЗавершении,
-								 AdditionalParameters.СоответствиеПомещенныхФайлов);
+	RunCallback(AdditionalParameters.CallbackDescriptionAboutFinish,
+								 AdditionalParameters.PlacedFilesMap);
 EndProcedure
 
-// Поместить очередной файл мультипарт завершение чтения очередного файла.
+// Place the next file multipart completion of reading the next file.
 // 
 // Parameters:
 //  Result - Массив In Structure:
-//  	* ПолноеИмя - Строка
-//  	* Storage - Строка
+//  	* FullName - String
+//  	* Storage - String
 //  AdditionalParameters - Structure:
-//  	* ОписаниеОповещенияОЗавершении - ОписаниеОповещения
-//  	* RequestsTreeRow - ДанныеФормыЭлементДерева
-//  	* СоответствиеПомещенныхФайлов - Map из КлючИЗначение
-//  	* ИндексСтрокиМультипарт - Number
+//  	* CallbackDescriptionAboutFinish - CallbackDescription
+//  	* RequestsTreeRow - FormDataTreeItem
+//  	* PlacedFilesMap - Map of KeyAndValue
+//  	* RowsMultipartIndex - Number
 &AtClient
-Procedure ПоместитьОчереднойФайлМультипартЗавершениеЧтенияОчередногоФайла(Result, AdditionalParameters) Export
-	Если Result <> Undefined Then
-		Если Result.Count() > 0 Then
-			AdditionalParameters.СоответствиеПомещенныхФайлов.Insert(AdditionalParameters.ИндексСтрокиМультипарт,
+Procedure PlaceNextFileMultipartCompletingReadingNextFile(Result, AdditionalParameters) Export
+	If Result <> Undefined Then
+		If Result.Count() > 0 Then
+			AdditionalParameters.PlacedFilesMap.Insert(AdditionalParameters.RowsMultipartIndex,
 																		  Result[0].Storage);
 		EndIf;
 	EndIf;
-	AdditionalParameters.ИндексСтрокиМультипарт = AdditionalParameters.ИндексСтрокиМультипарт + 1;
-	ПоместитьОчереднойФайлМультипарт(AdditionalParameters);
+	AdditionalParameters.RowsMultipartIndex = AdditionalParameters.RowsMultipartIndex + 1;
+	PlaceNextFileMultipart(AdditionalParameters);
 EndProcedure
 
 
 &AtClient
-Procedure ДеревоЗапросовТелоМультипартЗначениеНачалоВыбораЗавершениеВыбораФайла(ChosenFiles, AdditionalParameters) Export
-	Если ChosenFiles = Undefined Then
+Procedure FileTreeRequestsBodyMultipartValueStartChoseFinishChose(ChosenFiles, AdditionalParameters) Export
+	If ChosenFiles = Undefined Then
 		Return;
 	EndIf;
-	Если ChosenFiles.Count() = 0  Then
+	If ChosenFiles.Count() = 0  Then
 		Return;
 	EndIf;
 	
-	RunCallback(AdditionalParameters.ОписаниеОЗавершении, ChosenFiles[0]);
+	RunCallback(AdditionalParameters.CallbackDescriptionAboutFinish, ChosenFiles[0]);
 EndProcedure
 
-// Дерево запросов тело мультипарт значение начало выбора завершение выбора.
+// Request tree body multipart value start of selection completion of selection..
 // 
 // Parameters:
 //  Result - Строка, Undefined - Result
 //  AdditionalParameters - Structure:
 //  * RowRequestIdentifier - Number
-//  * ИдентификаторСтрокиТела - Number
+//  * BodyRowIdentifier - Number
 &AtClient
-Procedure ДеревоЗапросовТелоМультипартЗначениеНачалоВыбораЗавершениеВыбора(Result, AdditionalParameters) Export
-	Если Result = Undefined Then
+Procedure TreeRequestsBodyMultipartValueStartChoseFinishChose(Result, AdditionalParameters) Export
+	If Result = Undefined Then
 		Return;
 	EndIf;
 	
 	TreeRow = RequestsTree.FindByID(AdditionalParameters.RowRequestIdentifier);
-	Если TreeRow = Undefined Then
+	If TreeRow = Undefined Then
 		Return;
 	EndIf;
 	
-	СтрокаТела = TreeRow.MultipartBody.FindByID(AdditionalParameters.ИдентификаторСтрокиТела);
-	Если СтрокаТела = Undefined Then
+	BodyRow = TreeRow.MultipartBody.FindByID(AdditionalParameters.BodyRowIdentifier);
+	If BodyRow = Undefined Then
 		Return;
 	EndIf;
 	
-	СтрокаТела.Value = Result;
+	BodyRow.Value = Result;
 	Modified = True;
 EndProcedure
 
 &AtClient
-Procedure ОбработчикОжиданияАктивизацииСтрокиДереваЗапросов()
+Procedure RequestsTreeRowWaitHandlerActivation()
 	SaveRequestDataInRequestsTree();
 	
-	CurrentData = Items.RequestsTree.ТекущиеДанные;
-	Если CurrentData = Undefined Then
+	CurrentData = Items.RequestsTree.CurrentData;
+	If CurrentData = Undefined Then
 		Return;
 	EndIf;
 
 	UT_CurrentRequestsRowID = CurrentData.GetID();
-	ИзвлечьДанныеЗапросаИзСтрокиДерева();
+	ExtractRequestDataFromTreeRow();
 	
 EndProcedure
 
 &AtClient
 Procedure SetHeadersByRequestBodyContents()
 	TreeRow = CurrentRequestRow();
-	Если TreeRow = Undefined Then
+	If TreeRow = Undefined Then
 		Return;
 	EndIf;
 	
-	ЗначениеЗаголовкаСодержимого = "";
+	ContentsHeaderValue = "";
 
-	Если TreeRow.BodyType = TypesOfRequestBody.String Then
-		Если TreeRow.TypeOfStringContent <> "None" И ValueIsFilled(TreeRow.TypeOfStringContent) Then
-			ТипыТекстов = TextContentTypes();
-			Если ТипыТекстов.Property(TreeRow.TypeOfStringContent) Then
-				ЗначениеЗаголовкаСодержимого = ТипыТекстов[TreeRow.TypeOfStringContent];
+	If TreeRow.BodyType = TypesOfRequestBody.String Then
+		If TreeRow.TypeOfStringContent <> "None" And ValueIsFilled(TreeRow.TypeOfStringContent) Then
+			TextTypes = TextContentTypes();
+			If TextTypes.Property(TreeRow.TypeOfStringContent) Then
+				ContentsHeaderValue = TextTypes[TreeRow.TypeOfStringContent];
 
-				Кодировка = "";
+				Encoding = "";
 				
-				Кодировки = RequestBodyEncodingsTypes();
+				Encodings = RequestBodyEncodingsTypes();
 								
-				Если TreeRow.BodyEncoding = Кодировки.Auto
-					Или TreeRow.BodyEncoding = Кодировки.System Then
+				If TreeRow.BodyEncoding = Encodings.Auto
+					Or TreeRow.BodyEncoding = Encodings.System Then
 						
-				ElsIf TreeRow.BodyEncoding = Кодировки.UTF8 Then 
-					Кодировка="utf-8";
-				ElsIf TreeRow.BodyEncoding = Кодировки.ANSI Then 
-					Кодировка = "windows-1251";
-				ElsIf TreeRow.BodyEncoding = Кодировки.UTF16 Then 
-					Кодировка = "utf-16";
-				ElsIf TreeRow.BodyEncoding = Кодировки.OEM Then 
-					Кодировка = "cp866";
+				ElsIf TreeRow.BodyEncoding = Encodings.UTF8 Then 
+					Encoding="utf-8";
+				ElsIf TreeRow.BodyEncoding = Encodings.ANSI Then 
+					Encoding = "windows-1251";
+				ElsIf TreeRow.BodyEncoding = Encodings.UTF16 Then 
+					Encoding = "utf-16";
+				ElsIf TreeRow.BodyEncoding = Encodings.OEM Then 
+					Encoding = "cp866";
 				ElsIf ValueIsFilled(TreeRow.BodyEncoding) Then
-					Кодировка = TreeRow.BodyEncoding;
+					Encoding = TreeRow.BodyEncoding;
 				EndIf;
-				Если ValueIsFilled(Кодировка) Then
-					ЗначениеЗаголовкаСодержимого = ЗначениеЗаголовкаСодержимого
+				If ValueIsFilled(Encoding) Then
+					ContentsHeaderValue = ContentsHeaderValue
 												   + "; charset="
-												   + Кодировка;
+												   + Encoding;
 				EndIf;
 			EndIf;
 		EndIf;
 	ElsIf TreeRow.BodyType = TypesOfRequestBody.BinaryData Then 
-		//ЗначениеЗаголовкаСодержимого = "application/octet-stream";	
+		//ContentsHeaderValue = "application/octet-stream";	
 	ElsIf TreeRow.BodyType = TypesOfRequestBody.MultypartForm Then
-		ЗначениеЗаголовкаСодержимого = "multipart/form-data; boundary=" + MultipartBodySplitter;
+		ContentsHeaderValue = "multipart/form-data; boundary=" + MultipartBodySplitter;
 	Else
 		Return;
 	EndIf;
 		
-	ИмяЗаголовкаПоиска = "Content-Type";
+	SearchHeaderName = "Content-Type";
 	
-	Если ValueIsFilled(ЗначениеЗаголовкаСодержимого) Then
-		ДобавитьЗаголовокЗапроса(ИмяЗаголовкаПоиска, ЗначениеЗаголовкаСодержимого);
+	If ValueIsFilled(ContentsHeaderValue) Then
+		AddRequestHeader(SearchHeaderName, ContentsHeaderValue);
 //	Else
-//		RemoveRequestHeader(ИмяЗаголовкаПоиска);
+//		RemoveRequestHeader(SearchHeaderName);
 	EndIf;
 
 EndProcedure
 
 &AtClient
-Procedure ДобавитьЗаголовокЗапроса(HeaderName, ЗначениеЗаголовка)
-	Если EditHeadersWithTable Then
-		НайденаСтрокаЗаголовка = False;
-		For Each Стр In RequestHeadersTable Do
-			Если Lower(HeaderName) = Lower(Стр.Key) Then
-				Стр.Using = True;
-				Стр.Value = ЗначениеЗаголовка;
+Procedure AddRequestHeader(HeaderName, HeaderValue)
+	If EditHeadersWithTable Then
+		FoundHeaderString = False;
+		For Each Str In RequestHeadersTable Do
+			If Lower(HeaderName) = Lower(Str.Key) Then
+				Str.Using = True;
+				Str.Value = HeaderValue;
 				
-				НайденаСтрокаЗаголовка = True;
+				FoundHeaderString = True;
 				Break;
 			EndIf;
 		EndDo;
 		
-		If Not НайденаСтрокаЗаголовка Then
-			Стр = RequestHeadersTable.Add();
-			Стр.Using = True;
-			Стр.Key = HeaderName;
-			Стр.Value = ЗначениеЗаголовка;	
+		If Not FoundHeaderString Then
+			Str = RequestHeadersTable.Add();
+			Str.Using = True;
+			Str.Key = HeaderName;
+			Str.Value = HeaderValue;	
 		EndIf;
 	Else
 		HeadersRows = StrSplit(HeadersString, Chars.LF);
 		
 		SearchedHeadIndex = Undefined;
 		
-		Для Индекс = 0 по HeadersRows.Count() -1 Do
-			Стр = HeadersRows[Индекс];
+		For Index = 0 To HeadersRows.Count() -1 Do
+			Str = HeadersRows[Index];
 			
-			If Not ValueIsFilled(Стр) Then
+			If Not ValueIsFilled(Str) Then
 				Continue;
 			EndIf;
 			
-			HeaderArray = StrSplit(Стр, ":");
-			Если Lower(HeaderArray[0]) = Lower(HeaderName) Then
-				SearchedHeadIndex = Индекс;
+			HeaderArray = StrSplit(Str, ":");
+			If Lower(HeaderArray[0]) = Lower(HeaderName) Then
+				SearchedHeadIndex = Index;
 				Break;
 			EndIf;
 		EndDo;
 		
-		СторокаДляВставки = StrTemplate("%1:%2",HeaderName, ЗначениеЗаголовка);
+		InsertsString = StrTemplate("%1:%2", HeaderName, HeaderValue);
 		
-		Если SearchedHeadIndex = Undefined Then
-			HeadersRows.Add(СторокаДляВставки);
+		If SearchedHeadIndex = Undefined Then
+			HeadersRows.Add(InsertsString);
 		Else
-			HeadersRows[SearchedHeadIndex] = СторокаДляВставки;
+			HeadersRows[SearchedHeadIndex] = InsertsString;
 		EndIf;
 			
 		HeadersString = StrConcat(HeadersRows, Chars.LF);
@@ -971,7 +971,7 @@ Procedure OnChangeRequestBodyType()
 	ElsIf RequestString.BodyType = TypesOfRequestBody.MultypartForm Then 
 		NewPage = Items.BodyMultypartPageGroup;
 	Else
-		NewPage = Items.BadyFileNameRequestBodySPageGroup;
+		NewPage = Items.BodyFileNameRequestBodyPageGroup;
 	EndIf;
 
 	Items.RequestBodyPageGroup.CurrentPage = NewPage;
@@ -1102,19 +1102,19 @@ EndFunction
 
 &AtClient
 Function PrepareParameterString()
-//		стрПараметры = "";
+//		стрParameters = "";
 //		
 //	For Each стрПараметра In URLParameters Do
 //		Если стрПараметра.Using Then
-//			Если ПустаяСтрока(стрПараметры) Then
-//				стрПараметры = StrTemplate("%1=%2", стрПараметра.Name, стрПараметра.Value);
+//			Если ПустаяСтрока(стрParameters) Then
+//				стрParameters = StrTemplate("%1=%2", стрПараметра.Name, стрПараметра.Value);
 //			Else
-//				стрПараметры = стрПараметры+"&"+StrTemplate("%1=%2", стрПараметра.Name, стрПараметра.Value);
+//				стрParameters = стрParameters+"&"+StrTemplate("%1=%2", стрПараметра.Name, стрПараметра.Value);
 //			EndIf;
 //		EndIf;
 //	EndDo;
 //	
-//	Return стрПараметры;
+//	Return стрParameters;
 Return "";
 EndFunction
 
@@ -1241,7 +1241,7 @@ Procedure LoadFileConsoleAfterPutingFile(Result, AdditionalParameters) Export
 	
 	UT_CurrentRequestsRowID = Undefined;
 	RequestsFileName = Result.FileName;
-	ProcessingDownloadsFromAddresses(Result.Address);
+	ProcessingDownloadsFromAddresses(Result.Url);
 	
 	Modified = False;
 EndProcedure
@@ -1269,7 +1269,7 @@ EndProcedure
 &AtClient
 Procedure OpenReportFileFinish(ResultQuestion, AdditionalParameters) Export
 
-	Если ResultQuestion = DialogReturnCode.None Then
+	Если ResultQuestion = DialogReturnCode.No Then
 		Return;
 	EndIf;
 	LoadFileConsole();
@@ -1295,7 +1295,7 @@ EndProcedure
 &AtClient
 Procedure NewRequestFileFinish(ResultQuestion, AdditionalParameters) Export
 
-	Если ResultQuestion = DialogReturnCode.None Then
+	Если ResultQuestion = DialogReturnCode.No Then
 		Return;
 	EndIf;
 
@@ -1331,7 +1331,7 @@ Function RequestDescriptionToSaveToFile(RequestsTreeRow)
 	RequestDescription.Insert("BodyType", RequestsTreeRow.BodyType);
 	RequestDescription.Insert("HTTPRequest", RequestsTreeRow.HTTPRequest);
 	RequestDescription.Insert("BodyFileName", RequestsTreeRow.BodyFileName);
-	RequestDescription.Insert("UseBOM", RequestsTreeRow.ИспользоватьBOM);
+	RequestDescription.Insert("UseBOM", RequestsTreeRow.UseBOM);
 	RequestDescription.Insert("BodyEncoding", RequestsTreeRow.BodyEncoding);
 	RequestDescription.Insert("UseProxy", RequestsTreeRow.UseProxy);
 	RequestDescription.Insert("ProxyOSAuthentication", RequestsTreeRow.ProxyOSAuthentication);
@@ -1427,12 +1427,12 @@ EndFunction
 // Execute request completion of preparatory actions.
 // 
 // Parameters:
-//  СompletionParameters - Structure -  Параметры заврешения:
+//  СompletionParameters - Structure -  Parameters заврешения:
 // * RowID - Number - 
 // * AtClient - Boolean -
-// * Файл - Structure: 
+// * File - Structure: 
 // 		** Storage - String - Адрес файла во временном хранилище
-// 		** ПолноеИмя - String 
+// 		** FullName - String 
 &AtClient
 Procedure ExecuteRequestPreparatoryActionsFinish(СompletionParameters)
 	Если СompletionParameters.AtClient Then
@@ -1482,7 +1482,7 @@ Procedure AddListPreviouslyUsedHeadings(Form, Headers)
 EndProcedure
 
 &AtClientAtServerNoContext
-Procedure RecordRequestLog(Form, RequestsTreeRow, URLForExecution, HostAddress, Protocol, HTTPRequest,
+Procedure RecordRequestLog(Form, RequestsTreeRow, URLForExecution, RequestURL, Protocol, HTTPRequest,
 	HTTPResponse, StartDate, Duration)
 
 	//	Если HTTPResponse = Undefined Then 
@@ -1494,7 +1494,7 @@ Procedure RecordRequestLog(Form, RequestsTreeRow, URLForExecution, HostAddress, 
 	LogRecord.RequestURL = URLForExecution;
 
 	LogRecord.HTTPFunction = RequestsTreeRow.HTTPRequest;
-	LogRecord.HostAddress = HostAddress;
+	LogRecord.RequestURL = RequestURL;
 	LogRecord.Date = StartDate;
 	LogRecord.ExecutionDuration = Duration;
 	LogRecord.Request = HTTPRequest.ResourceAddress;
@@ -1643,7 +1643,7 @@ Procedure SaveRequestDataInRequestsTree()
 EndProcedure
 
 &AtClient
-Procedure ИзвлечьДанныеЗапросаИзСтрокиДерева()
+Procedure ExtractRequestDataFromTreeRow()
 	TreeRow = CurrentRequestRow();
 	If TreeRow = Undefined Then
 		Return;
@@ -1690,11 +1690,11 @@ EndProcedure
 #Region RequestPreparing
 
 &AtClientAtServerNoContext
-Procedure FillHeadersTableByString(HeadersString, RequestHeadersTable)
+Procedure FillHeadersTableByString(StringHeaders, RequestHeadersTable)
 	RequestHeadersTable.Clear();
 	
 	TextDocument = New TextDocument;
-	TextDocument.SetText(HeadersString);
+	TextDocument.SetText(StringHeaders);
 	For RowNumber = 1 To TextDocument.LineCount() Do
 		HeaderStr = TextDocument.GetLine(RowNumber);
 
@@ -1870,8 +1870,8 @@ Function PreparedConnection(Form, RequestsTreeRow, StructureURL)
 		SecuredConnection = UT_PlatformCompatibilityMethods_8_3_21_ClientServer.NewOpenSSLSecureConnection();
 	EndIf;
 
-	Return UT_PlatformCompatibilityMethods_8_3_21_ClientServer.NewHTTPConnection(StructureURL.Server,
-																				   Port
+	Return UT_PlatformCompatibilityMethods_8_3_21_ClientServer.NewHTTPConnection(StructureURL.Host,
+																				   Port,
 																				   ,
 																				   ,
 																				   ProxySettings,
@@ -2031,7 +2031,7 @@ Function PreparedHTTPRequest(Form, RequestsTreeRow, StructureURL, BodyFileData)
 		Headers.Insert("Content-Length", SendFileSize);		
 	Else
 		If RequestsTreeRow.AtClient Then      
-			BodyParameters.Body = BodyFileData.ПолноеИмя;
+			BodyParameters.Body = BodyFileData.FullName;
 		Else
 #If Not WebClient Then
 			BodyBinaryData = GetFromTempStorage(BodyFileData.Storage);
@@ -2133,7 +2133,7 @@ EndProcedure
 // Parameters:
 //  AdditionalParameters - Structure -  Дополнительные параметры:
 // * Form - УправляемаяФорма - 
-// * TreeRow - ДанныеФормыЭлементДерева - 
+// * TreeRow - FormDataTreeItem - 
 // * HTTPConnection - HTTPСоединение - 
 // * Request - HTTPRequest - 
 // * StartExecution - Number - 
@@ -2151,7 +2151,7 @@ EndProcedure
 // ** Фрагмент - String - 
 // * BodyFileData - Structure, Undefined - :
 // ** Storage - String - 
-// ** ПолноеИмя - String - 
+// ** FullName - String - 
 // * Response - HTTPResponse - 
 &AtClientAtServerNoContext
 Procedure AfterRequestExecutionAtClientAtServer(AdditionalParameters)
@@ -2162,7 +2162,7 @@ Procedure AfterRequestExecutionAtClientAtServer(AdditionalParameters)
 	RecordRequestLog(AdditionalParameters.Form,
 							AdditionalParameters.TreeRow,
 							AdditionalParameters.URLForExecution,
-							AdditionalParameters.StructureURL.Server,
+							AdditionalParameters.StructureURL.Host,
 							AdditionalParameters.StructureURL.Scheme,
 							AdditionalParameters.Request,
 							AdditionalParameters.Response,
@@ -2444,7 +2444,7 @@ Procedure FillBodyBinaryDataFromFileFinishAtServer(Address, RowID)
 
 	CurrentData.BodyBinaryData = UT_Common.ValueStorageContainerBinaryData(BinaryData);
 
-	RequestBodyBinaryDataString = CurrentData.BodyBinaryData.Представление;	
+	RequestBodyBinaryDataString = CurrentData.BodyBinaryData.Presentation;	
 EndProcedure
 
 &AtClient
@@ -2500,7 +2500,7 @@ Procedure FillByDebaggingData(DebuggingDataAddress)
 		RequestNewRow.RequestURL = DebuggingData.Protocol;
 	EndIf;
 
-	RequestNewRow.RequestURL = RequestNewRow.RequestURL + "://" + DebuggingData.HostAddress;
+	RequestNewRow.RequestURL = RequestNewRow.RequestURL + "://" + DebuggingData.RequestURL;
 
 	If ValueIsFilled(DebuggingData.Port) Then
 		SpecialPort = True;
@@ -2645,7 +2645,7 @@ EndProcedure
 // Parameters:
 //  Result - Строка, Undefined- Result
 //  AdditionalParameters - Structure:
-//  * ТекущаяСтрока - Number, Undefined -
+//  * CurrentRow - Number, Undefined -
 &AtClient
 Procedure EditRequestBodyInJSONEditorFinish(Result, AdditionalParameters) Export
 	If Result = Undefined Then
@@ -2714,10 +2714,10 @@ Function GeneratedHTTPRequestInitializationConnection(RequestsTreeRow, Structure
 	
 	If UseNTMAuthentication = Undefined Then
 		UseNTMAuthenticationForCode = UT_CodeGenerator.UndefinedInCodeString();
-		HTTPConnection = "New HTTPConnection(Server, Port , ,ProxySettings, Timeout, SecuredConnection)";
+		HTTPConnection = "New HTTPConnection(Server, Port, , ProxySettings, Timeout, SecuredConnection)";
 	Else
 		UseNTMAuthenticationForCode = UT_CodeGenerator.BooleanInCodeString(UseNTMAuthentication);
-		HTTPConnection = "New HTTPConnection(Server, Port , ,ProxySettings, Timeout, SecuredConnection, UseNTMAuthentication)";
+		HTTPConnection = "New HTTPConnection(Server, Port, , ProxySettings, Timeout, SecuredConnection, UseNTMAuthentication)";
 	EndIf;
 
 	HTTPConnectionsInitializationText = StrTemplate("
@@ -2728,7 +2728,7 @@ Function GeneratedHTTPRequestInitializationConnection(RequestsTreeRow, Structure
 												|Timeout = %5;
 												|
 												|HTTPConnection = %6;",
-												UT_CodeGenerator.StringInCodeString(StructureURL.Server),
+												UT_CodeGenerator.StringInCodeString(StructureURL.Host),
 												Port,
 												UseNTMAuthenticationForCode,
 												SecuredConnection,
