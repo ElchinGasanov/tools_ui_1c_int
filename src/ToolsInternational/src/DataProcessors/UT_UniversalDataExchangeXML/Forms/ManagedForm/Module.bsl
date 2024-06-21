@@ -7,7 +7,6 @@
 // Translated by Neti Company
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 #Region EventHandlers
-
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	
@@ -78,7 +77,8 @@ Procedure OnOpen(Cancel)
 		If Object.AutomaticDataImportSettings = 1 Then
 
 			NotifyDescription = New NotifyDescription("OnOpenCompletion", ThisObject);
-			ShowQueryBox(NotifyDescription, NStr("ru = 'Выполнить загрузку данных из файла обмена?'; en = 'Do you want to import data from the exchange file?'"), QuestionDialogMode.YesNo, , DialogReturnCode.Yes);
+			ShowQueryBox(NotifyDescription, NStr("ru = 'Выполнить загрузку данных из файла обмена?'; en = 'Do you want to import data from the exchange file?'"), 
+				QuestionDialogMode.YesNo, , DialogReturnCode.Yes);
 			
 		Else
 			
@@ -281,7 +281,8 @@ Procedure RulesFileNameAfterExistenceCheck(Exists, AdditionalParameters) Export
 	EndIf;
 	
 	NotifyDescription = New NotifyDescription("RulesFileNameOnChangeCompletion", ThisObject);
-	ShowQueryBox(NotifyDescription, NStr("ru = 'Загрузить правила обмена данными?'; en = 'Do you want to import data exchange rules?'"), QuestionDialogMode.YesNo, , DialogReturnCode.Yes);
+	ShowQueryBox(NotifyDescription, NStr("ru = 'Загрузить правила обмена данными?'; en = 'Do you want to import data exchange rules?'"), QuestionDialogMode.YesNo, , 
+		DialogReturnCode.Yes);
 	
 EndProcedure
 
@@ -582,7 +583,8 @@ EndProcedure
 Procedure DeletionDelete(Command)
 	
 	NotifyDescription = New NotifyDescription("DeletionDeleteCompletion", ThisObject);
-	ShowQueryBox(NotifyDescription, NStr("ru = 'Удалить выбранные данные в информационной базе?'; en = 'Do you want to delete selected data?'"), QuestionDialogMode.YesNo, , DialogReturnCode.No);
+	ShowQueryBox(NotifyDescription, NStr("ru = 'Удалить выбранные данные в информационной базе?'; en = 'Do you want to delete selected data?'"), 
+		QuestionDialogMode.YesNo, , DialogReturnCode.No);
 	
 EndProcedure
 
@@ -738,7 +740,8 @@ EndProcedure
 Procedure ReadExchangeRules(Command)
 	
 	If Not IsWindowsClient() AND DirectExport = 1 Then
-		ShowMessageBox(,NStr("ru = 'Прямое подключение к информационной базе поддерживается только в клиенте под управлением ОС Windows.'; en = 'Direct connection to the infobase is available only on a client running Windows OS.'"));
+		ShowMessageBox(,
+			NStr("ru = 'Прямое подключение к информационной базе поддерживается только в клиенте под управлением ОС Windows.'; en = 'Direct connection to the infobase is available only on a client running Windows OS.'"));
 		Return;
 	EndIf;
 	
@@ -787,24 +790,7 @@ EndProcedure
 
 &AtClient
 Procedure UT_WebServiceConnectionTest(Command)
-	Path=Object.UT_DestinationPublicationAddress + "/hs/tools-ui-1c/exchange";
-
-	AddlParameters=New Structure;
-	AddlParameters.Insert("Timeout", 10);
-
-	Authentication=New Structure;
-	Authentication.Insert("Username", Object.InfobaseConnectionUsername);
-	Authentication.Insert("Password", Object.InfobaseConnectionPassword);
-	AddlParameters.Insert("Authentication", Authentication);
-
-	Try
-		ConnectionResult=UT_HTTPConnector.Get(Path, , AddlParameters);
-		ConnectionResult=UT_HTTPConnector.AsText(ConnectionResult);
-	Except
-		ConnectionResult=Undefined;
-		MessageToUser(ErrorDescription());
-	EndTry;
-	If ConnectionResult = "OK" Then
+	If ResultWebServiceConnectionTestAtServer() Then
 		ShowMessageBox( , NStr("ru = 'Тест подключения пройден успешно'; en = 'Connection success'"));
 	EndIf;
 EndProcedure
@@ -820,12 +806,34 @@ EndProcedure
 
 #Region Private
 
+&НаСервере
+Function ResultWebServiceConnectionTestAtServer()
+	Path=Object.UT_DestinationPublicationAddress + "/hs/tools-ui-1c/exchange";
+
+	AddlParameters=New Structure;
+	AddlParameters.Insert("Timeout", 10);
+
+	Authentication=New Structure;
+	Authentication.Insert("Username", Object.InfobaseConnectionUsername);
+	Authentication.Insert("Password", Object.InfobaseConnectionPassword);
+	AddlParameters.Insert("Authentication", Authentication);
+
+	Try
+		ConnectionResult=UT_HTTPConnector.Get(Path, , AddlParameters);
+		ConnectionResult=UT_HTTPConnector.AsText(ConnectionResult);
+	Except
+		ConnectionResult = Undefined;
+		MessageToUser(ErrorDescription());
+	EndTry;	
+	Return ConnectionResult = "OK";	
+	
+EndFunction
+		
 // Opens an exchange file in an external application.
 //
 // Parameters:
 // 	- FileName - String - a file name.
 //  - StandardProcessing - Boolean - a standard processing flag.
-// 
 &AtClient
 Procedure OpenInApplication(FileName, StandardProcessing = False)
 	
@@ -914,10 +922,8 @@ Function RuleAndExchangeFileNamesMatch()
 		|Select another file to export the data to.'"));
 		Return True;
 		
-	Else
-		
-		Return False;
-		
+	Else		
+		Return False;		
 	EndIf;
 	
 EndFunction
@@ -985,7 +991,10 @@ Procedure FillTypeAvailableToDeleteList()
 		EndIf;
 		
 		Subordinate = (MetadataObject.WriteMode = Metadata.ObjectProperties.RegisterWriteMode.RecorderSubordinate);
-		If Subordinate Then Continue EndIf;
+		If Subordinate Then 
+			Continue 
+		EndIf;
+		
 		
 		MDRow = TreeRow.Rows.Add();
 		MDRow.Presentation = MetadataObject.Name;
@@ -1076,7 +1085,8 @@ EndProcedure
 &AtServer
 Procedure ImportExchangeRulesAndParametersAtServer(RulesFileAddressInStorage, FileNameForExtension)
 
-	ExchangeRulesFileName = FileNameAtServerOrClient(RulesFileName ,RulesFileAddressInStorage, FileNameForExtension);
+	ExchangeRulesFileName = FileNameAtServerOrClient(RulesFileName ,RulesFileAddressInStorage, 
+		FileNameForExtension);
 
 	If ExchangeRulesFileName = Undefined Then
 		
@@ -1173,7 +1183,6 @@ EndProcedure
 //     * StorageObject - Structure, ClientApplicationForm - an object to store the properties.
 //     * PropertyName - String - a storage object property name.
 //     * Item - FormField - a file selection event source.
-//
 &AtClient
 Procedure FileSelectionDialogChoiceProcessing(SelectedFiles, AdditionalParameters) Export
 	
@@ -1214,7 +1223,6 @@ EndProcedure
 
 // Sets mark value in child tree rows according to the mark value in the current row.
 // 
-//
 // Parameters:
 //  CurRow      - a value tree row.
 //  CheckBoxName - a checkbox name in the tree.
@@ -1240,7 +1248,6 @@ EndProcedure
 
 // Sets mark values in parent tree rows according to the mark value in the current row.
 // 
-//
 // Parameters:
 //  CurRow      - a value tree row.
 //  CheckBoxName - a checkbox name in the tree.
@@ -1261,8 +1268,7 @@ Procedure SetParentMarks(curRow, CheckBoxName)
 	For Each Row In Parent.GetItems() Do
 		If Row[CheckBoxName] = 0 Then
 			DisabledItemsFound = True;
-		ElsIf Row[CheckBoxName] = 1
-			Or Row[CheckBoxName] = 2 Then
+		ElsIf Row[CheckBoxName] = 1 Or Row[CheckBoxName] = 2 Then
 			EnabledItemsFound  = True;
 		EndIf; 
 		If EnabledItemsFound And DisabledItemsFound Then
@@ -1496,7 +1502,8 @@ Procedure ExecuteImportAtServer(FileAddress, FileNameForExtension)
 		
 	Except
 		WriteLogEvent(NStr("ru = 'Универсальный обмен данными в формате XML'; en = 'Universal data exchange in XML format'", ObjectForServer.DefaultLanguageCode()),
-			EventLogLevel.Error,,, DetailErrorDescription(ErrorInfo()));
+			EventLogLevel.Error,,, 
+			DetailErrorDescription(ErrorInfo()));
 	EndTry;
 	
 	ObjectForServer.Parameters.Clear();
@@ -1611,11 +1618,13 @@ Procedure ExecuteExportFromForm()
 
 	If IsClient And Not DirectExport And Not Object.ErrorFlag Then
 		
-		FileToSaveName = ?(Object.ArchiveFile, NStr("ru = 'Файл выгрузки.zip'; en = 'Export file.zip'"),NStr("ru = 'Файл выгрузки.xml'; en = 'Export file.xml'"));
+		FileToSaveName = ?(Object.ArchiveFile, NStr("ru = 'Файл выгрузки.zip'; en = 'Export file.zip'"),
+			NStr("ru = 'Файл выгрузки.xml'; en = 'Export file.xml'"));
 		
 		GetFile(DataFileAddressInStorage, FileToSaveName)
 		
 	EndIf;
+	
 	
 	OpenExchangeLogDataIfNecessary();
 	
@@ -1692,7 +1701,8 @@ Function ExecuteExportAtServer()
 
 	If IsClient AND Not DirectExport Then
 		
-		DataFileAddress = PutToTempStorage(New BinaryData(Object.ExchangeFileName), UUID);
+		DataFileAddress = PutToTempStorage(New BinaryData(Object.ExchangeFileName), 
+			UUID);
 		DeleteFiles(Object.ExchangeFileName);
 	
 	//UT++
@@ -1723,6 +1733,7 @@ EndFunction
 
 &AtClient
 Procedure SetDebugCommandsEnabled()
+	
 	
 	Items.ImportDebugSetup.Enabled = Object.HandlersDebugModeFlag;
 	Items.ExportDebugSetup.Enabled = Object.HandlersDebugModeFlag;
@@ -1834,7 +1845,8 @@ Procedure OpenHandlerDebugSetupForm(EventHandlersFromRulesFile)
 	FormNameToCall = DataProcessorName + "HandlerDebugSetupManagedForm";
 	
 	FormParameters = New Structure;
-	FormParameters.Insert("EventHandlerExternalDataProcessorFileName", Object.EventHandlerExternalDataProcessorFileName);
+	FormParameters.Insert("EventHandlerExternalDataProcessorFileName",
+		Object.EventHandlerExternalDataProcessorFileName);
 	FormParameters.Insert("AlgorithmsDebugMode", Object.AlgorithmDebugMode);
 	FormParameters.Insert("ExchangeRulesFileName", Object.ExchangeRulesFileName);
 	FormParameters.Insert("ExchangeFileName", Object.ExchangeFileName);
@@ -1842,7 +1854,8 @@ Procedure OpenHandlerDebugSetupForm(EventHandlersFromRulesFile)
 	FormParameters.Insert("DataProcessorName", DataProcessorName);
 
 	Mode = FormWindowOpeningMode.LockOwnerWindow;
-	Handler = New NotifyDescription("OpenHandlerDebugSetupFormCompletion", ThisObject, EventHandlersFromRulesFile);
+	Handler = New NotifyDescription("OpenHandlerDebugSetupFormCompletion", ThisObject, 
+		EventHandlersFromRulesFile);
 	
 	OpenForm(FormNameToCall, FormParameters, ThisObject,,,,Handler, Mode);
 	
@@ -1867,7 +1880,8 @@ Procedure OpenHandlerDebugSetupFormCompletion(DebugParameters, EventHandlersFrom
 				
 			EndIf;
 			
-			Notification = New NotifyDescription("OpenHandlersDebugSettingsFormCompletionFileDeletion", ThisObject);
+			Notification = New NotifyDescription("OpenHandlersDebugSettingsFormCompletionFileDeletion", 
+				ThisObject);
 			BeginDeletingFiles(Notification, FileName);
 			
 		EndIf;
@@ -1983,7 +1997,8 @@ Procedure OnChangeChangesRegistrationDeletionType()
 	If IsBlankString(ChangesRegistrationDeletionTypeForExportedExchangeNodes) Then
 		Object.ChangesRegistrationDeletionTypeForExportedExchangeNodes = 0;
 	Else
-		Object.ChangesRegistrationDeletionTypeForExportedExchangeNodes = Number(ChangesRegistrationDeletionTypeForExportedExchangeNodes);
+		Object.ChangesRegistrationDeletionTypeForExportedExchangeNodes = 
+			Number(ChangesRegistrationDeletionTypeForExportedExchangeNodes);
 	EndIf;
 	
 EndProcedure
@@ -1999,6 +2014,9 @@ Procedure MessageToUser(Text, DataPath = "")
 EndProcedure
 
 // Returns True if the client application is running on Windows.
+//
+// Return values:
+//  Boolean -  If there is no client application, returns False.
 //
 &AtClient
 Function IsWindowsClient()
@@ -2027,10 +2045,8 @@ Procedure CheckPlatformVersionAndCompatibilityMode()
 		Raise NStr("ru = 'Обработка предназначена для запуска на версии платформы
 			|1С:Предприятие 8.3 с отключенным режимом совместимости или выше'; 
 			|en = 'The data processor is intended for use with 
-			|1C:Enterprise 8.3 or later, with disabled compatibility mode'");
-		
-	EndIf;
-	
+			|1C:Enterprise 8.3 or later, with disabled compatibility mode'");		
+	EndIf;	
 EndProcedure
 
 &AtClient

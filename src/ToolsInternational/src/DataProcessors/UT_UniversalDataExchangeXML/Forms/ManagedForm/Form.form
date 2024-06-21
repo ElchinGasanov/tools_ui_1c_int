@@ -3361,7 +3361,7 @@
               <titleLocation>Right</titleLocation>
               <handlers>
                 <event>OnChange</event>
-                <name>ExportHandlersDebugModeFlagOnChange</name>
+                <name>ExportHandlerDebugModeFlagOnChange</name>
               </handlers>
               <extendedTooltip>
                 <name>ExportHandlersDebugModeFlagExtendedTooltip</name>

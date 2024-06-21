@@ -3404,7 +3404,7 @@ Function GetFactoryWithTypes(Val Types)
 	Factory = CreateXDTOFactory(SchemaFileName);
 
 	Try
-		УдалитьФайлы(SchemaFileName);
+		DeleteFiles(SchemaFileName);
 	Except
 	EndTry;
 
@@ -3540,6 +3540,6 @@ mChildObjectsExportExistence = False;
 mTypeQueryResult = Тип("QueryResult");
 mDeletionDataType = Тип("ObjectDeletion");
 
-mRegisterRecordsColumnsMap = New Соответствие;
+mRegisterRecordsColumnsMap = New Map;
 ProcessedConstantsCount = 0;
 ProcessedRecordSetsCount = 0;
