@@ -1572,7 +1572,7 @@ Procedure RecordRequestLog(Form, RequestsTreeRow, URLForExecution, RequestURL, P
 		EndIf;
 	EndIf;
 	
-	RequestsTreeRow.RequestsHistory.Sort("Date Asc");
+	RequestsTreeRow.RequestsHistory.Sort("Date Desc");
 	
 EndProcedure
 

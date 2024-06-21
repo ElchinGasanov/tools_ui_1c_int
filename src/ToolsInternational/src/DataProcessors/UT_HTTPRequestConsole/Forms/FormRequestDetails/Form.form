@@ -498,11 +498,11 @@
         </userVisible>
         <title>
           <key>ru</key>
-          <value>Proxy settings</value>
+          <value>Настройки прокси</value>
         </title>
         <title>
           <key>en</key>
-          <value>Настройки прокси</value>
+          <value>Proxy settings</value>
         </title>
         <extendedTooltip>
           <name>HeaderAnalysisProxySettingsGroupExtendedTooltip</name>
@@ -795,7 +795,6 @@
           <headerHorizontalAlign>Left</headerHorizontalAlign>
           <showInFooter>true</showInFooter>
           <extInfo xsi:type="form:InputFieldExtInfo">
-            <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <wrap>true</wrap>
             <multiLine>true</multiLine>
