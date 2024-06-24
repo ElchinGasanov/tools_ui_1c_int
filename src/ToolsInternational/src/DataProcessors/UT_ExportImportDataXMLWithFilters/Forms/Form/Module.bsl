@@ -1,3 +1,4 @@
+
 #Region EventHandlers
 
 &AtServer
@@ -143,6 +144,7 @@ Procedure ObjectsTypeToExportStartChoiceCompletion(Result, AdditionalParameters)
 	ObjectsTypeToExport = Result;
 EndProcedure
 
+
 #EndRegion
 
 #Region MetadataTreeFormTableItemsEventHandlers
@@ -236,7 +238,8 @@ Procedure ExportData(Command)
 	
 	If OperatingModeAtClient And Not IsBlankString(FileAddressInTempStorage) Then
 		
-		FileName = ?(Object.UseFastInfoSetFormat, NStr("ru = 'Файл выгрузки.fi'; en = 'Export file.fi'"), NStr("ru = 'Файл выгрузки.xml'; en = 'Export file.xml'"));
+		FileName = ?(Object.UseFastInfoSetFormat, NStr("ru = 'Файл выгрузки.fi'; en = 'Export file.fi'"), 
+			NStr("ru = 'Файл выгрузки.xml'; en = 'Export file.xml'"));
 		GetFile(FileAddressInTempStorage, FileName);
 		
 	EndIf;
@@ -702,8 +705,7 @@ Procedure ChoiceProcessingAtServer(SelectedValues)
 		NewRow.Object = Value.Ref;
 		NewRow.ObjectForQueryName = ObjectNameByTypeForQuery(Value.Ref);
 		
-	EndDo
-	
+	EndDo	
 EndProcedure
 
 &AtClient
@@ -728,7 +730,7 @@ Function CheckPlatformVersionAndCompatibilityMode()
 	Information = New SystemInfo;
 	If Not (Left(Information.AppVersion, 3) = "8.3"
 		AND (Metadata.CompatibilityMode = Metadata.ObjectProperties.CompatibilityMode.DontUse
-		Or (Metadata.CompatibilityMode <> Metadata.ObjectProperties.CompatibilityMode.Version8_1
+		OR (Metadata.CompatibilityMode <> Metadata.ObjectProperties.CompatibilityMode.Version8_1
 		AND Metadata.CompatibilityMode <> Metadata.ObjectProperties.CompatibilityMode.Version8_2_13
 		AND Metadata.CompatibilityMode <> Metadata.ObjectProperties.CompatibilityMode["Version8_2_16"]
 		AND Metadata.CompatibilityMode <> Metadata.ObjectProperties.CompatibilityMode["Version8_3_1"]
@@ -737,10 +739,8 @@ Function CheckPlatformVersionAndCompatibilityMode()
 		Raise NStr("ru = 'Обработка предназначена для запуска на версии платформы
 			|1С:Предприятие 8.3 с отключенным режимом совместимости или выше'; 
 			|en = 'The data processor is intended for use with 
-			|1C:Enterprise 8.3 or later, with disabled compatibility mode'");
-		
+			|1C:Enterprise 8.3 or later, with disabled compatibility mode'");		
 	EndIf;
-
 EndFunction
 
 //@skip-warning
@@ -1002,6 +1002,7 @@ Procedure InitializeDCS()
 
 		EndIf;
  
+ 		// { The beginning of change [25.11.2020 15:47:53] Reason: Adding a filter by accounting accounts for the accounting register.
 		If ChoiceObject.Value="AccountingRegisters"  And Metadata[ChoiceObject.Value][String(ChoiceObject)].Correspondence Then
 			NewRow = MetadataTable.Add();
             NewRow.AttributeName = "AccountDr";
@@ -1015,6 +1016,7 @@ Procedure InitializeDCS()
             NewRow.TypeDescription = ChartsOfAccounts.AllRefsType(); 
             NewRow.MetadataObject = ChoiceObject.Value;
 		EndIf;
+		// }  End of change [25.11.2020 15:48:46]
 
 	EndDo;
 

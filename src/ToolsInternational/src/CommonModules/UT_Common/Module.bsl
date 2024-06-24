@@ -2075,16 +2075,16 @@ EndFunction
 //// 
 //// Returns:
 ////  String - Type Name
-//Function TypeName(Type) Export
-// If IsReference(Type) Then
-// 	Return XDTOSerializer.XMLType(Type).TypeName;
-// Else
-//  // Handle specific things that may not work in reverse
-// 	If Type = Type("BinaryData") Then
-// 		Return "BinaryData";
-// 	EndIf;
-// EndIf;
-// EndFunction
+Function TypeName(Type) Export
+ If IsReference(Type) Then
+ 	Return XDTOSerializer.XMLType(Type).TypeName;
+ Else
+  // Handle specific things that may not work in reverse
+ 	If Type = Type("BinaryData") Then
+ 		Return "BinaryData";
+ 	EndIf;
+ EndIf;
+ EndFunction
 
 
 #Region ObjectsComparison

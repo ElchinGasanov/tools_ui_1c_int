@@ -23,24 +23,6 @@
     <key>ru</key>
     <value>Allows to make HTTP requests from 1C</value>
   </explanation>
-  <forms uuid="e711f244-31f1-498c-93b7-69bc01bc7664">
-    <name>FormOld</name>
-    <synonym>
-      <key>ru</key>
-      <value>Form old</value>
-    </synonym>
-    <usePurposes>PersonalComputer</usePurposes>
-    <usePurposes>MobileDevice</usePurposes>
-  </forms>
-  <forms uuid="5666adeb-37e9-4ba3-ab98-049681742d24">
-    <name>FormRequestDetails</name>
-    <synonym>
-      <key>ru</key>
-      <value>Form request details</value>
-    </synonym>
-    <usePurposes>PersonalComputer</usePurposes>
-    <usePurposes>MobileDevice</usePurposes>
-  </forms>
   <forms uuid="8ae40c41-5a35-47f1-8635-33e67377ecbf">
     <name>Form</name>
     <synonym>
@@ -50,6 +32,15 @@
     <synonym>
       <key>en</key>
       <value>Form</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="f1b0c973-8469-4ee6-a7be-c18433c0a56b">
+    <name>FormRequestDetails</name>
+    <synonym>
+      <key>ru</key>
+      <value>Form request details</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
