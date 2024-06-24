@@ -7,7 +7,6 @@
 // Translated by Neti Company
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 #Region EventHandlers
-
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	
@@ -70,7 +69,8 @@ Procedure EventHandlerExternalDataProcessorFileNameStartChoice(Item, ChoiceData,
 	AdditionalParameters = New Structure;
 	AdditionalParameters.Insert("Item", Item);
 
-	Notification = New NotifyDescription("EventHandlerExternalDataProcessorFileNameChoiceProcessing", ThisObject, AdditionalParameters);
+	Notification = New NotifyDescription("EventHandlerExternalDataProcessorFileNameChoiceProcessing", ThisObject, 
+		AdditionalParameters);
 	FileSelectionDialog.Show(Notification);
 	
 EndProcedure
@@ -80,7 +80,6 @@ EndProcedure
 //     - String, Undefined - a file selection result.
 //   AdditionalParameters - Structure:
 //     * Item - FormField - a file selection source.
-//
 &AtClient
 Procedure EventHandlerExternalDataProcessorFileNameChoiceProcessing(SelectedFiles, AdditionalParameters) Export
 	
@@ -112,14 +111,16 @@ Procedure Finish(Command)
 	
 	If IsBlankString(Object.EventHandlerExternalDataProcessorFileName) Then
 		
-		MessageToUser(NStr("ru = 'Укажите имя файла внешней обработки.'; en = 'Enter the external data processor file name.'"), "EventHandlerExternalDataProcessorFileName");
+		MessageToUser(NStr("ru = 'Укажите имя файла внешней обработки.'; en = 'Enter the external data processor file name.'"), 
+			"EventHandlerExternalDataProcessorFileName");
 		Return;
 		
 	EndIf;
 	
 	EventHandlerExternalDataProcessorFile = New File(Object.EventHandlerExternalDataProcessorFileName);
 	
-	Notification = New NotifyDescription("EventHandlerExternalDataProcessorFileExistenceCheckCompletion", ThisObject);
+	Notification = New NotifyDescription("EventHandlerExternalDataProcessorFileExistenceCheckCompletion", 
+		ThisObject);
 	EventHandlerExternalDataProcessorFile.BeginCheckingExistence(Notification);
 	
 EndProcedure
@@ -186,7 +187,8 @@ Procedure ExportHandlersScript(Command)
 		ButtonsList.Add(DialogReturnCode.Cancel);
 		
 		NotifyDescription = New NotifyDescription("ExportHandlersScriptCompletion", ThisObject);
-		ShowQueryBox(NotifyDescription, NStr("ru = 'Модуль отладки с кодом обработчиков уже выгружен.'; en = 'The debug module with the handler script is already exported.'"), ButtonsList,,DialogReturnCode.No);
+		ShowQueryBox(NotifyDescription, NStr("ru = 'Модуль отладки с кодом обработчиков уже выгружен.'; en = 'The debug module with the handler script is already exported.'"), 
+			ButtonsList,,DialogReturnCode.No);
 		
 	Else
 		

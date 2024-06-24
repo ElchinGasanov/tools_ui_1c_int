@@ -401,7 +401,7 @@ Function RefInCodeString(Value) Export
 		ManagerName = "ExchangePlans";
 		MayBePredetermined = False;
 	Else
-		Return "???//Неизвестный тип ссылки" + УИ_ОбщегоНазначения.ИмяТипа(TypeOf(Value));
+		Return "???//Неизвестный тип ссылки" + UT_Common.TypeName(TypeOf(Value));
 	EndIf;
 	
 	If MayBePredetermined Then
