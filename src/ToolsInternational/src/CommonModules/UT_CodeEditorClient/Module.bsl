@@ -1413,7 +1413,7 @@ Procedure SetUseModeDataProcessorToExecuteEditorCode(Form, EditorID, Mode) Expor
 	ButtonName = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeViaDataProcessor(),
 																			  EditorID);
 																			  
-	Form.Items[ButtonName].Mark = Mode;
+	Form.Items[ButtonName].Check = Mode;
 
 EndProcedure
 

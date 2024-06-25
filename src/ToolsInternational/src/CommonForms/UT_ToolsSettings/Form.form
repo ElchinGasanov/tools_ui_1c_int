@@ -19,6 +19,10 @@
         </dataPath>
         <toolTip>
           <key>ru</key>
+          <value>В этом каталоге хранится такая информация как данные отладки, автосохраняемые данные инструментов, алгоритмы и т.д.</value>
+        </toolTip>
+        <toolTip>
+          <key>en</key>
           <value>This directory stores information such as debug data, tool autosave data, algorithms, etc.</value>
         </toolTip>
         <toolTipRepresentation>ShowTop</toolTipRepresentation>
@@ -1813,6 +1817,10 @@
     <name>DataStorageInstrumentsDirectoryOnServer</name>
     <title>
       <key>ru</key>
+      <value>Каталог хранения данных инстументов на сервере</value>
+    </title>
+    <title>
+      <key>en</key>
       <value>Data storage instruments directory on server</value>
     </title>
     <id>17</id>
