@@ -159,7 +159,7 @@ EndProcedure
 
 &AtClient
 Procedure UT_Settings(Command)
-	OpenForm("CommonForm.UT_Settings");
+	OpenForm("CommonForm.UT_ToolsSettings");
 EndProcedure
 
 &AtClient

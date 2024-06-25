@@ -211,7 +211,7 @@
 		|			Continue;
 		|		EndIf;
 		|
-		|		If Form.ИмяФормы = ""ExternalDataProcessor.UT_PortableUniversalTools.Form.Form"" Then
+		|		If Form.FormName = ""ExternalDataProcessor.UT_PortableUniversalTools.Form.Form"" Then
 		|			Return Form.UT_ApplicationParameters_Portable;
 		|		EndIf;
 		|	EndDo;

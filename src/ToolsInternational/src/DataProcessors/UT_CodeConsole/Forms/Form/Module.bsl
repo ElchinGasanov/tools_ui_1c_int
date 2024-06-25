@@ -28,7 +28,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		UT_Common.ToolFormOnCreateAtServer(ThisObject
 			, Cancel
 			, StandardProcessing
-			, Items.MainCommandBar);
+			, CommandBar);
 	
 	NewAlgorithmRow = Algorithms.GetItems().Add();
 	NewAlgorithmRow.Name = "Algorithms";
