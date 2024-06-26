@@ -360,6 +360,10 @@
           <checkBoxType>Tumbler</checkBoxType>
           <editFormat>
             <key>ru</key>
+            <value>BF='На сервере'; BT='На клиенте'</value>
+          </editFormat>
+          <editFormat>
+            <key>en</key>
             <value>BF='At server'; BT='At client'</value>
           </editFormat>
         </extInfo>
@@ -1535,6 +1539,10 @@
       <columns>
         <name>Value</name>
         <title>
+          <key>ru</key>
+          <value>Значение</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Value</value>
         </title>
@@ -1599,6 +1607,10 @@
       </columns>
       <columns>
         <name>Name</name>
+        <title>
+          <key>ru</key>
+          <value>Имя</value>
+        </title>
         <title>
           <key>en</key>
           <value>Name</value>
