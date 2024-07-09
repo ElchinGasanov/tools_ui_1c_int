@@ -541,7 +541,7 @@ Function ImportDataServer()
 
 	SourceMetadata = GetSourceMetadata();
 
-	Columns = Object.AdditionalProperties.Колонки;
+	Columns = Object.AdditionalProperties.Columns;
 
 	If Object.ImportMode = 0 Then
 		Source = Catalogs[Object.CatalogObjectType].EmptyRef();
@@ -958,10 +958,10 @@ Function RowFillControl(SpreadsheetDocument, RowNumber, CellsTexts = Undefined, 
 
 			ElsIf Not Column.ColumnNumber = 0 Then
 
-				If Not ProcessArea(SpreadsheetDocument.Area("R" + Format(RowNumber, "NG=") + "C" + Format(
-					Column.ColumnNumber, "NG=")), Column, CurrentRow, CellsTexts) Then
+				If Not ProcessArea(SpreadsheetDocument.Area("R" + Format(RowNumber, "NG=;") + "C" + Format(
+					Column.ColumnNumber, "NG=;")), Column, CurrentRow, CellsTexts) Then
 					ErrorCount = ErrorCount + 1;
-				EndIf;
+				КонецЕсли;
 
 			ElsIf Column.ImportMode = "Evaluate" Then
 
@@ -1204,7 +1204,7 @@ Function GetPossibleValues(Column, Presentation, Note, CurrentData)
 															  |WHERE";
 
 				Query.Text = Query.Text + "
-											  |	Table." + SearchBy + " = &Presentation";
+											  |	_Table." + SearchBy + " = &Presentation";
 				Query.SetParameter("Presentation", Presentation);
 
 				If IsCatalog And Not IsBlankString(Column.LinkByOwner) And TypeMetadata.Owners.Count() Then
