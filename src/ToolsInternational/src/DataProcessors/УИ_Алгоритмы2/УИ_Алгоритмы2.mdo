@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="ae7710a4-f26e-4208-93d4-083bfdd609b4">
+  <producedTypes>
+    <objectType typeId="acf8fedc-740a-481e-a90b-dd773b66d082" valueTypeId="969b8b78-2e5b-4642-a9d4-42cc6c7cc3f1"/>
+    <managerType typeId="ffad1e66-dc06-467a-b1ea-a9485d274b98" valueTypeId="97261293-c0f7-4e50-8055-27ba1a931e48"/>
+  </producedTypes>
+  <name>УИ_Алгоритмы2</name>
+  <synonym>
+    <key>en</key>
+    <value>Алгоритмыбез расширения таблиц базы данных (УИ)</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+</mdclass:DataProcessor>

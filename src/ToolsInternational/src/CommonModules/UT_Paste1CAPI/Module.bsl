@@ -1,4 +1,4 @@
-
+//УИ_Paste1CAPI // Cheked, OK 
 #Region Public
 
 // Service algorithm data.

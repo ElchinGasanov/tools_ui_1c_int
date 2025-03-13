@@ -107,6 +107,7 @@
   <commonModules>CommonModule.AdditionalReportsAndDataProcessors</commonModules>
   <commonModules>CommonModule.AttachableCommandsOverridable</commonModules>
   <commonModules>CommonModule.UT_</commonModules>
+  <commonModules>CommonModule.UT_Paste1CAPI</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsServerCall</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsClient</commonModules>
   <commonModules>CommonModule.UT_AlgorithmsClientServer</commonModules>
@@ -137,7 +138,6 @@
   <commonModules>CommonModule.UT_StringFunctionsClientServer</commonModules>
   <commonModules>CommonModule.UT_FormsClient</commonModules>
   <commonModules>CommonModule.UT_FormsServer</commonModules>
-  <commonModules>CommonModule.UT_Paste1CAPI</commonModules>
   <commonModules>CommonModule.UT_CodeGenerator</commonModules>
   <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_21_ClientServer</commonModules>
   <commonModules>CommonModule.UT_PlatformCompatibilityMethods_8_3_18_Client</commonModules>
@@ -176,6 +176,8 @@
   <catalogs>Catalog.UT_Algorithms</catalogs>
   <catalogs>Catalog.AdditionalReportsAndDataProcessors</catalogs>
   <reports>Report.UT_ReportsConsole</reports>
+  <dataProcessors>DataProcessor.УИ_Алгоритмы2</dataProcessors>
+  <dataProcessors>DataProcessor.UT_ExportImportDataXMLWithFilters</dataProcessors>
   <dataProcessors>DataProcessor.UT_CodeConsole</dataProcessors>
   <dataProcessors>DataProcessor.UT_ComparisonDataConsole</dataProcessors>
   <dataProcessors>DataProcessor.UT_HTTPRequestConsole</dataProcessors>
@@ -187,7 +189,6 @@
   <dataProcessors>DataProcessor.UT_DebugData</dataProcessors>
   <dataProcessors>DataProcessor.UT_DuplicateObjectDetection</dataProcessors>
   <dataProcessors>DataProcessor.UT_DynamicList</dataProcessors>
-  <dataProcessors>DataProcessor.UT_ExportImportDataXMLWithFilters</dataProcessors>
   <dataProcessors>DataProcessor.UT_FileManager</dataProcessors>
   <dataProcessors>DataProcessor.UT_GroupProcessingCatalogsAndDocuments</dataProcessors>
   <dataProcessors>DataProcessor.UT_HTMLEditor</dataProcessors>
