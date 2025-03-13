@@ -176,7 +176,7 @@
   <catalogs>Catalog.UT_Algorithms</catalogs>
   <catalogs>Catalog.AdditionalReportsAndDataProcessors</catalogs>
   <reports>Report.UT_ReportsConsole</reports>
-  <dataProcessors>DataProcessor.УИ_Алгоритмы2</dataProcessors>
+  <dataProcessors>DataProcessor.UT_Algorithms2</dataProcessors>
   <dataProcessors>DataProcessor.UT_ExportImportDataXMLWithFilters</dataProcessors>
   <dataProcessors>DataProcessor.UT_CodeConsole</dataProcessors>
   <dataProcessors>DataProcessor.UT_ComparisonDataConsole</dataProcessors>

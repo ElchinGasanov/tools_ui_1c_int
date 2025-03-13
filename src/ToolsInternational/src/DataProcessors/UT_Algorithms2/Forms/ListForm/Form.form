@@ -934,7 +934,7 @@
     </title>
     <id>14</id>
     <valueType>
-      <types>DataProcessorObject.УИ_Алгоритмы2</types>
+      <types>DataProcessorObject.UT_Algorithms2</types>
     </valueType>
     <view>
       <common>true</common>
