@@ -1,47 +1,47 @@
-&Around("AttachExternalDataProcessor")
+&Around("AttachExternalDataProcessor")				//ДополнительныеОтчетыИОбработки  // Checked, OK
 Function UT_AttachExternalDataProcessor(Ref) Export
-	DebugSettings=UT_Common.AdditionalDataProcessorDebugSettings(Ref);
+	UT_DebugSettings=UT_Common.AdditionalDataProcessorDebugSettings(Ref);
 
-	HasDebug=False;
-	If DebugSettings.DebugEnabled And ValueIsFilled(DebugSettings.FileNameOnServer) Then
-		If DebugSettings.User=Undefined Or Not ValueIsFilled(DebugSettings.User) Then
+	UT_HasDebug=False;
+	If UT_DebugSettings.DebugEnabled And ValueIsFilled(UT_DebugSettings.FileNameOnServer) Then
+		If UT_DebugSettings.User=Undefined Or Not ValueIsFilled(UT_DebugSettings.User) Then
 				
-			HasDebug=True;
-		ElsIf DebugSettings.User=Users.CurrentUser() Then
-			HasDebug=True;
+			UT_HasDebug=True;
+		ElsIf UT_DebugSettings.User=Users.CurrentUser() Then
+			UT_HasDebug=True;
 			
 		EndIf;
 	EndIf;
 
-	If Not HasDebug Then
+	If Not UT_HasDebug Then
 		Return ProceedWithCall(Ref);
 	Else
 		
-		DataProcessorFile = New File(DebugSettings.FileNameOnServer);
-		If Not DataProcessorFile.Exist() Then
+		UT_DataProcessorFile = New File(UT_DebugSettings.FileNameOnServer);
+		If Not UT_DataProcessorFile.Exist() Then
 		
-			DataProcessorStorage = Common.ObjectAttributeValue(Ref, "DataProcessorStorage");
-			BinaryData = DataProcessorStorage.Get();
-			BinaryData.Write(DebugSettings.FileNameOnServer);
+			UT_DataProcessorStorage = Common.ObjectAttributeValue(Ref, "DataProcessorStorage");
+			UT_BinaryData = UT_DataProcessorStorage.Get();
+			UT_BinaryData.Write(UT_DebugSettings.FileNameOnServer);
 		
 		EndIf; 
 		
-		Kind = Common.ObjectAttributeValue(Ref, "Kind");
-		If Kind = Enums.AdditionalReportsAndDataProcessorsKinds.Report
-			Or Kind = Enums.AdditionalReportsAndDataProcessorsKinds.AdditionalReport Then
-			Manager = ExternalReports;
+		UT_Kind = Common.ObjectAttributeValue(Ref, "Kind");
+		If UT_Kind = Enums.AdditionalReportsAndDataProcessorsKinds.Report
+			Or UT_Kind = Enums.AdditionalReportsAndDataProcessorsKinds.AdditionalReport Then
+			UT_Manager = ExternalReports;
 		Else
-			Manager = ExternalDataProcessors;
+			UT_Manager = ExternalDataProcessors;
 		EndIf;
 		
         UT_UnsafeOperationProtectionDescription = New UnsafeOperationProtectionDescription;
 		UT_UnsafeOperationProtectionDescription.UnsafeOperationWarnings = False; 
 		
-		DataProcessorObject = Manager.Create(DebugSettings.FileNameOnServer,
+		UT_DataProcessorObject = UT_Manager.Create(UT_DebugSettings.FileNameOnServer,
 											 False,
 											 UT_UnsafeOperationProtectionDescription);
 		
-		Return TrimAll(DataProcessorObject.Metadata().Name);
+		Return TrimAll(UT_DataProcessorObject.Metadata().Name);
 	EndIf;
 	
 EndFunction

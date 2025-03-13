@@ -1,4 +1,4 @@
-//Module for quick access to debugging procedures
+//Module for quick access to debugging procedures  //УИ_  // Checked , Has errors
 
 
 #Region Public
@@ -58,8 +58,43 @@ Function _DebugToFile(ObjectForDebugging, DcsSettingsOrHTTPConnection = Undefine
 	
 EndFunction
 
+// Description
+// You can assign a value to a variable at any time.
+// Parameters:
+// ParameterA - Arbitrary - Arbitrary value
+// ParameterB - Arbitrary - Arbitrary value
+// Return Value:
+// Arbitrary - The result of saving the algorithm
+Function _PR(ParameterA, ParameterB) Export
+	ParameterA=ParameterB;
+	Return ParameterA;
+EndFunction
+
 #If Not WebClient Then
 
+// Description
+// Execute code in Debugger. Analor of Function  ДУ from ИР
+// ВыполниитьКодВОтладчике() function of code execution
+// Parameters:
+// Code - String - "Code" attribute value
+// P - Arbitrary - Arbitrary value
+// P2 - Arbitrary - Arbitrary value
+// P3 - Arbitrary - Arbitrary value
+// P4 - Arbitrary - Arbitrary value
+// P5 - Arbitrary - Arbitrary value
+// Return value:
+// Arbitrary -  Р - The result of saving the algorithm
+//@skip-check method-too-many-params
+//@skip-check bsl-variable-name-invalid
+Function _DU(Code, P = Undefined, P2 = Undefined, P3 = Undefined, P4 = Undefined, P5 = Undefined) Export
+	//@skip-check bsl-variable-name-invalid
+	Р = Undefined;
+	//@skip-check server-execution-safe-mode
+	Execute (Code);
+
+	Return Р;
+
+EndFunction
 
 // Description
 // 
@@ -67,7 +102,11 @@ EndFunction
 // 	ReadingPath - String, XMLReader, Stream - from where to read the XML 
 // 	SimplifyElements - Boolean - is it worth removing unnecessary elements of the structure when reading
 // Return value:
-// 	Map, Structure, Undefined - Result of xml data reading
+// Map
+// Return value:	
+// Structure -
+// Return value:
+// Undefined - Failed to read XML
 Function _XMLObject(ReadingPath, SimplifyElements=True) Export
 	Return UT_XMLParcer.mRead(ReadingPath, SimplifyElements);
 EndFunction
@@ -80,15 +119,14 @@ EndFunction
 // 
 // Returns a structure query table or Manager of temporary tables
 //  If you pass a query, he previously performed.
-// f the request has a Manager temporary tables, the structure of the table was added Manager temporary tables query
+// if the request has a Manager temporary tables, the structure of the table was added Manager temporary tables query
 //
 // Parameters:
 // QueryORTempTablesManager- Type Query or TempTablesManager
 // Return value:
-// Structure- Type Structure
-// Where
-// Key- Name of Temporary Table
-// Value- Content of temporary table
+// Structure from KeyValue:
+// 		* Key- String- TempTableName
+// 		* Value - ValueTable- The contents of the temporary table
 Function _TempTable(QueryORTempTablesManager) Export
 	If TypeOf(QueryORTempTablesManager) = Type("TempTablesManager") Then
 		Return UT_CommonServerCall.TempTablesManagerTempTablesStructure(
@@ -128,11 +166,8 @@ EndFunction
 // 											Columns must be present in both tables
 // 											If the parameter is not specified, the comparison takes place according to the columns of the base table
 // 	
-// 	
 // Return value:
-// 
 // 	Structure - Description:
-// 	
 // * IdenticalTables 		- Boolean 	- A sign of the identity of the tables
 // * DifferencesTable 	- ValueTable 	- A table showing the discrepancies of the compared tables
 Function _ValueTablesCompare(BaseTable, ComparisonTable, ColumnsList = Undefined) Export
@@ -208,3 +243,7 @@ EndFunction
 
 #EndRegion
 
+#Область Private
+
+
+#КонецОбласти
