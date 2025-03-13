@@ -116,7 +116,7 @@ EndProcedure
 &AtClient
 Procedure CreateNewIssueAtGitHub(Command)
 	BeginRunningApplication(UT_CommonClient.ApplicationRunEmptyNotifyDescription(),
-		"https://github.com/i-neti/tools_ui_1c_international/issues/new");
+		"https://github.com/Universal-Tools-1C-Word-Edition/tools_ui_1c_we/issues/new");
 EndProcedure
 
 #EndRegion

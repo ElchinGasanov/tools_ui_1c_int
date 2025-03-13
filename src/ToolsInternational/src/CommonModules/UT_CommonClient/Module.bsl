@@ -461,18 +461,18 @@ EndProcedure
 
 Procedure AskQuestionToDeveloper() Export
 	BeginRunningApplication(ApplicationRunEmptyNotifyDescription(),
-		"https://github.com/i-neti/tools_ui_1c_int/issues");
+		"https://github.com/Universal-Tools-1C-Word-Edition/tools_ui_1c_we/issues");
 
 EndProcedure
 
 Procedure OpenAboutPage() Export
-	BeginRunningApplication(ApplicationRunEmptyNotifyDescription(), "https://github.com/i-neti/tools_ui_1c_int");
+	BeginRunningApplication(ApplicationRunEmptyNotifyDescription(), "https://github.com/Universal-Tools-1C-Word-Edition/tools_ui_1c_we");
 
 EndProcedure
 
 Procedure OpenPortableToolsDebugSpecificityPage () Export
 	BeginRunningApplication(ApplicationRunEmptyNotifyDescription(),
-		"https://github.com/cpr1c/tools_ui_1c/wiki/Portable-Tools-Debug-Specificity");
+		"https://github.com/Universal-Tools-1C-Word-Edition/tools_ui_1c_we/wiki/Portable-Tools-Debug-Specificity");
 
 EndProcedure
 

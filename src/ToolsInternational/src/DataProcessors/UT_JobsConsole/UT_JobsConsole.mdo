@@ -13,7 +13,7 @@
     <key>ru</key>
     <value>Консоль заданий [УИ]</value>
   </synonym>
-  <comment>https://github.com/kuzyara/JobsConsole2019.epf (c)Душелов'2009 - Translated by Neti Company</comment>
+  <comment>https://github.com/kuzyara/JobsConsole2019.epf (c)Душелов'2009 - Translated by Universal Tools 1C Word Edition Team</comment>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_JobsConsole.Form.Form</defaultForm>
   <help>

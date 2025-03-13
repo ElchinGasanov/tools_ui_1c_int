@@ -15,7 +15,7 @@
 //
 //
 // URL:    https://github.com/cpr1c/clipboard_1c
-// Translated to english variant of script by Neti company (https://erpdev.i-neti.com/)
+// Translated to english variant of script by Universal Tools 1C Word Edition Team
 // Requirements: 1C platform version 8.3.14 and higher
 // With earlier platforms, there may be problems with connecting components, as well as with the operation of some methods
 

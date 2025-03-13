@@ -12,7 +12,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //The module is a reworking of the publication https://github.com/khorevaa/xml-parser . Thanks to the author
-// Translated to  english variant of 1C script by Neti  company ( i-neti.ru)
+// Translated to  english variant of 1C script by Universal Tools 1C Word Edition Team
 
 // Reads xml data into
 // Параметры:

@@ -4,7 +4,7 @@
 // Attribution 4.0 International license (CC BY 4.0)
 // The license text is available at:
 // https://creativecommons.org/licenses/by/4.0/legalcode
-// Translated by Neti Company
+// Translated by Universal Tools 1C Word Edition Team
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 #Region Internal
 
