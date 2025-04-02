@@ -1,4 +1,4 @@
-&After("OnDefineAttachableCommandsKinds")
+&After("OnDefineAttachableCommandsKinds") //ПодключаемыеКомандыПереопределяемый  //Cheked, OK
 Procedure UT_OnDefineAttachableCommandsKinds(AttachableCommandsKinds)
 	If Not UT_Common.HasRightToUseUniversalTools() Then
 		Return;

@@ -2,7 +2,7 @@
 // (C) Alexander Kuznetsov 2019-2020
 // hal@hal9000.cc
 // Minimum platform version 8.3.12, minimum compatibility mode 8.3.8
-// Translated by Neti Company
+// Translated by Universal Tools 1C Word Edition Team
 #Region Variables
 
 &AtClient

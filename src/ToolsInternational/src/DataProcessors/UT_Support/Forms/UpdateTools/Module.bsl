@@ -366,7 +366,7 @@ EndProcedure
 &AtServer
 Procedure FillActualVersionAndChangesDescription()
 //Getting a list of all releases
-	RequestUrl = "https://api.github.com/repos/i-neti/tools_ui_1c_international/releases";
+	RequestUrl = "https://api.github.com/repos/Universal-Tools-1C-Word-Edition/tools_ui_1c_we/releases";
 	DownloadFileName=UT_CommonClientServer.DownloadFileName();
 	
 	ReleasesArray = UT_HTTPConnector.GetJson(RequestUrl);

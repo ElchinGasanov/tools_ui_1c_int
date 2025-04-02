@@ -1,4 +1,4 @@
-
+// УИ_ОбщегоНазначенияКлиентСервер  // In progress 1010 string
 #Region Public
 
 #Region ScheduledJobs
@@ -25,7 +25,7 @@ Function ScheduleToStructure (Val Schedule) Export
 	For Each DailySchedule In Schedule.DetailedDailySchedules Do
 		DetailedDailySchedules.Add(ScheduleToStructure(DailySchedule));
 	EndDo;
-	Result.Вставить("DetailedDailySchedules", DetailedDailySchedules);
+	Result.Insert("DetailedDailySchedules", DetailedDailySchedules);
 	Return Result;
 
 EndFunction
@@ -94,6 +94,34 @@ Procedure SupplementArray(ArrayReceiver, ArraySource, OnlyUniqueValues = False) 
 	EndIf;
 
 EndProcedure
+
+// Returns the difference of arrays. The difference between two arrays is an array containing
+// all the elements of the first array that do not exist in the second array.
+//
+//  Parameters:
+//  Array - An array of Arbitrary - an array of elements from which to perform subtraction;;
+//  SubtractionArray - Array of Arbitrary- the array of elements to be subtracted..
+// 
+// Return value:
+// Array from Arbitrary - difference of two arrays.
+//
+// Example:
+//	//A = [1, 3, 5, 7];
+//	//B = [3, 7, 9];
+//	Result = UT_CommonClientServer.ArrayDifference(A, B);
+//	//Result = [1, 5];
+//
+Function ArrayDifference(Val Array, Val SubtractionArray) Export
+	
+	Result = New Array;
+	For Each Item In Array Do
+		If SubtractionArray.Find(Item) = Undefined Then
+			Result.Add(Item);
+		EndIf;
+	EndDo;
+	Return Result;
+	
+EndFunction
 
 // Returns the structure property value.
 //
@@ -199,7 +227,7 @@ Function CopyRecursively(Source) Export
 		Receiver = CopyStructure(Source);
 	Elsif SourceType = Type("Map") Then
 		Receiver = CopyMap(Source);
-	Elsif SourceType = Type("Array") Тогда
+	Elsif SourceType = Type("Array") Then
 		Receiver = CopyArray(Source);
 	Elsif SourceType = Type("ValueList") Then
 		Receiver = CopyValueList(Source);
@@ -286,13 +314,77 @@ EndFunction
 
 #EndRegion
 
-#Region ContextExecution
+#Region ExecutionContext
+
+//  Platform available contexts.
+// 
+// Return value:
+//  Structure - Platform available contexts:
+// * Server - String - 
+// * ThickClient - String - 
+// * ThinClient - String - 
+// * ExternalConnection - String - 
+// * WebClient - String - 
+// * MobileClient - String - 
+// * MobileAppClient - String - 
+// * MobileAppServer - String - 
+// * MobileStandaloneServer - String - 
+// * Integration - String - 
+// * Undefined - String - 
+Function PlatformAvailableContexts() Export
+	Description = New Structure;
+	Description.Insert("Server","Server");
+	Description.Insert("ThickClient","ThickClient");
+	Description.Insert("ThinClient","ThinClient");
+	Description.Insert("ExternalConnection","ExternalConnection");
+	Description.Insert("WebClient","WebClient");
+	Description.Insert("MobileClient","MobileClient");
+	Description.Insert("MobileAppClient","MobileAppClient");
+	Description.Insert("MobileAppServer","MobileAppServer");
+	Description.Insert("MobileStandaloneServer","MobileStandaloneServer");
+	Description.Insert("Integration","Integration");
+	Description.Insert("Undefined","");
+	Return Description;
+EndFunction
+
+// Platform current context.
+// 
+// Return value:
+//  String - Platform current context.
+//@skip-check bsl-legacy-check-if-preprocessor-part-environments
+Function PlatformСurrentСontext() Export
+	PlatformContexts = PlatformAvailableContexts();
+	#If Server Then
+		Return PlatformContexts.Server;
+	#ElsIf ThickClientOrdinaryApplication Или ThickClientManagedApplication Тогда
+		Return PlatformContexts.ThickClient;
+	#ElsIf ThinClient Then
+		Return PlatformContexts.ThinClient;
+	#ElsIf ExternalConnection Then
+		Return PlatformContexts.ExternalConnection;
+	#ElsIf WebClient Then
+		Return PlatformContexts.WebClient;
+	#ElsIf MobileClient Then
+		Return PlatformContexts.MobileClient;
+	#ElsIf MobileAppClient Then
+		Return PlatformContexts.MobileAppClient;
+//	#ElsIf MobileAppServer Then
+//		Return PlatformContexts.MobileAppServer;
+//	#ElsIf MobileStandaloneServer Then
+//		Return PlatformContexts.MobileStandaloneServer;
+//	#ElsIf Integration Then
+//		Return PlatformContexts.Integration;
+	#Else
+		Return PlatformContexts.Undefined;
+	#EndIf
+		
+EndFunction
 
 // This is the server context.
 // 
 // Returns:
 // 	Boolean - This is the server context
-Function ThisIsServerContext() Export
+Function IsServerContext() Export
 
 	#If AtServer Then
 		Return True;
@@ -496,7 +588,7 @@ EndFunction
 //                                                    
 // Returns:
 //  DataCompositionFilterItem - a composition item.
-//@skip-check method-too-many-params
+//
 Function AddCompositionItem(AreaToAddTo, Val FieldName,	Val ComparisonType, Val RightValue = Undefined,
 	Val Presentation  = Undefined, Val Usage  = Undefined, Val DisplayMode = Undefined,
 	Val UserSettingID = Undefined) Export
@@ -523,9 +615,9 @@ Function AddCompositionItem(AreaToAddTo, Val FieldName,	Val ComparisonType, Val 
 		Item.Use = Usage;
 	EndIf;
 	
-	// Important: The ID must be set up in the final stage of the item customization or it will be 
-	// copied to the user settings in a half-filled condition.
-	// 
+	// Important: The ID must be set up in the final stage 
+	// of the item customization or it will be copied to 
+	// the user settings in a half-filled condition.
 	If UserSettingID <> Undefined Then
 		Item.UserSettingID = UserSettingID;
 	ElsIf Item.ViewMode <> DataCompositionSettingsItemViewMode.Inaccessible Then
@@ -552,7 +644,7 @@ EndFunction
 // Returns:
 //  Number - the changed item count.
 //
-//@skip-check method-too-many-params
+//
 Function ChangeFilterItems(SearchArea, Val FieldName = Undefined, Val Presentation = Undefined, 
 	Val RightValue = Undefined,	Val ComparisonType = Undefined,	Val Usage = Undefined,
 	Val DisplayMode = Undefined, Val UserSettingID = Undefined) Export
@@ -691,7 +783,7 @@ EndProcedure
 //       * DataCompositionSettingItemDisplayMode.Inaccessible - privent users from changing the filter.
 //   UserSettingID - String - the filter UUID. Used to link user settings.
 //
-//@skip-check method-too-many-params
+//
 Procedure SetDynamicListFilterItem(DynamicList, FieldName,	RightValue = Undefined,
 	ComparisonType = Undefined,	Presentation = Undefined, Usage = Undefined,
 	DisplayMode = Undefined, UserSettingID = Undefined) Export
@@ -1142,7 +1234,7 @@ Function SerializeObjectForDebugToStructure(ObjectForDebugging, DcsSettingsOrHTT
 	ElsIf TypeOf(ObjectForDebugging) = Type("DataCompositionSchema") Then
 		ObjectStructure = SerializeDCSForDebug(ObjectForDebugging, DcsSettingsOrHTTPConnection, ExternalDataSets);
 	ElsIf TypeOf(ObjectForDebugging) = Type("FormTable") Then
-		If Not ThisIsServerContext() Then
+		If Not IsServerContext() Then
 			Return Undefined;
 		EndIf;
 		DCS = ObjectForDebugging.GetPerformingDataCompositionScheme();
@@ -2773,10 +2865,10 @@ Function DescriptionOSForTechnicalSupport() Export
 	SystemInfo = New SystemInfo;
 	
 	Description = New Structure;
-	Description.Вставить("OSVersion",		SystemInfo.OSVersion);
-	Description.Вставить("PlatformType", 	String(SystemInfo.PlatformType));
-	Description.Вставить("Processor", 		SystemInfo.Processor);
-	Description.Вставить("RAM", 			String(SystemInfo.RAM));
+	Description.Insert("OSVersion",		SystemInfo.OSVersion);
+	Description.Insert("PlatformType", 	String(SystemInfo.PlatformType));
+	Description.Insert("Processor", 		SystemInfo.Processor);
+	Description.Insert("RAM", 			String(SystemInfo.RAM));
 	
 	Return Description;	
 EndFunction
