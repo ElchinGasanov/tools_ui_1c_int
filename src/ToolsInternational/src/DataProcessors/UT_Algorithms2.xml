@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<DataProcessor uuid="ae7710a4-f26e-4208-93d4-083bfdd609b4">
+		<InternalInfo>
+			<xr:GeneratedType name="DataProcessorObject.UT_Algorithms2" category="Object">
+				<xr:TypeId>acf8fedc-740a-481e-a90b-dd773b66d082</xr:TypeId>
+				<xr:ValueId>969b8b78-2e5b-4642-a9d4-42cc6c7cc3f1</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DataProcessorManager.UT_Algorithms2" category="Manager">
+				<xr:TypeId>ffad1e66-dc06-467a-b1ea-a9485d274b98</xr:TypeId>
+				<xr:ValueId>97261293-c0f7-4e50-8055-27ba1a931e48</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>UT_Algorithms2</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Алгоритмыбез расширения таблиц базы данных (УИ)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Veritabanı Tablo Uzantısı Olmayan Algoritmalar (UT)</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment>// not adapted</Comment>
+			<UseStandardCommands>true</UseStandardCommands>
+			<DefaultForm>DataProcessor.UT_Algorithms2.Form.ListForm</DefaultForm>
+			<AuxiliaryForm/>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<ExtendedPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Form>ListForm</Form>
+			<Form>Itemform</Form>
+		</ChildObjects>
+	</DataProcessor>
+</MetaDataObject>

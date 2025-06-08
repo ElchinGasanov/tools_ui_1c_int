@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<AutoCommandBar name="FormCommandBar" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="FormApply" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Apply</CommandName>
+				<ExtendedTooltip name="FormApplyExtendedTooltip" id="2"/>
+			</Button>
+			<Button name="FormClose" id="3">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Close</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Close</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>tr</v8:lang>
+						<v8:content>Kapat</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="FormCloseExtendedTooltip" id="4"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<Table name="MapTable" id="5">
+			<Representation>List</Representation>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>MapTable</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="MapTableContextMenu" id="7"/>
+			<AutoCommandBar name="MapTableCommandBar" id="6"/>
+			<ExtendedTooltip name="MapTableExtendedTooltip" id="8"/>
+			<SearchStringAddition name="MapTableSearchString" id="9">
+				<AdditionSource>
+					<Item>MapTable</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="MapTableSearchStringContextMenu" id="10"/>
+				<ExtendedTooltip name="MapTableSearchStringExtendedTooltip" id="11"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="MapTableViewStatus" id="15">
+				<AdditionSource>
+					<Item>MapTable</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="MapTableViewStatusContextMenu" id="16"/>
+				<ExtendedTooltip name="MapTableViewStatusExtendedTooltip" id="17"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="MapTableSearchControl" id="12">
+				<AdditionSource>
+					<Item>MapTable</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="MapTableSearchControlContextMenu" id="13"/>
+				<ExtendedTooltip name="MapTableSearchControlExtendedTooltip" id="14"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="MapTableKey" id="30">
+					<DataPath>MapTable.Key</DataPath>
+					<ContextMenu name="MapTableKeyContextMenu" id="31"/>
+					<ExtendedTooltip name="MapTableKeyExtendedTooltip" id="32"/>
+					<Events>
+						<Event name="OnChange">MapTableKeyOnChange</Event>
+						<Event name="StartChoice">MapTableKeyStartСhoice</Event>
+						<Event name="Clearing">MapTableKeyСlearing</Event>
+					</Events>
+				</InputField>
+				<InputField name="MapTableValue" id="18">
+					<DataPath>MapTable.Value</DataPath>
+					<ContextMenu name="MapTableValueContextMenu" id="19"/>
+					<ExtendedTooltip name="MapTableValueExtendedTooltip" id="20"/>
+					<Events>
+						<Event name="OnChange">MapTableValueOnChange</Event>
+						<Event name="StartChoice">MapTableValueStartСhoice</Event>
+						<Event name="Clearing">MapTableValueСlearing</Event>
+					</Events>
+				</InputField>
+				<InputField name="MapTableKeyTypeDescriptionPresentation" id="39">
+					<DataPath>MapTable.KeyTypeDescriptionPresentation</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Type(Key)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Type(Key)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tip(Anahtar)</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="MapTableKeyTypeDescriptionPresentationContextMenu" id="40"/>
+					<ExtendedTooltip name="MapTableKeyTypeDescriptionPresentationExtendedTooltip" id="41"/>
+				</InputField>
+				<InputField name="MapTableValueTypeDescriptionPresentation" id="27">
+					<DataPath>MapTable.ValueTypeDescriptionPresentation</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Type(Value)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Type(Value)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tip(Değer)</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="MapTableValueTypeDescriptionPresentationContextMenu" id="28"/>
+					<ExtendedTooltip name="MapTableValueTypeDescriptionPresentationExtendedTooltip" id="29"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="MapTable" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Map table</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Map table</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Harita tablosu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Value" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Value</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="ValueContainer" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Value container</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="ValueTypeDescription" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Value type description</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ValueTypeDescriptionPresentation" id="6">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Key" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Key</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="KeyContainer" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Key container</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="KeyTypeDescription" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Key type description</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+				<Column name="KeyTypeDescriptionPresentation" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Key type description presentation</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Apply" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Apply</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Apply</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Uygula</v8:content>
+				</v8:item>
+			</Title>
+			<Action>Apply</Action>
+		</Command>
+	</Commands>
+</Form>

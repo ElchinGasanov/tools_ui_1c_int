@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Group>AlwaysHorizontal</Group>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="GetLicensesList" id="71">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.GetLicensesList</CommandName>
+				<ExtendedTooltip name="GetLicensesListExtendedTooltip" id="72"/>
+			</Button>
+			<Button name="GetLicenseFullInformation" id="73">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.GetLicenseFullInformation</CommandName>
+				<ExtendedTooltip name="GetLicenseFullInformationExtendedTooltip" id="74"/>
+			</Button>
+			<Button name="LicenseValidationCheck" id="75">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.LicenseValidationCheck</CommandName>
+				<ExtendedTooltip name="LicenseValidationCheckExtendedTooltip" id="76"/>
+			</Button>
+			<Button name="FormActivateLicense" id="159">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ActivateLicense</CommandName>
+				<ExtendedTooltip name="FormActivateLicenseExtendedTooltip" id="160"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<Table name="LicensesList" id="1">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Object.LicensesList</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="LicensesListContextMenu" id="2"/>
+			<AutoCommandBar name="LicensesListCommandBar" id="3">
+				<ChildItems>
+					<Button name="LicensesListLicenseReactivation" id="153">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.LicenseReactivation</CommandName>
+						<ExtendedTooltip name="LicensesListLicenseReactivationExtendedTooltip" id="154"/>
+					</Button>
+					<Button name="LicensesListDeleteLicense" id="155">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.DeleteLicense</CommandName>
+						<ExtendedTooltip name="LicensesListDeleteLicenseExtendedTooltip" id="156"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="LicensesListExtendedTooltip" id="4"/>
+			<SearchStringAddition name="LicensesListSearchString" id="5">
+				<AdditionSource>
+					<Item>LicensesList</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="LicensesListSearchStringContextMenu" id="6"/>
+				<ExtendedTooltip name="LicensesListSearchStringExtendedTooltip" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="LicensesListViewStatus" id="8">
+				<AdditionSource>
+					<Item>LicensesList</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<HorizontalLocation>Left</HorizontalLocation>
+				<ContextMenu name="LicensesListViewStatusContextMenu" id="9"/>
+				<ExtendedTooltip name="LicensesListViewStatusExtendedTooltip" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="LicensesListSearchControl" id="11">
+				<AdditionSource>
+					<Item>LicensesList</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="LicensesListSearchControlContextMenu" id="12"/>
+				<ExtendedTooltip name="LicensesListSearchControlExtendedTooltip" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">LicensesListBeforeAddRow</Event>
+				<Event name="OnActivateRow">LicensesListOnActivateRow</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="LicensesListLineNumber" id="14">
+					<DataPath>Object.LicensesList.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListLineNumberContextMenu" id="15"/>
+					<ExtendedTooltip name="LicensesListLineNumberExtendedTooltip" id="16"/>
+				</LabelField>
+				<InputField name="LicensesListLicenseNumber" id="17">
+					<DataPath>Object.LicensesList.LicenseNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListLicenseNumberContextMenu" id="18"/>
+					<ExtendedTooltip name="LicensesListLicenseNumberExtendedTooltip" id="19"/>
+				</InputField>
+				<InputField name="LicensesListDescription" id="20">
+					<DataPath>Object.LicensesList.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListDescriptionContextMenu" id="21"/>
+					<ExtendedTooltip name="LicensesListDescriptionExtendedTooltip" id="22"/>
+				</InputField>
+				<InputField name="LicensesListLicenseCount" id="80">
+					<DataPath>Object.LicensesList.LicenseCount</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListLicenseCountContextMenu" id="81"/>
+					<ExtendedTooltip name="LicensesListLicenseCountExtendedTooltip" id="82"/>
+				</InputField>
+				<InputField name="LicensesListPinCode" id="23">
+					<DataPath>Object.LicensesList.PinCode</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListPinCodeContextMenu" id="24"/>
+					<ExtendedTooltip name="LicensesListPinCodeExtendedTooltip" id="25"/>
+				</InputField>
+				<CheckBoxField name="LicensesListActive" id="77">
+					<DataPath>Object.LicensesList.Active</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="LicensesListActiveContextMenu" id="78"/>
+					<ExtendedTooltip name="LicensesListActiveExtendedTooltip" id="79"/>
+				</CheckBoxField>
+				<InputField name="LicensesListActivationDate" id="56">
+					<DataPath>Object.LicensesList.ActivationDate</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListActivationDateContextMenu" id="57"/>
+					<ExtendedTooltip name="LicensesListActivationDateExtendedTooltip" id="58"/>
+				</InputField>
+				<InputField name="LicensesListRegistrationNumber" id="59">
+					<DataPath>Object.LicensesList.RegistrationNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListRegistrationNumberContextMenu" id="60"/>
+					<ExtendedTooltip name="LicensesListRegistrationNumberExtendedTooltip" id="61"/>
+				</InputField>
+				<InputField name="LicensesListProductCode" id="62">
+					<DataPath>Object.LicensesList.ProductCode</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListProductCodeContextMenu" id="63"/>
+					<ExtendedTooltip name="LicensesListProductCodeExtendedTooltip" id="64"/>
+				</InputField>
+				<InputField name="LicensesListLicenseFileName" id="65">
+					<DataPath>Object.LicensesList.LicenseFileName</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="LicensesListLicenseFileNameContextMenu" id="66"/>
+					<ExtendedTooltip name="LicensesListLicenseFileNameExtendedTooltip" id="67"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="GroupDetails" id="83">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подробно</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group details</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подробно</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="GroupDetailsExtendedTooltip" id="84"/>
+			<ChildItems>
+				<Pages name="GroupPagesInformation" id="115">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страницы информация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group pages information</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страницы информация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="GroupPagesInformationExtendedTooltip" id="116"/>
+					<ChildItems>
+						<Page name="GroupInfo" id="122">
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Информация</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Information</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Bilgi</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа инфо</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="GroupInfoExtendedTooltip" id="123"/>
+							<ChildItems>
+								<InputField name="LicensesListDescription1" id="142">
+									<DataPath>Items.LicensesList.CurrentData.Description</DataPath>
+									<ContextMenu name="LicensesListDescription1ContextMenu" id="143"/>
+									<ExtendedTooltip name="LicensesListDescription1ExtendedTooltip" id="144"/>
+								</InputField>
+								<InputField name="LicensesListLicenseCount1" id="124">
+									<DataPath>Items.LicensesList.CurrentData.LicenseCount</DataPath>
+									<ContextMenu name="LicensesListLicenseCount1ContextMenu" id="125"/>
+									<ExtendedTooltip name="LicensesListLicenseCount1ExtendedTooltip" id="126"/>
+								</InputField>
+								<InputField name="LicensesListLicenseNumber1" id="145">
+									<DataPath>Items.LicensesList.CurrentData.LicenseNumber</DataPath>
+									<ContextMenu name="LicensesListLicenseNumber1ContextMenu" id="146"/>
+									<ExtendedTooltip name="LicensesListLicenseNumber1ExtendedTooltip" id="147"/>
+								</InputField>
+								<InputField name="LicensesListPinCode1" id="139">
+									<DataPath>Items.LicensesList.CurrentData.PinCode</DataPath>
+									<ContextMenu name="LicensesListPinCode1ContextMenu" id="140"/>
+									<ExtendedTooltip name="LicensesListPinCode1ExtendedTooltip" id="141"/>
+								</InputField>
+								<InputField name="LicensesListProductCode1" id="133">
+									<DataPath>Items.LicensesList.CurrentData.ProductCode</DataPath>
+									<ContextMenu name="LicensesListProductCode1ContextMenu" id="134"/>
+									<ExtendedTooltip name="LicensesListProductCode1ExtendedTooltip" id="135"/>
+								</InputField>
+								<CheckBoxField name="LicensesListActive1" id="127">
+									<DataPath>Items.LicensesList.CurrentData.Active</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="LicensesListActive1ContextMenu" id="128"/>
+									<ExtendedTooltip name="LicensesListActive1ExtendedTooltip" id="129"/>
+								</CheckBoxField>
+								<InputField name="LicensesListRegistrationNumber1" id="136">
+									<DataPath>Items.LicensesList.CurrentData.RegistrationNumber</DataPath>
+									<ContextMenu name="LicensesListRegistrationNumber1ContextMenu" id="137"/>
+									<ExtendedTooltip name="LicensesListRegistrationNumber1ExtendedTooltip" id="138"/>
+								</InputField>
+								<InputField name="LicensesListLicenseFileName1" id="130">
+									<DataPath>Items.LicensesList.CurrentData.LicenseFileName</DataPath>
+									<ContextMenu name="LicensesListLicenseFileName1ContextMenu" id="131"/>
+									<ExtendedTooltip name="LicensesListLicenseFileName1ExtendedTooltip" id="132"/>
+								</InputField>
+							</ChildItems>
+						</Page>
+						<Page name="GroupActivationData" id="117">
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Данные активации</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Activation data</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Etkinleştirme verileri</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа данные активации</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="GroupActivationDataExtendedTooltip" id="118"/>
+							<ChildItems>
+								<InputField name="LicensesListLastName" id="85">
+									<DataPath>Items.LicensesList.CurrentData.LastName</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Фамилия</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Last name</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Soy isim</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="LicensesListLastNameContextMenu" id="86"/>
+									<ExtendedTooltip name="LicensesListLastNameExtendedTooltip" id="87"/>
+								</InputField>
+								<InputField name="LicensesListName" id="88">
+									<DataPath>Items.LicensesList.CurrentData.Name</DataPath>
+									<ContextMenu name="LicensesListNameContextMenu" id="89"/>
+									<ExtendedTooltip name="LicensesListNameExtendedTooltip" id="90"/>
+								</InputField>
+								<InputField name="LicensesListMiddleName" id="91">
+									<DataPath>Items.LicensesList.CurrentData.MiddleName</DataPath>
+									<ContextMenu name="LicensesListMiddleNameContextMenu" id="92"/>
+									<ExtendedTooltip name="LicensesListMiddleNameExtendedTooltip" id="93"/>
+								</InputField>
+								<InputField name="LicensesListEMail" id="94">
+									<DataPath>Items.LicensesList.CurrentData.EMail</DataPath>
+									<ContextMenu name="LicensesListEMailContextMenu" id="95"/>
+									<ExtendedTooltip name="LicensesListEMailExtendedTooltip" id="96"/>
+								</InputField>
+								<InputField name="LicensesListOrganization" id="97">
+									<DataPath>Items.LicensesList.CurrentData.Organization</DataPath>
+									<ContextMenu name="LicensesListOrganizationContextMenu" id="98"/>
+									<ExtendedTooltip name="LicensesListOrganizationExtendedTooltip" id="99"/>
+								</InputField>
+								<InputField name="LicensesListCountry" id="100">
+									<DataPath>Items.LicensesList.CurrentData.Country</DataPath>
+									<ContextMenu name="LicensesListCountryContextMenu" id="101"/>
+									<ExtendedTooltip name="LicensesListCountryExtendedTooltip" id="102"/>
+								</InputField>
+								<InputField name="LicensesListRegion" id="161">
+									<DataPath>Items.LicensesList.CurrentData.Region</DataPath>
+									<ContextMenu name="LicensesListRegionContextMenu" id="162"/>
+									<ExtendedTooltip name="LicensesListRegionExtendedTooltip" id="163"/>
+								</InputField>
+								<InputField name="LicensesListZIP" id="103">
+									<DataPath>Items.LicensesList.CurrentData.ZIP</DataPath>
+									<ContextMenu name="LicensesListZIPContextMenu" id="104"/>
+									<ExtendedTooltip name="LicensesListZIPExtendedTooltip" id="105"/>
+								</InputField>
+								<InputField name="LicensesListDistrict" id="164">
+									<DataPath>Items.LicensesList.CurrentData.District</DataPath>
+									<ContextMenu name="LicensesListDistrictContextMenu" id="165"/>
+									<ExtendedTooltip name="LicensesListDistrictExtendedTooltip" id="166"/>
+								</InputField>
+								<InputField name="LicensesListTown" id="106">
+									<DataPath>Items.LicensesList.CurrentData.Town</DataPath>
+									<ContextMenu name="LicensesListTownContextMenu" id="107"/>
+									<ExtendedTooltip name="LicensesListTownExtendedTooltip" id="108"/>
+								</InputField>
+								<InputField name="LicensesListStreet" id="109">
+									<DataPath>Items.LicensesList.CurrentData.Street</DataPath>
+									<ContextMenu name="LicensesListStreetContextMenu" id="110"/>
+									<ExtendedTooltip name="LicensesListStreetExtendedTooltip" id="111"/>
+								</InputField>
+								<InputField name="LicensesListHouse" id="112">
+									<DataPath>Items.LicensesList.CurrentData.House</DataPath>
+									<ContextMenu name="LicensesListHouseContextMenu" id="113"/>
+									<ExtendedTooltip name="LicensesListHouseExtendedTooltip" id="114"/>
+								</InputField>
+								<InputField name="LicensesListBuilding" id="170">
+									<DataPath>Items.LicensesList.CurrentData.Building</DataPath>
+									<ContextMenu name="LicensesListBuildingContextMenu" id="171"/>
+									<ExtendedTooltip name="LicensesListBuildingExtendedTooltip" id="172"/>
+								</InputField>
+								<InputField name="LicensesListApartment" id="167">
+									<DataPath>Items.LicensesList.CurrentData.Apartment</DataPath>
+									<ContextMenu name="LicensesListApartmentContextMenu" id="168"/>
+									<ExtendedTooltip name="LicensesListApartmentExtendedTooltip" id="169"/>
+								</InputField>
+								<InputField name="LicensesListActivationDate1" id="119">
+									<DataPath>Items.LicensesList.CurrentData.ActivationDate</DataPath>
+									<ContextMenu name="LicensesListActivationDate1ContextMenu" id="120"/>
+									<ExtendedTooltip name="LicensesListActivationDate1ExtendedTooltip" id="121"/>
+								</InputField>
+							</ChildItems>
+						</Page>
+						<Page name="GroupOther" id="148">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Другое</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Other</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Diğer</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа другое</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="GroupOtherExtendedTooltip" id="149"/>
+							<ChildItems>
+								<InputField name="LicensesListTextInformation" id="150">
+									<DataPath>Items.LicensesList.CurrentData.TextInformation</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="LicensesListTextInformationContextMenu" id="151"/>
+									<ExtendedTooltip name="LicensesListTextInformationExtendedTooltip" id="152"/>
+								</InputField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_LicenseInformation1C</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="GetLicensesList" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить список лицензий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Get licenses list</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Lisans listesini al</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить список лицензий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>GetLicensesList</Action>
+		</Command>
+		<Command name="GetLicenseFullInformation" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить полную информацию о лицензиях</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Get license full information</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Lisansın tam bilgilerini al</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить полную информацию о лицензии</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>GetLicenseFullInformation</Action>
+		</Command>
+		<Command name="LicenseValidationCheck" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверка валидности лицензий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>License validation check</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Lisans doğrulama kontrolü</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверка валидности лицензий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>LicenseValidationCheck</Action>
+		</Command>
+		<Command name="LicenseReactivation" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Повторная активация лицензии</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>License reactivation</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Lisans yeniden etkinleştirme</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Повторная активация лицензии</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>LicenseReactivation</Action>
+		</Command>
+		<Command name="DeleteLicense" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить лицензию</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete license</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Lisansı sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить лицензию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteLicense</Action>
+		</Command>
+		<Command name="ActivateLicense" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать лицензию</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Activate license</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Lisansı etkinleştir</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать лицензию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ActivateLicense</Action>
+		</Command>
+	</Commands>
+</Form>

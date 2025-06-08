@@ -1,0 +1,249 @@
+﻿//Module for quick access to debugging procedures  //УИ_  // Checked , Has errors
+
+
+#Region Public
+
+// Description
+// 
+// Runs the appropriate tool for a thick client or writes data to the database for further debugging// 
+//
+// If the debugging startup context is a thick client, the console form oppening immediately after the code call is completed
+// If debugging is called in the context of a server or a thin or web client,the necessary information is stored in UT_DebugData
+// In this case, debugging is then called from the list of the "Debugging Data" catalog.
+// 
+// Parameters:
+// 	ObjectForDebugging - Query,DataCompositionSchema,HTTPRequest,AnyRef,FormTable - Object of Query type
+// 	DcsSettingsOrHTTPConnection - HTTPConnection,DataCompositionSettings
+// 	ExternalDataSets - Structure - consisting of KeyAndValue:
+// 		* Key - String -
+// 		* Value - ValueTable -
+// 	Name - String - Name of Saved debugging object
+// Return value:
+// String- type DebugDataRef
+// The result of saving debugging data
+// 	
+Function _Debug(ObjectForDebugging, DcsSettingsOrHTTPConnection = Undefined, ExternalDataSets = Undefined,
+	Name ="") Export
+	Return UT_CommonClientServer.DebugObject(ObjectForDebugging,
+	                                         DcsSettingsOrHTTPConnection,
+	                                         ExternalDataSets,
+	                                         False,
+	                                         Name);
+EndFunction
+
+// Runs the appropriate tool for a thick client or writes data to the file for further debugging// 
+// 
+// If the debugging startup context is a thick client, the console form oppening immediately after the code call is completed
+// If debugging is called in the context of a server or a thin or web client, the necessary information is stored in files in Universal Tools directory. 
+//In this case, debugging is then called from the list of the "Debugging Data" catalog..
+// 
+// Parameters:
+// 	ObjectForDebugging - Query,DataCompositionSchema,HTTPRequest,AnyRef,FormTable - Object of Query type
+// 	DcsSettingsOrHTTPConnection - HTTPConnection,DataCompositionSettings
+// 	ExternalDataSets - Structure - consisting of KeyAndValue:
+// 		* Key - String -
+// 		* Value - ValueTable -
+// 	Name - String - Name of Saved debugging object
+// 
+// Return value:
+// String- type DebugDataRef
+// The result of saving debugging data
+Function _DebugToFile(ObjectForDebugging, DcsSettingsOrHTTPConnection = Undefined, ExternalDataSets = Undefined,
+	Name = "") Export
+	Return UT_CommonClientServer.DebugObject(ObjectForDebugging,
+														   DcsSettingsOrHTTPConnection,
+														   ExternalDataSets,
+														   True,
+														   Name);
+	
+EndFunction
+
+// Description
+// You can assign a value to a variable at any time.
+// Parameters:
+// ParameterA - Arbitrary - Arbitrary value
+// ParameterB - Arbitrary - Arbitrary value
+// Return Value:
+// Arbitrary - The result of saving the algorithm
+Function _PR(ParameterA, ParameterB) Export
+	ParameterA=ParameterB;
+	Return ParameterA;
+EndFunction
+
+#If Not WebClient Then
+
+// Description
+// Execute code in Debugger. Analor of Function  ДУ from ИР
+// ВыполниитьКодВОтладчике() function of code execution
+// Parameters:
+// Code - String - "Code" attribute value
+// P - Arbitrary - Arbitrary value
+// P2 - Arbitrary - Arbitrary value
+// P3 - Arbitrary - Arbitrary value
+// P4 - Arbitrary - Arbitrary value
+// P5 - Arbitrary - Arbitrary value
+// Return value:
+// Arbitrary -  Р - The result of saving the algorithm
+//@skip-check method-too-many-params
+//@skip-check bsl-variable-name-invalid
+Function _DU(Code, P = Undefined, P2 = Undefined, P3 = Undefined, P4 = Undefined, P5 = Undefined) Export
+	//@skip-check bsl-variable-name-invalid
+	Р = Undefined;
+	//@skip-check server-execution-safe-mode
+	Execute (Code);
+
+	Return Р;
+
+EndFunction
+
+// Description
+// 
+// Parameters:
+// 	ReadingPath - String, XMLReader, Stream - from where to read the XML 
+// 	SimplifyElements - Boolean - is it worth removing unnecessary elements of the structure when reading
+// Return value:
+// Map
+// Return value:	
+// Structure -
+// Return value:
+// Undefined - Failed to read XML
+Function _XMLObject(ReadingPath, SimplifyElements=True) Export
+	Return UT_XMLParcer.mRead(ReadingPath, SimplifyElements);
+EndFunction
+
+#EndIf
+
+#If Server Or ThickClientOrdinaryApplication Or ThickClientManagedApplication Then
+	
+// Description
+// 
+// Returns a structure query table or Manager of temporary tables
+//  If you pass a query, he previously performed.
+// if the request has a Manager temporary tables, the structure of the table was added Manager temporary tables query
+//
+// Parameters:
+// QueryORTempTablesManager- Type Query or TempTablesManager
+// Return value:
+// Structure from KeyValue:
+// 		* Key- String- TempTableName
+// 		* Value - ValueTable- The contents of the temporary table
+Function _TempTable(QueryORTempTablesManager) Export
+	If TypeOf(QueryORTempTablesManager) = Type("TempTablesManager") Then
+		Return UT_CommonServerCall.TempTablesManagerTempTablesStructure(
+			QueryORTempTablesManager);
+	ElsIf TypeOf(QueryORTempTablesManager) = Type("Query") Then
+		Query=New Query;
+		Query.Text=QueryORTempTablesManager.Text;
+		For Each Parameter In QueryORTempTablesManager.Parameters Do
+			Query.SetParameter(Parameter.Key, Parameter.Value);
+		EndDo;
+
+		If QueryORTempTablesManager.TempTablesManager = Undefined Then
+			Query.TempTablesManager=New TempTablesManager;
+		Else
+			Query.TempTablesManager=QueryORTempTablesManager.TempTablesManager;
+		EndIf;
+
+		Try
+			Query.ExecuteBatch();
+		Except
+			Return NStr("ru = 'Ошибка выполнения запроса'; en = 'Query execution error'; tr = 'Sorgu yürütme hatası'") + ErrorDescription();
+		EndTry;
+
+		Return UT_CommonServerCall.TempTablesManagerTempTablesStructure(
+			Query.TempTablesManager);
+	EndIf;
+EndFunction
+
+
+// Description
+// Compares two tables of values for a given list of columns
+// 
+// Parameters:
+// 	BaseTable		- ValueTable - the first table for comparison
+// 	ComparisonTable	- ValueTable - the second table for comparison
+// 	ColumnsList		- String 		  - List of columns for which you need to perform a comparison. 
+// 											Columns must be present in both tables
+// 											If the parameter is not specified, the comparison takes place according to the columns of the base table
+// 	
+// Return value:
+// 	Structure - Description:
+// * IdenticalTables 		- Boolean 	- A sign of the identity of the tables
+// * DifferencesTable 	- ValueTable 	- A table showing the discrepancies of the compared tables
+Function _ValueTablesCompare(BaseTable, ComparisonTable, ColumnsList = Undefined) Export
+	If ColumnsList = Undefined Then
+		ColumnsForComparison="";
+	Else
+		ColumnsForComparison=ColumnsList;
+	EndIf;
+
+	Try
+		Return UT_CommonServerCall.ExecuteTwoValueTablesComparison(BaseTable, ComparisonTable,
+			ColumnsForComparison);
+	Except
+		Return ErrorDescription();
+	EndTry;
+EndFunction
+
+
+// Description
+//
+// Parameters:
+//  AlgorithmName - String - Catalog's "Algorithms" element's name, search by description 
+//  AlgorithmText - String - Attribute "AlgorithmText" value
+//  Parameter1 - Arbitrary - value
+//  Parameter2 - Arbitrary - value
+//  Parameter3 - Arbitrary - value
+//  Parameter4 - Arbitrary - value
+//  Parameter5 - Arbitrary - value
+//  Parameter6 - Arbitrary - value
+//  Parameter7 - Arbitrary - value
+//  Parameter8 - Arbitrary - value
+//  Parameter9 - Arbitrary - value
+//  ParametersNamesArray - String - Comma separated parameter names
+// Return value:
+//  String - Algorithm saving result
+//@skip-check method-too-many-params
+Function _Alg(AlgorithmName, AlgorithmText = "", Val Parameter1 = Undefined, Val Parameter2 = Undefined, 
+	Val Parameter3 = Undefined, Val Parameter4 = Undefined, Val Parameter5 = Undefined, 
+	Val Parameter6 = Undefined, Val Parameter7 = Undefined, Val Parameter8 = Undefined, 
+	Val Parameter9 = Undefined, Val ParametersNamesArray = Undefined) Export
+	
+	Return UT_AlgorithmsServerCall.CreatingOfAlgorithm(AlgorithmName, AlgorithmText, Parameter1, Parameter2,
+		Parameter3, Parameter4, Parameter5, Parameter6, Parameter7, Parameter8, Parameter9, StrSplit(ParametersNamesArray, 
+		",", False));
+		
+EndFunction
+
+// Alg2
+//
+// Parameters:
+//  AlgorithmText - String - Algorithm text, prodecure is transferred, i.e. Module.Procedure(Parameters...)
+//
+// Return value:
+//  String - Debug forming string
+Function _Alg2(AlgorithmText) Export
+	FirstBracket = StrFind(AlgorithmText, "(");
+	LastBracket = StrFind(AlgorithmText, ")");
+	ProcedureParameters = Mid(AlgorithmText, FirstBracket + 1, LastBracket - FirstBracket - 1);
+	ParametersArray = StrSplit(ProcedureParameters, ",");
+	ParametersCount = ParametersArray.Count();
+	If ParametersCount > 9 Then
+		Return NStr("ru = 'Слишком много параметров'; en = 'Too many parameters'; tr = 'Çok fazla parametre var'");
+	EndIf;
+	For ParameterNum = ParametersCount + 1 To 9 Do
+		ParametersArray.Add("");
+	EndDo;
+	
+	Return StrTemplate("UT_._Alg(""%1"",""%2"",%3, ""%4"")", Left(AlgorithmText, FirstBracket - 1), AlgorithmText,
+		StrConcat(ParametersArray, ","));
+EndFunction
+
+#EndIf
+
+#EndRegion
+
+#Область Private
+
+
+#КонецОбласти

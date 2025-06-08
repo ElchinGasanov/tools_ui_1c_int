@@ -1,0 +1,3796 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Регистрация изменений для обмена данными</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Register changes for data exchange</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>tr</v8:lang>
+			<v8:content>Veri alışverişi için değişikliklerin kaydı</v8:content>
+		</v8:item>
+	</Title>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnSaveDataInSettingsAtServer">OnSaveDataInSettingsAtServer</Event>
+		<Event name="ChoiceProcessing">ChoiceProcessing</Event>
+		<Event name="NotificationProcessing">NotificationProcessing</Event>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">OnLoadDataFromSettingsAtServer</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+		<Event name="OnClose">OnClose</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Group2" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Quick filters</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Быстрые отборы</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Group2ExtendedTooltip" id="200"/>
+			<ChildItems>
+				<InputField name="ExchangeNodeRef" id="1">
+					<DataPath>ExchangeNodeRef</DataPath>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>false</ClearButton>
+					<ContextMenu name="ExchangeNodeRefContextMenu" id="2"/>
+					<ExtendedTooltip name="ExchangeNodeRefExtendedTooltip" id="201"/>
+					<Events>
+						<Event name="OnChange">ExchangeNodeRefOnChange</Event>
+						<Event name="StartChoice">ExchangeNodeRefStartChoice</Event>
+						<Event name="Clearing">ExchangeNodeRefClear</Event>
+						<Event name="ChoiceProcessing">ExchangeNodeRefChoiceProcessing</Event>
+					</Events>
+				</InputField>
+				<Button name="FormEditMessageNumbers" id="85">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.EditMessageNumbers</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№ сообщений: отпр. &lt;нет&gt;, прин. &lt;нет&gt;</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Messages #: sent &lt;blank&gt;, received &lt;blank&gt;</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Mesajlar #: gönderildi &lt;boş&gt;, alındı &lt;boş&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="FormEditMessageNumbersExtendedTooltip" id="202"/>
+				</Button>
+				<InputField name="FilterByMessageNumberOption" id="172">
+					<DataPath>FilterByMessageNumberOption</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отображать изменения</v8:content>
+						</v8:item>
+					</Title>
+					<Width>18</Width>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChooseType>false</ChooseType>
+					<TextEdit>false</TextEdit>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>All</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Все</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Exported</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Только выгруженные </v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Skipped</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Только невыгруженные</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="FilterByMessageNumberOptionContextMenu" id="173"/>
+					<ExtendedTooltip name="FilterByMessageNumberOptionExtendedTooltip" id="203"/>
+					<Events>
+						<Event name="OnChange">FilterByMessageNumberOptionOnChange</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Group1" id="5">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Registrtion data</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные регистрации</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Group1ExtendedTooltip" id="204"/>
+			<ChildItems>
+				<CommandBar name="CommonCommandBar" id="95">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Command bar</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Командная панель </v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Common command bar</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общая командная панель</v8:content>
+						</v8:item>
+					</ToolTip>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="CommonCommandBarExtendedTooltip" id="205"/>
+					<ChildItems>
+						<Popup name="MetadataTreeAddGroup" id="39">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Зарегистрировать изменения</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Register changes</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Değişiklikleri kaydet</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Register objects of selected types</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Зарегистрировать объекты выбранных типов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Picture>
+								<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="MetadataTreeAddGroupExtendedTooltip" id="206"/>
+							<ChildItems>
+								<Button name="MetadataTreeAddRegistrationForAllObjects" id="40">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.AddRegistrationForAllObjects</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Всех объектов выбранных типов</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>All objects of selected types</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Seçilen türlerin tüm nesneleri</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="MetadataTreeAddRegistrationForAllObjectsExtendedTooltip" id="207"/>
+								</Button>
+								<Button name="MetadataTreeAddRegistrationForAutoObjects" id="41">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.AddRegistrationForAutoObjects</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Объектов выбранных типов с авторегистрацией</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Objects of selected types with auto registration</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Otomatik kayıtlı seçilen türlerin nesneleri</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="MetadataTreeAddRegistrationForAutoObjectsExtendedTooltip" id="208"/>
+								</Button>
+								<ButtonGroup name="AddCommandGroup" id="183">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Регистрация</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Register</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Kayıt</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Add command group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа команд добавить</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="AddCommandGroupExtendedTooltip" id="209"/>
+									<ChildItems>
+										<Button name="FormAddRegistrationForSingleObject" id="184">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.AddRegistrationForSingleObject</CommandName>
+											<Picture>
+												<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Одиночного объекта</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Single object</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Tek bir nesne</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="FormAddRegistrationForSingleObjectExtendedTooltip" id="210"/>
+										</Button>
+										<Button name="FormAddRegistrationFilter" id="185">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.AddRegistrationFilter</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Объектов при помощи отбора</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Objects that match a filter</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Filtreye göre nesneler</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="FormAddRegistrationFilterExtendedTooltip" id="211"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+								<ButtonGroup name="MetadataTreeGroup3" id="60">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Регистрация результатов запроса</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Register query result</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Sorgu sonuçlarının kaydı</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="MetadataTreeGroup3ExtendedTooltip" id="212"/>
+									<ChildItems>
+										<Button name="MetadataTreeAddQueryResultRegistration" id="59">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.AddQueryResultRegistration</CommandName>
+											<Picture>
+												<xr:Ref>CommonPicture.UT_QueryResult</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Результатов запроса</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Query result</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Sorgu sonucu</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="MetadataTreeAddQueryResultRegistrationExtendedTooltip" id="213"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+							</ChildItems>
+						</Popup>
+						<Popup name="MetadataTreeDeleteGroup" id="42">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отменить регистрацию изменений</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Unregister changes</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Değişikliklerin kaydını sil</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Unregister objects of selected types</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отменить регистрацию объектов выбранных типов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Picture>
+								<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="MetadataTreeDeleteGroupExtendedTooltip" id="214"/>
+							<ChildItems>
+								<Button name="MetadataTreeDeleteRegistrationForAllObjects" id="43">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.DeleteRegistrationForAllObjects</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Всех объектов выбранных типов</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>All objects of selected types</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Seçilen türlerin tüm nesneleri</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="MetadataTreeDeleteRegistrationForAllObjectsExtendedTooltip" id="215"/>
+								</Button>
+								<Button name="MetadataTreeDeleteRegistrationForAutoObjects" id="44">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.DeleteRegistrationForAutoObjects</CommandName>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Объектов выбранных типов с авторегистрацией</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Objects of selected types with auto registration</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Otomatik kayıtla seçilen türlerin nesneleri</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="MetadataTreeDeleteRegistrationForAutoObjectsExtendedTooltip" id="216"/>
+								</Button>
+								<ButtonGroup name="DeleteCommandGroup" id="186">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отмена регистрации</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unregister</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Sil</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unregister command group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа команд удалить</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="DeleteCommandGroupExtendedTooltip" id="217"/>
+									<ChildItems>
+										<Button name="FormDeleteRegistrationForSingleObject" id="187">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.DeleteRegistrationForSingleObject</CommandName>
+											<Picture>
+												<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Одиночного объекта</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Single object</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Tek bir nesne</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="FormDeleteRegistrationForSingleObjectExtendedTooltip" id="218"/>
+										</Button>
+										<Button name="FormDeleteRegistrationFilter" id="188">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.DeleteRegistrationFilter</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Объектов при помощи отбора</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Objects that match a filter</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Filtreye göre nesneler</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="FormDeleteRegistrationFilterExtendedTooltip" id="219"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+								<ButtonGroup name="MetadataTreeGroup4" id="61">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отмена регистрации результатов запроса</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unregister query result</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Sorgu sonuçlarının kaydını sil</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="MetadataTreeGroup4ExtendedTooltip" id="220"/>
+									<ChildItems>
+										<Button name="MetadataTreeDeleteQueryResultRegistration" id="62">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.DeleteQueryResultRegistration</CommandName>
+											<Picture>
+												<xr:Ref>CommonPicture.UT_QueryResult</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Результатов запроса</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Query result</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Sorgu sonucu</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="MetadataTreeDeleteQueryResultRegistrationExtendedTooltip" id="221"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+							</ChildItems>
+						</Popup>
+						<Button name="RefreshAllData" id="97">
+							<Type>CommandBarButton</Type>
+							<Representation>PictureAndText</Representation>
+							<CommandName>Form.Command.RefreshAllData</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обновить</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Refresh</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Yenile</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="RefreshAllDataExtendedTooltip" id="222"/>
+						</Button>
+						<Button name="FormOpenSettingsForm" id="145">
+							<Type>CommandBarButton</Type>
+							<Representation>PictureAndText</Representation>
+							<CommandName>Form.Command.OpenSettingsForm</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Settings</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Ayarlar</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="FormOpenSettingsFormExtendedTooltip" id="223"/>
+						</Button>
+						<Button name="ShowExportResult" id="133">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ShowExportResult</CommandName>
+							<Picture>
+								<xr:Ref>CommonPicture.UT_UploadingResult</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="ShowExportResultExtendedTooltip" id="224"/>
+						</Button>
+						<Button name="FormOpenNodeRegistrationForm" id="182">
+							<Type>CommandBarButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.Command.OpenNodeRegistrationForm</CommandName>
+							<Picture>
+								<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Регистрация объекта на всех узлах</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Register object at all nodes</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Bir nesneyi tüm düğümlere kaydet</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="FormOpenNodeRegistrationFormExtendedTooltip" id="225"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+				<UsualGroup name="Group5" id="96">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Objects to register</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регистрируемые объекты</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Group5ExtendedTooltip" id="226"/>
+					<ChildItems>
+						<Table name="MetadataTree" id="6">
+							<Representation>Tree</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<SelectionMode>SingleRow</SelectionMode>
+							<HorizontalLines>false</HorizontalLines>
+							<VerticalLines>false</VerticalLines>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>MetadataTree</DataPath>
+							<RowPictureDataPath>MetadataTree.PictureIndex</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.UT_MetadataObjectsTypes</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Registration object types</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Виды объектов регистрации</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>HierarchicalList</ExcludedCommand>
+								<ExcludedCommand>List</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+								<ExcludedCommand>Tree</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ContextMenu name="MetadataTreeContextMenu" id="7">
+								<ChildItems>
+									<ButtonGroup name="MetadataTreeContextMenuGroup1" id="114">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавление по виду объектов</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Register by object type</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>tr</v8:lang>
+												<v8:content>Nesne türüne göre ekleme</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="MetadataTreeContextMenuGroup1ExtendedTooltip" id="227"/>
+										<ChildItems>
+											<Button name="MetadataTreeContextMenuAddRegistrationForAllObjects" id="115">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.AddRegistrationForAllObjects</CommandName>
+												<Picture>
+													<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+													<xr:LoadTransparent>true</xr:LoadTransparent>
+												</Picture>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Зарегистрировать изменения всех объектов выбранных типов</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Register changes for all objects of selected types</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Seçilen türdeki tüm nesnelerdeki değişiklikleri kaydet</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="MetadataTreeContextMenuAddRegistrationForAllObjectsExtendedTooltip" id="228"/>
+											</Button>
+											<Button name="MetadataTreeContextMenuAddRegistrationForAutoObjects" id="116">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.AddRegistrationForAutoObjects</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Зарегистрировать изменения объектов выбранных типов с
+									авторегистрацией</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Register changes for objects of selected types with auto registration</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Otomatik kayıt ile seçili türdeki nesneler için değişiklikleri kaydet</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="MetadataTreeContextMenuAddRegistrationForAutoObjectsExtendedTooltip" id="229"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="AddCommandGroup1" id="190">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавление объектов</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Add objects</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>tr</v8:lang>
+												<v8:content>Tüm nesneler</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Add command group</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа команд добавить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="AddCommandGroup1ExtendedTooltip" id="230"/>
+										<ChildItems>
+											<Button name="MetadataTreeContextMenuAddRegistrationForSingleObject" id="191">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.AddRegistrationForSingleObject</CommandName>
+												<Picture>
+													<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+													<xr:LoadTransparent>true</xr:LoadTransparent>
+												</Picture>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Зарегистрировать изменения одиночного объекта</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Register changes for a single object</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Değişiklikleri tek bir nesneye kaydet</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="MetadataTreeContextMenuAddRegistrationForSingleObjectExtendedTooltip" id="231"/>
+											</Button>
+											<Button name="MetadataTreeContextMenuAddRegistrationFilter" id="192">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.AddRegistrationFilter</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Зарегистрировать изменения объектов при помощи отбора</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Register changes for objects that match a filter</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Filtreyi kullanarak nesnelerdeki değişiklikleri kaydet</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="MetadataTreeContextMenuAddRegistrationFilterExtendedTooltip" id="232"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="MetadataTreeContextMenuGroup2" id="142">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отмена регистрации по виду объектов</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Unregister by object type</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>tr</v8:lang>
+												<v8:content>Nesne türüne göre kaydı iptal et</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="MetadataTreeContextMenuGroup2ExtendedTooltip" id="233"/>
+										<ChildItems>
+											<Button name="MetadataTreeContextMenuDeleteRegistrationForAllObjects" id="143">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.DeleteRegistrationForAllObjects</CommandName>
+												<Picture>
+													<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+													<xr:LoadTransparent>true</xr:LoadTransparent>
+												</Picture>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Отменить регистрацию изменений всех объектов выбранных
+									типов</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Unregister changes for all objects of selected types</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Seçili türlerdeki tüm nesneler için değişiklikleri kayıttan çıkar</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="MetadataTreeContextMenuDeleteRegistrationForAllObjectsExtendedTooltip" id="234"/>
+											</Button>
+											<Button name="MetadataTreeContextMenuDeleteRegistrationForAutoObjects" id="144">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.DeleteRegistrationForAutoObjects</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Отменить регистрацию изменений объектов выбранных типов с
+									авторегистрацией</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Unregister changes for objects of selected types with auto registration</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Otomatik kayıtla seçili türlerdeki nesneler için değişiklikleri kayıttan çıkarın</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="MetadataTreeContextMenuDeleteRegistrationForAutoObjectsExtendedTooltip" id="235"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="DeleteCommandGroup1" id="193">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отмена регистрации</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Unregister</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>tr</v8:lang>
+												<v8:content>Sil</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Delete command group</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа команд удалить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="DeleteCommandGroup1ExtendedTooltip" id="236"/>
+										<ChildItems>
+											<Button name="MetadataTreeContextMenuDeleteRegistrationForSingleObject" id="194">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.DeleteRegistrationForSingleObject</CommandName>
+												<Picture>
+													<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+													<xr:LoadTransparent>true</xr:LoadTransparent>
+												</Picture>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Отменить регистрацию изменений одиночного объекта</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Unregister changes for a single object</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Tek bir nesne için değişiklikleri kayıttan çıkar</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="MetadataTreeContextMenuDeleteRegistrationForSingleObjectExtendedTooltip" id="237"/>
+											</Button>
+											<Button name="MetadataTreeContextMenuDeleteRegistrationFilter" id="195">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.DeleteRegistrationFilter</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Отменить регистрацию изменений объектов при помощи отбора</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Unregister changes for objects that match a filter</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Bir filtreyle eşleşen nesneler için değişiklikleri kayıttan çıkar</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="MetadataTreeContextMenuDeleteRegistrationFilterExtendedTooltip" id="238"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="MetadataTreeContextMenuGroup3" id="149">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Системное меню</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>System menu</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>tr</v8:lang>
+												<v8:content>Sistem menüsü</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="MetadataTreeContextMenuGroup3ExtendedTooltip" id="239"/>
+										<ChildItems>
+											<Button name="MetadataTreeContextMenuOutputList" id="150">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.MetadataTree.StandardCommand.OutputList</CommandName>
+												<ExtendedTooltip name="MetadataTreeContextMenuOutputListExtendedTooltip" id="240"/>
+											</Button>
+											<Button name="MetadataTreeContextMenuCopyToClipboard" id="151">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.MetadataTree.StandardCommand.CopyToClipboard</CommandName>
+												<ExtendedTooltip name="MetadataTreeContextMenuCopyToClipboardExtendedTooltip" id="241"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="MetadataTreeCommandBar" id="8">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="MetadataTreeExtendedTooltip" id="242"/>
+							<SearchStringAddition name="MetadataTreeSearchString" id="314">
+								<AdditionSource>
+									<Item>MetadataTree</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="MetadataTreeSearchStringContextMenu" id="315"/>
+								<ExtendedTooltip name="MetadataTreeSearchStringExtendedTooltip" id="316"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="MetadataTreeViewStatus" id="317">
+								<AdditionSource>
+									<Item>MetadataTree</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="MetadataTreeViewStatusContextMenu" id="318"/>
+								<ExtendedTooltip name="MetadataTreeViewStatusExtendedTooltip" id="319"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="MetadataTreeSearchControl" id="320">
+								<AdditionSource>
+									<Item>MetadataTree</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="MetadataTreeSearchControlContextMenu" id="321"/>
+								<ExtendedTooltip name="MetadataTreeSearchControlExtendedTooltip" id="322"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnActivateRow">MetadataTreeOnActivateRow</Event>
+							</Events>
+							<ChildItems>
+								<ColumnGroup name="MetadataTreeGroup1" id="9">
+									<EnableContentChange>true</EnableContentChange>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Объекты регистрации</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Objects</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Nesneler</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>true</HorizontalStretch>
+									<VerticalStretch>true</VerticalStretch>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="MetadataTreeGroup1ExtendedTooltip" id="243"/>
+									<ChildItems>
+										<CheckBoxField name="MetadataTreeCheck" id="16">
+											<DataPath>MetadataTree.Check</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>Directly</EditMode>
+											<ThreeState>true</ThreeState>
+											<ContextMenu name="MetadataTreeCheckContextMenu" id="17"/>
+											<ExtendedTooltip name="MetadataTreeCheckExtendedTooltip" id="244"/>
+											<Events>
+												<Event name="OnChange">ДеревоМетаданныхПометкаПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<LabelField name="MetadataTreeDescription" id="10">
+											<DataPath>MetadataTree.Description</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Объект конфигурации</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Configuration object</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Konfigurasyon nesnesi</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ContextMenu name="MetadataTreeDescriptionContextMenu" id="11"/>
+											<ExtendedTooltip name="MetadataTreeDescriptionExtendedTooltip" id="245"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="MetadataTreeGroup2" id="26">
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Информация о регистрации</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Registration info</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Kayıt bilgisi</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>true</HorizontalStretch>
+									<VerticalStretch>true</VerticalStretch>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="MetadataTreeGroup2ExtendedTooltip" id="246"/>
+									<ChildItems>
+										<PictureField name="MetadataTreeAutoRegistration" id="27">
+											<DataPath>MetadataTree.AutoRegistration</DataPath>
+											<UserVisible>
+												<xr:Common>false</xr:Common>
+											</UserVisible>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Авторегистрация</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Auto registration</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Otomatik kayıt</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.UT_AutoRegistrationStatus</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="MetadataTreeAutoRegistrationContextMenu" id="28"/>
+											<ExtendedTooltip name="MetadataTreeAutoRegistrationExtendedTooltip" id="247"/>
+										</PictureField>
+										<LabelField name="MetadataTreeChangeCountString" id="29">
+											<DataPath>MetadataTree.ChangeCountString</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Зарегистрировано/не выгружено</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Registered/not exported</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Kayıtlı/dışa aktarılmamış</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<HorizontalStretch>true</HorizontalStretch>
+											<ContextMenu name="MetadataTreeChangeCountStringContextMenu" id="30"/>
+											<ExtendedTooltip name="MetadataTreeChangeCountStringExtendedTooltip" id="248"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+						<Pages name="ObjectsListOptions" id="45">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Регистрация объектов</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Register objects</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Nesneler kaydı</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Objects list options</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Варианты списка объектов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ObjectsListOptionsExtendedTooltip" id="249"/>
+							<Events>
+								<Event name="OnCurrentPageChange">ObjectsListOptionsOnCurrentPageChange</Event>
+							</Events>
+							<ChildItems>
+								<Page name="ConstantsPage" id="49">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Константы</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Constants</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Sabitler</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Constants page</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница константы</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ConstantsPageExtendedTooltip" id="250"/>
+									<ChildItems>
+										<Table name="ConstantsList" id="63">
+											<Representation>List</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<HorizontalLines>false</HorizontalLines>
+											<VerticalLines>false</VerticalLines>
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<InitialListView>Beginning</InitialListView>
+											<EnableStartDrag>true</EnableStartDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>ConstantsList</DataPath>
+											<RowPictureDataPath>~ConstantsList.ИндексКартинки</RowPictureDataPath>
+											<RowsPicture>
+												<xr:Ref>CommonPicture.UT_MetadataObjectsTypes</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</RowsPicture>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Constants list</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Список констант</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<AutoRefresh>false</AutoRefresh>
+											<AutoRefreshPeriod>60</AutoRefreshPeriod>
+											<Period>
+												<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+												<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+												<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+											</Period>
+											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+											<RestoreCurrentRow>false</RestoreCurrentRow>
+											<TopLevelParent xsi:nil="true"/>
+											<ShowRoot>true</ShowRoot>
+											<AllowRootChoice>false</AllowRootChoice>
+											<UpdateOnDataChange>Auto</UpdateOnDataChange>
+											<AllowGettingCurrentRowURL>false</AllowGettingCurrentRowURL>
+											<ContextMenu name="ConstantsListContextMenu" id="64">
+												<Autofill>false</Autofill>
+												<ChildItems>
+													<ButtonGroup name="ConstantsListContextMenuGroup1" id="101">
+														<HorizontalStretch>true</HorizontalStretch>
+														<ExtendedTooltip name="ConstantsListContextMenuGroup1ExtendedTooltip" id="251"/>
+														<ChildItems>
+															<Button name="ConstantsListContextMenuAddConstantRegistration" id="98">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.AddConstantRegistration</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Зарегистрировать изменение константы</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Register constant change</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Sabit değişikliğini kaydet</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ConstantsListContextMenuAddConstantRegistrationExtendedTooltip" id="252"/>
+															</Button>
+															<Button name="ConstantsListContextMenuDeleteConstantRegistration" id="99">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.DeleteConstantRegistration</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Отменить регистрацию изменений константы</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Unregister constant change</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Sabit değişikliği kaydını iptal et</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ConstantsListContextMenuDeleteConstantRegistrationExtendedTooltip" id="253"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<ButtonGroup name="ConstantsListContextMenuGroup3" id="177">
+														<ExtendedTooltip name="ConstantsListContextMenuGroup3ExtendedTooltip" id="254"/>
+														<ChildItems>
+															<Button name="ConstantsListContextMenuShowExportResult" id="100">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ShowExportResult</CommandName>
+																<Picture>
+																	<xr:Ref>CommonPicture.UT_UploadingResult</xr:Ref>
+																	<xr:LoadTransparent>false</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Результат стандартной выгрузки (РИБ)</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Standard export result (DIB)</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Standart dışa aktarma sonucu (DIB)</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ConstantsListContextMenuShowExportResultExtendedTooltip" id="255"/>
+															</Button>
+															<Button name="ConstantsListContextMenuOpenNodeRegistrationForm" id="178">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.OpenNodeRegistrationForm</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<ExtendedTooltip name="ConstantsListContextMenuOpenNodeRegistrationFormExtendedTooltip" id="256"/>
+															</Button>
+															<Button name="ConstantsListContextMenuEditObjectMessageNumber" id="197">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.EditObjectMessageNumber</CommandName>
+																<ExtendedTooltip name="ConstantsListContextMenuEditObjectMessageNumberExtendedTooltip" id="257"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<ButtonGroup name="ConstantsListContextMenuGroup2" id="152">
+														<ExtendedTooltip name="ConstantsListContextMenuGroup2ExtendedTooltip" id="258"/>
+														<ChildItems>
+															<Button name="ConstantsListContextMenuFind" id="153">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.ConstantsList.StandardCommand.Find</CommandName>
+																<ExtendedTooltip name="ConstantsListContextMenuFindExtendedTooltip" id="259"/>
+															</Button>
+															<Button name="ConstantsListContextMenuCancelSearch" id="154">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.ConstantsList.StandardCommand.CancelSearch</CommandName>
+																<ExtendedTooltip name="ConstantsListContextMenuCancelSearchExtendedTooltip" id="260"/>
+															</Button>
+															<Button name="ConstantsListContextMenuListSettings" id="155">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.ConstantsList.StandardCommand.ListSettings</CommandName>
+																<ExtendedTooltip name="ConstantsListContextMenuListSettingsExtendedTooltip" id="261"/>
+															</Button>
+															<Button name="ConstantsListContextMenuOutputList" id="156">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.ConstantsList.StandardCommand.OutputList</CommandName>
+																<ExtendedTooltip name="ConstantsListContextMenuOutputListExtendedTooltip" id="262"/>
+															</Button>
+															<Button name="ConstantsListContextMenuRefresh" id="157">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.ConstantsList.StandardCommand.Refresh</CommandName>
+																<ExtendedTooltip name="ConstantsListContextMenuRefreshExtendedTooltip" id="263"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="ConstantsListCommandBar" id="65">
+												<Autofill>false</Autofill>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ConstantsListExtendedTooltip" id="264"/>
+											<SearchStringAddition name="ConstantsListSearchString" id="323">
+												<AdditionSource>
+													<Item>ConstantsList</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ConstantsListSearchStringContextMenu" id="324"/>
+												<ExtendedTooltip name="ConstantsListSearchStringExtendedTooltip" id="325"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ConstantsListViewStatus" id="326">
+												<AdditionSource>
+													<Item>ConstantsList</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="ConstantsListViewStatusContextMenu" id="327"/>
+												<ExtendedTooltip name="ConstantsListViewStatusExtendedTooltip" id="328"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ConstantsListSearchControl" id="329">
+												<AdditionSource>
+													<Item>ConstantsList</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ConstantsListSearchControlContextMenu" id="330"/>
+												<ExtendedTooltip name="ConstantsListSearchControlExtendedTooltip" id="331"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="ChoiceProcessing">ConstantListChoiceProcessing</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ConstantsListDescription" id="66">
+													<DataPath>ConstantsList.Description</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Константа</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Constant</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>Sabit</v8:content>
+														</v8:item>
+													</Title>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="ConstantsListDescriptionContextMenu" id="67"/>
+													<ExtendedTooltip name="ConstantsListDescriptionExtendedTooltip" id="265"/>
+												</LabelField>
+												<ColumnGroup name="ConstantsListGroup1" id="148">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Информация о регистрации</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Registration info</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>Kayıt bilgisi</v8:content>
+														</v8:item>
+													</Title>
+													<Group>InCell</Group>
+													<ExtendedTooltip name="ConstantsListGroup1ExtendedTooltip" id="266"/>
+													<ChildItems>
+														<PictureField name="ConstantsListAutoRecord" id="146">
+															<DataPath>ConstantsList.AutoRecordPictureIndex</DataPath>
+															<UserVisible>
+																<xr:Common>false</xr:Common>
+															</UserVisible>
+															<ReadOnly>true</ReadOnly>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Авторегистрация</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Auto record</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>tr</v8:lang>
+																	<v8:content>Otomatik kayıt</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>Directly</EditMode>
+															<ValuesPicture>
+																<xr:Ref>CommonPicture.UT_AutoRegistrationStatus</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
+															</ValuesPicture>
+															<FileDragMode>AsFile</FileDragMode>
+															<ContextMenu name="ConstantsListAutoRecordContextMenu" id="147"/>
+															<ExtendedTooltip name="ConstantsListAutoRecordExtendedTooltip" id="267"/>
+														</PictureField>
+														<LabelField name="ConstantsListMessageNo" id="68">
+															<DataPath>ConstantsList.MessageNo</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Номер отправленного</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Sent message number</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>tr</v8:lang>
+																	<v8:content>Gönderilen mesaj numarası</v8:content>
+																</v8:item>
+															</Title>
+															<HorizontalAlign>Left</HorizontalAlign>
+															<EditMode>Directly</EditMode>
+															<HorizontalStretch>true</HorizontalStretch>
+															<ContextMenu name="ConstantsListMessageNoContextMenu" id="69"/>
+															<ExtendedTooltip name="ConstantsListMessageNoExtendedTooltip" id="268"/>
+														</LabelField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="ReferencesListPage" id="48">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ссылки</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>References</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Referanslar</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>References list page</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница списка ссылок</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ReferencesListPageExtendedTooltip" id="269"/>
+									<ChildItems>
+										<Table name="RefsList" id="18">
+											<Representation>List</Representation>
+											<TitleLocation>Auto</TitleLocation>
+											<ReadOnly>true</ReadOnly>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<InitialListView>Beginning</InitialListView>
+											<EnableStartDrag>true</EnableStartDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>RefsList</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Список ссылок</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Refs list</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Referanslar listesi</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<AutoRefresh>false</AutoRefresh>
+											<AutoRefreshPeriod>60</AutoRefreshPeriod>
+											<Period>
+												<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+												<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+												<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+											</Period>
+											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+											<RestoreCurrentRow>true</RestoreCurrentRow>
+											<TopLevelParent xsi:nil="true"/>
+											<ShowRoot>true</ShowRoot>
+											<AllowRootChoice>false</AllowRootChoice>
+											<UpdateOnDataChange>Auto</UpdateOnDataChange>
+											<AllowGettingCurrentRowURL>false</AllowGettingCurrentRowURL>
+											<ContextMenu name="RefsListContextMenu" id="19">
+												<Autofill>false</Autofill>
+												<ChildItems>
+													<ButtonGroup name="RefsListContextMenuGroup1" id="102">
+														<HorizontalStretch>true</HorizontalStretch>
+														<ExtendedTooltip name="RefsListContextMenuGroup1ExtendedTooltip" id="270"/>
+														<ChildItems>
+															<Button name="RefsListContextMenuAddRefRegistrationPickup" id="134">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.AddRefRegistrationPickup</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Зарегистрировать изменение объекта</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Register changes for selected objects</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Nesne değişikliğini kaydet</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RefsListContextMenuAddRefRegistrationPickupExtendedTooltip" id="271"/>
+															</Button>
+															<Button name="RefsListContextMenuAddRefRegistrationFilter" id="135">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.AddRefRegistrationFilter</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Зарегистрировать изменения объектов при помощи отбора</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Register changes for objects that match a filter</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Filtreyi kullanarak nesnelerdeki değişiklikleri kaydet</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RefsListContextMenuAddRefRegistrationFilterExtendedTooltip" id="272"/>
+															</Button>
+															<Button name="RefsListContextMenuAddObjectDeletionRegistration" id="196">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.AddObjectDeletionRegistration</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Зарегистрировать удаление объекта</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Register object deletion</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Nesne silinmesini kaydet</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RefsListContextMenuAddObjectDeletionRegistrationExtendedTooltip" id="273"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<ButtonGroup name="RefsListContextMenuGroup3" id="158">
+														<ExtendedTooltip name="RefsListContextMenuGroup3ExtendedTooltip" id="274"/>
+														<ChildItems>
+															<Button name="RefsListContextMenuDeleteRefRegistration" id="105">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.DeleteRefRegistration</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Отменить регистрацию изменений объекта</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Unregister changes for a single object</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Nesnedeki değişiklikleri kayıttan çıkar</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RefsListContextMenuDeleteRefRegistrationExtendedTooltip" id="275"/>
+															</Button>
+															<Button name="RefsListContextMenuDeleteRefRegistrationFilter" id="189">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.DeleteRefRegistrationFilter</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Отменить регистрацию изменения объектов при помощи
+											отбора</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Unregister changes for objects that match a filter</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Filtreyle eşleşen nesneler için değişiklikleri kayıttan çıkar</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RefsListContextMenuDeleteRefRegistrationFilterExtendedTooltip" id="276"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<ButtonGroup name="RefsListContextMenuGroup4" id="181">
+														<ExtendedTooltip name="RefsListContextMenuGroup4ExtendedTooltip" id="277"/>
+														<ChildItems>
+															<Button name="RefsListContextMenuShowExportResult" id="106">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ShowExportResult</CommandName>
+																<Picture>
+																	<xr:Ref>CommonPicture.UT_UploadingResult</xr:Ref>
+																	<xr:LoadTransparent>false</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Показать результат выгрузки</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Show export result</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Dışa aktarma sonucunu göster</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RefsListContextMenuShowExportResultExtendedTooltip" id="278"/>
+															</Button>
+															<Button name="RefsListContextMenuOpenNodeRegistrationForm" id="137">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.OpenNodeRegistrationForm</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Регистрация на других узлах</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Register object at other nodes</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Diğer düğümlerde kayıt</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RefsListContextMenuOpenNodeRegistrationFormExtendedTooltip" id="279"/>
+															</Button>
+															<Button name="RefsListContextMenuEditObjectMessageNumber" id="198">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.EditObjectMessageNumber</CommandName>
+																<ExtendedTooltip name="RefsListContextMenuEditObjectMessageNumberExtendedTooltip" id="280"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<ButtonGroup name="RefsListContextMenuGroup2" id="136">
+														<HorizontalStretch>true</HorizontalStretch>
+														<ExtendedTooltip name="RefsListContextMenuGroup2ExtendedTooltip" id="281"/>
+														<ChildItems>
+															<Button name="RefsListContextMenuFind" id="159">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RefsList.StandardCommand.Find</CommandName>
+																<ExtendedTooltip name="RefsListContextMenuFindExtendedTooltip" id="282"/>
+															</Button>
+															<Button name="RefsListContextMenuCancelSearch" id="160">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RefsList.StandardCommand.CancelSearch</CommandName>
+																<ExtendedTooltip name="RefsListContextMenuCancelSearchExtendedTooltip" id="283"/>
+															</Button>
+															<Button name="RefsListContextMenuListSettings" id="161">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RefsList.StandardCommand.ListSettings</CommandName>
+																<ExtendedTooltip name="RefsListContextMenuListSettingsExtendedTooltip" id="284"/>
+															</Button>
+															<Button name="RefsListContextMenuOutputList" id="162">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RefsList.StandardCommand.OutputList</CommandName>
+																<ExtendedTooltip name="RefsListContextMenuOutputListExtendedTooltip" id="285"/>
+															</Button>
+															<Button name="RefsListContextMenuRefresh" id="163">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RefsList.StandardCommand.Refresh</CommandName>
+																<ExtendedTooltip name="RefsListContextMenuRefreshExtendedTooltip" id="286"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="RefsListCommandBar" id="20">
+												<Autofill>false</Autofill>
+												<ChildItems>
+													<Button name="RefsListEditReference" id="350">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.EditReference</CommandName>
+														<ExtendedTooltip name="RefsListEditReferenceExtendedTooltip" id="351"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="RefsListExtendedTooltip" id="287"/>
+											<SearchStringAddition name="RefsListSearchString" id="332">
+												<AdditionSource>
+													<Item>RefsList</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="RefsListSearchStringContextMenu" id="333"/>
+												<ExtendedTooltip name="RefsListSearchStringExtendedTooltip" id="334"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="RefsListViewStatus" id="335">
+												<AdditionSource>
+													<Item>RefsList</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="RefsListViewStatusContextMenu" id="336"/>
+												<ExtendedTooltip name="RefsListViewStatusExtendedTooltip" id="337"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="RefsListSearchControl" id="338">
+												<AdditionSource>
+													<Item>RefsList</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="RefsListSearchControlContextMenu" id="339"/>
+												<ExtendedTooltip name="RefsListSearchControlExtendedTooltip" id="340"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="ChoiceProcessing">ReferenceListChoiceProcessing</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="RefsListRefPresentation" id="21">
+													<DataPath>RefsList.Ref</DataPath>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="RefsListRefPresentationContextMenu" id="22"/>
+													<ExtendedTooltip name="RefsListRefPresentationExtendedTooltip" id="288"/>
+												</LabelField>
+												<LabelField name="RefsListMessageNo" id="52">
+													<DataPath>RefsList.MessageNo</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Номер отправленного</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Sent message number</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>Gönderilen mesaj numarası</v8:content>
+														</v8:item>
+													</Title>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="RefsListMessageNoContextMenu" id="53"/>
+													<ExtendedTooltip name="RefsListMessageNoExtendedTooltip" id="289"/>
+												</LabelField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="RecordSetPage" id="50">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Наборы записей</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Record sets</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Kayıt setleri</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Record set page</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница набора записей</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="RecordSetPageExtendedTooltip" id="290"/>
+									<ChildItems>
+										<Table name="RecordSetsList" id="78">
+											<RowInputMode>AfterCurrentRow</RowInputMode>
+											<HorizontalLines>false</HorizontalLines>
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<InitialListView>Beginning</InitialListView>
+											<EnableStartDrag>true</EnableStartDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>RecordSetsList</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Record set</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Набор записей</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<AutoRefresh>false</AutoRefresh>
+											<AutoRefreshPeriod>60</AutoRefreshPeriod>
+											<Period>
+												<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+												<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+												<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+											</Period>
+											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+											<RestoreCurrentRow>true</RestoreCurrentRow>
+											<TopLevelParent xsi:nil="true"/>
+											<ShowRoot>true</ShowRoot>
+											<AllowRootChoice>false</AllowRootChoice>
+											<UpdateOnDataChange>Auto</UpdateOnDataChange>
+											<AllowGettingCurrentRowURL>false</AllowGettingCurrentRowURL>
+											<ContextMenu name="RecordSetsListContextMenu" id="79">
+												<Autofill>false</Autofill>
+												<ChildItems>
+													<ButtonGroup name="RecordSetsListContextMenuGroup1" id="164">
+														<ExtendedTooltip name="RecordSetsListContextMenuGroup1ExtendedTooltip" id="291"/>
+														<ChildItems>
+															<Button name="RecordSetsListContextMenuAddRecordSetRegistrationFilter" id="138">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.AddRecordSetRegistrationFilter</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Зарегистрировать изменения набора записей</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Register record set changes</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Kayıt setlerindeki değişiklikleri kaydet</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RecordSetsListContextMenuAddRecordSetRegistrationFilterExtendedTooltip" id="292"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<ButtonGroup name="RecordSetsListContextMenuGroup2" id="165">
+														<ExtendedTooltip name="RecordSetsListContextMenuGroup2ExtendedTooltip" id="293"/>
+														<ChildItems>
+															<Button name="RecordSetsListContextMenuDeleteRecordSetRegistration" id="139">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.DeleteRecordSetRegistration</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Отменить регистрацию изменений текущей строки</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Unregister current line changes</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Mevcut satırdaki değişiklikleri kayıttan çıkar</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RecordSetsListContextMenuDeleteRecordSetRegistrationExtendedTooltip" id="294"/>
+															</Button>
+															<Button name="RecordSetsListContextMenuDeleteRecordSetRegistrationFilter" id="140">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.DeleteRecordSetRegistrationFilter</CommandName>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Отменить регистрацию изменений при помощи отбора</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RecordSetsListContextMenuDeleteRecordSetRegistrationFilterExtendedTooltip" id="295"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<ButtonGroup name="RecordSetsListContextMenuGroup4" id="179">
+														<ExtendedTooltip name="RecordSetsListContextMenuGroup4ExtendedTooltip" id="296"/>
+														<ChildItems>
+															<Button name="RecordSetsListContextMenuShowExportResult" id="141">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ShowExportResult</CommandName>
+																<Picture>
+																	<xr:Ref>CommonPicture.UT_UploadingResult</xr:Ref>
+																	<xr:LoadTransparent>false</xr:LoadTransparent>
+																</Picture>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>Показать результат выгрузки</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>en</v8:lang>
+																		<v8:content>Show export result</v8:content>
+																	</v8:item>
+																	<v8:item>
+																		<v8:lang>tr</v8:lang>
+																		<v8:content>Dışa aktarma sonucunu göster</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="RecordSetsListContextMenuShowExportResultExtendedTooltip" id="297"/>
+															</Button>
+															<Button name="RecordSetsListContextMenuOpenNodeRegistrationForm" id="180">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.OpenNodeRegistrationForm</CommandName>
+																<Picture>
+																	<xr:Ref>StdPicture.ExchangePlan</xr:Ref>
+																	<xr:LoadTransparent>true</xr:LoadTransparent>
+																</Picture>
+																<ExtendedTooltip name="RecordSetsListContextMenuOpenNodeRegistrationFormExtendedTooltip" id="298"/>
+															</Button>
+															<Button name="RecordSetsListContextMenuEditObjectMessageNumber" id="199">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.EditObjectMessageNumber</CommandName>
+																<ExtendedTooltip name="RecordSetsListContextMenuEditObjectMessageNumberExtendedTooltip" id="299"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<ButtonGroup name="RecordSetsListContextMenuGroup3" id="166">
+														<ExtendedTooltip name="RecordSetsListContextMenuGroup3ExtendedTooltip" id="300"/>
+														<ChildItems>
+															<Button name="RecordSetsListContextMenuFind" id="167">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RecordSetsList.StandardCommand.Find</CommandName>
+																<ExtendedTooltip name="RecordSetsListContextMenuFindExtendedTooltip" id="301"/>
+															</Button>
+															<Button name="RecordSetsListContextMenuRefresh" id="168">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RecordSetsList.StandardCommand.Refresh</CommandName>
+																<ExtendedTooltip name="RecordSetsListContextMenuRefreshExtendedTooltip" id="302"/>
+															</Button>
+															<Button name="RecordSetsListContextMenuCancelSearch" id="169">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RecordSetsList.StandardCommand.CancelSearch</CommandName>
+																<ExtendedTooltip name="RecordSetsListContextMenuCancelSearchExtendedTooltip" id="303"/>
+															</Button>
+															<Button name="RecordSetsListContextMenuListSettings" id="170">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RecordSetsList.StandardCommand.ListSettings</CommandName>
+																<ExtendedTooltip name="RecordSetsListContextMenuListSettingsExtendedTooltip" id="304"/>
+															</Button>
+															<Button name="RecordSetsListContextMenuOutputList" id="171">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item.RecordSetsList.StandardCommand.OutputList</CommandName>
+																<ExtendedTooltip name="RecordSetsListContextMenuOutputListExtendedTooltip" id="305"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="RecordSetsListCommandBar" id="80">
+												<Autofill>false</Autofill>
+											</AutoCommandBar>
+											<ExtendedTooltip name="RecordSetsListExtendedTooltip" id="306"/>
+											<SearchStringAddition name="RecordSetsListSearchString" id="341">
+												<AdditionSource>
+													<Item>RecordSetsList</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="RecordSetsListSearchStringContextMenu" id="342"/>
+												<ExtendedTooltip name="RecordSetsListSearchStringExtendedTooltip" id="343"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="RecordSetsListViewStatus" id="344">
+												<AdditionSource>
+													<Item>RecordSetsList</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="RecordSetsListViewStatusContextMenu" id="345"/>
+												<ExtendedTooltip name="RecordSetsListViewStatusExtendedTooltip" id="346"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="RecordSetsListSearchControl" id="347">
+												<AdditionSource>
+													<Item>RecordSetsList</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="RecordSetsListSearchControlContextMenu" id="348"/>
+												<ExtendedTooltip name="RecordSetsListSearchControlExtendedTooltip" id="349"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">RecordSetListSelection</Event>
+												<Event name="ChoiceProcessing">RecordSetListChoiceProcessing</Event>
+											</Events>
+											<ChildItems>
+												<ColumnGroup name="RecordSetsListDimensionsGroup" id="86">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Измерения</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Dimensions</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>Boyutlar</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Record set dimensions</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Измерения набора записей</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>InCell</Group>
+													<ExtendedTooltip name="RecordSetsListDimensionsGroupExtendedTooltip" id="307"/>
+												</ColumnGroup>
+												<LabelField name="RecordSetsListMessageNo" id="83">
+													<DataPath>RecordSetsList.MessageNo</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Номер отправленного</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Sent message number</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>Gönderilen mesaj numarası</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="RecordSetsListMessageNoContextMenu" id="84"/>
+													<ExtendedTooltip name="RecordSetsListMessageNoExtendedTooltip" id="308"/>
+												</LabelField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="BlankPage" id="74">
+									<EnableContentChange>true</EnableContentChange>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Итоги по виду объекта</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Object type totals</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Nesne türü toplamları</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Totals page</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница итогов</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="BlankPageExtendedTooltip" id="309"/>
+									<ChildItems>
+										<UsualGroup name="Group4" id="77">
+											<EnableContentChange>true</EnableContentChange>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Описание</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Details</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Detaylar</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>StrongSeparation</Representation>
+											<ExtendedTooltip name="Group4ExtendedTooltip" id="310"/>
+											<ChildItems>
+												<LabelDecoration name="BlankPageDecoration" id="75">
+													<HorizontalStretch>true</HorizontalStretch>
+													<VerticalStretch>true</VerticalStretch>
+													<VerticalAlign>Top</VerticalAlign>
+													<ContextMenu name="BlankPageDecorationContextMenu" id="76"/>
+													<ExtendedTooltip name="BlankPageDecorationExtendedTooltip" id="311"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="HiddenDataGroup" id="174">
+			<Visible>false</Visible>
+			<Enabled>false</Enabled>
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа скрытых данных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Hidden data group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Gizli Veri Grubu</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Hidden data group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа скрытых данных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="HiddenDataGroupExtendedTooltip" id="312"/>
+			<ChildItems>
+				<PictureDecoration name="HiddenPictureInfo32" id="175">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Hidden picture info32</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Скрытая картинка информация32</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.UT_Information32</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="HiddenPictureInfo32ContextMenu" id="176"/>
+					<ExtendedTooltip name="HiddenPictureInfo32ExtendedTooltip" id="313"/>
+				</PictureDecoration>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_RegisterChangesForDataExchange</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ExchangeNodeRef" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Узел обмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Exchange node</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Alışveriş düğümü</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:ExchangePlanRef</v8:TypeSet>
+			</Type>
+			<Save>
+				<Field>ExchangeNodeRef</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="MetadataTree" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Метаданные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Metadata</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Metaveriler</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Description" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Description</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ad</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="MetaFullName" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Мета полное имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Meta full name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Meta tam adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="PictureIndex" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индекс картинки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Picture index</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Resim dizini</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Check" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Check</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İşaret</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="AutoRegistration" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Авторегистрация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Auto registration</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Otomatik kayıt</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ChangeCount" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество изменений</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Change count</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Değişiklik sayısı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ExportedCount" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество выгруженных</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Exported count</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Dışa aktarılanların sayısı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="NotExportedCount" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коичество невыгруженных</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Not exported count</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Dışa aktarılmayan sayısı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ChangeCountString" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество изменений строкой</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Change count string</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Satır başına değişiklik sayısı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="RefsList" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список ссылок</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refs list</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Referanslar listesi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>RefsList.MessageNo</Field>
+				<Field>RefsList.NotExported</Field>
+				<Field>RefsList.Ref</Field>
+				<Field>~RefsList.ИндексКартинки</Field>
+				<Field>~RefsList.НеВыгружалось</Field>
+				<Field>~RefsList.НомерСообщения</Field>
+				<Field>~RefsList.Ссылка</Field>
+				<Field>~RefsList.СсылкаПредставление</Field>
+				<Field>~RefsList.Узел</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>SELECT
+				NULL AS Ref,
+				NULL AS MessageNo,
+				FALSE AS NotExported</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>НомерСообщения</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">NotExported</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:LightGray</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Text</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">Не выгружалось</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ConstantsList" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список констант</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Constants list</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sabitler listesi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ConstantsList.AutoRecordPictureIndex</Field>
+				<Field>ConstantsList.MessageNo</Field>
+				<Field>ConstantsList.MetaFullName</Field>
+				<Field>ConstantsList.NotExported</Field>
+				<Field>ConstantsList.PictureIndex</Field>
+				<Field>ConstantsList.Registered</Field>
+				<Field>~ConstantsList.Зарегистрировано</Field>
+				<Field>~ConstantsList.ИндексКартинки</Field>
+				<Field>~ConstantsList.ИндексКартинкиАвторегистрация</Field>
+				<Field>~ConstantsList.МетаПолноеИмя</Field>
+				<Field>~ConstantsList.НеВыгружалось</Field>
+				<Field>~ConstantsList.НомерСообщения</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>SELECT
+				0 AS PictureIndex,
+				0 AS AutoRecordPictureIndex,
+				NULL AS Description,
+				NULL AS MetaFullName,
+				NULL AS MessageNo,
+				FALSE AS NotExported,
+				FALSE AS Registered</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="MetadataNamesStructure" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура имен метаданных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Metadata names structure</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Meta Veri Adı Yapısı</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="MetadataPresentationsStructure" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура представлений метаданных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Metadata presentations structure</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Meta veri gösterimlerinin yapısı</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="RecordSetsList" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список наборов записей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Record sets list</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt setleri listesi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>RecordSetsList.MessageNo</Field>
+				<Field>RecordSetsList.NotExported</Field>
+				<Field>~RecordSetsList.НеВыгружалось</Field>
+				<Field>~RecordSetsList.НомерСообщения</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>SELECT
+				NULL AS MessageNo,
+				FALSE AS NotExported</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="RecordSetsListTableName" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список наборов записей имя таблицы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Record sets list table name</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt setleri listesi tablo adı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="MetadataAutoRecordStructure" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура авторегистрации метаданных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Metadata auto record structure</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Metaverilerin Otomatik Kaydının Yapısı</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="FilterByMessageNumberOption" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант отбора по номеру сообщения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filter by message number option</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Mesaj numarasına göre filtre seçeneği</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>FilterByMessageNumberOption</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="RegistrationObjectParameter" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметр объект регистрации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Registration object parameter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt nesnesi parametresi</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="RegistrationTableParameter" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметр таблица регистрации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Registration table parameter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Parametre kayıt tablosu</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="SelectExchangeNodeProhibited" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запрещено выбирать узел обмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select exchange node prohibited</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Alışveriş düğümü seçmek yasaktır</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="NamesOfMetadataToHide" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имена скрываемых метаданных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Names of metadata to hide</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Gizli Meta Veri Adları</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>RefsListMessageNo</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">RefsList.NotExported</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:LightGray</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Не выгружалось</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ConstantsListMessageNo</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ConstantsList.NotExported</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:LightGray</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Не выгружалось</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>RecordSetsListMessageNo</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">RecordSetsList.NotExported</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:LightGray</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Не выгружалось</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>MetadataTreeChangeCountString</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">MetadataTree.ChangeCount</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:DarkGray</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Нет изменений</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="AddRefRegistration" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register reference</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kaydı ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register reference</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>AddRefRegistration</Action>
+		</Command>
+		<Command name="DeleteRefRegistration" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unregister</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete ref registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию ссылки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteRefRegistration</Action>
+		</Command>
+		<Command name="RefreshAllData" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить все данные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh all data</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tüm verileri yenile</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh all data</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить все данные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>RefreshAllData</Action>
+		</Command>
+		<Command name="AddRegistrationForAllObjects" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать все объекты выбранных типов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register all objects of selected types</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Seçilen türlerin tüm nesnelerini kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register all objects of selected types</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать все объекты выбранных типов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddRegistrationForAllObjects</Action>
+		</Command>
+		<Command name="AddRegistrationForAutoObjects" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать только авторегистрируемые объекты выбранных
+				типов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register objects of selected types with auto registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Seçilen türlerin nesnelerini otomatik kayıtla kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register objects of selected types with auto registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать только авторегистрируемые объекты выбранных
+				типов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddRegistrationForAutoObjects</Action>
+		</Command>
+		<Command name="DeleteRegistrationForAllObjects" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию всех объектов выбранных типов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unregister all objects of selected types</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Seçilen türlerin tüm nesnelerinin kaydını sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete registration for all objects</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию всех объектов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteRegistrationForAllObjects</Action>
+		</Command>
+		<Command name="DeleteRegistrationForAutoObjects" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию только авторегиструемых объектов выбранных
+				типов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unregister objects of selected types with auto registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Otomatik kayıt ile seçilen türlerin nesnelerinin kaydını kaldır</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete registration for auto objects</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию авто объектов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteRegistrationForAutoObjects</Action>
+		</Command>
+		<Command name="AddRefRegistrationPickup" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию результата подбора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register selection result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Seçim sonucunun kaydını ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register selection result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию результата подбора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddRefRegistrationPickup</Action>
+		</Command>
+		<Command name="AddQueryResultRegistration" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить по результату запроса</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register query result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sorgu sonucundan ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register query result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить по результату запроса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddQueryResultRegistration</Action>
+		</Command>
+		<Command name="DeleteQueryResultRegistration" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить по результату запроса</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unregister query result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sorgu sonucunun kaydını sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unregister query result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить по результату запроса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteQueryResultRegistration</Action>
+		</Command>
+		<Command name="AddConstantRegistration" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию константы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add constant registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sabit kaydını ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add constant registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию константы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddConstantRegistration</Action>
+		</Command>
+		<Command name="DeleteConstantRegistration" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию константы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete constant registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sabitin kaydını sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete constant registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию константы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteConstantRegistration</Action>
+		</Command>
+		<Command name="EditMessageNumbers" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать номера сообщений</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit message numbers</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Mesaj numaralarını düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit message numbers</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать номера сообщений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>EditMessageNumbers</Action>
+		</Command>
+		<Command name="ShowExportResult" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат стандартной выгрузки (РИБ)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Standard export result (DIB)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Standart dışa aktarma sonucu (DIB)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show export result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать результат выгрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ShowExportResult</Action>
+		</Command>
+		<Command name="AddRefRegistrationFilter" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию результата отбора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register filter result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Filtre sonucu kaydı ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register filter result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию результата отбора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddRefRegistrationFilter</Action>
+		</Command>
+		<Command name="DeleteRefRegistrationFilter" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию результата отбора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unregister filter result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Filtre sonucu kaydını sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unregister filter result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию результата отбора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteRefRegistrationFilter</Action>
+		</Command>
+		<Command name="AddRecordSetRegistrationFilter" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию результата отбора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register filter result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Filtre sonucu kaydını ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register filter result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию результата отбора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddRecordSetRegistrationFilter</Action>
+		</Command>
+		<Command name="DeleteRecordSetRegistrationFilter" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию по отбору</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unregister filter result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Filtre sonucu kaydını sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete record set registration filter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию набора записей отбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteRecordSetRegistrationFilter</Action>
+		</Command>
+		<Command name="DeleteRecordSetRegistration" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию набора записей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete record set registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt seti kaydını sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete record set registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию набора записей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteRecordSetRegistration</Action>
+		</Command>
+		<Command name="OpenNodeRegistrationForm" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть форму регистрации на узлах</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open node registration form</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Düğümlerde kayıt formunu aç</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Register object at all nodes</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистрация объекта на всех узлах</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>OpenNodeRegistrationForm</Action>
+		</Command>
+		<Command name="OpenSettingsForm" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Settings</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Ayarlar</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open settings form</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть форму настроек</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ReportSettings</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>OpenSettingsForm</Action>
+		</Command>
+		<Command name="AddRegistrationForSingleObject" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию одного объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add registration for single object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tek bir nesnenin kaydını ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add registration for single object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию одного объекта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddRegistrationForSingleObject</Action>
+		</Command>
+		<Command name="AddRegistrationFilter" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add registration filter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Filtre kaydını ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add registration filter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию отбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddRegistrationFilter</Action>
+		</Command>
+		<Command name="DeleteRegistrationForSingleObject" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию одного объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete registration for single object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tek bir nesnenin kaydını sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию одного объекта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteRegistrationForSingleObject</Action>
+		</Command>
+		<Command name="DeleteRegistrationFilter" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete registration filter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Filtre kaydını sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete registration filter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию отбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>DeleteRegistrationFilter</Action>
+		</Command>
+		<Command name="AddObjectDeletionRegistration" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add object deletion registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию удаления объекта</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add object deletion registration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить регистрацию удаления объекта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddObjectDeletionRegistration</Action>
+		</Command>
+		<Command name="EditObjectMessageNumber" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать номер сообщения объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit object message number</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne mesaj numarasını düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit object message number</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать номер сообщения объекта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>EditObjectMessageNumber</Action>
+		</Command>
+		<Command name="EditReference" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Edit reference</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit reference</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Referansı düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.UT_DatabaseObjectEditor</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>EditReference</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="CommandID">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="RelatedObjects">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="ExchangeNode">
+			<Type>
+				<v8:TypeSet>cfg:ExchangePlanRef</v8:TypeSet>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="SelectExchangeNodeProhibited">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

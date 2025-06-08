@@ -1,0 +1,1462 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="WriteAndClose" id="491">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Write and close</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="WriteAndCloseExtendedTooltip" id="492"/>
+			</Button>
+			<Button name="Write" id="493">
+				<Type>CommandBarButton</Type>
+				<Representation>Picture</Representation>
+				<CommandName>Form.StandardCommand.Write</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Write</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Write</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="WriteExtendedTooltip" id="494"/>
+			</Button>
+			<Button name="Reread" id="495">
+				<Type>CommandBarButton</Type>
+				<Representation>Picture</Representation>
+				<CommandName>Form.StandardCommand.Reread</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Refresh</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Reread</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="RereadExtendedTooltip" id="496"/>
+			</Button>
+			<Button name="CustomizeForm" id="497">
+				<Type>CommandBarButton</Type>
+				<Representation>Picture</Representation>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.CustomizeForm</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Customize form</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="CustomizeFormExtendedTooltip" id="498"/>
+			</Button>
+			<Button name="EventLog" id="118">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.EventLog</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Event log</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="EventLogExtendedTooltip" id="128"/>
+			</Button>
+			<Button name="FormatText" id="538">
+				<Type>CommandBarButton</Type>
+				<Width>3</Width>
+				<CommandName>Form.Command.FormatText</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Format text</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="FormatTextExtendedTooltip" id="539"/>
+			</Button>
+			<Button name="ExecuteProcedure" id="117">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ExecuteProcedure</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Execute</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Execute</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>tr</v8:lang>
+						<v8:content>Yürüt</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ExecuteProcedureExtendedTooltip" id="157"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWriteAtServer">AfterWriteAtServer</Event>
+		<Event name="NotificationProcessing">NotificationProcessing</Event>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="BeforeWrite">BeforeWrite</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="GroupK1" id="489">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group K1</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа к1</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа к1</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="GroupK1ExtendedTooltip" id="490"/>
+			<ChildItems>
+				<UsualGroup name="GroupHead" id="58">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа head</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа head</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="GroupHeadExtendedTooltip" id="130"/>
+					<ChildItems>
+						<InputField name="Description" id="3">
+							<DataPath>Object.Description</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Description</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="DescriptionContextMenu" id="4"/>
+							<ExtendedTooltip name="DescriptionExtendedTooltip" id="133"/>
+						</InputField>
+						<InputField name="Code" id="1">
+							<DataPath>Object.Code</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Code</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="CodeContextMenu" id="2"/>
+							<ExtendedTooltip name="CodeExtendedTooltip" id="132"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="GroupExecutionParametrs" id="793">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Parameters</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Parametreler</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<BackColor>#FFF3DC</BackColor>
+			<ExtendedTooltip name="GroupExecutionParametrsExtendedTooltip" id="794"/>
+			<ChildItems>
+				<CheckBoxField name="AtClient" id="390">
+					<DataPath>Object.AtClient</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>At client</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Client</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İstemci</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<CheckBoxType>Tumbler</CheckBoxType>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ='На сервере'; БИ='На клиенте'</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>BF=At server; BT=At client</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>BF=Sunucuda; BT=İstemcide</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="AtClientContextMenu" id="391"/>
+					<ExtendedTooltip name="AtClientExtendedTooltip" id="392"/>
+					<Events>
+						<Event name="OnChange">AtClientOnChange</Event>
+					</Events>
+				</CheckBoxField>
+				<UsualGroup name="GroupCommon" id="557">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общие</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Common</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Genel</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гр общие</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Collapsed>true</Collapsed>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="GroupCommonExtendedTooltip" id="558"/>
+					<ChildItems>
+						<CheckBoxField name="WriteErrorsToEventLog" id="554">
+							<DataPath>Object.WriteErrorsToEventLog</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="WriteErrorsToEventLogContextMenu" id="555"/>
+							<ExtendedTooltip name="WriteErrorsToEventLogExtendedTooltip" id="556"/>
+						</CheckBoxField>
+						<CheckBoxField name="ThrowException" id="548">
+							<DataPath>Object.ThrowException</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ThrowExceptionContextMenu" id="549"/>
+							<ExtendedTooltip name="ThrowExceptionExtendedTooltip" id="550"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="GroupServer" id="546">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервер</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Server</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Sunucu</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гр сервер</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Collapsed>true</Collapsed>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="GroupServerExtendedTooltip" id="547"/>
+					<ChildItems>
+						<CheckBoxField name="Сache" id="518">
+							<DataPath>Object.Сache</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сache</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СacheContextMenu" id="519"/>
+							<ExtendedTooltip name="СacheExtendedTooltip" id="520"/>
+						</CheckBoxField>
+						<CheckBoxField name="ExecuteInTransaction" id="551">
+							<DataPath>Object.ExecuteInTransaction</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Execute In Transaction</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ExecuteInTransactionContextMenu" id="552"/>
+							<ExtendedTooltip name="ExecuteInTransactionExtendedTooltip" id="553"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="HttpID" id="635">
+					<DataPath>Object.HttpID</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>HTTP ID</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="HttpIDContextMenu" id="636"/>
+					<ExtendedTooltip name="HttpIDExtendedTooltip" id="637"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="GroupWarning" id="568">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Group warning</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group warning</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Uyarı grupu</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гр предупреждение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="GroupWarningExtendedTooltip" id="569"/>
+			<ChildItems>
+				<LabelDecoration name="Warning" id="570">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>#FF0000</TextColor>
+					<Font ref="style:NormalTextFont" faceName="Courier New" height="11" kind="StyleItem"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Attention! System settings.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Attention ! System settings.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Dikkat! Sistem ayarları.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="WarningContextMenu" id="571"/>
+					<ExtendedTooltip name="WarningExtendedTooltip" id="572"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="GroupPagesPanel" id="95">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа панель страниц</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group pages panel</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Grup sayfaları paneli</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа панель страниц</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="GroupPagesPanelExtendedTooltip" id="135"/>
+			<Events>
+				<Event name="OnCurrentPageChange">GroupPagesPanelOnCurrentPageChange</Event>
+			</Events>
+			<ChildItems>
+				<Page name="GroupCode" id="97">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Code</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Module</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kod</v8:content>
+						</v8:item>
+					</Title>
+					<TitleTextColor>#800000</TitleTextColor>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group code</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа код</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>StdPicture.Document</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="GroupCodeExtendedTooltip" id="152"/>
+					<ChildItems>
+						<InputField name="AlgorithmText" id="111">
+							<DataPath>Object.AlgorithmText</DataPath>
+							<Visible>false</Visible>
+							<DefaultItem>true</DefaultItem>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>спецсимволы :  @ ,$ , #   ;  шаблоны: (==)  Ctr+Space  ;  Alt + 60 &lt;,62 &gt;,@ 64 , $ 36 , # 35 , &amp; 38 , 39' ,93], 91[, 124| </v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>special characters:  @ ,$ , #   ;  templates: (==)  Ctr+Space  ;  Alt + 60 &lt;,62 &gt;,@ 64 , $ 36 , # 35 , &amp; 38 , 39' ,93], 91[, 124| </v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>özel karakterler: @ ,$ , # ; şablonlar: (==) Ctr+Boşluk ; Alt + 60 &lt;,62 &gt;,@ 64 , $ 36 , # 35 , &amp; 38 , 39' ,93], 91[, 124|</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MultiLine>true</MultiLine>
+							<ExtendedEdit>true</ExtendedEdit>
+							<ContextMenu name="AlgorithmTextContextMenu" id="112">
+								<ChildItems>
+									<Button name="ShowQueryWizard" id="536">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ShowQueryWizard</CommandName>
+										<ExtendedTooltip name="ShowQueryWizardExtendedTooltip" id="537"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
+							<ExtendedTooltip name="AlgorithmTextExtendedTooltip" id="158"/>
+						</InputField>
+						<TextDocumentField name="FieldAlgorithmText" id="823">
+							<DataPath>FieldAlgorithmText</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Algorithm text</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Algorithm text</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Algoritma metni</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="FieldAlgorithmTextContextMenu" id="824"/>
+							<ExtendedTooltip name="FieldAlgorithmTextExtendedTooltip" id="825"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="GroupParameters" id="98">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Parameters</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Parameters</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Parametreler</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа параметры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>StdPicture.SettingsStorage</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Group>AlwaysHorizontal</Group>
+					<ExtendedTooltip name="GroupParametersExtendedTooltip" id="136"/>
+					<ChildItems>
+						<Table name="ParametersTable" id="99">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ParametersTable</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Параметры</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>CancelSearch</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Find</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ParametersTableContextMenu" id="100"/>
+							<AutoCommandBar name="ParametersTableCommandBar" id="101">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="AddParameter" id="106">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.AddParameter</CommandName>
+										<Picture>
+											<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Add</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="AddParameterExtendedTooltip" id="137"/>
+									</Button>
+									<Button name="EditValue" id="116">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.EditValue</CommandName>
+										<Picture>
+											<xr:Ref>StdPicture.Change</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Edit value</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="EditValueExtendedTooltip" id="139"/>
+									</Button>
+									<Button name="EditName" id="107">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.EditName</CommandName>
+										<Picture>
+											<xr:Ref>StdPicture.EditInDialog</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Title>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Rename</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Edit name</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="EditNameExtendedTooltip" id="138"/>
+									</Button>
+									<Button name="ParametersTableDelete" id="185">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Item.ParametersTable.StandardCommand.Delete</CommandName>
+										<ExtendedTooltip name="ParametersTableDeleteExtendedTooltip" id="186"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ParametersTableExtendedTooltip" id="140"/>
+							<SearchStringAddition name="ParametersTableSearchString" id="141">
+								<AdditionSource>
+									<Item>ParametersTable</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ParametersTableSearchStringContextMenu" id="142"/>
+								<ExtendedTooltip name="ParametersTableSearchStringExtendedTooltip" id="143"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ParametersTableViewStatus" id="144">
+								<AdditionSource>
+									<Item>ParametersTable</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="ParametersTableViewStatusContextMenu" id="145"/>
+								<ExtendedTooltip name="ParametersTableViewStatusExtendedTooltip" id="146"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ParametersTableSearchControl" id="147">
+								<AdditionSource>
+									<Item>ParametersTable</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ParametersTableSearchControlContextMenu" id="148"/>
+								<ExtendedTooltip name="ParametersTableSearchControlExtendedTooltip" id="149"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeDeleteRow">ParametersTableBeforeDeleteRow</Event>
+								<Event name="OnActivateRow">ParametersTableOnActivateRow</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ParametersTableParameter" id="102">
+									<DataPath>ParametersTable.Parameter</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Parameter</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<OpenButton>true</OpenButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ParametersTableParameterContextMenu" id="103"/>
+									<ExtendedTooltip name="ParametersTableParameterExtendedTooltip" id="150"/>
+									<Events>
+										<Event name="Opening">ParametersTableParameterOpening</Event>
+									</Events>
+								</InputField>
+								<InputField name="ParametersTableTypeDescription" id="104">
+									<DataPath>ParametersTable.TypeDescription</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Type</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<OpenButton>false</OpenButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ParametersTableTypeDescriptionContextMenu" id="105"/>
+									<ExtendedTooltip name="ParametersTableTypeDescriptionExtendedTooltip" id="151"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<UsualGroup name="GroupParametersValues" id="826">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group1</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="GroupParametersValuesExtendedTooltip" id="827"/>
+							<ChildItems>
+								<LabelDecoration name="DecorationGapParameterValues" id="838">
+									<Visible>false</Visible>
+									<ContextMenu name="DecorationGapParameterValuesContextMenu" id="839"/>
+									<ExtendedTooltip name="DecorationGapParameterValuesExtendedTooltip" id="840"/>
+								</LabelDecoration>
+								<InputField name="PrimitiveTypeParameterValue" id="841">
+									<DataPath>PrimitiveTypeParameterValue</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="PrimitiveTypeParameterValueContextMenu" id="842"/>
+									<ExtendedTooltip name="PrimitiveTypeParameterValueExtendedTooltip" id="843"/>
+								</InputField>
+								<Table name="ParameterCollection" id="844">
+									<Representation>List</Representation>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ParameterCollection</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ParameterCollectionContextMenu" id="846"/>
+									<AutoCommandBar name="ParameterCollectionCommandBar" id="845"/>
+									<ExtendedTooltip name="ParameterCollectionExtendedTooltip" id="847"/>
+									<SearchStringAddition name="ParameterCollectionSearchString" id="848">
+										<AdditionSource>
+											<Item>ParameterCollection</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ParameterCollectionSearchStringContextMenu" id="849"/>
+										<ExtendedTooltip name="ParameterCollectionSearchStringExtendedTooltip" id="850"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ParameterCollectionViewStatus" id="854">
+										<AdditionSource>
+											<Item>ParameterCollection</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ParameterCollectionViewStatusContextMenu" id="855"/>
+										<ExtendedTooltip name="ParameterCollectionViewStatusExtendedTooltip" id="856"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ParameterCollectionSearchControl" id="851">
+										<AdditionSource>
+											<Item>ParameterCollection</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ParameterCollectionSearchControlContextMenu" id="852"/>
+										<ExtendedTooltip name="ParameterCollectionSearchControlExtendedTooltip" id="853"/>
+									</SearchControlAddition>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="GroupAPI" id="573">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>API</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>API</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>API</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа API</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>StdPicture.ExternalDataSourceCube</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="GroupAPIExtendedTooltip" id="574"/>
+					<ChildItems>
+						<Table name="API" id="638">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Object.Parameters</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="APIContextMenu" id="639"/>
+							<AutoCommandBar name="APICommandBar" id="640">
+								<ChildItems>
+									<Button name="APIApiCheckParameters" id="795">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ApiCheckParameters</CommandName>
+										<ExtendedTooltip name="APIApiCheckParametersExtendedTooltip" id="796"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="APIExtendedTooltip" id="641"/>
+							<SearchStringAddition name="APISearchString" id="642">
+								<AdditionSource>
+									<Item>API</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="APISearchStringContextMenu" id="643"/>
+								<ExtendedTooltip name="APISearchStringExtendedTooltip" id="644"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="APIViewStatus" id="645">
+								<AdditionSource>
+									<Item>API</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="APIViewStatusContextMenu" id="646"/>
+								<ExtendedTooltip name="APIViewStatusExtendedTooltip" id="647"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="APISearchControl" id="648">
+								<AdditionSource>
+									<Item>API</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="APISearchControlContextMenu" id="649"/>
+								<ExtendedTooltip name="APISearchControlExtendedTooltip" id="650"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ApiLineNumber" id="651">
+									<DataPath>Object.Parameters.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ApiLineNumberContextMenu" id="652"/>
+									<ExtendedTooltip name="ApiLineNumberExtendedTooltip" id="653"/>
+								</LabelField>
+								<CheckBoxField name="ApiEntry" id="654">
+									<DataPath>Object.Parameters.Entry</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ApiEntryContextMenu" id="655"/>
+									<ExtendedTooltip name="ApiEntryExtendedTooltip" id="656"/>
+								</CheckBoxField>
+								<InputField name="ApiName" id="657">
+									<DataPath>Object.Parameters.Name</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ApiNameContextMenu" id="658"/>
+									<ExtendedTooltip name="ApiNameExtendedTooltip" id="659"/>
+								</InputField>
+								<InputField name="ApiParameterType" id="660">
+									<DataPath>Object.Parameters.ParameterType</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceButton>true</ChoiceButton>
+									<QuickChoice>true</QuickChoice>
+									<ChooseType>false</ChooseType>
+									<ContextMenu name="ApiParameterTypeContextMenu" id="661"/>
+									<ExtendedTooltip name="ApiParameterTypeExtendedTooltip" id="662"/>
+								</InputField>
+								<InputField name="ApiAction" id="733">
+									<DataPath>Object.Parameters.ByDefault</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceButton>true</ChoiceButton>
+									<ContextMenu name="ApiActionContextMenu" id="734"/>
+									<ExtendedTooltip name="ApiActionExtendedTooltip" id="735"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="GroupComment" id="791">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Comment</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Comment</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yorum</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа комментарий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Height>5</Height>
+			<Behavior>Usual</Behavior>
+			<Collapsed>true</Collapsed>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="GroupCommentExtendedTooltip" id="792"/>
+			<ChildItems>
+				<InputField name="Comment" id="109">
+					<DataPath>Object.Comment</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Comment</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Comment</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Yorum</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>web:SaddleBrown</TextColor>
+					<Font ref="sys:OEMFixedFont" kind="WindowsFont"/>
+					<ContextMenu name="CommentContextMenu" id="110"/>
+					<ExtendedTooltip name="CommentExtendedTooltip" id="160"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Object</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogObject.UT_Algorithms</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Object.Parameters">
+					<Column name="ParameterValue" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Значение параметра</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Parameter value</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Parametre değeri</v8:content>
+							</v8:item>
+						</Title>
+						<Type/>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="ParametersTable" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица параметров</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Parameters table</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Parametre tablosu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Parameter" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметр</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Parameter</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Parametre</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="TypeDescription" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание типа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Type description</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tür açıklaması</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="SelectedParameter" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбранный параметр</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Selected parameter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Seçilmiş parametre</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="PrimitiveTypeParameterValue" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение параметра простой тип</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Primitive Type parameter value</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Basit Tip parametre değeri</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ParameterCollection" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметр коллекция</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Parameter collection</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Parametre koleksiyonu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="FieldAlgorithmText" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поле текст алгоритма</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Field algorithm text</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Alan algoritması metni</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>КомандныйИнтерфейс</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.НаКлиенте</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#000080</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>КомандныйИнтерфейс</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.КомандныйИнтерфейс.Активно</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#000080</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Font</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="false" underline="false" strikeout="true" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="AddParameter" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить параметр</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add parameter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Parametre ekle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить параметр</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>AddParameter</Action>
+		</Command>
+		<Command name="EditName" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить имя</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit name</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Adı düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить имя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>EditName</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="EditValue" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить значение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit value</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Değeri düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить значение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>EditValue</Action>
+		</Command>
+		<Command name="ExecuteProcedure" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить процедуру</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Execute procedure</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Prosedürü yürüt</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить процедуру</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ExecuteProcedure</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="EventLog" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал регистрации</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Event log</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Event log</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал регистрации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.EventLogByUser</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>EventLog</Action>
+		</Command>
+		<Command name="CreateScheduledJob" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать регламентное задание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Create scheduled job</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Zamanlanmış iş oluştur</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать регламентное задание</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ScheduledJob</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>AddScheduledJob</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="DeleteScheduledJob" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регламентное задание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete scheduled job</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Zamanlanmış işi sil</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регламентное задание</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Stop</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>DeleteScheduledJob</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="ShowQueryWizard" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конструктор запроса </v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Query wizard</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sorgu sihirbazı (wizard)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конструктор запроса показать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.QueryWizardNestedQuery</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ShowQueryWizard</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="FormatText" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формат.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Format.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Format.</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Форматировать текст</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GanttChart</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>FormatText</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="ApiCheckParameters" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверка параметров программный интерфейс</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Api check parameters</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>API kontrol parametreleri</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверка параметров программный интерфейс</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ExecuteTask</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ApiCheckParameters</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="ChangeFontpepresentationSettings">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="ChangeBackColorRepresentationSettings">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="ChangeFontColorRepresentationSettings">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>
