@@ -7,7 +7,7 @@ Procedure RaiseIfNoAdministrationRights()
 	EndIf;
 	
 	If NOT UT_Users.IsFullUser(, CheckSystemAdministrationRights) Then
-		Raise NStr("ru = 'Нарушение прав доступа.'; en = 'Access right violation.'");
+		Raise NStr("ru = 'Нарушение прав доступа.'; en = 'Access right violation.'; tr = 'Erişim hakkı ihlali.'");
 	EndIf;
 	
 EndProcedure
@@ -45,9 +45,9 @@ Function GetScheduledJob(Val ID) Export
 	EndIf;
 	If ScheduledJob = Undefined Then
 		Raise( NStr("ru = 'Регламентное задание не найдено.
-		                              |Возможно, оно удалено другим пользователем.'; 
-		                              |en = 'The scheduled job is not found.
-		                              |Probably it was deleted by another user.'") );
+																				 |Возможно, оно удалено другим пользователем.'; en = 'The scheduled job is not found.
+																				 |Probably it was deleted by another user.'; tr = 'Zamanlanmış iş bulunamadı.
+																				 |Muhtemelen başka bir kullanıcı tarafından silindi.'") );
 	EndIf;
 	Return ScheduledJob;
 	

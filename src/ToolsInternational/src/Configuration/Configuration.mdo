@@ -2,12 +2,16 @@
 <mdclass:Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="ecdeb61a-5243-42a4-a160-d7ee52dabb34">
   <name>UniversalTools</name>
   <synonym>
+    <key>ru</key>
+    <value>Универсальные инструменты</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Universal tools</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Универсальные инструменты</value>
+    <key>tr</key>
+    <value>Universal araçlar</value>
   </synonym>
   <objectBelonging>Adopted</objectBelonging>
   <extension xsi:type="mdclassExtension:ConfigurationExtension">
@@ -15,6 +19,7 @@
     <sessionModule>Extended</sessionModule>
     <externalConnectionModule>Extended</externalConnectionModule>
     <defaultLanguage>Checked</defaultLanguage>
+    <compatibilityMode>Checked</compatibilityMode>
   </extension>
   <containedObjects classId="9cd510cd-abfc-11d4-9434-004095e12fc7" objectId="44154cfc-e04b-4c2e-94cc-83152eb460a6"/>
   <containedObjects classId="9fcd25a0-4822-11d4-9414-008048da11f9" objectId="2f9f9e83-25fb-4d7b-950d-22247dc67b19"/>
@@ -22,12 +27,14 @@
   <containedObjects classId="9de14907-ec23-4a07-96f0-85521cb6b53b" objectId="0d3895b7-6432-489b-95d3-94e01e15f4be"/>
   <containedObjects classId="51f2d5d8-ea4d-4064-8892-82951750031e" objectId="f9d01e29-e5f9-4e33-811a-292912fc6345"/>
   <containedObjects classId="e68182ea-4237-4383-967f-90c1e3370bc7" objectId="81355075-a418-4d1a-af9d-9fc96db6c71b"/>
+  <keepMappingToExtendedConfigurationObjectsByIDs>true</keepMappingToExtendedConfigurationObjectsByIDs>
   <namePrefix>UT_</namePrefix>
-  <configurationExtensionCompatibilityMode>8.3.12</configurationExtensionCompatibilityMode>
+  <configurationExtensionCompatibilityMode>8.3.21</configurationExtensionCompatibilityMode>
   <configurationExtensionPurpose>AddOn</configurationExtensionPurpose>
   <vendor>Universal Tools 1C Word Edition Team</vendor>
   <version>24.1.4.1</version>
   <defaultLanguage>Language.English</defaultLanguage>
+  <compatibilityMode>8.3.21</compatibilityMode>
   <languages uuid="66bef324-e854-4c33-879a-3c081f6686cd">
     <name>Russian</name>
     <objectBelonging>Adopted</objectBelonging>
