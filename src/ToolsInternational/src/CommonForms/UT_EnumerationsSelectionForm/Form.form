@@ -180,12 +180,16 @@
         <name>EnumerationValuesFind</name>
         <id>36</id>
         <title>
+          <key>ru</key>
+          <value>Advanced search</value>
+        </title>
+        <title>
           <key>en</key>
           <value>EnumerationValuesFind</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Advanced search</value>
+          <key>tr</key>
+          <value>Gelişmiş arama</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -209,22 +213,26 @@
         </extendedTooltip>
         <commandName>Form.Item.EnumerationValues.StandardCommand.Find</commandName>
         <representation>Auto</representation>
-        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>EnumerationValuesCancelSearch</name>
         <id>38</id>
         <title>
+          <key>ru</key>
+          <value>Cancel search</value>
+        </title>
+        <title>
           <key>en</key>
           <value>EnumerationValuesCancelFind</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Cancel search</value>
+          <key>tr</key>
+          <value>Aramayı iptal et</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -248,11 +256,11 @@
         </extendedTooltip>
         <commandName>Form.Item.EnumerationValues.StandardCommand.CancelSearch</commandName>
         <representation>Auto</representation>
-        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -298,7 +306,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>EnumerationValuesSearchString</source>
+      <source>EnumerationValues</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -337,7 +345,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>EnumerationValuesViewStatus</source>
+      <source>EnumerationValues</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -376,7 +384,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>EnumerationValuesSearchControl</source>
+      <source>EnumerationValues</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -513,6 +521,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -542,6 +551,14 @@
         <key>ru</key>
         <value>Value like String</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>Value like String</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>String gibi değer</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -559,6 +576,14 @@
       <title>
         <key>ru</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>3</id>
       <valueType>
@@ -578,6 +603,14 @@
         <key>ru</key>
         <value>Presentation</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>Presentation</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -594,6 +627,14 @@
       <name>Ref</name>
       <title>
         <key>ru</key>
+        <value>Ref</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Ref</value>
+      </title>
+      <title>
+        <key>tr</key>
         <value>Ref</value>
       </title>
       <id>5</id>
@@ -626,6 +667,14 @@
     <title>
       <key>ru</key>
       <value>Choose</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Choose</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Seçmek</value>
     </title>
     <id>1</id>
     <use>

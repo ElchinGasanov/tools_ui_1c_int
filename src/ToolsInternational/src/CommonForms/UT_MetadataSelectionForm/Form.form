@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Объекты конфигурации</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Configuration object types</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Объекты конфигурации</value>
+    <key>tr</key>
+    <value>Konfigurasyon nesnelerin türleri</value>
   </title>
   <items xsi:type="form:Table">
     <name>MetadataTree</name>
@@ -26,22 +30,24 @@
       <name>MetadataTreeName</name>
       <id>14</id>
       <title>
+        <key>ru</key>
+        <value>Имя</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>MetadataTree.Name</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>MetadataTree.Name</segments>
       </dataPath>
       <extendedTooltip>
         <name>MetadataTreeNameExtendedTooltip</name>
@@ -87,22 +93,24 @@
       <name>MetadataTreeSynonym</name>
       <id>17</id>
       <title>
+        <key>ru</key>
+        <value>Представление</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Presentation</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Представление</value>
+        <key>tr</key>
+        <value>Gösterim</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>MetadataTree.Synonym</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>MetadataTree.Synonym</segments>
       </dataPath>
       <extendedTooltip>
         <name>MetadataTreeSynonymExtendedTooltip</name>
@@ -226,6 +234,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>MetadataTree</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -264,6 +273,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>MetadataTree</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -303,6 +313,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>MetadataTree</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -372,6 +383,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -382,12 +394,16 @@
   <attributes>
     <name>MetadataTree</name>
     <title>
+      <key>ru</key>
+      <value>Дерево объектов</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Metadata tree</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Дерево объектов</value>
+      <key>tr</key>
+      <value>Metadata ağacı</value>
     </title>
     <id>2</id>
     <valueType>
@@ -402,12 +418,16 @@
     <columns>
       <name>Name</name>
       <title>
+        <key>ru</key>
+        <value>Имя</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -424,12 +444,16 @@
     <columns>
       <name>Synonym</name>
       <title>
+        <key>ru</key>
+        <value>Synonym</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Представление</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Synonym</value>
+        <key>tr</key>
+        <value>Sinonim</value>
       </title>
       <id>2</id>
       <valueType>
@@ -446,12 +470,16 @@
     <columns>
       <name>FullName</name>
       <title>
+        <key>ru</key>
+        <value>Полное имя</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Full name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Полное имя</value>
+        <key>tr</key>
+        <value>Tam adı</value>
       </title>
       <id>3</id>
       <valueType>
@@ -468,12 +496,16 @@
     <columns>
       <name>Picture</name>
       <title>
+        <key>ru</key>
+        <value>Картинка</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Picture</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Картинка</value>
+        <key>tr</key>
+        <value>Resim</value>
       </title>
       <id>7</id>
       <valueType>
@@ -490,12 +522,16 @@
   <attributes>
     <name>_ShowSimpleTypes</name>
     <title>
+      <key>ru</key>
+      <value>Показывать простые типы</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Show simple types</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Показывать простые типы</value>
+      <key>tr</key>
+      <value>Basit tipleri göster</value>
     </title>
     <id>3</id>
     <valueType>
@@ -511,12 +547,16 @@
   <attributes>
     <name>_MetadataGroups</name>
     <title>
+      <key>ru</key>
+      <value>Перечень разделов</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Group list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Перечень разделов</value>
+      <key>tr</key>
+      <value>Grup listesi</value>
     </title>
     <id>4</id>
     <valueType>
@@ -533,12 +573,16 @@
   <attributes>
     <name>_QueryConsoleTypes</name>
     <title>
+      <key>ru</key>
+      <value>Query console types</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Типы для консоли запросов</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Query console types</value>
+      <key>tr</key>
+      <value>Sorgu konsolu türleri</value>
     </title>
     <id>5</id>
     <valueType>
@@ -554,12 +598,16 @@
   <attributes>
     <name>_ShowEnums</name>
     <title>
+      <key>ru</key>
+      <value>Показывать перечисления</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Show enums</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Показывать перечисления</value>
+      <key>tr</key>
+      <value>Enumları göster</value>
     </title>
     <id>6</id>
     <valueType>
@@ -575,12 +623,16 @@
   <formCommands>
     <name>SelectObject</name>
     <title>
+      <key>ru</key>
+      <value>Выбрать объект</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Select object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выбрать объект</value>
+      <key>tr</key>
+      <value>Nesneyi seç</value>
     </title>
     <id>1</id>
     <toolTip>

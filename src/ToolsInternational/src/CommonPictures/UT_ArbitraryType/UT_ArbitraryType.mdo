@@ -2,11 +2,15 @@
 <mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a5414b5a-3317-11eb-2a8b-e86a6452d1f2">
   <name>UT_ArbitraryType</name>
   <synonym>
+    <key>ru</key>
+    <value>Произвольный тип</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Arbitrary type</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Произвольный тип</value>
+    <key>tr</key>
+    <value>Rastgele tip</value>
   </synonym>
 </mdclass:CommonPicture>

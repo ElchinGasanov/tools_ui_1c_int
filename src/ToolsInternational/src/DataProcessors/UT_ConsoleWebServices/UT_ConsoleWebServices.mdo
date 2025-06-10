@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_ConsoleWebServices</name>
   <synonym>
+    <key>ru</key>
+    <value>Консоль веб сервисов(WS) [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Console Web Services</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Консоль веб сервисов(WS) [УИ]</value>
+    <key>tr</key>
+    <value>Web Servisler Konsolu (WS) </value>
   </synonym>
   <comment>Author Vladimir Badanov Version: 2.0.2.2 / Translated to English script by Universal Tools 1C Word Edition Team </comment>
   <useStandardCommands>true</useStandardCommands>
@@ -30,21 +34,23 @@
       <key>ru</key>
       <value>Form</value>
     </synonym>
-    <comment></comment>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
   <forms uuid="5548673b-ac39-4132-98d1-d204aac7f971">
     <name>FormInputStructures</name>
     <synonym>
+      <key>ru</key>
+      <value>Форма ввода структуры</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Form input structures</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Форма ввода структуры</value>
+      <key>tr</key>
+      <value>Yapı giriş formu</value>
     </synonym>
-    <comment></comment>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>

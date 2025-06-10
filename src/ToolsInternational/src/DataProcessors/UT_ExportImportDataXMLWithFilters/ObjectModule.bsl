@@ -32,12 +32,12 @@ Function ExternalDataProcessorInfo() Export
 
 	RegistrationParameters.Insert("Kind", "AdditionalDataProcessor");
 	// Data processor description to be register in external data processors catalog.
-	RegistrationParameters.Insert("Description", NStr("ru = 'Выгрузка - загрузка данных XML 8.3'; en = 'Export - import data XML 8.3'"));
+	RegistrationParameters.Insert("Description", NStr("ru = 'Выгрузка - загрузка данных XML 8.3'; en = 'Export - import data XML 8.3'; tr = 'Veri dışa aktarma - içe aktarma XML 8.3'"));
 	// Safe mode right. For more information see SetSafeMode() method.
 	RegistrationParameters.Insert("SafeMode", True);
 	// Version and info to display as data processor information.
 	RegistrationParameters.Insert("Version", "1.0");
-	RegistrationParameters.Insert("Information", NStr("ru = 'Выгрузка - загрузка данных XML 8.3'; en = 'Export - import data XML 8.3'"));
+	RegistrationParameters.Insert("Information", NStr("ru = 'Выгрузка - загрузка данных XML 8.3'; en = 'Export - import data XML 8.3'; tr = 'Veri dışa aktarma - içe aktarma XML 8.3'"));
 	// Creating command table (see below).
 
 	CommandTable = GetCommandTable();
@@ -109,7 +109,7 @@ Procedure ExecuteExport(Val FileName, InvalidCharsCheckOnly = False, FilterTable
 
 	If FullExportContent.Count() = 0 And AdditionalObjectsToExport.Count() = 0 Then
 
-		UserMessage(Нстр("ru = 'Не задан состав выгрузки'; en ='Export content is not set.'"));
+		UserMessage(Нстр("ru = 'Не задан состав выгрузки'; en = 'Export content is not set.'; tr = 'Dışa aktarma içeriği ayarlanmadı.'"));
 		Return;
 
 	EndIf;
@@ -147,13 +147,13 @@ Procedure ExecuteExport(Val FileName, InvalidCharsCheckOnly = False, FilterTable
 
 		If InvalidCharsCheckOnly Then
 
-			CheckStartTemplate = NStr("ru = 'Начало проверки: %Date'; en = 'Check started: %Date'");
+			CheckStartTemplate = NStr("ru = 'Начало проверки: %Date'; en = 'Check started: %Date'; tr = 'Kontrol başladı: %Date'");
 			CheckStartMessage = StrReplace(CheckStartTemplate, "%Date", CurrentSessionDate());
 			UserMessage(CheckStartMessage);
 
 		Else
 
-			ExportStartTemplate = NStr("ru = 'Начало выгрузки: %Date'; en = 'Check started: %Date'");
+			ExportStartTemplate = NStr("ru = 'Начало выгрузки: %Date'; en = 'Check started: %Date'; tr = 'Kontrol başladı: %Date'");
 			ExportStartMessage = StrReplace(ExportStartTemplate, "%Date", CurrentSessionDate());
 			UserMessage(ExportStartMessage);
 
@@ -171,25 +171,25 @@ Procedure ExecuteExport(Val FileName, InvalidCharsCheckOnly = False, FilterTable
 
 	If InvalidCharsCheckOnly Then
 
-		TemplateChecked = NStr("ru = 'Проверено объектов: %Checked'; en = 'Objects checked: %Checked'");
+		TemplateChecked = NStr("ru = 'Проверено объектов: %Checked'; en = 'Objects checked: %Checked'; tr = 'Nesneler kontrol edildi: %Checked'");
 		MessageChecked = StrReplace(TemplateChecked, "%Checked", TotalProcessedRecords());
 		UserMessage(MessageChecked);
 
-		TemplateEnd = NStr("ru = 'Окончание проверки: %Date'; en = 'Check completed at: %Date'");
+		TemplateEnd = NStr("ru = 'Окончание проверки: %Date'; en = 'Check completed at: %Date'; tr = 'Kontrol tamamlandı: %Date'");
 		MessageEnd = StrReplace(TemplateEnd, "%Date", CurrentSessionDate());
 		UserMessage(MessageEnd);
 
 	Else
 
-		TemplateExported = NStr("ru = 'Выгружено объектов: %Exported'; en = 'Objects exported: %Exported'");
+		TemplateExported = NStr("ru = 'Выгружено объектов: %Exported'; en = 'Objects exported: %Exported'; tr = 'Dışa aktarılan nesneler: %Exported'");
 		MessageExported = StrReplace(TemplateExported, "%Exported", TotalProcessedRecords());
 		UserMessage(MessageExported);
 
-		TemplateEnd = NStr("ru = 'Окончание выгрузки: %Date'; en = 'Export completed at: %Date'");
+		TemplateEnd = NStr("ru = 'Окончание выгрузки: %Date'; en = 'Export completed at: %Date'; tr = 'İhracat tamamlandı: %Date'");
 		MessageEnd = StrReplace(TemplateEnd, "%Date", CurrentSessionDate());
 		UserMessage(MessageEnd);
 
-		UserMessage(NStr("ru = 'Выгрузка данных успешно завершена'; en = 'Data export is completed successfully'"));
+		UserMessage(NStr("ru = 'Выгрузка данных успешно завершена'; en = 'Data export is completed successfully'; tr = 'Veri aktarımı başarıyla tamamlandı'"));
 
 	EndIf;
 
@@ -232,7 +232,7 @@ Procedure ExecuteImport(Val FileName) Export
 	If Not XMLReader.Read() Or XMLReader.NodeType <> XMLNodeType.StartElement Or XMLReader.LocalName <> "_1CV8DtUD"
 		Or XMLReader.NamespaceURI <> "http://www.1c.ru/V8/1CV8DtUD/" Then
 
-		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'"));
+		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'; tr = 'Yanlış dışa aktarma dosyası formatı'"));
 		Return;
 
 	EndIf;
@@ -240,7 +240,7 @@ Procedure ExecuteImport(Val FileName) Export
 	If Not XMLReader.Read() Or XMLReader.NodeType <> XMLNodeType.StartElement Or XMLReader.LocalName
 		<> "Data" Then
 
-		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'"));
+		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'; tr = 'Yanlış dışa aktarma dosyası formatı'"));
 		Return;
 
 	EndIf;
@@ -257,7 +257,7 @@ Procedure ExecuteImport(Val FileName) Export
 	// Reading and writing objects from export file.
 	If Not XMLReader.Read() Then
 
-		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'"));
+		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'; tr = 'Yanlış dışa aktarma dosyası formatı'"));
 		Return;
 
 	EndIf;
@@ -265,7 +265,7 @@ Procedure ExecuteImport(Val FileName) Export
 	Imported = 0;
 	RemoveTotalsUsage();
 
-	MessageTemplate = NStr("ru = 'Начало загрузки: %Date'; en = 'Import starts at: %Date'");
+	MessageTemplate = NStr("ru = 'Начало загрузки: %Date'; en = 'Import starts at: %Date'; tr = 'İndirme başlangıcı: %Date'");
 	MessageText = StrReplace(MessageTemplate, "%Date", CurrentSessionDate());
 
 	UserMessage(MessageText);
@@ -305,14 +305,12 @@ Procedure ExecuteImport(Val FileName) Export
 
 				Try
 					MessageText = NStr("ru = 'При загрузке объекта %1(%2) возникла ошибка:
-										  |%3'; 
-									   |en = 'An error %3 occured while loading an object %1(%2).'");
+																								   |%3'; en = 'An error %3 occured while loading an object %1(%2).'; tr = '%1(%2) nesnesi yüklenirken %3 hatası oluştu.'");
 					MessageText = SubstituteParametersToString(MessageText, WrittenValue, TypeOf(
 						WrittenValue), ErrorText);
 				Except
 					MessageText = NStr("ru = 'При загрузке данных возникла ошибка:
-										  |%1';
-									   |en = 'An error occured on data import.'");
+																				|%1'; en = 'An error occured on data import.'; tr = 'Veri aktarımı sırasında bir hata oluştu. %1'");
 					MessageText = SubstituteParametersToString(MessageText, ErrorText);
 				EndTry;
 
@@ -333,7 +331,7 @@ Procedure ExecuteImport(Val FileName) Export
 	// Checking an exchange file format.
 	If XMLReader.NodeType <> XMLNodeType.EndElement Or XMLReader.LocalName <> "Data" Then
 
-		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'"));
+		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'; tr = 'Yanlış dışa aktarma dosyası formatı'"));
 		Return;
 
 	EndIf;
@@ -341,7 +339,7 @@ Procedure ExecuteImport(Val FileName) Export
 	If Not XMLReader.Read() Or XMLReader.NodeType <> XMLNodeType.StartElement Or XMLReader.LocalName
 		<> "PredefinedData" Then
 
-		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'"));
+		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'; tr = 'Yanlış dışa aktarma dosyası formatı'"));
 		Return;
 
 	EndIf;
@@ -351,22 +349,22 @@ Procedure ExecuteImport(Val FileName) Export
 	If Не XMLReader.Read() Or XMLReader.NodeType <> XMLNodeType.EndElement Or XMLReader.LocalName <> "_1CV8DtUD"
 		Or XMLReader.NamespaceURI <> "http://www.1c.ru/V8/1CV8DtUD/" Then
 
-		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'"));
+		UserMessage(NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect export file format'; tr = 'Yanlış dışa aktarma dosyası formatı'"));
 		Return;
 
 	EndIf;
 
 	XMLReader.Close();
 
-	TemplateImported = NStr("ru = 'Загружено объектов: %Count'; en = '%Count objects imported'");
+	TemplateImported = NStr("ru = 'Загружено объектов: %Count'; en = '%Count objects imported'; tr = 'İçe aktarılan nesne sayısı: %Count'");
 	MessageImported = StrReplace(TemplateImported, "%Count", Imported);
 
-	TemplateEnd = NStr("ru = 'Окончание загрузки: %Date'; en = 'Import finished at: %Date'");
+	TemplateEnd = NStr("ru = 'Окончание загрузки: %Date'; en = 'Import finished at: %Date'; tr = 'İndirme tamamlandı: %Date'");
 	MessageEnd = StrReplace(TemplateEnd, "%Date", CurrentSessionDate());
 
 	UserMessage(MessageImported);
 	UserMessage(MessageEnd);
-	UserMessage(NStr("ru = 'Загрузка данных успешно завершена'; en = 'Data is imported successfully'"));
+	UserMessage(NStr("ru = 'Загрузка данных успешно завершена'; en = 'Data is imported successfully'; tr = 'Veriler başarıyla içe aktarıldı'"));
 
 EndProcedure
 
@@ -513,7 +511,9 @@ Procedure GenerateErrorTable(ObjectsExportedWithErrors)
 	If ObjectsExportedWithErrors.Count() = 0 Then
 		UserMessage(NStr(
 			"ru = 'Проверка объектов на наличие недопустимых символов завершена. Ошибок не обнаружено.'
-			|en = 'Checking objects for invalid characters is complete. No errors found.'"));
+			|en = 'Checking objects for invalid characters is complete. No errors found.'
+			|tr = 'Nesnelerin geçersiz karakterler açısından kontrolü tamamlandı. Hata bulunamadı.'"
+			));
 	Else
 
 		ErrorSearchString = "WriteXML):";
@@ -643,7 +643,7 @@ Procedure DataExport(XMLWriter, InvalidCharsCheckOnly = False,
 			MetadataTreeRow = ExportTableRow.TreeRow;
 
 			If MetadataTreeRow.Detail.Manager = Undefined Then
-				Raise (NStr("ru = 'Выгрузка данных. Внутренняя ошибка'; en = 'Data export. Internal error.'"));
+				Raise (NStr("ru = 'Выгрузка данных. Внутренняя ошибка'; en = 'Data export. Internal error.'; tr = 'Veri indirme. Dahili hata'"));
 			EndIf;
 
 			If Metadata.Constants.Contains(MetadataTreeRow.MDObject) Then
@@ -1235,7 +1235,7 @@ Function PrepareBuilderForExport(MetadataTreeRow, FieldsForSelectionString = "",
 					= DataCompositionComparisonType.NotContains Then
 					ReportBuilder.Parameters.Insert(LeftValue, "%" + ItemRow.RightValue + "%");
 				Else
-					If String(TypeOf(ItemRow.RightValue)) = NStr("ru = 'Стандартная дата начала'; en = 'Standard beginning date'") Then
+					If String(TypeOf(ItemRow.RightValue)) = NStr("ru = 'Стандартная дата начала'; en = 'Standard beginning date'; tr = 'Standart başlangıç tarihi'") Then
 						ReportBuilder.Parameters.Insert(LeftValue, ItemRow.RightValue.Date);
 					Else
 						ReportBuilder.Parameters.Insert(LeftValue, ItemRow.RightValue);
@@ -1450,8 +1450,7 @@ Procedure QueryResultProcessing(QueryResult, XMLWriter, IsQueryByObject = False,
 				Else
 
 					FinalMessageString = NStr("ru = 'При выгрузке объекта %1(%2) возникла ошибка:
-												   |%3';
-											  |en = 'An error %3 occured while exporting an object %1(%2).'");
+																											|%3'; en = 'An error %3 occured while exporting an object %1(%2).'; tr = '%1(%2) nesnesi dışa aktarılırken %3 hatası oluştu.'");
 					FinalMessageString = SubstituteParametersToString(FinalMessageString, Object, TypeOf(
 						Object), ErrorDescriptionString);
 					UserMessage(FinalMessageString);
@@ -1675,8 +1674,7 @@ Procedure WriteConstant(XMLWriter, MD_Constant, ObjectsExportedWithErrors, Inval
 			ObjectsExportedWithErrors.Insert(ValueManager, ErrorDescriptionString);
 		Else
 			FinalMessageString = NStr("ru = 'При выгрузке константы %1 возникла ошибка:
-										   |%2';
-									  |en = 'An error %2 occured while importing a constant %1.'");
+																								 |%2'; en = 'An error %2 occured while importing a constant %1.'; tr = '%1 sabiti içe aktarılırken %2 hatası oluştu.'");
 			FinalMessageString = SubstituteParametersToString(FinalMessageString, MD_Constant.Name,
 				ErrorDescriptionString);
 
@@ -1793,7 +1791,7 @@ Procedure WriteViaRecordSet(XMLWriter, RecordSetManager, ForQuery, ObjectName,
 				For Each ItemsRow In Row.Filter.Items Do
 					If ItemsRow.Use Then
 
-						If String(TypeOf(ItemsRow.RightValue)) = NStr("ru = 'Стандартная дата начала'; en = 'Standard beginning date'") Then
+						If String(TypeOf(ItemsRow.RightValue)) = NStr("ru = 'Стандартная дата начала'; en = 'Standard beginning date'; tr = 'Standart başlangıç tarihi'") Then
 							Query.SetParameter(String(ItemsRow.LeftValue),
 								ItemsRow.RightValue.Date);
 						Else
@@ -1828,7 +1826,7 @@ Procedure WriteViaRecordSet(XMLWriter, RecordSetManager, ForQuery, ObjectName,
 				For Each ItemsRow In Row.Filter.Items Do
 					If ItemsRow.Use Then
 
-						If String(TypeOf(ItemsRow.RightValue)) = NStr("ru = 'Стандартная дата начала'; en = 'Standard beginning date'") Then
+						If String(TypeOf(ItemsRow.RightValue)) = NStr("ru = 'Стандартная дата начала'; en = 'Standard beginning date'; tr = 'Standart başlangıç tarihi'") Then
 							Query.SetParameter(String(ItemsRow.LeftValue),
 								ItemsRow.RightValue.Date);
 						Else
@@ -1949,8 +1947,7 @@ Procedure WriteViaRecordSet(XMLWriter, RecordSetManager, ForQuery, ObjectName,
 			Else
 
 				FinalMessageString = NStr("ru = 'При выгрузке регистра %1%2 возникла ошибка:
-											   |%3';
-									  	  |en = 'An error %3 occured while importing a register %1%2.'");
+																									   |%3'; en = 'An error %3 occured while importing a register %1%2.'; tr = '%1%2 kaydı içe aktarılırken %3 hatası oluştu.'");
 				FinalMessageString = SubstituteParametersToString(FinalMessageString, ForQuery, ObjectName,
 					ErrorDescriptionString);
 
@@ -2095,7 +2092,7 @@ Procedure CollapseObjectSubtree(VTItem)
 		EndDo;
 
 		If ClassBranch.Rows.Count() = 0 Then
-			ClassBranchesToDelete.Add(VTItem.Rows.Index(ClassBranch));
+			ClassBranchesToDelete.Add(VTItem.Rows.IndexOf(ClassBranch));
 		EndIf;
 
 	EndDo;
@@ -2295,7 +2292,7 @@ Function GetAllTypes(VTItem)
 	MDObject = VTItem.MDObject;
 	If TypeOf(MDObject) <> Type("MetadataObject") And TypeOf(MDObject) <> Type("ConfigurationMetadataObject") Then
 
-		Raise (NStr("ru = 'Внутренняя ошибка обработки выгрузки'; en = 'Export internal error'"));
+		Raise (NStr("ru = 'Внутренняя ошибка обработки выгрузки'; en = 'Export internal error'; tr = 'Yükleme işleminde dahili hata oluştu'"));
 
 	EndIf;
 
@@ -2450,7 +2447,7 @@ Procedure SetExportIfNecessaryState(VTItem)
 		TypeAndObject = RefTypes.Get(RefType);
 		If TypeAndObject = Undefined Then
 
-			ExceptionText = NStr("ru = 'Внутренняя ошибка. Неполное заполнение структуры ссылочных типов %1'; en = 'Internal error. Incomplete structure of reference types %1.'");
+			ExceptionText = NStr("ru = 'Внутренняя ошибка. Неполное заполнение структуры ссылочных типов %1'; en = 'Internal error. Incomplete structure of reference types %1.'; tr = 'Dahili hata. %1 referans türlerinin eksik yapısı.'");
 			ExceptionText = SubstituteParametersToString(ExceptionText, RefType);
 			Raise (ExceptionText);
 
@@ -2461,8 +2458,7 @@ Procedure SetExportIfNecessaryState(VTItem)
 		If VTRow = Undefined Then
 
 			ExceptionText = NStr(
-				"ru = 'Внутренняя ошибка. Неполное заполнение дерева метаданных. Отсутствует объект, образующий тип %1';
-				|en = 'Internal error. Incomplete metadata tree. Object of type %1 is missing.'");
+				"ru = 'Внутренняя ошибка. Неполное заполнение дерева метаданных. Отсутствует объект, образующий тип %1'; en = 'Internal error. Incomplete metadata tree. Object of type %1 is missing.'; tr = 'Dahili hata. Eksik metaveri ağacı. %1 türünde nesne eksik.'");
 			ExceptionText = SubstituteParametersToString(ExceptionText, RefType);
 			Raise (ExceptionText);
 
@@ -3203,7 +3199,7 @@ Procedure ImportPredefinedItemsTable(XMLReader)
 
 					Else
 
-						ExceptionText = NStr("ru = 'Обнаружено дублирование предопределенных элементов %1 в таблице %2.'; en = 'Duplicate predefined items %1 are found in table %2.'");
+						ExceptionText = NStr("ru = 'Обнаружено дублирование предопределенных элементов %1 в таблице %2.'; en = 'Duplicate predefined items %1 are found in table %2.'; tr = 'Tablo %2''de önceden tanımlanmış yinelenen öğeler %1 bulundu.'");
 						ExceptionText = StrReplace(ExceptionText, "%1", TempRow.PredefinedDataName);
 						ExceptionText = StrReplace(ExceptionText, "%2", TempRow.TableName);
 						
@@ -3438,7 +3434,7 @@ Function XMLRefType(Val Value)
 		
 	Else
 		
-		ExceptionText = NStr("ru = 'Ошибка при определении XMLТипа ссылки для объекта %1: объект не является ссылочным.'; en = 'Error determining XML Ref type for object %1: this is not a reference object.'");
+		ExceptionText = NStr("ru = 'Ошибка при определении XMLТипа ссылки для объекта %1: объект не является ссылочным.'; en = 'Error determining XML Ref type for object %1: this is not a reference object.'; tr = '%1 nesnesi için XML Referans türü belirlenirken hata oluştu: bu bir referans nesnesi değil.'");
 		ExceptionText = StrReplace(ExceptionText, "%1", MetadataObject.FullName());
 		
 		Raise ExceptionText;

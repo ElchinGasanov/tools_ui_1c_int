@@ -81,14 +81,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <activeLanguage>1</activeLanguage>
-            <paths xsi:type="form:DataPath">
-              <segments>MetadataTree.Presentation</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>MetadataTree.Presentation</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>MetadataTree.Presentation</segments>
           </dataPath>
           <extendedTooltip>
             <name>MetadataTreePresentationExtendedTooltip</name>
@@ -178,6 +172,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>MetadataTree</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -216,6 +211,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>MetadataTree</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -255,6 +251,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>MetadataTree</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -387,6 +384,10 @@
             <key>ru</key>
             <value>Выберите тип отображаемого списка</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Görüntülenen listenin türünü seçin</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -477,6 +478,10 @@
           <title>
             <key>ru</key>
             <value>Таблица недоступна для просмотра</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Tablo görüntülenemiyor</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -637,6 +642,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -650,6 +656,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -666,12 +676,16 @@
   <attributes>
     <name>MetadataTree</name>
     <title>
+      <key>ru</key>
+      <value>Дерево метаданных</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Metadata tree</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Дерево метаданных</value>
+      <key>tr</key>
+      <value>Metaveri ağacı</value>
     </title>
     <id>2</id>
     <valueType>
@@ -692,6 +706,10 @@
       <title>
         <key>en</key>
         <value>Picture</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Resim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -714,6 +732,10 @@
         <key>en</key>
         <value>Presentation</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -729,12 +751,16 @@
     <columns>
       <name>ObjectsType</name>
       <title>
+        <key>ru</key>
+        <value>Тип объектов</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Objects type</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Тип объектов</value>
+        <key>tr</key>
+        <value>Nesneler türü</value>
       </title>
       <id>5</id>
       <valueType>
@@ -751,12 +777,16 @@
     <columns>
       <name>ObjectType</name>
       <title>
+        <key>ru</key>
+        <value>Вид объекта</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Object type</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Вид объекта</value>
+        <key>tr</key>
+        <value>Nesne türü</value>
       </title>
       <id>6</id>
       <valueType>
@@ -780,6 +810,10 @@
         <key>en</key>
         <value>Comment</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Yorum</value>
+      </title>
       <id>9</id>
       <valueType>
         <types>String</types>
@@ -802,6 +836,10 @@
         <key>en</key>
         <value>Attributes</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Nitelikler</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>ValueTable</types>
@@ -822,6 +860,10 @@
       <title>
         <key>en</key>
         <value>Full name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Tam ad</value>
       </title>
       <id>17</id>
       <valueType>
@@ -849,6 +891,10 @@
           <key>en</key>
           <value>Name</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Ad</value>
+        </title>
         <id>11</id>
         <valueType>
           <types>String</types>
@@ -871,6 +917,10 @@
           <key>en</key>
           <value>Presentation</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Gösterim</value>
+        </title>
         <id>12</id>
         <valueType>
           <types>String</types>
@@ -892,6 +942,10 @@
         <title>
           <key>en</key>
           <value>Value type</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Değer türü</value>
         </title>
         <id>13</id>
         <valueType>
@@ -916,6 +970,10 @@
       <key>en</key>
       <value>Choice mode</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Seçim modu</value>
+    </title>
     <id>15</id>
     <valueType>
       <types>Boolean</types>
@@ -937,6 +995,10 @@
       <key>en</key>
       <value>Metadata object name</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Metaveri nesnesi adı</value>
+    </title>
     <id>16</id>
     <valueType>
       <types>String</types>
@@ -952,12 +1014,16 @@
   <attributes>
     <name>MetadataObjectRowID</name>
     <title>
+      <key>ru</key>
+      <value>Идентификатор строки объекта метаданных</value>
+    </title>
+    <title>
       <key>en</key>
       <value>ID of Metadata object row</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Идентификатор строки объекта метаданных</value>
+      <key>tr</key>
+      <value>Meta veri nesnesi satırının ID</value>
     </title>
     <id>18</id>
     <valueType>
@@ -979,6 +1045,10 @@
       <key>en</key>
       <value>Search string</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Arama dizesi</value>
+    </title>
     <id>19</id>
     <valueType>
       <types>String</types>
@@ -994,12 +1064,16 @@
   <formCommands>
     <name>EditObject</name>
     <title>
+      <key>ru</key>
+      <value>Редактировать объект</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Edit object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Редактировать объект</value>
+      <key>tr</key>
+      <value>Nesneyi düzenle</value>
     </title>
     <id>2</id>
     <use>
@@ -1025,6 +1099,10 @@
     <title>
       <key>en</key>
       <value>Delete selected objects</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Seçili nesneleri sil</value>
     </title>
     <id>3</id>
     <use>

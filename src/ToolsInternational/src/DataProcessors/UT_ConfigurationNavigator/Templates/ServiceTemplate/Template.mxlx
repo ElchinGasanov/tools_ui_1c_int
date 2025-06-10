@@ -13,6 +13,11 @@
 			<code>English</code>
 			<description/>
 		</languageInfo>
+		<languageInfo>
+			<id>tr</id>
+			<code>Turkish</code>
+			<description>Turkish</description>
+		</languageInfo>
 	</languageSettings>
 	<columns>
 		<size>5</size>
@@ -55,6 +60,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Gösterim</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -136,6 +145,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>General</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Genel</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -165,6 +178,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>ServiceFunctions</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Servis Fonksiyonları</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -196,6 +213,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Subsystems versions</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Alt sistem sürümleri</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -216,6 +237,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>SubsystemsVersions</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>AltsistemlerSürümler</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -229,6 +254,10 @@
 						</v8:item>
 						<v8:item>
 							<v8:lang>en</v8:lang>
+							<v8:content>_FormContext.SubsystemsVersions</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
 							<v8:content>_FormContext.SubsystemsVersions</v8:content>
 						</v8:item>
 					</tl>
@@ -245,6 +274,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Show versions of configuration subsystems (SSL)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Yapılandırma alt sistemlerinin sürümlerini göster (SSL)</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -266,6 +299,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Change display scale</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Görüntü ölçeğini değiştir</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -285,6 +322,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>DisplayScale</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>GörüntülemeÖlçeği</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -316,6 +357,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Refresh reusable values</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Yeniden kullanılabilir değerleri yenile</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -335,6 +380,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>RefreshReusableValues</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>YenidenKullanılabilirDeğerleriYenile</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -356,6 +405,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>call RefreshReusableValues(...) procedure</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>RefreshReusableValues(...) prosedürünü çağırın</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -375,6 +428,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Clear favorites</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Favorileri temizle</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -396,6 +453,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>ClearFavorites</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>FavorilerTemizle</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -415,6 +476,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Clean the favorites items for the current user</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Geçerli kullanıcı için favori öğeleri temizle</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -436,6 +501,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Set sessions lock</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Oturum kilidi ayarla</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -455,6 +524,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>SetSessionsLock</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>OturumKilidiAyarla</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -476,6 +549,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Set the session lock mode</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Oturum kilidi modunu ayarlayın</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -496,6 +573,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Set exclusive mode</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Özel modu ayarla</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -515,6 +596,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>ExclusiveMode</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>ÖzelMod</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -576,6 +661,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Start 1C session</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>1C oturumunu başlat</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -616,6 +705,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Start 1C session in different modes</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>1C oturumunu farklı modlarda başlatın</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -636,6 +729,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>1C Configurator</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>1C Konfigurasyon</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -655,6 +752,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>1CConfigurator</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>1CKonfigurasyon</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -686,6 +787,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Ordinary Сlient</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kalın istemci (standard uygulama)</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -705,6 +810,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>OrdinaryСlient</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>KalınStandardUygulama</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -736,6 +845,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Thick Сlient</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kalın istemci</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -755,6 +868,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>ThickСlient</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kalınİstemci</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -786,6 +903,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Thin Сlient</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İnce istemci</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -805,6 +926,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>ThinСlient</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İnceİstemci</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -836,6 +961,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Lanch 1C</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>1C Başlat</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -856,6 +985,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Run1C</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>1CBaşlat</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -875,6 +1008,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Start 1C session with parameters</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Parametrelerle 1C oturumunu başlat</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -924,6 +1061,10 @@
 						</v8:item>
 						<v8:item>
 							<v8:lang>en</v8:lang>
+							<v8:content>Windows</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
 							<v8:content>Windows</v8:content>
 						</v8:item>
 					</tl>
@@ -976,6 +1117,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>All programs</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tüm programlar</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -994,6 +1139,10 @@
 						</v8:item>
 						<v8:item>
 							<v8:lang>en</v8:lang>
+							<v8:content>WinStartMenu</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
 							<v8:content>WinStartMenu</v8:content>
 						</v8:item>
 					</tl>
@@ -1016,6 +1165,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Open "%ProgramData%\Microsoft\Windows\Start Menu\Programs" folder</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>"%ProgramData%\Microsoft\Windows\Start Menu\Programs" klasörünü aç</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -1035,6 +1188,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>App data</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Uygulama verileri</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -1056,6 +1213,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>WinAppData</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>WinAppData</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -1075,6 +1236,10 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Open "%AppData%" folder</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>"%AppData%" klasörünü aç</v8:content>
 						</v8:item>
 					</tl>
 				</c>

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Уникальный идентификатор</value>
+  </title>
+  <title>
     <key>en</key>
     <value>UUID</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Уникальный идентификатор</value>
+    <key>tr</key>
+    <value>UUID</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>MainGroup</name>
@@ -25,10 +29,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>UUIDString</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>UUIDString</segments>
           </dataPath>
           <titleLocation>Left</titleLocation>
           <handlers>
@@ -161,10 +163,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Ref</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Ref</segments>
         </dataPath>
         <titleLocation>Left</titleLocation>
         <handlers>
@@ -338,12 +338,16 @@
       <name>OKCommand</name>
       <id>8</id>
       <title>
+        <key>ru</key>
+        <value>ОК</value>
+      </title>
+      <title>
         <key>en</key>
         <value>OK</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>ОК</value>
+        <key>tr</key>
+        <value>OK</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -428,6 +432,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -452,12 +457,16 @@
   <attributes>
     <name>UUIDString</name>
     <title>
+      <key>ru</key>
+      <value>Уникальный идентификатор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>UUID</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Уникальный идентификатор</value>
+      <key>tr</key>
+      <value>UUID</value>
     </title>
     <id>3</id>
     <valueType>
@@ -476,12 +485,16 @@
   <attributes>
     <name>Ref</name>
     <title>
+      <key>ru</key>
+      <value>Ссылка</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Ref</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Ссылка</value>
+      <key>tr</key>
+      <value>Referans</value>
     </title>
     <id>4</id>
     <valueType>
@@ -504,12 +517,16 @@
   <formCommands>
     <name>OKCommand</name>
     <title>
+      <key>ru</key>
+      <value>Команда ОК</value>
+    </title>
+    <title>
       <key>en</key>
       <value>OK command</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Команда ОК</value>
+      <key>tr</key>
+      <value>OK</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -533,12 +550,16 @@
   <formCommands>
     <name>FindCommand</name>
     <title>
+      <key>ru</key>
+      <value>Команда найти</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Find command</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Команда найти</value>
+      <key>tr</key>
+      <value>Ara</value>
     </title>
     <id>2</id>
     <toolTip>

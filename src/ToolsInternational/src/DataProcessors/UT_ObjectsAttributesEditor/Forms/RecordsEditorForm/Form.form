@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Редактор движений</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Records editor</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Редактор движений</value>
+    <key>tr</key>
+    <value>Kayıtlar düzenleyicisi</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>MainGroup</name>
@@ -22,10 +26,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>mObjectRef</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>mObjectRef</segments>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -100,10 +102,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_WriteInLoadingMode</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_WriteInLoadingMode</segments>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -178,10 +178,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_AskQuestionOnClose</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_AskQuestionOnClose</segments>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -224,10 +222,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_FastServerCall</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_FastServerCall</segments>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -360,10 +356,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_TabRegisters.Write</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_TabRegisters.Write</segments>
         </dataPath>
         <extendedTooltip>
           <name>_TabRegistersWriteExtendedTooltip</name>
@@ -404,10 +398,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_TabRegisters.Changed</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_TabRegisters.Changed</segments>
         </dataPath>
         <extendedTooltip>
           <name>_TabRegistersChangedExtendedTooltip</name>
@@ -457,10 +449,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_TabRegisters.RecordsExists</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_TabRegisters.RecordsExists</segments>
         </dataPath>
         <extendedTooltip>
           <name>_TabRegistersRecordsExistsExtendedTooltip</name>
@@ -510,10 +500,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_TabRegisters.RecordCount</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_TabRegisters.RecordCount</segments>
         </dataPath>
         <extendedTooltip>
           <name>_TabRegistersRecordCountExtendedTooltip</name>
@@ -571,10 +559,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_TabRegisters.RegisterType</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_TabRegisters.RegisterType</segments>
         </dataPath>
         <extendedTooltip>
           <name>_TabRegistersRegisterTypeExtendedTooltip</name>
@@ -624,10 +610,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_TabRegisters.Name</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_TabRegisters.Name</segments>
         </dataPath>
         <extendedTooltip>
           <name>_TabRegistersNameExtendedTooltip</name>
@@ -677,10 +661,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_TabRegisters.Presentation</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_TabRegisters.Presentation</segments>
         </dataPath>
         <extendedTooltip>
           <name>_TabRegistersPresentationExtendedTooltip</name>
@@ -730,10 +712,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_TabRegisters.FullName</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_TabRegisters.FullName</segments>
         </dataPath>
         <extendedTooltip>
           <name>_TabRegistersFullNameExtendedTooltip</name>
@@ -803,11 +783,11 @@
           </extendedTooltip>
           <commandName>Form.Item._TabRegisters.StandardCommand.SortListAsc</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>_TabRegistersSortListDesc</name>
@@ -834,11 +814,11 @@
           </extendedTooltip>
           <commandName>Form.Item._TabRegisters.StandardCommand.SortListDesc</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>_TabRegistersFind</name>
@@ -865,7 +845,6 @@
           </extendedTooltip>
           <commandName>Form.Item._TabRegisters.StandardCommand.Find</commandName>
           <representation>Picture</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
@@ -873,6 +852,7 @@
             <picture>StdPicture.Find</picture>
           </picture>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>_TabRegistersCancelSearch</name>
@@ -899,7 +879,6 @@
           </extendedTooltip>
           <commandName>Form.Item._TabRegisters.StandardCommand.CancelSearch</commandName>
           <representation>Picture</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
@@ -907,6 +886,7 @@
             <picture>StdPicture.CancelSearch</picture>
           </picture>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>_TabRegisters_OpenInNewWindow</name>
@@ -1056,11 +1036,11 @@
             </extendedTooltip>
             <commandName>Form.Command._SortRegistersByDefault</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1112,11 +1092,11 @@
             </extendedTooltip>
             <commandName>Form.Command._Refresh</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>_TabRegisters_Write</name>
@@ -1143,11 +1123,11 @@
             </extendedTooltip>
             <commandName>Form.Command._Write</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>_TabRegisters_ClearRecords</name>
@@ -1174,11 +1154,11 @@
             </extendedTooltip>
             <commandName>Form.Command._ClearRecords</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>_TabRegisters_LoadOtherDocumentRecords</name>
@@ -1205,11 +1185,11 @@
             </extendedTooltip>
             <commandName>Form.Command._LoadOtherDocumentRecords</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1278,6 +1258,7 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
+        <source>_TabRegisters</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -1316,6 +1297,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
+        <source>_TabRegisters</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
           <horizontalLocation>Left</horizontalLocation>
@@ -1355,6 +1337,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
+        <source>_TabRegisters</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -1411,12 +1394,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Движения документа</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Register records</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Движения документа</value>
+      <key>tr</key>
+      <value>Belgenin kayıtları</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -1459,22 +1446,24 @@
       <name>_RegisterFullName</name>
       <id>81</id>
       <title>
+        <key>ru</key>
+        <value>Имя регистра</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Register name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Имя регистра</value>
+        <key>tr</key>
+        <value>Kayıt tablosu adı</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Items._TabRegisters.CurrentData.FullName</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Items._TabRegisters.CurrentData.FullName</segments>
       </dataPath>
       <extendedTooltip>
         <name>_RegisterFullNameExtendedTooltip</name>
@@ -1527,10 +1516,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_CurrentFieldValueType</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_CurrentFieldValueType</segments>
         </dataPath>
         <toolTip>
           <key>ru</key>
@@ -1647,12 +1634,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Тип данных для значения в текущем поле</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Current field value data type</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Тип данных для значения в текущем поле</value>
+        <key>tr</key>
+        <value>Geçerli alan değerinin veri tipi</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -1701,10 +1692,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_ValueToFill</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_ValueToFill</segments>
         </dataPath>
         <extendedTooltip>
           <name>_ValueToFillExtendedTooltip</name>
@@ -1854,10 +1843,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_ProcessOnlySelectedRowsOnFilling</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_ProcessOnlySelectedRowsOnFilling</segments>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -1898,12 +1885,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Заполнение колонок таблиц движений</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filling register records table columns</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Заполнение колонок таблиц движений</value>
+        <key>tr</key>
+        <value>Kayıtlar tablosu sütunlarının doldurulması</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -1975,10 +1966,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>_RecordsExample.Recorder</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>_RecordsExample.Recorder</segments>
             </dataPath>
             <extendedTooltip>
               <name>_RecordsExampleRecorderExtendedTooltip</name>
@@ -2063,6 +2052,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>_RecordsExample</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2101,6 +2091,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>_RecordsExample</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -2140,6 +2131,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>_RecordsExample</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2278,12 +2270,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Редактор набора записей</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Record set editor</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Редактор набора записей</value>
+      <key>tr</key>
+      <value>Kayıt seti düzenleyicisi</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -2346,6 +2342,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -2357,6 +2354,10 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_ObjectsAttributesEditor</types>
@@ -2372,12 +2373,16 @@
   <attributes>
     <name>mObjectRef</name>
     <title>
+      <key>ru</key>
+      <value>Документ</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Document</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Документ</value>
+      <key>tr</key>
+      <value>Belge</value>
     </title>
     <id>2</id>
     <valueType>
@@ -2393,12 +2398,16 @@
   <attributes>
     <name>FormsPath</name>
     <title>
+      <key>ru</key>
+      <value>Путь к формам</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Forms path</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Путь к формам</value>
+      <key>tr</key>
+      <value>Formlara giden yol</value>
     </title>
     <id>3</id>
     <valueType>
@@ -2415,12 +2424,16 @@
   <attributes>
     <name>_TabRegisters</name>
     <title>
+      <key>ru</key>
+      <value>Таб регистры</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Registers table</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Таб регистры</value>
+      <key>tr</key>
+      <value>Kayıt tabloları</value>
     </title>
     <id>4</id>
     <valueType>
@@ -2435,12 +2448,16 @@
     <columns>
       <name>Write</name>
       <title>
+        <key>ru</key>
+        <value>Записать</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Write</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Записать</value>
+        <key>tr</key>
+        <value>Yaz</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2456,12 +2473,16 @@
     <columns>
       <name>Name</name>
       <title>
+        <key>ru</key>
+        <value>Name</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Name</value>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>2</id>
       <valueType>
@@ -2478,12 +2499,16 @@
     <columns>
       <name>Presentation</name>
       <title>
+        <key>ru</key>
+        <value>Представление</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Presentation</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Представление</value>
+        <key>tr</key>
+        <value>Gösterim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2500,12 +2525,16 @@
     <columns>
       <name>RecordsExists</name>
       <title>
+        <key>ru</key>
+        <value>Есть записи</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Records exists</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Есть записи</value>
+        <key>tr</key>
+        <value>Kayıtlar var</value>
       </title>
       <id>4</id>
       <valueType>
@@ -2521,12 +2550,16 @@
     <columns>
       <name>RecordCount</name>
       <title>
+        <key>ru</key>
+        <value>Число записей</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Record count</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Число записей</value>
+        <key>tr</key>
+        <value>Kayıt sayısı</value>
       </title>
       <id>5</id>
       <valueType>
@@ -2546,12 +2579,16 @@
     <columns>
       <name>RegisterType</name>
       <title>
+        <key>ru</key>
+        <value>Вид регистра</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Register type</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Вид регистра</value>
+        <key>tr</key>
+        <value>Kayıt türü</value>
       </title>
       <id>6</id>
       <valueType>
@@ -2568,12 +2605,16 @@
     <columns>
       <name>FullName</name>
       <title>
+        <key>ru</key>
+        <value>Полное имя</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Full name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Полное имя</value>
+        <key>tr</key>
+        <value>Tam ad</value>
       </title>
       <id>7</id>
       <valueType>
@@ -2590,12 +2631,16 @@
     <columns>
       <name>FormAttributeExists</name>
       <title>
+        <key>ru</key>
+        <value>Есть реквизит формы</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Form attribute exists</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Есть реквизит формы</value>
+        <key>tr</key>
+        <value>Formda öznitelik var</value>
       </title>
       <id>8</id>
       <valueType>
@@ -2611,12 +2656,16 @@
     <columns>
       <name>Changed</name>
       <title>
+        <key>ru</key>
+        <value>Изменен</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Changed</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Изменен</value>
+        <key>tr</key>
+        <value>Değişti</value>
       </title>
       <id>9</id>
       <valueType>
@@ -2633,12 +2682,16 @@
   <attributes>
     <name>_RecordsExample</name>
     <title>
+      <key>ru</key>
+      <value>Пример движений</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Records example</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Пример движений</value>
+      <key>tr</key>
+      <value>Etkinlikler örneği</value>
     </title>
     <id>5</id>
     <valueType>
@@ -2653,12 +2706,16 @@
     <columns>
       <name>Recorder</name>
       <title>
+        <key>ru</key>
+        <value> </value>
+      </title>
+      <title>
         <key>en</key>
         <value>Recorder</value>
       </title>
       <title>
-        <key>ru</key>
-        <value> </value>
+        <key>tr</key>
+        <value>Etkinlik</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2676,12 +2733,16 @@
   <attributes>
     <name>_ProcessOnlySelectedRowsOnFilling</name>
     <title>
+      <key>ru</key>
+      <value>Обрабатывать только выделенные строки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Process only selected rows</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обрабатывать только выделенные строки</value>
+      <key>tr</key>
+      <value>Yalnızca seçili satırları işle</value>
     </title>
     <id>6</id>
     <valueType>
@@ -2700,12 +2761,16 @@
   <attributes>
     <name>_ValueToFill</name>
     <title>
+      <key>ru</key>
+      <value>Значение для заполнения</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Value to fill</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Значение для заполнения</value>
+      <key>tr</key>
+      <value>Doldurulacak Değer</value>
     </title>
     <id>7</id>
     <valueType>
@@ -2731,12 +2796,16 @@
   <attributes>
     <name>mObjectRefPrevious</name>
     <title>
+      <key>ru</key>
+      <value>Документ</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Document</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Документ</value>
+      <key>tr</key>
+      <value>Belge</value>
     </title>
     <id>8</id>
     <valueType>
@@ -2752,12 +2821,16 @@
   <attributes>
     <name>_WriteInLoadingMode</name>
     <title>
+      <key>ru</key>
+      <value>Запись в режиме загрузки ( проверки отключены )</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Write in loading mode (checks disabled)</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Запись в режиме загрузки ( проверки отключены )</value>
+      <key>tr</key>
+      <value>Yükleme Modunda Yaz (Kontroller devre dışı)</value>
     </title>
     <id>9</id>
     <valueType>
@@ -2773,12 +2846,16 @@
   <attributes>
     <name>_FastServerCall</name>
     <title>
+      <key>ru</key>
+      <value>Быстрый вызов сервера</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Fast server call</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Быстрый вызов сервера</value>
+      <key>tr</key>
+      <value>Hızlı sunucu çağrısı</value>
     </title>
     <id>10</id>
     <valueType>
@@ -2797,12 +2874,16 @@
   <attributes>
     <name>_AskQuestionOnClose</name>
     <title>
+      <key>ru</key>
+      <value>Задавать вопрос при закрытии</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Ask question on close</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Задавать вопрос при закрытии</value>
+      <key>tr</key>
+      <value>Kapatırken soru sor</value>
     </title>
     <id>11</id>
     <valueType>
@@ -2821,12 +2902,16 @@
   <attributes>
     <name>_DocumentFullName</name>
     <title>
+      <key>ru</key>
+      <value>Полное имя документа</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Document full name </value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Полное имя документа</value>
+      <key>tr</key>
+      <value>Belge tam adı</value>
     </title>
     <id>13</id>
     <valueType>
@@ -2843,12 +2928,16 @@
   <attributes>
     <name>_CurrentFieldValueType</name>
     <title>
+      <key>ru</key>
+      <value>Тип данных</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Data type</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Тип данных</value>
+      <key>tr</key>
+      <value>Veri türü</value>
     </title>
     <id>14</id>
     <valueType>
@@ -2865,12 +2954,16 @@
   <formCommands>
     <name>_Refresh</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Refresh</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Yenile</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -2898,12 +2991,16 @@
   <formCommands>
     <name>_Write</name>
     <title>
+      <key>ru</key>
+      <value>Записать...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Write ...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Записать...</value>
+      <key>tr</key>
+      <value>Yaz...</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -2931,12 +3028,16 @@
   <formCommands>
     <name>_RefreshSet</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Refresh</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Yenile</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -2964,12 +3065,16 @@
   <formCommands>
     <name>_WriteSet</name>
     <title>
+      <key>ru</key>
+      <value>Записать...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Write...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Записать...</value>
+      <key>tr</key>
+      <value>Yaz...</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -2997,12 +3102,16 @@
   <formCommands>
     <name>_FillCurrentColumnData</name>
     <title>
+      <key>ru</key>
+      <value>Заполнить данные текущей колонки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Fill current column data</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Заполнить данные текущей колонки</value>
+      <key>tr</key>
+      <value>Geçerli sütunun verilerini doldur</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -3030,12 +3139,16 @@
   <formCommands>
     <name>_SwitchRecordsActivity</name>
     <title>
+      <key>ru</key>
+      <value>Переключить активность записей</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Switch records activity</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Переключить активность записей</value>
+      <key>tr</key>
+      <value>Kayıt etkinliğini değiştir</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -3062,12 +3175,16 @@
   <formCommands>
     <name>_SortRegistersByDefault</name>
     <title>
+      <key>ru</key>
+      <value>По весу</value>
+    </title>
+    <title>
       <key>en</key>
       <value>By weight</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>По весу</value>
+      <key>tr</key>
+      <value>Ağırlığına göre</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -3095,12 +3212,16 @@
   <formCommands>
     <name>_UncheckAll</name>
     <title>
+      <key>ru</key>
+      <value>Снять флажки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Uncheck all</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Снять флажки</value>
+      <key>tr</key>
+      <value>İşaretleri kaldır</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -3127,12 +3248,16 @@
   <formCommands>
     <name>_CheckAll</name>
     <title>
+      <key>ru</key>
+      <value>Установить флажки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Check all</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Установить флажки</value>
+      <key>tr</key>
+      <value>Hepsini işaretle</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -3159,12 +3284,16 @@
   <formCommands>
     <name>_CheckChangedItems</name>
     <title>
+      <key>ru</key>
+      <value>Измененные</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Changed items</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Измененные</value>
+      <key>tr</key>
+      <value>Değişenler</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -3192,12 +3321,16 @@
   <formCommands>
     <name>_OpenInNewWindow</name>
     <title>
+      <key>ru</key>
+      <value>Открыть в новом окне...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Open in new window ...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Открыть в новом окне...</value>
+      <key>tr</key>
+      <value>Yeni pencerede aç ...</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -3225,12 +3358,16 @@
   <formCommands>
     <name>_OpenObject</name>
     <title>
+      <key>ru</key>
+      <value>Открыть объект...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Open object ...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Открыть объект...</value>
+      <key>tr</key>
+      <value>Nesneyi aç</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -3258,12 +3395,16 @@
   <formCommands>
     <name>_LoadOtherDocumentRecords</name>
     <title>
+      <key>ru</key>
+      <value>Загрузить движения...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Load records...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Загрузить движения...</value>
+      <key>tr</key>
+      <value>Etkinlikleri yükle</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -3291,12 +3432,16 @@
   <formCommands>
     <name>_ClearRecords</name>
     <title>
+      <key>ru</key>
+      <value>Очистить движения...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Clear records ....</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Очистить движения...</value>
+      <key>tr</key>
+      <value>Etkinlikleri sil...</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -3324,12 +3469,16 @@
   <formCommands>
     <name>_ShowValueType</name>
     <title>
+      <key>ru</key>
+      <value>Показать</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Show</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Показать</value>
+      <key>tr</key>
+      <value>Göster</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -3358,12 +3507,16 @@
   <formCommands>
     <name>_InsertUUID</name>
     <title>
+      <key>ru</key>
+      <value>Вставить уникальный идентификатор...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Insert UUID...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Вставить уникальный идентификатор...</value>
+      <key>tr</key>
+      <value>UUİD gir...</value>
     </title>
     <id>16</id>
     <toolTip>

@@ -609,12 +609,12 @@ Function SaveDebuggingDataToCatalog(DebuggingObjectType, DebugData, Name = "") E
 		UT_TimeConsumingOperations.ExecuteInBackground("UT_Common.SystemSettingsStorageSaveInBackground", 
 												ProcedureParameters, 
 												ExecutionParameters);
-		Message = NSTR("ru = 'Запись будет выполнена в фоне. Ключ настроек ';en = 'Write procedure will be executed in background mode. Settings key '") + SettingsKey;
+		Message = NSTR("ru = 'Запись будет выполнена в фоне. Ключ настроек '; en = 'Write procedure will be executed in background mode. Settings key '; tr = 'Yazma prosedürü arka plan modunda yürütülecektir. Ayarların anahtarı'") + SettingsKey;
 	Else
 		UT_Common.SystemSettingsStorageSave(DebuggingDataObjectKey, 
 			SettingsKey, 
 			DebugData);
-		Message = NSTR("ru = 'Запись выполнена успешно. Ключ настроек ';en = 'Writing was completed successfully. Settings Key '") + SettingsKey;
+		Message = NSTR("ru = 'Запись выполнена успешно. Ключ настроек '; en = 'Writing was completed successfully. Settings Key '; tr = 'Yazma başarıyla tamamlandı. Ayarların Anahtarı'") + SettingsKey;
 	EndIf;
 	Return Message;
 EndFunction

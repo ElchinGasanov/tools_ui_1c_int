@@ -75,7 +75,7 @@ Function GenerateSpecialValue(Val varType, Val varValue1, Val varValue2)
 
 		Else
 			varStruct.Cancel = True;
-			Message(Nstr("ru = 'Неизвестный тип данных!';en = 'Unknown data type!'"));
+			Message(Nstr("ru = 'Неизвестный тип данных!'; en = 'Unknown data type!'; tr = 'Bilinmeyen tarih türü!'"));
 		EndIf;
 
 	Except

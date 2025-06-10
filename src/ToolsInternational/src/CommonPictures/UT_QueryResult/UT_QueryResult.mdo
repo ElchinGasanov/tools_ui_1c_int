@@ -2,11 +2,15 @@
 <mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="77e457f7-1636-4160-b58c-6e3ed5104edc">
   <name>UT_QueryResult</name>
   <synonym>
+    <key>ru</key>
+    <value>Результат запроса</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Query Result</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Результат запроса</value>
+    <key>tr</key>
+    <value>Sorgu Sonucu</value>
   </synonym>
 </mdclass:CommonPicture>

@@ -129,10 +129,10 @@ Function CreatingOfAlgorithm(AlgorithmName, AlgorithmText = "", Val Parameter1 =
 	Try
 		AlgorithmsObject.Записать();
 	Except
-		Return NStr("ru = 'Ошибка выполнения записи ';en = 'Writing execution error'") + ErrorDescription();
+		Return NStr("ru = 'Ошибка выполнения записи '; en = 'Writing execution error'; tr = 'Yazılım yürütme hatası'") + ErrorDescription();
 	Endtry;
 	
-	Return NStr("ru = 'Успешно сохранено';en = 'Successfully saved'");
+	Return NStr("ru = 'Успешно сохранено'; en = 'Successfully saved'; tr = 'Başarıyla kaydedildi'");
 EndFunction
 
 Function ExecuteAlgorithm(Algorithm) Export

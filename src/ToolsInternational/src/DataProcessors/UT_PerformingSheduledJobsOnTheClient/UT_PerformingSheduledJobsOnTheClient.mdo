@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_PerformingSheduledJobsOnTheClient</name>
   <synonym>
+    <key>ru</key>
+    <value>Выполнение регламентных заданий на клиенте [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Performing sheduled jobs on the client</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Выполнение регламентных заданий на клиенте [УИ]</value>
+    <key>tr</key>
+    <value>İstemcide zamanlanmış görevlerin çalıştırılması [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_PerformingSheduledJobsOnTheClient.Form.PerformingSheduledJobsOnTheClient</defaultForm>
@@ -22,12 +26,16 @@
   <forms uuid="d9fe211a-2a12-11ea-8480-e86a6452d1f2">
     <name>PerformingSheduledJobsOnTheClient</name>
     <synonym>
+      <key>ru</key>
+      <value>Выполнение регламентных заданий на клиенте</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Performing sheduled jobs on the client</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Выполнение регламентных заданий на клиенте</value>
+      <key>tr</key>
+      <value>İstemcide zamanlanmış görevlerin çalıştırılması</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -35,11 +43,15 @@
   <templates uuid="d9ff3e2e-2a12-11ea-8480-e86a6452d1f2">
     <name>Template</name>
     <synonym>
+      <key>ru</key>
+      <value>Template</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Template</value>
     </synonym>
     <synonym>
-      <key>ru</key>
+      <key>tr</key>
       <value>Template</value>
     </synonym>
     <templateType>BinaryData</templateType>

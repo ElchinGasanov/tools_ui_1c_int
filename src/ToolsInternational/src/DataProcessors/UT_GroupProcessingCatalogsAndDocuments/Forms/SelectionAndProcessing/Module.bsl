@@ -259,7 +259,7 @@ Procedure FindLinks(Command)
 		Return;
 	EndIf;
 		
-	Status(Nstr("ru = 'Поиск ссылок...';en = 'Search for links...'"));
+	Status(Nstr("ru = 'Поиск ссылок...'; en = 'Search for links...'; tr = 'Bağlantılar aranıyor...'"));
 	FindLinksByFilter();
 	Items.GroupPages.CurrentPage = Items.GroupFoundObjects;
 EndProcedure
@@ -407,7 +407,7 @@ Procedure ExecuteProcessing(Command)
 		EndIf;
 
 		If Not ProcessingAvailable(?(Object.ObjectType = 0, "Catalog", "Document"), ProcessingFormName) Then
-			Message(StrTemplate(NSTR("ru = 'Обработка %1 недоступна для типа <%2>';en = 'Data processor %1 unavailable for type < %2 >'"),FormName,SearchObject.Type));
+			Message(StrTemplate(NSTR("ru = 'Обработка %1 недоступна для типа <%2>'; en = 'Data processor %1 unavailable for type < %2 >'; tr = 'Veri işlemcisi %1 < %2 > türü için kullanılamıyor'"),FormName,SearchObject.Type));
 			Continue;
 		EndIf;
 
@@ -586,8 +586,8 @@ Procedure AvailableDataProcessorsSelection(Item, SelectedRow, Field, StandardPro
 	Parent = CurrentLine.GetParent();
 	If Parent = Undefined Then
 		If Not ProcessingAvailable(?(Object.ObjectType = 0, "Catalog", "Document"), CurrentLine.FormName) Then
-			Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>';en = 'This processing is not available for type <%1>'")
-				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник';en = 'Catalog'"), Nstr("ru = 'Документ';en = 'Document'")));
+			Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>'; en = 'This processing is not available for type <%1>'; tr = 'Bu işlem <%1> türü için kullanılamaz'")
+				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник'; en = 'Catalog'; tr = 'Katalog'"), Nstr("ru = 'Документ'; en = 'Document'; tr = 'Belge'")));
 			ShowMessageBox( , Message);
 			Return;
 		EndIf;
@@ -598,8 +598,8 @@ Procedure AvailableDataProcessorsSelection(Item, SelectedRow, Field, StandardPro
 		FormNameToOpen = GetFullFormName(CurrentLine.FormName);
 	Else
 		If Not ProcessingAvailable(?(Object.ObjectType = 0, "Catalog", "Document"), Parent.FormName) Then
-			Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>';en = 'This processing is not available for type <%1>'")
-				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник';en = 'Catalog'"), Nstr("ru = 'Документ';en = 'Document'")));
+			Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>'; en = 'This processing is not available for type <%1>'; tr = 'Bu işlem <%1> türü için kullanılamaz'")
+				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник'; en = 'Catalog'; tr = 'Katalog'"), Nstr("ru = 'Документ'; en = 'Document'; tr = 'Belge'")));
 			ShowMessageBox( , Message);
 			Return;
 		EndIf;
@@ -659,8 +659,8 @@ Procedure AvailableDataProcessorsBeforeAddRow(Item, Cancel, Copy, Parent, Group)
 		Else
 			If Not ProcessingAvailable(?(Object.ObjectType = 0, "Catalog", "Document"),
 				Item.CurrentData.FormName) Then
-				Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>';en = 'This processing is not available for type <%1>'")
-				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник';en = 'Catalog'"), Nstr("ru = 'Документ';en = 'Document'")));
+				Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>'; en = 'This processing is not available for type <%1>'; tr = 'Bu işlem <%1> türü için kullanılamaz'")
+				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник'; en = 'Catalog'; tr = 'Katalog'"), Nstr("ru = 'Документ'; en = 'Document'; tr = 'Belge'")));
 				ShowMessageBox( , Message);
 				Cancel = True;
 				Return;
@@ -675,8 +675,8 @@ Procedure AvailableDataProcessorsBeforeAddRow(Item, Cancel, Copy, Parent, Group)
 	Else
 		If Not ProcessingAvailable(?(Object.ObjectType = 0, "Catalog", "Document"),
 			Item.CurrentData.GetParent().FormName) Then
-			Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>';en = 'This processing is not available for type <%1>'")
-				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник';en = 'Catalog'"), Nstr("ru = 'Документ';en = 'Document'")));
+			Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>'; en = 'This processing is not available for type <%1>'; tr = 'Bu işlem <%1> türü için kullanılamaz'")
+				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник'; en = 'Catalog'; tr = 'Katalog'"), Nstr("ru = 'Документ'; en = 'Document'; tr = 'Belge'")));
 			ShowMessageBox( , Message);
 			Cancel = True;
 			Return;
@@ -759,7 +759,7 @@ Procedure AvailableDataProcessorsBeforeDeleteRow(Item, Cancel)
 
 	Cancel=True;
 	ShowQueryBox(New NotifyDescription("AvailableDataProcessorsBeforeDeleteRowEnd", ThisForm,
-		New Structure("CurrentLine", Item.CurrentLine)),NSTR("ru = 'Удалить настройку?';en = 'Delete setting ?'"), QuestionDialogMode.OKCancel, ,
+		New Structure("CurrentLine", Item.CurrentLine)),NSTR("ru = 'Удалить настройку?'; en = 'Delete setting ?'; tr = 'Ayar silinsin mi?'"), QuestionDialogMode.OKCancel, ,
 		DialogReturnCode.OK);
 EndProcedure
 
@@ -783,8 +783,8 @@ EndProcedure
 Procedure AvailableDataProcessorsDragStart(Item, DragParameters, StandardProcessing)
 	If Not CheckAvailabilityProcessing() Then
 		StandardProcessing = False;
-		Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>';en = 'This processing is not available for type <%1>'")
-				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник';en = 'Catalog'"), Nstr("ru = 'Документ';en = 'Document'")));
+		Message = StrTemplate(Nstr("ru = 'Данная обработка недоступна для типа <%1>'; en = 'This processing is not available for type <%1>'; tr = 'Bu işlem <%1> türü için kullanılamaz'")
+				, ?(Object.ObjectType = 0, Nstr("ru = 'Справочник'; en = 'Catalog'; tr = 'Katalog'"), Nstr("ru = 'Документ'; en = 'Document'; tr = 'Belge'")));
 		ShowMessageBox( , Message);
 		Return;
 	EndIf;
@@ -856,12 +856,12 @@ Function ProcessingAvailable(CheckedObjectType = "", ProcessingName)
 
 	If ProcessingName = "RenumberingObjects" Then
 		If TableFieldTypesObjects.Count() > 1 Then
-			Message(Nstr("ru = 'Выбрано более одного вида объектов. Перенумерация невозможна';en = 'More than one type of objects has been selected. Renumbering is not possible'"));
+			Message(Nstr("ru = 'Выбрано более одного вида объектов. Перенумерация невозможна'; en = 'More than one type of objects has been selected. Renumbering is not possible'; tr = 'Birden fazla nesne türü seçildi. Yeniden numaralandırma mümkün değil'"));
 			Return False;
 		EndIf;
 
 		If Object.ProcessTabularParts Then
-			Message(Nstr("ru = 'Перенумерация при обработке табличных частей запрещена';en = 'Renumbering is prohibited when processing tabular parts'"));
+			Message(Nstr("ru = 'Перенумерация при обработке табличных частей запрещена'; en = 'Renumbering is prohibited when processing tabular parts'; tr = 'Tablo bölümleri işlerken yeniden numaralandırma yasaktır'"));
 			Return False;
 		EndIf;
 	EndIf;
@@ -1286,9 +1286,9 @@ Procedure QueryInitialization()
 
 	If Object.ProcessTabularParts Then
 
-		ViewList.Add(Nstr("ru = 'Имя ТЧ';en = 'Name TP'"), "T_TP");
-		ViewList.Add(Nstr("ru = 'Имя ТЧ';en = 'Name TP'"), "T_TPPresentation");
-		ViewList.Add(Nstr("ru = '№ строки';en = '№ line'"), "T_LineNumber");
+		ViewList.Add(Nstr("ru = 'Имя ТЧ'; en = 'Name TP'; tr = 'TB adı'"), "T_TP");
+		ViewList.Add(Nstr("ru = 'Имя ТЧ'; en = 'Name TP'; tr = 'TB adı'"), "T_TPPresentation");
+		ViewList.Add(Nstr("ru = '№ строки'; en = '№ line'; tr = 'Satır №'"), "T_LineNumber");
 
 		For Each KeyAndValue In StructureAttributesTP Do
 			ViewList.Add(MetadataAttributesTP[KeyAndValue.Key].Presentation(),
@@ -1721,7 +1721,7 @@ EndProcedure
 &AtClient
 Procedure QuestionAboutCleaningSelectionResult(CompletionNotifyDescription) Export
 	Answer = Undefined;
-	Message = Nstr("ru = 'Результат отбора будет очищен. Продолжить?';en = 'The selection result will be cleared. Proceed?'");
+	Message = Nstr("ru = 'Результат отбора будет очищен. Продолжить?'; en = 'The selection result will be cleared. Proceed?'; tr = 'Seçim sonucu temizlenecektir. Devam etmek istiyor musunuz?'");
 	ShowQueryBox(New NotifyDescription("QuestionAboutCleaningSelectionResultEnd", ThisForm,
 		New Structure("CompletionNotifyDescription", CompletionNotifyDescription)),
 		Message, QuestionDialogMode.OKCancel);

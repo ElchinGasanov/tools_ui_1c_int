@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns="http://v8.1c.ru/8.2/data/spreadsheet" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<languageSettings>
-		<currentLanguage/>
+		<currentLanguage>en</currentLanguage>
 		<defaultLanguage>ru</defaultLanguage>
+		<languageInfo>
+			<id>ru</id>
+			<code>Russian</code>
+			<description>Russian</description>
+		</languageInfo>
+		<languageInfo>
+			<id>en</id>
+			<code>English</code>
+			<description>English</description>
+		</languageInfo>
+		<languageInfo>
+			<id>tr</id>
+			<code>Turkish</code>
+			<description>Turkish</description>
+		</languageInfo>
 	</languageSettings>
 	<columns>
 		<size>2</size>
@@ -20,6 +35,12 @@
 		</columnsItem>
 	</columns>
 	<rowsItem>
+		<index>0</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>1</index>
 		<row>
 			<c>
@@ -33,6 +54,10 @@
 						</v8:item>
 						<v8:item>
 							<v8:lang>en</v8:lang>
+							<v8:content>Conversion_BeforeDataExport</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
 							<v8:content>Conversion_BeforeDataExport</v8:content>
 						</v8:item>
 					</tl>
@@ -56,6 +81,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>ExchangeFile</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>ExchangeFile</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -77,9 +106,19 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Cancel</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Cancel</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>4</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -96,6 +135,10 @@
 						</v8:item>
 						<v8:item>
 							<v8:lang>en</v8:lang>
+							<v8:content>Conversion_BeforeExportObject</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
 							<v8:content>Conversion_BeforeExportObject</v8:content>
 						</v8:item>
 					</tl>
@@ -119,6 +162,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>ExchangeFile</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>ExchangeFile</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -138,6 +185,10 @@
 						</v8:item>
 						<v8:item>
 							<v8:lang>en</v8:lang>
+							<v8:content>Cancel</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
 							<v8:content>Cancel</v8:content>
 						</v8:item>
 					</tl>
@@ -161,6 +212,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>OCRName</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>OCRName</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -182,6 +237,10 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Rule</v8:content>
 						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Rule</v8:content>
+						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -201,6 +260,10 @@
 						</v8:item>
 						<v8:item>
 							<v8:lang>en</v8:lang>
+							<v8:content>IncomingData</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
 							<v8:content>IncomingData</v8:content>
 						</v8:item>
 					</tl>
@@ -248,6 +311,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>13</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -787,6 +856,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>40</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>41</index>
 		<row>
 			<c>
@@ -826,6 +901,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>43</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -892,6 +973,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>47</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>48</index>
 		<row>
 			<c>
@@ -910,6 +997,13 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>49</index>
+		<indexTo>50</indexTo>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -1186,6 +1280,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>64</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>65</index>
 		<row>
 			<c>
@@ -1375,6 +1475,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>74</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>75</index>
 		<row>
 			<c>
@@ -1393,6 +1499,13 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>76</index>
+		<indexTo>77</indexTo>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -1480,6 +1593,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>82</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>83</index>
 		<row>
 			<c>
@@ -1543,6 +1662,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>86</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>87</index>
 		<row>
 			<c>
@@ -1603,6 +1728,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>90</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -1690,6 +1821,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>95</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>96</index>
 		<row>
 			<c>
@@ -1750,6 +1887,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>99</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -1876,6 +2019,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>106</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -2047,6 +2196,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>115</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>116</index>
 		<row>
 			<c>
@@ -2194,6 +2349,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>123</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>124</index>
 		<row>
 			<c>
@@ -2275,6 +2436,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>128</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -2380,6 +2547,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>134</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -2509,6 +2682,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>141</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>142</index>
 		<row>
 			<c>
@@ -2548,6 +2727,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>144</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -2929,6 +3114,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>163</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>164</index>
 		<row>
 			<c>
@@ -3199,6 +3390,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>177</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -3675,6 +3872,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>201</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>202</index>
 		<row>
 			<c>
@@ -3948,6 +4151,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>215</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>216</index>
 		<row>
 			<c>
@@ -4071,6 +4280,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>222</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -4284,6 +4499,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>233</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>234</index>
 		<row>
 			<c>
@@ -4449,6 +4670,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>242</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -4725,6 +4952,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>256</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>257</index>
 		<row>
 			<c>
@@ -4974,6 +5207,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>269</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -5250,6 +5489,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>283</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>284</index>
 		<row>
 			<c>
@@ -5523,6 +5768,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>297</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>298</index>
 		<row>
 			<c>
@@ -5751,6 +6002,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>309</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -6129,6 +6386,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>328</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -6549,6 +6812,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>349</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -6993,6 +7262,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>371</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>372</index>
 		<row>
 			<c>
@@ -7032,6 +7307,12 @@
 					</tl>
 				</c>
 			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>374</index>
+		<row>
+			<empty>true</empty>
 		</row>
 	</rowsItem>
 	<rowsItem>

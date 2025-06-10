@@ -6,53 +6,65 @@
   </producedTypes>
   <name>UT_ComparisonDataConsole</name>
   <synonym>
-    <key></key>
-    <value>Console comparison data</value>
+    <key>ru</key>
+    <value>Консоль сравнения данных [УИ]</value>
   </synonym>
   <synonym>
     <key>en</key>
     <value>Comparison data console [UT]</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Консоль сравнения данных [УИ]</value>
+    <key>tr</key>
+    <value>Veri karşılaştırma konsolu [UT]</value>
   </synonym>
   <comment>15.9.63</comment>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_ComparisonDataConsole.Form.Form</defaultForm>
   <help>
     <pages>
-      <lang>ru</lang>
-    </pages>
-    <pages>
       <lang>en</lang>
     </pages>
+    <pages>
+      <lang>ru</lang>
+    </pages>
   </help>
+  <extendedPresentation>
+    <key>ru</key>
+    <value>Консоль сравнения данных</value>
+  </extendedPresentation>
   <extendedPresentation>
     <key>en</key>
     <value>Comparison data console [UT]</value>
   </extendedPresentation>
   <extendedPresentation>
-    <key>ru</key>
-    <value>Консоль сравнения данных</value>
+    <key>tr</key>
+    <value>Veri karşılaştırma konsolu [UT]</value>
   </extendedPresentation>
+  <explanation>
+    <key>ru</key>
+    <value>Предназначена для сравнения данных, полученных из разных источников данных: информационных баз 1С 8, 1С 7.7, баз данных SQL, файлов формата CSV/TXT/DBF/XLS/DOC/XML, строки JSON, вручную заполненного табличного документа</value>
+  </explanation>
   <explanation>
     <key>en</key>
     <value>It is designed to compare data obtained from different data sources: 1C 8, 1C 7.7 information databases, SQL databases, CSV/TXT/DBF/XLS/DOC/XML files, JSON strings, manually filled in tabular document.</value>
   </explanation>
   <explanation>
-    <key>ru</key>
-    <value>Предназначена для сравнения данных, полученных из разных источников данных: информационных баз 1С 8, 1С 7.7, баз данных SQL, файлов формата CSV/TXT/DBF/XLS/DOC/XML, строки JSON, вручную заполненного табличного документа</value>
+    <key>tr</key>
+    <value>Farklı veri kaynaklarından elde edilen verileri karşılaştırmak için tasarlanmıştır: 1C 8, 1C 7.7 bilgi veri tabanları, SQL veri tabanları, CSV/TXT/DBF/XLS/DOC/XML dosyaları, JSON dizeleri, tablo halinde elle doldurulan belgeler.</value>
   </explanation>
   <attributes uuid="2d76b069-f8e5-451e-b3e6-b7c44c15ca5b">
     <name>AbsolutePeriodValue</name>
+    <synonym>
+      <key>ru</key>
+      <value>Значение абсолютного периода</value>
+    </synonym>
     <synonym>
       <key>en</key>
       <value>Absolute period value</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Значение абсолютного периода</value>
+      <key>tr</key>
+      <value>Mutlak dönem değeri</value>
     </synonym>
     <type>
       <types>StandardPeriod</types>
@@ -63,12 +75,16 @@
   <attributes uuid="9dde3e40-52a9-4456-90f8-2a147ba52ab5">
     <name>ArbitraryKeyCode1A</name>
     <synonym>
+      <key>ru</key>
+      <value>Произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kod</value>
     </synonym>
     <type>
       <types>String</types>
@@ -80,12 +96,16 @@
   <attributes uuid="32f1e50e-8561-4b83-8934-5608fba89e7c">
     <name>ConnectingToExternalBaseBDeviceStorageFile</name>
     <synonym>
+      <key>ru</key>
+      <value>Файл находится на</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>The file is located at</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Файл находится на</value>
+      <key>tr</key>
+      <value>Dosya şu adreste bulunmaktadır:</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -100,12 +120,16 @@
   <attributes uuid="92571ea1-8def-4952-bdb1-1aa42309442d">
     <name>ArbitraryKeyCode1B</name>
     <synonym>
+      <key>ru</key>
+      <value>Произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kod</value>
     </synonym>
     <type>
       <types>String</types>
@@ -117,12 +141,16 @@
   <attributes uuid="1e19f80a-a701-4ea6-8f87-e1fdd024cdf5">
     <name>DeleteFromKey2CurlyBracketsA</name>
     <synonym>
+      <key>ru</key>
+      <value>Удалять символы { }</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Delete characters { }</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Удалять символы { }</value>
+      <key>tr</key>
+      <value>{ } karakterlerini sil</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -133,12 +161,16 @@
   <attributes uuid="e9137b5b-6ef1-4abe-94ff-686a9963bf1a">
     <name>ArbitraryKeyCode2A</name>
     <synonym>
+      <key>ru</key>
+      <value>Произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kod</value>
     </synonym>
     <type>
       <types>String</types>
@@ -150,12 +182,16 @@
   <attributes uuid="b0cb29e3-f053-4767-95ed-ccfa30306f3f">
     <name>ArbitraryKeyCode2B</name>
     <synonym>
+      <key>ru</key>
+      <value>Произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kod</value>
     </synonym>
     <type>
       <types>String</types>
@@ -167,12 +203,16 @@
   <attributes uuid="4a042096-b86c-4413-a78c-c0813fb34e69">
     <name>ArbitraryKeyCode3A</name>
     <synonym>
+      <key>ru</key>
+      <value>Произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kod</value>
     </synonym>
     <type>
       <types>String</types>
@@ -184,12 +224,16 @@
   <attributes uuid="7842e5b6-1204-4006-80ef-309e6f2569b9">
     <name>ArbitraryKeyCode3B</name>
     <synonym>
+      <key>ru</key>
+      <value>Произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kod</value>
     </synonym>
     <type>
       <types>String</types>
@@ -201,12 +245,16 @@
   <attributes uuid="b635af4b-c6f3-4aaf-915a-2c6ebd940912">
     <name>ArrayNameJSONA</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя массива с данными</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>The name of the data array</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя массива с данными</value>
+      <key>tr</key>
+      <value>Veri dizisinin adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -220,12 +268,16 @@
   <attributes uuid="1df04ce0-2dd2-4c88-9152-89a22b671d9d">
     <name>ArrayNameJSONB</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя массива с данными</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>The name of the data array</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя массива с данными</value>
+      <key>tr</key>
+      <value>Veri dizisinin adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -239,12 +291,16 @@
   <attributes uuid="0807802a-b3bd-4f42-abd4-3f58c614cc10">
     <name>BaseTypeA</name>
     <synonym>
+      <key>ru</key>
+      <value>Тип</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Type</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Тип</value>
+      <key>tr</key>
+      <value>Tip</value>
     </synonym>
     <comment>Текущая база 1С 8, Внешняя база 1С 8, База данных SQL, Файл</comment>
     <type>
@@ -259,12 +315,16 @@
   <attributes uuid="269a2064-b504-404f-bcde-da6c873c2d1f">
     <name>BaseTypeB</name>
     <synonym>
+      <key>ru</key>
+      <value>Тип</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Type</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Тип</value>
+      <key>tr</key>
+      <value>Tip</value>
     </synonym>
     <comment>Текущая база 1С 8, Внешняя база 1С 8, База данных SQL, Файл</comment>
     <type>
@@ -279,12 +339,16 @@
   <attributes uuid="e4fcd57f-33c7-489e-9076-82bda0a60c6f">
     <name>BooleanOperatorForConditionsOutputRows</name>
     <synonym>
+      <key>ru</key>
+      <value>Логический оператор для объединения условий</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Boolean operator for conditions output rows</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Логический оператор для объединения условий</value>
+      <key>tr</key>
+      <value>Koşul çıktı satırları için Boolean operatörü</value>
     </synonym>
     <type>
       <types>String</types>
@@ -298,12 +362,16 @@
   <attributes uuid="e9e377ec-cf53-4040-a538-d5dcdd134580">
     <name>BooleanOperatorForProhibitingConditionsOutputRows</name>
     <synonym>
+      <key>ru</key>
+      <value>Логический оператор для объединения условий</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Boolean operatorr for combine conditions</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Логический оператор для объединения условий</value>
+      <key>tr</key>
+      <value>Koşulları birleştirmek için Boolean operatörü</value>
     </synonym>
     <type>
       <types>String</types>
@@ -317,12 +385,16 @@
   <attributes uuid="b18265f0-19bc-4e77-b72e-603b36929f6c">
     <name>CastKey2ToStringA</name>
     <synonym>
+      <key>ru</key>
+      <value>Строка()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>String()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Строка()</value>
+      <key>tr</key>
+      <value>String()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -333,12 +405,16 @@
   <attributes uuid="3fdd09e0-d547-4a53-810e-4648ea79e042">
     <name>CastKey2ToStringB</name>
     <synonym>
+      <key>ru</key>
+      <value>Строка()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>String()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Строка()</value>
+      <key>tr</key>
+      <value>String()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -349,12 +425,16 @@
   <attributes uuid="b93d7e6d-3f62-42d5-9da0-9124a254fafc">
     <name>CastKey2ToUpperCaseA</name>
     <synonym>
+      <key>ru</key>
+      <value>ВРег()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Upper()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>ВРег()</value>
+      <key>tr</key>
+      <value>Upper()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -365,12 +445,16 @@
   <attributes uuid="d24d5988-5c9a-472d-af1d-c41803705acb">
     <name>CastKey2ToUpperCaseB</name>
     <synonym>
+      <key>ru</key>
+      <value>ВРег()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Upper()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>ВРег()</value>
+      <key>tr</key>
+      <value>Upper()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -381,12 +465,16 @@
   <attributes uuid="8cde0c05-ec5f-4a71-b437-4a889bb77648">
     <name>CastKey3ToStringA</name>
     <synonym>
+      <key>ru</key>
+      <value>Строка()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>String()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Строка()</value>
+      <key>tr</key>
+      <value>String()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -397,12 +485,16 @@
   <attributes uuid="f520b5ac-73e5-4054-942a-63e79686c87e">
     <name>CastKey3ToStringB</name>
     <synonym>
+      <key>ru</key>
+      <value>Строка()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>String()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Строка()</value>
+      <key>tr</key>
+      <value>String()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -413,12 +505,16 @@
   <attributes uuid="d751ebc3-c480-4d4a-83fc-db44bcdd11c8">
     <name>CastKey3ToUpperCaseA</name>
     <synonym>
+      <key>ru</key>
+      <value>ВРег()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Upper()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>ВРег()</value>
+      <key>tr</key>
+      <value>Upper()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -429,12 +525,16 @@
   <attributes uuid="6c3962bc-2c90-4111-a300-251d9c320802">
     <name>CastKey3ToUpperCaseB</name>
     <synonym>
+      <key>ru</key>
+      <value>ВРег()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Upper()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>ВРег()</value>
+      <key>tr</key>
+      <value>Upper()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -445,12 +545,16 @@
   <attributes uuid="ea6a5c0e-c8bc-4f61-9cd9-3441ddad3307">
     <name>CastKeyToStringA</name>
     <synonym>
+      <key>ru</key>
+      <value>Строка()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>String()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Строка()</value>
+      <key>tr</key>
+      <value>String()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -461,12 +565,16 @@
   <attributes uuid="ca3b811d-8431-4eff-8508-4a1551a1803a">
     <name>CastKeyToStringB</name>
     <synonym>
+      <key>ru</key>
+      <value>Строка()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>String()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Строка()</value>
+      <key>tr</key>
+      <value>String()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -477,12 +585,16 @@
   <attributes uuid="d39e4ac9-f86b-4dd4-aeda-f145cfaacfcb">
     <name>CastKeyToUpperCaseA</name>
     <synonym>
+      <key>ru</key>
+      <value>ВРег()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Upper()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>ВРег()</value>
+      <key>tr</key>
+      <value>Upper()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -493,12 +605,16 @@
   <attributes uuid="b54bea02-7e4c-43de-923c-fde4e81928ee">
     <name>CastKeyToUpperCaseB</name>
     <synonym>
+      <key>ru</key>
+      <value>ВРег()</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Upper()</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>ВРег()</value>
+      <key>tr</key>
+      <value>Upper()</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -509,12 +625,16 @@
   <attributes uuid="500d63e9-092f-4c88-96b2-b9bea7e8682d">
     <name>CodeForOutputRows</name>
     <synonym>
+      <key>ru</key>
+      <value>Код для вывода строк</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Code for output rows</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Код для вывода строк</value>
+      <key>tr</key>
+      <value>Çıktı satırları için kod</value>
     </synonym>
     <type>
       <types>String</types>
@@ -526,12 +646,16 @@
   <attributes uuid="5e6c20aa-cfe6-4d4f-adfd-44e178f99780">
     <name>CodeForOutputRowsEditedManually</name>
     <synonym>
+      <key>ru</key>
+      <value>Код редактируется вручную</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Code edited manually</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Код редактируется вручную</value>
+      <key>tr</key>
+      <value>Kod elle düzenlenir.</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -542,12 +666,16 @@
   <attributes uuid="cff2df1c-6bbf-4b15-af20-61c67ae95cae">
     <name>CodeForProhibitingOutputRows</name>
     <synonym>
+      <key>ru</key>
+      <value>Код для запрета вывода строк</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Code for prohibiting output rows</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Код для запрета вывода строк</value>
+      <key>tr</key>
+      <value>Çıkış satırlarını yasaklayan kod</value>
     </synonym>
     <type>
       <types>String</types>
@@ -559,12 +687,16 @@
   <attributes uuid="dc526571-da15-4a6c-bfd0-ee13e91ab67a">
     <name>CodeForProhibitingOutputRowsEditedManually</name>
     <synonym>
+      <key>ru</key>
+      <value>Код редактируется вручную</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Code edited manually</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Код редактируется вручную</value>
+      <key>tr</key>
+      <value>Kod elle düzenlenir.</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -575,12 +707,16 @@
   <attributes uuid="6c3aa716-1a49-481a-9cf9-ce93e01cd15a">
     <name>CollapseTableA</name>
     <synonym>
+      <key>ru</key>
+      <value>Сворачивать данные по ключу</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Collapse data by key</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Сворачивать данные по ключу</value>
+      <key>tr</key>
+      <value>Verileri anahtara göre daralt</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -591,12 +727,16 @@
   <attributes uuid="e516c190-0937-4444-b683-865d6fdf4142">
     <name>CollapseTableB</name>
     <synonym>
+      <key>ru</key>
+      <value>Сворачивать данные по ключу</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Collapse data by key</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Сворачивать данные по ключу</value>
+      <key>tr</key>
+      <value>Verileri anahtara göre daralt</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -607,12 +747,16 @@
   <attributes uuid="c0fb10c6-bd46-4aaf-abfc-dabe6e330b12">
     <name>ColumnNameKey2FromFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -626,12 +770,16 @@
   <attributes uuid="a6151a73-52aa-4878-a9c2-41449dc4715c">
     <name>ColumnNameKey2FromFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -645,12 +793,16 @@
   <attributes uuid="19201fc6-5705-4099-b6f7-20037eccf270">
     <name>ColumnNameKey3FromFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -664,12 +816,16 @@
   <attributes uuid="b6455ea5-f1c8-4606-9865-e55ee023f3e6">
     <name>ColumnNameKey3FromFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -683,12 +839,16 @@
   <attributes uuid="d57b365d-82f6-40dc-b0bd-ac2f5a64b2de">
     <name>ColumnNameKeyFromFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -702,12 +862,16 @@
   <attributes uuid="385ef693-6d1c-459d-90e6-3cd67239c589">
     <name>ColumnNameKeyFromFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -721,12 +885,16 @@
   <attributes uuid="565992f0-a883-4ca2-ba6e-7e8bd96e52a0">
     <name>ColumnNumberKey2FromFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>№ столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column number</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>№ столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun numarası</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -741,12 +909,16 @@
   <attributes uuid="ec6f215e-5445-408a-b1ca-704a6830e036">
     <name>ColumnNumberKey2FromFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>№ столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column number</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>№ столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun numarası</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -761,12 +933,16 @@
   <attributes uuid="716204e6-f07b-47d7-bb39-5773c1901935">
     <name>ColumnNumberKey3FromFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>№ столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column number</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>№ столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun numarası</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -784,6 +960,10 @@
       <key>ru</key>
       <value>№ столбца источника</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Kaynak sütun numarası</value>
+    </synonym>
     <type>
       <types>Number</types>
       <numberQualifiers>
@@ -797,12 +977,16 @@
   <attributes uuid="85a6e3d1-d28b-46e2-b97d-b0e37c1179ab">
     <name>ColumnNumberKeyFromFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>№ столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column number</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>№ столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun numarası</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -817,12 +1001,16 @@
   <attributes uuid="7dba727e-db0b-454b-ab0c-9ba35d80d5a0">
     <name>ColumnNumberKeyFromFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>№ столбца источника</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Source column number</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>№ столбца источника</value>
+      <key>tr</key>
+      <value>Kaynak sütun numarası</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -837,12 +1025,16 @@
   <attributes uuid="e26aa12d-9b03-431b-844d-a353d311d077">
     <name>CompositeKey</name>
     <synonym>
+      <key>ru</key>
+      <value>Использовать составной ключ из 2 столбцов</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Use 2 column composite key</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Использовать составной ключ из 2 столбцов</value>
+      <key>tr</key>
+      <value>2 sütunlu bileşik anahtar kullan</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -853,12 +1045,16 @@
   <attributes uuid="562cbd2f-1c79-46e6-afc9-2affbfe2dd63">
     <name>ConditionsOutputRowsDisabled</name>
     <synonym>
+      <key>ru</key>
+      <value>Отключены</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Disabled</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Отключены</value>
+      <key>tr</key>
+      <value>Engelli</value>
     </synonym>
     <comment>УсловияВыводаСтрокОтключены</comment>
     <type>
@@ -870,12 +1066,16 @@
   <attributes uuid="e549ad9d-c350-4de6-a2fc-9525f6682de5">
     <name>ConditionsProhibitOutputRowsDisabled</name>
     <synonym>
+      <key>ru</key>
+      <value>Отключены</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Disabled</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Отключены</value>
+      <key>tr</key>
+      <value>Engelli</value>
     </synonym>
     <comment>УсловияЗапретаВыводаСтрокОтключены</comment>
     <type>
@@ -887,12 +1087,16 @@
   <attributes uuid="5890c36f-d67a-4405-bbd3-2eb0cfbd5c1b">
     <name>ConnectingToExternalBaseADeviceStorageFile</name>
     <synonym>
+      <key>ru</key>
+      <value>Файл находится на</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>The file is located at</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Файл находится на</value>
+      <key>tr</key>
+      <value>Dosya şu adreste bulunmaktadır:</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -907,12 +1111,16 @@
   <attributes uuid="3f029249-7741-4643-8fc3-2add15a072d5">
     <name>ConnectingToExternalBaseADriverSQL</name>
     <synonym>
+      <key>ru</key>
+      <value>Драйвер</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Driver</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Драйвер</value>
+      <key>tr</key>
+      <value>Driver</value>
     </synonym>
     <type>
       <types>String</types>
@@ -926,12 +1134,16 @@
   <attributes uuid="fae02335-7206-4c78-8726-b90eb6cc207a">
     <name>ConnectingToExternalBaseBDriverSQL</name>
     <synonym>
+      <key>ru</key>
+      <value>Драйвер</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Driver</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Драйвер</value>
+      <key>tr</key>
+      <value>Driver</value>
     </synonym>
     <type>
       <types>String</types>
@@ -945,12 +1157,16 @@
   <attributes uuid="e29ed662-582e-4573-bb65-6f4e8d18e91f">
     <name>ConnectionToExternalBaseAFileFormat</name>
     <synonym>
+      <key>ru</key>
+      <value>Формат</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Format</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Формат</value>
+      <key>tr</key>
+      <value>Format</value>
     </synonym>
     <type>
       <types>String</types>
@@ -964,12 +1180,16 @@
   <attributes uuid="d27a8019-1edc-49c8-9ec7-489878136bb4">
     <name>ConnectionToExternalBaseALogin</name>
     <synonym>
+      <key>ru</key>
+      <value>Логин</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Login</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Логин</value>
+      <key>tr</key>
+      <value>Login</value>
     </synonym>
     <type>
       <types>String</types>
@@ -983,12 +1203,16 @@
   <attributes uuid="83beb220-3d0e-4816-beac-17ba277a9f5f">
     <name>ConnectionToExternalBaseAPassword</name>
     <synonym>
+      <key>ru</key>
+      <value>Пароль</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Password</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Пароль</value>
+      <key>tr</key>
+      <value>Parola</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1002,12 +1226,16 @@
   <attributes uuid="8b109b60-03ed-4d38-a80f-93124297e834">
     <name>ConnectionToExternalBaseAPathBase</name>
     <synonym>
+      <key>ru</key>
+      <value>Путь к базе</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Path base</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Путь к базе</value>
+      <key>tr</key>
+      <value>Path base</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1019,12 +1247,16 @@
   <attributes uuid="8484107e-fc39-4f7c-a343-e140a2a1e651">
     <name>ConnectionToExternalBaseAPathToFile</name>
     <synonym>
+      <key>ru</key>
+      <value>Путь к файлу</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Path to file</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Путь к файлу</value>
+      <key>tr</key>
+      <value>Dosya yolu</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1038,12 +1270,16 @@
   <attributes uuid="74dc6b4d-df1d-4183-a8c8-c29ff98df6cc">
     <name>ConnectionToExternalBaseAServer</name>
     <synonym>
+      <key>ru</key>
+      <value>Сервер</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Server</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Сервер</value>
+      <key>tr</key>
+      <value>Sunucu</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1055,12 +1291,16 @@
   <attributes uuid="dad7e9b5-b2c9-467d-9ca8-049e9289c6af">
     <name>ConnectionToExternalBaseBFileFormat</name>
     <synonym>
+      <key>ru</key>
+      <value>Формат</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Format</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Формат</value>
+      <key>tr</key>
+      <value>Format</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1074,12 +1314,16 @@
   <attributes uuid="3f4b879b-58bb-44c8-8f07-f77c0773b50c">
     <name>ConnectionToExternalBaseBLogin</name>
     <synonym>
+      <key>ru</key>
+      <value>Логин</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Login</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Логин</value>
+      <key>tr</key>
+      <value>Login</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1093,12 +1337,16 @@
   <attributes uuid="8aa50e04-618d-4cc5-9a45-cb5a4d2ef649">
     <name>ConnectionToExternalBaseBPassword</name>
     <synonym>
+      <key>ru</key>
+      <value>Пароль</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Password</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Пароль</value>
+      <key>tr</key>
+      <value>Parola</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1112,12 +1360,16 @@
   <attributes uuid="e2bdc776-4636-4b50-b2ca-a933556b96d1">
     <name>ConnectionToExternalBaseBPathBase</name>
     <synonym>
+      <key>ru</key>
+      <value>Путь к базе</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Path base</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Путь к базе</value>
+      <key>tr</key>
+      <value>Path base</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1129,12 +1381,16 @@
   <attributes uuid="1308a306-1614-4b0a-9c48-e9e3bca03ac1">
     <name>ConnectionToExternalBaseBPathToFile</name>
     <synonym>
+      <key>ru</key>
+      <value>Путь к файлу</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Path to file</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Путь к файлу</value>
+      <key>tr</key>
+      <value>Dosya yolu</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1148,12 +1404,16 @@
   <attributes uuid="edfa7dd7-8317-4823-bc4d-9ccedea3eb88">
     <name>ConnectionToExternalBaseBServer</name>
     <synonym>
+      <key>ru</key>
+      <value>Сервер</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Server</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Сервер</value>
+      <key>tr</key>
+      <value>Sunucu</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1165,12 +1425,16 @@
   <attributes uuid="9b866b27-744b-4f68-ba25-52a65bd9523b">
     <name>ConnectionToExternalBaseANumberTableInFile</name>
     <synonym>
+      <key>ru</key>
+      <value>Номер таблицы</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Table number</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Номер таблицы</value>
+      <key>tr</key>
+      <value>Tablo numarası</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1185,12 +1449,16 @@
   <attributes uuid="c5df2846-b28b-45a7-958b-ed382319459c">
     <name>ConnectionToExternalBaseBNumberTableInFile</name>
     <synonym>
+      <key>ru</key>
+      <value>Номер таблицы</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Table number</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Номер таблицы</value>
+      <key>tr</key>
+      <value>Tablo numarası</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1205,12 +1473,16 @@
   <attributes uuid="2f66c625-7565-494c-95ea-4252a9892a13">
     <name>DataStorageMethodInXMLFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>Способ хранения данных</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Data storage method</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Способ хранения данных</value>
+      <key>tr</key>
+      <value>Veri depolama yöntemi</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1224,12 +1496,16 @@
   <attributes uuid="eb0064b6-f375-4825-a41b-735aba827260">
     <name>DataStorageMethodInXMLFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>Способ хранения данных</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Data storage method</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Способ хранения данных</value>
+      <key>tr</key>
+      <value>Veri depolama yöntemi</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1243,12 +1519,16 @@
   <attributes uuid="9654369c-9401-420e-8b77-4f1122be1dc2">
     <name>DeleteFromKey2CurlyBracketsB</name>
     <synonym>
+      <key>ru</key>
+      <value>Удалять символы { }</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Delete characters { }</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Удалять символы { }</value>
+      <key>tr</key>
+      <value>{ } karakterlerini sil</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1259,12 +1539,16 @@
   <attributes uuid="1f99a7a0-45d8-4c93-a2d5-889b88f0778a">
     <name>DeleteFromKey3CurlyBracketsA</name>
     <synonym>
+      <key>ru</key>
+      <value>Удалять символы { }</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Delete characters { }</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Удалять символы { }</value>
+      <key>tr</key>
+      <value>{ } karakterlerini sil</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1275,12 +1559,16 @@
   <attributes uuid="82452e1a-72af-461f-9cd0-65dfdffdb6b4">
     <name>DeleteFromKey3CurlyBracketsB</name>
     <synonym>
+      <key>ru</key>
+      <value>Удалять символы { }</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Delete characters { }</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Удалять символы { }</value>
+      <key>tr</key>
+      <value>{ } karakterlerini sil</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1291,12 +1579,16 @@
   <attributes uuid="a55d4c4c-bfe3-43bf-be1e-df477045eb4a">
     <name>DeleteFromKeyCurlyBracketsA</name>
     <synonym>
+      <key>ru</key>
+      <value>Удалять символы { }</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Delete characters { }</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Удалять символы { }</value>
+      <key>tr</key>
+      <value>{ } karakterlerini sil</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1307,12 +1599,16 @@
   <attributes uuid="5e46d28f-ca50-4fbc-bbc9-fb2286345093">
     <name>DeleteFromKeyCurlyBracketsB</name>
     <synonym>
+      <key>ru</key>
+      <value>Удалять символы { }</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Delete characters { }</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Удалять символы { }</value>
+      <key>tr</key>
+      <value>{ } karakterlerini sil</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1323,12 +1619,16 @@
   <attributes uuid="2d27d89a-2e4e-4144-a6cf-14786e658d02">
     <name>DiscretenessOfRelativePeriod</name>
     <synonym>
+      <key>ru</key>
+      <value>Дискретность относительного периода</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Discreteness of relative period</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Дискретность относительного периода</value>
+      <key>tr</key>
+      <value>Göreceli dönemin ayrıklığı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1342,12 +1642,16 @@
   <attributes uuid="ebc272cf-9fca-429b-8603-019658884de3">
     <name>DiscretenessOfSlaveRelativePeriod</name>
     <synonym>
+      <key>ru</key>
+      <value>Дискретность подчиненного относительного периода</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Discreteness of slave relative period</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Дискретность подчиненного относительного периода</value>
+      <key>tr</key>
+      <value>Bağımlı göreli dönemin ayrıklığı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1361,12 +1665,16 @@
   <attributes uuid="b86b6224-0df8-409e-99ac-bb1639ff8eb8">
     <name>DisplayKeyColumnTypes</name>
     <synonym>
+      <key>ru</key>
+      <value>Отображать типы столбцов ключа</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Display key column types</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Отображать типы столбцов ключа</value>
+      <key>tr</key>
+      <value>Anahtar sütun türlerini görüntüle</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1377,12 +1685,16 @@
   <attributes uuid="7ea3471b-99a5-45da-be65-c578f9ecb4dd">
     <name>ElementNameWithDataFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя элемента с данными</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Data element name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя элемента с данными</value>
+      <key>tr</key>
+      <value>Veri öğesi adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1396,12 +1708,16 @@
   <attributes uuid="44f3b813-2ff0-4eaf-9111-a470eaf3ece5">
     <name>ElementNameWithDataFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя элемента с данными</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Data element name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя элемента с данными</value>
+      <key>tr</key>
+      <value>Veri öğesi adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1415,12 +1731,16 @@
   <attributes uuid="3a9da4ff-b1ed-4876-b08b-ae63fc31c73d">
     <name>ExecuteArbitraryKeyCode1A</name>
     <synonym>
+      <key>ru</key>
+      <value>Выполнять произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Execute arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Выполнять произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kodu çalıştır</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1431,12 +1751,16 @@
   <attributes uuid="81a4fde0-dde9-4524-a369-5cb87b90c7cf">
     <name>ExecuteArbitraryKeyCode1B</name>
     <synonym>
+      <key>ru</key>
+      <value>Выполнять произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Execute arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Выполнять произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kodu çalıştır</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1447,12 +1771,16 @@
   <attributes uuid="b01ca005-f0fd-402c-8d99-f3c63a95388b">
     <name>ExecuteArbitraryKeyCode2A</name>
     <synonym>
+      <key>ru</key>
+      <value>Выполнять произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Execute arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Выполнять произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kodu çalıştır</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1463,12 +1791,16 @@
   <attributes uuid="08e63b1e-3ee7-48c5-9db0-76fc5b41b8fe">
     <name>ExecuteArbitraryKeyCode2B</name>
     <synonym>
+      <key>ru</key>
+      <value>Выполнять произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Execute arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Выполнять произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kodu çalıştır</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1479,12 +1811,16 @@
   <attributes uuid="451bd497-2532-4246-b28a-52c074a6dff2">
     <name>ExecuteArbitraryKeyCode3A</name>
     <synonym>
+      <key>ru</key>
+      <value>Выполнять произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Execute arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Выполнять произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kodu çalıştır</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1495,12 +1831,16 @@
   <attributes uuid="9879a158-5a83-40a5-975b-67e8e5e83f81">
     <name>ExecuteArbitraryKeyCode3B</name>
     <synonym>
+      <key>ru</key>
+      <value>Выполнять произвольный код</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Execute arbitrary code</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Выполнять произвольный код</value>
+      <key>tr</key>
+      <value>Rastgele kodu çalıştır</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1511,12 +1851,16 @@
   <attributes uuid="7ddb1476-8fc3-402b-b3e3-8d52eabd2fc2">
     <name>KeyLength2WhenCastingToStringA</name>
     <synonym>
+      <key>ru</key>
+      <value>длина</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>length</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>длина</value>
+      <key>tr</key>
+      <value>uzunluk</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1531,12 +1875,16 @@
   <attributes uuid="c9d4ad52-eb9d-4fda-93ee-d05a946444f7">
     <name>KeyLength2WhenCastingToStringB</name>
     <synonym>
+      <key>ru</key>
+      <value>длина</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>length</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>длина</value>
+      <key>tr</key>
+      <value>uzunluk</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1551,12 +1899,16 @@
   <attributes uuid="54ca7a46-5830-4bd1-89d1-17ebf0c30cab">
     <name>KeyLength3WhenCastingToStringA</name>
     <synonym>
+      <key>ru</key>
+      <value>длина</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>length</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>длина</value>
+      <key>tr</key>
+      <value>uzunluk</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1571,12 +1923,16 @@
   <attributes uuid="0f4ee2a7-b8d3-4145-8de8-feeb509cac91">
     <name>KeyLength3WhenCastingToStringB</name>
     <synonym>
+      <key>ru</key>
+      <value>длина</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>length</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>длина</value>
+      <key>tr</key>
+      <value>uzunluk</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1591,12 +1947,16 @@
   <attributes uuid="d30e355c-6fba-49a2-88bc-584e92a53dda">
     <name>KeyLengthWhenCastingToStringA</name>
     <synonym>
+      <key>ru</key>
+      <value>длина</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>length</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>длина</value>
+      <key>tr</key>
+      <value>uzunluk</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1611,12 +1971,16 @@
   <attributes uuid="047a10fe-30f6-4bbf-a089-a093cd037253">
     <name>KeyLengthWhenCastingToStringB</name>
     <synonym>
+      <key>ru</key>
+      <value>длина</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>length</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>длина</value>
+      <key>tr</key>
+      <value>uzunluk</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1631,12 +1995,16 @@
   <attributes uuid="5e5cfd33-4697-413f-bbe7-620640e5da4a">
     <name>NumberColumnsInKey</name>
     <synonym>
+      <key>ru</key>
+      <value>Число столбцов в ключе</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Number columns in key</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Число столбцов в ключе</value>
+      <key>tr</key>
+      <value>Anahtardaki sütunların numaraları</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1656,12 +2024,16 @@
   <attributes uuid="b52c9632-035d-4a38-a9ca-57f506675c4c">
     <name>NumberFirstRowFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>№ 1-й строки</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>№ 1st row</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>№ 1-й строки</value>
+      <key>tr</key>
+      <value>1. satırın №</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1676,12 +2048,16 @@
   <attributes uuid="67b18a4d-70df-4c1b-ab28-e536e8a5a49b">
     <name>NumberFirstRowFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>№ 1-й строки</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>№ 1st row</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>№ 1-й строки</value>
+      <key>tr</key>
+      <value>1. satırın №</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1696,12 +2072,16 @@
   <attributes uuid="fa0b23b5-f5c3-4b5c-821b-dbd6b49e3afc">
     <name>NumberOfRowsWithEmptyKeysToBreakReading</name>
     <synonym>
+      <key>ru</key>
+      <value>Число строк с пустыми ключами для прерывания чтения из табличного документа</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Number of rows with empty keys to break reading from a spreadsheet document</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Число строк с пустыми ключами для прерывания чтения из табличного документа</value>
+      <key>tr</key>
+      <value>Bir elektronik tablo belgesinden okumayı kesmek için boş anahtarlı satır sayısı</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1716,12 +2096,16 @@
   <attributes uuid="b80a3716-7998-4983-a307-ab66cc07fc02">
     <name>ParentNodeNameFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя родительского узла</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Parent node name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя родительского узла</value>
+      <key>tr</key>
+      <value>Üst düğüm adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1735,12 +2119,16 @@
   <attributes uuid="19336d21-50bc-47ba-b203-6a3ea58b45e4">
     <name>ParentNodeNameFileB</name>
     <synonym>
+      <key>ru</key>
+      <value>Имя родительского узла</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Parent node name</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Имя родительского узла</value>
+      <key>tr</key>
+      <value>Üst düğüm adı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1754,12 +2142,16 @@
   <attributes uuid="9245a5f5-7666-4c84-8f7d-575d9e3c7788">
     <name>PathToDownloadFile</name>
     <synonym>
+      <key>ru</key>
+      <value>Путь к файлу выгрузки таблицы расхождений (на сервере)</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Path to the download file of the discrepancy table (on the server)</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Путь к файлу выгрузки таблицы расхождений (на сервере)</value>
+      <key>tr</key>
+      <value>Uyuşmazlık tablosunun indirileceği dosyanın yolu (sunucuda)</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1771,12 +2163,16 @@
   <attributes uuid="a0cdaba8-9c50-43c9-9d73-766ab503021a">
     <name>PeriodType</name>
     <synonym>
+      <key>ru</key>
+      <value>Тип периода</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Period type</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Тип периода</value>
+      <key>tr</key>
+      <value>Periyodik tip</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1791,12 +2187,16 @@
   <attributes uuid="0d1aecce-be5e-4f24-98fb-acfeae372e63">
     <name>PeriodTypeAbsolute</name>
     <synonym>
+      <key>ru</key>
+      <value>Тип периода абсолютный</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Period type absolute</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Тип периода абсолютный</value>
+      <key>tr</key>
+      <value>Periyod türü mutlak</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1807,12 +2207,16 @@
   <attributes uuid="9629a99c-0b25-4166-98dd-733ddbec6fda">
     <name>QueryTextA</name>
     <synonym>
+      <key>ru</key>
+      <value>Текст запроса</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Query text</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Текст запроса</value>
+      <key>tr</key>
+      <value>Sorgu metni</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1824,12 +2228,16 @@
   <attributes uuid="795f3a6f-4573-4c99-8a75-8023ac2697da">
     <name>QueryTextB</name>
     <synonym>
+      <key>ru</key>
+      <value>Текст запроса</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Query text</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Текст запроса</value>
+      <key>tr</key>
+      <value>Sorgu metni</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1841,12 +2249,16 @@
   <attributes uuid="4a4dbf5a-5d9e-4682-843d-00428eaa43af">
     <name>RelatedDataComparisonOperation</name>
     <synonym>
+      <key>ru</key>
+      <value>Связанная операция сравнения данных</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Related data comparison operation</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Связанная операция сравнения данных</value>
+      <key>tr</key>
+      <value>İlgili veri karşılaştırma işlemi</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1860,12 +2272,16 @@
   <attributes uuid="56cf78bc-6bff-4711-bc2d-e5ba10173211">
     <name>RelationalOperation</name>
     <synonym>
+      <key>ru</key>
+      <value>Реляционная операция</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Relational operation</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Реляционная операция</value>
+      <key>tr</key>
+      <value>İlişkisel işlem</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1880,12 +2296,16 @@
   <attributes uuid="2f4bdb1b-5325-404e-b3eb-fd2dd3590393">
     <name>RelativePeriodValue</name>
     <synonym>
+      <key>ru</key>
+      <value>Значение относительного периода</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Relative period value</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Значение относительного периода</value>
+      <key>tr</key>
+      <value>Göreceli periyod değeri</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1900,12 +2320,16 @@
   <attributes uuid="f2e23b9f-b037-4e4b-afab-5f3daeb589a0">
     <name>SpreadsheetDocumentAStorage</name>
     <synonym>
+      <key>ru</key>
+      <value>Табличный документ А хранилище</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Spreadsheet document A storage</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Табличный документ А хранилище</value>
+      <key>tr</key>
+      <value>E-tablo belgesi A depolama</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1917,12 +2341,16 @@
   <attributes uuid="239893ed-182f-40b3-bb6e-1989a42639be">
     <name>SpreadsheetDocumentBStorage</name>
     <synonym>
+      <key>ru</key>
+      <value>Табличный документ Б хранилище</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Spreadsheet document B storage</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Табличный документ Б хранилище</value>
+      <key>tr</key>
+      <value>Elektronik tablo belgesi B depolama</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1934,12 +2362,16 @@
   <attributes uuid="688b236f-c86f-4669-be3d-35bee52d7080">
     <name>TableA</name>
     <synonym>
+      <key>ru</key>
+      <value>Таблица А</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Table A</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Таблица А</value>
+      <key>tr</key>
+      <value>Tablo A</value>
     </synonym>
     <type>
       <types>SpreadsheetDocument</types>
@@ -1950,12 +2382,16 @@
   <attributes uuid="f327434b-4d6c-4041-84fa-a3fbef6a87ac">
     <name>TableB</name>
     <synonym>
+      <key>ru</key>
+      <value>Таблица Б</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Table B</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Таблица Б</value>
+      <key>tr</key>
+      <value>Tablo B</value>
     </synonym>
     <type>
       <types>SpreadsheetDocument</types>
@@ -1969,6 +2405,10 @@
       <key>ru</key>
       <value>Title</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Başlık</value>
+    </synonym>
     <type>
       <types>String</types>
       <stringQualifiers>
@@ -1981,12 +2421,16 @@
   <attributes uuid="6b31ca3a-eff6-4162-8950-86e4ce6b38b7">
     <name>UploadFileFormat</name>
     <synonym>
+      <key>ru</key>
+      <value>Формат файла выгрузки таблицы расхождений</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Difference table upload file format</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Формат файла выгрузки таблицы расхождений</value>
+      <key>tr</key>
+      <value>Fark tablosu yükleme dosya formatı</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2000,12 +2444,16 @@
   <attributes uuid="051c0e09-103a-48e8-b371-1836999a8e44">
     <name>UseAsKey2UniqueIdentifierA</name>
     <synonym>
+      <key>ru</key>
+      <value>Использовать УИД</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Use UUID</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Использовать УИД</value>
+      <key>tr</key>
+      <value>UUID kullan</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2016,12 +2464,16 @@
   <attributes uuid="dcd8c176-70fe-43c7-acce-4bc254ae9406">
     <name>UseAsKey2UniqueIdentifierB</name>
     <synonym>
+      <key>ru</key>
+      <value>Использовать УИД</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Use UUID</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Использовать УИД</value>
+      <key>tr</key>
+      <value>UUID kullan</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2032,12 +2484,16 @@
   <attributes uuid="6bb0e489-0874-4b6e-8a57-d6becfb9d303">
     <name>UseAsKey3UniqueIdentifierA</name>
     <synonym>
+      <key>ru</key>
+      <value>Использовать УИД</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Use UUID</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Использовать УИД</value>
+      <key>tr</key>
+      <value>UUID kullan</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2048,12 +2504,16 @@
   <attributes uuid="e98ef9b2-de45-4ce5-a729-7ed8b79cb519">
     <name>UseAsKey3UniqueIdentifierB</name>
     <synonym>
+      <key>ru</key>
+      <value>Использовать УИД</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Use UUID</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Использовать УИД</value>
+      <key>tr</key>
+      <value>UUID kullan</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2064,12 +2524,16 @@
   <attributes uuid="385d82f2-8243-4718-b6de-1626bf864332">
     <name>UseAsKeyUniqueIdentifierA</name>
     <synonym>
+      <key>ru</key>
+      <value>Использовать УИД</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Use UUID</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Использовать УИД</value>
+      <key>tr</key>
+      <value>UUID kullan</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2080,12 +2544,16 @@
   <attributes uuid="f8ae56f7-5b86-43f6-8366-b1ef764ad59b">
     <name>UseAsKeyUniqueIdentifierB</name>
     <synonym>
+      <key>ru</key>
+      <value>Использовать УИД</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Use UUID</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Использовать УИД</value>
+      <key>tr</key>
+      <value>UUID kullan</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2096,12 +2564,16 @@
   <attributes uuid="7c7b900a-a688-49b5-ac41-2bc827616f1d">
     <name>UserMode</name>
     <synonym>
+      <key>ru</key>
+      <value>User mode</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>User mode</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>User mode</value>
+      <key>tr</key>
+      <value>Kullanıcı modu</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2112,12 +2584,16 @@
   <attributes uuid="740137f8-3831-46a1-9e41-58b7fa5d1361">
     <name>ValueOfSlaveRelativePeriod</name>
     <synonym>
+      <key>ru</key>
+      <value>Значение подчиненного относительного периода</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Value of slave relative period</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Значение подчиненного относительного периода</value>
+      <key>tr</key>
+      <value>Bağımlı göreli dönemin anlamı</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -2132,12 +2608,16 @@
   <attributes uuid="c16dc4bf-e405-4e42-8752-c7c15c0ecaf2">
     <name>VersionPlatformExternalBaseA</name>
     <synonym>
+      <key>ru</key>
+      <value>Версия платформы</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Version platform</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Версия платформы</value>
+      <key>tr</key>
+      <value>Sürüm platformu</value>
     </synonym>
     <comment>8.X</comment>
     <type>
@@ -2152,12 +2632,16 @@
   <attributes uuid="10f5cd1d-5d55-4798-8454-f79dd2426da9">
     <name>VersionPlatformExternalBaseB</name>
     <synonym>
+      <key>ru</key>
+      <value>Версия платформы</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Version platform</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Версия платформы</value>
+      <key>tr</key>
+      <value>Sürüm platformu</value>
     </synonym>
     <comment>8.X</comment>
     <type>
@@ -2172,12 +2656,16 @@
   <attributes uuid="7740109c-e1f4-48be-93b9-4ac672561245">
     <name>VisibilityAttributeA1</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит а1</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute a1</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит а1</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği a1</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2188,12 +2676,16 @@
   <attributes uuid="bacdaea3-8b50-4451-bdd1-047600eb1a90">
     <name>VisibilityAttributeA2</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит а2</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute a2</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит а2</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği a2</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2204,12 +2696,16 @@
   <attributes uuid="74bd417e-1318-41cd-a964-f0a2cc20bdc8">
     <name>VisibilityAttributeA3</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит а3</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute a3</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит а3</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği a3</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2220,12 +2716,16 @@
   <attributes uuid="82606235-828d-4a18-ae22-7aa21b4a73ec">
     <name>VisibilityAttributeA4</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит а4</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute a4</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит а4</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği a4</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2236,12 +2736,16 @@
   <attributes uuid="c104a767-92cd-4071-91be-768e934df1dc">
     <name>VisibilityAttributeA5</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит а5</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute a5</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит а5</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği a5</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2252,12 +2756,16 @@
   <attributes uuid="bfc11bc0-bb9a-4691-8961-b0c15fdaaac0">
     <name>VisibilityAttributeB1</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит б1</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute b1</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит б1</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği b1</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2268,12 +2776,16 @@
   <attributes uuid="52799da0-d689-4fe7-8584-271a58763ec9">
     <name>VisibilityAttributeB2</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит б2</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute b2</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит б2</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği b2</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2284,12 +2796,16 @@
   <attributes uuid="9b0b5c77-5c55-44c4-b6b5-9bdc79c786a4">
     <name>VisibilityAttributeB3</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит б3</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute b3</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит б3</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği b3</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2300,12 +2816,16 @@
   <attributes uuid="639b78fe-a3ba-4684-b323-598d7d5e2256">
     <name>VisibilityAttributeB4</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит б4</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute b4</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит б4</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği b4</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2316,12 +2836,16 @@
   <attributes uuid="3fed3442-dbbb-44ad-951c-5c46e5b3c9d8">
     <name>VisibilityAttributeB5</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость реквизит б5</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility attribute b5</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость реквизит б5</value>
+      <key>tr</key>
+      <value>Görünürlük niteliği b5</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2332,12 +2856,16 @@
   <attributes uuid="bd4f1276-8171-4de4-b15d-4f891cae0403">
     <name>WorkOptionExternalBaseA</name>
     <synonym>
+      <key>ru</key>
+      <value>Вариант работы</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Work option</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Вариант работы</value>
+      <key>tr</key>
+      <value>Çalışma seçeneği</value>
     </synonym>
     <comment>Файловая, Серверная</comment>
     <type>
@@ -2352,12 +2880,16 @@
   <attributes uuid="a46a5ae7-79fe-46f0-b2c8-ae447efba9aa">
     <name>WorkOptionExternalBaseB</name>
     <synonym>
+      <key>ru</key>
+      <value>Вариант работы</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Work option</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Вариант работы</value>
+      <key>tr</key>
+      <value>Çalışma seçeneği</value>
     </synonym>
     <comment>Файловая, Серверная</comment>
     <type>
@@ -2372,12 +2904,16 @@
   <attributes uuid="a46f215f-90f4-47b7-87c6-3b6a5e7c1270">
     <name>SortTableDifferences</name>
     <synonym>
+      <key>ru</key>
+      <value>Сортировать таблицу расхождений</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Sort table differences</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Сортировать таблицу расхождений</value>
+      <key>tr</key>
+      <value>Tablo farklılıklarını sırala</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2388,12 +2924,16 @@
   <attributes uuid="a207f289-3244-4d8c-814d-0e758f07eb0b">
     <name>OrderSortTableDifferences</name>
     <synonym>
+      <key>ru</key>
+      <value>Порядок сортировки</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Sorting order</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Порядок сортировки</value>
+      <key>tr</key>
+      <value>Sıralama düzeni</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2407,12 +2947,16 @@
   <attributes uuid="358db2ca-4052-4e28-aaf8-cb16ccb20400">
     <name>VisibilityKey1</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость ключ 1</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility key 1</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость ключ 1</value>
+      <key>tr</key>
+      <value>Görünürlük anahtarı 1</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2423,12 +2967,16 @@
   <attributes uuid="4d3b8e01-a7aa-4769-aa3f-4f644e1ee83b">
     <name>VisibilityKey2</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость ключ 2</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility key 2</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость ключ 2</value>
+      <key>tr</key>
+      <value>Görünürlük anahtarı 2</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2439,12 +2987,16 @@
   <attributes uuid="4c192a8c-394c-48c9-8897-a4766fecd5e2">
     <name>VisibilityKey3</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость ключ 3</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility key 3</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость ключ 3</value>
+      <key>tr</key>
+      <value>Görünürlük anahtarı 3</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2455,12 +3007,16 @@
   <attributes uuid="a6dee6c0-23a3-4478-859d-349bcb5c083c">
     <name>VisibilityNumberOfRecordsA</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость число записей А</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility number of records A</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость число записей А</value>
+      <key>tr</key>
+      <value>Görünürlük kayıt sayısı A</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2471,12 +3027,16 @@
   <attributes uuid="16f82139-81ab-4576-80d8-1361259dcab0">
     <name>VisibilityNumberOfRecordsB</name>
     <synonym>
+      <key>ru</key>
+      <value>Видимость число записей Б</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Visibility number of records B</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Видимость число записей Б</value>
+      <key>tr</key>
+      <value>Kayıtların görünürlük sayısı B</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2487,12 +3047,16 @@
   <attributes uuid="991268a1-0d02-46d5-831d-9a46d68fffef">
     <name>ValueTotalAttributeA1</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2506,12 +3070,16 @@
   <attributes uuid="d13fb4a5-e530-49b8-9c0d-ae60d38d582d">
     <name>ValueTotalAttributeA2</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2525,12 +3093,16 @@
   <attributes uuid="e74e29fe-8f60-4b79-bbb2-dbb48ba16799">
     <name>ValueTotalAttributeA3</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2544,12 +3116,16 @@
   <attributes uuid="c928d046-f01a-4452-8b08-5e10973368bf">
     <name>ValueTotalAttributeA4</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2563,12 +3139,16 @@
   <attributes uuid="3e634225-0a81-4d54-84fa-7a528a7a9b15">
     <name>ValueTotalAttributeA5</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2582,12 +3162,16 @@
   <attributes uuid="2afea1d8-a386-4756-9897-6c5a1cf68c4e">
     <name>ValueTotalAttributeB1</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2601,12 +3185,16 @@
   <attributes uuid="c7d5ccc5-56c6-4654-9437-fe0c2e77f81f">
     <name>ValueTotalAttributeB2</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2620,12 +3208,16 @@
   <attributes uuid="5b6b0ca7-db08-415d-8a9c-944c65534c1d">
     <name>ValueTotalAttributeB3</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2639,12 +3231,16 @@
   <attributes uuid="483643cb-cc32-47dc-b6b1-e50d2762140b">
     <name>ValueTotalAttributeB4</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2658,12 +3254,16 @@
   <attributes uuid="b3bb725a-afcc-48e0-a9e3-ee22f094ba3e">
     <name>ValueTotalAttributeB5</name>
     <synonym>
+      <key>ru</key>
+      <value>Итог</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Total</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Итог</value>
+      <key>tr</key>
+      <value>Toplam</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2681,12 +3281,16 @@
     </producedTypes>
     <name>Result</name>
     <synonym>
+      <key>ru</key>
+      <value>Результат</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Result</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Результат</value>
+      <key>tr</key>
+      <value>Sonuç</value>
     </synonym>
     <standardAttributes>
       <dataHistory>Use</dataHistory>
@@ -2699,12 +3303,16 @@
     <attributes uuid="ad6c1519-c7cc-4ec8-bf3c-63e387e3e066">
       <name>Key1</name>
       <synonym>
+        <key>ru</key>
+        <value>Key1</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Column</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Key1</value>
+        <key>tr</key>
+        <value>Sütun</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2730,12 +3338,16 @@
     <attributes uuid="40b0664e-a9cf-4f09-8199-e8cf389fc8d8">
       <name>Key2</name>
       <synonym>
+        <key>ru</key>
+        <value>Столбец 2</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Column 2</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Столбец 2</value>
+        <key>tr</key>
+        <value>Sütun</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2761,12 +3373,16 @@
     <attributes uuid="1604f870-5e3e-432b-a51b-bb648656bf25">
       <name>Key3</name>
       <synonym>
+        <key>ru</key>
+        <value>Столбец 3</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Column 3</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Столбец 3</value>
+        <key>tr</key>
+        <value>Sütun</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2792,12 +3408,16 @@
     <attributes uuid="11ebfc78-7072-4d6e-93f9-0944a37fda96">
       <name>AttributeA1</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит А1</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute A1</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит А1</value>
+        <key>tr</key>
+        <value>Nitelik A1</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2825,12 +3445,16 @@
     <attributes uuid="44a82dc2-1c2b-4148-8c47-5ca90e0ac9a4">
       <name>AttributeA2</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит А2</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute A2</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит А2</value>
+        <key>tr</key>
+        <value>Nitelik A2</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2858,12 +3482,16 @@
     <attributes uuid="a0636d9d-7b1b-43fc-8ade-e06fccd048ae">
       <name>AttributeA3</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит А3</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute A3</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит А3</value>
+        <key>tr</key>
+        <value>Nitelik A3</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2891,12 +3519,16 @@
     <attributes uuid="570907a3-e61d-4fd5-9d52-b59eccd41691">
       <name>AttributeA4</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит А4</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute A4</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит А4</value>
+        <key>tr</key>
+        <value>Nitelik A4</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2924,12 +3556,16 @@
     <attributes uuid="2b7c7be1-f7cb-42f5-b6af-7d81f890c435">
       <name>AttributeA5</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит А5</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute A5</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит А5</value>
+        <key>tr</key>
+        <value>Nitelik A5</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2957,12 +3593,16 @@
     <attributes uuid="7d961705-2604-4c79-b685-7298367052b0">
       <name>AttributeB1</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит Б1</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute B1</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит Б1</value>
+        <key>tr</key>
+        <value>Nitelik B1</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -2990,12 +3630,16 @@
     <attributes uuid="fa054ad3-2ef0-4776-945a-6cc4ac1c02af">
       <name>AttributeB2</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит Б2</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute B2</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит Б2</value>
+        <key>tr</key>
+        <value>Nitelik B2</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -3023,12 +3667,16 @@
     <attributes uuid="d69a0ba8-0f28-455c-81e5-32234044e583">
       <name>AttributeB3</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит Б3</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute B3</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит Б3</value>
+        <key>tr</key>
+        <value>Nitelik B3</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -3056,12 +3704,16 @@
     <attributes uuid="cc9d44f9-03e0-40b0-9e75-e21e8e03a55e">
       <name>AttributeB4</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит Б4</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute B4</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит Б4</value>
+        <key>tr</key>
+        <value>Nitelik B4</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -3089,12 +3741,16 @@
     <attributes uuid="1afa6e86-8f75-4fe6-b8a2-0648a450b7b8">
       <name>AttributeB5</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит Б5</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute B5</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит Б5</value>
+        <key>tr</key>
+        <value>Nitelik B5</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -3122,12 +3778,16 @@
     <attributes uuid="6b8954c1-89a1-4010-9d8e-efab30756b88">
       <name>NumberOfRecordsA</name>
       <synonym>
+        <key>ru</key>
+        <value>Число записей А</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Number of records A</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Число записей А</value>
+        <key>tr</key>
+        <value>Kayıt sayısı A</value>
       </synonym>
       <type>
         <types>Number</types>
@@ -3142,12 +3802,16 @@
     <attributes uuid="7db63c20-e440-45cf-9ac3-9e02db060d39">
       <name>NumberOfRecordsB</name>
       <synonym>
+        <key>ru</key>
+        <value>Число записей Б</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Number of records B</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Число записей Б</value>
+        <key>tr</key>
+        <value>Kayıt sayısı B</value>
       </synonym>
       <type>
         <types>Number</types>
@@ -3162,12 +3826,16 @@
     <attributes uuid="8d16d1e1-a72a-4e2e-be06-14d451a01b6f">
       <name>ColumnType1Key</name>
       <synonym>
+        <key>ru</key>
+        <value>Тип</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Type</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Тип</value>
+        <key>tr</key>
+        <value>Tip</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3184,12 +3852,16 @@
     <attributes uuid="a8553b17-58d9-40a7-95b4-a92ee2eae661">
       <name>ColumnType2Key</name>
       <synonym>
+        <key>ru</key>
+        <value>Тип</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Type</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Тип</value>
+        <key>tr</key>
+        <value>Tip</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3206,12 +3878,16 @@
     <attributes uuid="090c3f26-0d04-4a4f-a6c0-d6357f0ec911">
       <name>ColumnType3Key</name>
       <synonym>
+        <key>ru</key>
+        <value>Тип</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Type</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Тип</value>
+        <key>tr</key>
+        <value>Tip</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3233,12 +3909,16 @@
     </producedTypes>
     <name>ConditionsOutputRows</name>
     <synonym>
+      <key>ru</key>
+      <value>Условия вывода строк</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Conditions output rows</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Условия вывода строк</value>
+      <key>tr</key>
+      <value>Dize çıkış koşulları</value>
     </synonym>
     <standardAttributes>
       <dataHistory>Use</dataHistory>
@@ -3251,12 +3931,16 @@
     <attributes uuid="f00dec0d-02c2-4a1f-bf28-07b21a81707a">
       <name>NameComparedAttribute</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит</value>
+        <key>tr</key>
+        <value>Nitelik</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3273,12 +3957,16 @@
     <attributes uuid="cab6b325-61fb-415a-9abe-725ecf072b2c">
       <name>Condition</name>
       <synonym>
+        <key>ru</key>
+        <value>Условие</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Condition</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Условие</value>
+        <key>tr</key>
+        <value>Koşul</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3295,12 +3983,16 @@
     <attributes uuid="13cff5a6-d35a-4672-a87b-b26314bac6b2">
       <name>ComparedValue</name>
       <synonym>
+        <key>ru</key>
+        <value>Значение</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Value</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Значение</value>
+        <key>tr</key>
+        <value>Değer</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -3325,12 +4017,16 @@
     <attributes uuid="99d7754a-3fec-4421-84bc-95ed7adf2b4a">
       <name>NameComparedAttribute2</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит</value>
+        <key>tr</key>
+        <value>Nitelik</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3347,12 +4043,16 @@
     <attributes uuid="f7ae6fa6-9d5b-4c19-82c8-1bb607d58511">
       <name>ComparisonType</name>
       <synonym>
+        <key>ru</key>
+        <value>С чем сравнивать</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>What to compare</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>С чем сравнивать</value>
+        <key>tr</key>
+        <value>Neyi karşılaştıracağız?</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3374,12 +4074,16 @@
     </producedTypes>
     <name>ConditionsProhibitOutputRows</name>
     <synonym>
+      <key>ru</key>
+      <value>Условия запрета вывода строк</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Conditions prohibit output rows</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Условия запрета вывода строк</value>
+      <key>tr</key>
+      <value>Satırların çıktısını yasaklama koşulları</value>
     </synonym>
     <standardAttributes>
       <dataHistory>Use</dataHistory>
@@ -3392,12 +4096,16 @@
     <attributes uuid="c508cbb6-0b3e-4b91-b819-1b215b07097d">
       <name>NameComparedAttribute</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит</value>
+        <key>tr</key>
+        <value>Nitelik</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3414,12 +4122,16 @@
     <attributes uuid="f477baa5-e001-46f9-9da0-8620ce103fca">
       <name>Condition</name>
       <synonym>
+        <key>ru</key>
+        <value>Условие</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Condition</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Условие</value>
+        <key>tr</key>
+        <value>Koşul</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3436,12 +4148,16 @@
     <attributes uuid="bb426b7d-d596-41bc-8b1e-3da01a4cf0b0">
       <name>ComparedValue</name>
       <synonym>
+        <key>ru</key>
+        <value>Значение</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Value</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Значение</value>
+        <key>tr</key>
+        <value>Değer</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -3467,12 +4183,16 @@
     <attributes uuid="93f55491-65a0-425f-8b2b-538aea82f388">
       <name>NameComparedAttribute2</name>
       <synonym>
+        <key>ru</key>
+        <value>Реквизит</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Attribute</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Реквизит</value>
+        <key>tr</key>
+        <value>Nitelik</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3489,12 +4209,16 @@
     <attributes uuid="b972f399-7dbb-4d0e-a210-3ba2eca6509b">
       <name>ComparisonType</name>
       <synonym>
+        <key>ru</key>
+        <value>С чем сравнивать</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>What to compare</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>С чем сравнивать</value>
+        <key>tr</key>
+        <value>Neyi karşılaştıracağız?</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3514,12 +4238,16 @@
     </producedTypes>
     <name>SettingsFileA</name>
     <synonym>
+      <key>ru</key>
+      <value>Настройки файла А</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Settings file A</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Настройки файла А</value>
+      <key>tr</key>
+      <value>Ayarlar dosyası A</value>
     </synonym>
     <standardAttributes>
       <dataHistory>Use</dataHistory>
@@ -3532,12 +4260,16 @@
     <attributes uuid="9f19fdd0-6b6e-462a-a2c8-4ceb6f71eb3d">
       <name>NumberColumn</name>
       <synonym>
+        <key>ru</key>
+        <value>Номер столбца источника</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Source column number</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Номер столбца источника</value>
+        <key>tr</key>
+        <value>Kaynak sütun numarası</value>
       </synonym>
       <type>
         <types>Number</types>
@@ -3553,12 +4285,16 @@
     <attributes uuid="2a8c9428-9b6b-4540-9eb2-511b1b063ce2">
       <name>ColumnName</name>
       <synonym>
+        <key>ru</key>
+        <value>Имя столбца источника</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Source column name</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Имя столбца источника</value>
+        <key>tr</key>
+        <value>Kaynak sütun adı</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3575,12 +4311,16 @@
     <attributes uuid="d5ffff8f-b821-49cf-b2e0-e1ba3bf49a02">
       <name>ArbitraryCode</name>
       <synonym>
+        <key>ru</key>
+        <value>Произвольный код (пример: РТек = Лев(РТек, 5);)</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Arbitrary code (example: RCurrent = Mid(RCurrent , 5);)</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Произвольный код (пример: РТек = Лев(РТек, 5);)</value>
+        <key>tr</key>
+        <value>Rastgele kod (örnek: RCurrent = Mid(RCurrent , 5);)</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3595,12 +4335,16 @@
     <attributes uuid="f20dff1a-b120-4897-bfcc-35f84d040cc9">
       <name>HeaderAttributeForUser</name>
       <synonym>
+        <key>ru</key>
+        <value>Заголовок для пользователя</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Header for the user</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Заголовок для пользователя</value>
+        <key>tr</key>
+        <value>Kullanıcı için başlık</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3617,28 +4361,37 @@
     <attributes uuid="04b13b73-6c44-4a3b-b03e-5f0a2b8e3935">
       <name>CalculateTotal</name>
       <synonym>
+        <key>ru</key>
+        <value>Итог</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Total</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Итог</value>
+        <key>tr</key>
+        <value>Toplam</value>
       </synonym>
       <type>
         <types>Boolean</types>
       </type>
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
     </attributes>
     <attributes uuid="656d6392-008a-436f-89dd-5d843ec6e6e3">
       <name>AggregateFunctionCalculationTotal</name>
+      <synonym>
+        <key>ru</key>
+        <value>Агрегатная функция</value>
+      </synonym>
       <synonym>
         <key>en</key>
         <value>Aggregate function</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Агрегатная функция</value>
+        <key>tr</key>
+        <value>Toplam fonksiyon</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3648,6 +4401,9 @@
       </type>
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
     </attributes>
   </tabularSections>
   <tabularSections uuid="4215cc90-6ef9-4eb7-b129-0ee65bf1c43f">
@@ -3671,12 +4427,16 @@
     <attributes uuid="fce52db9-ecec-4faf-8daf-d7a3861d3c22">
       <name>NumberColumn</name>
       <synonym>
+        <key>ru</key>
+        <value>Номер столбца источника</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Source column number</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Номер столбца источника</value>
+        <key>tr</key>
+        <value>Kaynak sütun numarası</value>
       </synonym>
       <type>
         <types>Number</types>
@@ -3692,12 +4452,16 @@
     <attributes uuid="8d8cf5e2-a5a5-44d3-b94d-f4fe0779d47b">
       <name>ColumnName</name>
       <synonym>
+        <key>ru</key>
+        <value>Имя столбца источника</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Source column name</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Имя столбца источника</value>
+        <key>tr</key>
+        <value>Kaynak sütun adı</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3714,12 +4478,16 @@
     <attributes uuid="328ebfd3-d953-401b-93da-1151960976b9">
       <name>ArbitraryCode</name>
       <synonym>
+        <key>ru</key>
+        <value>Произвольный код (пример: РТек = Сред(РТек, 3, 10);)</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Arbitrary code (example: RCurrent = Mid(RCurrent , 3, 10);)</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Произвольный код (пример: РТек = Сред(РТек, 3, 10);)</value>
+        <key>tr</key>
+        <value>Rastgele kod (örnek: RCurrent = Mid(RCurrent , 5);)</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3734,12 +4502,16 @@
     <attributes uuid="0d479cce-ba51-411a-a2a0-7d9ecf36d4c3">
       <name>HeaderAttributeForUser</name>
       <synonym>
+        <key>ru</key>
+        <value>Заголовок для пользователя</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Header for the user</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Заголовок для пользователя</value>
+        <key>tr</key>
+        <value>Kullanıcı için başlık</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3756,28 +4528,37 @@
     <attributes uuid="8cc56593-a068-40ad-a78b-c231f9317fff">
       <name>CalculateTotal</name>
       <synonym>
+        <key>ru</key>
+        <value>Итог</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Total</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Итог</value>
+        <key>tr</key>
+        <value>Toplam</value>
       </synonym>
       <type>
         <types>Boolean</types>
       </type>
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
     </attributes>
     <attributes uuid="14e015a7-d4fc-4058-b7f2-58b9132210a3">
       <name>AggregateFunctionCalculationTotal</name>
+      <synonym>
+        <key>ru</key>
+        <value>Агрегатная функция</value>
+      </synonym>
       <synonym>
         <key>en</key>
         <value>Aggregate function</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Агрегатная функция</value>
+        <key>tr</key>
+        <value>Toplam fonksiyon</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3787,6 +4568,9 @@
       </type>
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
     </attributes>
   </tabularSections>
   <tabularSections uuid="2d7a9193-137b-4f69-9e58-90df5c94b40a">
@@ -3814,12 +4598,16 @@
     <attributes uuid="feab345b-2c5e-41bc-8e1a-1c0a4021ae1a">
       <name>ParameterName</name>
       <synonym>
+        <key>ru</key>
+        <value>Имя параметра</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Parameter name</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Имя параметра</value>
+        <key>tr</key>
+        <value>Parametre adı</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3836,12 +4624,16 @@
     <attributes uuid="661ef1ba-e446-4004-94d4-500c666a257f">
       <name>ParameterType</name>
       <synonym>
+        <key>ru</key>
+        <value>Тип параметра</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Parameter type</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Тип параметра</value>
+        <key>tr</key>
+        <value>Parametre türü</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3856,12 +4648,16 @@
     <attributes uuid="0aa07114-1b56-483d-a59e-0fa8c4cbb4ac">
       <name>ParameterValue</name>
       <synonym>
+        <key>ru</key>
+        <value>Значение параметра</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Parameter value</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Значение параметра</value>
+        <key>tr</key>
+        <value>Parametre değeri</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -3910,12 +4706,16 @@
     <attributes uuid="f384604c-61a3-4370-b79b-697d1623b8b4">
       <name>ParameterName</name>
       <synonym>
+        <key>ru</key>
+        <value>Имя параметра</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Parameter name</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Имя параметра</value>
+        <key>tr</key>
+        <value>Parametre adı</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3932,12 +4732,16 @@
     <attributes uuid="b0f3dd9e-38c3-44c2-aff6-8bc0b609c9fa">
       <name>ParameterType</name>
       <synonym>
+        <key>ru</key>
+        <value>Тип параметра</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Parameter type</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Тип параметра</value>
+        <key>tr</key>
+        <value>Parametre türü</value>
       </synonym>
       <type>
         <types>String</types>
@@ -3952,12 +4756,16 @@
     <attributes uuid="e613c136-c0b0-4754-95b2-794681b7395b">
       <name>ParameterValue</name>
       <synonym>
+        <key>ru</key>
+        <value>Значение параметра</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Parameter value</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Значение параметра</value>
+        <key>tr</key>
+        <value>Parametre değeri</value>
       </synonym>
       <type>
         <types>Boolean</types>
@@ -3993,12 +4801,16 @@
   <forms uuid="21679ba2-30ca-45c0-9f99-f4e14c106385">
     <name>SortingSettingsForm</name>
     <synonym>
+      <key>ru</key>
+      <value>Форма настройки сортировки</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Sorting settings form</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Форма настройки сортировки</value>
+      <key>tr</key>
+      <value>Sıralama ayarları formu</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -4174,12 +4986,16 @@
   <templates uuid="d380c569-d30c-4f0a-8dc2-db61da9ad6d9">
     <name>PreviewForm</name>
     <synonym>
+      <key>ru</key>
+      <value>Предварительный просмотр</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Preview form</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Предварительный просмотр</value>
+      <key>tr</key>
+      <value>Önizleme formu</value>
     </synonym>
   </templates>
   <templates uuid="ae56b8af-a2b9-4f2e-9e86-7c732afad6be">

@@ -56,8 +56,7 @@ Procedure FillCheckProcessingAtServer(Cancel, CheckedAttributes)
 		EndIf;
 		
 		If Not ValueIsFilled(Row.Directory) Then
-			UT_CommonClientServer.MessageToUser(StrTemplate(NStr("ru = 'Для источника %1 не указан каталог сохранения';
-			|en = 'No save directory is specified for source %1'"),Row.Source), , , , Cancel);
+			UT_CommonClientServer.MessageToUser(StrTemplate(NStr("ru = 'Для источника %1 не указан каталог сохранения'; en = 'No save directory is specified for source %1'; tr = 'Kaynak %1 için herhangi bir kaydetme dizini belirtilmedi'"),Row.Source), , , , Cancel);
 		EndIf;
 	EndDo;
 	If InfobasePlacement = 0 Then
@@ -105,7 +104,7 @@ Procedure PlatformLaunchFileStartChoice(Item, ChoiceData, StandardProcessing)
 		FileName = FileName + ".exe";
 	EndIf;
 	
-	UT_CommonClient.AddFormatToSavingFileDescription(FileDescription, StrTemplate(NStr("ru = 'Файл толстого клиента 1С(%1)'; en = '1C thick client file (%1)'"),FileName), "",FileName);
+	UT_CommonClient.AddFormatToSavingFileDescription(FileDescription, StrTemplate(NStr("ru = 'Файл толстого клиента 1С(%1)'; en = '1C thick client file (%1)'; tr = '1C kalın müşteri dosyası (%1)'"),FileName), "",FileName);
 	
 	UT_CommonClient.FormFieldFileNameStartChoice(FileDescription, Item, ChoiceData, StandardProcessing,
 		FileDialogMode.Open,

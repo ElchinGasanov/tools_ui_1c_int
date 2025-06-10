@@ -73,8 +73,7 @@ EndProcedure
 &AtClient
 Procedure ParametersTableBeforeDeleteRow(Item, Cancel)
 	ShowQueryBox(New NotifyDescription("ParametersTableBeforeDeleteEnd", ThisObject,
-		New Structure("String,Parameter", Item.CurrentLine, Item.CurrentData.Parameter)), Nstr("ru = 'Элемент структуры настроек будет удален без возможности  восстановления !';
-		|en = 'The element of the settings structure will be deleted without the possibility of recovery !'") + Chars.LF +Nstr("ru = 'Продолжить выполнение ?';en = 'Continue execution ?'"), QuestionDialogMode.YesNoCancel);
+		New Structure("String,Parameter", Item.CurrentLine, Item.CurrentData.Parameter)), Nstr("ru = 'Элемент структуры настроек будет удален без возможности  восстановления !'; en = 'The element of the settings structure will be deleted without the possibility of recovery !'; tr = 'Ayarlar yapısının öğesi kurtarılma olasılığı olmaksızın silinecektir!'") + Chars.LF +Nstr("ru = 'Продолжить выполнение ?'; en = 'Continue execution ?'; tr = 'Devam edilsin mi?'"), QuestionDialogMode.YesNoCancel);
 	Cancel = True;
 EndProcedure
 
@@ -239,7 +238,7 @@ Procedure ExecuteProcedure(Command)
 		UT_AlgorithmsServerCall.ExecuteAlgorithm(Object.Ref);
 	Endif;
 
-	Items.ExecuteProcedure.Title =StrTemplate(NStr("ru = 'Выполнить процедуру (%1 мс.)';en = 'Execute procedure (%1 ms.)'"),Строка(CurrentUniversalDateInMilliseconds()
+	Items.ExecuteProcedure.Title =StrTemplate(NStr("ru = 'Выполнить процедуру (%1 мс.)'; en = 'Execute procedure (%1 ms.)'; tr = 'Prosedürü yürüt (%1 ms.)'"),Строка(CurrentUniversalDateInMilliseconds()
 		- StartTime));
 EndProcedure
 
@@ -314,7 +313,7 @@ EndProcedure
 &AtClient
 Procedure AddScheduledJob(Command)
 	If Object.AtClient Then
-		Message(Nstr("ru = 'это клиентская процедура';en = 'This is a client procedure'"));
+		Message(Nstr("ru = 'это клиентская процедура'; en = 'This is a client procedure'; tr = 'Bu bir istemci prosedürüdür'"));
 		Return;
 	EndIf;
 	CreateScheduledJob();
@@ -408,7 +407,7 @@ Procedure ChangeParameter(NewData) Export
 				ParameterName = "File" + Upper(FileExtention) + "_" + ParameterName;
 			Else
 				If Object.ThrowException Then
-					Raise NSTR("ru = 'Ошибка при чтении файла из хранилища';en = 'Error when reading a file from storage'");
+					Raise NSTR("ru = 'Ошибка при чтении файла из хранилища'; en = 'Error when reading a file from storage'; tr = 'Depolamadan dosya okunurken hata oluştu'");
 				EndIf;
 			EndIf;
 		Else
@@ -605,7 +604,7 @@ Procedure ExecuteAlgorithmAtClient(TransmittedStructure)
 	Try
 		ExecutionContext = AlgorithmExecutionContext(TransmittedStructure);
 	Except
-		Raise  NSTR("ru = 'Нет возможности получить на клиенте текущие параметры';en = 'There is no way to get the current parameters At Client'") ;
+		Raise  NSTR("ru = 'Нет возможности получить на клиенте текущие параметры'; en = 'There is no way to get the current parameters At Client'; tr = 'Mevcut parametreleri İstemcide almank mümkün değil'") ;
 	EndTry;
 	ExecutionResult = UT_CodeEditorClientServer.ExecuteAlgorithm(Object.AlgorithmText, ExecutionContext);
 
@@ -650,7 +649,7 @@ Procedure ExternalFileStartChoiceEnd(SelectedFiles, AdditionalParameters) Export
 			Directory));
 		BeginPutFile(NotifyDescription, , ExternalFile, False, ThisObject.UUID);
 	Else
-		UT_CommonClientServer.MessageToUser(NSTR("ru = 'Нет файла';en = 'No file'"));
+		UT_CommonClientServer.MessageToUser(NSTR("ru = 'Нет файла'; en = 'No file'; tr = 'Dosya yok'"));
 	EndIf;
 EndProcedure
 
@@ -659,7 +658,7 @@ Procedure PutFileEnd(Result, StorageURL, SelectedFileName, AdditionalParameters)
 	If Result Then
 		ReadAtServer(StorageURL, SelectedFileName, AdditionalParameters);
 	Else
-		UT_CommonClientServer.MessageToUser(Nstr("ru = 'Ошибка помещения файла в хранилище';en = 'Error putting a file to storage'"));
+		UT_CommonClientServer.MessageToUser(Nstr("ru = 'Ошибка помещения файла в хранилище'; en = 'Error putting a file to storage'; tr = 'Bir dosyanın depoya konulmasında hata oluştu'"));
 	EndIf;
 EndProcedure
 
@@ -676,7 +675,7 @@ Procedure ReadAtServer(StorageURL, SelectedFileName, AdditionalParameters)
 		AddNewParameterAtServer(New Structure("ParameterName,ParameterValue",
 			ParameterName, ParameterValue));
 	Except
-		Raise NSTR("ru = 'Ошибка записи файла XML';en = 'Error writing XML file'") + ErrorDescription();
+		Raise NSTR("ru = 'Ошибка записи файла XML'; en = 'Error writing XML file'; tr = 'XML dosyası yazılırken hata oluştu'") + ErrorDescription();
 	EndTry;
 EndProcedure
 
@@ -729,7 +728,7 @@ EndFunction
 &AtClient
 Procedure AfterGetFile(ObtainedFiles, AdditionalParameters) Export
 	If TypeOf(ObtainedFiles) = Type("Array") Then
-		UT_CommonClientServer.MessageToUser(StrTemplate(Nstr("ru = 'Файл %1 записан';en = 'File %1 writed'"),ObtainedFiles[0].Name));
+		UT_CommonClientServer.MessageToUser(StrTemplate(Nstr("ru = 'Файл %1 записан'; en = 'File %1 writed'; tr = 'Dosya %1 yazıldı'"),ObtainedFiles[0].Name));
 	EndIf;
 EndProcedure
 
@@ -792,7 +791,7 @@ Procedure CreateScheduledJob()
 	Filter.Insert("Key", Object.Ref.UUID());
 	JobsArray = ScheduledJobs.GetScheduledJobs(Filter);
 	If JobsArray.Count() >= 1 Then
-		Message(NSTR("ru = 'Задание с ключом %1 уже существует';en = 'Scheduled job  with key %1  already exist'",Filter.Key));
+		Message(NSTR("ru = 'Задание с ключом %1 уже существует'; en = 'Scheduled job  with key %1  already exist'; tr = '%1 anahtarına sahip zamanlanmış iş zaten mevcut'",Filter.Key));
 	Else
 		Job = ScheduledJobs.CreateScheduledJob("alg_UniversalScheduledJob");
 		Job.Title = Object.Title;
@@ -800,7 +799,7 @@ Procedure CreateScheduledJob()
 		Job.Use = False;
 		Job.Parameters = ParametersArray;
 		Job.Write();
-		Message(StrTemplate(NSTR("ru = 'Создано регламентное задание %1 с  ключом %2';en = 'Created scheduled job %1 with key %2 '"), Object.Title,Filter.Key));
+		Message(StrTemplate(NSTR("ru = 'Создано регламентное задание %1 с  ключом %2'; en = 'Created scheduled job %1 with key %2 '; tr = '%2 anahtarıyla zamanlanmış iş %1 oluşturuldu'"), Object.Title,Filter.Key));
 	EndIf;
 EndProcedure
 
@@ -816,7 +815,7 @@ Procedure DeleteScheduledJobAtServer()
 	JobsArray = ScheduledJobs.GetScheduledJobs(Filter);
 	If JobsArray.Count() >= 1 Then
 		JobsArray[0].Delete();
-		Message(Nstr("ru = 'Удалено регламентное задание';en = 'Deleted scheluded job'")+ Object.Title);
+		Message(Nstr("ru = 'Удалено регламентное задание'; en = 'Deleted scheluded job'; tr = 'Planlanmış iş silindi'")+ Object.Title);
 	EndIf;
 EndProcedure
 

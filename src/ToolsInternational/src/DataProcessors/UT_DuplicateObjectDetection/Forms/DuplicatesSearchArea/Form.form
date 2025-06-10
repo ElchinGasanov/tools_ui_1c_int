@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Область поиска дублей</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Duplicates search area</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Область поиска дублей</value>
+    <key>tr</key>
+    <value>Yinelenen arama alanı</value>
   </title>
   <items xsi:type="form:Table">
     <name>DuplicatesSearchAreas</name>
@@ -36,10 +40,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>DuplicatesSearchAreas.Presentation</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>DuplicatesSearchAreas.Presentation</segments>
       </dataPath>
       <extendedTooltip>
         <name>DuplicatesSearchAreasPresentationExtendedTooltip</name>
@@ -130,6 +132,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>DuplicatesSearchAreas</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -168,6 +171,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>DuplicatesSearchAreas</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -207,6 +211,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>DuplicatesSearchAreas</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -299,6 +304,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -323,12 +329,16 @@
   <attributes>
     <name>DuplicatesSearchAreas</name>
     <title>
+      <key>ru</key>
+      <value>Области поиска дублей</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Duplicates search areas</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Области поиска дублей</value>
+      <key>tr</key>
+      <value>Yinelenen arama alanları</value>
     </title>
     <id>2</id>
     <valueType>
@@ -375,12 +385,16 @@
   <formCommands>
     <name>Select</name>
     <title>
+      <key>ru</key>
+      <value>Выбрать</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Select</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выбрать</value>
+      <key>tr</key>
+      <value>Seç</value>
     </title>
     <id>1</id>
     <toolTip>

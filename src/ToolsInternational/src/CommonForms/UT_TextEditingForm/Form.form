@@ -88,6 +88,10 @@
     <items xsi:type="form:Button">
       <name>Close</name>
       <id>19</id>
+      <title>
+        <key>tr</key>
+        <value>Kapat</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -110,11 +114,11 @@
       </extendedTooltip>
       <commandName>Form.StandardCommand.Close</commandName>
       <representation>PictureAndText</representation>
-      <onlyInAllActions>false</onlyInAllActions>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
+      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
     </items>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -128,6 +132,10 @@
     <title>
       <key>en</key>
       <value>Form command bar</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Form komut paneli</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -168,6 +176,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -184,6 +193,10 @@
     <title>
       <key>en</key>
       <value>Text</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Metin</value>
     </title>
     <id>2</id>
     <valueType>
@@ -203,6 +216,14 @@
       <key>ru</key>
       <value>ОК</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>OK</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>OK</value>
+    </title>
     <id>1</id>
     <toolTip>
       <key>ru</key>
@@ -218,4 +239,8 @@
     </action>
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
 </form:Form>

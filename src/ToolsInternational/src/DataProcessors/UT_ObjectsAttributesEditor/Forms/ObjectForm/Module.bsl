@@ -305,7 +305,7 @@ EndProcedure
 &AtClient
 Procedure _SelectDeletedObject(Command)
 	ShowInputString(New NotifyDescription("vProcessInputString_ObjectNotFound", ThisForm), ,
-		NSTR("ru = 'Введите битую ссылку: <Объект не найден> ... ';en = 'Enter the broken ref: <Object not found> ...'"), , False);
+		NSTR("ru = 'Введите битую ссылку: <Объект не найден> ... '; en = 'Enter the broken ref: <Object not found> ...'; tr = 'Bozuk referansı girin: <Nesne bulunamadı> ...'"), , False);
 EndProcedure
 
 &AtClient
@@ -316,7 +316,7 @@ EndProcedure
 &AtClient
 Procedure _FillBySample(Command)
 	If mObjectRef = Undefined Then
-		ShowMessageBox( , NSTR("ru = 'Не задан объект для обработки!';en = 'No object has been set for processing!'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не задан объект для обработки!'; en = 'No object has been set for processing!'; tr = 'İşlenmek üzere hiçbir nesne ayarlanmadı!'"), 20);
 		Return;
 	EndIf;
 
@@ -329,37 +329,38 @@ EndProcedure
 &AtClient
 Procedure WriteObject(Command)
 	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан объект для записи!';en = 'Not set object for write!'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не задан объект для записи!'; en = 'Not set object for write!'; tr = 'Yazma için nesne ayarlanmadı!'"), 20);
 		Return;
 	EndIf;
 	ShowQueryBox(New NotifyDescription("WriteObjectNext", ThisForm),
-		NSTR("ru = 'Объект будет записан в базу. Продолжить?';en = 'Object will be writed to the database. Continue?'"), QuestionDialogMode.YesNoCancel, 20);
+		NSTR("ru = 'Объект будет записан в базу. Продолжить?'; en = 'Object will be writed to the database. Continue?'; tr = 'Nesne veritabanına yazılacak. Devam edilsin mi?'"), QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
 
 &AtClient
 Procedure _WriteObjectAsNew(Command)
 	If mObjectRef = Undefined Then
-		ShowMessageBox( , NSTR("ru = 'Не заданы данные объекта для записи!';en = 'Object data is not set for recording!'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не заданы данные объекта для записи!'; en = 'Object data is not set for recording!'; tr = 'Nesne verileri kayıt için ayarlanmadı!'"), 20);
 		Return;
 	EndIf;
 	ShowQueryBox(New NotifyDescription("WriteObjectAsNewNext", ThisForm),
-		NSTR("ru = 'В базу будет записан New объект. Продолжить?';en = 'New object will be written to database. Continue?'"), QuestionDialogMode.YesNoCancel, 20);
+		NSTR("ru = 'В базу будет записан New объект. Продолжить?'; en = 'New object will be written to database. Continue?'; tr = 'Veritabanına yeni bir nesne yazılacak. Devam etmek istiyor musunuz?'"), QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
 
 &AtClient
 Procedure _WriteObjectAsNewWithSpecifiedUUID(Command)
 	If mObjectRef = Undefined Then
-		ShowMessageBox( , NSTR("ru = 'Не заданы данные объекта для записи!';en = 'Object data is not set for recording!'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не заданы данные объекта для записи!'; en = 'Object data is not set for recording!'; tr = 'Nesne verileri kayıt için ayarlanmadı!'"), 20);
 		Return;
 	ElsIf IsBlankString(_UUID) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан UUID для нового объекта!';en = 'UUID for new object is not set!'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не задан UUID для нового объекта!'; en = 'UUID for new object is not set!'; tr = 'Yeni nesne için UUID ayarlanmadı!'"), 20);
 		Return;
 	EndIf;
 
 	pText =	StrTemplate(NSTR("ru = 'В базу будет записан New объект с заданным UUID.
 							 |UUID: %1
 							 |
-							 |Продолжить?';en = 'New object with  specified UUID will be written to database." + Chars.LF + "UUID: %1" + Chars.LF + Chars.LF + "Continue?'"),_UUID);
+							 |Продолжить?';en = 'New object with  specified UUID will be written to database." + Chars.LF + "UUID: %1" + Chars.LF + Chars.LF + "Continue?'"
+							 + "; tr = 'Belirtilen UUID ye sahip yeni nesne veritabanına yazılacak." + Chars.LF + "UUID: %1" + Chars.LF + Chars.LF + "Devam edilsin mi?'"),_UUID);
 	ShowQueryBox(New NotifyDescription("WriteObjectAsNewNext", ThisForm, _UUID), pText,
 		QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
@@ -367,13 +368,14 @@ EndProcedure
 &AtClient
 Procedure _DeleteObject(Command)
 	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( ,NSTR("ru = 'Не задан объект для удаления!';en = 'Object to delete is not specified!'") , 20);
+		ShowMessageBox( ,NSTR("ru = 'Не задан объект для удаления!'; en = 'Object to delete is not specified!'; tr = 'Silinecek nesne belirtilmemiş!'") , 20);
 		Return;
 	EndIf;
 	QueryText = NSTR("ru = 'Объект будет удален из базы!
 				  |Никакие проверки производиться не будут (возможно появление битых ссылок)!
 				  |
-				  |Продолжить?';en = 'The object will be deleted from the database!"  + Chars.LF + "No checks will be performed (broken  references may appear)!" + Chars.LF + Chars.LF + "Continue?'");
+				  |Продолжить?';en = 'The object will be deleted from the database!"  + Chars.LF + "No checks will be performed (broken  references may appear)!" + Chars.LF + Chars.LF + "Continue?'"
+				  + "; tr = 'Nesne veritabanından silinecek (Hiçbir kontrol yapılmayacak (bozuk referanslar görünebilir)! " + Chars.LF + Chars.LF + "Devam edilsin mi?'");
 	ShowQueryBox(New NotifyDescription("DeleteObjectNext", ThisForm), QueryText,
 		QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
@@ -393,15 +395,15 @@ EndProcedure
 &AtClient
 Procedure _WriteRecordSet(Command)
 	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан объект для записи движений';en = 'Object for write records is not specified'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не задан объект для записи движений'; en = 'Object for write records is not specified'; tr = 'Etkinliklerin kayıt nesnesi belirtilmemiş'"), 20);
 		Return;
 	EndIf;
 	If IsBlankString(_RecordSetName) Then
-		ShowMessageBox( , NStr("ru = 'Не задан набор записей для сохранения';en = 'Recordset for save records is not set'"), 20);
+		ShowMessageBox( , NStr("ru = 'Не задан набор записей для сохранения'; en = 'Recordset for save records is not set'; tr = 'Kaydedilecek kayıt seti belirtilmedi'"), 20);
 		Return;
 	EndIf;
 	ShowQueryBox(New NotifyDescription("_WriteRecordSetNext", ThisForm),
-		NSTR("ru = 'Набор записей будет записан в базу. Продолжить?';en = 'Recordset will be saved to database. Continue?'"), QuestionDialogMode.YesNoCancel, 20);
+		NSTR("ru = 'Набор записей будет записан в базу. Продолжить?'; en = 'Recordset will be saved to database. Continue?'; tr = 'Kayıt seti veritabanına kaydedilecek. Devam etmek istiyor musunuz?'"), QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
 
 &AtClient
@@ -410,7 +412,7 @@ Procedure _ShowAllRecords(Command)
 		RegisterList = Items._RecordSetName.ChoiceList.Copy();
 		If RegisterList.Count() <> 0 Then
 			TDoc = vGenerateRecordsReport(mObjectRef, RegisterList, _ConfigurationAllowsAdditionalRecords);
-			TDoc.Show(NSTR("ru = 'Наличие движений';en = 'Records existence'"));
+			TDoc.Show(NSTR("ru = 'Наличие движений'; en = 'Records existence'; tr = 'Etkinliklerin varlığı'"));
 		EndIf;
 	EndIf;
 EndProcedure
@@ -518,7 +520,7 @@ Procedure _OpenRecordsEditor(Command)
 	Try
 		OpenForm("DataProcessor.UT_ObjectsAttributesEditor.Form.RecordsEditorForm", ParamStruct, , mObjectRef);
 	Except
-		Message(NSTR("ru = 'Не найдена форма ""RecordsEditorForm""!';en = 'RecordsEditorForm form not found.'"));
+		Message(NSTR("ru = 'Не найдена форма ""RecordsEditorForm""!'; en = 'RecordsEditorForm form not found.'; tr = 'RecordsEditorForm formu bulunamadı.'"));
 	EndTry;
 EndProcedure
 
@@ -529,7 +531,7 @@ Procedure _OpenAdditionalRecordsEditor(Command)
 		OpenForm("DataProcessor.UT_ObjectsAttributesEditor.Form.RecordsEditorAdditionalForm", ParamStruct, ,
 			mObjectRef);
 	Except
-		Message(NSTR("ru = 'Не найдена форма ""RecordsEditorAdditionalForm""!';en = 'RecordsEditorAdditionalForm form not found.'"));
+		Message(NSTR("ru = 'Не найдена форма ""RecordsEditorAdditionalForm""!'; en = 'RecordsEditorAdditionalForm form not found.'; tr = 'RecordsEditorAdditionalForm formu bulunamadı.'"));
 	EndTry;
 EndProcedure
 
@@ -579,43 +581,43 @@ EndProcedure
 &AtClient
 Procedure _PostDocument(Command)
 	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан документ для обработки';en = 'No document set for processing.'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не задан документ для обработки'; en = 'No document set for processing.'; tr = 'İşleme alınmak üzere belge belirlenmedi.'"), 20);
 		Return;
 	EndIf;
 
 	If Not _PostingIsAllowed Then
-		ShowMessageBox( , NSTR("ru = 'Проведение документов данного типа запрещено!';en = 'Posting of this type documents is prohibited.'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Проведение документов данного типа запрещено!'; en = 'Posting of this type documents is prohibited.'; tr = 'Bu tür belgelerin kaydedilmesi yasaktır.'"), 20);
 		Return;
 	EndIf;
 
 	ShowQueryBox(New NotifyDescription("vPostDocumentNext", ThisForm),
-		NSTR("ru = 'Документ будет перепроведен. Продолжить?';en = 'Document will be reposted. Do you want to continue?'"), QuestionDialogMode.YesNoCancel, 20);
+		NSTR("ru = 'Документ будет перепроведен. Продолжить?'; en = 'Document will be reposted. Do you want to continue?'; tr = 'Belge tekrar kaydedilecek. Devam etmek istiyor musunuz?'"), QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
 
 &AtClient
 Procedure _UndoPosting(Command)
 	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан документ для обработки';en = 'No document set for processing.'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не задан документ для обработки'; en = 'No document set for processing.'; tr = 'İşleme alınmak üzere belge belirlenmedi.'"), 20);
 		Return;
 	EndIf;
 
 	If Not _PostingIsAllowed Then
-		ShowMessageBox( , NSTR("ru = 'Проведение документов данного типа запрещено!';en = 'Posting of this type documents is prohibited.'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Проведение документов данного типа запрещено!'; en = 'Posting of this type documents is prohibited.'; tr = 'Bu tür belgelerin kaydedilmesi yasaktır.'"), 20);
 		Return;
 	EndIf;
 
 	ShowQueryBox(New NotifyDescription("vUndoPostingNext", ThisForm),
-		NSTR("ru = 'Для документа будет выполнена отмена проведения. Продолжить?';en = 'Undo posting will be performed for document. Do you want to continue?'"), QuestionDialogMode.YesNoCancel, 20);
+		NSTR("ru = 'Для документа будет выполнена отмена проведения. Продолжить?'; en = 'Undo posting will be performed for document. Do you want to continue?'; tr = 'Belge için kaydetme iptal işlemi gerçekleştirilecek. Devam etmek istiyor musunuz?'"), QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
 
 &AtClient
 Procedure _UnloadRecordSet(Command)
 	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан объект для выгрузки движений';en = 'Object for records unloading is not set.'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не задан объект для выгрузки движений'; en = 'Object for records unloading is not set.'; tr = 'Etkinliklerin boşaltılması için nesne ayarlanmadı.'"), 20);
 		Return;
 	EndIf;
 	If IsBlankString(_RecordSetName) Then
-		ShowMessageBox( ,NSTR("ru = 'Не задан набор записей для выгрузки';en = 'Recordset for unloading is not specified.'") , 20);
+		ShowMessageBox( ,NSTR("ru = 'Не задан набор записей для выгрузки'; en = 'Recordset for unloading is not specified.'; tr = 'Boşaltma için kayıt seti belirtilmemiş.'") , 20);
 		Return;
 	EndIf;
 
@@ -650,7 +652,7 @@ Procedure _InsertUUID(Command)
 	If CurrTable.Name = "_ValueToFill" Then
 		pStruct = New Structure("Table", CurrTable.Name);
 		ShowInputString(New NotifyDescription("vProcessInputUUID", ThisForm, pStruct), mLastUUID,
-			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'"), , False);
+			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'; tr = 'Benzersiz bir tanımlayıcı (UUID) girin'"), , False);
 		Return;
 	ElsIf TypeOf(CurrTable) <> Type("FormTable") Then
 		Return;
@@ -682,7 +684,7 @@ Procedure _InsertUUID(Command)
 		EndIf;
 
 		ShowInputString(New NotifyDescription("vProcessInputUUID", ThisForm, pStruct), mLastUUID,
-			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'"), , False);
+			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'; tr = 'Benzersiz bir tanımlayıcı (UUID) girin'"), , False);
 	EndIf;
 EndProcedure
 
@@ -903,7 +905,7 @@ EndFunction
 &AtServerNoContext
 Function vGetRemoteObjectRef(Val pObjectNotFoundString)
 	pResult = New Structure("Cancel, CancelCause, Ref", True, "");
-	pResult.CancelCause = NSTR("ru = 'Неправильный формат строки!';en = 'Incorrect string format.'");
+	pResult.CancelCause = NSTR("ru = 'Неправильный формат строки!'; en = 'Incorrect string format.'; tr = 'Hatalı dize formatı.'");
 
 	If IsBlankString(pObjectNotFoundString) Then
 		pObjectNotFoundString = "<Object no found> (769:b1390050568b35ac11e6e46fdd2c3861)";
@@ -957,7 +959,7 @@ Procedure FindObjectByUUIDServer()
 		Try
 			UID = New UUID(_UUID);
 		Except
-				Message(NSTR("ru = 'Неправильное значение UUID';en = 'Incorrect UUID value.'"));
+				Message(NSTR("ru = 'Неправильное значение UUID'; en = 'Incorrect UUID value.'; tr = 'Hatalı UUID değeri.'"));
 			Return;
 		EndTry;
 
@@ -987,7 +989,7 @@ Procedure FindObjectByType_UUIDServer()
 		Try
 			UID = New UUID(_UUID);
 		Except
-				Message(NSTR("ru = 'Неправильное значение UUID';en = 'Incorrect UUID value.'"));
+				Message(NSTR("ru = 'Неправильное значение UUID'; en = 'Incorrect UUID value.'; tr = 'Hatalı UUID değeri.'"));
 			Return;
 		EndTry;
 
@@ -1051,7 +1053,7 @@ Function vSetNewObjectRef(pObject, Val pStringUUID)
 	Try
 		pUUID = New UUID(pStringUUID);
 	Except
-		Message(NSTR("ru = 'Неправильный формат UUID!';en = 'Incorrect UUID format.'"));
+		Message(NSTR("ru = 'Неправильный формат UUID!'; en = 'Incorrect UUID format.'; tr = 'Hatalı UUID formatı.'"));
 		Return False;
 	EndTry;
 
@@ -1083,7 +1085,7 @@ Function vSetNewObjectRef(pObject, Val pStringUUID)
 		pManager = Tasks[pName];
 
 	Else
-		Message(MDObject.FullName() + NSTR("ru = ' - данный тип не обрабатывается!';en = '- this type is not processed.'"));
+		Message(MDObject.FullName() + NSTR("ru = ' - данный тип не обрабатывается!'; en = '- this type is not processed.'; tr = '- Bu türde işlem yapılmamaktadır.'"));
 		Return False;
 	EndIf;
 
@@ -1091,7 +1093,7 @@ Function vSetNewObjectRef(pObject, Val pStringUUID)
 		pNewRef = pManager.GetRef(pUUID);
 		pObject.SetNewObjectRef(pNewRef);
 	Except
-		Message(NSTR("ru = 'Не удалось установить ссылку для нового объекта!';en = 'Failed to set reference for new object.'"));
+		Message(NSTR("ru = 'Не удалось установить ссылку для нового объекта!'; en = 'Failed to set reference for new object.'; tr = 'Yeni nesne için referans ayarlanamadı.'"));
 		Message(BriefErrorDescription(ErrorInfo()));
 		Return False;
 	EndTry;
@@ -1127,7 +1129,7 @@ Function vWriteObject(Val AsNew = False, Val pStringUUID = Undefined)
 			MDObject = mObjectRef.Metadata();
 			ObjectToWrite = vCreateNewОбъект(MDObject);
 			If ObjectToWrite = Undefined Then
-				Message(NSTR("ru = 'Не удалось создать New объект типа ';en = 'Failed to create a new object of type.'") + MDObject.FullName());
+				Message(NSTR("ru = 'Не удалось создать New объект типа '; en = 'Failed to create a new object of type.'; tr = 'Türünde yeni bir nesne oluşturulamadı.'") + MDObject.FullName());
 				Return False;
 			EndIf;
 		Else
@@ -1144,7 +1146,7 @@ Function vWriteObject(Val AsNew = False, Val pStringUUID = Undefined)
 	EndIf;
 
 	If ObjectToWrite = Undefined Then
-		Message(NSTR("ru = 'Не удалось получить объект для записи (битая ссылка)!';en = 'Failed to get object to write to (broken reference).'"));
+		Message(NSTR("ru = 'Не удалось получить объект для записи (битая ссылка)!'; en = 'Failed to get object to write to (broken reference).'; tr = 'Yazılacak nesne alınamadı (bozuk referans).'"));
 		Return False;
 	EndIf;
 
@@ -1264,7 +1266,7 @@ Function vDeleteObjectAtServer(Val Ref)
 			Return False;
 		EndIf;
 	Except
-		Message(NSTR("ru = 'Ошибка при удалении объекта:';en = 'Error while deleting object:'") + Chars.LF + BriefErrorDescription(ErrorInfo()));
+		Message(NSTR("ru = 'Ошибка при удалении объекта:'; en = 'Error while deleting object:'; tr = 'Nesne silinirken hata oluştu:'") + Chars.LF + BriefErrorDescription(ErrorInfo()));
 		Return False;
 	EndTry;
 EndFunction
@@ -1781,9 +1783,9 @@ Function vGenerateRecordsReport(Val DocRef, Val RegisterList, Val pConfiguration
 	SDoc.Area(2, 2).Text = String(DocRef);
 	SDoc.Area(2, 2, 2, 3).Outline( , , , Line1);
 
-	SDoc.Area(4, 2).Text = NStr("ru = 'Имя регистра'; en = 'Register name'");
-	SDoc.Area(4, 3).Text = NStr("ru = 'Представление'; en = 'Presentation'");
-	SDoc.Area(4, 4).Text = NStr("ru = 'Число записей'; en = 'Count of records'");
+	SDoc.Area(4, 2).Text = NStr("ru = 'Имя регистра'; en = 'Register name'; tr = 'Kayıt tablosu adı'");
+	SDoc.Area(4, 3).Text = NStr("ru = 'Представление'; en = 'Presentation'; tr = 'Gösterim'");
+	SDoc.Area(4, 4).Text = NStr("ru = 'Число записей'; en = 'Count of records'; tr = 'Kayıtların sayısı'");
 	SDoc.Area(4, 2, 4, 4).BackColor = WebColors.LightGoldenRodYellow;
 	SDoc.Area(4, 2, 4, 4).Outline(Line1, Line1, Line1, Line1);
 
@@ -2306,8 +2308,8 @@ Function vGetXMLFileDialog(Open = True, FilePath = "")
 	Dialog = New FileDialog(?(Open, FileDialogMode.Open, FileDialogMode.Save));
 
 	Dialog.FullFileName = FilePath;
-	Dialog.Title  = NSTR("ru = 'Файл данных XML';en = 'XML data file'");
-	Dialog.Filter     = NSTR("ru = 'Файлы данных XML (*.xml)|*.xml|Все файлы (*.*)|*.*';en = 'XML data files (*.xml)|*.xml|All files (*.*)|*.*'");
+	Dialog.Title  = NSTR("ru = 'Файл данных XML'; en = 'XML data file'; tr = 'XML veri dosyası'");
+	Dialog.Filter     = NSTR("ru = 'Файлы данных XML (*.xml)|*.xml|Все файлы (*.*)|*.*'; en = 'XML data files (*.xml)|*.xml|All files (*.*)|*.*'; tr = 'XML veri dosyaları (*.xml)|*.xml|Tüm dosyalar (*.*)|*.*'");
 	Dialog.Extension = "xml";
 
 	Return Dialog;
@@ -2335,18 +2337,18 @@ EndProcedure
 &AtClient
 Procedure vUnloadObject(pMode)
 	If Not ValueIsFilled(mObjectRef) Then
-		ShowMessageBox( , NSTR("ru = 'Не задан документ для выгрузки';en = 'No document specified for unloading.'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Не задан документ для выгрузки'; en = 'No document specified for unloading.'; tr = 'Boşaltma için herhangi bir belge belirtilmemiştir.'"), 20);
 		Return;
 	EndIf;
 
 	Dialog = vGetXMLFileDialog(False);
 
 	If pMode = 1 Then
-		Dialog.FullFileName = NSTR("ru = 'Объект';en = 'Object'");
+		Dialog.FullFileName = NSTR("ru = 'Объект'; en = 'Object'; tr = 'Nesne'");
 	ElsIf pMode = 2 Then
-		Dialog.FullFileName =NSTR("ru = 'Объект (с движениями)';en = 'Object (with records)'") ;
+		Dialog.FullFileName =NSTR("ru = 'Объект (с движениями)'; en = 'Object (with records)'; tr = 'Nesne (etkinlikleriyle)'") ;
 	ElsIf pMode = 3 Then
-		Dialog.FullFileName =NSTR("ru = 'Объект (движения)';en = 'Object (records)'") ;
+		Dialog.FullFileName =NSTR("ru = 'Объект (движения)'; en = 'Object (records)'; tr = 'Nesne (etkinlikler)'") ;
 	ElsIf pMode = 4 Then
 		Dialog.FullFileName = _RecordSetName;
 	EndIf;
@@ -2370,7 +2372,7 @@ EndProcedure
 &AtClient
 Procedure vAfterFinishWriteFile(Result, AddParam = Undefined) Export
 	If Result = True Then
-		ShowMessageBox( , NSTR("ru = 'Данные выгружены в файл';en = 'Data is unloaded to file.'"), 20);
+		ShowMessageBox( , NSTR("ru = 'Данные выгружены в файл'; en = 'Data is unloaded to file.'; tr = 'Veriler dosyaya boşaltılıyor.'"), 20);
 	EndIf;
 EndProcedure
 &AtServerNoContext
@@ -2403,7 +2405,7 @@ Function vGenerateXMLUnloading(Val pRef, Val pMode, Val pRecordSetName = "")
 			pObject = pRef.GetObject();
 		Except
 			Message(BriefErrorDescription(ErrorInfo()), MessageStatus.Important);
-			Message(NSTR("ru = 'Выгрузка данных не выполнена!';en = 'Failed to unload data.'"), MessageStatus.Important);
+			Message(NSTR("ru = 'Выгрузка данных не выполнена!'; en = 'Failed to unload data.'; tr = 'Veriler boşaltılamadı.'"), MessageStatus.Important);
 			Return "";
 		EndTry;
 
@@ -2434,10 +2436,10 @@ Procedure vLoadXMLData(Val XMLString)
 	XMLReader = New XMLReader;
 	XMLReader.SetString(XMLString);
 
-	Message(NSTR("ru = 'Загрузка данных стартована';en = 'Data loading started.'"));
+	Message(NSTR("ru = 'Загрузка данных стартована'; en = 'Data loading started.'; tr = 'Veri yükleme işlemi başladı.'"));
 
 	pFormatError = False;
-	pStringIncorrectFormat = NStr("ru = 'Неверный формат файла выгрузки';en = 'Incorrect unload file format.'");
+	pStringIncorrectFormat = NStr("ru = 'Неверный формат файла выгрузки'; en = 'Incorrect unload file format.'; tr = 'Yanlış boşaltma dosyası formatı.'");
 
 	Try
 		// format checking
@@ -2489,7 +2491,7 @@ Procedure vLoadXMLData(Val XMLString)
 		RollbackTransaction();
 
 		XMLReader.Close();
-		Message(NSTR("ru = 'Загрузка данных прервана';en = 'Data loading aborted.'"), MessageStatus.Important);
+		Message(NSTR("ru = 'Загрузка данных прервана'; en = 'Data loading aborted.'; tr = 'Veri yüklemesi iptal edildi.'"), MessageStatus.Important);
 		Return;
 	Else
 		CommitTransaction();
@@ -2516,7 +2518,7 @@ Procedure vLoadXMLData(Val XMLString)
 	EndIf;
 
 	XMLReader.Close();
-	Message(NSTR("ru = 'Загрузка данных завершена';en = 'Data loading completed.'"));
+	Message(NSTR("ru = 'Загрузка данных завершена'; en = 'Data loading completed.'; tr = 'Veri yüklemesi tamamlandı.'"));
 EndProcedure
 &AtServerNoContext
 Function vFindAdditionalRegisters(Val pDocumentFullName)
@@ -2569,7 +2571,7 @@ Procedure vProcessInputUUID(String, pStruct = Undefined) Export
 			pValue = New UUID(String);
 			mLastUUID = String;
 		Except
-			ShowMessageBox( , NSTR("ru = 'Значение не может быть преобразовано в Уникальный идентификатор!'; en = 'The value cannot be converted to a Unique identifier (UUID).'"), 20);
+			ShowMessageBox( , NSTR("ru = 'Значение не может быть преобразовано в Уникальный идентификатор!'; en = 'The value cannot be converted to a Unique identifier (UUID).'; tr = 'Değer Benzersiz tanımlayıcıya (UUID) dönüştürülemez.'"), 20);
 			Return;
 		EndTry;
 

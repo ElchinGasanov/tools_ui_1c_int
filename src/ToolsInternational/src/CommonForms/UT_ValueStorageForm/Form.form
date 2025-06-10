@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Данные ХЗ</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Value Storage Data</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Данные ХЗ</value>
+    <key>tr</key>
+    <value>Değer Depolama Verileri</value>
   </title>
   <items xsi:type="form:Table">
     <name>_ValueTable</name>
@@ -48,11 +52,11 @@
         </extendedTooltip>
         <commandName>Form.Command.OpenObject</commandName>
         <representation>Auto</representation>
-        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -99,6 +103,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>_ValueTable</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -137,6 +142,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>_ValueTable</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -176,6 +182,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>_ValueTable</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -226,11 +233,11 @@
           </extendedTooltip>
           <commandName>Form.Command.OpenObject</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -240,6 +247,10 @@
         <title>
           <key>en</key>
           <value>Value table context menu group1</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Değer tablosu bağlam menüsü group1</value>
         </title>
         <extendedTooltip>
           <name>_ValueTableContextMenuGroup1ExtendedTooltip</name>
@@ -346,6 +357,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>_ValueTree</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -384,6 +396,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>_ValueTree</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -423,6 +436,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>_ValueTree</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -487,6 +501,10 @@
           <key>en</key>
           <value>Value tree context menu group1</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Değer ağacı bağlam menüsü group1</value>
+        </title>
         <extendedTooltip>
           <name>_ValueTreeContextMenuGroup1ExtendedTooltip</name>
           <id>34</id>
@@ -544,13 +562,14 @@
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>OnCreateAtServer</name>
-  </handlers>
-  <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
+  </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -561,12 +580,16 @@
   <attributes>
     <name>_ValueTable</name>
     <title>
+      <key>ru</key>
+      <value>Таблица значений</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Value table</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Таблица значений</value>
+      <key>tr</key>
+      <value>Değer tablosu</value>
     </title>
     <id>2</id>
     <valueType>
@@ -589,6 +612,10 @@
       <key>en</key>
       <value>Data for representation</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Gösterme için veriler</value>
+    </title>
     <id>3</id>
     <valueType/>
     <view>
@@ -601,12 +628,16 @@
   <attributes>
     <name>_ValueTree</name>
     <title>
+      <key>ru</key>
+      <value>Дерево значений</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Value tree</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Дерево значений</value>
+      <key>tr</key>
+      <value>Değer ağacı</value>
     </title>
     <id>4</id>
     <valueType>
@@ -628,6 +659,10 @@
     <title>
       <key>en</key>
       <value>Open object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesneyi aç</value>
     </title>
     <id>1</id>
     <toolTip>

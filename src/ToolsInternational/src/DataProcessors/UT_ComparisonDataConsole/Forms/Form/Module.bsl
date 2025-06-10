@@ -98,7 +98,7 @@ Procedure CompareDataOnClientTransferFileA_End(Result, Address, SelectedFileName
 		StructureParametersOnClient.TemporaryStorageAddressFileA = Address;
 		CompareDataOnClientTransferFileB(StructureParametersOnClient, TextErrors);
 	Else
-		TextErrors = StrTemplate(Nstr("ru = 'Не удалось поместить во временное хранилище файл А: ""%1""';en = 'Failed to put file A into temporary storage: ""%1""'")
+		TextErrors = StrTemplate(Nstr("ru = 'Не удалось поместить во временное хранилище файл А: ""%1""'; en = 'Failed to put file A into temporary storage: ""%1""'; tr = 'Dosya A geçici depolamaya koyulamadı: ""%1""'")
 			, Object.ConnectionToExternalBaseAPathToFile);
 		Message(Format(CurrentDate(),"DLF=DT") + ": " + TextErrors);
 		Return;
@@ -128,7 +128,7 @@ Procedure CompareDataOnClientTransferFileB_End(Result, Address, SelectedFileName
 	If Result Then
 		StructureParametersOnClient.TemporaryStorageAddressFileB = Address;			
 	Else
-		TextErrors = StrTemplate(Nstr("ru = 'Не удалось поместить во временное хранилище файл Б: ""%1""';en = 'Failed to put file B into temporary storage: ""%1""'")
+		TextErrors = StrTemplate(Nstr("ru = 'Не удалось поместить во временное хранилище файл Б: ""%1""'; en = 'Failed to put file B into temporary storage: ""%1""'; tr = 'B dosyası geçici depolamaya koyulamadı: ""%1""'")
 			, Object.ConnectionToExternalBaseBPathToFile);		
 		Message(Format(CurrentDate(),"DLF=DT") + ": " + TextErrors);
 		Return;
@@ -222,7 +222,7 @@ Procedure OpenQueryConstructor(BaseID)
 			Application = New COMObject(StrReplace(Object["VersionPlatformExternalBase" + BaseID],".","") + ".Application");
 			Connection = Application.Connect(ParameterConnections);
 		Except
-			MessageText = StrTemplate(Nstr("ru = '%1 : Ошибка при подключении к внешней базе: %2';en = '%1 : Error connecting to external database: %2'")
+			MessageText = StrTemplate(Nstr("ru = '%1 : Ошибка при подключении к внешней базе: %2'; en = '%1 : Error connecting to external database: %2'; tr = '%1 : Harici veritabanına bağlanırken hata oluştu: %2'")
 				, Format(CurrentDate(),"DLF=DT"), ErrorDescription());
 			Message(MessageText);
 			Return;
@@ -399,7 +399,7 @@ Procedure GetParametersFromQueryOnServer(BaseID)
 			COMConnector = New COMObject(Object["VersionPlatformExternalBase" + BaseID] + ".COMConnector");
 			Connection = COMConnector.Connect(ParameterConnections);
 		Except
-			TextError = StrTemplate(Nstr("ru = '%1: Ошибка при подключении к внешней базе: %2';en = '%1: Error connecting to external database: %2'")
+			TextError = StrTemplate(Nstr("ru = '%1: Ошибка при подключении к внешней базе: %2'; en = '%1: Error connecting to external database: %2'; tr = '%1: Harici veritabanına bağlanırken hata oluştu: %2'")
 				, Format(CurrentDate(),"DLF=DT"), ErrorDescription());
 			Message(TextError);
 			TextErrors = TextErrors + Chars.LF + TextError;
@@ -413,7 +413,7 @@ Procedure GetParametersFromQueryOnServer(BaseID)
 	Try
 		QueryOptions = Query.FindParameters();
 	Except
-		TextError = StrTemplate(Nstr("ru = '%1: Ошибка при получении списка параметров: %2';en = '%1: Error getting parameter list: %2'"), Format(CurrentDate(),"DLF=DT"),  ErrorDescription());
+		TextError = StrTemplate(Nstr("ru = '%1: Ошибка при получении списка параметров: %2'; en = '%1: Error getting parameter list: %2'; tr = '%1: Parametre listesi alınırken hata oluştu: %2'"), Format(CurrentDate(),"DLF=DT"),  ErrorDescription());
 		Message(TextError);
 		Return;
 	EndTry;
@@ -487,7 +487,7 @@ Procedure CommandUploadResultToFileOnClientEndQuestion(Result, AdditionalParamet
 	SaveFileDialog = New FileDialog(FileDialogMode.Save);
 	SaveFileDialog.FullFileName = Object.PathToDownloadFile;
 	SaveFileDialog.Filter = "*." + Object.UploadFileFormat + "|*." + Object.UploadFileFormat;
-	SaveFileDialog.Title = Nstr("ru = 'Выберите каталог';en = 'Select catalog'"); 
+	SaveFileDialog.Title = Nstr("ru = 'Выберите каталог'; en = 'Select catalog'; tr = 'Bir dizin seçin'"); 
 	
 	SaveFileDialog.Show(New NotifyDescription("CommandUploadResultToFileOnClientEnd", ThisForm, New Structure("FileData, SaveFileDialog", FileData, SaveFileDialog)));
 
@@ -501,12 +501,12 @@ Procedure CommandUploadResultToFileOnClientEnd(SelectedFiles, AdditionalParamete
 	If (SelectedFiles <> Undefined) Then
 		
 		FileData.Write(SaveFileDialog.FullFileName);
-		MessageText = StrTemplate(NStr("ru = '%1: Выгрузка в файл завершена (%2)';en = '%1: Upload to file completed (%2)'")
+		MessageText = StrTemplate(NStr("ru = '%1: Выгрузка в файл завершена (%2)'; en = '%1: Upload to file completed (%2)'; tr = '%1: Dosyaya yükleme tamamlandı (%2)'")
 			, Format(CurrentDate(),"DF='yyyy.MM.dd HH.mm.ss'")
 			, SaveFileDialog.FullFileName);
 		Message(MessageText);		
 	Else
-		MessageText = StrTemplate(NStr("ru = '%1: Выгрузка в файл отменена';en = '%1: Upload to file canceled'")
+		MessageText = StrTemplate(NStr("ru = '%1: Выгрузка в файл отменена'; en = '%1: Upload to file canceled'; tr = '%1: Dosyaya yükleme iptal edildi'")
 			, Format(CurrentDate(),"DF='yyyy.MM.dd HH.mm.ss'"));
 		Message(MessageText);		
 	EndIf;
@@ -806,7 +806,7 @@ EndProcedure
 &AtClient
 Procedure UpdateHeader()
 	
-	ThisForm.Title =NSTR("ru = 'КСД:';en = 'Data comparison console:'") + Object.Title;
+	ThisForm.Title =NSTR("ru = 'КСД:'; en = 'Data comparison console:'; tr = 'Veri karşılaştırma konsolu:'") + Object.Title;
 	
 EndProcedure
 
@@ -842,14 +842,14 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 					= True;
 		If Object["WorkOptionExternalBase" + BaseID] = 1 Then
 			Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 			= True;
-			Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 			= Nstr("ru = 'Имя базы';en = 'Database name'");
+			Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 			= Nstr("ru = 'Имя базы'; en = 'Database name'; tr = 'Veritabanı adı'");
 		Else
 			Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 			= False;
-			Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 			= Nstr("ru = 'Путь к базе';en = 'Path to Database'");
+			Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 			= Nstr("ru = 'Путь к базе'; en = 'Path to Database'; tr = 'Veritabanına Giden Yol'");
 		EndIf;
 		Items["ConnectionToExternalBase" + BaseID + "DriverSQL"].Visible 			= False;
 		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
-		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса';en = 'Query text'");
+		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса'; en = 'Query text'; tr = 'Sorgu metni'");
 		Items["DecorationQueryText" + BaseID].Visible								= True;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= True;
 		
@@ -892,13 +892,13 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= True;
 		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 					= False;
 		Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 				= True;
-		Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 				= Nstr("ru = 'Имя базы данных';en = 'Database name'");
+		Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 				= Nstr("ru = 'Имя базы данных'; en = 'Database name'; tr = 'Veritabanı adı'");
 		Items["ConnectionToExternalBase" + BaseID + "DriverSQL"].Visible 				= True;
 		Items["GroupSettingsConnectionsFile" + BaseID].Visible 						= False;
 		//Items["FileColumnsParametersGroup" + BaseID].Visible 						= False;
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= False;		
 		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
-		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса';en = 'Query text'");
+		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса'; en = 'Query text'; tr = 'Sorgu metni'");
 		Items["DecorationQueryText" + BaseID].Visible								= True;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= False;
 		
@@ -945,7 +945,7 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["GroupSettingsConnectionsToXML" + BaseID].Visible 					= FileFormatXML;
 		Items["GroupSettingsConnectionsToNonXMLFile" + BaseID].Visible				= Not FileFormatXML;
 		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Visible	= FileFormatXLS Or FileFormatDOC;
-		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Title		= ?(FileFormatXLS, Nstr("ru = 'Номер книги';en = 'Book number'"), Nstr("ru = 'Номер таблицы';en = 'Table number'"));
+		Items["ConnectionToExternalBase" + BaseID + "NumberTableInFile"].Title		= ?(FileFormatXLS, Nstr("ru = 'Номер книги'; en = 'Book number'; tr = 'Kitap numarası'"), Nstr("ru = 'Номер таблицы'; en = 'Table number'; tr = 'Tablo numarası'"));
 		
 		//Items["FileColumnsParametersGroup" + BaseID].Visible 						= True;		
 		Items["SettingsFile" + BaseID + "NumberColumn"].Visible						= True;
@@ -1030,9 +1030,9 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		Items["GroupVariantVersionPlatformsBase" + BaseID].Visible 					= False;
 		Items["ConnectionToExternalBase" + BaseID + "DriverSQL"].Visible 			= False;
 		Items["ConnectionToExternalBase" + BaseID + "Server"].Visible 				= False;
-		Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 				= Nstr("ru = 'Путь к базе';en = 'Path to base'");
+		Items["ConnectionToExternalBase" + BaseID + "PathBase"].Title 				= Nstr("ru = 'Путь к базе'; en = 'Path to base'; tr = 'Vertitabanına giden yol'");
 		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
-		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса';en = 'Query text'");
+		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса'; en = 'Query text'; tr = 'Sorgu metni'");
 		Items["DecorationQueryText" + BaseID].Visible								= True;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= False;
 		
@@ -1070,7 +1070,7 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 	ElsIf Object["BaseType" + BaseID] = 6 Then
 	
 		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
-		Items["GroupPageTextQuery" + BaseID].Title									= NStr("ru = 'Строка JSON';en = 'JSON string'");
+		Items["GroupPageTextQuery" + BaseID].Title									= NStr("ru = 'Строка JSON'; en = 'JSON string'; tr = 'JSON dizesi'");
 		
 		Items["DecorationQueryText" + BaseID].Visible								= False;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= False;
@@ -1122,7 +1122,7 @@ Procedure UpdateVisibilityAccessibilityFormItemsByBaseID(BaseID)
 		
 		Items["GroupOptionSettingsConnectionsBase" + BaseID].Visible 				= False;
 		Items["GroupPageTextQuery" + BaseID].Visible 								= True;
-		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса';en = 'Query text'");
+		Items["GroupPageTextQuery" + BaseID].Title									= Nstr("ru = 'Тект запроса'; en = 'Query text'; tr = 'Sorgu metni'");
 		Items["DecorationQueryText" + BaseID].Visible								= True;
 		Items["GroupQueryText" + BaseID + "Commands"].Visible 						= True;
 		
@@ -1291,7 +1291,7 @@ Procedure SaveSettingsToFileAtClient(SaveSpreadsheetDocuments = False)
 	SelectionDialog.FullFileName = Object.Title;
 	Filter = "File xml (*.xml)|*.xml";
 	SelectionDialog.Filter = Filter;
-	SelectionDialog.Title = Nstr("ru = 'Укажите файл для сохранения настроек';en = 'Specify a file to save settings'");   
+	SelectionDialog.Title = Nstr("ru = 'Укажите файл для сохранения настроек'; en = 'Specify a file to save settings'; tr = 'Ayarları kaydetmek için bir dosya belirtin'");   
 
 	SelectionDialog.Show(New NotifyDescription("SaveSettingsToFileAtClientEnd", ThisForm, New Structure("SelectionDialog,SaveSpreadsheetDocuments", SelectionDialog, SaveSpreadsheetDocuments)));
 	
@@ -1318,7 +1318,7 @@ EndProcedure
 Procedure SaveSettingsToDatabaseAtClient(SaveSpreadsheetDocuments = False);
 	
 	If ValueIsFilled(Object.RelatedDataComparisonOperation)  Then
-		QueryText = StrTemplate(Nstr("ru = 'Обновить элемент справочника ""%1""?';en = 'Update catalog item ""%1""?'")
+		QueryText = StrTemplate(Nstr("ru = 'Обновить элемент справочника ""%1""?'; en = 'Update catalog item ""%1""?'; tr = '""%1"" katalog öğesi güncellensin mi?'")
 			, Object.RelatedDataComparisonOperation);
 		ShowQueryBox(New NotifyDescription("SaveToRelatedOperationEnd", ThisObject, New Structure("SelectCatalogItemToSave, SaveSpreadsheetDocuments", True, SaveSpreadsheetDocuments))
 			, QueryText, QuestionDialogMode.YesNo);
@@ -1397,12 +1397,12 @@ EndProcedure
 &AtClient
 Procedure OpenSettingsFromFileAtClient(Val Notification, UploadSpreadsheetDocuments = False)
 
-	Mode = FileDialogMode.Opening;
+	Mode = FileDialogMode.Open;
 	SelectionDialog = New FileDialog(Mode);
 	SelectionDialog.FullFileName = "";
 	Filter = "File xml (*.xml)|*.xml";
 	SelectionDialog.Filter = Filter;
-	SelectionDialog.Title = Nstr("ru = 'Укажите файл с настройками';en = 'Specify the settings file'");   
+	SelectionDialog.Title = Nstr("ru = 'Укажите файл с настройками'; en = 'Specify the settings file'; tr = 'Ayarlar dosyasını belirtin'");   
 
 	SelectionDialog.Show(New NotifyDescription("OpenSettingsFromFileAtClientEnd"
 		, ThisForm, New Structure("SelectionDialog, Notification, UploadSpreadsheetDocuments", SelectionDialog, Notification, UploadSpreadsheetDocuments)));
@@ -2029,7 +2029,7 @@ EndProcedure
 Procedure BeforeClose(Cancel, StandardProcessing)
 	If Not ClosingFormConfirmed Then
 		Cancel = True;
-		ShowQueryBox(New NotifyDescription("BeforeCloseEnd", ThisForm), Nstr("ru = 'Закрыть консоль сравнения данных?';en = 'Close Data Compare Console?'"), QuestionDialogMode.YesNo);
+		ShowQueryBox(New NotifyDescription("BeforeCloseEnd", ThisForm), Nstr("ru = 'Закрыть консоль сравнения данных?'; en = 'Close Data Compare Console?'; tr = 'Veri Karşılaştırma Konsolu kapatılsın mı?'"), QuestionDialogMode.YesNo);
 	EndIf;
 EndProcedure
 
@@ -2037,7 +2037,7 @@ EndProcedure
 Procedure OnClose(Exit)
 	
 	If ValueIsFilled(Object.RelatedDataComparisonOperation) And Not Object.UserMode  Then
-		QueryText = StrTemplate(Nstr("ru = 'Обновить элемент справочника ""%1""?';en = 'Update catalog item ""%1""?'"), Object.RelatedDataComparisonOperation);
+		QueryText = StrTemplate(Nstr("ru = 'Обновить элемент справочника ""%1""?'; en = 'Update catalog item ""%1""?'; tr = '""%1"" katalog öğesi güncellensin mi?'"), Object.RelatedDataComparisonOperation);
 		ShowQueryBox(New NotifyDescription("SaveToRelatedOperationEnd", ThisObject, New Structure("SelectCatalogItemToSave,SaveSpreadsheetDocuments,OnCloseForm",True,False,True))
 			, QueryText, QuestionDialogMode.YesNo);
 	EndIf; 
@@ -2057,7 +2057,7 @@ Procedure CodeForOutputRowsEditedManuallyOnChange(Item)
 	If Not Object.CodeForOutputRowsEditedManually Then
 		
 		ShowQueryBox(New NotifyDescription("CodeForOutputRowsEditedManuallyOnChangeEnd", ThisForm)
-			, Nstr("ru = 'Код, внесенный вручную будет утерян. Продолжить?';en = 'Code entered manually will be lost. Continue?'")
+			, Nstr("ru = 'Код, внесенный вручную будет утерян. Продолжить?'; en = 'Code entered manually will be lost. Continue?'; tr = 'Elle girilen kod kaybolacaktır. Devam edilsin mi?'")
 			, QuestionDialogMode.YesNo);
         Return;
 	EndIf;
@@ -2091,7 +2091,7 @@ Procedure CodeForProhibitingOutputRowsEditedManuallyOnChange(Item)
 	If Not Object.CodeForProhibitingOutputRowsEditedManually Then
 		
 		ShowQueryBox(New NotifyDescription("CodeForProhibitingOutputRowsEditedManuallyOnChangeEnd", ThisForm)
-			, Nstr("ru = 'Код, внесенный вручную будет утерян. Продолжить?';en = 'Code entered manually will be lost. Continue?'")
+			, Nstr("ru = 'Код, внесенный вручную будет утерян. Продолжить?'; en = 'Code entered manually will be lost. Continue?'; tr = 'Elle girilen kod kaybolacaktır. Devam edilsin mi??'")
 			, QuestionDialogMode.YesNo);
         Return;
 	EndIf;
@@ -2175,7 +2175,7 @@ EndProcedure
 &AtClient
 Procedure ConnectionToExternalBaseAPathToFileStartChoice(Item, ChoiceData, StandardProcessing)
 	
-	FileDialog = New FileDialog(FileDialogMode.Opening);
+	FileDialog = New FileDialog(FileDialogMode.Open);
 	
 	If IsBlankString(Object.ConnectionToExternalBaseAFileFormat) Then
 		FileDialog.Filter = 
@@ -2193,7 +2193,7 @@ Procedure ConnectionToExternalBaseAPathToFileStartChoice(Item, ChoiceData, Stand
 			"|*." + Object.ConnectionToExternalBaseAFileFormat;
 	EndIf;
 		
-	FileDialog.Title = Nstr("ru = 'Выберите файл';en = 'Select a file'");
+	FileDialog.Title = Nstr("ru = 'Выберите файл'; en = 'Select a file'; tr = 'Dosya seçin'");
 	FileDialog.FilterIndex = 0;
 	FileDialog.Show(New NotifyDescription("ConnectionToExternalBaseAPathToFileStartChoiceEnd", ThisForm, New Structure("FileDialog", FileDialog)));
 	
@@ -2216,7 +2216,7 @@ EndProcedure
 &AtClient
 Procedure ConnectionToExternalBaseBPathToFileStartChoice(Item, ChoiceData, StandardProcessing)
 	
-	FileDialog = New FileDialog(FileDialogMode.Opening);
+	FileDialog = New FileDialog(FileDialogMode.Open);
 	
 	If IsBlankString(Object.ConnectionToExternalBaseBFileFormat) Then
 		FileDialog.Filter = 
@@ -2234,7 +2234,7 @@ Procedure ConnectionToExternalBaseBPathToFileStartChoice(Item, ChoiceData, Stand
 			"|*." + Object.ConnectionToExternalBaseBFileFormat;
 	EndIf;
 		
-	FileDialog.Title = Nstr("ru = 'Выберите файл';en = 'Select a file'");
+	FileDialog.Title = Nstr("ru = 'Выберите файл'; en = 'Select a file'; tr = 'Dosya seçin'");
 	FileDialog.FilterIndex = 0;
 	FileDialog.Show(New NotifyDescription("ConnectionToExternalBaseBPathToFileStartChoiceEnd", ThisForm, New Structure("FileDialog", FileDialog)));
 	
@@ -2387,7 +2387,7 @@ Procedure CommandUploadResultToFileOnServer(Command)
 	If IsBlankString(Object.UploadFileFormat) Then
 		UserMessage = New UserMessage;
 		UserMessage.Field = "Object.UploadFileFormat";
-		UserMessage.Text = Nstr("ru = 'Не задан формат файла выгрузки';en = 'Upload file format not set'");
+		UserMessage.Text = Nstr("ru = 'Не задан формат файла выгрузки'; en = 'Upload file format not set'; tr = 'Yükleme dosyası formatı ayarlanmadı'");
 		UserMessage.Message();
 		Return;
 	EndIf;
@@ -2395,14 +2395,14 @@ Procedure CommandUploadResultToFileOnServer(Command)
 	If IsBlankString(Object.PathToDownloadFile) Then
 		UserMessage = New UserMessage;
 		UserMessage.Field = "Object.PathToDownloadFile";
-		UserMessage.Text = Nstr("ru = 'Не задан путь к файлу выгрузки';en = 'The path to the upload file is not set'");
+		UserMessage.Text = Nstr("ru = 'Не задан путь к файлу выгрузки'; en = 'The path to the upload file is not set'; tr = 'İndirilecek dosyanın yolu belirtilmemiş.'");
 		UserMessage.Message();
 		Return;
 	EndIf;
 			
 	Ответ = Undefined; 	
-	ShowQueryBox(New NotifyDescription("CommandUploadResultToFileOnServerEnd", ThisForm), Nstr("ru = 'Выгрузить таблицу в файл на сервере?';en = 'Download table to file on server?'")
-		, QuestionDialogMode.YesNo,, DialogReturnCode.None, Nstr("ru = 'Выгрузка';en = 'Unloading'"));	
+	ShowQueryBox(New NotifyDescription("CommandUploadResultToFileOnServerEnd", ThisForm), Nstr("ru = 'Выгрузить таблицу в файл на сервере?'; en = 'Download table to file on server?'; tr = 'Tabloyu sunucudaki dosyaya yüklemek ister misiniz?'")
+		, QuestionDialogMode.YesNo,, DialogReturnCode.None, Nstr("ru = 'Выгрузка'; en = 'Unloading'; tr = 'Yüklemek'"));	
 EndProcedure
 
 &AtClient
@@ -2423,7 +2423,7 @@ Procedure PathToDownloadFileStartChoice(Item, ChoiceData, StandardProcessing)
 	If IsBlankString(Object.UploadFileFormat) Then
 		UserMessage = New UserMessage;
 		UserMessage.Field = "Object.UploadFileFormat";
-		UserMessage.Text = Nstr("ru = 'Не задан формат файла выгрузки';en = 'Upload file format not set'");
+		UserMessage.Text = Nstr("ru = 'Не задан формат файла выгрузки'; en = 'Upload file format not set'; tr = 'Yükleme dosyası formatı ayarlanmadı'");
 		UserMessage.Message();
 		Return;
 	EndIf;
@@ -2433,7 +2433,7 @@ Procedure PathToDownloadFileStartChoice(Item, ChoiceData, StandardProcessing)
 	SelectionDialog.FullFileName = Object.Title;
 	Filter = "File " + Object.UploadFileFormat + " (*." + Object.UploadFileFormat + ")|*." + Object.UploadFileFormat + "";
 	SelectionDialog.Filter = Filter;
-	SelectionDialog.Title = Nstr("ru = 'Укажите файл для сохранения результата сравнения';en = 'Specify a file to save the comparison result'");   
+	SelectionDialog.Title = Nstr("ru = 'Укажите файл для сохранения результата сравнения'; en = 'Specify a file to save the comparison result'; tr = 'Karşılaştırma sonucunun kaydedileceği bir dosya belirtin'");   
 
 	SelectionDialog.Show(New NotifyDescription("PathToDownloadFileStartChoiceEnd", ThisForm, New Structure("SelectionDialog", SelectionDialog)));
 	
@@ -2458,13 +2458,13 @@ Procedure CommandUploadResultToFileOnClient(Command)
 	If IsBlankString(Object.UploadFileFormat) Then
 		UserMessage = New UserMessage;
 		UserMessage.Field = "Object.UploadFileFormat";
-		UserMessage.Text = Nstr("ru = 'Не задан формат файла выгрузки';en = 'Upload file format not set'");
+		UserMessage.Text = Nstr("ru = 'Не задан формат файла выгрузки'; en = 'Upload file format not set'; tr = 'İndirilen dosyanın formatı belirtilmemiş'");
 		UserMessage.Message();
 		Return;
 	EndIf;
 	
-	ShowQueryBox(New NotifyDescription("CommandUploadResultToFileOnClientEndQuestion", ThisForm), Nstr("ru = 'Выгрузить таблицу в файл на клиенте?';en = 'Download table to file on client?'")
-		, QuestionDialogMode.YesNo,, DialogReturnCode.None, Nstr("ru = 'Выгрузка';en = 'Unloading'"));	
+	ShowQueryBox(New NotifyDescription("CommandUploadResultToFileOnClientEndQuestion", ThisForm), Nstr("ru = 'Выгрузить таблицу в файл на клиенте?'; en = 'Download table to file on client?'; tr = 'Tabloyu istemcideki dosyaya indirmek ister misiniz?'")
+		, QuestionDialogMode.YesNo,, DialogReturnCode.None, Nstr("ru = 'Выгрузка'; en = 'Unloading'; tr = 'Yüklemek'"));	
 EndProcedure
 
 &AtClient

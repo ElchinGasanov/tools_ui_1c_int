@@ -5,6 +5,10 @@
     <key>ru</key>
     <value>Metadata selection form</value>
   </synonym>
+  <synonym>
+    <key>tr</key>
+    <value>Metadata seçim formu</value>
+  </synonym>
   <usePurposes>PersonalComputer</usePurposes>
   <usePurposes>MobileDevice</usePurposes>
 </mdclass:CommonForm>

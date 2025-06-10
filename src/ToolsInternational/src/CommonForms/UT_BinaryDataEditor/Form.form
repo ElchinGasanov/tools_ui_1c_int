@@ -141,12 +141,16 @@
       <name>FormButtonClose</name>
       <id>3</id>
       <title>
+        <key>ru</key>
+        <value>Close</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Close</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Close</value>
+        <key>tr</key>
+        <value>Kapat</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -220,6 +224,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -233,6 +238,14 @@
     <title>
       <key>ru</key>
       <value>Binary data adress</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Binary data adress</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>İkili veri adresi</value>
     </title>
     <id>1</id>
     <valueType>
@@ -252,6 +265,14 @@
       <key>ru</key>
       <value>Returning storage for value container</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Returning storage for value container</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Değer konteyneri için depolama iadesi</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>Boolean</types>
@@ -268,6 +289,14 @@
     <title>
       <key>ru</key>
       <value>Presentation</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Presentation</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Gösterim</value>
     </title>
     <id>3</id>
     <valueType>
@@ -289,6 +318,14 @@
       <key>ru</key>
       <value>Size</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Size</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>boyut</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>Number</types>
@@ -309,6 +346,14 @@
       <key>ru</key>
       <value>Load from file</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Load from file</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Dosyadan yükle</value>
+    </title>
     <id>1</id>
     <use>
       <common>true</common>
@@ -326,6 +371,14 @@
       <key>ru</key>
       <value>Apply</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Apply</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Uygula</value>
+    </title>
     <id>2</id>
     <use>
       <common>true</common>
@@ -342,6 +395,14 @@
     <title>
       <key>ru</key>
       <value>Save to file</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Save to file</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Dosyaya kaydet</value>
     </title>
     <id>3</id>
     <use>

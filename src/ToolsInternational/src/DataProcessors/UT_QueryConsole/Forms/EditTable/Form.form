@@ -236,6 +236,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>ValueTable</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -274,6 +275,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>ValueTable</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -312,6 +314,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>ValueTable</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -370,12 +373,16 @@
       <name>OKCommand</name>
       <id>21</id>
       <title>
+        <key>ru</key>
+        <value>ОК</value>
+      </title>
+      <title>
         <key>en</key>
         <value>OK</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>ОК</value>
+        <key>tr</key>
+        <value>OK</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -410,12 +417,16 @@
       <name>CancelCommand</name>
       <id>23</id>
       <title>
+        <key>ru</key>
+        <value>Отмена</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Cancel</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Отмена</value>
+        <key>tr</key>
+        <value>İptal</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -500,6 +511,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <width>64</width>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -512,6 +524,10 @@
     <title>
       <key>ru</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -528,12 +544,16 @@
   <attributes>
     <name>ValueTable</name>
     <title>
+      <key>ru</key>
+      <value>Таблица значений</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Value table</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Таблица значений</value>
+      <key>tr</key>
+      <value>Değerler tablosu</value>
     </title>
     <id>2</id>
     <valueType>
@@ -549,12 +569,16 @@
   <attributes>
     <name>ValueTableColumnMap</name>
     <title>
+      <key>ru</key>
+      <value>Таблица значений соответствие колонок</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Value table column map</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Таблица значений соответствие колонок</value>
+      <key>tr</key>
+      <value>Değer tablosu sütun haritası</value>
     </title>
     <id>5</id>
     <valueType/>
@@ -568,12 +592,16 @@
   <attributes>
     <name>ValueTableContainerColumns</name>
     <title>
+      <key>ru</key>
+      <value>Таблица значений колонки контейнера</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Value table container columns</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Таблица значений колонки контейнера</value>
+      <key>tr</key>
+      <value>Değer tablosu konteyner sütunları</value>
     </title>
     <id>6</id>
     <valueType/>
@@ -587,12 +615,16 @@
   <attributes>
     <name>ContainerAttributeSuffix</name>
     <title>
+      <key>ru</key>
+      <value>Суффикс реквизита контейнера</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Container attribute suffix</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Суффикс реквизита контейнера</value>
+      <key>tr</key>
+      <value>Konteyner öznitelik son eki</value>
     </title>
     <id>8</id>
     <valueType>
@@ -609,12 +641,16 @@
   <formCommands>
     <name>OKCommand</name>
     <title>
+      <key>ru</key>
+      <value>Команда ОК</value>
+    </title>
+    <title>
       <key>en</key>
       <value>OK command</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Команда ОК</value>
+      <key>tr</key>
+      <value>OK</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -638,12 +674,16 @@
   <formCommands>
     <name>ClearCommand</name>
     <title>
+      <key>ru</key>
+      <value>Очистить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Clear</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Очистить</value>
+      <key>tr</key>
+      <value>Sil</value>
     </title>
     <id>2</id>
     <toolTip>

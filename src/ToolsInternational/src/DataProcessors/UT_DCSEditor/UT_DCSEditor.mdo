@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_DCSEditor</name>
   <synonym>
+    <key>ru</key>
+    <value>Редактор СКД (УИ)</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Data сomposition schema Editor (UT)</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Редактор СКД (УИ)</value>
+    <key>tr</key>
+    <value>Veri oluşturma şeması düzenleyicisi (UT)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_DCSEditor.Form.Form</defaultForm>
@@ -30,6 +34,10 @@
       <key>ru</key>
       <value>Edit data set field role</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Veri seti alan rolünü düzenleme</value>
+    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
@@ -38,6 +46,10 @@
     <synonym>
       <key>ru</key>
       <value>Edit expression</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>İfade düzenleme</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

@@ -20,10 +20,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>ValueTable_Structure.Key</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ValueTable_Structure.Key</segments>
       </dataPath>
       <extendedTooltip>
         <name>ValueTable_StructureKeyExtendedTooltip</name>
@@ -72,10 +70,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>ValueTable_Structure.Value</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ValueTable_Structure.Value</segments>
       </dataPath>
       <extendedTooltip>
         <name>ValueTable_StructureValueExtendedTooltip</name>
@@ -160,6 +156,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>ValueTable_Structure</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -198,6 +195,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>ValueTable_Structure</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -237,6 +235,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>ValueTable_Structure</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -333,6 +332,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -346,6 +346,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -362,12 +366,16 @@
   <attributes>
     <name>ValueTable_Structure</name>
     <title>
+      <key>ru</key>
+      <value>Структура</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Structure</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Структура</value>
+      <key>tr</key>
+      <value>Yapı</value>
     </title>
     <id>2</id>
     <valueType>
@@ -388,6 +396,10 @@
       <title>
         <key>en</key>
         <value>Key</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Anahtar</value>
       </title>
       <id>1</id>
       <valueType>
@@ -410,6 +422,10 @@
       <title>
         <key>en</key>
         <value>Value</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Değer</value>
       </title>
       <id>2</id>
       <valueType>
@@ -441,6 +457,10 @@
       <key>en</key>
       <value>Finish editing</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Düzenlemeyi bitir</value>
+    </title>
     <id>1</id>
     <toolTip>
       <key>ru</key>
@@ -464,4 +484,5 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
+  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

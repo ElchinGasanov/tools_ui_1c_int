@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_ConfigurationNavigator</name>
   <synonym>
+    <key>ru</key>
+    <value>Навигатор по конфигурации(Все функции) [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Configuration Navigator (UT)</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Навигатор по конфигурации(Все функции) [УИ]</value>
+    <key>tr</key>
+    <value>Konfigurasyon gezgini (UT)</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_ConfigurationNavigator.Form.Form</defaultForm>
@@ -43,6 +47,10 @@
       <key>ru</key>
       <value>Properties form</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Özellikler formu</value>
+    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
@@ -51,6 +59,10 @@
     <synonym>
       <key>ru</key>
       <value>Display scale selection form</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Ölçek seçim formunu görüntüle</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -61,6 +73,10 @@
       <key>ru</key>
       <value>Session lock form</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Oturum kilidi formu</value>
+    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
@@ -70,6 +86,10 @@
       <key>ru</key>
       <value>Launch1 c form</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>1c formunu başlat</value>
+    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
@@ -78,6 +98,10 @@
     <synonym>
       <key>ru</key>
       <value>Пользователь информационной базы</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Bilgi tabanının kullanıcısı</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

@@ -251,13 +251,14 @@
     <horizontalAlign>Right</horizontalAlign>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>OnCreateAtServer</name>
-  </handlers>
-  <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
+  </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -269,12 +270,16 @@
   <attributes>
     <name>ColumnType</name>
     <title>
+      <key>ru</key>
+      <value>Вид колонки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Column type</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Вид колонки</value>
+      <key>tr</key>
+      <value>Sütun türü</value>
     </title>
     <id>1</id>
     <valueType>
@@ -291,12 +296,16 @@
   <attributes>
     <name>QueryColumn</name>
     <title>
+      <key>ru</key>
+      <value>Колонка запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query column</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Колонка запроса</value>
+      <key>tr</key>
+      <value>Sorgu sütunu</value>
     </title>
     <id>2</id>
     <valueType>
@@ -313,12 +322,16 @@
   <attributes>
     <name>TextToInsert</name>
     <title>
+      <key>ru</key>
+      <value>Текст вставки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Text to insert</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текст вставки</value>
+      <key>tr</key>
+      <value>Eklenecek metin</value>
     </title>
     <id>3</id>
     <valueType>
@@ -335,12 +348,16 @@
   <formCommands>
     <name>Insert</name>
     <title>
+      <key>ru</key>
+      <value>Вставить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Insert</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Вставить</value>
+      <key>tr</key>
+      <value>Ekle</value>
     </title>
     <id>1</id>
     <use>

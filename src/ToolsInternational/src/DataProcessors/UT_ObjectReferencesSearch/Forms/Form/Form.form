@@ -14,10 +14,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.SourceObject</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.SourceObject</segments>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -138,22 +136,24 @@
         <name>SourceUUID</name>
         <id>24</id>
         <title>
+          <key>ru</key>
+          <value>Идентификатор</value>
+        </title>
+        <title>
           <key>en</key>
           <value>UUID</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Идентификатор</value>
+          <key>tr</key>
+          <value>UUID</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>SourceUUID</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>SourceUUID</segments>
         </dataPath>
         <extendedTooltip>
           <name>SourceUUIDExtendedTooltip</name>
@@ -305,13 +305,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>SearchResult.ObjectPresentation</segments>
-        </paths>
-        <paths xsi:type="form:DataPath">
-          <segments>SearchResult.ObjectPresentation</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>SearchResult.ObjectPresentation</segments>
       </dataPath>
       <extendedTooltip>
         <name>SearchResultFoundReferencesExtendedTooltip</name>
@@ -343,10 +338,8 @@
       <showInHeader>true</showInHeader>
       <headerHorizontalAlign>Left</headerHorizontalAlign>
       <showInFooter>true</showInFooter>
-      <footerDataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Object.FoundCount</segments>
-        </paths>
+      <footerDataPath xsi:type="form:DataPath">
+        <segments>Object.FoundCount</segments>
       </footerDataPath>
       <footerText>
         <key>en</key>
@@ -374,13 +367,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>SearchResult.UUID</segments>
-        </paths>
-        <paths xsi:type="form:DataPath">
-          <segments>SearchResult.UUID</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>SearchResult.UUID</segments>
       </dataPath>
       <extendedTooltip>
         <name>SearchResultUUIDExtendedTooltip</name>
@@ -569,11 +557,11 @@
         </extendedTooltip>
         <commandName>Form.Item.SearchResult.StandardCommand.OutputList</commandName>
         <representation>Auto</representation>
-        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>SearchResultEditObject</name>
@@ -653,6 +641,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>SearchResult</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -691,6 +680,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>SearchResult</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -730,6 +720,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>SearchResult</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -838,7 +829,6 @@
     <initialListView>Auto</initialListView>
     <horizontalStretch>true</horizontalStretch>
     <verticalStretch>true</verticalStretch>
-    <fileDragMode>AsFileRef</fileDragMode>
     <rowFilter xsi:type="core:UndefinedValue"/>
   </items>
   <autoCommandBar>
@@ -859,6 +849,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -869,6 +860,10 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_ObjectReferencesSearch</types>
@@ -884,12 +879,16 @@
   <attributes>
     <name>SourceUUID</name>
     <title>
+      <key>ru</key>
+      <value>Уникальный идентификатор источника</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Source UUID</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Уникальный идентификатор источника</value>
+      <key>tr</key>
+      <value>UUID kaynağı</value>
     </title>
     <id>2</id>
     <valueType>
@@ -906,12 +905,16 @@
   <attributes>
     <name>SearchResult</name>
     <title>
+      <key>ru</key>
+      <value>Результат поиска</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Search result</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Результат поиска</value>
+      <key>tr</key>
+      <value>Arama sonucu</value>
     </title>
     <id>3</id>
     <valueType>
@@ -926,12 +929,16 @@
     <columns>
       <name>Ref</name>
       <title>
+        <key>ru</key>
+        <value>Ссылка</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Reference</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Ссылка</value>
+        <key>tr</key>
+        <value>Referans</value>
       </title>
       <id>5</id>
       <valueType>
@@ -947,12 +954,16 @@
     <columns>
       <name>ObjectPresentation</name>
       <title>
+        <key>ru</key>
+        <value>Представление объекта</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Object presentation</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Представление объекта</value>
+        <key>tr</key>
+        <value>Nesne gösterimi</value>
       </title>
       <id>6</id>
       <valueType>
@@ -969,12 +980,16 @@
     <columns>
       <name>FoundObject</name>
       <title>
+        <key>ru</key>
+        <value>Найденный объект</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Found object</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Найденный объект</value>
+        <key>tr</key>
+        <value>Bulunan nesne</value>
       </title>
       <id>7</id>
       <valueType/>
@@ -988,12 +1003,16 @@
     <columns>
       <name>Picture</name>
       <title>
+        <key>ru</key>
+        <value>Картинка</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Picture</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Картинка</value>
+        <key>tr</key>
+        <value>Resim</value>
       </title>
       <id>8</id>
       <valueType>
@@ -1009,12 +1028,16 @@
     <columns>
       <name>UUID</name>
       <title>
+        <key>ru</key>
+        <value>Уникальный идентификатор</value>
+      </title>
+      <title>
         <key>en</key>
         <value>UUID</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Уникальный идентификатор</value>
+        <key>tr</key>
+        <value>UUID</value>
       </title>
       <id>9</id>
       <valueType>
@@ -1031,12 +1054,16 @@
     <columns>
       <name>CanBeOpened</name>
       <title>
+        <key>ru</key>
+        <value>Можно открыть</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Can be opened</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Можно открыть</value>
+        <key>tr</key>
+        <value>Açılabilir</value>
       </title>
       <id>10</id>
       <valueType>
@@ -1052,12 +1079,16 @@
     <columns>
       <name>ReferenceType</name>
       <title>
+        <key>ru</key>
+        <value>Ссылочный тип</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Reference type</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Ссылочный тип</value>
+        <key>tr</key>
+        <value>Referans türü</value>
       </title>
       <id>11</id>
       <valueType>
@@ -1074,12 +1105,16 @@
   <formCommands>
     <name>FindReferences</name>
     <title>
+      <key>ru</key>
+      <value>Найти ссылки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Find references</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Найти ссылки</value>
+      <key>tr</key>
+      <value>Referansları bul</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1103,12 +1138,16 @@
   <formCommands>
     <name>OpenObject</name>
     <title>
+      <key>ru</key>
+      <value>Открыть объект</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Open object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Открыть объект</value>
+      <key>tr</key>
+      <value>Nesneyi aç</value>
     </title>
     <id>2</id>
     <use>
@@ -1124,12 +1163,16 @@
   <formCommands>
     <name>SearchForObject</name>
     <title>
+      <key>ru</key>
+      <value>Поиск для объекта</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Search for object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Поиск для объекта</value>
+      <key>tr</key>
+      <value>Nesne için arama</value>
     </title>
     <id>3</id>
     <use>
@@ -1145,12 +1188,16 @@
   <formCommands>
     <name>EditObject</name>
     <title>
+      <key>ru</key>
+      <value>Редактировать объект</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Edit object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Редактировать объект</value>
+      <key>tr</key>
+      <value>Nesneyi düzenle</value>
     </title>
     <id>4</id>
     <use>
@@ -1170,12 +1217,16 @@
   <formCommands>
     <name>EditSourceObject</name>
     <title>
+      <key>ru</key>
+      <value>Редактировать исходный объект</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Edit source object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Редактировать исходный объект</value>
+      <key>tr</key>
+      <value>Orijinal nesneyi düzenle</value>
     </title>
     <id>5</id>
     <use>
@@ -1195,12 +1246,16 @@
   <formCommands>
     <name>SourceObjectByReference</name>
     <title>
+      <key>ru</key>
+      <value>Исходный объект по ссылке</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Source object by reference</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Исходный объект по ссылке</value>
+      <key>tr</key>
+      <value>Referansa göre kaynak nesne</value>
     </title>
     <id>6</id>
     <toolTip>

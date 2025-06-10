@@ -31,7 +31,7 @@ Procedure UUIDTextEditEnd(Item, Text, ChoiceData, DataGetParameters, StandardPro
 			//@skip-warning
 			j = New UUID(Text);
 		Except
-			Raise NStr("ru = 'Некорректный уникальный идентификатор!'; en = 'UUID is incorrect.'");
+			Raise NStr("ru = 'Некорректный уникальный идентификатор!'; en = 'UUID is incorrect.'; tr = 'UUID yanlış.'");
 		EndTry;
 	EndIf;
 EndProcedure

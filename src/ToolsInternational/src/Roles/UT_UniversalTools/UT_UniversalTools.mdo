@@ -5,4 +5,8 @@
     <key>ru</key>
     <value>Универсальные инструменты [УИ]</value>
   </synonym>
+  <synonym>
+    <key>tr</key>
+    <value>Universal araçlar</value>
+  </synonym>
 </mdclass:Role>

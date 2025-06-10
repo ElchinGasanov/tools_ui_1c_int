@@ -16,10 +16,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>SearchMode</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>SearchMode</segments>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -122,6 +120,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>DataSelectionSettingsFilter</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -160,6 +159,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>DataSelectionSettingsFilter</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -198,6 +198,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>DataSelectionSettingsFilter</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -252,6 +253,8 @@
         <searchStringLocation>None</searchStringLocation>
         <viewStatusLocation>None</viewStatusLocation>
         <searchControlLocation>None</searchControlLocation>
+        <viewMode>All</viewMode>
+        <settingsNamedItemDetailedRepresentation>false</settingsNamedItemDetailedRepresentation>
       </items>
       <items xsi:type="form:FormField">
         <name>SearchString</name>
@@ -261,10 +264,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>SearchString</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>SearchString</segments>
         </dataPath>
         <extendedTooltip>
           <name>SearchStringExtendedTooltip</name>
@@ -355,10 +356,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ArbitraryQueryText</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ArbitraryQueryText</segments>
         </dataPath>
         <extendedTooltip>
           <name>ArbitraryQueryTextExtendedTooltip</name>
@@ -450,10 +449,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>QueryParameters.ParameterName</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>QueryParameters.ParameterName</segments>
           </dataPath>
           <extendedTooltip>
             <name>QueryParametersParameterNameExtendedTooltip</name>
@@ -502,10 +499,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>QueryParameters.ThisExpression</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>QueryParameters.ThisExpression</segments>
           </dataPath>
           <extendedTooltip>
             <name>QueryParametersThisExpressionExtendedTooltip</name>
@@ -547,10 +542,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>QueryParameters.ParameterValue</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>QueryParameters.ParameterValue</segments>
           </dataPath>
           <extendedTooltip>
             <name>QueryParametersParameterValueExtendedTooltip</name>
@@ -673,6 +666,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>QueryParameters</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -711,6 +705,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>QueryParameters</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -750,6 +745,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>QueryParameters</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -816,6 +812,10 @@
       <title>
         <key>en</key>
         <value>Arbitrary query</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Sorgu</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -1001,6 +1001,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -1014,6 +1015,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -1037,6 +1042,10 @@
       <key>en</key>
       <value>Address scheme</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Şema adresi</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -1058,6 +1067,10 @@
     <title>
       <key>en</key>
       <value>Data selection</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Veri seçimi</value>
     </title>
     <id>3</id>
     <valueType>
@@ -1081,6 +1094,10 @@
       <key>en</key>
       <value>Query text</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sorgu metni</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>String</types>
@@ -1103,6 +1120,10 @@
       <key>en</key>
       <value>Query parameters</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sorgu parametreleri</value>
+    </title>
     <id>5</id>
     <valueType>
       <types>ValueTable</types>
@@ -1122,6 +1143,10 @@
       <title>
         <key>en</key>
         <value>Parameter name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Parametre adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -1147,6 +1172,10 @@
         <key>en</key>
         <value>This expression</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Bu ifade</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>Boolean</types>
@@ -1167,6 +1196,10 @@
       <title>
         <key>en</key>
         <value>Parameter value</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Parametre değeri</value>
       </title>
       <id>6</id>
       <valueType>
@@ -1200,6 +1233,10 @@
       <key>en</key>
       <value>Search string</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Arama çubuğu</value>
+    </title>
     <id>6</id>
     <valueType>
       <types>String</types>
@@ -1224,6 +1261,10 @@
     <title>
       <key>en</key>
       <value>Search mode</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Arama modu</value>
     </title>
     <id>7</id>
     <valueType>
@@ -1250,6 +1291,10 @@
       <key>en</key>
       <value>Arbitrary query text</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Rastgele sorgu metni</value>
+    </title>
     <id>8</id>
     <valueType>
       <types>String</types>
@@ -1275,6 +1320,10 @@
       <key>en</key>
       <value>View list</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Görünümler listesi</value>
+    </title>
     <id>9</id>
     <valueType>
       <types>ValueList</types>
@@ -1298,6 +1347,10 @@
     <title>
       <key>en</key>
       <value>Get selection</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Uygula</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1328,6 +1381,10 @@
       <key>en</key>
       <value>Query wizard</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sorgu sihirbazı</value>
+    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -1356,6 +1413,10 @@
     <title>
       <key>en</key>
       <value>Update parameters</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Parametreleri güncelle</value>
     </title>
     <id>3</id>
     <toolTip>

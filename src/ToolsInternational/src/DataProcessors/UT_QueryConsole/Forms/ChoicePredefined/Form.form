@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Предопределенный элемент</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Predefined item</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Предопределенный элемент</value>
+    <key>tr</key>
+    <value>Önceden tanımlanmış öğe</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>MainGroup</name>
@@ -159,10 +163,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>ObjectType</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ObjectType</segments>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -216,10 +218,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>ObjectName</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ObjectName</segments>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -273,10 +273,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>Item</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>Item</segments>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -541,6 +539,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -565,12 +564,16 @@
   <attributes>
     <name>ObjectName</name>
     <title>
+      <key>ru</key>
+      <value>Имя объекта</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Object name</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Имя объекта</value>
+      <key>tr</key>
+      <value>Nesne adı</value>
     </title>
     <id>2</id>
     <valueType>
@@ -590,12 +593,16 @@
   <attributes>
     <name>ObjectType</name>
     <title>
+      <key>ru</key>
+      <value>Тип объекта</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Object type</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Тип объекта</value>
+      <key>tr</key>
+      <value>Nesne türü</value>
     </title>
     <id>3</id>
     <valueType>
@@ -612,12 +619,16 @@
   <attributes>
     <name>Item</name>
     <title>
+      <key>ru</key>
+      <value>Элемент</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Item</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Элемент</value>
+      <key>tr</key>
+      <value>Öğe</value>
     </title>
     <id>4</id>
     <valueType>
@@ -633,12 +644,16 @@
   <attributes>
     <name>FormData</name>
     <title>
+      <key>ru</key>
+      <value>Данные формы</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Form data</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Данные формы</value>
+      <key>tr</key>
+      <value>Form verileri</value>
     </title>
     <id>5</id>
     <valueType>
@@ -656,12 +671,16 @@
   <formCommands>
     <name>InsertNameCommand</name>
     <title>
+      <key>ru</key>
+      <value>Имя</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Name</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Имя</value>
+      <key>tr</key>
+      <value>Ad</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -685,12 +704,16 @@
   <formCommands>
     <name>InsertValueCommand</name>
     <title>
+      <key>ru</key>
+      <value>ЗНАЧЕНИЕ(...)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>VALUE(...)</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>ЗНАЧЕНИЕ(...)</value>
+      <key>tr</key>
+      <value>VALUE(...)</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -714,12 +737,16 @@
   <formCommands>
     <name>InsertRefCommand</name>
     <title>
+      <key>ru</key>
+      <value>ССЫЛКА ...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>REF...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>ССЫЛКА ...</value>
+      <key>tr</key>
+      <value>REF...</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -743,12 +770,16 @@
   <formCommands>
     <name>InsertEmptyRefCommand</name>
     <title>
+      <key>ru</key>
+      <value>Пустая ссылка</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Empty ref</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Пустая ссылка</value>
+      <key>tr</key>
+      <value>Boş ref</value>
     </title>
     <id>4</id>
     <toolTip>

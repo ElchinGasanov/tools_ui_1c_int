@@ -2,15 +2,15 @@
 <mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="bbecd384-53c9-11ea-c190-e86a6452d1f2">
   <name>UT_Question32</name>
   <synonym>
-    <key></key>
-    <value>U t question32</value>
+    <key>ru</key>
+    <value>Вопрос (32x32)</value>
   </synonym>
   <synonym>
     <key>en</key>
     <value>Question (32x32)</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Вопрос (32x32)</value>
+    <key>tr</key>
+    <value>Soru (32x32)</value>
   </synonym>
 </mdclass:CommonPicture>

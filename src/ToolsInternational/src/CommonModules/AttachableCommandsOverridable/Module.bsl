@@ -6,7 +6,7 @@ Procedure UT_OnDefineAttachableCommandsKinds(AttachableCommandsKinds)
 	Kind = AttachableCommandsKinds.Add();
 	Kind.Name         = "UT_UniversalTools";
 	Kind.SubmenuName  = "UT_UniversalTools";
-	Kind.Title   = NStr("ru = 'Инструменты';en = 'Universal tools'");
+	Kind.Title   = NStr("ru = 'Инструменты'; en = 'Universal tools'; tr = 'Universal araçlar'");
 	Kind.Picture    = PictureLib.UT_UniversalToolsSybsystem;
 	Kind.Representation = ButtonRepresentation.Picture;
 	Kind.Order = 1;
@@ -21,7 +21,7 @@ Procedure UT_OnDefineCommandsAttachedToObject(FormSettings, Sources, AttachedRep
 	Command = Commands.Add();
 	Command.Kind="UT_UniversalTools";
 	Command.ID="UT_ObjectsComparison";
-	Command.Presentation=NStr("ru = 'Сравнить объекты';en = 'Compare objects'");
+	Command.Presentation=NStr("ru = 'Сравнить объекты'; en = 'Compare objects'; tr = 'Nesneleri karşılaştır'");
 	Command.ParameterType=UT_CommonCached.AllRefsTypeDescription();
 	Command.Purpose="ForList";
 	Command.ChangesSelectedObjects=False;
@@ -34,7 +34,7 @@ Procedure UT_OnDefineCommandsAttachedToObject(FormSettings, Sources, AttachedRep
 	Command = Commands.Add();
 	Command.Kind="UT_UniversalTools";
 	Command.ID="UT_AddToComparison";
-	Command.Presentation=NStr("ru = 'Добавить к сравнению';en = 'Add to Comparison'");
+	Command.Presentation=NStr("ru = 'Добавить к сравнению'; en = 'Add to Comparison'; tr = 'Karşılaştırmaya ekle'");
 	Command.ParameterType=UT_CommonCached.AllRefsTypeDescription();
 	Command.ChangesSelectedObjects=False;
 	Command.MultipleChoice=True;
@@ -44,7 +44,7 @@ Procedure UT_OnDefineCommandsAttachedToObject(FormSettings, Sources, AttachedRep
 	Command = Commands.Add();
 	Command.Kind="UT_UniversalTools";
 	Command.ID="UT_UploadObjectsToXML";
-	Command.Presentation=NStr("ru = 'Выгрузить объекты в XML';en = 'Upload objects to XML'");
+	Command.Presentation=NStr("ru = 'Выгрузить объекты в XML'; en = 'Upload objects to XML'; tr = 'Nesneleri XML'' e yükle'");
 	Command.ParameterType=UT_CommonCached.AllRefsTypeDescription();
 	Command.ChangesSelectedObjects=False;
 	Command.MultipleChoice=True;
@@ -55,7 +55,7 @@ Procedure UT_OnDefineCommandsAttachedToObject(FormSettings, Sources, AttachedRep
 	Command = Commands.Add();
 	Command.Kind="UT_UniversalTools";
 	Command.ID="UT_EditObject";
-	Command.Presentation=NStr("ru = 'Редактировать объект';en = 'Edit object'");
+	Command.Presentation=NStr("ru = 'Редактировать объект'; en = 'Edit object'; tr = 'Nesneyi düzenle'");
 	Command.ParameterType=UT_CommonCached.AllRefsTypeDescription();
 	Command.ChangesSelectedObjects=False;
 	Command.MultipleChoice=False;
@@ -66,7 +66,7 @@ Procedure UT_OnDefineCommandsAttachedToObject(FormSettings, Sources, AttachedRep
 	Command = Commands.Add();
 	Command.Kind="UT_UniversalTools";
 	Command.ID="UT_FindObjectRefs";
-	Command.Presentation=NStr("ru = 'Найти ссылки объект';en = 'Find references to object'");
+	Command.Presentation=NStr("ru = 'Найти ссылки объект'; en = 'Find references to object'; tr = 'Nesnenin referanslarını bul'");
 	Command.ParameterType=UT_CommonCached.AllRefsTypeDescription();
 	Command.ChangesSelectedObjects=False;
 	Command.MultipleChoice=False;

@@ -14,10 +14,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Name</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Name</segments>
         </dataPath>
         <extendedTooltip>
           <name>NameExtendedTooltip</name>
@@ -66,10 +64,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>FullName</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>FullName</segments>
         </dataPath>
         <extendedTooltip>
           <name>FullNameExtendedTooltip</name>
@@ -118,10 +114,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ID</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ID</segments>
         </dataPath>
         <extendedTooltip>
           <name>UUIDExtendedTooltip</name>
@@ -171,10 +165,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>StandardAuthentication</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>StandardAuthentication</segments>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -217,10 +209,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Password</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Password</segments>
         </dataPath>
         <extendedTooltip>
           <name>PasswordExtendedTooltip</name>
@@ -270,10 +260,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>PasswordConfirmation</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>PasswordConfirmation</segments>
         </dataPath>
         <extendedTooltip>
           <name>PasswordConfirmationExtendedTooltip</name>
@@ -354,10 +342,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ShowInSelectionList</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ShowInSelectionList</segments>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -400,10 +386,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>OSAuthentication</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>OSAuthentication</segments>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -446,10 +430,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>OSUser</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>OSUser</segments>
         </dataPath>
         <extendedTooltip>
           <name>OSUserExtendedTooltip</name>
@@ -498,10 +480,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>UnsafeOperationProtection</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>UnsafeOperationProtection</segments>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -542,12 +522,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Основное</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Main</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Основное</value>
+        <key>tr</key>
+        <value>Genel</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -597,10 +581,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>UserRoles.Check</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>UserRoles.Check</segments>
           </dataPath>
           <toolTip>
             <key>ru</key>
@@ -646,10 +628,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>UserRoles.Name</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>UserRoles.Name</segments>
           </dataPath>
           <extendedTooltip>
             <name>UserRolesNameExtendedTooltip</name>
@@ -699,10 +679,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>UserRoles.Presentation</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>UserRoles.Presentation</segments>
           </dataPath>
           <extendedTooltip>
             <name>UserRolesPresentationExtendedTooltip</name>
@@ -772,11 +750,11 @@
             </extendedTooltip>
             <commandName>Form.Command._ShowOnlyAvailable</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>UserRolesCancelSearch</name>
@@ -803,11 +781,11 @@
             </extendedTooltip>
             <commandName>Form.Item.UserRoles.StandardCommand.CancelSearch</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>UserRolesOutputList</name>
@@ -879,6 +857,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>UserRoles</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -917,6 +896,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>UserRoles</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -956,6 +936,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>UserRoles</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1012,12 +993,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Роли</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Roles</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Роли</value>
+        <key>tr</key>
+        <value>Roller</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -1196,6 +1181,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -1214,6 +1200,10 @@
     <title>
       <key>en</key>
       <value>Name</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ad</value>
     </title>
     <id>1</id>
     <valueType>
@@ -1237,6 +1227,10 @@
       <key>en</key>
       <value>Full name</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tam adı</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -1252,12 +1246,16 @@
   <attributes>
     <name>OSUser</name>
     <title>
+      <key>ru</key>
+      <value>Пользователь ОС</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Operation system user</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Пользователь ОС</value>
+      <key>tr</key>
+      <value>İşletim sistemi kullanıcısı</value>
     </title>
     <id>3</id>
     <valueType>
@@ -1274,12 +1272,16 @@
   <attributes>
     <name>OSAuthentication</name>
     <title>
+      <key>ru</key>
+      <value>Аутентификация операционной системы</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Authentication of Operation System</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Аутентификация операционной системы</value>
+      <key>tr</key>
+      <value>İşletim Sisteminin Kimlik Doğrulaması</value>
     </title>
     <id>4</id>
     <valueType>
@@ -1295,12 +1297,16 @@
   <attributes>
     <name>StandardAuthentication</name>
     <title>
+      <key>ru</key>
+      <value>Аутентификация 1С:Предприятие</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Authentication of 1C:Enterprise</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Аутентификация 1С:Предприятие</value>
+      <key>tr</key>
+      <value>1C:Enterprise'ın kimlik doğrulaması</value>
     </title>
     <id>5</id>
     <valueType>
@@ -1322,6 +1328,10 @@
     <title>
       <key>en</key>
       <value>Password</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Parola</value>
     </title>
     <id>6</id>
     <valueType>
@@ -1345,6 +1355,10 @@
       <key>en</key>
       <value>Password confirmation</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Parola tekrarı</value>
+    </title>
     <id>7</id>
     <valueType>
       <types>String</types>
@@ -1367,6 +1381,10 @@
       <key>en</key>
       <value>User roles</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Kullanıcı rolleri</value>
+    </title>
     <id>8</id>
     <valueType>
       <types>ValueTable</types>
@@ -1386,6 +1404,10 @@
       <title>
         <key>en</key>
         <value>Check</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Kontrol</value>
       </title>
       <id>1</id>
       <valueType>
@@ -1407,6 +1429,10 @@
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>2</id>
       <valueType>
@@ -1430,6 +1456,10 @@
         <key>en</key>
         <value>Presentation</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -1451,6 +1481,10 @@
       <title>
         <key>en</key>
         <value>Set</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarlanmış</value>
       </title>
       <id>4</id>
       <valueType>
@@ -1474,6 +1508,10 @@
       <key>en</key>
       <value>Unsafe operation protection</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tehlikeli eylemlerden koruma</value>
+    </title>
     <id>9</id>
     <valueType>
       <types>Boolean</types>
@@ -1488,12 +1526,16 @@
   <attributes>
     <name>ShowInSelectionList</name>
     <title>
+      <key>ru</key>
+      <value>Показывать в списке выбора</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Show in the selection list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Показывать в списке выбора</value>
+      <key>tr</key>
+      <value>Seçim listesinde göster</value>
     </title>
     <id>10</id>
     <valueType>
@@ -1516,6 +1558,10 @@
       <key>en</key>
       <value>DBUser ID</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>DBUser Kimliği</value>
+    </title>
     <id>11</id>
     <valueType>
       <types>UUID</types>
@@ -1537,6 +1583,10 @@
       <key>en</key>
       <value>ID</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>ID</value>
+    </title>
     <id>12</id>
     <valueType>
       <types>String</types>
@@ -1554,6 +1604,10 @@
     <title>
       <key>ru</key>
       <value>Режим работы</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Çalışma türü</value>
     </title>
     <id>13</id>
     <valueType>
@@ -1579,6 +1633,10 @@
       <key>en</key>
       <value>Write object</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>OK</value>
+    </title>
     <id>1</id>
     <toolTip>
       <key>ru</key>
@@ -1597,12 +1655,16 @@
   <formCommands>
     <name>ChangePassword</name>
     <title>
+      <key>ru</key>
+      <value>Изменить пароль</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Change password</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Изменить пароль</value>
+      <key>tr</key>
+      <value>Şifre değiştir</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -1622,12 +1684,16 @@
   <formCommands>
     <name>_ShowOnlyAvailable</name>
     <title>
+      <key>ru</key>
+      <value>Только доступные</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Only available</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Только доступные</value>
+      <key>tr</key>
+      <value>Sadece mevcut olanlar</value>
     </title>
     <id>3</id>
     <toolTip>

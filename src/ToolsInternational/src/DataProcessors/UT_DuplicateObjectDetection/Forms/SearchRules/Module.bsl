@@ -37,7 +37,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	Parameters.Property("AppliedRulesDetails", AppliedRulesDetails);
 	DuplicatesSearchArea = Parameters.DuplicatesSearchArea;
 
-	Title = StrTemplate(NStr("ru = 'Правила поиска дублей ""%1""'; en = 'Duplicate search rule: %1'"), Parameters.FilterAreaPresentation);
+	Title = StrTemplate(NStr("ru = 'Правила поиска дублей ""%1""'; en = 'Duplicate search rule: %1'; tr = 'Yinelenen arama kuralı: %1'"), Parameters.FilterAreaPresentation);
 
 	InitialSettings = GetFromTempStorage(Parameters.SettingsAddress);
 	DeleteFromTempStorage(Parameters.SettingsAddress);
@@ -85,15 +85,17 @@ Procedure ConsiderAppliedRulesOnChange(Item)
 
 	Details = New NotifyDescription("ClearingAppliedRulesUsageCompletion", ThisObject);
 	
-	TitleText = NStr("ru = 'Предупреждение'; en = 'Warning'");
+	TitleText = NStr("ru = 'Предупреждение'; en = 'Warning'; tr = 'Uyarı'");
 	QuestionText   = NStr("ru = 'Внимание: поиск и удаление дублей элементов без учета поставляемых ограничений
-	                            |может привести к рассогласованию данных в программе.
-	                            |
-	                            |Отключить использование поставляемых ограничений?'; 
-	                            |en = 'Warning: deleting duplicates with the default restrictions
-	                            |turned off might result in data inconsistency.
-	                            |
-	                            |Do you still want to turn off the default restrictions?'");
+																						  |может привести к рассогласованию данных в программе.
+																						  |
+																						  |Отключить использование поставляемых ограничений?'; en = 'Warning: deleting duplicates with the default restrictions
+																						  |turned off might result in data inconsistency.
+																						  |
+																						  |Do you still want to turn off the default restrictions?'; tr = 'Uyarı: Varsayılan kısıtlamalar
+																						  |kapalıyken yinelenenleri silmek veri tutarsızlığına neden olabilir.
+																						  |
+																						  |Varsayılan kısıtlamaları yine de kapatmak istiyor musunuz?'");
 	
 	ShowQueryBox(Details, QuestionText, QuestionDialogMode.YesNo,,DialogReturnCode.No, TitleText);
 EndProcedure
@@ -199,7 +201,7 @@ Function SelectionErrors()
 		EndIf;
 	EndDo;
 	
-	Return NStr("ru ='Необходимо указать хотя бы одно правило поиска дублей.'; en = 'Specify at least one duplicate search rule.'");
+	Return NStr("ru = 'Необходимо указать хотя бы одно правило поиска дублей.'; en = 'Specify at least one duplicate search rule.'; tr = 'En az bir yinelenen arama kuralı belirtin.'");
 EndFunction
 
 &AtClient

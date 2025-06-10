@@ -16,10 +16,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>HTMLText</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>HTMLText</segments>
     </dataPath>
     <titleLocation>None</titleLocation>
     <extendedTooltip>
@@ -73,10 +71,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>SpreadsheetDocument</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>SpreadsheetDocument</segments>
     </dataPath>
     <extendedTooltip>
       <name>SpreadsheetDocumentExtendedTooltip</name>
@@ -119,6 +115,7 @@
       <verticalScrollBar>ScrollAuto</verticalScrollBar>
       <horizontalScrollBar>ScrollAuto</horizontalScrollBar>
       <selectionShowMode>Always</selectionShowMode>
+      <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
       <showGroups>true</showGroups>
       <enableStartDrag>true</enableStartDrag>
       <enableDrag>true</enableDrag>
@@ -134,6 +131,7 @@
     </userVisible>
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -145,12 +143,16 @@
   <attributes>
     <name>HTMLText</name>
     <title>
+      <key>ru</key>
+      <value>Текст HTML</value>
+    </title>
+    <title>
       <key>en</key>
       <value>HTML Text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текст HTML</value>
+      <key>tr</key>
+      <value>HTML metin</value>
     </title>
     <id>3</id>
     <valueType>
@@ -174,6 +176,10 @@
       <key>en</key>
       <value>Spreadsheet document</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>E- tablo belgesi</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>SpreadsheetDocument</types>
@@ -195,6 +201,10 @@
     <title>
       <key>en</key>
       <value>Settings composer</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar Oluşturucusu</value>
     </title>
     <id>4</id>
     <valueType>

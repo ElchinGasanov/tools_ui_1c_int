@@ -941,12 +941,12 @@
           <showInFooter>true</showInFooter>
           <extInfo xsi:type="form:InputFieldExtInfo">
             <handlers>
-              <event>Clearing</event>
-              <name>ТаблицаПараметровЗначениеОчистка</name>
-            </handlers>
-            <handlers>
               <event>StartChoice</event>
               <name>ТаблицаПараметровЗначениеНачалоВыбора</name>
+            </handlers>
+            <handlers>
+              <event>Clearing</event>
+              <name>ТаблицаПараметровЗначениеОчистка</name>
             </handlers>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
@@ -1010,7 +1010,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>ТаблицаПараметровСтрокаПоиска</source>
+          <source>ТаблицаПараметров</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1049,7 +1049,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>ТаблицаПараметровСостояниеПросмотра</source>
+          <source>ТаблицаПараметров</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1088,7 +1088,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>ТаблицаПараметровУправлениеПоиском</source>
+          <source>ТаблицаПараметров</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1296,7 +1296,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>ПараметрКоллекцияСтрокаПоиска</source>
+            <source>ПараметрКоллекция</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1335,7 +1335,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>ПараметрКоллекцияСостояниеПросмотра</source>
+            <source>ПараметрКоллекция</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1374,7 +1374,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>ПараметрКоллекцияУправлениеПоиском</source>
+            <source>ПараметрКоллекция</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1426,7 +1426,7 @@
           <verticalStretch>true</verticalStretch>
           <enableStartDrag>true</enableStartDrag>
           <enableDrag>true</enableDrag>
-          <fileDragMode>AsFileRef</fileDragMode>
+          <rowFilter xsi:type="core:UndefinedValue"/>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1784,7 +1784,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>ПрограммныйИнтерфейсСтрокаПоиска</source>
+          <source>ПрограммныйИнтерфейс</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1823,7 +1823,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>ПрограммныйИнтерфейсСостояниеПросмотра</source>
+          <source>ПрограммныйИнтерфейс</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -1863,7 +1863,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>ПрограммныйИнтерфейсУправлениеПоиском</source>
+          <source>ПрограммныйИнтерфейс</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1914,6 +1914,7 @@
         <verticalStretch>true</verticalStretch>
         <enableStartDrag>true</enableStartDrag>
         <enableDrag>true</enableDrag>
+        <rowFilter xsi:type="core:UndefinedValue"/>
       </items>
       <enabled>true</enabled>
       <userVisible>
@@ -2219,13 +2220,14 @@
     <autoFill>true</autoFill>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>ПриСозданииНаСервере</name>
-  </handlers>
-  <handlers>
     <event>OnOpen</event>
     <name>ПриОткрытии</name>
   </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -2239,6 +2241,10 @@
     <title>
       <key>ru</key>
       <value>Наименование</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ad</value>
     </title>
     <id>1</id>
     <valueType>
@@ -2262,6 +2268,10 @@
       <key>ru</key>
       <value>Код</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Kod</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -2281,6 +2291,10 @@
       <key>ru</key>
       <value>На клиенте</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İstemcide</value>
+    </title>
     <id>3</id>
     <valueType>
       <types>Boolean</types>
@@ -2298,6 +2312,10 @@
     <title>
       <key>ru</key>
       <value>Идентификатор</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>İD</value>
     </title>
     <id>4</id>
     <valueType>
@@ -2319,6 +2337,10 @@
       <key>ru</key>
       <value>Выбрасывать исключение</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İstisna at</value>
+    </title>
     <id>5</id>
     <valueType>
       <types>Boolean</types>
@@ -2337,6 +2359,10 @@
       <key>ru</key>
       <value>Записывать ошибки ВЖР</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Hataları log-a kaydet</value>
+    </title>
     <id>6</id>
     <valueType>
       <types>Boolean</types>
@@ -2354,6 +2380,10 @@
     <title>
       <key>ru</key>
       <value>Идентификатор HTTP</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>HTTP İD</value>
     </title>
     <id>7</id>
     <valueType>
@@ -2376,6 +2406,10 @@
       <key>ru</key>
       <value>Кэшировать</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Önbellek</value>
+    </title>
     <id>8</id>
     <valueType>
       <types>Boolean</types>
@@ -2394,6 +2428,10 @@
       <key>ru</key>
       <value>Выполнять в транзакции</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İşlemde yürütme</value>
+    </title>
     <id>9</id>
     <valueType>
       <types>Boolean</types>
@@ -2411,6 +2449,10 @@
     <title>
       <key>ru</key>
       <value>Комментарий</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yorum</value>
     </title>
     <id>10</id>
     <valueType>
@@ -2433,6 +2475,10 @@
       <key>ru</key>
       <value>Поле текст алгоритма</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Algoritma metin alanı</value>
+    </title>
     <id>11</id>
     <valueType>
       <types>String</types>
@@ -2451,6 +2497,10 @@
       <key>ru</key>
       <value>Таблица параметров</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Parametreler tablosu</value>
+    </title>
     <id>12</id>
     <valueType>
       <types>ValueTable</types>
@@ -2466,6 +2516,10 @@
       <title>
         <key>ru</key>
         <value>Имя</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2487,6 +2541,10 @@
         <key>ru</key>
         <value>Значение тип значения</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Değer  türü</value>
+      </title>
       <id>22</id>
       <valueType>
         <types>TypeDescription</types>
@@ -2504,6 +2562,10 @@
         <key>ru</key>
         <value>Значение</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Değer</value>
+      </title>
       <id>23</id>
       <valueType/>
       <view>
@@ -2519,6 +2581,10 @@
         <key>ru</key>
         <value>Значение контейнер</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Konteyner değer</value>
+      </title>
       <id>24</id>
       <valueType/>
       <view>
@@ -2533,6 +2599,10 @@
       <title>
         <key>ru</key>
         <value>Значение тип значения представление</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Değer türü gösterimi</value>
       </title>
       <id>25</id>
       <valueType>
@@ -2553,6 +2623,10 @@
       <key>ru</key>
       <value>Выбранный параметр</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Seçili parametre</value>
+    </title>
     <id>13</id>
     <valueType>
       <types>String</types>
@@ -2571,6 +2645,10 @@
       <key>ru</key>
       <value>Значение параметра простой тип</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Parametre değeri basit tip</value>
+    </title>
     <id>14</id>
     <valueType/>
     <view>
@@ -2585,6 +2663,10 @@
     <title>
       <key>ru</key>
       <value>Параметр коллекция</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Parametre koleksiyonu</value>
     </title>
     <id>15</id>
     <valueType>
@@ -2602,6 +2684,10 @@
     <title>
       <key>ru</key>
       <value>Текст алгоритма</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Algoritma metni</value>
     </title>
     <id>16</id>
     <valueType>
@@ -2623,6 +2709,10 @@
       <key>ru</key>
       <value>Параметры API</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>API Parametreleri</value>
+    </title>
     <id>17</id>
     <valueType>
       <types>ValueTable</types>
@@ -2638,6 +2728,10 @@
       <title>
         <key>ru</key>
         <value>Вход</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Giriş</value>
       </title>
       <id>18</id>
       <valueType>
@@ -2655,6 +2749,10 @@
       <title>
         <key>ru</key>
         <value>Имя</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>19</id>
       <valueType>
@@ -2676,6 +2774,10 @@
         <key>ru</key>
         <value>Тип параметра</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Parametre tipi</value>
+      </title>
       <id>20</id>
       <valueType>
         <types>String</types>
@@ -2695,6 +2797,10 @@
       <title>
         <key>ru</key>
         <value>По умолчанию</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Varsayılan</value>
       </title>
       <id>21</id>
       <valueType>
@@ -2717,6 +2823,10 @@
       <key>ru</key>
       <value>Идентификатор регламентного задания</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Zamanlanmış görev İD</value>
+    </title>
     <id>22</id>
     <valueType>
       <types>String</types>
@@ -2737,6 +2847,10 @@
       <key>ru</key>
       <value>В хранилище настроек</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar depolamasında</value>
+    </title>
     <id>23</id>
     <valueType>
       <types>Boolean</types>
@@ -2754,6 +2868,10 @@
       <key>ru</key>
       <value>Выполнять по расписанию</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Zamanlamaya göre çalış</value>
+    </title>
     <id>24</id>
     <valueType>
       <types>Boolean</types>
@@ -2770,6 +2888,14 @@
     <title>
       <key>ru</key>
       <value>Добавить параметр</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Add parameter</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Parametre ekle</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -2792,6 +2918,14 @@
       <key>ru</key>
       <value>Изменить значение</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Edit value</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Değeri değiştir</value>
+    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -2812,6 +2946,14 @@
     <title>
       <key>ru</key>
       <value>Проверка параметров программный интерфейс</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Checking the parameters of the program interface</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Program arayüzünün parametrelerinin kontrol edilmesi</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -2837,6 +2979,14 @@
       <key>ru</key>
       <value>Записать и закрыть</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Write and close</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yaz ve kapat</value>
+    </title>
     <id>5</id>
     <use>
       <common>true</common>
@@ -2854,6 +3004,14 @@
     <title>
       <key>ru</key>
       <value>Записать</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Write</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yaz</value>
     </title>
     <id>6</id>
     <use>
@@ -2876,6 +3034,14 @@
       <key>ru</key>
       <value>Перечитать</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Reread</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Tekrar oku</value>
+    </title>
     <id>7</id>
     <use>
       <common>true</common>
@@ -2896,6 +3062,14 @@
     <title>
       <key>ru</key>
       <value>Журнал регистрации</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Log</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Log</value>
     </title>
     <id>8</id>
     <toolTip>

@@ -5,4 +5,12 @@
     <key>ru</key>
     <value>Clear format</value>
   </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Clear format</value>
+  </synonym>
+  <synonym>
+    <key>tr</key>
+    <value>Formatı temizle</value>
+  </synonym>
 </mdclass:CommonPicture>

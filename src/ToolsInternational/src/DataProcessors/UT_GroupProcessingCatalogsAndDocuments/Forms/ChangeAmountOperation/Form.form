@@ -4,6 +4,10 @@
     <key>ru</key>
     <value>Изменить сумму операции</value>
   </title>
+  <title>
+    <key>tr</key>
+    <value>İşlem tutarını değiştir</value>
+  </title>
   <items xsi:type="form:FormField">
     <name>CurrentSetting</name>
     <id>1</id>
@@ -16,10 +20,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>CurrentSettingRepresentation</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>CurrentSettingRepresentation</segments>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -83,10 +85,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>CurrentAttribute</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>CurrentAttribute</segments>
     </dataPath>
     <extendedTooltip>
       <name>CurrentAttributeExtendedTooltip</name>
@@ -139,10 +139,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>TypeOfActionOnTheAmount</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>TypeOfActionOnTheAmount</segments>
       </dataPath>
       <extendedTooltip>
         <name>TypeOfActionOnTheAmountExtendedTooltip</name>
@@ -240,10 +238,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>ActionParameter</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ActionParameter</segments>
       </dataPath>
       <extendedTooltip>
         <name>ActionParameterExtendedTooltip</name>
@@ -478,6 +474,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -495,6 +492,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -518,6 +519,10 @@
       <key>en</key>
       <value>Current setting</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut ayar</value>
+    </title>
     <id>3</id>
     <valueType/>
     <view>
@@ -536,6 +541,10 @@
     <title>
       <key>en</key>
       <value>Found objects</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Bulunan nesneler</value>
     </title>
     <id>5</id>
     <valueType>
@@ -561,6 +570,10 @@
       <key>en</key>
       <value>Current setting representation</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut görünüm ayarı</value>
+    </title>
     <id>6</id>
     <valueType>
       <types>String</types>
@@ -582,6 +595,10 @@
     <title>
       <key>en</key>
       <value>Current line</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut satır</value>
     </title>
     <id>4</id>
     <valueType>
@@ -606,6 +623,10 @@
     <title>
       <key>en</key>
       <value>Parent</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Üst öğe</value>
     </title>
     <id>2</id>
     <valueType>
@@ -632,6 +653,10 @@
       <key>en</key>
       <value>Search object</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Arama nesnesi</value>
+    </title>
     <id>7</id>
     <valueType/>
     <view>
@@ -650,6 +675,10 @@
     <title>
       <key>en</key>
       <value>Found objects TP</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>TB Bulunan nesneler</value>
     </title>
     <id>8</id>
     <valueType>
@@ -758,6 +787,10 @@
       <key>en</key>
       <value>Attributes</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Nitelikler</value>
+    </title>
     <id>9</id>
     <valueType>
       <types>ValueTable</types>
@@ -777,6 +810,10 @@
       <title>
         <key>en</key>
         <value>Attribute</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Nitelik</value>
       </title>
       <id>1</id>
       <valueType>
@@ -798,6 +835,10 @@
       </title>
       <title>
         <key>en</key>
+        <value>ID</value>
+      </title>
+      <title>
+        <key>tr</key>
         <value>ID</value>
       </title>
       <id>2</id>
@@ -822,6 +863,10 @@
         <key>en</key>
         <value>Type</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Tür</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>TypeDescription</types>
@@ -842,6 +887,10 @@
       <title>
         <key>en</key>
         <value>Value</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Değer</value>
       </title>
       <id>4</id>
       <valueType>
@@ -876,6 +925,10 @@
         <key>en</key>
         <value>Choose</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Seç</value>
+      </title>
       <id>5</id>
       <valueType>
         <types>Boolean</types>
@@ -896,6 +949,10 @@
       <title>
         <key>en</key>
         <value>Attribute TP</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>TB Niteliği</value>
       </title>
       <id>6</id>
       <valueType>
@@ -919,6 +976,10 @@
       <key>en</key>
       <value>Current attribute</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut nitelik</value>
+    </title>
     <id>10</id>
     <valueType/>
     <view>
@@ -937,6 +998,10 @@
     <title>
       <key>en</key>
       <value>Type of action on the amount</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Toplam üzerindeki işlem türü</value>
     </title>
     <id>11</id>
     <valueType>
@@ -961,6 +1026,10 @@
     <title>
       <key>en</key>
       <value>Action parameter</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Eylem parametresi</value>
     </title>
     <id>12</id>
     <valueType>
@@ -987,6 +1056,10 @@
       <key>en</key>
       <value>Process tabular parts</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tablo bölümlerini işleme</value>
+    </title>
     <id>13</id>
     <valueType>
       <types>Boolean</types>
@@ -1007,6 +1080,10 @@
     <title>
       <key>en</key>
       <value>Execute command</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Komutu çalıştır</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1037,6 +1114,10 @@
     <title>
       <key>en</key>
       <value>Save settings</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarı kaydet</value>
     </title>
     <id>2</id>
     <toolTip>

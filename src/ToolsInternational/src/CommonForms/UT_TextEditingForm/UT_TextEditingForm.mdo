@@ -5,6 +5,10 @@
     <key>ru</key>
     <value>Форма редактирования текста</value>
   </synonym>
+  <synonym>
+    <key>tr</key>
+    <value>Metin düzenleme formu</value>
+  </synonym>
   <usePurposes>PersonalComputer</usePurposes>
   <usePurposes>MobileDevice</usePurposes>
 </mdclass:CommonForm>

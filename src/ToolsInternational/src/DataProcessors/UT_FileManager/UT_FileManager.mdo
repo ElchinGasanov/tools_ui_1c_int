@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_FileManager</name>
   <synonym>
+    <key>ru</key>
+    <value>Файловый менеджер [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>File Manager (UT)</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Файловый менеджер [УИ]</value>
+    <key>tr</key>
+    <value>Dosya Yöneticisi [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_FileManager.Form.Form</defaultForm>
@@ -27,6 +31,10 @@
     <name>Form</name>
     <synonym>
       <key>ru</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
       <value>Form</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>

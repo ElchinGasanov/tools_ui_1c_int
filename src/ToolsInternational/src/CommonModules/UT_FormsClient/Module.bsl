@@ -40,7 +40,7 @@ Procedure SaveSetting(Form, mSetting) Export
 
 	If IsBlankString(Form.CurrentSettingRepresentation) Then
 		ShowMessageBox( ,
-			Nstr("ru = 'Задайте имя новой настройки для сохранения или выберите существующую настройку для перезаписи.';en = 'Specify a name for the new setting to save, or select an existing setting to overwrite.'"));
+			Nstr("ru = 'Задайте имя новой настройки для сохранения или выберите существующую настройку для перезаписи.'; en = 'Specify a name for the new setting to save, or select an existing setting to overwrite.'; tr = 'Kaydedilecek yeni ayar için bir ad belirtin veya üzerine yazmak üzere mevcut bir ayarı seçin.'"));
 	EndIf;
 
 	NewSetting = New Structure;
@@ -116,7 +116,7 @@ Procedure ProcessIndicator(Form, Indicator, Counter = 0) Export
 			Seconds = Int(Int(Remaining - (Minutes * 60)));
 			TimeRemaining = Format(Hours, "ND=2; NZ=00; NLZ=") + ":" + Format(Minutes, "ND=2; NZ=00; NLZ=") + ":"
 				+ Format(Seconds, "ND=2; NZ=00; NLZ=");
-			TextRemaining = StrTemplate(Nstr("ru = 'Осталось: ~ %1';en = 'Remaining: ~ %1'"), TimeRemaining);
+			TextRemaining = StrTemplate(Nstr("ru = 'Осталось: ~ %1'; en = 'Remaining: ~ %1'; tr = 'Kalan: ~ %1'"), TimeRemaining);
 		Else
 			TextRemaining = "";
 		EndIf;
@@ -163,7 +163,7 @@ EndProcedure // SetNameSettings()
 Procedure DownloadSettings(Form, mSetting) Export
 
 	If Form.Items.CurrentSetting.ChoiceList.Count() = 0 Then
-		UT_FormsClient.SetNameSettings(Form, Nstr("ru = 'Новая настройка';en = 'New setting'"));
+		UT_FormsClient.SetNameSettings(Form, Nstr("ru = 'Новая настройка'; en = 'New setting'; tr = 'Yeni ayar'"));
 	Else
 		If Not Form.CurrentSetting.Other = Undefined Then
 			mSetting = Form.CurrentSetting.Other;

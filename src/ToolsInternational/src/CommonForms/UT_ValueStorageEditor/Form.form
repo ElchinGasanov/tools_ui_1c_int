@@ -102,12 +102,12 @@
     <showInFooter>true</showInFooter>
     <extInfo xsi:type="form:InputFieldExtInfo">
       <handlers>
-        <event>Clearing</event>
-        <name>ValueСlearing</name>
-      </handlers>
-      <handlers>
         <event>StartChoice</event>
         <name>ValueStartСhoice</name>
+      </handlers>
+      <handlers>
+        <event>Clearing</event>
+        <name>ValueСlearing</name>
       </handlers>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
@@ -164,6 +164,10 @@
         <key>en</key>
         <value>Close</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Kapat</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -202,6 +206,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -215,6 +220,10 @@
     <title>
       <key>ru</key>
       <value>Returning storage for a value container</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Bir değer konteyneri için depolama alanının iade edilmesi</value>
     </title>
     <id>1</id>
     <valueType>
@@ -233,6 +242,14 @@
       <key>ru</key>
       <value>Value</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Value</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Değer</value>
+    </title>
     <id>2</id>
     <valueType/>
     <view>
@@ -248,6 +265,14 @@
       <key>ru</key>
       <value>Value container</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Value container</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Değer deposu</value>
+    </title>
     <id>3</id>
     <valueType/>
     <view>
@@ -262,6 +287,14 @@
     <title>
       <key>ru</key>
       <value>Value value type</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Value value type</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Değer tipi</value>
     </title>
     <id>4</id>
     <valueType>
@@ -280,6 +313,14 @@
       <key>ru</key>
       <value>Value presentation value type</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Value presentation value type</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Değer Gösterimi değer türü</value>
+    </title>
     <id>5</id>
     <valueType>
       <types>String</types>
@@ -297,6 +338,14 @@
     <title>
       <key>ru</key>
       <value>Apply</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Apply</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Uygula</value>
     </title>
     <id>1</id>
     <use>

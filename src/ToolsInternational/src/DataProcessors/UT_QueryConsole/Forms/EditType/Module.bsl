@@ -18,10 +18,10 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	EndIf;
 	
 	If ToParameterMode Then
-		StringMode = NStr("ru = 'В параметр'; en = 'To parameter'");
+		StringMode = NStr("ru = 'В параметр'; en = 'To parameter'; tr = 'Parametreye'");
 		Items.OKCommand.Title = StringMode;
 	Else
-		StringMode = NStr("ru = 'Редактирование типа'; en = 'Edit type'");
+		StringMode = NStr("ru = 'Редактирование типа'; en = 'Edit type'; tr = 'Tür düzenleme'");
 	EndIf;
 	
 	If Parameters.Property("Name", ParameterName) Then
@@ -234,7 +234,7 @@ Function GetTypeQualifiersPresentation(ValueType)
 	arQualifiers = New Array;
 	
 	If ValueType.ContainsType(Type("String")) Then
-		StringQualifiersPresentation = NStr("ru  = 'Длина '; en = 'Length '") + ValueType.StringQualifiers.Length;
+		StringQualifiersPresentation = NStr("ru = 'Длина '; en = 'Length '; tr = 'Uzunluk'") + ValueType.StringQualifiers.Length;
 		arQualifiers.Add(New Structure("Type, Qualifiers", "String", StringQualifiersPresentation));
 	EndIf;
 		
@@ -245,7 +245,7 @@ Function GetTypeQualifiersPresentation(ValueType)
 	
 	If ValueType.ContainsType(Type("Number")) Then
 		NumberQualifiersPresentation =
-			NStr("ru = 'Знак '; en = 'Sign '") + ValueType.NumberQualifiers.AllowedSign + " " +
+			NStr("ru = 'Знак '; en = 'Sign '; tr = 'İşaret '") + ValueType.NumberQualifiers.AllowedSign + " " +
 			ValueType.NumberQualifiers.Digits + "." + ValueType.NumberQualifiers.FractionDigits;
 		arQualifiers.Add(New Structure("Type, Qualifiers", "Number", NumberQualifiersPresentation));
 	EndIf;
@@ -323,7 +323,7 @@ Function GetTypeDescription()
 	
 	NumberQualifiers = New NumberQualifiers(NumberQualifiersLength, NumberQualifiersPrecision, ?(NumberQualifiersNonnegative, AllowedSign.Nonnegative, AllowedSign.Any));
 	StringQualifiers = New StringQualifiers(StringQualifiersLength, ?(StringQualifiersFixed, AllowedLength.Fixed, AllowedLength.Variable));
-	DateQualifiers = New DateQualifiers(?(DateQualifiersContent = NStr("ru = 'Дата и время'; en = 'Дата и время'"), DateFractions.DateTime, DateFractions[DateQualifiersContent]));
+	DateQualifiers = New DateQualifiers(?(DateQualifiersContent = NStr("ru = 'Дата и время'; en = 'Дата и время'; tr = 'Tarih ve saat'"), DateFractions.DateTime, DateFractions[DateQualifiersContent]));
 	
 	Return New TypeDescription(arTypes, NumberQualifiers, StringQualifiers, DateQualifiers);
 	
@@ -357,7 +357,7 @@ Function GetTable(QueryText = Undefined)
 		
 		Column = Table.Columns.Add(StructureRow.Name, StructureRow.ValueType);
 		
-		arColumnExpressions.Add(StrTemplate(NStr("ru = '	%1.%2 КАК %2'; en = '	%1.%2 AS %2'"), ParameterName, Column.Name));
+		arColumnExpressions.Add(StrTemplate(NStr("ru = '	%1.%2 КАК %2'; en = '	%1.%2 AS %2'; tr = '	%1.%2 AS %2'"), ParameterName, Column.Name));
 		
 		If ValueIsFilled(StructureRow.OldName) Then
 			stColumnMap.Insert(StructureRow.Name, StructureRow.OldName);
@@ -598,11 +598,11 @@ Function GetTypeTree(CurrentValueType, AllowedList)
 	AddType(Types, CurrentValueType, "Number", Pictures);
 	AddType(Types, CurrentValueType, "Null", Pictures);
 	//AddType(Types, CurrentValueType, "Undefined", Pictures);
-	AddType(Types, CurrentValueType, "AccumulationRecordType", Pictures, NStr("ru = 'Вид движения накопления'; en = 'Accumulation record type'"));
-	AddType(Types, CurrentValueType, "AccountingRecordType", Pictures,  NStr("ru = 'Вид движения бухгалтерии'; en = 'Accounting record type'"));
-	AddType(Types, CurrentValueType, "AccountType", Pictures, NStr("ru = 'Вид счета'; en = 'Account type'"));
+	AddType(Types, CurrentValueType, "AccumulationRecordType", Pictures, NStr("ru = 'Вид движения накопления'; en = 'Accumulation record type'; tr = 'Birikim kayıt türü'"));
+	AddType(Types, CurrentValueType, "AccountingRecordType", Pictures,  NStr("ru = 'Вид движения бухгалтерии'; en = 'Accounting record type'; tr = 'Muhasebe kayıt türü'"));
+	AddType(Types, CurrentValueType, "AccountType", Pictures, NStr("ru = 'Вид счета'; en = 'Account type'; tr = 'Hesap türü'"));
 	AddType(Types, CurrentValueType, "Type", Pictures);
-	AddType(Types, CurrentValueType, "UUID", Pictures, NStr("ru = 'Уникальный идентификатор'; en = 'UUID'"));
+	AddType(Types, CurrentValueType, "UUID", Pictures, NStr("ru = 'Уникальный идентификатор'; en = 'UUID'; tr = 'UUID'"));
 
 	AddRefTypes(Types, CurrentValueType, Metadata.Catalogs, "CatalogRef", Pictures);
 	AddRefTypes(Types, CurrentValueType, Metadata.Documents, "DocumentRef", Pictures);
@@ -709,7 +709,7 @@ Procedure RefreshQualifiersView() Export
 		
 		If fStringQualifiersVisible Then
 			If StringQualifiersLength = 0 Then
-				StringQualifiersComment = NStr("ru = '(неограниченная)'; en = '(open-ended)'");
+				StringQualifiersComment = NStr("ru = '(неограниченная)'; en = '(open-ended)'; tr = '(sınırsız)'");
 				Items.StringQualifiersFixed.Visible = False;
 			Else
 				StringQualifiersComment = "";
@@ -843,14 +843,14 @@ Procedure ProcessColumnNameChange(NewRow, CancelEdit, Cancel)
 	EndTry;
 	
 	If Not fNameIsCorrect Then
-		ShowMessageBox(, NStr("ru = 'Неверное имя колонки! Имя должно состоять из одного слова, начинаться с буквы и не содержать специальных символов кроме ""_"".'; en = 'Column name is incorrect. The name must consist of one word, start with a letter and contain no special characters except ""_"".'"), , Title);
+		ShowMessageBox(, NStr("ru = 'Неверное имя колонки! Имя должно состоять из одного слова, начинаться с буквы и не содержать специальных символов кроме ""_"".'; en = 'Column name is incorrect. The name must consist of one word, start with a letter and contain no special characters except ""_"".'; tr = 'Sütun adı geçersiz. Ad, tek kelimeden oluşmalı, bir harfle başlamalı ve ""_"" dışında özel karakter içermemelidir.'"), , Title);
 		Cancel = True;
 		Return;
 	EndIf;
 	
 	arNameRows = TableStructure.FindRows(New Structure("Name", strColumnName));
 	If arNameRows.Count() > 1 Then
-		ShowMessageBox(, NStr("ru = 'Колонка с таким именем уже есть! Введите другое имя.'; en = 'Column with this name already exists. Please enter another name.'"), , Title);
+		ShowMessageBox(, NStr("ru = 'Колонка с таким именем уже есть! Введите другое имя.'; en = 'Column with this name already exists. Please enter another name.'; tr = 'Bu ada sahip bir sütun zaten var. Lütfen başka bir ad girin.'"), , Title);
 		Cancel = True;
 		Return;
 	EndIf;

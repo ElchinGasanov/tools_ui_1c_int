@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>План запроса</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Query plan</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>План запроса</value>
+    <key>tr</key>
+    <value>Sorgu planı</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>QueryPlanGroup</name>
@@ -135,10 +139,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>ShowIn1CTerms</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>ShowIn1CTerms</segments>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <extendedTooltip>
@@ -181,10 +183,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>HeavyQueriesProportion</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>HeavyQueriesProportion</segments>
               </dataPath>
               <extendedTooltip>
                 <name>HeavyQueriesProportionExtendedTooltip</name>
@@ -373,10 +373,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Plan.Operator</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Plan.Operator</segments>
             </dataPath>
             <extendedTooltip>
               <name>PlanOperatorExtendedTooltip</name>
@@ -427,10 +425,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Plan.AverageRowSize</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Plan.AverageRowSize</segments>
             </dataPath>
             <toolTip>
               <key>en</key>
@@ -491,10 +487,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.OperatorCost</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.OperatorCost</segments>
               </dataPath>
               <toolTip>
                 <key>en</key>
@@ -559,10 +553,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.OperatorCostPercent</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.OperatorCostPercent</segments>
               </dataPath>
               <toolTip>
                 <key>en</key>
@@ -617,12 +609,16 @@
               <common>true</common>
             </userVisible>
             <title>
+              <key>ru</key>
+              <value>Стоимость оператора</value>
+            </title>
+            <title>
               <key>en</key>
               <value>Operator cost</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Стоимость оператора</value>
+              <key>tr</key>
+              <value>Operatör maliyeti</value>
             </title>
             <toolTip>
               <key>en</key>
@@ -666,10 +662,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.NodeCost</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.NodeCost</segments>
               </dataPath>
               <toolTip>
                 <key>en</key>
@@ -727,10 +721,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.NodeCostPercent</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.NodeCostPercent</segments>
               </dataPath>
               <extendedTooltip>
                 <name>PlanNodeCostPercentExtendedTooltip</name>
@@ -777,12 +769,16 @@
               <common>true</common>
             </userVisible>
             <title>
+              <key>ru</key>
+              <value>Стоимость узла</value>
+            </title>
+            <title>
               <key>en</key>
               <value>Node cost</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Стоимость узла</value>
+              <key>tr</key>
+              <value>Düğüm maliyeti</value>
             </title>
             <toolTip>
               <key>en</key>
@@ -825,10 +821,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.RowCountPlan</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.RowCountPlan</segments>
               </dataPath>
               <extendedTooltip>
                 <name>PlanRowCountPlanExtendedTooltip</name>
@@ -893,10 +887,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.RowCountFact</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.RowCountFact</segments>
               </dataPath>
               <extendedTooltip>
                 <name>PlanRowCountFactExtendedTooltip</name>
@@ -959,12 +951,16 @@
               <common>true</common>
             </userVisible>
             <title>
+              <key>ru</key>
+              <value>Строк (план/факт)</value>
+            </title>
+            <title>
               <key>en</key>
               <value>Row count (plan/fact)</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Строк (план/факт)</value>
+              <key>tr</key>
+              <value>Satır sayısı (plan/gerçek)</value>
             </title>
             <toolTip>
               <key>en</key>
@@ -1008,10 +1004,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.CallsPlan</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.CallsPlan</segments>
               </dataPath>
               <extendedTooltip>
                 <name>PlanCallsPlanExtendedTooltip</name>
@@ -1075,10 +1069,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.CallsFact</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.CallsFact</segments>
               </dataPath>
               <extendedTooltip>
                 <name>PlanCallsFactExtendedTooltip</name>
@@ -1132,12 +1124,16 @@
               <common>true</common>
             </userVisible>
             <title>
+              <key>ru</key>
+              <value>Вызовы (план/факт)</value>
+            </title>
+            <title>
               <key>en</key>
               <value>Calls (plan/fact)</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Вызовы (план/факт)</value>
+              <key>tr</key>
+              <value>Çağrılar (plan/gerçek)</value>
             </title>
             <toolTip>
               <key>en</key>
@@ -1181,10 +1177,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.IOExpenses</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.IOExpenses</segments>
               </dataPath>
               <extendedTooltip>
                 <name>PlanIOExpensesExtendedTooltip</name>
@@ -1232,10 +1226,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>Plan.CPUExpenses</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Plan.CPUExpenses</segments>
               </dataPath>
               <extendedTooltip>
                 <name>PlanCPUExpensesExtendedTooltip</name>
@@ -1281,12 +1273,16 @@
               <common>true</common>
             </userVisible>
             <title>
+              <key>ru</key>
+              <value>Затраты (ВВ/ЦП)</value>
+            </title>
+            <title>
               <key>en</key>
               <value>Expenses (IO/CPU)</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Затраты (ВВ/ЦП)</value>
+              <key>tr</key>
+              <value>Giderler (IO/CPU)</value>
             </title>
             <toolTip>
               <key>en</key>
@@ -1365,6 +1361,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>Plan</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1403,6 +1400,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>Plan</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1441,6 +1439,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>Plan</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1490,7 +1489,6 @@
           <verticalStretch>true</verticalStretch>
           <enableStartDrag>true</enableStartDrag>
           <enableDrag>true</enableDrag>
-          <fileDragMode>AsFileRef</fileDragMode>
         </items>
         <items xsi:type="form:FormField">
           <name>CurrentOperator</name>
@@ -1500,10 +1498,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>CurrentOperator</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>CurrentOperator</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -1555,12 +1551,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Дерево</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Tree</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Дерево</value>
+          <key>tr</key>
+          <value>Ağaç</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -1602,10 +1602,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>PlanAsText</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>PlanAsText</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -1653,12 +1651,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Текст</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Text</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Текст</value>
+          <key>tr</key>
+          <value>Metin</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -1700,10 +1702,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Plan1CText</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Plan1CText</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -1751,12 +1751,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Текст в терминах 1С</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Text in 1C terms</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Текст в терминах 1С</value>
+          <key>tr</key>
+          <value>1C terimleriyle metin</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -1835,12 +1839,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>План запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query plan</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>План запроса</value>
+      <key>tr</key>
+      <value>Sorgu planı</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -1894,10 +1902,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>QueryText</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>QueryText</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -1946,12 +1952,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Запрос</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Query</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Запрос</value>
+          <key>tr</key>
+          <value>Sorgu</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -1993,10 +2003,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>QueryParameters</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>QueryParameters</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -2044,12 +2052,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Доп. параметры</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Add. parameters</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Доп. параметры</value>
+          <key>tr</key>
+          <value>Ek parametreler</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -2091,10 +2103,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>QueryTextIn1CTerms</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>QueryTextIn1CTerms</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -2143,12 +2153,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Запрос в терминах 1С</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Query in 1C terms</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Запрос в терминах 1С</value>
+          <key>tr</key>
+          <value>1C terimleriyle sorgu</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -2227,12 +2241,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Текст запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текст запроса</value>
+      <key>tr</key>
+      <value>Sorgu metni</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -2281,10 +2299,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>LogEventText</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>LogEventText</segments>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -2333,12 +2349,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Технологический журнал (фрагмент)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Technological log (fragment)</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Технологический журнал (фрагмент)</value>
+      <key>tr</key>
+      <value>Teknolojik günlük (parça)</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -2481,6 +2501,7 @@
   </handlers>
   <width>120</width>
   <height>30</height>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -2505,12 +2526,16 @@
   <attributes>
     <name>LogEventText</name>
     <title>
+      <key>ru</key>
+      <value>Событие журнала</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Log event</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Событие журнала</value>
+      <key>tr</key>
+      <value>Olay günlüğü</value>
     </title>
     <id>2</id>
     <valueType>
@@ -2529,6 +2554,10 @@
       <key>ru</key>
       <value>Plan</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Plan</value>
+    </title>
     <id>3</id>
     <valueType>
       <types>ValueTree</types>
@@ -2542,12 +2571,16 @@
     <columns>
       <name>Operator</name>
       <title>
+        <key>ru</key>
+        <value>Оператор</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Operator</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Оператор</value>
+        <key>tr</key>
+        <value>Operatör</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2564,12 +2597,16 @@
     <columns>
       <name>NodeCost</name>
       <title>
+        <key>ru</key>
+        <value>Стоимость узла</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Node cost</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Стоимость узла</value>
+        <key>tr</key>
+        <value>Düğüm maliyeti</value>
       </title>
       <id>2</id>
       <valueType>
@@ -2589,12 +2626,16 @@
     <columns>
       <name>OperatorCost</name>
       <title>
+        <key>ru</key>
+        <value>Стоимость оператора</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Operator cost</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Стоимость оператора</value>
+        <key>tr</key>
+        <value>Operatör maliyeti</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2614,12 +2655,16 @@
     <columns>
       <name>RowCountPlan</name>
       <title>
+        <key>ru</key>
+        <value>Строк план</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Row count plan</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Строк план</value>
+        <key>tr</key>
+        <value>Satır sayısı planı</value>
       </title>
       <id>4</id>
       <valueType>
@@ -2636,12 +2681,16 @@
     <columns>
       <name>Selected</name>
       <title>
+        <key>ru</key>
+        <value>Выделено</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Selected</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Выделено</value>
+        <key>tr</key>
+        <value>Seçilmiş</value>
       </title>
       <id>5</id>
       <valueType>
@@ -2657,12 +2706,16 @@
     <columns>
       <name>OperatorCostPercent</name>
       <title>
+        <key>ru</key>
+        <value>Стоимость оператора, %</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Operator cost, %</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Стоимость оператора, %</value>
+        <key>tr</key>
+        <value>Operatör maliyeti, %</value>
       </title>
       <id>6</id>
       <valueType>
@@ -2679,12 +2732,16 @@
     <columns>
       <name>RowCountFact</name>
       <title>
+        <key>ru</key>
+        <value>СтрокФакт</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Row count fact</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>СтрокФакт</value>
+        <key>tr</key>
+        <value>Gerçek satır sayısı</value>
       </title>
       <id>7</id>
       <valueType>
@@ -2703,12 +2760,16 @@
     <columns>
       <name>CallsPlan</name>
       <title>
+        <key>ru</key>
+        <value>Вызовы план</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Calls plan</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Вызовы план</value>
+        <key>tr</key>
+        <value>Çağrı planı</value>
       </title>
       <id>8</id>
       <valueType>
@@ -2727,12 +2788,16 @@
     <columns>
       <name>CallsFact</name>
       <title>
+        <key>ru</key>
+        <value>Вызовы факт</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Calls fact</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Вызовы факт</value>
+        <key>tr</key>
+        <value>Gerçek çağrılar</value>
       </title>
       <id>9</id>
       <valueType>
@@ -2751,12 +2816,16 @@
     <columns>
       <name>IOExpenses</name>
       <title>
+        <key>ru</key>
+        <value>Затраты ввода/вывода</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Input/output expenses</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Затраты ввода/вывода</value>
+        <key>tr</key>
+        <value>Girdi/çıktı giderleri</value>
       </title>
       <id>10</id>
       <valueType>
@@ -2776,12 +2845,16 @@
     <columns>
       <name>CPUExpenses</name>
       <title>
+        <key>ru</key>
+        <value>Затраты ЦП</value>
+      </title>
+      <title>
         <key>en</key>
         <value>CPU expenses</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Затраты ЦП</value>
+        <key>tr</key>
+        <value>CPU giderleri</value>
       </title>
       <id>11</id>
       <valueType>
@@ -2801,12 +2874,16 @@
     <columns>
       <name>AverageRowSize</name>
       <title>
+        <key>ru</key>
+        <value>Средний размер строки</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Average row size</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Средний размер строки</value>
+        <key>tr</key>
+        <value>Ortalama satır boyutu</value>
       </title>
       <id>12</id>
       <valueType>
@@ -2825,12 +2902,16 @@
     <columns>
       <name>NodeCostPercent</name>
       <title>
+        <key>ru</key>
+        <value>Стоимость узла процент</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Node cost percent</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Стоимость узла процент</value>
+        <key>tr</key>
+        <value>Düğüm maliyeti yüzdesi</value>
       </title>
       <id>13</id>
       <valueType>
@@ -2847,12 +2928,16 @@
     <columns>
       <name>SourceOperator</name>
       <title>
+        <key>ru</key>
+        <value>Оператор</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Operator</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Оператор</value>
+        <key>tr</key>
+        <value>Operatör</value>
       </title>
       <id>14</id>
       <valueType>
@@ -2870,12 +2955,16 @@
   <attributes>
     <name>QueryText</name>
     <title>
+      <key>ru</key>
+      <value>Текст запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текст запроса</value>
+      <key>tr</key>
+      <value>Sorgu metni</value>
     </title>
     <id>4</id>
     <valueType>
@@ -2892,12 +2981,16 @@
   <attributes>
     <name>Event</name>
     <title>
+      <key>ru</key>
+      <value>Событие</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Event</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Событие</value>
+      <key>tr</key>
+      <value>Olay</value>
     </title>
     <id>5</id>
     <valueType/>
@@ -2911,12 +3004,16 @@
   <attributes>
     <name>QueryParameters</name>
     <title>
+      <key>ru</key>
+      <value>Параметры запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query parameters</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Параметры запроса</value>
+      <key>tr</key>
+      <value>Sorgu parametreleri</value>
     </title>
     <id>6</id>
     <valueType>
@@ -2933,12 +3030,16 @@
   <attributes>
     <name>PlanAsText</name>
     <title>
+      <key>ru</key>
+      <value>План текстовый</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Plan as text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>План текстовый</value>
+      <key>tr</key>
+      <value>Metin olarak plan</value>
     </title>
     <id>7</id>
     <valueType>
@@ -2954,12 +3055,16 @@
   <attributes>
     <name>CurrentOperator</name>
     <title>
+      <key>ru</key>
+      <value>Текущий оператор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Current operator</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текущий оператор</value>
+      <key>tr</key>
+      <value>Mevcut operatör</value>
     </title>
     <id>8</id>
     <valueType>
@@ -2976,12 +3081,16 @@
   <attributes>
     <name>QueryResultAddress</name>
     <title>
+      <key>ru</key>
+      <value>Адрес результата запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query result address</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Адрес результата запроса</value>
+      <key>tr</key>
+      <value>Sorgu sonucu adresi</value>
     </title>
     <id>9</id>
     <valueType>
@@ -2998,12 +3107,16 @@
   <attributes>
     <name>ResultIndex</name>
     <title>
+      <key>ru</key>
+      <value>Индекс результата</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Result index</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Индекс результата</value>
+      <key>tr</key>
+      <value>Sonuç endeksi</value>
     </title>
     <id>10</id>
     <valueType>
@@ -3022,12 +3135,16 @@
   <attributes>
     <name>PlanRead</name>
     <title>
+      <key>ru</key>
+      <value>План прочитан</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Plan read</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>План прочитан</value>
+      <key>tr</key>
+      <value>Plan okundu</value>
     </title>
     <id>11</id>
     <valueType>
@@ -3043,12 +3160,16 @@
   <attributes>
     <name>HeavyQueriesProportion</name>
     <title>
+      <key>ru</key>
+      <value>Доля отображения тяжелых, %</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Heavy queries proportion, %</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Доля отображения тяжелых, %</value>
+      <key>tr</key>
+      <value>Yoğun sorgu oranı, %</value>
     </title>
     <id>12</id>
     <valueType>
@@ -3067,12 +3188,16 @@
   <attributes>
     <name>ShowIn1CTerms</name>
     <title>
+      <key>ru</key>
+      <value>Отображать в терминах 1С</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Show in 1C terms</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отображать в терминах 1С</value>
+      <key>tr</key>
+      <value>1C terimleriyle göster</value>
     </title>
     <id>13</id>
     <valueType>
@@ -3088,12 +3213,16 @@
   <attributes>
     <name>QueryTextIn1CTerms</name>
     <title>
+      <key>ru</key>
+      <value>Текст запроса в терминах 1С</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query text in 1C terms</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текст запроса в терминах 1С</value>
+      <key>tr</key>
+      <value>1C terimleriyle sorgu metni</value>
     </title>
     <id>14</id>
     <valueType>
@@ -3110,12 +3239,16 @@
   <attributes>
     <name>Plan1CText</name>
     <title>
+      <key>ru</key>
+      <value>План текстовый в терминах 1С</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Plan text in 1C terms</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>План текстовый в терминах 1С</value>
+      <key>tr</key>
+      <value>1C terimleriyle plan metni</value>
     </title>
     <id>15</id>
     <valueType>
@@ -3131,12 +3264,16 @@
   <formCommands>
     <name>Refresh</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Refresh</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Yenile</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -3165,12 +3302,16 @@
   <formCommands>
     <name>ExpandAll</name>
     <title>
+      <key>ru</key>
+      <value>Развернуть все</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Expand all</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Развернуть все</value>
+      <key>tr</key>
+      <value>Tümünü genişlet</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -3198,12 +3339,16 @@
   <formCommands>
     <name>CollapseAll</name>
     <title>
+      <key>ru</key>
+      <value>Свернуть все</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Collapse all</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Свернуть все</value>
+      <key>tr</key>
+      <value>Tümünü daralt</value>
     </title>
     <id>3</id>
     <toolTip>

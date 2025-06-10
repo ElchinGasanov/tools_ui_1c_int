@@ -26,11 +26,32 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonForm.UT_CodeEditorInteractionSessionParameters</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_ToolsSettings</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>DataProcessor.UT_LicenseInformation1C</name>
 		<right>
 			<name>Use</name>
 			<value>true</value>
 		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_AdditionalDataProcessorDebugSettings</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -66,6 +87,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonForm.UT_RefToCodeForm</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Subsystem.UT_UniversalTools.Subsystem.UT_Support</name>
 		<right>
 			<name>View</name>
@@ -94,6 +122,20 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonForm.UT_PointInTimeEditor</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_SpreadsheetDocumentEditor</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>CommonForm.UT_ValueStorageForm</name>
 		<right>
 			<name>View</name>
@@ -102,6 +144,27 @@
 	</object>
 	<object>
 		<name>Subsystem.UT_UniversalTools</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_UUIDEditor</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_BoundaryEditor</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_ValueListForm</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -166,11 +229,7 @@
 		</right>
 	</object>
 	<object>
-		<name>DataProcessor.УИ_УниверсальныйОбменДаннымиXML</name>
-		<right>
-			<name>Use</name>
-			<value>true</value>
-		</right>
+		<name>CommonForm.UT_PictureEditor</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -193,6 +252,13 @@
 			<name>Use</name>
 			<value>true</value>
 		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_BinaryDataEditor</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -222,6 +288,13 @@
 			<name>Use</name>
 			<value>true</value>
 		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.AdditionalReportsAndDataProcessors.Command.UT_DebugSettings</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -311,6 +384,20 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonForm.UT_ValueStorageEditor</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_ConfigurationSourseFilesSaveSettings</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>DataProcessor.UT_DuplicateObjectDetection</name>
 		<right>
 			<name>Use</name>
@@ -329,11 +416,25 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonForm.UT_SpreadsheetDocumentsComparison</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>DataProcessor.UT_MarkedObjectsDeletion</name>
 		<right>
 			<name>Use</name>
 			<value>true</value>
 		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_EnumerationsSelectionForm</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -356,6 +457,13 @@
 			<name>Use</name>
 			<value>true</value>
 		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_MapEditor</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -396,6 +504,13 @@
 	</object>
 	<object>
 		<name>CommonForm.UT_ValueTableEditor</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonForm.UT_CodeForm</name>
 		<right>
 			<name>View</name>
 			<value>true</value>
@@ -503,6 +618,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonForm.UT_StructureEditor</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>Subsystem.UT_UniversalTools.Subsystem.UT_Debug</name>
 		<right>
 			<name>View</name>
@@ -532,6 +654,13 @@
 		</right>
 	</object>
 	<object>
+		<name>CommonCommand.UT_Settings</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
 		<name>CommonForm.UT_ValueTableForm</name>
 		<right>
 			<name>View</name>
@@ -551,152 +680,6 @@
 			<name>Use</name>
 			<value>true</value>
 		</right>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_AdditionalDataProcessorDebugSettings</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>Catalog.AdditionalReportsAndDataProcessors.Command.UT_DebugSettings</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_ToolsSettings</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonCommand.UT_Settings</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_ConfigurationSourseFilesSaveSettings</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_CodeForm</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_UUIDEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_RefToCodeForm</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_EnumerationsSelectionForm</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_PointInTimeEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_BoundaryEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_StructureEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_MapEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_ValueStorageEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_ValueListForm</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_PictureEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_BinaryDataEditor</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_CodeEditorInteractionSessionParameters</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_SpreadsheetDocumentsComparison</name>
-		<right>
-			<name>View</name>
-			<value>true</value>
-		</right>
-	</object>
-	<object>
-		<name>CommonForm.UT_SpreadsheetDocumentEditor</name>
 		<right>
 			<name>View</name>
 			<value>true</value>

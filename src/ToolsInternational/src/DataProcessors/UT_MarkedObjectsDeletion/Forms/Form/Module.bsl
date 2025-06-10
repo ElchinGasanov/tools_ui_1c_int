@@ -195,9 +195,9 @@ Procedure RunDelete()
 	
 
 	If DeletionMode = "Full" Then
-		Status(NStr("en = 'Find and deletion of marked objects ; ru = 'Выполняется поиск и удаление помеченных объектов'"));
+		Status(NStr("ru = 'Выполняется поиск и удаление помеченных объектов'; en = 'Find and deletion of marked objects'; tr = 'İşaretli nesnelerin bulunması ve silinmesi'"));
 	Else
-		Status(NStr("en = 'Deletion of marked objects' ; ru = 'Выполняется удаление выбранных объектов'"));
+		Status(NStr("ru = 'Выполняется удаление выбранных объектов'; en = 'Deletion of marked objects'; tr = 'İşaretli nesnelerin silinmesi'"));
 	EndIf;
 
 	Result = DeletionMarkedAtServer(DeletionObjectsTypes);
@@ -220,7 +220,7 @@ EndProcedure
 &AtClient
 Procedure UpdateDeleteMarkedList(Command)
 
-	Status(NStr("en = 'Searching for objects marked for deletion' ; ru = 'Выполняется поиск помеченных на удаление объектов'"));
+	Status(NStr("ru = 'Выполняется поиск помеченных на удаление объектов'; en = 'Searching for objects marked for deletion'; tr = 'Silinmek üzere işaretlenen nesneleri arama'"));
 
 	FullMarkedForDeletionTree();
 
@@ -295,14 +295,12 @@ Procedure UpdateContent(Result, ErrorMessage, DeletionObjectsTypes)
 	UpdateMarkedTree = True;
 	If NumberNotDeletedObjects = 0 Then
 		If NumberDeletedObjects = 0 Then
-			Text = Nstr("en = 'Not a single object is marked for deletion. Objects were not deleted.' ; 
-							|ru = 'Не помечено на удаление ни одного объекта. Удаление объектов не выполнялось.'");
+			Text = Nstr("ru = 'Не помечено на удаление ни одного объекта. Удаление объектов не выполнялось.'; en = 'Not a single object is marked for deletion. Objects were not deleted.'; tr = 'Silinmek üzere işaretlenmiş tek bir nesne yok. Nesneler silinmedi.'");
 			UpdateMarkedTree = False;
 		Else
 			Text = StrTemplate(
-			             Nstr("en = 'Deletion of marked objects has been completed successfully.Deleted objects: %1.'; 
-			               |ru = 'Удаление помеченных объектов успешно завершено.
-							  |Удалено объектов: %1.'"), NumberDeletedObjects);
+			             Nstr("ru = 'Удаление помеченных объектов успешно завершено.
+													  |Удалено объектов: %1.'; en = 'Deletion of marked objects has been completed successfully.Deleted objects: %1.'; tr = 'İşaretli nesnelerin silinmesi başarıyla tamamlandı.Silinen nesneler: %1.'"), NumberDeletedObjects);
 		EndIf;
 		PageName = "SelectDeleteMode";
 		ShowMessageBox( , Text);
@@ -537,7 +535,7 @@ Function RunDocumentsDeletion(Знач DeletedArray, DeletedObjectsTypes)
 	DeletionResult = New Structure("Status, Value", False, "");
 
 	If Не UT_Users.IsFullUser() Then
-		Raise NStr("en = 'Not enough permissions to perform the operation' ; ru = 'Недостаточно прав для выполнения операции.'");
+		Raise NStr("ru = 'Недостаточно прав для выполнения операции.'; en = 'Not enough permissions to perform the operation'; tr = 'İşlemi gerçekleştirmek için yeterli izin yok'");
 	EndIf;
 
 	DeletionObjectsTypes = New ValueTable;
@@ -918,12 +916,10 @@ Procedure FillResultsLine(NumberDeleted)
 
 	If NumberDeletedObjects = 0 Then
 		ResultLine = Nstr(
-			"en = 'None of the objects has been deleted, since there are references to the  deleted objects in the information databas'; 
-			|ru = 'Не удален ни один из объектов, так как в информационной базе существуют ссылки на удаляемые объекты'");
+			"ru = 'Не удален ни один из объектов, так как в информационной базе существуют ссылки на удаляемые объекты'; en = 'None of the objects has been deleted, since there are references to the  deleted objects in the information databas'; tr = 'Bilgi veritabanında silinen nesnelere referanslar bulunduğundan nesnelerin hiçbiri silinmedi'");
 	Else
 		ResultLine = StrTemplate(
-				Nstr("en = 'The removal of the marked objects is completed. Deleted objects: %1.';
-				|ru = 'Удаление помеченных объектов завершено. Удалено объектов: %1.'"),
+				Nstr("ru = 'Удаление помеченных объектов завершено. Удалено объектов: %1.'; en = 'The removal of the marked objects is completed. Deleted objects: %1.'; tr = 'İşaretli nesnelerin kaldırılması tamamlandı. Silinen nesneler: %1.'"),
 				 String(NumberDeletedObjects));
 	EndIf;
 

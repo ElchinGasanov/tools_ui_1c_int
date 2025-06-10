@@ -10,11 +10,11 @@ Procedure InitializeReportTree(ReportsTree)
 	Items.Clear();
 	RootItem = Items.Add();
 	RootItem.RowType = 4;
-	RootItem.Name = NStr("ru = 'Отчеты';en = 'Reports'");
+	RootItem.Name = NStr("ru = 'Отчеты'; en = 'Reports'; tr = 'Raporlar'");
 
 	ElementsToWhichAdd = RootItem.GetItems();
 
-	Name = NStr("ru = 'Отчет';en = 'Report'");
+	Name = NStr("ru = 'Отчет'; en = 'Report'; tr = 'Rapor'");
 	Item = ElementsToWhichAdd.Add();
 	Item.Name = Name;
 	Item.RowType = 0;
@@ -465,7 +465,7 @@ EndProcedure
 &AtClient
 Function GenerateDataCompositionSchemaName()
 
-	Return GenerateName(0, NStr("ru = 'Отчет';en = 'Report'"), ReportsTree.GetItems(), True);
+	Return GenerateName(0, NStr("ru = 'Отчет'; en = 'Report'; tr = 'Rapor'"), ReportsTree.GetItems(), True);
 
 EndFunction
 
@@ -479,7 +479,7 @@ EndFunction
 &AtClient
 Function GenerateReportVariantName(ItemsCollection)
 
-	Return GenerateName(1, NStr("ru = 'Вариант';en = 'Variant'"), ItemsCollection, False);
+	Return GenerateName(1, NStr("ru = 'Вариант'; en = 'Variant'; tr = 'Varyant'"), ItemsCollection, False);
 
 EndFunction
 
@@ -494,7 +494,7 @@ EndFunction
 &AtClient
 Function GenerateUserSettingName(ItemsCollection)
 
-	Return GenerateName(2, NStr("ru = 'Настройка';en = 'Setting'"), ItemsCollection, False);
+	Return GenerateName(2, NStr("ru = 'Настройка'; en = 'Setting'; tr = 'Ayar'"), ItemsCollection, False);
 
 EndFunction
 
@@ -508,7 +508,7 @@ EndFunction
 &AtClient
 Function GenerateFolderName(ItemsCollection)
 
-	Return GenerateName(3, NStr("ru = 'Папка';en = 'Folder'"), ItemsCollection, False);
+	Return GenerateName(3, NStr("ru = 'Папка'; en = 'Folder'; tr = 'Klasör'"), ItemsCollection, False);
 
 EndFunction
 
@@ -625,10 +625,10 @@ Procedure DownloadConsoleFileAfterAttachExtension(Attached, AdditionalParameters
 
 		If DownloadableFileName = "" Then
 
-			FileChoose = New FileDialog(FileDialogMode.Opening);
+			FileChoose = New FileDialog(FileDialogMode.Open);
 			FileChoose.Multiselect = False;
 			FileChoose.FullFileName = FileName;
-			Filter = NStr("ru = 'Файл консоли системы компоновки данных (*.dcr)|*.dcr|Все файлы (*.*)|*.*';en = 'File of data composition system console (*.dcr)|*.dcr|All files (*.*)|*.*'");
+			Filter = NStr("ru = 'Файл консоли системы компоновки данных (*.dcr)|*.dcr|Все файлы (*.*)|*.*'; en = 'File of data composition system console (*.dcr)|*.dcr|All files (*.*)|*.*'; tr = 'Veri bileşimi sistemi konsol dosyası  (*.dcr)|*.dcr|Tüm dosyalar (*.*)|*.*'");
 			FileChoose.Filter = Filter;
 			FileChoose.Extension = "dcr";
 
@@ -1198,8 +1198,7 @@ Function GenerateAtServerToSpreadsheetDocument()
 		Else
 
 			Return NStr(
-				"ru = 'He понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
-				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
+				"ru = 'He понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.'; en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'; tr = 'Hangi raporun oluşturulacağı açık değil. Lütfen bir rapor, seçenek veya ayar seçin ve raporu tekrar oluşturun.'");
 		EndIf;
 
 	EndIf;
@@ -1321,8 +1320,7 @@ Function GenerateAtServerToCollection()
 		Else
 
 			Return NStr(
-				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
-				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
+				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.'; en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'; tr = 'Hangi raporun oluşturulacağı belli değil. Lütfen bir rapor, seçenek veya ayar seçin ve raporu tekrar oluşturun.'");
 		EndIf;
 
 	EndIf;
@@ -1384,8 +1382,7 @@ Function GenerateAtServerAsXML()
 		Else
 
 			Return NStr(
-				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
-				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
+				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.'; en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'; tr = 'Hangi raporun oluşturulacağı belli olmuyor. Lütfen bir rapor, seçenek veya ayar seçin ve raporu tekrar oluşturun.'");
 		EndIf;
 
 	EndIf;
@@ -1441,8 +1438,7 @@ Function GenerateAtServerAsXMLCollection()
 		Else
 
 			Return NStr(
-				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
-				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
+				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.'; en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'; tr = 'Hangi raporun oluşturulacağı belli olmuyor. Lütfen bir rapor, seçenek veya ayar seçin ve raporu tekrar oluşturun.'");
 		EndIf;
 
 	EndIf;
@@ -1522,8 +1518,7 @@ Function GenerateAtServerToDataCompositionTemplate()
 		Else
 
 			Return NStr(
-				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
-				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
+				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.'; en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'; tr = 'Hangi raporun oluşturulacağı net değil. Lütfen bir rapor, seçenek veya ayar seçin ve raporu tekrar oluşturun.'");
 		EndIf;
 
 	EndIf;
@@ -1596,8 +1591,7 @@ Function GenerateAtServerToDataCompositionTemplateForCollection()
 		Else
 
 			Return NStr(
-				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
-				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
+				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.'; en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'; tr = 'Hangi raporun oluşturulacağı anlaşılmıyor. Lütfen bir rapor, seçenek veya ayar seçin ve raporu tekrar oluşturun.'");
 		EndIf;
 
 	EndIf;
@@ -1658,8 +1652,7 @@ Function GenerateAtServerToExecutedDataCompositionSettings()
 		Else
 
 			Return NStr(
-				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
-				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
+				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.'; en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'; tr = 'Hangi raporun oluşturulacağı net değil. Lütfen bir rapor, seçenek veya ayar seçin ve raporu tekrar oluşturun.'");
 		EndIf;
 
 	EndIf;
@@ -1714,8 +1707,7 @@ Function GenerateAtServerToExecutedDataCompositionSettingsXML()
 		Else
 
 			Return NStr(
-				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.';
-				|en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'");
+				"ru = 'Не понятно, какой отчет нужно формировать. Выберите отчет или вариант или настройку и повторите формирование отчета.'; en = 'It is not clear which report needs to be generated. Select a report or an variant or a setting and re-generate the report.'; tr = 'Hangi raporun oluşturulacağı net değil. Lütfen bir rapor, seçenek veya ayar seçin ve raporu tekrar oluşturun.'");
 		EndIf;
 
 	EndIf;
@@ -2005,7 +1997,7 @@ Procedure SaveOnEnd(Attached, AdditionalParameters) Export
 			FileChoose.Multiselect = False;
 			FileChoose.FullFileName = FileName;
 			FileChoose.Directory = File.Path;
-			Filter = NStr("ru = 'Файл консоли системы компоновки данных (*.dcr)|*.dcr|Все файлы (*.*)|*.*';en = 'Console of Data composition system file (*.dcr)|*.dcr|All files(*.*)|*.*'");
+			Filter = NStr("ru = 'Файл консоли системы компоновки данных (*.dcr)|*.dcr|Все файлы (*.*)|*.*'; en = 'Console of Data composition system file (*.dcr)|*.dcr|All files(*.*)|*.*'; tr = 'Veri bileşimi sistemi konsolu dosyası (*.dcr)|*.dcr|Tüm dosyalar (*.*)|*.*'");
 			FileChoose.Filter = Filter;
 			FileChoose.Extension = "dcr";
 
@@ -2088,7 +2080,7 @@ Procedure ConfirmClose(NotificationProcessing)
 
 		ShowQueryBox(New NotifyDescription("ConfirmCloseOnEnd", ThisForm,
 			New Structure("NotificationProcessing", NotificationProcessing)), NStr(
-			"ru = 'Отчет модифицированы. Сохранить изменения?';en = 'The report is modified. Save changes?'"), QuestionDialogMode.YesNoCancel, ,
+			"ru = 'Отчет модифицированы. Сохранить изменения?'; en = 'The report is modified. Save changes?'; tr = 'Rapor değiştirildi. Değişiklikleri kaydedilsin mi?'"), QuestionDialogMode.YesNoCancel, ,
 			DialogReturnCode.Yes);
 
 	Else
@@ -2240,7 +2232,7 @@ Procedure CopyAtServer()
 
 	If NameBasePart = "" Then
 
-		NameBasePart = NStr("ru = 'Отчет';en = 'Report'");
+		NameBasePart = NStr("ru = 'Отчет'; en = 'Report'; tr = 'Rapor'");
 
 	EndIf;
 
@@ -2361,11 +2353,11 @@ Function StandartFileNameOfSpreadsheetDocument()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Эталон табличного документа.mxl';en = 'Spreadsheet Document Standart.mxl'");
+	FileName = NStr("ru = 'Эталон табличного документа.mxl'; en = 'Spreadsheet Document Standart.mxl'; tr = 'E-tablo Belgesi Standart.mxl'");
 
 	If FileName = "" Then
 
-		FileName = NSTR("ru = 'Эталон табличного документа.xml';en = 'Spreadsheet document standart.xml'");
+		FileName = NSTR("ru = 'Эталон табличного документа.xml'; en = 'Spreadsheet document standart.xml'; tr = 'E-tablo Belgesi Standart.xml'");
 
 	EndIf;
 
@@ -2382,11 +2374,11 @@ Function SpreadsheetDocumentFileName()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Табличный документ.xml';en = 'Spreadsheet document.xml'");
+	FileName = NStr("ru = 'Табличный документ.xml'; en = 'Spreadsheet document.xml'; tr = 'E-tablo.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Табличный документ.xml';en = 'Spreadsheet document.xml'");;
+		FileName = NStr("ru = 'Табличный документ.xml'; en = 'Spreadsheet document.xml'; tr = 'E-tablo.xml'");;
 
 	EndIf;
 
@@ -2403,11 +2395,11 @@ Function TemplateStandartFileName()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Эталон макета.xml';en = 'Template standart.xml'");
+	FileName = NStr("ru = 'Эталон макета.xml'; en = 'Template standart.xml'; tr = 'Şablon standart.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Эталон макета.xml';en = 'Template standart.xml'");
+		FileName = NStr("ru = 'Эталон макета.xml'; en = 'Template standart.xml'; tr = 'Şablon standart.xml'");
 
 	EndIf;
 
@@ -2424,11 +2416,11 @@ Function TemplateFileName()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Макет.xml';en = 'Template.xml'");
+	FileName = NStr("ru = 'Макет.xml'; en = 'Template.xml'; tr = 'Şablon.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Макет.xml';en = 'Template.xml'");
+		FileName = NStr("ru = 'Макет.xml'; en = 'Template.xml'; tr = 'Şablon.xml'");
 
 	EndIf;
 
@@ -2445,11 +2437,11 @@ Function ExecutableSettingsStandartFileName()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Эталон исполняемых настроек.xml';en = 'Executable settings standart.xml'");
+	FileName = NStr("ru = 'Эталон исполняемых настроек.xml'; en = 'Executable settings standart.xml'; tr = 'Çalıştırılabilir ayarlar standart.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Эталон исполняемых настроек.xml';en = 'Executable settings standart.xml'");
+		FileName = NStr("ru = 'Эталон исполняемых настроек.xml'; en = 'Executable settings standart.xml'; tr = 'Çalıştırılabilir ayarlar standart.xml'");
 
 	EndIf;
 
@@ -2466,11 +2458,11 @@ Function ExecutableSettingsFileName()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Исполняемые настройки.xml';en = 'Executable settings.xml'");
+	FileName = NStr("ru = 'Исполняемые настройки.xml'; en = 'Executable settings.xml'; tr = 'Çalıştırılabilir ayarlar.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Исполняемые настройки.xml';en = 'Executable settings.xml'");
+		FileName = NStr("ru = 'Исполняемые настройки.xml'; en = 'Executable settings.xml'; tr = 'Çalıştırılabilir ayarlar.xml'");
 
 	EndIf;
 
@@ -2487,11 +2479,11 @@ Function XMLResultStandartFileName()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Эталон результата.xml';en = 'Result standart.xml'");
+	FileName = NStr("ru = 'Эталон результата.xml'; en = 'Result standart.xml'; tr = 'Sonuç standart.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Эталон результата.xml';en = 'Result standart.xml'");;
+		FileName = NStr("ru = 'Эталон результата.xml'; en = 'Result standart.xml'; tr = 'Sonuç standart.xml'");;
 
 	EndIf;
 
@@ -2508,11 +2500,11 @@ Function XMLResultFileName()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Результат.xml';en = 'Result.xml'");
+	FileName = NStr("ru = 'Результат.xml'; en = 'Result.xml'; tr = 'Sonuç.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Результат.xml';en = 'Result.xml'");
+		FileName = NStr("ru = 'Результат.xml'; en = 'Result.xml'; tr = 'Sonuç.xml'");
 
 	EndIf;
 
@@ -2529,11 +2521,11 @@ Function TemplateStandartFileNameForCollection()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Эталон макета для коллекции.xml';en = 'Template standart for collection.xml'");
+	FileName = NStr("ru = 'Эталон макета для коллекции.xml'; en = 'Template standart for collection.xml'; tr = 'Koleksiyon için standart şablon.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Эталон макета для коллекции.xml';en = 'Template standart for collection.xml'");
+		FileName = NStr("ru = 'Эталон макета для коллекции.xml'; en = 'Template standart for collection.xml'; tr = 'Koleksiyon için standart şablon.xml'");
 
 	EndIf;
 
@@ -2550,11 +2542,11 @@ Function TemplateFileNameForCollection()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Макет для коллекции.xml';en = 'Template  for collection.xml'");
+	FileName = NStr("ru = 'Макет для коллекции.xml'; en = 'Template  for collection.xml'; tr = 'Koleksiyon için şablon.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Макет для коллекции.xml';en = 'Template  for collection.xml'");
+		FileName = NStr("ru = 'Макет для коллекции.xml'; en = 'Template  for collection.xml'; tr = 'Koleksiyon için şablon.xml'");
 
 	EndIf;
 
@@ -2571,11 +2563,11 @@ Function XMLResultStandartFileNameForCollection()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Эталон результата для коллекции.xml';en = 'Result standart for collection.xml'");
+	FileName = NStr("ru = 'Эталон результата для коллекции.xml'; en = 'Result standart for collection.xml'; tr = 'Koleksiyon için sonuç standart.xml'");
 
 	If FileName = "" Then
 
-		FileName = NStr("ru = 'Эталон результата для коллекции.xml';en = 'Result standart for collection.xml'");
+		FileName = NStr("ru = 'Эталон результата для коллекции.xml'; en = 'Result standart for collection.xml'; tr = 'Koleksiyon için sonuç standart.xml'");
 
 	EndIf;
 
@@ -2592,11 +2584,11 @@ Function XMLResultFileNameForCollection()
 
 	Var FileName;
 
-	FileName = NStr("ru = 'Результат для коллекции.xml';en = 'Result for collection.xml'");
+	FileName = NStr("ru = 'Результат для коллекции.xml'; en = 'Result for collection.xml'; tr = 'Koleksiyon için sonuç.xml'");
 
 	If FileName = "" Then
 
-		FileName =  NStr("ru = 'Результат для коллекции.xml';en = 'Result for collection.xml'");
+		FileName =  NStr("ru = 'Результат для коллекции.xml'; en = 'Result for collection.xml'; tr = 'Koleksiyon için sonuç.xml'");
 
 	EndIf;
 
@@ -2707,11 +2699,11 @@ Procedure FillDCSForDebug(DebugDataURL)
 
 	RootItem = TreeItems.Add();
 	RootItem.RowType = 4;
-	RootItem.Name = NStr("ru = 'Отчеты';en = 'Reports'");
+	RootItem.Name = NStr("ru = 'Отчеты'; en = 'Reports'; tr = 'Raporlar'");
 
 	ElementsToWhichAdd = RootItem.GetItems();
 
-	Name =NSTR("ru = 'Отчет для отладки';en = 'Report for debug'");
+	Name =NSTR("ru = 'Отчет для отладки'; en = 'Report for debug'; tr = 'Hata ayıklama için rapor'");
 	Item = ElementsToWhichAdd.Add();
 	Item.Name = Name;
 	Item.RowType = 0;
@@ -2821,7 +2813,7 @@ Procedure OnOpen(Cancel)
 		Try
 			DownloadConsoleFile(DownloadableFileName);
 		Except
-			UT_CommonClientServer.MessageToUser(NSTR("ru = 'Ошибка загрузки отчетов из файла';en = 'Error loading reports from file'"));
+			UT_CommonClientServer.MessageToUser(NSTR("ru = 'Ошибка загрузки отчетов из файла'; en = 'Error loading reports from file'; tr = 'Dosyadan raporlar yüklenirken hata oluştu'"));
 		EndTry;
 	EndIf;
 
@@ -3015,13 +3007,13 @@ EndProcedure
 &AtClient
 Procedure CompareWithStandartSpreadsheetDocument(Command)
 	If Not ValueIsFilled(StandardSpreadsheetDocumentTempStorageURL) Then
-		ShowMessageBox(, NStr("ru = 'Нет сохраненного эталона'; en = 'There is no standard spreadsheet document to compare'"));
+		ShowMessageBox(, NStr("ru = 'Нет сохраненного эталона'; en = 'There is no standard spreadsheet document to compare'; tr = 'Karşılaştırmak için standart bir hesap tablosu belgesi yok'"));
 		Return;
 	EndIf;
 
 	CurrentDocumentURL = PutToTempStorage(ResultSpreadsheetDocument, UUID);
 	UT_CommonClient.CompareSpreadsheetDocuments(CurrentDocumentURL,
-		StandardSpreadsheetDocumentTempStorageURL, NStr("ru = 'Текущий'; en = 'Current'"), NStr("ru = 'Эталон'; en = 'Standard'"));
+		StandardSpreadsheetDocumentTempStorageURL, NStr("ru = 'Текущий'; en = 'Current'; tr = 'Mevcut'"), NStr("ru = 'Эталон'; en = 'Standard'; tr = 'Standard'"));
 
 EndProcedure
 
@@ -3029,7 +3021,7 @@ EndProcedure
 Procedure CompareWithStandartSpreadsheetDocumentOnEnd(Result, AdditionalParameters) Export
 
 	UT_CommonClient.CompareSpreadsheetDocumentsFiles(StandartFileNameOfSpreadsheetDocument(),
-		SpreadsheetDocumentFileName(), NStr("ru = 'Эталон'; en = 'Standard'"), NStr("ru = 'Текущий'; en = 'Current'"));
+		SpreadsheetDocumentFileName(), NStr("ru = 'Эталон'; en = 'Standard'; tr = 'Standard'"), NStr("ru = 'Текущий'; en = 'Current'; tr = 'Mevcut'"));
 
 EndProcedure
 
@@ -3042,8 +3034,7 @@ Procedure SaveStandartOfDataCompositionTemplate(Command)
 	TextWriter.WriteLine(TextOfDataCompositionTemplate);
 	TextWriter.Close();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3062,8 +3053,7 @@ Procedure CompareWithStandartDataCompositionTemplate(Command)
 	FileCompare.CompareMethod = FileCompareMethod.TextDocument;
 	FileCompare.ShowDifferences();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3076,8 +3066,7 @@ Procedure SaveStandartExecutableSettings(Command)
 	TextWriter.WriteLine(ExecutedSettingsXML);
 	TextWriter.Close();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3096,8 +3085,7 @@ Procedure CompareWithStandartExecutableSettings(Command)
 	FileCompare.CompareMethod = FileCompareMethod.TextDocument;
 	FileCompare.ShowDifferences();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3110,8 +3098,7 @@ Procedure SaveStandartXMLResult(Command)
 	TextWriter.WriteLine(TextOfDataCompositionResult);
 	TextWriter.Close();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3130,8 +3117,7 @@ Procedure CompareWithStandartXMLResult(Command)
 	FileCompare.CompareMethod = FileCompareMethod.TextDocument;
 	FileCompare.ShowDifferences();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3144,8 +3130,7 @@ Procedure SaveStandartDataCompositionTemplateForTemplate(Command)
 	TextWriter.WriteLine(TextOfDataCompositionTemplateForCollection);
 	TextWriter.Close();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3164,8 +3149,7 @@ Procedure CompareWithStandartDataCompositionTemplateForCollection(Command)
 	FileCompare.CompareMethod = FileCompareMethod.TextDocument;
 	FileCompare.ShowDifferences();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3178,8 +3162,7 @@ Procedure SaveStandartXMLResultForCollection(Command)
 	TextWriter.WriteLine(TextOfDataCompositionResultForCollection);
 	TextWriter.Close();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3198,8 +3181,7 @@ Procedure CompareWithStandartXMLResultForCollection(Command)
 	FileCompare.CompareMethod = FileCompareMethod.TextDocument;
 	FileCompare.ShowDifferences();
 #Else
-		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте';
-		|en = 'File comparison is only possible in a thick client'"));
+		ShowMessageBox( , NStr("ru = 'Сравнение файлов возможно только в толстом клиенте'; en = 'File comparison is only possible in a thick client'; tr = 'Dosya karşılaştırması yalnızca masaüstü istemcisinde yapılabilir'"));
 #EndIf
 EndProcedure
 
@@ -3261,7 +3243,7 @@ Procedure SaveSchemaToFileAfterAttachFileExtension(Attached, AdditionalParameter
 	// Need to ask filename.
 		FileChoose = New FileDialog(FileDialogMode.Save);
 		FileChoose.Multiselect = False;
-		Filter = NStr("ru = 'Файл схемы компоновки данных (*.xml)|*.xml|Все файлы (*.*)|*.*'; en = 'File of data composition schema (*.xml)|*.xml|All files (*.*)|*.*'");
+		Filter = NStr("ru = 'Файл схемы компоновки данных (*.xml)|*.xml|Все файлы (*.*)|*.*'; en = 'File of data composition schema (*.xml)|*.xml|All files (*.*)|*.*'; tr = 'Veri bileşimi şeması dosyası (*.xml)|*.xml|Tüm dosyalar (*.*)|*.*'");
 		FileChoose.Filter = Filter;
 		FileChoose.Extension = "xml";
 
@@ -3322,9 +3304,9 @@ Procedure LoadSchemaFromFileAfterAttachExtension(Attached, AdditionalParameters)
 
 	If Attached Then
 
-		FileChoose = New FileDialog(FileDialogMode.Opening);
+		FileChoose = New FileDialog(FileDialogMode.Open);
 		FileChoose.Multiselect = False;
-		Filter = NStr("ru = 'Файл схемы компоновки данных (*.xml)|*.xml|Все файлы (*.*)|*.*'; en = 'File of data composition schema  (*.xml)|*.xml|All files (*.*)|*.*'");
+		Filter = NStr("ru = 'Файл схемы компоновки данных (*.xml)|*.xml|Все файлы (*.*)|*.*'; en = 'File of data composition schema  (*.xml)|*.xml|All files (*.*)|*.*'; tr = 'Veri bileşimi şeması dosyası (*.xml)|*.xml|Tüm dosyalar (*.*)|*.*'");
 		FileChoose.Filter = Filter;
 		FileChoose.Extension = "xml";
 		
@@ -4145,7 +4127,7 @@ Procedure ExternalDataSetsBeforeEditEnd(Item, NewRow, CancelEdit, Cancel)
 	
 	ArrayOfNameString = TreeCurrentRow.ExternalDataSets.FindRows(New Structure("Name", CurrentData.Name));
 	If ArrayOfNameString.Count() > 1 Then
-		ShowMessageBox( , NSTR("ru = 'Колонка с таким именем уже есть! Введите другое имя'; en = 'There is already a column with that name! Enter a different name'"), , Title);
+		ShowMessageBox( , NSTR("ru = 'Колонка с таким именем уже есть! Введите другое имя'; en = 'There is already a column with that name! Enter a different name'; tr = 'Bu isimde zaten bir sütun var! Farklı bir isim girin'"), , Title);
 		Cancel = True;
 		Return;
 	EndIf;

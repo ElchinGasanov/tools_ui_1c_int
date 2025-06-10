@@ -17,15 +17,17 @@
           <key>en</key>
           <value>Search by word</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Kelimeye göre arama</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Filter</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Filter</segments>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -84,6 +86,10 @@
             <key>en</key>
             <value>For example: Items or REFERENCE106</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Örneğin: Products veya REFERENCE106</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -132,10 +138,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>IncludingFields</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>IncludingFields</segments>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -181,10 +185,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>ExactMap</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>ExactMap</segments>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -248,6 +250,10 @@
                 <key>en</key>
                 <value>Show</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Göster</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
@@ -291,6 +297,10 @@
             <items xsi:type="form:FormField">
               <name>FilterByAppointmentsValue</name>
               <id>219</id>
+              <title>
+                <key>tr</key>
+                <value>Değer</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
@@ -352,6 +362,10 @@
                   <key>en</key>
                   <value>Show set on</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>İşaretle</value>
+                </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
@@ -389,6 +403,10 @@
                 <title>
                   <key>en</key>
                   <value>Show set off</value>
+                </title>
+                <title>
+                  <key>tr</key>
+                  <value>İşaretleri kaldır</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -461,7 +479,7 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>FilterByPurposiesSearchString</source>
+              <source>FilterByPurposies</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -500,7 +518,7 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>FilterByPurposiesViewStatus</source>
+              <source>FilterByPurposies</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -539,7 +557,7 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>FilterByPurposiesSearchControl</source>
+              <source>FilterByPurposies</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -592,9 +610,13 @@
             <key>ru</key>
             <value>Фильтр по назначению</value>
           </title>
-		<title>
+          <title>
             <key>en</key>
             <value>By purpose</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Amaca göre</value>
           </title>
           <extendedTooltip>
             <name>FilterByPurposeGroupExtendedTooltip</name>
@@ -648,6 +670,10 @@
                 <key>en</key>
                 <value>Show</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Göster</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
@@ -691,6 +717,10 @@
             <items xsi:type="form:FormField">
               <name>FilterByTypesOfMetadataObjectsValue</name>
               <id>242</id>
+              <title>
+                <key>tr</key>
+                <value>Değer</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
@@ -752,6 +782,10 @@
                   <key>en</key>
                   <value>Show set on</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>İşaretle</value>
+                </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
@@ -789,6 +823,10 @@
                 <title>
                   <key>en</key>
                   <value>Show set off</value>
+                </title>
+                <title>
+                  <key>tr</key>
+                  <value>İşaretleri kaldır</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -861,7 +899,7 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>FilterByTypesOfMetadataObjectsSearchString</source>
+              <source>FilterByTypesOfMetadataObjects</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -900,7 +938,7 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>FilterByTypesOfMetadataObjectsViewStatus</source>
+              <source>FilterByTypesOfMetadataObjects</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -939,7 +977,7 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>FilterByTypesOfMetadataObjectsSearchControl</source>
+              <source>FilterByTypesOfMetadataObjects</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -998,6 +1036,10 @@
             <key>en</key>
             <value>By type of metadata</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Metaveri türüne göre</value>
+          </title>
           <extendedTooltip>
             <name>FilterByTypesOfMetadataObjectsGroupExtendedTooltip</name>
             <id>205</id>
@@ -1029,7 +1071,6 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <shortcut>- на цифр. клав.</shortcut>
         <horizontalStretch>false</horizontalStretch>
         <extendedTooltip>
           <name>AdditionalFiltersExtendedTooltip</name>
@@ -1232,6 +1273,10 @@
           <key>en</key>
           <value>In</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>İçinde</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -1365,6 +1410,10 @@
             <key>en</key>
             <value>Table sizes are not obtained and the corresponding columns are not shown</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Tablo boyutları alınamadı ve ilgili sütunlar gösterilmiyor</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1456,6 +1505,13 @@ The entire data size of the metadata object, including table parts, is displayed
 
 The method does not take into account the size of the data history, as well as configuration extensions.</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Platform tablolarının boyutlarını ve yardımcı tablo verilerini (indeksler vb.) alma imkanı yoktur.
+Ana tablo için, tablo bölümleri dahil olmak üzere, meta veri nesnesinin tüm veri boyutu görüntülenir.
+
+Bu yöntem, veri geçmişinin ve yapılandırma uzantılarının boyutlarını dikkate almaz.</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1546,6 +1602,13 @@ The method does not take into account the size of the data history, as well as c
 Information on the utility https://www.postgresql.org/docs/current/app-psql.html
 You can download it from here https://www.postgresql.org/download/
 In the 1C version of PostgreSQL, the utility is included. Typically located in the bin folder of the PostgreSQL installation directory</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Bilgi, PostgreSQL dağıtımına ait psql konsol yardımcı programı kullanılarak alınır.
+Yardımcı program hakkında bilgi: https://www.postgresql.org/docs/current/app-psql.html
+Buradan indirilebilir: https://www.postgresql.org/download/
+1C’nin PostgreSQL sürümünde bu yardımcı program dahildir. Genellikle PostgreSQL kurulum dizininin bin klasöründe bulunur.</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1967,6 +2030,13 @@ Information on the utility https://www.postgresql.org/docs/current/app-psql.html
 You can download it from here https://www.postgresql.org/download/
 In the 1C version of PostgreSQL, the utility is included. Typically located in the bin folder of the PostgreSQL installation directory</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Bilgi, PostgreSQL dağıtımında yer alan psql konsol yardımcı programı kullanılarak alınır.
+Yardımcı program hakkında bilgiye şu adresten ulaşabilirsiniz: https://www.postgresql.org/docs/current/app-psql.html
+Buradan indirilebilir: https://www.postgresql.org/download/
+1C için PostgreSQL sürümünde bu yardımcı program dahildir. Genellikle PostgreSQL kurulum dizinindeki bin klasöründe bulunur.</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -2375,6 +2445,11 @@ In the 1C version of PostgreSQL, the utility is included. Typically located in t
             <value>Table sizes are obtained using the ctool1cd utility
 The utility is included in the delivery of tools.</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Tablo boyutları, ctool1cd yardımcı programı kullanılarak alınır.
+Bu yardımcı program, araçlarla birlikte sağlanır.</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -2488,6 +2563,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Table sizes</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tablo boyutları</value>
+    </title>
     <horizontalStretch>true</horizontalStretch>
     <extendedTooltip>
       <name>TableSizesGroupExtendedTooltip</name>
@@ -2539,10 +2618,8 @@ The utility is included in the delivery of tools.</value>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Result.TableName</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Result.TableName</segments>
         </dataPath>
         <extendedTooltip>
           <name>ResultTableNameExtendedTooltip</name>
@@ -2587,22 +2664,24 @@ The utility is included in the delivery of tools.</value>
         <name>ResultStorageTableName</name>
         <id>29</id>
         <title>
+          <key>ru</key>
+          <value>Имя таблицы хранения</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Storage table name</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Имя таблицы хранения</value>
+          <key>tr</key>
+          <value>Depolama tablosu adı</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Result.StorageTableName</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Result.StorageTableName</segments>
         </dataPath>
         <extendedTooltip>
           <name>ResultStorageTableNameExtendedTooltip</name>
@@ -2647,22 +2726,24 @@ The utility is included in the delivery of tools.</value>
         <name>ResultMetadata</name>
         <id>23</id>
         <title>
+          <key>ru</key>
+          <value>Метаданные</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Metadata</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Метаданные</value>
+          <key>tr</key>
+          <value>Metaveri</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Result.Metadata</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Result.Metadata</segments>
         </dataPath>
         <extendedTooltip>
           <name>ResultMetadataExtendedTooltip</name>
@@ -2707,22 +2788,24 @@ The utility is included in the delivery of tools.</value>
         <name>ResultPurpose</name>
         <id>26</id>
         <title>
+          <key>ru</key>
+          <value>Назначение</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Purpose</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Назначение</value>
+          <key>tr</key>
+          <value>Amaç</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Result.Purpose</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Result.Purpose</segments>
         </dataPath>
         <extendedTooltip>
           <name>ResultPurposeExtendedTooltip</name>
@@ -3239,6 +3322,7 @@ The utility is included in the delivery of tools.</value>
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
+        <source>Result</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -3277,6 +3361,7 @@ The utility is included in the delivery of tools.</value>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
+        <source>Result</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
           <horizontalLocation>Left</horizontalLocation>
@@ -3316,6 +3401,7 @@ The utility is included in the delivery of tools.</value>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
+        <source>Result</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -3438,12 +3524,16 @@ The utility is included in the delivery of tools.</value>
           <name>Fields</name>
           <id>32</id>
           <title>
+            <key>ru</key>
+            <value>Поля</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Fields</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Поля</value>
+            <key>tr</key>
+            <value>Alanlar</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -3462,10 +3552,8 @@ The utility is included in the delivery of tools.</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.Result.CurrentData.Fields.StorageFieldName</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.Result.CurrentData.Fields.StorageFieldName</segments>
             </dataPath>
             <extendedTooltip>
               <name>FieldsStorageFieldNameExtendedTooltip</name>
@@ -3514,10 +3602,8 @@ The utility is included in the delivery of tools.</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.Result.CurrentData.Fields.FieldName</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.Result.CurrentData.Fields.FieldName</segments>
             </dataPath>
             <extendedTooltip>
               <name>FieldsFieldNameExtendedTooltip</name>
@@ -3566,10 +3652,8 @@ The utility is included in the delivery of tools.</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.Result.CurrentData.Fields.Metadata</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.Result.CurrentData.Fields.Metadata</segments>
             </dataPath>
             <extendedTooltip>
               <name>FieldsMetadataExtendedTooltip</name>
@@ -3655,6 +3739,7 @@ The utility is included in the delivery of tools.</value>
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>Fields</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3693,6 +3778,7 @@ The utility is included in the delivery of tools.</value>
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>Fields</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -3732,6 +3818,7 @@ The utility is included in the delivery of tools.</value>
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>Fields</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3799,6 +3886,10 @@ The utility is included in the delivery of tools.</value>
           <key>en</key>
           <value>Fields</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Alanlar</value>
+        </title>
         <extendedTooltip>
           <name>PageFieldsGroupExtendedTooltip</name>
           <id>334</id>
@@ -3827,12 +3918,16 @@ The utility is included in the delivery of tools.</value>
           <name>Indexes</name>
           <id>58</id>
           <title>
+            <key>ru</key>
+            <value>Индексы</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Indexes</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Индексы</value>
+            <key>tr</key>
+            <value>Dizinler</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -3851,10 +3946,8 @@ The utility is included in the delivery of tools.</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.Result.CurrentData.Indexes.StorageIndexName</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.Result.CurrentData.Indexes.StorageIndexName</segments>
             </dataPath>
             <extendedTooltip>
               <name>IndexesStorageIndexNameExtendedTooltip</name>
@@ -3940,6 +4033,7 @@ The utility is included in the delivery of tools.</value>
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>Indexes</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3978,6 +4072,7 @@ The utility is included in the delivery of tools.</value>
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>Indexes</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -4017,6 +4112,7 @@ The utility is included in the delivery of tools.</value>
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>Indexes</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -4076,12 +4172,16 @@ The utility is included in the delivery of tools.</value>
           <name>IndexesFields</name>
           <id>45</id>
           <title>
+            <key>ru</key>
+            <value>Поля индексов</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Indexes fields</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Поля индексов</value>
+            <key>tr</key>
+            <value>Dizin alanları</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -4100,10 +4200,8 @@ The utility is included in the delivery of tools.</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.Indexes.CurrentData.IndexFields.StorageFieldName</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.Indexes.CurrentData.IndexFields.StorageFieldName</segments>
             </dataPath>
             <extendedTooltip>
               <name>IndexesFieldsStorageFieldNameExtendedTooltip</name>
@@ -4152,10 +4250,8 @@ The utility is included in the delivery of tools.</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.Indexes.CurrentData.IndexFields.FieldName</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.Indexes.CurrentData.IndexFields.FieldName</segments>
             </dataPath>
             <extendedTooltip>
               <name>IndexesFieldsFieldNameExtendedTooltip</name>
@@ -4204,10 +4300,8 @@ The utility is included in the delivery of tools.</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.Indexes.CurrentData.IndexFields.Metadata</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.Indexes.CurrentData.IndexFields.Metadata</segments>
             </dataPath>
             <extendedTooltip>
               <name>IndexesFieldsMetadataExtendedTooltip</name>
@@ -4293,6 +4387,7 @@ The utility is included in the delivery of tools.</value>
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>IndexesFields</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -4331,6 +4426,7 @@ The utility is included in the delivery of tools.</value>
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>IndexesFields</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -4370,6 +4466,7 @@ The utility is included in the delivery of tools.</value>
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>IndexesFields</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -4436,6 +4533,10 @@ The utility is included in the delivery of tools.</value>
         <title>
           <key>en</key>
           <value>Indexes</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Dizinler</value>
         </title>
         <extendedTooltip>
           <name>PageIndicesGroupExtendedTooltip</name>
@@ -4534,10 +4635,6 @@ The utility is included in the delivery of tools.</value>
     <autoFill>true</autoFill>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>OnCreateAtServer</name>
-  </handlers>
-  <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
@@ -4545,7 +4642,12 @@ The utility is included in the delivery of tools.</value>
     <event>OnLoadDataFromSettingsAtServer</event>
     <name>OnLoadDataFromSettingsAtServer</name>
   </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
+  </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -4565,6 +4667,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Object</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_DatabaseStorageStructure</types>
@@ -4580,12 +4686,16 @@ The utility is included in the delivery of tools.</value>
   <attributes>
     <name>DataBaseStructureAddress</name>
     <title>
+      <key>ru</key>
+      <value>Адрес структуры базы</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Database structure address</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Адрес структуры базы</value>
+      <key>tr</key>
+      <value>Veritabanı yapı adresi</value>
     </title>
     <id>3</id>
     <valueType>
@@ -4602,12 +4712,16 @@ The utility is included in the delivery of tools.</value>
   <attributes>
     <name>Result</name>
     <title>
+      <key>ru</key>
+      <value>Результат</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Result</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Результат</value>
+      <key>tr</key>
+      <value>Sonuç</value>
     </title>
     <id>4</id>
     <valueType>
@@ -4622,12 +4736,16 @@ The utility is included in the delivery of tools.</value>
     <columns>
       <name>TableName</name>
       <title>
+        <key>ru</key>
+        <value>Имя таблицы</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Table name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Имя таблицы</value>
+        <key>tr</key>
+        <value>Tablo adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -4644,12 +4762,16 @@ The utility is included in the delivery of tools.</value>
     <columns>
       <name>Metadata</name>
       <title>
+        <key>ru</key>
+        <value>Метаданные</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Metadata</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Метаданные</value>
+        <key>tr</key>
+        <value>Metaveri</value>
       </title>
       <id>2</id>
       <valueType>
@@ -4666,12 +4788,16 @@ The utility is included in the delivery of tools.</value>
     <columns>
       <name>Purpose</name>
       <title>
+        <key>ru</key>
+        <value>Назначение</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Purpose</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Назначение</value>
+        <key>tr</key>
+        <value>Amaç</value>
       </title>
       <id>3</id>
       <valueType>
@@ -4688,12 +4814,16 @@ The utility is included in the delivery of tools.</value>
     <columns>
       <name>StorageTableName</name>
       <title>
+        <key>ru</key>
+        <value>Имя таблицы хранения</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Storage table name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Имя таблицы хранения</value>
+        <key>tr</key>
+        <value>Depolama tablosu adı</value>
       </title>
       <id>4</id>
       <valueType>
@@ -4743,6 +4873,10 @@ The utility is included in the delivery of tools.</value>
         <key>en</key>
         <value>Metadata object type</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Metaveri nesnesi türü</value>
+      </title>
       <id>26</id>
       <valueType>
         <types>String</types>
@@ -4764,6 +4898,10 @@ The utility is included in the delivery of tools.</value>
       <title>
         <key>en</key>
         <value>Total reserved (KB)</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Toplam rezerv (KB)</value>
       </title>
       <id>27</id>
       <valueType>
@@ -4790,6 +4928,10 @@ The utility is included in the delivery of tools.</value>
         <key>en</key>
         <value>Row count</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Satır sayısı</value>
+      </title>
       <id>28</id>
       <valueType>
         <types>Number</types>
@@ -4814,6 +4956,10 @@ The utility is included in the delivery of tools.</value>
         <key>en</key>
         <value>Found</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Bulundu</value>
+      </title>
       <id>29</id>
       <valueType>
         <types>Boolean</types>
@@ -4834,6 +4980,10 @@ The utility is included in the delivery of tools.</value>
       <title>
         <key>en</key>
         <value>Data (KB)</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Veri (KB)</value>
       </title>
       <id>30</id>
       <valueType>
@@ -4860,6 +5010,10 @@ The utility is included in the delivery of tools.</value>
         <key>en</key>
         <value>Indexes (KB)</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Endeksler (KB)</value>
+      </title>
       <id>31</id>
       <valueType>
         <types>Number</types>
@@ -4885,6 +5039,10 @@ The utility is included in the delivery of tools.</value>
         <key>en</key>
         <value>Free (KB)</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Boş (KB)</value>
+      </title>
       <id>32</id>
       <valueType>
         <types>Number</types>
@@ -4907,12 +5065,16 @@ The utility is included in the delivery of tools.</value>
       <columns>
         <name>StorageFieldName</name>
         <title>
+          <key>ru</key>
+          <value>Имя поля хранения</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Storage field name</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Имя поля хранения</value>
+          <key>tr</key>
+          <value>Depolama alanı adı</value>
         </title>
         <id>1</id>
         <valueType>
@@ -4929,12 +5091,16 @@ The utility is included in the delivery of tools.</value>
       <columns>
         <name>FieldName</name>
         <title>
+          <key>ru</key>
+          <value>Имя поля</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Field name</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Имя поля</value>
+          <key>tr</key>
+          <value>Alan adı</value>
         </title>
         <id>2</id>
         <valueType>
@@ -4951,12 +5117,16 @@ The utility is included in the delivery of tools.</value>
       <columns>
         <name>Metadata</name>
         <title>
+          <key>ru</key>
+          <value>Метаданные</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Metadata</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Метаданные</value>
+          <key>tr</key>
+          <value>Metaveri</value>
         </title>
         <id>3</id>
         <valueType>
@@ -4978,12 +5148,16 @@ The utility is included in the delivery of tools.</value>
       <columns>
         <name>StorageIndexName</name>
         <title>
+          <key>ru</key>
+          <value>Имя индекса</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Index name</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Имя индекса</value>
+          <key>tr</key>
+          <value>Dizin adı</value>
         </title>
         <id>1</id>
         <valueType>
@@ -5018,12 +5192,16 @@ The utility is included in the delivery of tools.</value>
       <columns>
         <name>StorageFieldName</name>
         <title>
+          <key>ru</key>
+          <value>Имя поля хранения</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Storage field name</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Имя поля хранения</value>
+          <key>tr</key>
+          <value>Depolama alanı adı</value>
         </title>
         <id>1</id>
         <valueType>
@@ -5040,12 +5218,16 @@ The utility is included in the delivery of tools.</value>
       <columns>
         <name>FieldName</name>
         <title>
+          <key>ru</key>
+          <value>Имя поля</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Field name</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Имя поля</value>
+          <key>tr</key>
+          <value>Alan adı</value>
         </title>
         <id>2</id>
         <valueType>
@@ -5062,12 +5244,16 @@ The utility is included in the delivery of tools.</value>
       <columns>
         <name>Metadata</name>
         <title>
+          <key>ru</key>
+          <value>Метаданные</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Metadata</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Метаданные</value>
+          <key>tr</key>
+          <value>Metaveri</value>
         </title>
         <id>3</id>
         <valueType>
@@ -5086,12 +5272,16 @@ The utility is included in the delivery of tools.</value>
   <attributes>
     <name>IncludingFields</name>
     <title>
+      <key>ru</key>
+      <value>Включая поля</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Including fields</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Включая поля</value>
+      <key>tr</key>
+      <value>Alanlar dahil</value>
     </title>
     <id>8</id>
     <valueType>
@@ -5110,12 +5300,16 @@ The utility is included in the delivery of tools.</value>
   <attributes>
     <name>ExactMap</name>
     <title>
+      <key>ru</key>
+      <value>Точное соответствие</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Exact map</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Точное соответствие</value>
+      <key>tr</key>
+      <value>Tam harita</value>
     </title>
     <id>9</id>
     <valueType>
@@ -5134,12 +5328,16 @@ The utility is included in the delivery of tools.</value>
   <attributes>
     <name>Filter</name>
     <title>
+      <key>ru</key>
+      <value>Отбор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Filter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отбор</value>
+      <key>tr</key>
+      <value>Filtre</value>
     </title>
     <id>10</id>
     <valueType>
@@ -5162,6 +5360,10 @@ The utility is included in the delivery of tools.</value>
     <title>
       <key>en</key>
       <value>User</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kullanıcı</value>
     </title>
     <id>11</id>
     <valueType>
@@ -5188,6 +5390,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Data base</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Veri tabanı</value>
+    </title>
     <id>12</id>
     <valueType>
       <types>String</types>
@@ -5213,6 +5419,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Table size unit</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tablo boyutu birimi</value>
+    </title>
     <id>13</id>
     <valueType>
       <types>String</types>
@@ -5236,6 +5446,10 @@ The utility is included in the delivery of tools.</value>
     <title>
       <key>en</key>
       <value>Password</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Parola</value>
     </title>
     <id>16</id>
     <valueType>
@@ -5262,6 +5476,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Utility path</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yardımcı programa giden yol</value>
+    </title>
     <id>17</id>
     <valueType>
       <types>String</types>
@@ -5287,6 +5505,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Base table dimensions</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Veritabanı tablolarının boyutları</value>
+    </title>
     <id>19</id>
     <valueType>
       <types>ValueTable</types>
@@ -5306,6 +5528,10 @@ The utility is included in the delivery of tools.</value>
       <title>
         <key>en</key>
         <value>Total reserved (KB)</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Toplam rezerv (KB)</value>
       </title>
       <id>20</id>
       <valueType>
@@ -5332,6 +5558,10 @@ The utility is included in the delivery of tools.</value>
         <key>en</key>
         <value>Table name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Tablo adı</value>
+      </title>
       <id>21</id>
       <valueType>
         <types>String</types>
@@ -5353,6 +5583,10 @@ The utility is included in the delivery of tools.</value>
       <title>
         <key>en</key>
         <value>Row count</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Satır sayısı</value>
       </title>
       <id>22</id>
       <valueType>
@@ -5377,6 +5611,10 @@ The utility is included in the delivery of tools.</value>
       <title>
         <key>en</key>
         <value> Data (KB)</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Veri (KB)</value>
       </title>
       <id>23</id>
       <valueType>
@@ -5403,6 +5641,10 @@ The utility is included in the delivery of tools.</value>
         <key>en</key>
         <value>Index size (KB)</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Dizin boyutu (KB)</value>
+      </title>
       <id>24</id>
       <valueType>
         <types>Number</types>
@@ -5427,6 +5669,10 @@ The utility is included in the delivery of tools.</value>
       <title>
         <key>en</key>
         <value>Free (KB)</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Boş (KB)</value>
       </title>
       <id>25</id>
       <valueType>
@@ -5454,6 +5700,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Server</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sunucu</value>
+    </title>
     <id>33</id>
     <valueType>
       <types>String</types>
@@ -5478,6 +5728,10 @@ The utility is included in the delivery of tools.</value>
     <title>
       <key>en</key>
       <value>Method for determining the size of tables</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Tabloların boyutunu belirleme yöntemi</value>
     </title>
     <id>34</id>
     <valueType>
@@ -5504,6 +5758,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Methods for obtaining database tables size</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Veritabanı tablolarının boyutunu elde etme yöntemleri</value>
+    </title>
     <id>35</id>
     <valueType/>
     <view>
@@ -5522,6 +5780,10 @@ The utility is included in the delivery of tools.</value>
     <title>
       <key>en</key>
       <value>Filter by types of metadata objects</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Metaveri nesnelerinin türlerine göre filtrele</value>
     </title>
     <id>36</id>
     <valueType>
@@ -5547,6 +5809,10 @@ The utility is included in the delivery of tools.</value>
       <key>en</key>
       <value>Filter by appointments</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Amaçlara göre filtreleme</value>
+    </title>
     <id>37</id>
     <valueType>
       <types>ValueList</types>
@@ -5564,12 +5830,16 @@ The utility is included in the delivery of tools.</value>
   <formCommands>
     <name>SetFilter</name>
     <title>
+      <key>ru</key>
+      <value>Установить отбор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Set filter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Установить отбор</value>
+      <key>tr</key>
+      <value>Filtre ayarla</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -5599,6 +5869,10 @@ The utility is included in the delivery of tools.</value>
     <title>
       <key>en</key>
       <value>Update database table size</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Veritabanı tablo boyutunu güncelle</value>
     </title>
     <id>2</id>
     <use>

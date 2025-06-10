@@ -83,7 +83,7 @@ EndProcedure
 Procedure BeforeClose(Cancel, Exit, WarningText, StandardProcessing)
 	
 	NotifyDescription = New NotifyDescription("ConfirmAndClose", ThisObject);
-	QuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Сохранить изменения в %1?'; en = 'Do you want to save the changes you made to %1?'"), DocumentName);
+	QuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(NStr("ru = 'Сохранить изменения в %1?'; en = 'Do you want to save the changes you made to %1?'; tr = '%1''de yaptığınız değişiklikleri kaydetmek istiyor musunuz?'"), DocumentName);
 	UT_CommonClient.ShowQuestionToUser(NotifyDescription, QuestionText , QuestionDialogMode.YesNo);
 	
 	If Modified Or Exit Then
@@ -229,10 +229,10 @@ EndProcedure
 Procedure Translate(Command)
 	
 	QuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(
-		NStr("ru = 'Выполнить автоматический перевод на %1 язык?'; en = 'Do you want to automatically translate this template to %1 language?'"), Items.Language.Title);
+		NStr("ru = 'Выполнить автоматический перевод на %1 язык?'; en = 'Do you want to automatically translate this template to %1 language?'; tr = 'Bu şablonun otomatik olarak %1 diline çevrilmesini ister misiniz?'"), Items.Language.Title);
 	Buttons = New ValueList;
-	Buttons.Add(DialogReturnCode.Yes, NStr("ru = 'Выполнить перевод'; en = 'Translate'"));
-	Buttons.Add(DialogReturnCode.No, NStr("ru = 'Не выполнять'; en = 'Do not translate'"));
+	Buttons.Add(DialogReturnCode.Yes, NStr("ru = 'Выполнить перевод'; en = 'Translate'; tr = 'Çevir'"));
+	Buttons.Add(DialogReturnCode.No, NStr("ru = 'Не выполнять'; en = 'Do not translate'; tr = 'Çevirme'"));
 	
 	NotifyDescription = New NotifyDescription("OnAnswerTemplateTranslationQuestion", ThisObject);
 	ShowQueryBox(NotifyDescription, QuestionText, Buttons);
@@ -443,7 +443,7 @@ Procedure StartFileSavingDialog(Val CompletionHandler)
 	SaveFileDialog = New FileDialog(FileDialogMode.Save);
 	SaveFileDialog.FullFileName = UT_CommonClientServer.ReplaceProhibitedCharsInFileName(
 		DocumentName);
-	SaveFileDialog.Filter = NStr("ru = 'Табличный документ'; en = 'Spreadsheet documents'") + " (*.mxl)|*.mxl";
+	SaveFileDialog.Filter = NStr("ru = 'Табличный документ'; en = 'Spreadsheet documents'; tr = 'E-tablo belgeleri (Spreadsheet documents)'") + " (*.mxl)|*.mxl";
 	
 	CallbackDescription = New CallbackDescription("OnCompleteFileSelectionDialog", ThisObject, CompletionHandler);
 	UT_CommonClient.ShowFileDialog(CallbackDescription, SaveFileDialog);
@@ -495,7 +495,7 @@ EndFunction
 	
 &AtClient
 Function NewDocumentName()
-	Return NStr("ru = 'Новый'; en = 'New'");
+	Return NStr("ru = 'Новый'; en = 'New'; tr = 'Yeni'");
 EndFunction
 
 &AtClient
@@ -503,9 +503,9 @@ Procedure SetTitle()
 	
 	Title = DocumentName;
 	If IsNew() Then
-		Title = Title + " (" + NStr("ru = 'создание'; en = 'create'") + ")";
+		Title = Title + " (" + NStr("ru = 'создание'; en = 'create'; tr = 'oluşturmak'") + ")";
 	ElsIf EditingDenied Then
-		Title = Title + " (" + NStr("ru = 'только просмотр'; en = 'read-only'") + ")";
+		Title = Title + " (" + NStr("ru = 'только просмотр'; en = 'read-only'; tr = 'sadece görüntü'") + ")";
 	EndIf;
 	
 EndProcedure
@@ -598,11 +598,12 @@ Procedure Attachable_OnSwitchLanguage(LanguageCode, AdditionalParameters) Export
 	If TranslationRequired And AutoTranslationAvailable Then
 		QuestionText = UT_StringFunctionsClientServer.SubstituteParametersToString(
 			NStr("ru = 'Макет еще не переведен на %1 язык.
-			|Выполнить автоматический перевод?'; en = 'This template is not translated to %1 language yet.
-			|Do you want to automatically translate it?'"), Items.Language.Title);
+														 |Выполнить автоматический перевод?'; en = 'This template is not translated to %1 language yet.
+														 |Do you want to automatically translate it?'; tr = 'Bu şablon henüz %1 diline çevrilmedi.
+														 |Otomatik olarak çevirmek ister misiniz?'"), Items.Language.Title);
 		Buttons = New ValueList;
-		Buttons.Add(DialogReturnCode.Yes, NStr("ru = 'Выполнить перевод'; en = 'Translate'"));
-		Buttons.Add(DialogReturnCode.No, NStr("ru = 'Не выполнять'; en = 'Do not translate'"));
+		Buttons.Add(DialogReturnCode.Yes, NStr("ru = 'Выполнить перевод'; en = 'Translate'; tr = 'Çevir'"));
+		Buttons.Add(DialogReturnCode.No, NStr("ru = 'Не выполнять'; en = 'Do not translate'; tr = 'Çevirme'"));
 		
 		NotifyDescription = New NotifyDescription("OnAnswerTemplateTranslationQuestion", ThisObject);
 		ShowQueryBox(NotifyDescription, QuestionText, Buttons);

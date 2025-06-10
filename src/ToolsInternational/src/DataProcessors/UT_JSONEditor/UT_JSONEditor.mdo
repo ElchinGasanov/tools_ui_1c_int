@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_JSONEditor</name>
   <synonym>
+    <key>ru</key>
+    <value>Редактор JSON [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>JSON Editor [UT]</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Редактор JSON [УИ]</value>
+    <key>tr</key>
+    <value>JSON Düzenleyici [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_JSONEditor.Form.Form</defaultForm>
@@ -27,6 +31,10 @@
     <name>Form</name>
     <synonym>
       <key>ru</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
       <value>Form</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>

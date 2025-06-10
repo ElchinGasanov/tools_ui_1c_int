@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_DebugData</name>
   <synonym>
+    <key>ru</key>
+    <value>Данные для отладки [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>{} Debug data (UT)</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Данные для отладки [УИ]</value>
+    <key>tr</key>
+    <value>Hata ayıklama verileri [UT]</value>
   </synonym>
   <defaultForm>DataProcessor.UT_DebugData.Form.Form</defaultForm>
   <extendedPresentation>
@@ -30,14 +34,19 @@
   <commands uuid="be758a7f-6d7b-4119-a854-a9fe973dee27">
     <name>DebugData</name>
     <synonym>
+      <key>ru</key>
+      <value>Debug data</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Debug data</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Debug data</value>
+      <key>tr</key>
+      <value>Hata ayıklama verileri</value>
     </synonym>
     <group>NavigationPanelOrdinary</group>
+    <commandParameterType/>
     <representation>Auto</representation>
   </commands>
 </mdclass:DataProcessor>

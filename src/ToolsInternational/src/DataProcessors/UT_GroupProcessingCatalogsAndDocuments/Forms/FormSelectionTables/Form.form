@@ -23,10 +23,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>TreeTable.Check</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>TreeTable.Check</segments>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -73,10 +71,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>TreeTable.RepresentationTable</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>TreeTable.RepresentationTable</segments>
         </dataPath>
         <extendedTooltip>
           <name>TreeTableRepresentationTableExtendedTooltip</name>
@@ -163,10 +159,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>TreeTable.TableName</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>TreeTable.TableName</segments>
       </dataPath>
       <extendedTooltip>
         <name>TreeTableTableNameExtendedTooltip</name>
@@ -310,6 +304,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>TreeTable</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -348,6 +343,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>TreeTable</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -387,6 +383,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>TreeTable</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -516,6 +513,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -530,6 +528,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -552,6 +554,10 @@
     <title>
       <key>en</key>
       <value>List of selected</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Seçilmişlerin listesi</value>
     </title>
     <id>2</id>
     <valueType>
@@ -577,6 +583,10 @@
       <key>en</key>
       <value>Tree table</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tablolar ağacı</value>
+    </title>
     <id>3</id>
     <valueType>
       <types>ValueTree</types>
@@ -596,6 +606,10 @@
       <title>
         <key>en</key>
         <value>Table name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Tablo adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -619,6 +633,10 @@
         <key>en</key>
         <value>Representation table</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Tablo görünümü</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -640,6 +658,10 @@
       <title>
         <key>en</key>
         <value>Check</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İşaret</value>
       </title>
       <id>3</id>
       <valueType>
@@ -666,6 +688,10 @@
       <key>en</key>
       <value>Object type</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne türü</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>Number</types>
@@ -690,6 +716,10 @@
       <key>en</key>
       <value>Process tabular parts</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tablo bölümlerini işleme</value>
+    </title>
     <id>5</id>
     <valueType>
       <types>Boolean</types>
@@ -710,6 +740,10 @@
     <title>
       <key>en</key>
       <value>Choose</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Seç</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -736,6 +770,10 @@
       <key>en</key>
       <value>Set marks</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İşaretle</value>
+    </title>
     <id>2</id>
     <use>
       <common>true</common>
@@ -759,6 +797,10 @@
     <title>
       <key>en</key>
       <value>Remove marks</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>İşaretleri kaldır</value>
     </title>
     <id>3</id>
     <use>

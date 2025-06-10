@@ -41,7 +41,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	If IsArray Then
 		Items.ListTableCheck.Visible = False;
 		Items.ListTablePresentation.Visible = False;
-		Title = NStr("ru = 'Редактор массива'; en = 'Array editor'");
+		Title = NStr("ru = 'Редактор массива'; en = 'Array editor'; tr = 'Dizi düzenleyici'");
 	EndIf;
 	
 	ReadListOfValuesInTable(ValueListSource);

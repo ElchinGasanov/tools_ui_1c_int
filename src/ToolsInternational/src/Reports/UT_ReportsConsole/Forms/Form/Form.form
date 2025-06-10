@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Reports console</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Console of data composition system</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Reports console</value>
+    <key>tr</key>
+    <value>Veri oluşturma sisteminin konsolu</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>MainCommandBar</name>
@@ -27,6 +31,10 @@
           <title>
             <key>en</key>
             <value>New reports file</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Yeni rapor dosyası</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -67,6 +75,10 @@
             <key>en</key>
             <value>Open reports file</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Raporlar dosyasını aç</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -105,6 +117,10 @@
           <title>
             <key>en</key>
             <value>Save reports to file</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Raporları dosyaya kaydet</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -145,6 +161,10 @@
             <key>en</key>
             <value>Save reports to file AS</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Raporları dosyaya farklı kaydet:</value>
+          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -179,12 +199,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Файл</value>
+        </title>
+        <title>
           <key>en</key>
           <value>File</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Файл</value>
+          <key>tr</key>
+          <value>Dosya</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -220,6 +244,10 @@
         <title>
           <key>en</key>
           <value>Generate</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Oluştur</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -259,6 +287,10 @@
         <key>en</key>
         <value>Actions command bar</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Eylemler komut çubuğu</value>
+      </title>
       <toolTip>
         <key>ru</key>
         <value>Командная панель действий</value>
@@ -296,6 +328,10 @@
         <title>
           <key>en</key>
           <value>Settings</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Ayarlar</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -335,6 +371,10 @@
           <key>en</key>
           <value>Button results panel</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Düğme sonuçları paneli</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -372,6 +412,10 @@
         <key>en</key>
         <value>Actions on panels command bar</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Panel komut çubuğundaki eylemler</value>
+      </title>
       <toolTip>
         <key>ru</key>
         <value>Командная панель действий над панелями</value>
@@ -404,6 +448,10 @@
     <title>
       <key>en</key>
       <value>Main command bar</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ana komut çubuğu</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -449,6 +497,10 @@
           <key>en</key>
           <value>Reports tree</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Rapor ağacı</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -475,10 +527,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>ReportsTree.RowType</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ReportsTree.RowType</segments>
             </dataPath>
             <extendedTooltip>
               <name>ReportsTreeRowTypeExtendedTooltip</name>
@@ -513,6 +563,10 @@
               <autoMaxHeight>true</autoMaxHeight>
               <horizontalStretch>true</horizontalStretch>
               <verticalStretch>true</verticalStretch>
+              <border xsi:type="core:BorderDef">
+                <style>Single</style>
+                <width>1</width>
+              </border>
             </extInfo>
           </items>
           <items xsi:type="form:FormField">
@@ -527,10 +581,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>ReportsTree.Name</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ReportsTree.Name</segments>
             </dataPath>
             <extendedTooltip>
               <name>ReportsTreeNameExtendedTooltip</name>
@@ -580,6 +632,10 @@
             <key>en</key>
             <value>Group</value>
           </title>
+          <title>
+            <key>tr</key>
+            <value>Group</value>
+          </title>
           <extendedTooltip>
             <name>GroupExtendedTooltip</name>
             <id>392</id>
@@ -614,6 +670,10 @@
             <title>
               <key>en</key>
               <value>Add data composition schema</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Veri kompozisyon şemasını ekle</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -659,6 +719,10 @@
               <key>en</key>
               <value>Reports tree standart commands</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Rapor ağacı standart komutları</value>
+            </title>
             <toolTip>
               <key>en</key>
               <value>Report Tree standart commands</value>
@@ -697,6 +761,10 @@
               <key>en</key>
               <value>Data composition schema wizard</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Veri kompozisyon şeması sihirbazı</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -720,11 +788,11 @@
             </extendedTooltip>
             <commandName>Form.Command.DataCompositionSchemaWizard</commandName>
             <representation>Picture</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>ReportsTreeOpenInQueryConsole</name>
@@ -736,6 +804,10 @@
             <title>
               <key>en</key>
               <value>Open in query console</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Sorgu konsolunda aç</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -820,6 +892,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>ReportsTree</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -858,6 +931,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>ReportsTree</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -897,6 +971,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>ReportsTree</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -929,6 +1004,10 @@
             <title>
               <key>en</key>
               <value>Add data composition schema</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Veri kompozisyon şemasını ekle</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -974,6 +1053,10 @@
               <key>en</key>
               <value>Reports tree standart commands context menu</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Raporlar ağaç standart komutları bağlam menüsü</value>
+            </title>
             <toolTip>
               <key>ru</key>
               <value>Стандартные команды дерева отчета контекстное меню</value>
@@ -1007,6 +1090,10 @@
             <title>
               <key>en</key>
               <value>Data composition schema wizard</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Veri kompozisyon şeması sihirbazı</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -1046,6 +1133,10 @@
             <title>
               <key>en</key>
               <value>Open in query console</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Sorgu konsolunda aç</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -1117,6 +1208,10 @@
         <key>en</key>
         <value>Group reports</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Grup raporları</value>
+      </title>
       <toolTip>
         <key>ru</key>
         <value>Группа отчетов</value>
@@ -1180,16 +1275,16 @@
             <name>StructureOnActivateRow</name>
           </handlers>
           <handlers>
-            <event>OnChange</event>
-            <name>SettingsOnChange</name>
+            <event>OnActivateField</event>
+            <name>StructureOnActivateField</name>
           </handlers>
           <handlers>
             <event>DragEnd</event>
             <name>SettingsDragEnd</name>
           </handlers>
           <handlers>
-            <event>OnActivateField</event>
-            <name>StructureOnActivateField</name>
+            <event>OnChange</event>
+            <name>SettingsOnChange</name>
           </handlers>
           <searchStringAddition>
             <visible>true</visible>
@@ -1224,6 +1319,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>Structure</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1262,6 +1358,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>Structure</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -1301,6 +1398,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>Structure</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1428,6 +1526,7 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
+                <source>DataParameters</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -1466,6 +1565,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
+                <source>DataParameters</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -1505,6 +1605,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
+                <source>DataParameters</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -1572,6 +1673,10 @@
               <key>en</key>
               <value>Parameters</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Parametreler</value>
+            </title>
             <extendedTooltip>
               <name>PageDataParametersExtendedTooltip</name>
               <id>417</id>
@@ -1605,6 +1710,10 @@
               <title>
                 <key>ru</key>
                 <value>Пользовательские поля</value>
+              </title>
+              <title>
+                <key>tr</key>
+                <value>Özel alanlar</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1668,6 +1777,7 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
+                <source>UserFields</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -1706,6 +1816,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
+                <source>UserFields</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -1745,6 +1856,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
+                <source>UserFields</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -1811,6 +1923,10 @@
               <key>en</key>
               <value>User fields</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Özel alanlar</value>
+            </title>
             <extendedTooltip>
               <name>PageUserFieldsExtendedTooltip</name>
               <id>428</id>
@@ -1849,6 +1965,10 @@
                   <title>
                     <key>en</key>
                     <value>Available group fields</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Mevcut gruplabanilir alanlar</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1912,6 +2032,7 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>AvailableGroupFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -1950,6 +2071,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>AvailableGroupFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -1989,6 +2111,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>AvailableGroupFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2051,6 +2174,10 @@
                     <key>en</key>
                     <value>Group fields</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Gruplanan alanlar</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -2073,16 +2200,16 @@
                     <autoFill>true</autoFill>
                   </autoCommandBar>
                   <handlers>
+                    <event>Drag</event>
+                    <name>SettingsDrag</name>
+                  </handlers>
+                  <handlers>
                     <event>DragEnd</event>
                     <name>SettingsDragEnd</name>
                   </handlers>
                   <handlers>
                     <event>OnChange</event>
                     <name>SettingsOnChange</name>
-                  </handlers>
-                  <handlers>
-                    <event>Drag</event>
-                    <name>SettingsDrag</name>
                   </handlers>
                   <searchStringAddition>
                     <visible>true</visible>
@@ -2117,6 +2244,7 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>GroupFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2155,6 +2283,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>GroupFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -2194,6 +2323,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>GroupFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2256,6 +2386,10 @@
                   <key>en</key>
                   <value>Settings</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>Ayarlar</value>
+                </title>
                 <extendedTooltip>
                   <name>GroupFieldsSettingsExtendedTooltip</name>
                   <id>441</id>
@@ -2292,6 +2426,11 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                     <key>ru</key>
                     <value>Текущий элемент не может содержать поля группировки.
 Выберите в дереве структуры группировку, для которой требуется просмотреть или изменить состав полей группировки.</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğe gruplama alanları içeremez.
+Gruplama alanlarının bileşimini görüntülemek veya değiştirmek için yapı ağacında ilgili gruplamayı seçin.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2343,6 +2482,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                   <key>en</key>
                   <value>Unavailable group fields settings</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>Kullanılamayan grup alanı ayarları</value>
+                </title>
                 <extendedTooltip>
                   <name>UnavailableGroupFieldsSettingsExtendedTooltip</name>
                   <id>462</id>
@@ -2372,6 +2515,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
               <title>
                 <key>en</key>
                 <value>Pages group fields</value>
+              </title>
+              <title>
+                <key>tr</key>
+                <value>Sayfalar grup alanları</value>
               </title>
               <extendedTooltip>
                 <name>PagesGroupFieldsExtendedTooltip</name>
@@ -2405,6 +2552,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
             <title>
               <key>en</key>
               <value>Group fields</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Gruplanan alanlar</value>
             </title>
             <extendedTooltip>
               <name>PageGroupFieldsExtendedTooltip</name>
@@ -2444,15 +2595,17 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                 <key>en</key>
                 <value>The current item has its own settings for selected fields (for detailed item customization)</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Geçerli öğe, seçilen alanlar için (ayrıntılı özelleştirme amacıyla) kendi ayarlarına sahiptir.</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>LocalSelectedFields</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>LocalSelectedFields</segments>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -2502,6 +2655,14 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                   <id>30</id>
                   <title>
                     <key>ru</key>
+                    <value>Selection available fields</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Selection available fields</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
                     <value>Selection available fields</value>
                   </title>
                   <visible>true</visible>
@@ -2566,6 +2727,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>SelectionAvailableFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2604,6 +2766,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>SelectionAvailableFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -2643,6 +2806,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>SelectionAvailableFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2704,6 +2868,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                   <title>
                     <key>en</key>
                     <value>Selection fields</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Seçilen alanlar</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2771,6 +2939,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>SelectionFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2809,6 +2978,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>SelectionFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -2848,6 +3018,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>SelectionFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2912,6 +3083,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                   <key>en</key>
                   <value>Selected fields settings</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>Seçilen alanların ayarları</value>
+                </title>
                 <extendedTooltip>
                   <name>SelectedFieldsSettingsExtendedTooltip</name>
                   <id>467</id>
@@ -2950,6 +3125,12 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                     <value>The item adopts selected fields from the report.
 In the report structure tree, select the item and then select required fields.
 To add custom fields, select the check box above.</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğe için seçilen alanlar, raporun genelinde seçilen alanlara göre otomatik olarak oluşturulacaktır.
+Seçilen alanları düzenlemek için yapı ağacından “Rapor” öğesini seçin.
+Eğer geçerli öğenin, rapordakilerden farklı seçilen alanlara sahip olması gerekiyorsa, bu metnin üstünde bulunan onay kutusunu işaretleyin.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3003,6 +3184,10 @@ To add custom fields, select the check box above.</value>
                     <key>en</key>
                     <value>View selected report fields</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Seçili rapor alanlarını görüntüle</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -3055,6 +3240,10 @@ To add custom fields, select the check box above.</value>
                   <key>en</key>
                   <value>Selected fields disabled settings</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>Seçilen alanlarlın etkisiz ayarları</value>
+                </title>
                 <extendedTooltip>
                   <name>SelectedFieldsDisabledSettingsExtendedTooltip</name>
                   <id>488</id>
@@ -3091,6 +3280,11 @@ To add custom fields, select the check box above.</value>
                     <key>en</key>
                     <value>Cannot add selected fields to the item.
 In the report structure tree, select the item and then select required fields.</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğe için seçilen alanlar ayarlanamaz.
+Seçilen alanları düzenlemek için yapı ağacından “Rapor” öğesini seçin.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3143,6 +3337,10 @@ In the report structure tree, select the item and then select required fields.</
                   <title>
                     <key>en</key>
                     <value>View selected report fields</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Seçili rapor alanlarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3222,6 +3420,10 @@ In the report structure tree, select the item and then select required fields.</
                 <key>en</key>
                 <value>Pages selected fields</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Seçilmiş alanlar sayfası</value>
+              </title>
               <extendedTooltip>
                 <name>PagesSelectedFieldsExtendedTooltip</name>
                 <id>466</id>
@@ -3254,6 +3456,10 @@ In the report structure tree, select the item and then select required fields.</
             <title>
               <key>en</key>
               <value>Page selected fields</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Alanlar</value>
             </title>
             <extendedTooltip>
               <name>PageSelectedFieldsExtendedTooltip</name>
@@ -3293,15 +3499,17 @@ In the report structure tree, select the item and then select required fields.</
                 <key>en</key>
                 <value>Assign the item with personal filters to filter item records</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Öğe kayıtlarını filtrelemek için öğeye kişisel filtreler atayın.</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>LocalFilter</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>LocalFilter</segments>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -3411,6 +3619,7 @@ In the report structure tree, select the item and then select required fields.</
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>FilterAvailableFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3449,6 +3658,7 @@ In the report structure tree, select the item and then select required fields.</
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>FilterAvailableFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -3488,6 +3698,7 @@ In the report structure tree, select the item and then select required fields.</
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>FilterAvailableFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3612,6 +3823,7 @@ In the report structure tree, select the item and then select required fields.</
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>Filter</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3650,6 +3862,7 @@ In the report structure tree, select the item and then select required fields.</
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>Filter</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -3689,6 +3902,7 @@ In the report structure tree, select the item and then select required fields.</
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>Filter</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3794,6 +4008,12 @@ In the report structure tree, select the item and then select required fields.</
 In the structure tree, select the report and edit report filters.
 To assign the item with a personal filter, select the check box above.</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğede filtre ayarlanmadı.
+Raporun genel filtresini düzenlemek için yapı ağacından “Rapor” öğesini seçin.
+Eğer geçerli öğenin kendi filtresine sahip olması gerekiyorsa, bu metnin üstünde bulunan onay kutusunu işaretleyin.</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -3845,6 +4065,10 @@ To assign the item with a personal filter, select the check box above.</value>
                   <title>
                     <key>en</key>
                     <value>View report filters</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Rapor filtrelerini görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3935,6 +4159,11 @@ To assign the item with a personal filter, select the check box above.</value>
                     <value>Cannot assign filters to the item.
 In the structure tree, select the report and edit report filters.</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğeye filtre uygulanamaz.
+Raporun genel filtresini düzenlemek için yapı ağacından “Rapor” öğesini seçin.</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -3986,6 +4215,10 @@ In the structure tree, select the report and edit report filters.</value>
                   <title>
                     <key>en</key>
                     <value>View report filters</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Rapor filtrelerini görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4102,6 +4335,10 @@ In the structure tree, select the report and edit report filters.</value>
               <key>en</key>
               <value>Filter</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Filtre</value>
+            </title>
             <extendedTooltip>
               <name>PageFilterExtendedTooltip</name>
               <id>494</id>
@@ -4140,15 +4377,17 @@ In the structure tree, select the report and edit report filters.</value>
                 <key>en</key>
                 <value>Assign the item with personal sorts to sort item records</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Öğe kayıtlarını sıralamak için öğeye kişisel sıralamalar atayın</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>LocalOrder</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>LocalOrder</segments>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -4254,6 +4493,7 @@ In the structure tree, select the report and edit report filters.</value>
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>OrderAvailableFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -4292,6 +4532,7 @@ In the structure tree, select the report and edit report filters.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>OrderAvailableFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -4331,6 +4572,7 @@ In the structure tree, select the report and edit report filters.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>OrderAvailableFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -4455,6 +4697,7 @@ In the structure tree, select the report and edit report filters.</value>
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>Order</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -4493,6 +4736,7 @@ In the structure tree, select the report and edit report filters.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>Order</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -4532,6 +4776,7 @@ In the structure tree, select the report and edit report filters.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>Order</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -4633,6 +4878,12 @@ To assign the item with a personal sort, select the check box above.</value>
 Выберите в дереве структуры отчет для редактирования сортировки отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственную сортировку, установите флажок, расположенный над этим текстом.</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğede sıralama ayarlanmadı.
+Raporun genel sıralamasını düzenlemek için yapı ağacından “Rapor” öğesini seçin.
+Eğer geçerli öğenin kendi sıralamasına sahip olması gerekiyorsa, bu metnin üstünde bulunan onay kutusunu işaretleyin.</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -4684,6 +4935,10 @@ To assign the item with a personal sort, select the check box above.</value>
                   <title>
                     <key>en</key>
                     <value>View report sorts</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Raporun sıralamalarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4774,6 +5029,11 @@ To assign the item with a personal sort, select the check box above.</value>
                     <value>Cannot assign sorts to the item.
 In the structure tree, select the report and edit report sorts.</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğeye sıralama uygulanamaz.
+Raporun genel sıralamasını düzenlemek için yapı ağacından “Rapor” öğesini seçin.</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -4825,6 +5085,10 @@ In the structure tree, select the report and edit report sorts.</value>
                   <title>
                     <key>en</key>
                     <value>View report sorts</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Raporun sıralamalarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4941,6 +5205,10 @@ In the structure tree, select the report and edit report sorts.</value>
               <key>en</key>
               <value>Order</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Sıralama</value>
+            </title>
             <extendedTooltip>
               <name>OrderPageExtendedTooltip</name>
               <id>524</id>
@@ -4972,22 +5240,24 @@ In the structure tree, select the report and edit report sorts.</value>
               <name>LocalConditionalAppearance</name>
               <id>89</id>
               <title>
+                <key>ru</key>
+                <value>Текущий элемент имеет собственное условное оформление (для оформления записей, выводимых в элементе)</value>
+              </title>
+              <title>
                 <key>en</key>
                 <value>Assign the item with personal conditional appearance to format item records</value>
               </title>
               <title>
-                <key>ru</key>
-                <value>Текущий элемент имеет собственное условное оформление (для оформления записей, выводимых в элементе)</value>
+                <key>tr</key>
+                <value>Mevcut öğenin kendi koşullu biçimlendirmesi vardır (öğede görüntülenen girdileri biçimlendirmek için)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>LocalConditionalAppearance</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>LocalConditionalAppearance</segments>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -5105,6 +5375,7 @@ In the structure tree, select the report and edit report sorts.</value>
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>ConditionalAppearance</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -5143,6 +5414,7 @@ In the structure tree, select the report and edit report sorts.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>ConditionalAppearance</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -5182,6 +5454,7 @@ In the structure tree, select the report and edit report sorts.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>ConditionalAppearance</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -5283,6 +5556,12 @@ To assign the item with a personal conditional appearance, select the check box 
 Выберите в дереве структуры отчет для редактирования условного оформления отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственное условное оформление, установите флажок, расположенный над этим текстом.</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Öğe için koşullu görünüm atanmadı.
+Yapı ağacından raporu seçin ve raporun koşullu görünümünü düzenleyin.
+Öğenin kendi koşullu görünümüne sahip olmasını sağlamak için üstteki onay kutusunu işaretleyin.</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -5334,6 +5613,10 @@ To assign the item with a personal conditional appearance, select the check box 
                   <title>
                     <key>en</key>
                     <value>View report conditional appearance</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Raporun koşullu görünümünü görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5424,6 +5707,11 @@ To assign the item with a personal conditional appearance, select the check box 
                     <value>Cannot assign conditional appearance to the item.
 In the structure tree, select the report and edit report conditional appearance.</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Koşullu görünüm öğeye atanamaz.
+Yapı ağacından raporu seçin ve raporun koşullu görünümünü düzenleyin.</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -5475,6 +5763,10 @@ In the structure tree, select the report and edit report conditional appearance.
                   <title>
                     <key>en</key>
                     <value>View report conditional appearance</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Raporun koşullu görünümünü görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5591,6 +5883,10 @@ In the structure tree, select the report and edit report conditional appearance.
               <key>en</key>
               <value>Conditional appearance page</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Koşullu görünüm</value>
+            </title>
             <extendedTooltip>
               <name>ConditionalAppearancePageExtendedTooltip</name>
               <id>554</id>
@@ -5629,15 +5925,17 @@ In the structure tree, select the report and edit report conditional appearance.
                 <key>en</key>
                 <value>Assign the item with personal additional settings</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Öğeye kişisel ek ayarlar atayın</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>LocalOutputParameters</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>LocalOutputParameters</segments>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -5751,6 +6049,7 @@ In the structure tree, select the report and edit report conditional appearance.
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>OutputParameters</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -5789,6 +6088,7 @@ In the structure tree, select the report and edit report conditional appearance.
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>OutputParameters</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -5828,6 +6128,7 @@ In the structure tree, select the report and edit report conditional appearance.
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>OutputParameters</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -5929,6 +6230,12 @@ In the structure tree, select the report and edit report conditional appearance.
 In the structure tree, select the report and edit report additional settings.
 To assign the item with personal additional settings, select the check box above.</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğede ek ayarlar ayarlanmamış.
+Raporun genel ek ayarlarını düzenlemek için yapı ağacından raporu seçin.
+Eğer geçerli öğenin kendi ek ayarlarına sahip olması gerekiyorsa, bu metnin üstünde bulunan onay kutusunu işaretleyin.</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -5980,6 +6287,10 @@ To assign the item with personal additional settings, select the check box above
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к дополнительным настройкам отчета.</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Ek rapor ayarlarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -6070,6 +6381,11 @@ To assign the item with personal additional settings, select the check box above
                     <value>Cannot assign additional settings to the item.
 In the structure tree, select the report and edit additional report settings.</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Geçerli öğeye ek ayarlar uygulanamaz.
+Raporun genel ek ayarlarını düzenlemek için yapı ağacından raporu seçin.</value>
+                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -6121,6 +6437,10 @@ In the structure tree, select the report and edit additional report settings.</v
                   <title>
                     <key>en</key>
                     <value>View additional report settings</value>
+                  </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Ek rapor ayarlarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -6237,6 +6557,10 @@ In the structure tree, select the report and edit additional report settings.</v
               <key>en</key>
               <value>Output parameters page</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Ek ayarlar</value>
+            </title>
             <extendedTooltip>
               <name>OutputParametersPageExtendedTooltip</name>
               <id>574</id>
@@ -6269,6 +6593,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <title>
             <key>en</key>
             <value>Settings pages</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Ayarlar sayfaları</value>
           </title>
           <height>8</height>
           <extendedTooltip>
@@ -6304,6 +6632,10 @@ In the structure tree, select the report and edit additional report settings.</v
         <title>
           <key>en</key>
           <value>Settings</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Ayarlar</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -6401,6 +6733,7 @@ In the structure tree, select the report and edit additional report settings.</v
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>SettingsComposerUserSettings</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -6439,6 +6772,7 @@ In the structure tree, select the report and edit additional report settings.</v
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>SettingsComposerUserSettings</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -6478,6 +6812,7 @@ In the structure tree, select the report and edit additional report settings.</v
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>SettingsComposerUserSettings</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -6543,6 +6878,10 @@ In the structure tree, select the report and edit additional report settings.</v
         <title>
           <key>en</key>
           <value>User settings</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Özel ayarlar</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -6695,10 +7034,8 @@ In the structure tree, select the report and edit additional report settings.</v
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Items.ReportsTree.CurrentData.Data</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Items.ReportsTree.CurrentData.Data</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -6752,6 +7089,10 @@ In the structure tree, select the report and edit additional report settings.</v
         <title>
           <key>en</key>
           <value>XML сomposition schema</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>XML bileşim şeması</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -6881,6 +7222,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <key>en</key>
           <value>DCS Query</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>DCS sorgusu</value>
+        </title>
         <extendedTooltip>
           <name>GroupDCSQueryExtendedTooltip</name>
           <id>880</id>
@@ -6925,10 +7270,8 @@ In the structure tree, select the report and edit additional report settings.</v
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.ReportsTree.CurrentData.ExternalDataSets.Name</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.ReportsTree.CurrentData.ExternalDataSets.Name</segments>
             </dataPath>
             <extendedTooltip>
               <name>ExternalDataSetsNameExtendedTooltip</name>
@@ -6981,10 +7324,8 @@ In the structure tree, select the report and edit additional report settings.</v
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Items.ReportsTree.CurrentData.ExternalDataSets.Presentation</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Items.ReportsTree.CurrentData.ExternalDataSets.Presentation</segments>
             </dataPath>
             <extendedTooltip>
               <name>ExternalDataSetsPresentationExtendedTooltip</name>
@@ -7076,6 +7417,7 @@ In the structure tree, select the report and edit additional report settings.</v
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>ExternalDataSets</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7114,6 +7456,7 @@ In the structure tree, select the report and edit additional report settings.</v
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>ExternalDataSets</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7152,6 +7495,7 @@ In the structure tree, select the report and edit additional report settings.</v
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>ExternalDataSets</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7213,6 +7557,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <key>en</key>
           <value>External data sets</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Dış veri setleri</value>
+        </title>
         <extendedTooltip>
           <name>GroupExternalDataSetsExtendedTooltip</name>
           <id>852</id>
@@ -7247,6 +7595,10 @@ In the structure tree, select the report and edit additional report settings.</v
         <key>en</key>
         <value>Group settings</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarlar grupu</value>
+      </title>
       <toolTip>
         <key>ru</key>
         <value>Группа настроек</value>
@@ -7280,6 +7632,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Group settings and reports</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Grup ayarları ve raporları</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -7331,6 +7687,10 @@ In the structure tree, select the report and edit additional report settings.</v
               <key>en</key>
               <value>Save standart</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Standart kaydet</value>
+            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -7369,6 +7729,10 @@ In the structure tree, select the report and edit additional report settings.</v
             <title>
               <key>en</key>
               <value>Compare with standart</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Standartla karşılaştır</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -7443,10 +7807,8 @@ In the structure tree, select the report and edit additional report settings.</v
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>ResultSpreadsheetDocument</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>ResultSpreadsheetDocument</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -7481,12 +7843,12 @@ In the structure tree, select the report and edit additional report settings.</v
           <showInFooter>true</showInFooter>
           <extInfo xsi:type="form:SpreadSheetDocFieldExtInfo">
             <handlers>
-              <event>DetailProcessing</event>
-              <name>ResultSpreadsheetDocumentDetailProcessing</name>
-            </handlers>
-            <handlers>
               <event>AdditionalDetailProcessing</event>
               <name>ResultSpreadsheetDocumentAdditionalDetailProcessing</name>
+            </handlers>
+            <handlers>
+              <event>DetailProcessing</event>
+              <name>ResultSpreadsheetDocumentDetailProcessing</name>
             </handlers>
             <width>50</width>
             <autoMaxWidth>true</autoMaxWidth>
@@ -7498,6 +7860,7 @@ In the structure tree, select the report and edit additional report settings.</v
             <verticalScrollBar>ScrollAlways</verticalScrollBar>
             <horizontalScrollBar>ScrollAlways</horizontalScrollBar>
             <selectionShowMode>Always</selectionShowMode>
+            <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
             <showGroups>true</showGroups>
             <enableStartDrag>true</enableStartDrag>
             <enableDrag>true</enableDrag>
@@ -7509,12 +7872,16 @@ In the structure tree, select the report and edit additional report settings.</v
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Табличный документ</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Spreadsheet document</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Табличный документ</value>
+          <key>tr</key>
+          <value>E-tablo</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -7552,10 +7919,8 @@ In the structure tree, select the report and edit additional report settings.</v
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>TextOfDataCompositionTemplate</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>TextOfDataCompositionTemplate</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -7765,6 +8130,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <key>en</key>
           <value>Page data composition template</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Sayfa veri bileşimi şablonu</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Страница макет компоновки данных</value>
@@ -7801,10 +8170,8 @@ In the structure tree, select the report and edit additional report settings.</v
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>TextOfDataCompositionResult</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>TextOfDataCompositionResult</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -7991,6 +8358,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <key>en</key>
           <value>Page data composition result XML</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Sayfa veri bileşimi sonucu XML</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Страница результат компоновки данных XML</value>
@@ -8047,16 +8418,16 @@ In the structure tree, select the report and edit additional report settings.</v
               <autoFill>true</autoFill>
             </autoCommandBar>
             <handlers>
-              <event>OnChange</event>
-              <name>SettingsOnChange</name>
-            </handlers>
-            <handlers>
               <event>OnActivateRow</event>
               <name>Settings1OnActivateRow</name>
             </handlers>
             <handlers>
               <event>OnActivateField</event>
               <name>Settings1OnActivateField</name>
+            </handlers>
+            <handlers>
+              <event>OnChange</event>
+              <name>SettingsOnChange</name>
             </handlers>
             <searchStringAddition>
               <visible>true</visible>
@@ -8091,6 +8462,7 @@ In the structure tree, select the report and edit additional report settings.</v
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
+              <source>Settings1</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -8129,6 +8501,7 @@ In the structure tree, select the report and edit additional report settings.</v
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
+              <source>Settings1</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -8168,6 +8541,7 @@ In the structure tree, select the report and edit additional report settings.</v
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
+              <source>Settings1</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -8287,6 +8661,7 @@ In the structure tree, select the report and edit additional report settings.</v
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
+                  <source>DataParameters1</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -8325,6 +8700,7 @@ In the structure tree, select the report and edit additional report settings.</v
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
+                  <source>DataParameters1</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -8364,6 +8740,7 @@ In the structure tree, select the report and edit additional report settings.</v
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
+                  <source>DataParameters1</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -8430,6 +8807,10 @@ In the structure tree, select the report and edit additional report settings.</v
               <title>
                 <key>en</key>
                 <value>Page data parameters1</value>
+              </title>
+              <title>
+                <key>tr</key>
+                <value>Veri parametreleri sayfası</value>
               </title>
               <extendedTooltip>
                 <name>PageDataParameters1ExtendedTooltip</name>
@@ -8515,6 +8896,7 @@ In the structure tree, select the report and edit additional report settings.</v
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
+                  <source>UserFields1</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -8553,6 +8935,7 @@ In the structure tree, select the report and edit additional report settings.</v
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
+                  <source>UserFields1</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -8592,6 +8975,7 @@ In the structure tree, select the report and edit additional report settings.</v
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
+                  <source>UserFields1</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -8657,6 +9041,10 @@ In the structure tree, select the report and edit additional report settings.</v
               <title>
                 <key>en</key>
                 <value>Page user fields1</value>
+              </title>
+              <title>
+                <key>tr</key>
+                <value>Özel alanlar</value>
               </title>
               <extendedTooltip>
                 <name>PageUserFields1ExtendedTooltip</name>
@@ -8747,6 +9135,7 @@ In the structure tree, select the report and edit additional report settings.</v
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>GroupFieldsAvailableFields1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -8785,6 +9174,7 @@ In the structure tree, select the report and edit additional report settings.</v
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>GroupFieldsAvailableFields1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -8824,6 +9214,7 @@ In the structure tree, select the report and edit additional report settings.</v
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>GroupFieldsAvailableFields1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -8936,6 +9327,7 @@ In the structure tree, select the report and edit additional report settings.</v
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>GroupFields1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -8974,6 +9366,7 @@ In the structure tree, select the report and edit additional report settings.</v
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>GroupFields1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -9013,6 +9406,7 @@ In the structure tree, select the report and edit additional report settings.</v
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>GroupFields1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -9075,6 +9469,10 @@ In the structure tree, select the report and edit additional report settings.</v
                     <key>en</key>
                     <value>Group fields settings1</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Alanların ayarlar sayfası</value>
+                  </title>
                   <extendedTooltip>
                     <name>GroupFieldsSettings1ExtendedTooltip</name>
                     <id>662</id>
@@ -9111,6 +9509,11 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <key>ru</key>
                       <value>Текущий элемент не может содержать поля группировки.
 Выберите в дереве структуры группировку, для которой требуется просмотреть или изменить состав полей группировки.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğe, gruplama alanları içeremez.
+Yapı ağacından, gruplama alanlarının bileşimini görüntülemek veya değiştirmek için gruplamayı seçin.</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -9192,6 +9595,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                   <key>en</key>
                   <value>Group fields pages1</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>Gruplanan alanlar sayfası</value>
+                </title>
                 <extendedTooltip>
                   <name>GroupFieldsPages1ExtendedTooltip</name>
                   <id>661</id>
@@ -9225,6 +9632,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                 <key>en</key>
                 <value>Group fields page1</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Gruplanan ayarlar</value>
+              </title>
               <extendedTooltip>
                 <name>GroupFieldsPage1ExtendedTooltip</name>
                 <id>660</id>
@@ -9256,22 +9667,24 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                 <name>LocalSelectedFields1</name>
                 <id>205</id>
                 <title>
+                  <key>ru</key>
+                  <value>Текущий элемент имеет собственные настройки выбранных полей (для детальной настройки элемента)</value>
+                </title>
+                <title>
                   <key>en</key>
                   <value>Assign the item with personal field settings</value>
                 </title>
                 <title>
-                  <key>ru</key>
-                  <value>Текущий элемент имеет собственные настройки выбранных полей (для детальной настройки элемента)</value>
+                  <key>tr</key>
+                  <value>Öğeyi kişisel alan ayarlarıyla atayın</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:MultiLanguageDataPath">
-                  <paths xsi:type="form:DataPath">
-                    <segments>LocalSelectedFields1</segments>
-                  </paths>
+                <dataPath xsi:type="form:DataPath">
+                  <segments>LocalSelectedFields1</segments>
                 </dataPath>
                 <titleLocation>Right</titleLocation>
                 <handlers>
@@ -9373,6 +9786,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>AvailableSelectionFields1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -9411,6 +9825,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>AvailableSelectionFields1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -9450,6 +9865,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>AvailableSelectionFields1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -9562,6 +9978,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>SelectionFields1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -9600,6 +10017,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>SelectionFields1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -9639,6 +10057,7 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>SelectionFields1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -9703,6 +10122,10 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                     <key>en</key>
                     <value>Selected fields settings1</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Seçilen alanlar</value>
+                  </title>
                   <extendedTooltip>
                     <name>SelectedFieldsSettings1ExtendedTooltip</name>
                     <id>688</id>
@@ -9741,6 +10164,12 @@ To add custom fields, select the check box above.</value>
                       <value>Выбранные поля для текущего элемента будут автоматически формироваться на основании выбранных полей всего отчета.
 Выберите в дереве структуры элемент - отчет для редактирования его выбранных полей.
 Если необходимо, чтобы текущий элемент имел выбранные поля, отличные от выбранных полей отчета, установите флажок, расположенный над этим текстом.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Öğe, rapordan seçilen alanları alır.
+Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.
+Özel alanlar eklemek için üstteki onay kutusunu işaretleyin.</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -9793,6 +10222,10 @@ To add custom fields, select the check box above.</value>
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к выбранным полям отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Seçili rapor alanlarını görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -9883,6 +10316,11 @@ In the report structure tree, select the item and then select required fields.</
                       <value>У текущего элемента не могут быть установлены выбранные поля.
 Выберите в дереве структуры элемент - отчет для редактирования его выбранных полей.</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğeye seçilen alanlar atanamaz.
+Yapı ağacından öğe - rapor seçin ve raporun seçilen alanlarını düzenleyin.</value>
+                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -9934,6 +10372,10 @@ In the report structure tree, select the item and then select required fields.</
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к выбранным полям отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Seçili rapor alanlarını görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -10017,6 +10459,10 @@ In the report structure tree, select the item and then select required fields.</
                   <key>en</key>
                   <value>Pages selected fields1</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>Seçilen alanlar</value>
+                </title>
                 <extendedTooltip>
                   <name>PagesSelectedFields1ExtendedTooltip</name>
                   <id>687</id>
@@ -10049,6 +10495,10 @@ In the report structure tree, select the item and then select required fields.</
               <title>
                 <key>en</key>
                 <value>Page selected fields1</value>
+              </title>
+              <title>
+                <key>tr</key>
+                <value>Seçilen alanlar</value>
               </title>
               <extendedTooltip>
                 <name>PageSelectedFields1ExtendedTooltip</name>
@@ -10093,10 +10543,8 @@ In the report structure tree, select the item and then select required fields.</
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:MultiLanguageDataPath">
-                  <paths xsi:type="form:DataPath">
-                    <segments>LocalFilter1</segments>
-                  </paths>
+                <dataPath xsi:type="form:DataPath">
+                  <segments>LocalFilter1</segments>
                 </dataPath>
                 <titleLocation>Right</titleLocation>
                 <handlers>
@@ -10198,6 +10646,7 @@ In the report structure tree, select the item and then select required fields.</
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>FilterAvailableFields1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -10236,6 +10685,7 @@ In the report structure tree, select the item and then select required fields.</
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>FilterAvailableFields1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -10275,6 +10725,7 @@ In the report structure tree, select the item and then select required fields.</
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>FilterAvailableFields1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -10387,6 +10838,7 @@ In the report structure tree, select the item and then select required fields.</
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>Filter1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -10425,6 +10877,7 @@ In the report structure tree, select the item and then select required fields.</
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>Filter1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -10464,6 +10917,7 @@ In the report structure tree, select the item and then select required fields.</
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>Filter1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -10530,6 +10984,10 @@ In the report structure tree, select the item and then select required fields.</
                     <key>en</key>
                     <value>Filter settings1</value>
                   </title>
+                  <title>
+                    <key>tr</key>
+                    <value>Filtre ayarları</value>
+                  </title>
                   <extendedTooltip>
                     <name>FilterSettings1ExtendedTooltip</name>
                     <id>718</id>
@@ -10568,6 +11026,12 @@ To assign the item with a personal filter, select the check box above.</value>
                       <value>В текущем элементе отбор не установлен.
 Выберите в дереве структуры отчет для редактирования отбора отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственный отбор, установите флажок, расположенный над этим текстом.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğede filtre ayarlanmamış.
+Raporun genel filtresini düzenlemek için yapı ağacından raporu seçin.
+Eğer geçerli öğenin kendi filtresine sahip olmasını istiyorsanız, bu metnin üstündeki onay kutusunu işaretleyin.</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -10620,6 +11084,10 @@ To assign the item with a personal filter, select the check box above.</value>
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к отбору отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Rapor filtrelerini görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -10710,6 +11178,11 @@ In the structure tree, select the report and edit report filters.</value>
                       <value>У текущего элемента не может быть установлен отбор.
 Выберите в дереве структуры отчет для редактирования отбора отчета в целом.</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğeye filtre uygulanamaz.
+Raporun genel filtresini düzenlemek için yapı ağacından raporu seçin.</value>
+                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -10761,6 +11234,10 @@ In the structure tree, select the report and edit report filters.</value>
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к отбору отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Rapor filtrelerini görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -10844,6 +11321,10 @@ In the structure tree, select the report and edit report filters.</value>
                   <key>en</key>
                   <value>Filter pages1</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>Filtre</value>
+                </title>
                 <extendedTooltip>
                   <name>FilterPages1ExtendedTooltip</name>
                   <id>717</id>
@@ -10877,6 +11358,10 @@ In the structure tree, select the report and edit report filters.</value>
                 <key>en</key>
                 <value>Filter page1</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Filtre</value>
+              </title>
               <extendedTooltip>
                 <name>FilterPage1ExtendedTooltip</name>
                 <id>715</id>
@@ -10908,22 +11393,24 @@ In the structure tree, select the report and edit report filters.</value>
                 <name>LocalOrder1</name>
                 <id>247</id>
                 <title>
+                  <key>ru</key>
+                  <value>Текущий элемент имеет собственную сортировку (для  упорядочивания записей, выводимых в элементе)</value>
+                </title>
+                <title>
                   <key>en</key>
                   <value>Assign the item with personal sorts to sort item records</value>
                 </title>
                 <title>
-                  <key>ru</key>
-                  <value>Текущий элемент имеет собственную сортировку (для  упорядочивания записей, выводимых в элементе)</value>
+                  <key>tr</key>
+                  <value>Öğe kayıtlarını sıralamak için öğeye kişisel sıralamalar atayın</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:MultiLanguageDataPath">
-                  <paths xsi:type="form:DataPath">
-                    <segments>LocalOrder1</segments>
-                  </paths>
+                <dataPath xsi:type="form:DataPath">
+                  <segments>LocalOrder1</segments>
                 </dataPath>
                 <titleLocation>Right</titleLocation>
                 <handlers>
@@ -11025,6 +11512,7 @@ In the structure tree, select the report and edit report filters.</value>
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>OrderAvailableFields1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -11063,6 +11551,7 @@ In the structure tree, select the report and edit report filters.</value>
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>OrderAvailableFields1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -11102,6 +11591,7 @@ In the structure tree, select the report and edit report filters.</value>
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>OrderAvailableFields1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -11214,6 +11704,7 @@ In the structure tree, select the report and edit report filters.</value>
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>Order1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -11252,6 +11743,7 @@ In the structure tree, select the report and edit report filters.</value>
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>Order1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -11291,6 +11783,7 @@ In the structure tree, select the report and edit report filters.</value>
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>Order1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -11392,6 +11885,12 @@ To assign the item with a personal sort, select the check box above.</value>
 Выберите в дереве структуры отчет для редактирования сортировки отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственную сортировку, установите флажок, расположенный над этим текстом.</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğede sıralama ayarlanmadı.
+Raporun genel sıralamasını düzenlemek için yapı ağacından raporu seçin.
+Eğer geçerli öğenin kendi sıralamasına sahip olmasını istiyorsanız, bu metnin üstündeki onay kutusunu işaretleyin.</value>
+                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -11443,6 +11942,10 @@ To assign the item with a personal sort, select the check box above.</value>
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к сортировке отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Rapor sıralamalarını görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -11533,6 +12036,11 @@ In the structure tree, select the report and edit report sorts.</value>
                       <value>У текущего элемента не может быть установлена сортировка.
 Выберите в дереве структуры отчет для редактирования сортировки отчета в целом.</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğeye sıralama uygulanamaz.
+Raporun genel sıralamasını düzenlemek için yapı ağacından raporu seçin.</value>
+                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -11584,6 +12092,10 @@ In the structure tree, select the report and edit report sorts.</value>
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к сортировке отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Rapor sıralamalarını görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -11700,6 +12212,10 @@ In the structure tree, select the report and edit report sorts.</value>
                 <key>en</key>
                 <value>Order page1</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Sıralama</value>
+              </title>
               <extendedTooltip>
                 <name>OrderPage1ExtendedTooltip</name>
                 <id>745</id>
@@ -11731,22 +12247,24 @@ In the structure tree, select the report and edit report sorts.</value>
                 <name>LocalConditionalAppearance1</name>
                 <id>268</id>
                 <title>
+                  <key>ru</key>
+                  <value>Текущий элемент имеет собственное условное оформление (для оформления записей, выводимых в элементе)</value>
+                </title>
+                <title>
                   <key>en</key>
                   <value>Assign the item with personal conditional appearance to format item records</value>
                 </title>
                 <title>
-                  <key>ru</key>
-                  <value>Текущий элемент имеет собственное условное оформление (для оформления записей, выводимых в элементе)</value>
+                  <key>tr</key>
+                  <value>Öğeyi, öğe kayıtlarını biçimlendirmek için kişisel koşullu görünümle atayın</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:MultiLanguageDataPath">
-                  <paths xsi:type="form:DataPath">
-                    <segments>LocalConditionalAppearance1</segments>
-                  </paths>
+                <dataPath xsi:type="form:DataPath">
+                  <segments>LocalConditionalAppearance1</segments>
                 </dataPath>
                 <titleLocation>Right</titleLocation>
                 <handlers>
@@ -11848,6 +12366,7 @@ In the structure tree, select the report and edit report sorts.</value>
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>ConditionalAppearance1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -11886,6 +12405,7 @@ In the structure tree, select the report and edit report sorts.</value>
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>ConditionalAppearance1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -11925,6 +12445,7 @@ In the structure tree, select the report and edit report sorts.</value>
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>ConditionalAppearance1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -12026,6 +12547,12 @@ To assign the item with a personal conditional appearance, select the check box 
 Выберите в дереве структуры отчет для редактирования условного оформления отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственное условное оформление, установите флажок, расположенный над этим текстом.</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğede koşullu görünüm ayarlanmamış.
+Raporun genel koşullu görünümünü düzenlemek için yapı ağacından raporu seçin.
+Eğer geçerli öğenin kendi koşullu görünümüne sahip olmasını istiyorsanız, bu metnin üstündeki onay kutusunu işaretleyin.</value>
+                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -12077,6 +12604,10 @@ To assign the item with a personal conditional appearance, select the check box 
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к условному оформлению отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Rapor koşullu görünümünü görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -12167,6 +12698,11 @@ In the structure tree, select the report and edit report conditional appearance.
                       <value>У текущего элемента не может быть установлено условное оформление.
 Выберите в дереве структуры отчет для редактирования условного оформления отчета в целом.</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğeye koşullu görünüm uygulanamaz.
+Raporun genel koşullu görünümünü düzenlemek için yapı ağacından raporu seçin.</value>
+                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -12218,6 +12754,10 @@ In the structure tree, select the report and edit report conditional appearance.
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к условному оформлению отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Rapor koşullu görünümünü görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -12334,6 +12874,10 @@ In the structure tree, select the report and edit report conditional appearance.
                 <key>en</key>
                 <value>Conditional appearance page1</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Koşullu görünüm</value>
+              </title>
               <extendedTooltip>
                 <name>ConditionalAppearancePage1ExtendedTooltip</name>
                 <id>775</id>
@@ -12377,10 +12921,8 @@ In the structure tree, select the report and edit report conditional appearance.
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:MultiLanguageDataPath">
-                  <paths xsi:type="form:DataPath">
-                    <segments>LocalOutputParameters1</segments>
-                  </paths>
+                <dataPath xsi:type="form:DataPath">
+                  <segments>LocalOutputParameters1</segments>
                 </dataPath>
                 <titleLocation>Right</titleLocation>
                 <handlers>
@@ -12482,6 +13024,7 @@ In the structure tree, select the report and edit report conditional appearance.
                         </userVisible>
                         <autoFill>true</autoFill>
                       </contextMenu>
+                      <source>OutputParameters1</source>
                       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -12520,6 +13063,7 @@ In the structure tree, select the report and edit report conditional appearance.
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>ViewStatusAddition</type>
+                      <source>OutputParameters1</source>
                       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                         <horizontalLocation>Left</horizontalLocation>
@@ -12559,6 +13103,7 @@ In the structure tree, select the report and edit report conditional appearance.
                         <autoFill>true</autoFill>
                       </contextMenu>
                       <type>SearchControlAddition</type>
+                      <source>OutputParameters1</source>
                       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                         <autoMaxWidth>true</autoMaxWidth>
                       </extInfo>
@@ -12660,6 +13205,12 @@ To assign the item with personal additional settings, select the check box above
 Выберите в дереве структуры отчет для редактирования дополнительных настроек отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственные дополнительные настройки, установите флажок, расположенный над этим текстом.</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğede ek ayarlar ayarlanmamış.
+Raporun genel ek ayarlarını düzenlemek için yapı ağacından raporu seçin.
+Eğer geçerli öğenin kendi ek ayarlarına sahip olmasını istiyorsanız, bu metnin üstündeki onay kutusunu işaretleyin.</value>
+                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -12711,6 +13262,10 @@ To assign the item with personal additional settings, select the check box above
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к дополнительным настройкам отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Ek rapor ayarlarını görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -12801,6 +13356,11 @@ In the structure tree, select the report and edit additional report settings.</v
                       <value>У текущего элемента не могут быть установлены дополнительные настройки.
 Выберите в дереве структуры отчет для редактирования дополнительных настроек отчета в целом.</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Geçerli öğeye ek ayarlar uygulanamaz.
+Raporun genel ek ayarlarını düzenlemek için yapı ağacından raporu seçin.</value>
+                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -12852,6 +13412,10 @@ In the structure tree, select the report and edit additional report settings.</v
                     <title>
                       <key>ru</key>
                       <value>Нажмите здесь для перехода к дополнительным настройкам отчета.</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Ek rapor ayarlarını görüntüle</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -12968,6 +13532,10 @@ In the structure tree, select the report and edit additional report settings.</v
                 <key>en</key>
                 <value>Output parameters page1</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>Ek ayarlar</value>
+              </title>
               <extendedTooltip>
                 <name>OutputParametersPage1ExtendedTooltip</name>
                 <id>795</id>
@@ -13000,6 +13568,10 @@ In the structure tree, select the report and edit additional report settings.</v
             <title>
               <key>en</key>
               <value>Pages settings1</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Ayarlar sayfası1</value>
             </title>
             <height>8</height>
             <extendedTooltip>
@@ -13035,6 +13607,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <title>
             <key>en</key>
             <value>Group variant1</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Seçenek grubu</value>
           </title>
           <toolTip>
             <key>ru</key>
@@ -13076,6 +13652,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <key>en</key>
           <value>Page executed settings</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Çalıştırılabilir ayarlar</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Страница исполняемые настройки</value>
@@ -13112,10 +13692,8 @@ In the structure tree, select the report and edit additional report settings.</v
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>ExecutedSettingsXML</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>ExecutedSettingsXML</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -13271,6 +13849,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <key>en</key>
           <value>Page executed settings XML</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Çalıştırılabilir XML ayarları</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Страница исполняемые настройки XML</value>
@@ -13361,6 +13943,7 @@ In the structure tree, select the report and edit additional report settings.</v
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>TreeResult</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -13399,6 +13982,7 @@ In the structure tree, select the report and edit additional report settings.</v
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>TreeResult</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -13438,6 +14022,7 @@ In the structure tree, select the report and edit additional report settings.</v
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>TreeResult</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -13543,12 +14128,16 @@ In the structure tree, select the report and edit additional report settings.</v
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Коллекция</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Collection</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Коллекция</value>
+          <key>tr</key>
+          <value>Koleksiyon</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -13586,10 +14175,8 @@ In the structure tree, select the report and edit additional report settings.</v
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>TextOfDataCompositionTemplateForCollection</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>TextOfDataCompositionTemplateForCollection</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -13807,6 +14394,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <key>en</key>
           <value>Page template for collection</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>XML koleksiyonu için şablon</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Страница макет для коллекции</value>
@@ -13843,10 +14434,8 @@ In the structure tree, select the report and edit additional report settings.</v
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>TextOfDataCompositionResultForCollection</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>TextOfDataCompositionResultForCollection</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -14033,6 +14622,10 @@ In the structure tree, select the report and edit additional report settings.</v
           <key>en</key>
           <value>Page result collection XML</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>XML koleksiyonu için sonuç</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Страница результат коллекция XML</value>
@@ -14157,6 +14750,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <handlers>
+    <event>ChoiceProcessing</event>
+    <name>ChoiceProcessing</name>
+  </handlers>
+  <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
@@ -14172,10 +14769,7 @@ In the structure tree, select the report and edit additional report settings.</v
     <event>OnClose</event>
     <name>OnClose</name>
   </handlers>
-  <handlers>
-    <event>ChoiceProcessing</event>
-    <name>ChoiceProcessing</name>
-  </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -14190,6 +14784,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Report</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Rapor</value>
     </title>
     <id>1</id>
     <valueType>
@@ -14213,6 +14811,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Local selected fields</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel seçili alanlar</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>Boolean</types>
@@ -14233,6 +14835,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Local filter</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel filtre</value>
     </title>
     <id>3</id>
     <valueType>
@@ -14255,6 +14861,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Local order</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel düzen</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>Boolean</types>
@@ -14275,6 +14885,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Local conditional appearance</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel koşullu görünüm</value>
     </title>
     <id>5</id>
     <valueType>
@@ -14297,6 +14911,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Local output parameters</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel çıktı parametreleri</value>
+    </title>
     <id>6</id>
     <valueType>
       <types>Boolean</types>
@@ -14318,6 +14936,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Reports tree</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Rapor ağacı</value>
+    </title>
     <id>7</id>
     <valueType>
       <types>ValueTree</types>
@@ -14338,6 +14960,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -14363,6 +14989,10 @@ In the structure tree, select the report and edit additional report settings.</v
         <key>en</key>
         <value>Row type</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Satır türü</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>Number</types>
@@ -14387,6 +15017,10 @@ In the structure tree, select the report and edit additional report settings.</v
         <key>en</key>
         <value>Data</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Veri</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -14408,6 +15042,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <title>
         <key>en</key>
         <value>DCSSettings</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>DCS Ayarları</value>
       </title>
       <id>41</id>
       <valueType>
@@ -14431,6 +15069,10 @@ In the structure tree, select the report and edit additional report settings.</v
         <key>en</key>
         <value>External data sets</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Harici veri setleri</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>ValueTable</types>
@@ -14447,6 +15089,14 @@ In the structure tree, select the report and edit additional report settings.</v
       <title>
         <key>ru</key>
         <value>DCS query text</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>DCS query text</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>DCS sorgu metni</value>
       </title>
       <id>44</id>
       <valueType>
@@ -14542,6 +15192,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Result spreadsheet document</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sonuç e-tablo belgesi</value>
+    </title>
     <id>9</id>
     <valueType>
       <types>SpreadsheetDocument</types>
@@ -14563,6 +15217,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>File name</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Dosya adı</value>
     </title>
     <id>8</id>
     <valueType>
@@ -14586,6 +15244,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Initial title</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İlk başlık</value>
+    </title>
     <id>10</id>
     <valueType>
       <types>String</types>
@@ -14608,6 +15270,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Current node</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut düğüm</value>
+    </title>
     <id>11</id>
     <valueType/>
     <view>
@@ -14626,6 +15292,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Details data URL</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayrıntılı veri URL'si</value>
     </title>
     <id>12</id>
     <valueType>
@@ -14649,6 +15319,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Current row</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut satır</value>
+    </title>
     <id>13</id>
     <valueType/>
     <view>
@@ -14667,6 +15341,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Current row settings is changed</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut satır ayarları değiştirildi</value>
     </title>
     <id>14</id>
     <valueType>
@@ -14688,6 +15366,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Schema temp storage URL</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Şema geçici depolama URL'si</value>
     </title>
     <id>15</id>
     <valueType>
@@ -14711,6 +15393,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Row is being activated</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Satır etkinleştiriliyor</value>
+    </title>
     <id>16</id>
     <valueType>
       <types>Boolean</types>
@@ -14731,6 +15417,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Executed report schema URL</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yürütülen rapor şeması URL'si</value>
     </title>
     <id>17</id>
     <valueType>
@@ -14754,6 +15444,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Text of data composition template</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Veri kompozisyon şablonunun metni</value>
+    </title>
     <id>18</id>
     <valueType>
       <types>String</types>
@@ -14775,6 +15469,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Text of data composition settings</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Veri kompozisyonu ayarlarının metni</value>
     </title>
     <id>19</id>
     <valueType>
@@ -14798,6 +15496,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Executed settings composer</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yürütülen ayarlar Oluşturucusu</value>
+    </title>
     <id>20</id>
     <valueType>
       <types>DataCompositionSettingsComposer</types>
@@ -14818,6 +15520,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Local conditional appearance1</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel koşullu görünüm1</value>
     </title>
     <id>21</id>
     <valueType>
@@ -14840,6 +15546,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Local selected fields1</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel seçili alanlar1</value>
+    </title>
     <id>22</id>
     <valueType>
       <types>Boolean</types>
@@ -14860,6 +15570,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Local output parameters1</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel çıktı parametreleri1</value>
     </title>
     <id>23</id>
     <valueType>
@@ -14882,6 +15596,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Local filter1</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel filtre1</value>
+    </title>
     <id>24</id>
     <valueType>
       <types>Boolean</types>
@@ -14902,6 +15620,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Local order1</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yerel düzen1</value>
     </title>
     <id>25</id>
     <valueType>
@@ -14924,6 +15646,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Result filled spreadsheet document</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>E-tablo sonuçu doldurulmuş</value>
+    </title>
     <id>26</id>
     <valueType>
       <types>Boolean</types>
@@ -14944,6 +15670,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Result filled template</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Şablon sonuç doldurulmuş</value>
     </title>
     <id>27</id>
     <valueType>
@@ -14966,6 +15696,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Result filled settings</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar sonuçu dolu</value>
+    </title>
     <id>28</id>
     <valueType>
       <types>Boolean</types>
@@ -14986,6 +15720,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Report needs to generate</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Raporun oluşturulması gerekiyor</value>
     </title>
     <id>29</id>
     <valueType>
@@ -15008,6 +15746,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Result filled settings XML</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>XML ayarlar sonuçu dolu</value>
+    </title>
     <id>30</id>
     <valueType>
       <types>Boolean</types>
@@ -15028,6 +15770,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Executed settings XML</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yürütülen ayarlar XML'i</value>
     </title>
     <id>31</id>
     <valueType>
@@ -15051,6 +15797,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Text of data composition result</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Veri kompozisyonu sonucunun metni</value>
+    </title>
     <id>32</id>
     <valueType>
       <types>String</types>
@@ -15073,6 +15823,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Result filled XML</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sonuç doldurulmuş XML</value>
+    </title>
     <id>33</id>
     <valueType>
       <types>Boolean</types>
@@ -15093,6 +15847,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Result filled collection</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Koleksiyon sonuçu dolu </value>
     </title>
     <id>34</id>
     <valueType>
@@ -15115,6 +15873,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Tree result</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ağaç sonucu</value>
+    </title>
     <id>35</id>
     <valueType>
       <types>ValueTree</types>
@@ -15135,6 +15897,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Text of data composition template for collection</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Veri toplama için metin kompozisyon şablonu</value>
     </title>
     <id>36</id>
     <valueType>
@@ -15158,6 +15924,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Result filled template for collection</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sonuç toplama için şablon doldurulmuş</value>
+    </title>
     <id>37</id>
     <valueType>
       <types>Boolean</types>
@@ -15178,6 +15948,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Text of data composition result for collection</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Veri kompozisyonu sonucunun toplanması için metin</value>
     </title>
     <id>38</id>
     <valueType>
@@ -15201,6 +15975,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Result filled collection XML</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>XML Koleksiyon Sonuçu doldurulmuş</value>
+    </title>
     <id>39</id>
     <valueType>
       <types>String</types>
@@ -15223,6 +16001,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Details form name</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayrıntılar form adı</value>
+    </title>
     <id>40</id>
     <valueType>
       <types>String</types>
@@ -15238,12 +16020,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <attributes>
     <name>StandardSpreadsheetDocumentTempStorageURL</name>
     <title>
+      <key>ru</key>
+      <value>Адрес эталона табличного документа во временном хранилище</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Standard spreadsheet document temp storage URL</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Адрес эталона табличного документа во временном хранилище</value>
+      <key>tr</key>
+      <value>Standart e-tablo belgesi geçici depolama URL'si</value>
     </title>
     <id>42</id>
     <valueType>
@@ -15266,6 +16052,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Data composition schema wizard</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Veri kompozisyon şeması sihirbazı (wizard)</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -15292,12 +16082,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>AddDataCompositionSchema</name>
     <title>
+      <key>ru</key>
+      <value>Добавить отчет</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Add report</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Добавить отчет</value>
+      <key>tr</key>
+      <value>Rapor ekle</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -15331,6 +16125,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Generate</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Oluştur</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -15386,12 +16184,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>OpenReportsFile</name>
     <title>
+      <key>ru</key>
+      <value>Открыть...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Open...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Открыть...</value>
+      <key>tr</key>
+      <value>Aç...</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -15418,12 +16220,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>SaveReportsToFile</name>
     <title>
+      <key>ru</key>
+      <value>Сохранить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Save</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сохранить</value>
+      <key>tr</key>
+      <value>Kaydet</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -15451,12 +16257,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>SaveReportsToFileAS</name>
     <title>
+      <key>ru</key>
+      <value>Сохранить как...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Save as...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сохранить как...</value>
+      <key>tr</key>
+      <value>Farklı kaydet...</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -15480,12 +16290,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>NewReportsFile</name>
     <title>
+      <key>ru</key>
+      <value>Новый</value>
+    </title>
+    <title>
       <key>en</key>
       <value>New</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Новый</value>
+      <key>tr</key>
+      <value>Yeni</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -15509,12 +16323,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>OutputToSpreadsheetDocumentForCurrentTemplate</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить в табличный документ с текущим макетом</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute to spreadsheet document with current template</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить в табличный документ с текущим макетом</value>
+      <key>tr</key>
+      <value>Geçerli şablonla elektronik tablo belgesine yürüt</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -15545,6 +16363,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Save standart spreadsheet document</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Standart elektronik tablo belgesini kaydet</value>
+    </title>
     <id>13</id>
     <toolTip>
       <key>en</key>
@@ -15567,12 +16389,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>CompareWithStandartSpreadsheetDocument</name>
     <title>
+      <key>ru</key>
+      <value>Сравнить с эталоном</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Compare with standart</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сравнить с эталоном</value>
+      <key>tr</key>
+      <value>Standartla karşılaştır</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -15596,12 +16422,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>SaveStandartOfDataCompositionTemplate</name>
     <title>
+      <key>ru</key>
+      <value>Сохранить эталон</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Save standart of data composition template</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сохранить эталон</value>
+      <key>tr</key>
+      <value>Veri kompozisyonu şablonunun standardını kaydet</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -15625,12 +16455,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>CompareWithStandartDataCompositionTemplate</name>
     <title>
+      <key>ru</key>
+      <value>Сравнить с эталоном</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Compare with standart</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сравнить с эталоном</value>
+      <key>tr</key>
+      <value>Standartla karşılaştır</value>
     </title>
     <id>16</id>
     <toolTip>
@@ -15654,12 +16488,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>SaveStandartExecutableSettings</name>
     <title>
+      <key>ru</key>
+      <value>Сохранить эталон</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Save standart of executable settings</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сохранить эталон</value>
+      <key>tr</key>
+      <value>Yürütülebilir ayarların standartlarını kaydet</value>
     </title>
     <id>17</id>
     <toolTip>
@@ -15683,12 +16521,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>CompareWithStandartExecutableSettings</name>
     <title>
+      <key>ru</key>
+      <value>Сравнить с эталоном</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Compare with standart</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сравнить с эталоном</value>
+      <key>tr</key>
+      <value>Standartla karşılaştır</value>
     </title>
     <id>18</id>
     <toolTip>
@@ -15719,6 +16561,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Save standart XMLResult</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Standart XMLResult'u kaydet</value>
+    </title>
     <id>19</id>
     <toolTip>
       <key>en</key>
@@ -15741,12 +16587,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>CompareWithStandartXMLResult</name>
     <title>
+      <key>ru</key>
+      <value>Сравнить с эталоном</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Compare with standart </value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сравнить с эталоном</value>
+      <key>tr</key>
+      <value>Standartla karşılaştır</value>
     </title>
     <id>20</id>
     <toolTip>
@@ -15770,12 +16620,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>SaveStandartDataCompositionTemplateForTemplate</name>
     <title>
+      <key>ru</key>
+      <value>Сохранить эталон</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Save standart of data composition template for template</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сохранить эталон</value>
+      <key>tr</key>
+      <value>Şablon için veri kompozisyonu şablonunun standardını kaydet</value>
     </title>
     <id>21</id>
     <toolTip>
@@ -15799,12 +16653,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>CompareWithStandartDataCompositionTemplateForCollection</name>
     <title>
+      <key>ru</key>
+      <value>Сравнить с эталоном</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Compare with standart </value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сравнить с эталоном</value>
+      <key>tr</key>
+      <value>Standartla karşılaştır</value>
     </title>
     <id>22</id>
     <toolTip>
@@ -15835,6 +16693,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Save standart XMLResult for collection</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Koleksiyon için standart XMLResult'u kaydet</value>
+    </title>
     <id>23</id>
     <toolTip>
       <key>en</key>
@@ -15857,12 +16719,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>CompareWithStandartXMLResultForCollection</name>
     <title>
+      <key>ru</key>
+      <value>Сравнить с эталоном</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Compare with standart</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сравнить с эталоном</value>
+      <key>tr</key>
+      <value>Standartla karşılaştır</value>
     </title>
     <id>24</id>
     <toolTip>
@@ -15886,12 +16752,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>OutputToResultForCurrentTemplate</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить с текущим макетом</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute with current template</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить с текущим макетом</value>
+      <key>tr</key>
+      <value>Mevcut şablonla yürüt</value>
     </title>
     <id>25</id>
     <toolTip>
@@ -15915,12 +16785,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>OutputResultToSpreadsheetDocument</name>
     <title>
+      <key>ru</key>
+      <value>Вывести в табличный документ</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Output to spreadsheet document</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Вывести в табличный документ</value>
+      <key>tr</key>
+      <value>Elektronik tablo belgesine çıktı</value>
     </title>
     <id>26</id>
     <toolTip>
@@ -15944,12 +16818,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>OutputToCollectionForCurrentTemplate</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить в коллекцию с текущим макетом</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute to collection with current template</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить в коллекцию с текущим макетом</value>
+      <key>tr</key>
+      <value>Mevcut şablonla koleksiyona yürüt</value>
     </title>
     <id>27</id>
     <toolTip>
@@ -15973,12 +16851,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>OutputToCollectionResultForCurrentTemplate</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить с текущим макетом</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute with current template</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить с текущим макетом</value>
+      <key>tr</key>
+      <value>Mevcut şablonla yürüt</value>
     </title>
     <id>28</id>
     <toolTip>
@@ -16002,12 +16884,16 @@ In the structure tree, select the report and edit additional report settings.</v
   <formCommands>
     <name>OutputResultToCollection</name>
     <title>
+      <key>ru</key>
+      <value>Вывести в коллекцию</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Output to collection</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Вывести в коллекцию</value>
+      <key>tr</key>
+      <value>Koleksiyona çıktı</value>
     </title>
     <id>29</id>
     <toolTip>
@@ -16037,6 +16923,10 @@ In the structure tree, select the report and edit additional report settings.</v
     <title>
       <key>en</key>
       <value>Save schema to file</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Şemayı dosyaya kaydet</value>
     </title>
     <id>30</id>
     <toolTip>
@@ -16071,6 +16961,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Load schema from file</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Dosyadan şema yükle</value>
+    </title>
     <id>31</id>
     <toolTip>
       <key>en</key>
@@ -16104,6 +16998,10 @@ In the structure tree, select the report and edit additional report settings.</v
       <key>en</key>
       <value>Settings</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar</value>
+    </title>
     <id>32</id>
     <use>
       <common>true</common>
@@ -16119,6 +17017,14 @@ In the structure tree, select the report and edit additional report settings.</v
     <name>OpenInQueryConsole</name>
     <title>
       <key>ru</key>
+      <value>Open in query console</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Open in query console</value>
+    </title>
+    <title>
+      <key>tr</key>
       <value>Open in query console</value>
     </title>
     <id>33</id>

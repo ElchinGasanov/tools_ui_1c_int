@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Форма редактирования события</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Edit event</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Форма редактирования события</value>
+    <key>tr</key>
+    <value>Etkinliği düzenle</value>
   </title>
   <items xsi:type="form:FormField">
     <name>ExpressionTextLabel</name>
@@ -16,10 +20,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>ExpressionTextLabel</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ExpressionTextLabel</segments>
     </dataPath>
     <titleLocation>None</titleLocation>
     <extendedTooltip>
@@ -126,12 +128,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Перед записью объекта</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Before write object</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Перед записью объекта</value>
+        <key>tr</key>
+        <value>Nesneyi yazmadan önce</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -221,12 +227,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>При записи объекта</value>
+      </title>
+      <title>
         <key>en</key>
         <value>On write object</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>При записи объекта</value>
+        <key>tr</key>
+        <value>Nesneyi kaydederken</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -316,12 +326,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>После добавления строки</value>
+      </title>
+      <title>
         <key>en</key>
         <value>After add row</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>После добавления строки</value>
+        <key>tr</key>
+        <value>Satırı ekledikten sonra</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -529,6 +543,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -540,6 +555,10 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_ImportDataFromSpreadsheetDocument</types>
@@ -555,12 +574,16 @@
   <attributes>
     <name>ExpressionTextLabel</name>
     <title>
+      <key>ru</key>
+      <value>Надпись текст выражения</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Expression text label</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Надпись текст выражения</value>
+      <key>tr</key>
+      <value>İfade metni etiketi</value>
     </title>
     <id>2</id>
     <valueType>
@@ -577,12 +600,16 @@
   <attributes>
     <name>BeforeWriteObject</name>
     <title>
+      <key>ru</key>
+      <value>Перед записью объекта</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Before write object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Перед записью объекта</value>
+      <key>tr</key>
+      <value>Nesneyi yazmadan önce</value>
     </title>
     <id>3</id>
     <valueType>
@@ -599,12 +626,16 @@
   <attributes>
     <name>OnWriteObject</name>
     <title>
+      <key>ru</key>
+      <value>При записи объекта</value>
+    </title>
+    <title>
       <key>en</key>
       <value>On write object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>При записи объекта</value>
+      <key>tr</key>
+      <value>Nesneyi kaydederken</value>
     </title>
     <id>4</id>
     <valueType>
@@ -621,12 +652,16 @@
   <attributes>
     <name>AfterAddRow</name>
     <title>
+      <key>ru</key>
+      <value>После добавления строки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>After add row</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>После добавления строки</value>
+      <key>tr</key>
+      <value>Satır ekledikten sonra</value>
     </title>
     <id>5</id>
     <valueType>
@@ -643,12 +678,16 @@
   <attributes>
     <name>ImportMode</name>
     <title>
+      <key>ru</key>
+      <value>Режим загрузки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Import mode</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Режим загрузки</value>
+      <key>tr</key>
+      <value>İçe aktarma modu</value>
     </title>
     <id>6</id>
     <valueType>
@@ -670,6 +709,10 @@
       <key>ru</key>
       <value>Object type</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Nesnü türü</value>
+    </title>
     <id>7</id>
     <valueType/>
     <view>
@@ -688,6 +731,10 @@
     <title>
       <key>en</key>
       <value>Before write object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesneyi yazmadan önce</value>
     </title>
     <id>8</id>
     <valueType>
@@ -711,6 +758,10 @@
       <key>en</key>
       <value>After add row</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Satır ekledikten sonra</value>
+    </title>
     <id>9</id>
     <valueType>
       <types>String</types>
@@ -733,6 +784,10 @@
       <key>en</key>
       <value>On write object</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yazma nesnesi üzerinde</value>
+    </title>
     <id>10</id>
     <valueType>
       <types>String</types>
@@ -748,12 +803,16 @@
   <formCommands>
     <name>ОК</name>
     <title>
+      <key>ru</key>
+      <value>ОК</value>
+    </title>
+    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
+      <key>tr</key>
+      <value>OK</value>
     </title>
     <id>1</id>
     <toolTip>

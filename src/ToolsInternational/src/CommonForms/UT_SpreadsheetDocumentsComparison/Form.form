@@ -81,12 +81,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Командная панель левого табличного документа</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Command bar of left spreadsheet document</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Командная панель левого табличного документа</value>
+          <key>tr</key>
+          <value>Sol elektronik tablo belgesinin komut çubuğu</value>
         </title>
         <enableContentChange>true</enableContentChange>
         <extendedTooltip>
@@ -121,10 +125,6 @@
           <segments>SpreadsheetDocumentLeft</segments>
         </dataPath>
         <titleLocation>None</titleLocation>
-        <handlers>
-          <event>OnActivate</event>
-          <name>ТабличныйДокументЛевыйПриАктивизации</name>
-        </handlers>
         <extendedTooltip>
           <name>SpreadsheetDocumentLeftExtendedTooltip</name>
           <id>79</id>
@@ -158,7 +158,7 @@
         <showInFooter>true</showInFooter>
         <extInfo xsi:type="form:SpreadSheetDocFieldExtInfo">
           <handlers>
-            <event>OnActivateArea</event>
+            <event>OnActivate</event>
             <name>SpreadsheetDocumentLeftOnActivateArea</name>
           </handlers>
           <width>50</width>
@@ -171,6 +171,7 @@
           <verticalScrollBar>ScrollAlways</verticalScrollBar>
           <horizontalScrollBar>ScrollAlways</horizontalScrollBar>
           <selectionShowMode>Always</selectionShowMode>
+          <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
           <output>Enable</output>
           <showGroups>true</showGroups>
           <enableStartDrag>true</enableStartDrag>
@@ -183,12 +184,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Версия №</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Version</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Версия №</value>
+        <key>tr</key>
+        <value>Sürüm</value>
       </title>
       <extendedTooltip>
         <name>LeftSpreadsheetDocumentGroupExtendedTooltip</name>
@@ -294,12 +299,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Командная панель правого табличного документа</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Command bar of right spreadsheet document</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Командная панель правого табличного документа</value>
+          <key>tr</key>
+          <value>Sağ elektronik tablo belgesinin komut çubuğu</value>
         </title>
         <extendedTooltip>
           <name>RightSpreadsheetDocumentCommandBarGroupExtendedTooltip</name>
@@ -333,10 +342,6 @@
           <segments>SpreadsheetDocumentRight</segments>
         </dataPath>
         <titleLocation>None</titleLocation>
-        <handlers>
-          <event>OnActivate</event>
-          <name>ТабличныйДокументПравыйПриАктивизации</name>
-        </handlers>
         <extendedTooltip>
           <name>SpreadsheetDocumentRightExtendedTooltip</name>
           <id>82</id>
@@ -370,7 +375,7 @@
         <showInFooter>true</showInFooter>
         <extInfo xsi:type="form:SpreadSheetDocFieldExtInfo">
           <handlers>
-            <event>OnActivateArea</event>
+            <event>OnActivate</event>
             <name>SpreadsheetDocumentRightOnActivateArea</name>
           </handlers>
           <width>50</width>
@@ -383,6 +388,7 @@
           <verticalScrollBar>ScrollAlways</verticalScrollBar>
           <horizontalScrollBar>ScrollAlways</horizontalScrollBar>
           <selectionShowMode>Always</selectionShowMode>
+          <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
           <output>Enable</output>
           <showGroups>true</showGroups>
           <enableStartDrag>true</enableStartDrag>
@@ -395,12 +401,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Версия №</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Version</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Версия №</value>
+        <key>tr</key>
+        <value>Sürüm</value>
       </title>
       <extendedTooltip>
         <name>RightSpreadsheetDocumentGroupExtendedTooltip</name>
@@ -434,12 +444,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Табличные документы</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Spreadsheet documents</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Табличные документы</value>
+      <key>tr</key>
+      <value>E-tablo belgeleri</value>
     </title>
     <extendedTooltip>
       <name>SpreadsheetDocumentsGroupExtendedTooltip</name>
@@ -481,6 +495,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -529,12 +544,16 @@
   <attributes>
     <name>SpreadsheetDocumentRight</name>
     <title>
+      <key>ru</key>
+      <value>Табличный документ правый</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Spreadsheet document right</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Табличный документ правый</value>
+      <key>tr</key>
+      <value>Elektronik tablo belgesi (Spreadsheet document) sağ</value>
     </title>
     <id>6</id>
     <valueType>
@@ -702,12 +721,16 @@
   <formCommands>
     <name>PreviousChangeLeft</name>
     <title>
+      <key>ru</key>
+      <value>Предыдущее изменение</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Previous change</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Предыдущее изменение</value>
+      <key>tr</key>
+      <value>Önceki değişiklik</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -731,12 +754,16 @@
   <formCommands>
     <name>NextChangeLeft</name>
     <title>
+      <key>ru</key>
+      <value>Следующее изменение</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Next change</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Следующее изменение</value>
+      <key>tr</key>
+      <value>Sonraki değişiklik</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -760,12 +787,16 @@
   <formCommands>
     <name>PreviousChangeRight</name>
     <title>
+      <key>ru</key>
+      <value>Предыдущее изменение</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Previous change</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Предыдущее изменение</value>
+      <key>tr</key>
+      <value>Önceki değişiklik</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -789,12 +820,16 @@
   <formCommands>
     <name>NextChangeRight</name>
     <title>
+      <key>ru</key>
+      <value>Следующее изменение</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Next change</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Следующее изменение</value>
+      <key>tr</key>
+      <value>Sonraki değişiklik</value>
     </title>
     <id>11</id>
     <toolTip>

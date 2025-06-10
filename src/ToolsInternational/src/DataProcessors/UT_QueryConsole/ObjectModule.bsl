@@ -510,7 +510,7 @@ Procedure TechnologicalLog_AppendConsoleLog(TLPath) Export
 		EndIf;
 
 	Else
-		Raise NStr("ru = 'logcfg не найден'; en = 'logcfg not found'");
+		Raise NStr("ru = 'logcfg не найден'; en = 'logcfg not found'; tr = 'logcfg  bulunmadı'");
 	EndIf;
 
 EndProcedure
@@ -1046,7 +1046,7 @@ Function Container_Clear(Container) Export
 	ElsIf Container.Type = "ValueStorage" Then
 		Value = New ValueStorage(Undefined);
 	Else
-		Raise NStr("ru = 'Неизвестный тип контейнера'; en = 'Unknown container type'");
+		Raise NStr("ru = 'Неизвестный тип контейнера'; en = 'Unknown container type'; tr = 'Bilinmeyen konteyner türü'");
 	EndIf;
 
 	Container_SaveValue(Value);
@@ -1129,9 +1129,9 @@ Function Container_GetPresentation(Container) Export
 		ElsIf Container.Type = "ValueTable" Then
 			RowCount = Undefined;
 			If Container.Property("RowCount", RowCount) Then
-				Return NStr("ru = 'строк'; en = '<rows: '") + RowCount + ">";
+				Return NStr("ru = 'строк'; en = '<rows: '; tr = '<satırlar: '") + RowCount + ">";
 			Else
-				Return NStr("ru = '<строк: ?>'; en = '<rows: ?>'");
+				Return NStr("ru = '<строк: ?>'; en = '<rows: ?>'; tr = '<satırlar: ?>'");
 			EndIf;
 		ElsIf Container.Type = "PointInTime" Then
 			Return String(Container.Date) + "; " + Container.Ref;
@@ -1151,11 +1151,11 @@ EndFunction
 Function SaveQuery(SessionID, Query) Export
 
 	If TypeOf(SessionID) <> Type("Number") Then
-		Return NStr("ru = '!Не верный тип параметра 1: '; en = '!Incorrect parameter #1 type: '") + TypeOf(SessionID) + NStr("ru = '. Должен быть тип ""Число""'; en = '. Type must be ""Number""'");
+		Return NStr("ru = '!Не верный тип параметра 1: '; en = '!Incorrect parameter #1 type: '; tr = '!Yanlış parametre #1 türü:'") + TypeOf(SessionID) + NStr("ru = '. Должен быть тип ""Число""'; en = '. Type must be ""Number""'; tr = '. Türü ""Sayı"" olmalıdır'");
 	EndIf;
 
 	If TypeOf(Query) <> Type("Query") Then
-		Return NStr("ru = '!Не верный тип параметра 2: '; en = '!Incorrect parameter #2 type: '") + TypeOf(Query) + NStr("ru = '. Должен быть тип ""Запрос""'; en = '. Type must be ""Query""'");
+		Return NStr("ru = '!Не верный тип параметра 2: '; en = '!Incorrect parameter #2 type: '; tr = '!Yanlış parametre #2 türü:'") + TypeOf(Query) + NStr("ru = '. Должен быть тип ""Запрос""'; en = '. Type must be ""Query""'; tr = '. Türü ""Query"" olmalıdır'");
 	EndIf;
 
 	Initializing( , SessionID);
@@ -1351,14 +1351,14 @@ Function ExternalDataProcessorInfo() Export
 
 	RegistrationParameters = New Structure;
 	RegistrationParameters.Insert("Kind", "AdditionalDataProcessor");
-	RegistrationParameters.Insert("Description", NStr("ru = 'Консоль запросов 9000'; en = 'Query console 9000'"));
+	RegistrationParameters.Insert("Description", NStr("ru = 'Консоль запросов 9000'; en = 'Query console 9000'; tr = 'Sorgu konsolu 9000'"));
 	RegistrationParameters.Insert("Version", DataProcessorVersion + "." + BuildVersion);
 	RegistrationParameters.Insert("SafeMode", False);
-	RegistrationParameters.Insert("Information", NStr("ru = 'Консоль запросов 9000'; en = 'Query console 9000'"));
+	RegistrationParameters.Insert("Information", NStr("ru = 'Консоль запросов 9000'; en = 'Query console 9000'; tr = 'Sorgu konsolu 9000'"));
 
 	CommandTable = GetCommandTable();
 
-	AddCommand(CommandTable, NStr("ru = 'Консоль запросов 9000'; en = 'Query console 9000'"), NStr("ru = 'КонсольЗапросов9000'; en = 'QueryConsole9000'"), "OpeningForm", True);
+	AddCommand(CommandTable, NStr("ru = 'Консоль запросов 9000'; en = 'Query console 9000'; tr = 'Sorgu konsolu 9000'"), NStr("ru = 'КонсольЗапросов9000'; en = 'QueryConsole9000'; tr = 'SorguKonsolu9000'"), "OpeningForm", True);
 
 	RegistrationParameters.Insert("Commands", CommandTable);
 
@@ -1394,7 +1394,7 @@ EndProcedure
 #Region UT
 
 Function DataProcessorIsPartOfUniversalTools() Export
-	Return Metadata().Name = NStr("ru = 'УИ_КонсольЗапросов'; en = 'UT_QueryConsole'");
+	Return Metadata().Name = NStr("ru = 'УИ_КонсольЗапросов'; en = 'UT_QueryConsole'; tr = 'UT_QueryConsole'");
 EndFunction
 
 #EndRegion

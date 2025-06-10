@@ -47,8 +47,8 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 
 	If SettingsList.Count() = 0 Then
 		CurrentData = SettingsList.Add();
-		CurrentData.Presentation = NStr("ru = 'Основная'; en = 'Main'");
-		CurrentData.Value.Add(NStr("ru = 'Новая'; en = 'New'"));
+		CurrentData.Presentation = NStr("ru = 'Основная'; en = 'Main'; tr = 'Temel'");
+		CurrentData.Value.Add(NStr("ru = 'Новая'; en = 'New'; tr = 'Yeni'"));
 		NewRowAdded = True;
 	Else
 		NewRowAdded = False;

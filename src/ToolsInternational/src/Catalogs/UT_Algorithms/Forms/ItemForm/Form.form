@@ -18,10 +18,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.Description</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.Description</segments>
         </dataPath>
         <extendedTooltip>
           <name>DescriptionExtendedTooltip</name>
@@ -74,10 +72,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.Code</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.Code</segments>
         </dataPath>
         <extendedTooltip>
           <name>CodeExtendedTooltip</name>
@@ -201,22 +197,24 @@
       <name>AtClient</name>
       <id>390</id>
       <title>
+        <key>ru</key>
+        <value>At client</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Client</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>At client</value>
+        <key>tr</key>
+        <value>İstemci</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Object.AtClient</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Object.AtClient</segments>
       </dataPath>
       <titleLocation>None</titleLocation>
       <handlers>
@@ -256,12 +254,16 @@
       <extInfo xsi:type="form:CheckBoxFieldExtInfo">
         <checkBoxType>Tumbler</checkBoxType>
         <editFormat>
+          <key>ru</key>
+          <value>БЛ='На сервере'; БИ='На клиенте'</value>
+        </editFormat>
+        <editFormat>
           <key>en</key>
           <value>BF=At server; BT=At client</value>
         </editFormat>
         <editFormat>
-          <key>ru</key>
-          <value>БЛ='На сервере'; БИ='На клиенте'</value>
+          <key>tr</key>
+          <value>BF=Sunucuda; BT=İstemcide</value>
         </editFormat>
       </extInfo>
     </items>
@@ -276,10 +278,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.WriteErrorsToEventLog</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.WriteErrorsToEventLog</segments>
         </dataPath>
         <extendedTooltip>
           <name>WriteErrorsToEventLogExtendedTooltip</name>
@@ -321,10 +321,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.ThrowException</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.ThrowException</segments>
         </dataPath>
         <extendedTooltip>
           <name>ThrowExceptionExtendedTooltip</name>
@@ -363,12 +361,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Общие</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Common</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Общие</value>
+        <key>tr</key>
+        <value>Genel</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -414,10 +416,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.Сache</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.Сache</segments>
         </dataPath>
         <extendedTooltip>
           <name>СacheExtendedTooltip</name>
@@ -463,10 +463,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.ExecuteInTransaction</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.ExecuteInTransaction</segments>
         </dataPath>
         <extendedTooltip>
           <name>ExecuteInTransactionExtendedTooltip</name>
@@ -505,12 +503,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Сервер</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Server</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Сервер</value>
+        <key>tr</key>
+        <value>Sunucu</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -553,10 +555,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Object.HttpID</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Object.HttpID</segments>
       </dataPath>
       <extendedTooltip>
         <name>HttpIDExtendedTooltip</name>
@@ -603,12 +603,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Параметры</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Parameters</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Параметры</value>
+      <key>tr</key>
+      <value>Parametreler</value>
     </title>
     <extendedTooltip>
       <name>GroupExecutionParametrsExtendedTooltip</name>
@@ -653,6 +657,10 @@
       <title>
         <key>ru</key>
         <value>Attention ! System settings.</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Dikkat! Sistem ayarları.</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -704,12 +712,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Group warning</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Group warning</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Group warning</value>
+      <key>tr</key>
+      <value>Uyarı grupu</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -750,12 +762,16 @@
         <name>AlgorithmText</name>
         <id>111</id>
         <title>
+          <key>ru</key>
+          <value>спецсимволы :  @ ,$ , #   ;  шаблоны: (==)  Ctr+Space  ;  Alt + 60 &lt;,62 >,@ 64 , $ 36 , # 35 , &amp; 38 , 39' ,93], 91[, 124| </value>
+        </title>
+        <title>
           <key>en</key>
           <value>special characters:  @ ,$ , #   ;  templates: (==)  Ctr+Space  ;  Alt + 60 &lt;,62 >,@ 64 , $ 36 , # 35 , &amp; 38 , 39' ,93], 91[, 124| </value>
         </title>
         <title>
-          <key>ru</key>
-          <value>спецсимволы :  @ ,$ , #   ;  шаблоны: (==)  Ctr+Space  ;  Alt + 60 &lt;,62 >,@ 64 , $ 36 , # 35 , &amp; 38 , 39' ,93], 91[, 124| </value>
+          <key>tr</key>
+          <value>özel karakterler: @ ,$ , # ; şablonlar: (==) Ctr+Boşluk ; Alt + 60 &lt;,62 >,@ 64 , $ 36 , # 35 , &amp; 38 , 39' ,93], 91[, 124|</value>
         </title>
         <enabled>true</enabled>
         <userVisible>
@@ -840,12 +856,16 @@
         <name>FieldAlgorithmText</name>
         <id>823</id>
         <title>
+          <key>ru</key>
+          <value>Algorithm text</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Algorithm text</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Algorithm text</value>
+          <key>tr</key>
+          <value>Algoritma metni</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -900,12 +920,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Code</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Module</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Code</value>
+        <key>tr</key>
+        <value>Kod</value>
       </title>
       <titleTextColor xsi:type="core:ColorDef">
         <red>128</red>
@@ -983,10 +1007,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>ParametersTable.Parameter</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>ParametersTable.Parameter</segments>
           </dataPath>
           <extendedTooltip>
             <name>ParametersTableParameterExtendedTooltip</name>
@@ -1044,10 +1066,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>ParametersTable.TypeDescription</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>ParametersTable.TypeDescription</segments>
           </dataPath>
           <extendedTooltip>
             <name>ParametersTableTypeDescriptionExtendedTooltip</name>
@@ -1285,6 +1305,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>ParametersTable</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1323,6 +1344,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>ParametersTable</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -1362,6 +1384,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>ParametersTable</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1563,6 +1586,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>ParameterCollection</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1601,6 +1625,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>ParameterCollection</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1639,6 +1664,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>ParameterCollection</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1685,6 +1711,7 @@
           <initialListView>Auto</initialListView>
           <horizontalStretch>true</horizontalStretch>
           <verticalStretch>true</verticalStretch>
+          <rowFilter xsi:type="core:UndefinedValue"/>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1726,12 +1753,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Parameters</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Parameters</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Parameters</value>
+        <key>tr</key>
+        <value>Parametreler</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -1784,10 +1815,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.Parameters.LineNumber</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.Parameters.LineNumber</segments>
           </dataPath>
           <extendedTooltip>
             <name>ApiLineNumberExtendedTooltip</name>
@@ -1832,10 +1861,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.Parameters.Entry</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.Parameters.Entry</segments>
           </dataPath>
           <extendedTooltip>
             <name>ApiEntryExtendedTooltip</name>
@@ -1877,10 +1904,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.Parameters.Name</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.Parameters.Name</segments>
           </dataPath>
           <extendedTooltip>
             <name>ApiNameExtendedTooltip</name>
@@ -1929,10 +1954,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.Parameters.ParameterType</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.Parameters.ParameterType</segments>
           </dataPath>
           <extendedTooltip>
             <name>ApiParameterTypeExtendedTooltip</name>
@@ -1982,10 +2005,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.Parameters.ByDefault</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.Parameters.ByDefault</segments>
           </dataPath>
           <extendedTooltip>
             <name>ApiActionExtendedTooltip</name>
@@ -2101,6 +2122,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>API</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -2139,6 +2161,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>API</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -2178,6 +2201,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>API</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -2235,11 +2259,15 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>API</value>
+      </title>
+      <title>
         <key>en</key>
         <value>API</value>
       </title>
       <title>
-        <key>ru</key>
+        <key>tr</key>
         <value>API</value>
       </title>
       <toolTip>
@@ -2283,6 +2311,10 @@
       <key>en</key>
       <value>Group pages panel</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Grup sayfaları paneli</value>
+    </title>
     <toolTip>
       <key>ru</key>
       <value>Группа панель страниц</value>
@@ -2322,15 +2354,21 @@
         <key>ru</key>
         <value>Comment</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>Comment</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Yorum</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Object.Comment</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Object.Comment</segments>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -2384,12 +2422,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Comment</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Comment</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Comment</value>
+      <key>tr</key>
+      <value>Yorum</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -2644,12 +2686,16 @@
       <name>ExecuteProcedure</name>
       <id>117</id>
       <title>
+        <key>ru</key>
+        <value>Execute</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Execute</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Execute</value>
+        <key>tr</key>
+        <value>Yürüt</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -2686,10 +2732,6 @@
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>OnCreateAtServer</name>
-  </handlers>
-  <handlers>
     <event>NotificationProcessing</event>
     <name>NotificationProcessing</name>
   </handlers>
@@ -2697,7 +2739,12 @@
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
+  </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -2711,6 +2758,10 @@
     <name>Object</name>
     <title>
       <key>en</key>
+      <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
       <value>Object</value>
     </title>
     <id>1</id>
@@ -2739,6 +2790,10 @@
           <key>en</key>
           <value>Parameter value</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Parametre değeri</value>
+        </title>
         <id>3</id>
         <valueType/>
         <view>
@@ -2760,6 +2815,10 @@
       <key>en</key>
       <value>Parameters table</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Parametre tablosu</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>ValueTable</types>
@@ -2773,12 +2832,16 @@
     <columns>
       <name>Parameter</name>
       <title>
+        <key>ru</key>
+        <value>Параметр</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Parameter</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Параметр</value>
+        <key>tr</key>
+        <value>Parametre</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2797,12 +2860,16 @@
     <columns>
       <name>TypeDescription</name>
       <title>
+        <key>ru</key>
+        <value>Описание типа</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Type description</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Описание типа</value>
+        <key>tr</key>
+        <value>Tür açıklaması</value>
       </title>
       <id>2</id>
       <valueType>
@@ -2822,12 +2889,16 @@
   <attributes>
     <name>SelectedParameter</name>
     <title>
+      <key>ru</key>
+      <value>Выбранный параметр</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Selected parameter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выбранный параметр</value>
+      <key>tr</key>
+      <value>Seçilmiş parametre</value>
     </title>
     <id>4</id>
     <valueType>
@@ -2844,12 +2915,16 @@
   <attributes>
     <name>PrimitiveTypeParameterValue</name>
     <title>
+      <key>ru</key>
+      <value>Значение параметра простой тип</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Primitive Type parameter value</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Значение параметра простой тип</value>
+      <key>tr</key>
+      <value>Basit Tip parametre değeri</value>
     </title>
     <id>5</id>
     <valueType/>
@@ -2863,12 +2938,16 @@
   <attributes>
     <name>ParameterCollection</name>
     <title>
+      <key>ru</key>
+      <value>Параметр коллекция</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Parameter collection</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Параметр коллекция</value>
+      <key>tr</key>
+      <value>Parametre koleksiyonu</value>
     </title>
     <id>6</id>
     <valueType>
@@ -2884,12 +2963,16 @@
   <attributes>
     <name>FieldAlgorithmText</name>
     <title>
+      <key>ru</key>
+      <value>Поле текст алгоритма</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Field algorithm text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Поле текст алгоритма</value>
+      <key>tr</key>
+      <value>Alan algoritması metni</value>
     </title>
     <id>7</id>
     <valueType>
@@ -2906,12 +2989,16 @@
   <formCommands>
     <name>AddParameter</name>
     <title>
+      <key>ru</key>
+      <value>Добавить параметр</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Add parameter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Добавить параметр</value>
+      <key>tr</key>
+      <value>Parametre ekle</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -2938,6 +3025,10 @@
       <key>en</key>
       <value>Edit name</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Adı düzenle</value>
+    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -2960,12 +3051,16 @@
   <formCommands>
     <name>EditValue</name>
     <title>
+      <key>ru</key>
+      <value>Изменить значение</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Edit value</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Изменить значение</value>
+      <key>tr</key>
+      <value>Değeri düzenle</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -2985,12 +3080,16 @@
   <formCommands>
     <name>ExecuteProcedure</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить процедуру</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute procedure</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить процедуру</value>
+      <key>tr</key>
+      <value>Prosedürü yürüt</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -3014,12 +3113,16 @@
   <formCommands>
     <name>EventLog</name>
     <title>
+      <key>ru</key>
+      <value>Журнал регистрации</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Event log</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Журнал регистрации</value>
+      <key>tr</key>
+      <value>Event log</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -3042,12 +3145,16 @@
   <formCommands>
     <name>CreateScheduledJob</name>
     <title>
+      <key>ru</key>
+      <value>Создать регламентное задание</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Create scheduled job</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Создать регламентное задание</value>
+      <key>tr</key>
+      <value>Zamanlanmış iş oluştur</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -3078,6 +3185,10 @@
       <key>en</key>
       <value>Delete scheduled job</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Zamanlanmış işi sil</value>
+    </title>
     <id>13</id>
     <toolTip>
       <key>ru</key>
@@ -3100,12 +3211,16 @@
   <formCommands>
     <name>ShowQueryWizard</name>
     <title>
+      <key>ru</key>
+      <value>Конструктор запроса </value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query wizard</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Конструктор запроса </value>
+      <key>tr</key>
+      <value>Sorgu sihirbazı (wizard)</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -3129,12 +3244,16 @@
   <formCommands>
     <name>FormatText</name>
     <title>
+      <key>ru</key>
+      <value>Формат.</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Format.</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Формат.</value>
+      <key>tr</key>
+      <value>Format.</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -3164,6 +3283,10 @@
     <title>
       <key>en</key>
       <value>Api check parameters</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>API kontrol parametreleri</value>
     </title>
     <id>9</id>
     <toolTip>

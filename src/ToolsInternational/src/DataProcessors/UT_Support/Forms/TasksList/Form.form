@@ -14,10 +14,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>NewIssueSubject</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>NewIssueSubject</segments>
         </dataPath>
         <extendedTooltip>
           <name>NewIssueSubjectExtendedTooltip</name>
@@ -65,10 +63,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>NewIssueDescription</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>NewIssueDescription</segments>
         </dataPath>
         <extendedTooltip>
           <name>NewIssueDescriptionExtendedTooltip</name>
@@ -114,12 +110,15 @@
         <id>52</id>
         <title>
           <key>en</key>
-          <value>&lt;b>IMPORTANT!!!&lt;/>&lt;b> &lt;/>If you create a task not via  &lt;link https://github.com/cpr1c/tools_ui_1c/issues>https://github.com&lt;/>, and through this form you &lt;b>WILL&lt;/>&lt;b> &lt;/>&lt;b>NOT&lt;/>&lt;b> &lt;/>&lt;b> &lt;/>&lt;b>receive&lt;/>&lt;b> &lt;/>&lt;b>notifications&lt;/> about its change
-</value>
+          <value>&lt;b>IMPORTANT!!!&lt;/>&lt;b> &lt;/>If you create a task not via  &lt;link https://github.com/cpr1c/tools_ui_1c/issues>https://github.com&lt;/>, and through this form you &lt;b>WILL&lt;/>&lt;b> &lt;/>&lt;b>NOT&lt;/>&lt;b> &lt;/>&lt;b> &lt;/>&lt;b>receive&lt;/>&lt;b> &lt;/>&lt;b>notifications&lt;/> about its change</value>
         </title>
         <title>
           <key>ru</key>
-          <value>&lt;b>ВАЖНО!!!&lt;/>&lt;b> &lt;/>Если вы создаете задачу не через &lt;link https://github.com/cpr1c/tools_ui_1c/issues>https://github.com&lt;/>, а через эту форму вы &lt;b>НЕ&lt;/>&lt;b> &lt;/>&lt;b>БУДЕТЕ&lt;/> &lt;b>получать&lt;/>&lt;b> &lt;/>&lt;b>оповещения&lt;/> о ее изменении</value>
+          <value>&lt;b>ВАЖНО!!!&lt;/>&lt;b> &lt;/>Если вы создаете задачу не через &lt;link https://github.com/cpr1c/tools_ui_1c/issues>https://github.com&lt;/>, а через эту форму вы &lt;b>НЕ&lt;/>&lt;b> &lt;/>&lt;b>БУДЕТЕ&lt;/> &lt;b>получать&lt;/>&lt;b> &lt;/>&lt;b>оповещения&lt;/> о ее изменении</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>&lt;b>ÖNEMLİ!!!&lt;/> Eğer görevi &lt;link https://github.com>https://github.com&lt;/> üzerinden değil de bu form aracılığıyla oluşturursanız, değişikliklerle ilgili bildirim &lt;b>ALAMAYACAKSINIZ&lt;/>.</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -200,12 +199,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Новая задача</value>
+      </title>
+      <title>
         <key>en</key>
         <value>New issue</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Новая задача</value>
+        <key>tr</key>
+        <value>Yeni görev</value>
       </title>
       <extendedTooltip>
         <name>GroupNewIssueExtendedTooltip</name>
@@ -251,13 +254,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.Number</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.Number</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>IssuesList.Number</segments>
           </dataPath>
           <extendedTooltip>
             <name>IssuesListNumberExtendedTooltip</name>
@@ -307,13 +305,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.Subject</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.Subject</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>IssuesList.Subject</segments>
           </dataPath>
           <extendedTooltip>
             <name>IssuesListSubjectExtendedTooltip</name>
@@ -362,13 +355,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.Responsible</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.Responsible</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>IssuesList.Responsible</segments>
           </dataPath>
           <extendedTooltip>
             <name>IssuesListResponsibleExtendedTooltip</name>
@@ -417,10 +405,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.State</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>IssuesList.State</segments>
           </dataPath>
           <extendedTooltip>
             <name>IssuesListStateExtendedTooltip</name>
@@ -469,13 +455,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.Labels</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>IssuesList.Labels</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>IssuesList.Labels</segments>
           </dataPath>
           <extendedTooltip>
             <name>IssuesListLabelsExtendedTooltip</name>
@@ -563,6 +544,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>IssuesList</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -601,6 +583,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>IssuesList</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -640,6 +623,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>IssuesList</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -685,7 +669,6 @@
         <initialListView>Auto</initialListView>
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
-        <fileDragMode>AsFileRef</fileDragMode>
         <rowFilter xsi:type="core:UndefinedValue"/>
       </items>
       <visible>true</visible>
@@ -694,12 +677,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Список задач</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Issues List</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Список задач</value>
+        <key>tr</key>
+        <value>Görev listesi</value>
       </title>
       <extendedTooltip>
         <name>GroupIssuesListExtendedTooltip</name>
@@ -861,6 +848,7 @@
     <event>OnCreateAtServer</event>
     <name>ПриСозданииНаСервере</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -874,6 +862,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -890,12 +882,16 @@
   <attributes>
     <name>IssuesList</name>
     <title>
+      <key>ru</key>
+      <value>Список задач</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Issues list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Список задач</value>
+      <key>tr</key>
+      <value>Sorunlar listesi</value>
     </title>
     <id>2</id>
     <valueType>
@@ -910,12 +906,16 @@
     <columns>
       <name>Number</name>
       <title>
+        <key>ru</key>
+        <value>Номер</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Number</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Номер</value>
+        <key>tr</key>
+        <value>Numara</value>
       </title>
       <id>4</id>
       <valueType>
@@ -932,12 +932,16 @@
     <columns>
       <name>Subject</name>
       <title>
+        <key>ru</key>
+        <value>Тема</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Subject</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Тема</value>
+        <key>tr</key>
+        <value>Başlık</value>
       </title>
       <id>5</id>
       <valueType>
@@ -954,12 +958,16 @@
     <columns>
       <name>Responsible</name>
       <title>
+        <key>ru</key>
+        <value>Ответственный</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Responsible</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Ответственный</value>
+        <key>tr</key>
+        <value>Sorumlu</value>
       </title>
       <id>6</id>
       <valueType>
@@ -976,11 +984,15 @@
     <columns>
       <name>URL</name>
       <title>
+        <key>ru</key>
+        <value>URL</value>
+      </title>
+      <title>
         <key>en</key>
         <value>URL</value>
       </title>
       <title>
-        <key>ru</key>
+        <key>tr</key>
         <value>URL</value>
       </title>
       <id>7</id>
@@ -998,12 +1010,16 @@
     <columns>
       <name>Labels</name>
       <title>
+        <key>ru</key>
+        <value>Теги</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Labels</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Теги</value>
+        <key>tr</key>
+        <value>Etiketler</value>
       </title>
       <id>8</id>
       <valueType>
@@ -1019,12 +1035,16 @@
     <columns>
       <name>State</name>
       <title>
+        <key>ru</key>
+        <value>Статус</value>
+      </title>
+      <title>
         <key>en</key>
         <value>State</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Статус</value>
+        <key>tr</key>
+        <value>Durum</value>
       </title>
       <id>9</id>
       <valueType>
@@ -1042,12 +1062,16 @@
   <attributes>
     <name>NewIssueSubject</name>
     <title>
+      <key>ru</key>
+      <value>Тема</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Subject</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Тема</value>
+      <key>tr</key>
+      <value>Başlık</value>
     </title>
     <id>10</id>
     <valueType>
@@ -1065,12 +1089,16 @@
   <attributes>
     <name>NewIssueDescription</name>
     <title>
+      <key>ru</key>
+      <value>Описание</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Description</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Описание</value>
+      <key>tr</key>
+      <value>Açıklama</value>
     </title>
     <id>11</id>
     <valueType>
@@ -1088,12 +1116,16 @@
   <formCommands>
     <name>UpdateIssuesList</name>
     <title>
+      <key>ru</key>
+      <value>Обновить список задач</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update issues list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить список задач</value>
+      <key>tr</key>
+      <value>Sorunlar listesini güncelle</value>
     </title>
     <id>1</id>
     <use>
@@ -1112,12 +1144,16 @@
   <formCommands>
     <name>CreateNewIssue</name>
     <title>
+      <key>ru</key>
+      <value>Создать новую задачу</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Create new issue</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Создать новую задачу</value>
+      <key>tr</key>
+      <value>Yeni sorun oluştur</value>
     </title>
     <id>2</id>
     <use>
@@ -1133,12 +1169,16 @@
   <formCommands>
     <name>CreateNewIssueAtGitHub</name>
     <title>
+      <key>ru</key>
+      <value>Создать новую задачу на GitHub</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Create new issue at GitHub</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Создать новую задачу на GitHub</value>
+      <key>tr</key>
+      <value>GitHub'da yeni sorun oluştur</value>
     </title>
     <id>3</id>
     <use>
@@ -1154,12 +1194,16 @@
   <formCommands>
     <name>AboutPage</name>
     <title>
+      <key>ru</key>
+      <value>Страница разработки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>About page</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Страница разработки</value>
+      <key>tr</key>
+      <value>Geliştirme sayfası</value>
     </title>
     <id>4</id>
     <use>

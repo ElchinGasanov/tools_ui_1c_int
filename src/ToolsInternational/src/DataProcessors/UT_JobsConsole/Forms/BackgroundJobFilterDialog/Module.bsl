@@ -59,7 +59,7 @@ Procedure SetStateFlags(StatesArray)
 		ElsIf JobState = BackgroundJobState.Canceled Then
 			Canceled = True;	
 		Else
-			Raise NStr("ru = 'Неизвестное состояние задания: '; en = 'Unknown job state: '") + JobState;
+			Raise NStr("ru = 'Неизвестное состояние задания: '; en = 'Unknown job state: '; tr = 'Bilinmeyen görev durumu:'") + JobState;
 		EndIf;
 	EndDo;
 EndProcedure

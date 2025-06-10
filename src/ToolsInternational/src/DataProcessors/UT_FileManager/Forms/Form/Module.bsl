@@ -449,7 +449,7 @@ Procedure CreateDirectory_Command(Command)
 
 	ShowInputString(New NotifyDescription("CreateDirectoryAfterEnterNameCompletion", ThisObject,
 		New Structure("FilesTableName,IsLeftPanel", CurrentFilesTable, IsLeftPanel)), ,
-		NStr("en='Enter a name for the new directory' ; ru='Введите наименование нового каталога'"));
+		NStr("ru = 'Введите наименование нового каталога'; en = 'Enter a name for the new directory'; tr = 'Yeni dizin için bir ad girin'"));
 EndProcedure
 
 &AtClient
@@ -464,7 +464,7 @@ Procedure Delete(Command)
 	UT_CommonClient.ShowQuestionToUser(
 		New NotifyDescription("DeleteAfterConfirmingCompletion", ThisObject,
 		New Structure("IsLeftPanel,FullName", IsLeftPanel, CurrentData.FullName)), 
-		NStr("ru='Delete выбранный файл?'; en='Delete the selected file?'"),
+		NStr("ru = 'Delete выбранный файл?'; en = 'Delete the selected file?'; tr = 'Seçili dosya silinsin mi?'"),
 		QuestionDialogMode.YesNo);
 EndProcedure
 
@@ -564,7 +564,7 @@ EndProcedure
 Function CreateDirectoryOnServer(FullName)
 	File=New File(FullName);
 	If File.Exists() Then
-		UT_CommonClientServer.MessageToUser(Nstr("ru='Такой каталог уже существует'; en='Such directory already exists'"));
+		UT_CommonClientServer.MessageToUser(Nstr("ru = 'Такой каталог уже существует'; en = 'Such directory already exists'; tr = 'Böyle bir dizin zaten mevcut'"));
 
 		Return Undefined;
 	EndIf;
@@ -620,7 +620,7 @@ EndProcedure
 &AtClient
 Procedure CreateDirectoryCheckExistenceNewDirectoryCompletion(Exists, AdditionalParameters) Export
 	If Exists Then
-		UT_CommonClientServer.MessageToUser(Nstr("ru='Такой каталог уже существует'; en='Such directory already exists'"));
+		UT_CommonClientServer.MessageToUser(Nstr("ru = 'Такой каталог уже существует'; en = 'Such directory already exists'; tr = 'Böyle bir dizin zaten mevcut'"));
 		Return;
 	EndIf;
 

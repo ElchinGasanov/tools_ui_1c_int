@@ -169,12 +169,12 @@
       <showInFooter>true</showInFooter>
       <extInfo xsi:type="form:InputFieldExtInfo">
         <handlers>
-          <event>Clearing</event>
-          <name>ListTableValueСlearing</name>
-        </handlers>
-        <handlers>
           <event>StartChoice</event>
           <name>ListTableValueStartChoice</name>
+        </handlers>
+        <handlers>
+          <event>Clearing</event>
+          <name>ListTableValueСlearing</name>
         </handlers>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -339,6 +339,10 @@
         <autoMaxHeight>true</autoMaxHeight>
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
+        <border xsi:type="core:BorderDef">
+          <style>Single</style>
+          <width>1</width>
+        </border>
       </extInfo>
     </items>
     <autoCommandBar>
@@ -389,7 +393,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>ListTableSearchString</source>
+      <source>ListTable</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -428,7 +432,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>ListTableViewStatus</source>
+      <source>ListTable</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -467,7 +471,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>ListTableSearchControl</source>
+      <source>ListTable</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -555,12 +559,16 @@
       <name>FormClose</name>
       <id>3</id>
       <title>
+        <key>ru</key>
+        <value>Close</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Close</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Close</value>
+        <key>tr</key>
+        <value>Kapat</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -600,6 +608,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -612,6 +621,14 @@
     <title>
       <key>ru</key>
       <value>Returning storage for value container</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Returning storage for value container</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Değer konteyneri için depolama iadesi</value>
     </title>
     <id>1</id>
     <valueType>
@@ -629,6 +646,14 @@
     <title>
       <key>ru</key>
       <value>List value type</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>List value type</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Liste değer türü</value>
     </title>
     <id>2</id>
     <valueType>
@@ -648,6 +673,14 @@
       <key>ru</key>
       <value>This is an array</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>This is an array</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Bu bir dizidir</value>
+    </title>
     <id>3</id>
     <valueType>
       <types>Boolean</types>
@@ -665,6 +698,14 @@
       <key>ru</key>
       <value>List table</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>List table</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Liste tablosu</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>ValueTable</types>
@@ -681,6 +722,14 @@
         <key>ru</key>
         <value>Value</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>Value</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Değer</value>
+      </title>
       <id>5</id>
       <valueType/>
       <view>
@@ -696,6 +745,14 @@
         <key>ru</key>
         <value>Value container</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>Value container</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Değer konteyneri</value>
+      </title>
       <id>6</id>
       <valueType/>
       <view>
@@ -710,6 +767,14 @@
       <title>
         <key>ru</key>
         <value>Value type description</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Value type description</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Değer türü açıklaması</value>
       </title>
       <id>7</id>
       <valueType>
@@ -727,6 +792,14 @@
       <title>
         <key>ru</key>
         <value>Value type description presentation</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Value type description presentation</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Değer türü açıklama Gösterimi</value>
       </title>
       <id>8</id>
       <valueType>
@@ -746,6 +819,14 @@
         <key>ru</key>
         <value>Picture</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>Picture</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Resim</value>
+      </title>
       <id>9</id>
       <valueType>
         <types>Picture</types>
@@ -763,6 +844,14 @@
         <key>ru</key>
         <value>Check</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>Check</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İşaret</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>Boolean</types>
@@ -779,6 +868,14 @@
       <title>
         <key>ru</key>
         <value>Presentation</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Presentation</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim</value>
       </title>
       <id>11</id>
       <valueType>
@@ -812,6 +909,14 @@
     <title>
       <key>ru</key>
       <value>Apply</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Apply</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Uygula</value>
     </title>
     <id>1</id>
     <use>

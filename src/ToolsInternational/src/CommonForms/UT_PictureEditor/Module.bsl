@@ -60,7 +60,7 @@ Procedure SaveToFile(Command)
 	Picture = PictureFromTempStorage();
 	
 	If Picture.Вид = PictureType.Empty Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Картинка пустая'; en = 'Picture is empty'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Картинка пустая'; en = 'Picture is empty'; tr = 'Resim boş'"));
 		Return;
 	EndIf;
 	
@@ -68,7 +68,7 @@ Procedure SaveToFile(Command)
 	SaveParameters.TempStorageFileDirectory = PictureAddressBinaryData;
 	
 	FileDialog = New FileDialog(FileDialogMode.Save);
-	FileDialog.Title = NStr("ru = 'Сохранение картинки'; en = 'Picture save'");
+	FileDialog.Title = NStr("ru = 'Сохранение картинки'; en = 'Picture save'; tr = 'Resim kaydetme'");
 	FileDialog.Multiselect = False;
 #If Not WebClient Then
 	FileDialog.Filter = Picture.FileNameFilter();
@@ -92,7 +92,7 @@ Procedure LoadFromFile(Command)
 		ThisObject);
 	
 	FileDialog = New FileDialog(FileDialogMode.Open);
-	FileDialog.Title = NStr("ru = 'Чтение картинки'; en = 'Picture reading'");
+	FileDialog.Title = NStr("ru = 'Чтение картинки'; en = 'Picture reading'; tr = 'Resim okuma'");
 	FileDialog.Multiselect = False;
 	FileDialog.CheckFileExistence = True;
 	FileDialog.Preview = True;
@@ -144,7 +144,7 @@ Procedure SetPicturByReadFile(ReadFile)
 		Picture = New Picture(PictureBinaryData);
 		PictureAddressBinaryData = BinaryDataAddress;
 	Except
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось инициализировать картинку:'; en = 'Failed to initialize image:'")
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось инициализировать картинку:'; en = 'Failed to initialize image:'; tr = 'Görüntü başlatılamadı:'")
 															 + " " + ErrorDescription());
 		Picture = New Picture;
 		PlacePictureInTemporaryStorage(Picture);

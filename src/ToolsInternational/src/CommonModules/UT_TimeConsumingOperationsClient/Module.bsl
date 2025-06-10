@@ -114,12 +114,10 @@ Val IdleParameters)
 		UT_CommonClientServer.CheckParameter("UT_TimeConsumingOperationsClient.WaitForCompletion",
 			"IdleParameters", IdleParameters, Type("Structure"), PropertyTypes);
 		UT_CommonClientServer.Validate(IdleParameters.Interval = 0 Or IdleParameters.Interval >= 1, 
-			NStr("ru = 'Параметр ПараметрыОжидания.Интервал должен быть больше или равен 1'; en = 'The IdleParameters.Interval parameter must be equal to or greater than 1.'"),
-			"UT_TimeConsumingOperationsClient.WaitForCompletion");
+			NStr("ru = 'Параметр ПараметрыОжидания.Интервал должен быть больше или равен 1'; en = 'The IdleParameters.Interval parameter must be equal to or greater than 1.'; tr = 'IdleParameters.Interval parametresi 1''e eşit veya büyük olmalıdır.'"));
 		UT_CommonClientServer.Validate(Not (IdleParameters.ExecutionProgressNotification <> Undefined 
 		AND IdleParameters.OutputIdleWindow), 
-			NStr("ru = 'Если параметр ПараметрыОжидания.ВыводитьОкноОжидания установлен в Истина, то параметр ПараметрыОжидания.ОповещениеОПрогрессеВыполнения не поддерживается'; en = 'If the IdleParameters.OutputIdleWindow parameter is True, the IdleParameters.ExecutionProgressNotification parameter is ignored.'"),
-			"UT_TimeConsumingOperationsClient.WaitForCompletion");
+			NStr("ru = 'Если параметр ПараметрыОжидания.ВыводитьОкноОжидания установлен в Истина, то параметр ПараметрыОжидания.ОповещениеОПрогрессеВыполнения не поддерживается'; en = 'If the IdleParameters.OutputIdleWindow parameter is True, the IdleParameters.ExecutionProgressNotification parameter is ignored.'; tr = 'Eğer IdleParameters.OutputIdleWindow parametresi True ise, IdleParameters.ExecutionProgressNotification parametresi yok sayılır.'"));
 	EndIf;
 
 EndProcedure
@@ -131,7 +129,7 @@ Procedure ShowNotification(UserNotification) Export
 		Return;
 	EndIf;
 	
-	ShowUserNotification(?(Notification.Text <> Undefined, Notification.Text, NStr("ru = 'Действие выполнено'; en = 'Operation completed.'")), 
+	ShowUserNotification(?(Notification.Text <> Undefined, Notification.Text, NStr("ru = 'Действие выполнено'; en = 'Operation completed.'; tr = 'İşlem tamamlandı.'")), 
 		Notification.URL, Notification.Explanation);
 
 EndProcedure

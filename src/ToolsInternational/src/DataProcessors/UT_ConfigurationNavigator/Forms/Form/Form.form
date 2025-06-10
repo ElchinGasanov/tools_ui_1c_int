@@ -372,7 +372,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -403,7 +402,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>AdditionalInContextMenu</representationInContextMenu>
               </items>
               <visible>true</visible>
@@ -460,7 +458,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -491,7 +488,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:FormGroup">
@@ -525,7 +521,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -556,7 +551,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -587,7 +581,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -618,7 +611,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <visible>true</visible>
@@ -675,7 +667,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -706,7 +697,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -738,7 +728,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:FormGroup">
@@ -775,7 +764,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
@@ -806,7 +794,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
@@ -837,7 +824,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
@@ -868,7 +854,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <visible>true</visible>
@@ -883,6 +868,10 @@
                 <title>
                   <key>en</key>
                   <value>Objects tree usefull</value>
+                </title>
+                <title>
+                  <key>tr</key>
+                  <value>Kullanışlı fonksiyonlar</value>
                 </title>
                 <extendedTooltip>
                   <name>ObjectsTreeUsefullExtendedTooltip</name>
@@ -941,7 +930,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <items xsi:type="form:Button">
@@ -972,7 +960,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <visible>true</visible>
@@ -1029,7 +1016,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
@@ -1060,7 +1046,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <visible>true</visible>
@@ -1075,6 +1060,10 @@
                 <title>
                   <key>en</key>
                   <value>Objects tree for administrators</value>
+                </title>
+                <title>
+                  <key>tr</key>
+                  <value>Yöneticiler için</value>
                 </title>
                 <toolTip>
                   <key>ru</key>
@@ -1134,7 +1123,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
@@ -1165,7 +1153,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
@@ -1196,7 +1183,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:Button">
@@ -1227,7 +1213,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <items xsi:type="form:FormGroup">
@@ -1261,7 +1246,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <visible>true</visible>
@@ -1303,6 +1287,10 @@
                   <key>en</key>
                   <value>Objects tree run1 C</value>
                 </title>
+                <title>
+                  <key>tr</key>
+                  <value>1C çalıştır</value>
+                </title>
                 <toolTip>
                   <key>ru</key>
                   <value>Запуск 1С</value>
@@ -1342,6 +1330,10 @@
               <title>
                 <key>en</key>
                 <value>Objecs tree additional group</value>
+              </title>
+              <title>
+                <key>tr</key>
+                <value>Nesneler ağacı ek grubu</value>
               </title>
               <toolTip>
                 <key>ru</key>
@@ -1392,7 +1384,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <visible>true</visible>
@@ -1451,6 +1442,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>ObjectsTree</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1489,6 +1481,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>ObjectsTree</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -1528,6 +1521,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>ObjectsTree</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1581,7 +1575,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -1612,7 +1605,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <visible>true</visible>
@@ -1669,7 +1661,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:FormGroup">
@@ -1703,7 +1694,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -1734,7 +1724,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -1765,7 +1754,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <visible>true</visible>
@@ -1825,7 +1813,6 @@
               <picture xsi:type="core:PictureRef">
                 <picture>StdPicture.ScheduledJob</picture>
               </picture>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -1856,7 +1843,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:FormGroup">
@@ -1890,7 +1876,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -1921,7 +1906,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -1952,7 +1936,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -1983,7 +1966,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <visible>true</visible>
@@ -2058,6 +2040,10 @@
                 <title>
                   <key>en</key>
                   <value>Roles decoration</value>
+                </title>
+                <title>
+                  <key>tr</key>
+                  <value>Erişimi olan roller</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2269,6 +2255,7 @@
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
+                  <source>RolesWithAccessTable</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -2307,6 +2294,7 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
+                  <source>RolesWithAccessTable</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -2346,6 +2334,7 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
+                  <source>RolesWithAccessTable</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -2396,7 +2385,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <items xsi:type="form:Button">
@@ -2427,7 +2415,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <items xsi:type="form:Button">
@@ -2458,7 +2445,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <visible>true</visible>
@@ -2494,12 +2480,16 @@
                 <common>true</common>
               </userVisible>
               <title>
+                <key>ru</key>
+                <value>Роли</value>
+              </title>
+              <title>
                 <key>en</key>
                 <value>Roles</value>
               </title>
               <title>
-                <key>ru</key>
-                <value>Роли</value>
+                <key>tr</key>
+                <value>Erişimler</value>
               </title>
               <toolTip>
                 <key>ru</key>
@@ -2539,6 +2529,10 @@
                 <title>
                   <key>en</key>
                   <value>Users decoration</value>
+                </title>
+                <title>
+                  <key>tr</key>
+                  <value>Erişimi olan kullanıcılar</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2750,6 +2744,7 @@
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
+                  <source>UsersWithAccessTable</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -2788,6 +2783,7 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
+                  <source>UsersWithAccessTable</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -2827,6 +2823,7 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
+                  <source>UsersWithAccessTable</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -2877,7 +2874,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <items xsi:type="form:Button">
@@ -2908,7 +2904,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <items xsi:type="form:Button">
@@ -2939,7 +2934,6 @@
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
-                    <toolTipRepresentation>Auto</toolTipRepresentation>
                     <representationInContextMenu>Auto</representationInContextMenu>
                   </items>
                   <visible>true</visible>
@@ -2975,12 +2969,16 @@
                 <common>true</common>
               </userVisible>
               <title>
+                <key>ru</key>
+                <value>Пользователи</value>
+              </title>
+              <title>
                 <key>en</key>
                 <value>Users</value>
               </title>
               <title>
-                <key>ru</key>
-                <value>Пользователи</value>
+                <key>tr</key>
+                <value>Kullanıcılar</value>
               </title>
               <toolTip>
                 <key>ru</key>
@@ -3215,6 +3213,7 @@
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
+                  <source>VerifiableRightsTable</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -3253,6 +3252,7 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
+                  <source>VerifiableRightsTable</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -3292,6 +3292,7 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
+                  <source>VerifiableRightsTable</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -3347,12 +3348,16 @@
                 <common>true</common>
               </userVisible>
               <title>
+                <key>ru</key>
+                <value>Проверяемые права</value>
+              </title>
+              <title>
                 <key>en</key>
                 <value>Verifiable rights</value>
               </title>
               <title>
-                <key>ru</key>
-                <value>Проверяемые права</value>
+                <key>tr</key>
+                <value>Doğrulanabilir erişimler</value>
               </title>
               <toolTip>
                 <key>ru</key>
@@ -3392,6 +3397,10 @@
               <key>en</key>
               <value>Object right pages</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Nesne hakları sayfası</value>
+            </title>
             <toolTip>
               <key>ru</key>
               <value>Страницы права на объект</value>
@@ -3429,6 +3438,10 @@
           <title>
             <key>en</key>
             <value>Object right group</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Nesne hakları grubu</value>
           </title>
           <titleFont xsi:type="core:FontRef">
             <font>Style.NormalTextFont</font>
@@ -3479,6 +3492,10 @@
           <key>en</key>
           <value>Navigate</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Kılavuz</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Группа навигатор</value>
@@ -3513,12 +3530,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Объекты конфигурации</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Configuration objects</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Объекты конфигурации</value>
+        <key>tr</key>
+        <value>Konfigurasyon nesneleri</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -4077,7 +4098,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -4108,7 +4128,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -4139,7 +4158,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:FormGroup">
@@ -4173,7 +4191,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <visible>true</visible>
@@ -4242,6 +4259,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>_ExtensionsList</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -4280,6 +4298,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>_ExtensionsList</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -4319,6 +4338,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>_ExtensionsList</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -4381,6 +4401,10 @@
       <title>
         <key>en</key>
         <value>Configuration extensions</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Konfigurasyon uzantıları</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -5112,7 +5136,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -5143,7 +5166,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -5174,7 +5196,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -5205,7 +5226,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -5236,7 +5256,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -5267,7 +5286,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -5298,7 +5316,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:FormGroup">
@@ -5336,7 +5353,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -5371,7 +5387,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -5406,7 +5421,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -5441,7 +5455,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <visible>true</visible>
@@ -5530,6 +5543,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>_DBUserList</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -5568,6 +5582,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>_DBUserList</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -5607,6 +5622,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>_DBUserList</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -5664,12 +5680,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Пользователи</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Users</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Пользователи</value>
+        <key>tr</key>
+        <value>Kullanıcılar</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -5815,6 +5835,10 @@
         <title>
           <key>en</key>
           <value>Cluster administrator group</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Cluster Yöneticisi</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -6294,6 +6318,10 @@
             <title>
               <key>en</key>
               <value>Session list group session</value>
+            </title>
+            <title>
+              <key>tr</key>
+              <value>Oturum bilgisi</value>
             </title>
             <titleFont xsi:type="core:FontRef">
               <font>Style.TextFont</font>
@@ -6806,6 +6834,10 @@
               <key>en</key>
               <value>Session list group3</value>
             </title>
+            <title>
+              <key>tr</key>
+              <value>Oturumla ilgili arka plan görevi</value>
+            </title>
             <titleFont xsi:type="core:FontRef">
               <font>Style.TextFont</font>
               <bold>true</bold>
@@ -6873,7 +6905,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -6904,7 +6935,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -6935,7 +6965,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -6966,7 +6995,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -6997,7 +7025,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -7028,7 +7055,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:FormGroup">
@@ -7062,7 +7088,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <visible>true</visible>
@@ -7132,6 +7157,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>_SessionList</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7170,6 +7196,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>_SessionList</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -7209,6 +7236,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>_SessionList</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7272,6 +7300,10 @@
         <title>
           <key>en</key>
           <value>Sessions group</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Bilgi tabanı oturumları</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -7809,7 +7841,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -7840,7 +7871,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -7871,7 +7901,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -7902,7 +7931,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <items xsi:type="form:Button">
@@ -7933,7 +7961,6 @@
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
-              <toolTipRepresentation>Auto</toolTipRepresentation>
               <representationInContextMenu>Auto</representationInContextMenu>
             </items>
             <visible>true</visible>
@@ -7977,6 +8004,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>_ConnectionsList</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -8015,6 +8043,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>_ConnectionsList</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -8054,6 +8083,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>_ConnectionsList</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -8118,6 +8148,10 @@
           <key>en</key>
           <value>Connections group</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Bilgi tabanı bağlantıları</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Группа соединения</value>
@@ -8160,6 +8194,10 @@
       <title>
         <key>en</key>
         <value>Sessions page</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Oturumlar sayfası</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -8297,6 +8335,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>SettingsTree</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -8335,6 +8374,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>SettingsTree</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -8374,6 +8414,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>SettingsTree</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -8428,7 +8469,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <visible>true</visible>
@@ -8469,6 +8509,10 @@
         <title>
           <key>en</key>
           <value>Decoration settings</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Depolama Ayarları</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -8768,7 +8812,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -8799,7 +8842,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -8830,7 +8872,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <items xsi:type="form:Button">
@@ -8861,7 +8902,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <visible>true</visible>
@@ -8913,6 +8953,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>SettingsTable</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -8951,6 +8992,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>SettingsTable</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -8990,6 +9032,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>SettingsTable</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -9052,6 +9095,10 @@
         <key>en</key>
         <value>Default settings page</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Standart ayarlar</value>
+      </title>
       <toolTip>
         <key>ru</key>
         <value>Настройки</value>
@@ -9111,7 +9158,6 @@
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
-          <toolTipRepresentation>Auto</toolTipRepresentation>
           <representationInContextMenu>Auto</representationInContextMenu>
         </items>
         <items xsi:type="form:Button">
@@ -9142,7 +9188,6 @@
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
-          <toolTipRepresentation>Auto</toolTipRepresentation>
           <representationInContextMenu>Auto</representationInContextMenu>
         </items>
         <visible>true</visible>
@@ -9435,7 +9480,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -9466,7 +9510,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -9497,7 +9540,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -9528,7 +9570,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -9559,7 +9600,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <visible>true</visible>
@@ -9606,6 +9646,7 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
+              <source>_Tables</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -9644,6 +9685,7 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
+              <source>_Tables</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -9683,6 +9725,7 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
+              <source>_Tables</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -9745,6 +9788,10 @@
           <title>
             <key>en</key>
             <value>Table page</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Tüm tablolar</value>
           </title>
           <toolTip>
             <key>ru</key>
@@ -9969,7 +10016,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -10000,7 +10046,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -10031,7 +10076,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -10062,7 +10106,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:Button">
@@ -10093,7 +10136,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <items xsi:type="form:FormGroup">
@@ -10127,7 +10169,6 @@
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
-                  <toolTipRepresentation>Auto</toolTipRepresentation>
                   <representationInContextMenu>Auto</representationInContextMenu>
                 </items>
                 <visible>true</visible>
@@ -10200,6 +10241,7 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
+              <source>_Indexes</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -10238,6 +10280,7 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
+              <source>_Indexes</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -10277,6 +10320,7 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
+              <source>_Indexes</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -10327,7 +10371,6 @@
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
-                <toolTipRepresentation>Auto</toolTipRepresentation>
                 <representationInContextMenu>Auto</representationInContextMenu>
               </items>
               <visible>true</visible>
@@ -10370,6 +10413,10 @@
           <title>
             <key>en</key>
             <value>Indexes page</value>
+          </title>
+          <title>
+            <key>tr</key>
+            <value>Tüm dizinler</value>
           </title>
           <toolTip>
             <key>ru</key>
@@ -10446,6 +10493,10 @@
       <title>
         <key>en</key>
         <value>Storage structure page</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Saklama yapısı</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -10586,6 +10637,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>ServiceTree</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -10624,6 +10676,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>ServiceTree</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -10663,6 +10716,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>ServiceTree</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -10713,7 +10767,6 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
-            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <visible>true</visible>
@@ -10812,6 +10865,10 @@
       <title>
         <key>en</key>
         <value>Additional page</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Servis</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -10996,6 +11053,10 @@
         <title>
           <key>en</key>
           <value>Base settings page group</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Temel ayarlar</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -11219,6 +11280,10 @@
           <key>en</key>
           <value>Object property settings group</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Nesne özelliği ayarları</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Группа настойки свойств объекта</value>
@@ -11332,7 +11397,6 @@
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
-          <toolTipRepresentation>Auto</toolTipRepresentation>
           <representationInContextMenu>Auto</representationInContextMenu>
         </items>
         <items xsi:type="form:Button">
@@ -11363,7 +11427,6 @@
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
-          <toolTipRepresentation>Auto</toolTipRepresentation>
           <representationInContextMenu>Auto</representationInContextMenu>
         </items>
         <visible>true</visible>
@@ -11378,6 +11441,10 @@
         <title>
           <key>en</key>
           <value>Command group</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Komutlar</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -11416,6 +11483,10 @@
         <key>en</key>
         <value>Settings page</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarlar</value>
+      </title>
       <toolTip>
         <key>ru</key>
         <value>Настройки обработки</value>
@@ -11453,6 +11524,10 @@
     <title>
       <key>en</key>
       <value>Pages group</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Sayfa Grubu</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -11507,6 +11582,7 @@
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <saveDataInSettings>UseList</saveDataInSettings>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -11520,6 +11596,10 @@
     <name>Object</name>
     <title>
       <key>en</key>
+      <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
       <value>Object</value>
     </title>
     <id>1</id>
@@ -11544,6 +11624,10 @@
       <key>en</key>
       <value>Objects tree</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Nesneler ağacı</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>ValueTree</types>
@@ -11563,6 +11647,10 @@
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -11588,6 +11676,10 @@
         <key>en</key>
         <value>Synonym</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Eş anlamlısı</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -11611,6 +11703,10 @@
       <title>
         <key>en</key>
         <value>Full name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Tam adı</value>
       </title>
       <id>3</id>
       <valueType>
@@ -11636,6 +11732,10 @@
         <key>en</key>
         <value>Node type</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Düğüm türü</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -11659,6 +11759,10 @@
       <title>
         <key>en</key>
         <value>Number type node</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Sayı türü düğümü</value>
       </title>
       <id>5</id>
       <valueType>
@@ -11684,6 +11788,10 @@
         <key>en</key>
         <value>Object presentation</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Nesne Gösterimi</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>String</types>
@@ -11708,6 +11816,10 @@
         <key>en</key>
         <value>Number of objects</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Nesne sayısı</value>
+      </title>
       <id>7</id>
       <valueType>
         <types>Number</types>
@@ -11726,6 +11838,10 @@
       <name>NType</name>
       <title>
         <key>en</key>
+        <value>N type</value>
+      </title>
+      <title>
+        <key>tr</key>
         <value>N type</value>
       </title>
       <id>8</id>
@@ -11753,6 +11869,10 @@
       <key>en</key>
       <value>Path to forms</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Formlara giden yol</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>String</types>
@@ -11775,6 +11895,10 @@
       <key>en</key>
       <value>Settings tree</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar ağacı</value>
+    </title>
     <id>6</id>
     <valueType>
       <types>ValueTree</types>
@@ -11794,6 +11918,10 @@
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -11817,6 +11945,10 @@
         <key>en</key>
         <value>Node type</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Düğüm türü</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -11838,6 +11970,10 @@
       <title>
         <key>en</key>
         <value>Presentation</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -11862,6 +11998,10 @@
       <key>en</key>
       <value>Settings table</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar tablosu</value>
+    </title>
     <id>7</id>
     <valueType>
       <types>ValueTable</types>
@@ -11881,6 +12021,10 @@
       <title>
         <key>en</key>
         <value>Settings key</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarlar anahtarı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -11904,6 +12048,10 @@
         <key>en</key>
         <value>Object key</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Nesne anahtarı</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -11926,6 +12074,10 @@
         <key>en</key>
         <value>User</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Kullanıcı</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -11947,6 +12099,10 @@
       <title>
         <key>en</key>
         <value>Presentation</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim</value>
       </title>
       <id>5</id>
       <valueType>
@@ -11971,6 +12127,10 @@
       <key>en</key>
       <value>Form context</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Form bağlamı</value>
+    </title>
     <id>9</id>
     <valueType/>
     <view>
@@ -11989,6 +12149,10 @@
     <title>
       <key>en</key>
       <value>Service tree</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Hizmet ağacı</value>
     </title>
     <id>10</id>
     <valueType>
@@ -12009,6 +12173,10 @@
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -12032,6 +12200,10 @@
         <key>en</key>
         <value>Presentation</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Eş anlamı</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -12054,6 +12226,10 @@
         <key>en</key>
         <value>Enabled</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Etkinleştirilmiş</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>Boolean</types>
@@ -12074,6 +12250,10 @@
       <title>
         <key>en</key>
         <value>Comment</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Yorum</value>
       </title>
       <id>4</id>
       <valueType>
@@ -12096,6 +12276,10 @@
       <title>
         <key>en</key>
         <value>Picture</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Resim</value>
       </title>
       <id>5</id>
       <valueType>
@@ -12121,6 +12305,10 @@
         <key>en</key>
         <value>Is group</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Bir gruptur</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>Boolean</types>
@@ -12143,6 +12331,10 @@
       <key>en</key>
       <value>Roles with access table</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Erişim tablosu olan roller</value>
+    </title>
     <id>11</id>
     <valueType>
       <types>ValueTable</types>
@@ -12162,6 +12354,10 @@
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -12186,6 +12382,10 @@
       <title>
         <key>en</key>
         <value>Synonym</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Eş anlamı</value>
       </title>
       <id>2</id>
       <valueType>
@@ -12212,6 +12412,10 @@
       <key>en</key>
       <value>Display objects rights</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Nesnelerin haklarını görüntüle</value>
+    </title>
     <id>12</id>
     <valueType>
       <types>Boolean</types>
@@ -12233,6 +12437,10 @@
       <key>en</key>
       <value>Users with access table</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Erişim tablosu olan kullanıcılar</value>
+    </title>
     <id>13</id>
     <valueType>
       <types>ValueTable</types>
@@ -12252,6 +12460,10 @@
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -12276,6 +12488,10 @@
       <title>
         <key>en</key>
         <value>Full name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Tam adı</value>
       </title>
       <id>2</id>
       <valueType>
@@ -12302,6 +12518,10 @@
       <key>en</key>
       <value>Verifiable rights table</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Doğrulanabilir haklar tablosu</value>
+    </title>
     <id>16</id>
     <valueType>
       <types>ValueTable</types>
@@ -12321,6 +12541,10 @@
       <title>
         <key>en</key>
         <value>Metadata object</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Metaveri nesnesi</value>
       </title>
       <id>1</id>
       <valueType>
@@ -12344,6 +12568,10 @@
         <key>en</key>
         <value>Right</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Haklar</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -12365,6 +12593,10 @@
       <title>
         <key>en</key>
         <value>Mark</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İşaret</value>
       </title>
       <id>3</id>
       <valueType>
@@ -12388,6 +12620,10 @@
       <key>en</key>
       <value>Name of settings manager</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar yöneticisinin adı</value>
+    </title>
     <id>17</id>
     <valueType>
       <types>String</types>
@@ -12410,6 +12646,10 @@
       <key>en</key>
       <value>Development description</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Geliştirme açıklaması</value>
+    </title>
     <id>18</id>
     <valueType/>
     <view>
@@ -12428,6 +12668,10 @@
     <title>
       <key>en</key>
       <value>Subscribe table address</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Abonelik tablosu adresi</value>
     </title>
     <id>19</id>
     <valueType>
@@ -12451,6 +12695,10 @@
       <key>en</key>
       <value>Storage addresses</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Depolama adresleri</value>
+    </title>
     <id>20</id>
     <valueType/>
     <view>
@@ -12469,6 +12717,10 @@
     <title>
       <key>en</key>
       <value>Show object subscribtion</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne aboneliğini göster</value>
     </title>
     <id>21</id>
     <valueType>
@@ -12494,6 +12746,10 @@
       <key>en</key>
       <value>Show object subsystems</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne alt sistemlerini göster</value>
+    </title>
     <id>22</id>
     <valueType>
       <types>Boolean</types>
@@ -12517,6 +12773,10 @@
     <title>
       <key>en</key>
       <value>Show external object commands</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Harici nesne komutlarını göster</value>
     </title>
     <id>23</id>
     <valueType>
@@ -12542,6 +12802,10 @@
       <key>en</key>
       <value>Show standard settings</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Standart ayarları göster</value>
+    </title>
     <id>24</id>
     <valueType>
       <types>Boolean</types>
@@ -12565,6 +12829,10 @@
     <title>
       <key>en</key>
       <value>Show common object commands</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ortak nesne komutlarını göster</value>
     </title>
     <id>25</id>
     <valueType>
@@ -12590,6 +12858,10 @@
       <key>en</key>
       <value>Favorites content</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Favorilerin İçeriği</value>
+    </title>
     <id>26</id>
     <valueType/>
     <view>
@@ -12608,6 +12880,10 @@
     <title>
       <key>en</key>
       <value>Date of settings change</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarların değiştirildiği tarih</value>
     </title>
     <id>27</id>
     <valueType>
@@ -12634,6 +12910,10 @@
       <key>en</key>
       <value>Show storage structure in terms of1 C</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Depolama yapısını 1C açısından göster</value>
+    </title>
     <id>28</id>
     <valueType>
       <types>Boolean</types>
@@ -12658,6 +12938,10 @@
       <key>en</key>
       <value>Tables</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tablolar</value>
+    </title>
     <id>30</id>
     <valueType>
       <types>ValueTable</types>
@@ -12677,6 +12961,10 @@
       <title>
         <key>en</key>
         <value>Table name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Tablo adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -12700,6 +12988,10 @@
         <key>en</key>
         <value>Storage table name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Depolama tablosu adı</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -12722,6 +13014,10 @@
         <key>en</key>
         <value>Assignment</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Atama</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -12743,6 +13039,10 @@
       <title>
         <key>en</key>
         <value>Metadata</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Metaveri</value>
       </title>
       <id>4</id>
       <valueType>
@@ -12767,6 +13067,10 @@
       <key>en</key>
       <value>Indexes</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Dizinler</value>
+    </title>
     <id>31</id>
     <valueType>
       <types>ValueTable</types>
@@ -12786,6 +13090,10 @@
       <title>
         <key>en</key>
         <value>Table name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Tablo adı</value>
       </title>
       <id>2</id>
       <valueType>
@@ -12809,6 +13117,10 @@
         <key>en</key>
         <value>Index name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Dizin adı</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -12830,6 +13142,10 @@
       <title>
         <key>en</key>
         <value>Metadata</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Metaveri</value>
       </title>
       <id>5</id>
       <valueType>
@@ -12853,6 +13169,10 @@
     <title>
       <key>en</key>
       <value>Show tables and indexes DB</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Veritabanı tablolarını ve dizinlerini göster</value>
     </title>
     <id>32</id>
     <valueType>
@@ -12878,6 +13198,10 @@
       <key>en</key>
       <value>DBUser list</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>DBUser listesi</value>
+    </title>
     <id>33</id>
     <valueType>
       <types>ValueTable</types>
@@ -12897,6 +13221,10 @@
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -12920,6 +13248,10 @@
         <key>en</key>
         <value>Full name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Tam ad</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -12941,6 +13273,10 @@
       <title>
         <key>en</key>
         <value>OSUser</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İşletim Sistemi kullanıcısı</value>
       </title>
       <id>3</id>
       <valueType>
@@ -12964,6 +13300,10 @@
         <key>en</key>
         <value>Open IDAuthentication</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>OpenID Kimlik Doğrulaması</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>Boolean</types>
@@ -12984,6 +13324,10 @@
       <title>
         <key>en</key>
         <value>OSAuthentication</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İşletim Sistemi Kimlik Doğrulaması</value>
       </title>
       <id>5</id>
       <valueType>
@@ -13006,6 +13350,10 @@
         <key>en</key>
         <value>Standart authentication</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Standart kimlik doğrulama</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>Boolean</types>
@@ -13026,6 +13374,10 @@
       <title>
         <key>en</key>
         <value>Password is set</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Şifre ayarlandı</value>
       </title>
       <id>7</id>
       <valueType>
@@ -13048,6 +13400,10 @@
         <key>en</key>
         <value>Show in list</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Listede göster</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>Boolean</types>
@@ -13069,6 +13425,10 @@
         <key>en</key>
         <value>Run mode</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Başlatma modu</value>
+      </title>
       <id>9</id>
       <valueType>
         <types>String</types>
@@ -13089,6 +13449,10 @@
       </title>
       <title>
         <key>en</key>
+        <value>UUID</value>
+      </title>
+      <title>
+        <key>tr</key>
         <value>UUID</value>
       </title>
       <id>10</id>
@@ -13113,6 +13477,10 @@
         <key>en</key>
         <value>Roles</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Roller</value>
+      </title>
       <id>11</id>
       <valueType>
         <types>String</types>
@@ -13136,6 +13504,10 @@
       <key>en</key>
       <value>Session list</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Oturum listesi</value>
+    </title>
     <id>34</id>
     <valueType>
       <types>ValueTable</types>
@@ -13155,6 +13527,10 @@
       <title>
         <key>en</key>
         <value>Computer name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Bilgisayar adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -13178,6 +13554,10 @@
         <key>en</key>
         <value>Application name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Uygulama adı</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -13200,6 +13580,10 @@
         <key>en</key>
         <value>Session start</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Oturum başlangıcı</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>Date</types>
@@ -13221,6 +13605,10 @@
       <title>
         <key>en</key>
         <value>Session number</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Oturum numarası</value>
       </title>
       <id>4</id>
       <valueType>
@@ -13246,6 +13634,10 @@
         <key>en</key>
         <value>Connection number</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Bağlantı numarası</value>
+      </title>
       <id>5</id>
       <valueType>
         <types>Number</types>
@@ -13270,6 +13662,10 @@
         <key>en</key>
         <value>User</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Kullanıcı</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>String</types>
@@ -13290,6 +13686,10 @@
       </title>
       <title>
         <key>en</key>
+        <value>DBUser ID</value>
+      </title>
+      <title>
+        <key>tr</key>
         <value>DBUser ID</value>
       </title>
       <id>7</id>
@@ -13314,6 +13714,10 @@
         <key>en</key>
         <value>Method name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Metod adı</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>String</types>
@@ -13335,6 +13739,10 @@
       <title>
         <key>en</key>
         <value>Key</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Anahtar</value>
       </title>
       <id>9</id>
       <valueType>
@@ -13358,6 +13766,10 @@
         <key>en</key>
         <value>Name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>String</types>
@@ -13379,6 +13791,10 @@
       <title>
         <key>en</key>
         <value>Start</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Başlangıç</value>
       </title>
       <id>11</id>
       <valueType>
@@ -13402,6 +13818,10 @@
         <key>en</key>
         <value>End</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Son</value>
+      </title>
       <id>12</id>
       <valueType>
         <types>Date</types>
@@ -13423,6 +13843,10 @@
       <title>
         <key>en</key>
         <value>Placement</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Konum</value>
       </title>
       <id>13</id>
       <valueType>
@@ -13446,6 +13870,10 @@
         <key>en</key>
         <value>Scheduled job</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Planlanmış iş</value>
+      </title>
       <id>14</id>
       <valueType>
         <types>String</types>
@@ -13467,6 +13895,10 @@
       <title>
         <key>en</key>
         <value>State</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Durum</value>
       </title>
       <id>15</id>
       <valueType>
@@ -13490,6 +13922,10 @@
         <key>en</key>
         <value>Background job ID</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Arkaplan iş kimliği</value>
+      </title>
       <id>16</id>
       <valueType>
         <types>String</types>
@@ -13512,6 +13948,10 @@
         <key>en</key>
         <value>Current session</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Mevcut oturum</value>
+      </title>
       <id>17</id>
       <valueType>
         <types>Boolean</types>
@@ -13532,6 +13972,10 @@
       <title>
         <key>en</key>
         <value>Application presentation</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Uygulama Gösterimi</value>
       </title>
       <id>18</id>
       <valueType>
@@ -13558,6 +14002,10 @@
       <key>en</key>
       <value>Show user roles list</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Kullanıcı rolleri listesini göster</value>
+    </title>
     <id>35</id>
     <valueType>
       <types>Boolean</types>
@@ -13582,6 +14030,10 @@
       <key>en</key>
       <value>Connections list</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Bağlantı listesi</value>
+    </title>
     <id>36</id>
     <valueType>
       <types>ValueTable</types>
@@ -13601,6 +14053,10 @@
       <title>
         <key>en</key>
         <value>Active</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Aktif</value>
       </title>
       <id>1</id>
       <valueType>
@@ -13622,6 +14078,10 @@
       <title>
         <key>en</key>
         <value>Computer name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Bilgisayar adı</value>
       </title>
       <id>2</id>
       <valueType>
@@ -13647,6 +14107,10 @@
         <key>en</key>
         <value>Application presentation</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Uygulama Gösterimi</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -13670,6 +14134,10 @@
       <title>
         <key>en</key>
         <value>Application name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Uygulama adı</value>
       </title>
       <id>4</id>
       <valueType>
@@ -13695,6 +14163,10 @@
         <key>en</key>
         <value>User</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Kullanıcı</value>
+      </title>
       <id>5</id>
       <valueType>
         <types>String</types>
@@ -13719,6 +14191,10 @@
         <key>en</key>
         <value>Session start</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Oturum başlangıcı</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>Date</types>
@@ -13740,6 +14216,10 @@
       <title>
         <key>en</key>
         <value>Session number</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Oturum numarası</value>
       </title>
       <id>7</id>
       <valueType>
@@ -13765,6 +14245,10 @@
         <key>en</key>
         <value>Connection number</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Bağlantı numarası</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>Number</types>
@@ -13788,6 +14272,10 @@
       <title>
         <key>en</key>
         <value>DBUser ID</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>DBUser Kimliği</value>
       </title>
       <id>9</id>
       <valueType>
@@ -13813,6 +14301,10 @@
         <key>en</key>
         <value>Current connection</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Mevcut bağlantı</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>Boolean</types>
@@ -13834,6 +14326,10 @@
     <title>
       <key>en</key>
       <value>Cluster administrator name</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Cluster yöneticisi adı</value>
     </title>
     <id>37</id>
     <valueType>
@@ -13860,6 +14356,10 @@
       <key>en</key>
       <value>Cluster administrator password</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Cluster yönetici parolası</value>
+    </title>
     <id>38</id>
     <valueType>
       <types>String</types>
@@ -13885,6 +14385,10 @@
       <key>en</key>
       <value>Extensions list</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Uzantılar listesi</value>
+    </title>
     <id>39</id>
     <valueType>
       <types>ValueTable</types>
@@ -13904,6 +14408,10 @@
       <title>
         <key>en</key>
         <value>Active</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Aktif</value>
       </title>
       <id>1</id>
       <valueType>
@@ -13926,6 +14434,10 @@
         <key>en</key>
         <value>Safe mode</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Güvenli mod</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>Boolean</types>
@@ -13946,6 +14458,10 @@
       <title>
         <key>en</key>
         <value>Version</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Sürüm</value>
       </title>
       <id>3</id>
       <valueType>
@@ -13969,6 +14485,10 @@
         <key>en</key>
         <value>Unsafe operation protection</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Tehlikeli eylemlerden korunma</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>Boolean</types>
@@ -13989,6 +14509,10 @@
       <title>
         <key>en</key>
         <value>Name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>5</id>
       <valueType>
@@ -14012,6 +14536,10 @@
         <key>en</key>
         <value>Purpose</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Amaç</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>String</types>
@@ -14033,6 +14561,10 @@
       <title>
         <key>en</key>
         <value>Scope</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Kapsam</value>
       </title>
       <id>7</id>
       <valueType>
@@ -14056,6 +14588,10 @@
         <key>en</key>
         <value>Synonym</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Eş anlamlısı</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>String</types>
@@ -14078,6 +14614,10 @@
         <key>en</key>
         <value>UUID</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>UUID</value>
+      </title>
       <id>9</id>
       <valueType>
         <types>String</types>
@@ -14098,6 +14638,10 @@
       </title>
       <title>
         <key>en</key>
+        <value>Hash sum</value>
+      </title>
+      <title>
+        <key>tr</key>
         <value>Hash sum</value>
       </title>
       <id>10</id>
@@ -14123,6 +14667,10 @@
       <key>en</key>
       <value>Waiting time before password recovery</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Şifre kurtarma öncesi bekleme süresi</value>
+    </title>
     <id>40</id>
     <valueType>
       <types>Number</types>
@@ -14140,12 +14688,16 @@
   <formCommands>
     <name>kOpenInNewWindow</name>
     <title>
+      <key>ru</key>
+      <value>Открыть в новом окне...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Open in a new window</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Открыть в новом окне...</value>
+      <key>tr</key>
+      <value>Yeni bir pencerede aç</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -14169,12 +14721,16 @@
   <formCommands>
     <name>kShowObjectProperties</name>
     <title>
+      <key>ru</key>
+      <value>Свойства объекта...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Object properties...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Свойства объекта...</value>
+      <key>tr</key>
+      <value>Nesne özellikleri...</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -14198,12 +14754,16 @@
   <formCommands>
     <name>kOpenListForm</name>
     <title>
+      <key>ru</key>
+      <value>Стандартная форма...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Ordinary form</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Стандартная форма...</value>
+      <key>tr</key>
+      <value>Standart form...</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -14227,12 +14787,16 @@
   <formCommands>
     <name>kRunOrdinaryClient</name>
     <title>
+      <key>ru</key>
+      <value>Толстый клиент (обычное приложение)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Ordinary client</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Толстый клиент (обычное приложение)</value>
+      <key>tr</key>
+      <value>Kalın istemci (standard uygulama)</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -14252,12 +14816,16 @@
   <formCommands>
     <name>kRunThickClient</name>
     <title>
+      <key>ru</key>
+      <value>Толстый клиент (управляемое приложение)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Thick client</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Толстый клиент (управляемое приложение)</value>
+      <key>tr</key>
+      <value>Kalın istemci (yönetilen uygulama)</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -14277,12 +14845,16 @@
   <formCommands>
     <name>kRunDesigner</name>
     <title>
+      <key>ru</key>
+      <value>Конфигуратор 1С</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Designer 1C</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Конфигуратор 1С</value>
+      <key>tr</key>
+      <value>1C konfigurasyonu</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -14302,12 +14874,16 @@
   <formCommands>
     <name>kRunThinClient</name>
     <title>
+      <key>ru</key>
+      <value>Тонкий клиент (управляемое приложение)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Thin client</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Тонкий клиент (управляемое приложение)</value>
+      <key>tr</key>
+      <value>İnce istemci</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -14327,12 +14903,16 @@
   <formCommands>
     <name>kCollapseTreeSection</name>
     <title>
+      <key>ru</key>
+      <value>Свернуть раздел дерева</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Collapse tree section</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Свернуть раздел дерева</value>
+      <key>tr</key>
+      <value>Ağaç bölümünü daralt</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -14356,12 +14936,16 @@
   <formCommands>
     <name>kChangeScaleOfForm</name>
     <title>
+      <key>ru</key>
+      <value>Масштаб отображения...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Dispaly scale</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Масштаб отображения...</value>
+      <key>tr</key>
+      <value>Ekran ölçeği</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -14381,12 +14965,16 @@
   <formCommands>
     <name>kOpenDynamicList</name>
     <title>
+      <key>ru</key>
+      <value>Динамический список...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Dynamic list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Динамический список...</value>
+      <key>tr</key>
+      <value>Dinamik liste</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -14410,12 +14998,16 @@
   <formCommands>
     <name>kUpdateSettingsTable</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Güncelle</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -14439,12 +15031,16 @@
   <formCommands>
     <name>kRunServiceCommand</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Run</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить</value>
+      <key>tr</key>
+      <value>Uygula</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -14467,12 +15063,16 @@
   <formCommands>
     <name>kRun1CForAnyBase</name>
     <title>
+      <key>ru</key>
+      <value>Запуск сеанса 1С для произвольной базы...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Run 1C for any base...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Запуск сеанса 1С для произвольной базы...</value>
+      <key>tr</key>
+      <value>Herhangi bir taban için 1C'yi çalıştır...</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -14492,12 +15092,16 @@
   <formCommands>
     <name>kCalculateObjectsNumber</name>
     <title>
+      <key>ru</key>
+      <value>Рассчитать количество объектов</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Calculate objects number</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Рассчитать количество объектов</value>
+      <key>tr</key>
+      <value>Nesne sayısını hesapla</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -14528,6 +15132,10 @@
       <key>en</key>
       <value>Collapse all nodes</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tüm düğümleri daralt</value>
+    </title>
     <id>16</id>
     <toolTip>
       <key>ru</key>
@@ -14556,6 +15164,10 @@
       <key>en</key>
       <value>Add to favorites</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Favorilere ekle</value>
+    </title>
     <id>17</id>
     <toolTip>
       <key>ru</key>
@@ -14583,6 +15195,10 @@
     <title>
       <key>en</key>
       <value>Delete from favorites</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Favorilerden sil</value>
     </title>
     <id>18</id>
     <toolTip>
@@ -14613,6 +15229,10 @@
       <key>en</key>
       <value>Clear favorites</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Favorileri Temizle</value>
+    </title>
     <id>19</id>
     <toolTip>
       <key>ru</key>
@@ -14640,6 +15260,10 @@
     <title>
       <key>en</key>
       <value>Oder favorites</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Favorileri düzenle</value>
     </title>
     <id>20</id>
     <toolTip>
@@ -14669,6 +15293,10 @@
       <key>en</key>
       <value>Update numbering of objects</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Nesnelerin numaralandırılmasını güncelle</value>
+    </title>
     <id>21</id>
     <toolTip>
       <key>ru</key>
@@ -14688,12 +15316,16 @@
   <formCommands>
     <name>_FillInSchema</name>
     <title>
+      <key>ru</key>
+      <value>Заполнить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Fill in</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Заполнить</value>
+      <key>tr</key>
+      <value>Doldur</value>
     </title>
     <id>22</id>
     <toolTip>
@@ -14717,12 +15349,16 @@
   <formCommands>
     <name>_MoveToTableFromIndex</name>
     <title>
+      <key>ru</key>
+      <value>Перейти к таблице БД</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Move to DB table</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Перейти к таблице БД</value>
+      <key>tr</key>
+      <value>DB tablosuna git</value>
     </title>
     <id>23</id>
     <toolTip>
@@ -14746,12 +15382,16 @@
   <formCommands>
     <name>_UpdateDBUsersList</name>
     <title>
+      <key>ru</key>
+      <value>Обновить список пользователей ИБ</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update DB users list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить список пользователей ИБ</value>
+      <key>tr</key>
+      <value>DB kullanıcılarının listesini güncelleyin</value>
     </title>
     <id>24</id>
     <toolTip>
@@ -14771,12 +15411,16 @@
   <formCommands>
     <name>_DeleteDBUser</name>
     <title>
+      <key>ru</key>
+      <value>Удалить пользователя ИБ...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Delete DB user...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Удалить пользователя ИБ...</value>
+      <key>tr</key>
+      <value>Veritabanı kullanıcısını sil...</value>
     </title>
     <id>25</id>
     <toolTip>
@@ -14796,12 +15440,16 @@
   <formCommands>
     <name>_CreateDBUser</name>
     <title>
+      <key>ru</key>
+      <value>Создать пользователя ИБ...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Create DB user ...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Создать пользователя ИБ...</value>
+      <key>tr</key>
+      <value>Create DB user ...</value>
     </title>
     <id>26</id>
     <toolTip>
@@ -14821,12 +15469,16 @@
   <formCommands>
     <name>_UpdateNumberingOfAllObjects</name>
     <title>
+      <key>ru</key>
+      <value>Обновить нумерацию всех объектов...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update the numbering of all objects</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить нумерацию всех объектов...</value>
+      <key>tr</key>
+      <value>Tüm nesnelerin numaralandırmasını güncelle</value>
     </title>
     <id>27</id>
     <toolTip>
@@ -14846,12 +15498,16 @@
   <formCommands>
     <name>_CopyDBUser</name>
     <title>
+      <key>ru</key>
+      <value>Скопировать пользователя ИБ...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Copy DB user</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Скопировать пользователя ИБ...</value>
+      <key>tr</key>
+      <value>DB kullanıcısını kopyala</value>
     </title>
     <id>28</id>
     <toolTip>
@@ -14871,12 +15527,16 @@
   <formCommands>
     <name>_FillInDBUsersList</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Güncelle</value>
     </title>
     <id>29</id>
     <toolTip>
@@ -14900,12 +15560,16 @@
   <formCommands>
     <name>_FillInSessionsList</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Güncelle</value>
     </title>
     <id>30</id>
     <toolTip>
@@ -14929,12 +15593,16 @@
   <formCommands>
     <name>_OpenObjectsEditor</name>
     <title>
+      <key>ru</key>
+      <value>Открыть редактор объектов...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Open objects editor ...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Открыть редактор объектов...</value>
+      <key>tr</key>
+      <value>Nesne düzenleyicisini aç...</value>
     </title>
     <id>31</id>
     <toolTip>
@@ -14957,12 +15625,16 @@
   <formCommands>
     <name>_FillInConnectionsList</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Güncelle</value>
     </title>
     <id>32</id>
     <toolTip>
@@ -14986,12 +15658,16 @@
   <formCommands>
     <name>_SetSessionsLock</name>
     <title>
+      <key>ru</key>
+      <value>Установить блокировку сеансов...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Set sessions lock...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Установить блокировку сеансов...</value>
+      <key>tr</key>
+      <value>Oturum kilidi ayarla...</value>
     </title>
     <id>33</id>
     <toolTip>
@@ -15022,6 +15698,10 @@
       <key>en</key>
       <value>Finish sessions</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Oturumları bitir</value>
+    </title>
     <id>34</id>
     <toolTip>
       <key>ru</key>
@@ -15040,12 +15720,16 @@
   <formCommands>
     <name>_FillInExtensionList</name>
     <title>
+      <key>ru</key>
+      <value>Заполнить список</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Fill in list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Заполнить список</value>
+      <key>tr</key>
+      <value>Listeyi doldur</value>
     </title>
     <id>35</id>
     <toolTip>
@@ -15069,12 +15753,16 @@
   <formCommands>
     <name>_AddExtension</name>
     <title>
+      <key>ru</key>
+      <value>Добавить из файла...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Add from file</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Добавить из файла...</value>
+      <key>tr</key>
+      <value>Dosyadan ekle</value>
     </title>
     <id>36</id>
     <toolTip>
@@ -15093,12 +15781,16 @@
   <formCommands>
     <name>_UpdateExtension</name>
     <title>
+      <key>ru</key>
+      <value>Обновить из файла...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update from file</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить из файла...</value>
+      <key>tr</key>
+      <value>Dosyadan güncelle</value>
     </title>
     <id>37</id>
     <toolTip>
@@ -15117,12 +15809,17 @@
   <formCommands>
     <name>_DeleteExtension</name>
     <title>
+      <key>ru</key>
+      <value>Удалить...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Delete...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Удалить...</value>
+      <key>tr</key>
+      <value>Sil...
+</value>
     </title>
     <id>38</id>
     <toolTip>
@@ -15148,6 +15845,10 @@
       <key>en</key>
       <value>Run designer under user</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Konfigurasyonu kullanıcı adından çalıştır</value>
+    </title>
     <id>39</id>
     <use>
       <common>true</common>
@@ -15162,12 +15863,16 @@
   <formCommands>
     <name>RunOrdinaryClientUnderUser</name>
     <title>
+      <key>ru</key>
+      <value>Запуск под пользователем толстый клиент обычное приложение</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Run the ordinary client under a user</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Запуск под пользователем толстый клиент обычное приложение</value>
+      <key>tr</key>
+      <value>Sıradan istemciyi kullanıcı adından çalıştır</value>
     </title>
     <id>40</id>
     <use>
@@ -15183,12 +15888,16 @@
   <formCommands>
     <name>RunThickClientUnderUser</name>
     <title>
+      <key>ru</key>
+      <value>Запуск под пользователем толстый клиент</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Run the thick client under a user</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Запуск под пользователем толстый клиент</value>
+      <key>tr</key>
+      <value>Kalın istemciyi kullanıcı adından çalıştır</value>
     </title>
     <id>41</id>
     <use>
@@ -15210,6 +15919,10 @@
     <title>
       <key>en</key>
       <value>Run thin client under user</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>İnce istemciyi kullanıcı adından çalıştır</value>
     </title>
     <id>42</id>
     <use>

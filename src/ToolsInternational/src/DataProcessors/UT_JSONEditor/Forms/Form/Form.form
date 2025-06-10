@@ -11,10 +11,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>LineEditField</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>LineEditField</segments>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -416,6 +414,10 @@
         <key>en</key>
         <value>File group</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Dosya</value>
+      </title>
       <extendedTooltip>
         <name>FileGroupExtendedTooltip</name>
         <id>29</id>
@@ -485,6 +487,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -498,6 +501,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -521,6 +528,10 @@
       <key>en</key>
       <value>Tree edit field</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Editör alan ağacı</value>
+    </title>
     <id>3</id>
     <valueType>
       <types>String</types>
@@ -542,6 +553,10 @@
     <title>
       <key>en</key>
       <value>Library address</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kütüphane adresi</value>
     </title>
     <id>4</id>
     <valueType>
@@ -565,6 +580,10 @@
       <key>en</key>
       <value>Library saving directory</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Kütüphane kayıt dizini</value>
+    </title>
     <id>5</id>
     <valueType>
       <types>String</types>
@@ -586,6 +605,10 @@
     <title>
       <key>en</key>
       <value>Line edit field</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Editör alan satırı</value>
     </title>
     <id>6</id>
     <valueType>
@@ -609,6 +632,10 @@
       <key>en</key>
       <value>Edit line</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Düzenlenebilir satır</value>
+    </title>
     <id>7</id>
     <valueType>
       <types>String</types>
@@ -631,6 +658,10 @@
       <key>en</key>
       <value>Edit mode</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Düzenleme modu</value>
+    </title>
     <id>8</id>
     <valueType>
       <types>Boolean</types>
@@ -651,6 +682,10 @@
     <title>
       <key>en</key>
       <value>Tool data file name</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Araç veri dosyası adı</value>
     </title>
     <id>9</id>
     <valueType>
@@ -673,6 +708,10 @@
     <title>
       <key>en</key>
       <value>Copy from line to tree</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Diziden ağaca kopyala</value>
     </title>
     <id>1</id>
     <use>
@@ -699,6 +738,10 @@
       <key>en</key>
       <value>Copy from tree to line</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ağaçtan dizeye kopyala</value>
+    </title>
     <id>2</id>
     <use>
       <common>true</common>
@@ -724,6 +767,10 @@
       <key>en</key>
       <value>Finish editing</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Düzenlemeyi bitir</value>
+    </title>
     <id>3</id>
     <use>
       <common>true</common>
@@ -744,6 +791,10 @@
     <title>
       <key>en</key>
       <value>Save file</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Dosyayı kaydet</value>
     </title>
     <id>4</id>
     <use>
@@ -770,6 +821,10 @@
       <key>en</key>
       <value>Save file as</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Dosyayı farklı kaydet</value>
+    </title>
     <id>5</id>
     <use>
       <common>true</common>
@@ -793,6 +848,10 @@
     <title>
       <key>en</key>
       <value>New file</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Yeni dosya</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -820,6 +879,10 @@
       <key>en</key>
       <value>Open file</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Dosyayı aç</value>
+    </title>
     <id>7</id>
     <use>
       <common>true</common>
@@ -844,6 +907,10 @@
     <title>
       <key>en</key>
       <value>Close tool</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kapat</value>
     </title>
     <id>8</id>
     <use>
