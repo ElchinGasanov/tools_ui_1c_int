@@ -13,12 +13,16 @@
   <commands uuid="9a26f94f-7aa0-4877-8fc3-143e210ab55f">
     <name>UT_DebugSettings</name>
     <synonym>
+      <key>ru</key>
+      <value>Настройки отладки</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Debug settings</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Настройки отладки</value>
+      <key>tr</key>
+      <value>Hata ayıklama ayarları</value>
     </synonym>
     <group>FormCommandBarImportant</group>
     <commandParameterType>

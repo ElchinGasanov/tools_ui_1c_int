@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Консоль заданий (УИ)</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Jobs console (UT)</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Консоль заданий (УИ)</value>
+    <key>tr</key>
+    <value>Görev konsolu [UT]</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>ScheduledJobs</name>
@@ -40,10 +44,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.Metadata</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.Metadata</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListMetadataExtendedTooltip</name>
@@ -92,10 +94,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.Description</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.Description</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListDescriptionExtendedTooltip</name>
@@ -144,10 +144,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.Key</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.Key</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListKeyExtendedTooltip</name>
@@ -196,10 +194,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.Method</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.Method</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListMethodExtendedTooltip</name>
@@ -248,10 +244,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.Schedule</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.Schedule</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListScheduleExtendedTooltip</name>
@@ -300,10 +294,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.User</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.User</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListUserExtendedTooltip</name>
@@ -352,10 +344,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.Predefined</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.Predefined</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListPredefinedExtendedTooltip</name>
@@ -404,10 +394,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.Use</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.Use</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListUseExtendedTooltip</name>
@@ -451,15 +439,17 @@
       <items xsi:type="form:FormField">
         <name>ScheduledJobsListExecuted</name>
         <id>19</id>
+        <title>
+          <key>tr</key>
+          <value>Gerçekleştirildi</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.Executed</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.Executed</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListExecutedExtendedTooltip</name>
@@ -503,15 +493,17 @@
       <items xsi:type="form:FormField">
         <name>ScheduledJobsListState</name>
         <id>21</id>
+        <title>
+          <key>tr</key>
+          <value>Durum</value>
+        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.State</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.State</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListStateExtendedTooltip</name>
@@ -559,10 +551,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ScheduledJobsList.ID</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ScheduledJobsList.ID</segments>
         </dataPath>
         <extendedTooltip>
           <name>ScheduledJobsListIDExtendedTooltip</name>
@@ -687,11 +677,11 @@
           </extendedTooltip>
           <commandName>Form.Item.ScheduledJobsList.StandardCommand.Change</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>ScheduledJobsListDelete</name>
@@ -718,11 +708,11 @@
           </extendedTooltip>
           <commandName>Form.Item.ScheduledJobsList.StandardCommand.Delete</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>ScheduledJobsListSetScheduledJobsFilter</name>
@@ -811,11 +801,11 @@
           </extendedTooltip>
           <commandName>Form.Item.ScheduledJobsList.StandardCommand.SortListAsc</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>ScheduledJobsListSortByDescending</name>
@@ -842,11 +832,11 @@
           </extendedTooltip>
           <commandName>Form.Item.ScheduledJobsList.StandardCommand.SortListDesc</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>ScheduledJobsListRefreshScheduledJobs</name>
@@ -966,11 +956,11 @@
           </extendedTooltip>
           <commandName>Form.Item.ScheduledJobsList.StandardCommand.OutputList</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>true</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:FormGroup">
           <name>ScheduledJobsListGroup1</name>
@@ -982,12 +972,16 @@
               <name>ScheduledJobsListExecuteManually</name>
               <id>111</id>
               <title>
+                <key>ru</key>
+                <value>На сервере (тонкий клиент)</value>
+              </title>
+              <title>
                 <key>en</key>
                 <value>At server (thin client)</value>
               </title>
               <title>
-                <key>ru</key>
-                <value>На сервере (тонкий клиент)</value>
+                <key>tr</key>
+                <value>Sunucuda (ince istemci)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1020,12 +1014,16 @@
               <name>ScheduledJobsListRun</name>
               <id>109</id>
               <title>
+                <key>ru</key>
+                <value>В фоновом задании</value>
+              </title>
+              <title>
                 <key>en</key>
                 <value>In background job</value>
               </title>
               <title>
-                <key>ru</key>
-                <value>В фоновом задании</value>
+                <key>tr</key>
+                <value>Arkaplanda iş</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1060,12 +1058,16 @@
               <common>true</common>
             </userVisible>
             <title>
+              <key>ru</key>
+              <value>Выполнить</value>
+            </title>
+            <title>
               <key>en</key>
               <value>Execute</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Выполнить</value>
+              <key>tr</key>
+              <value>Çalıştır</value>
             </title>
             <extendedTooltip>
               <name>ScheduledJobsListGroup2ExtendedTooltip</name>
@@ -1202,6 +1204,7 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
+        <source>ScheduledJobsList</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -1240,6 +1243,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
+        <source>ScheduledJobsList</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
           <horizontalLocation>Left</horizontalLocation>
@@ -1279,6 +1283,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
+        <source>ScheduledJobsList</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -1638,12 +1643,16 @@
             <name>ScheduledJobsListContextMenuExecuteManually</name>
             <id>144</id>
             <title>
+              <key>ru</key>
+              <value>На клиенте</value>
+            </title>
+            <title>
               <key>en</key>
               <value>At client</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>На клиенте</value>
+              <key>tr</key>
+              <value>İstemcide</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -1676,12 +1685,16 @@
             <name>ScheduledJobsListContextMenuRun</name>
             <id>146</id>
             <title>
+              <key>ru</key>
+              <value>В фоновом задании</value>
+            </title>
+            <title>
               <key>en</key>
               <value>In background job</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>В фоновом задании</value>
+              <key>tr</key>
+              <value>Arkaplanda iş</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -1781,12 +1794,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Регламентные задания</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Scheduled jobs</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Регламентные задания</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevler</value>
     </title>
     <titleFont xsi:type="core:FontRef">
       <font>Style.NormalTextFont</font>
@@ -1862,10 +1879,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.Scheduled</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.Scheduled</segments>
         </dataPath>
         <toolTip>
           <key>ru</key>
@@ -1918,10 +1933,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.Description</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.Description</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListDescriptionExtendedTooltip</name>
@@ -1970,10 +1983,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.Key</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.Key</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListKeyExtendedTooltip</name>
@@ -2022,10 +2033,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.Method</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.Method</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListMethodExtendedTooltip</name>
@@ -2074,10 +2083,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.State</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.State</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListStateExtendedTooltip</name>
@@ -2126,10 +2133,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.Begin</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.Begin</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListBeginExtendedTooltip</name>
@@ -2178,10 +2183,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.End</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.End</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListEndExtendedTooltip</name>
@@ -2230,10 +2233,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.Server</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.Server</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListServerExtendedTooltip</name>
@@ -2282,10 +2283,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.Errors</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.Errors</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListErrorsExtendedTooltip</name>
@@ -2334,10 +2333,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.Messages</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.Messages</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListMessagesExtendedTooltip</name>
@@ -2384,10 +2381,8 @@
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible/>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>BackgroundJobsList.ID</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>BackgroundJobsList.ID</segments>
         </dataPath>
         <extendedTooltip>
           <name>BackgroundJobsListIDExtendedTooltip</name>
@@ -2521,12 +2516,16 @@
           <name>BackgroundJobsListCancelBackgroundJob</name>
           <id>48</id>
           <title>
+            <key>ru</key>
+            <value>Отменить</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Cancel</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Отменить</value>
+            <key>tr</key>
+            <value>İptal</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -2551,11 +2550,11 @@
           </extendedTooltip>
           <commandName>Form.Command.CancelBackgroundJob</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>BackgroundJobsListSetBackgroundJobsFilter</name>
@@ -2674,11 +2673,11 @@
           </extendedTooltip>
           <commandName>Form.Item.BackgroundJobsList.StandardCommand.SortListAsc</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>BackgroundJobsListSortByDescending</name>
@@ -2705,11 +2704,11 @@
           </extendedTooltip>
           <commandName>Form.Item.BackgroundJobsList.StandardCommand.SortListDesc</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>BackgroundJobsListRefreshBackgroundJobs</name>
@@ -2798,11 +2797,11 @@
           </extendedTooltip>
           <commandName>Form.Item.BackgroundJobsList.StandardCommand.OutputList</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>true</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -2861,6 +2860,7 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
+        <source>BackgroundJobsList</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -2899,6 +2899,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
+        <source>BackgroundJobsList</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
           <horizontalLocation>Left</horizontalLocation>
@@ -2938,6 +2939,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
+        <source>BackgroundJobsList</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -2994,12 +2996,16 @@
           <name>BackgroundJobsListContextMenuCancelBackgroundJob</name>
           <id>132</id>
           <title>
+            <key>ru</key>
+            <value>Отменить</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Cancel</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Отменить</value>
+            <key>tr</key>
+            <value>İptal</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -3280,12 +3286,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Фоновые задания</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Background jobs</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Фоновые задания</value>
+      <key>tr</key>
+      <value>Arkaplan görevleri</value>
     </title>
     <titleFont xsi:type="core:FontRef">
       <font>Style.NormalTextFont</font>
@@ -3353,6 +3363,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -3365,12 +3376,16 @@
   <attributes>
     <name>ScheduledJobsList</name>
     <title>
+      <key>ru</key>
+      <value>Список регламентных заданий</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Scheduled jobs list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Список регламентных заданий</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevler listesi</value>
     </title>
     <id>2</id>
     <valueType>
@@ -3387,6 +3402,10 @@
       <title>
         <key>ru</key>
         <value>Metadata</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Metaveri</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3406,6 +3425,10 @@
         <key>ru</key>
         <value>Description</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Tanım</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -3423,6 +3446,10 @@
       <title>
         <key>ru</key>
         <value>Key</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Anahtar</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3442,6 +3469,10 @@
         <key>ru</key>
         <value>Schedule</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Zamanlanma</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -3459,6 +3490,10 @@
       <title>
         <key>ru</key>
         <value>User</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Kullanıcı</value>
       </title>
       <id>5</id>
       <valueType>
@@ -3478,6 +3513,10 @@
         <key>ru</key>
         <value>Predefined</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Önceden tanımlı</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>String</types>
@@ -3495,6 +3534,10 @@
       <title>
         <key>ru</key>
         <value>Use</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Kullanım</value>
       </title>
       <id>7</id>
       <valueType>
@@ -3514,6 +3557,10 @@
         <key>ru</key>
         <value>Executed</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Gerçekleştirildi</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>String</types>
@@ -3531,6 +3578,10 @@
       <title>
         <key>ru</key>
         <value>State</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Durum</value>
       </title>
       <id>9</id>
       <valueType>
@@ -3550,6 +3601,10 @@
         <key>ru</key>
         <value>ID</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>ID</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>UUID</types>
@@ -3566,6 +3621,10 @@
       <title>
         <key>ru</key>
         <value>Method</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Metot adı</value>
       </title>
       <id>11</id>
       <valueType>
@@ -3585,6 +3644,10 @@
         <key>en</key>
         <value>Metadata name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Metaveri adı</value>
+      </title>
       <id>17</id>
       <valueType>
         <types>String</types>
@@ -3601,12 +3664,16 @@
   <attributes>
     <name>BackgroundJobsFilterEnabled</name>
     <title>
+      <key>ru</key>
+      <value>Отбор фоновых заданий включен</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Background jobs filter enabled</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отбор фоновых заданий включен</value>
+      <key>tr</key>
+      <value>Arka plan işleri filtresi etkinleştirildi</value>
     </title>
     <id>3</id>
     <valueType>
@@ -3622,12 +3689,16 @@
   <attributes>
     <name>ScheduledJobsListAutoUpdate</name>
     <title>
+      <key>ru</key>
+      <value>Автоообновление списка регламентных заданий</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Scheduled jobs list auto update</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Автоообновление списка регламентных заданий</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevler listesinin otomatik güncellenmesi</value>
     </title>
     <id>4</id>
     <valueType>
@@ -3646,12 +3717,16 @@
   <attributes>
     <name>BackgroundJobsListAutoUpdate</name>
     <title>
+      <key>ru</key>
+      <value>Автообновление списка фоновых заданий</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Background jobs list auto update</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Автообновление списка фоновых заданий</value>
+      <key>tr</key>
+      <value>Arka plan görev listesini otomatik güncelleme</value>
     </title>
     <id>5</id>
     <valueType>
@@ -3670,12 +3745,16 @@
   <attributes>
     <name>ScheduledJobsFilter</name>
     <title>
+      <key>ru</key>
+      <value>Отбор регламентных заданий</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Scheduled jobs filter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отбор регламентных заданий</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevler filtresi</value>
     </title>
     <id>6</id>
     <valueType/>
@@ -3689,12 +3768,16 @@
   <attributes>
     <name>ScheduledJobsFilterEnabled</name>
     <title>
+      <key>ru</key>
+      <value>Отбор регламентных заданий включен</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Scheduled jobs filter enabled</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отбор регламентных заданий включен</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevler  filtresi etkinleştirildi</value>
     </title>
     <id>7</id>
     <valueType>
@@ -3710,12 +3793,16 @@
   <attributes>
     <name>BackgroundJobsFilter</name>
     <title>
+      <key>ru</key>
+      <value>Отбор фоновых заданий</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Background jobs filter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отбор фоновых заданий</value>
+      <key>tr</key>
+      <value>Arkaplan işleri filtresi</value>
     </title>
     <id>8</id>
     <valueType/>
@@ -3729,12 +3816,16 @@
   <attributes>
     <name>ScheduledListAutoUpdatePeriod</name>
     <title>
+      <key>ru</key>
+      <value>Период автообновления списка регламентных заданий</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Scheduled list auto update period</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Период автообновления списка регламентных заданий</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevler listesinin otomatik güncelleme süresi</value>
     </title>
     <id>9</id>
     <valueType>
@@ -3757,12 +3848,16 @@
   <attributes>
     <name>BackgroundListAutoUpdatePeriod</name>
     <title>
+      <key>ru</key>
+      <value>Период автообновления списка фоновых заданий</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Background list auto update period</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Период автообновления списка фоновых заданий</value>
+      <key>tr</key>
+      <value>Arka plan görev listesi otomatik yenileme süresi</value>
     </title>
     <id>10</id>
     <valueType>
@@ -3785,12 +3880,16 @@
   <attributes>
     <name>BackgroundJobsList</name>
     <title>
+      <key>ru</key>
+      <value>Список фоновых заданий</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Background jobs list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Список фоновых заданий</value>
+      <key>tr</key>
+      <value>Arkaplan işleri listesi</value>
     </title>
     <id>11</id>
     <valueType>
@@ -3807,6 +3906,10 @@
       <title>
         <key>ru</key>
         <value>Scheduled</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Planlanmış</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3827,6 +3930,10 @@
         <key>ru</key>
         <value>Description</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Tanım</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -3844,6 +3951,10 @@
       <title>
         <key>ru</key>
         <value>Key</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Anahtar</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3863,6 +3974,10 @@
         <key>ru</key>
         <value>Method</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Metot adı</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -3880,6 +3995,10 @@
       <title>
         <key>ru</key>
         <value>State</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Durum</value>
       </title>
       <id>5</id>
       <valueType>
@@ -3899,6 +4018,10 @@
         <key>ru</key>
         <value>Begin</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Başlangıç</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>String</types>
@@ -3916,6 +4039,10 @@
       <title>
         <key>ru</key>
         <value>End</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Son</value>
       </title>
       <id>7</id>
       <valueType>
@@ -3935,6 +4062,10 @@
         <key>ru</key>
         <value>Server</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Sunucu</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>String</types>
@@ -3952,6 +4083,10 @@
       <title>
         <key>ru</key>
         <value>Errors</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Hatalar</value>
       </title>
       <id>9</id>
       <valueType>
@@ -3971,6 +4106,10 @@
         <key>ru</key>
         <value>ID</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>ID</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>UUID</types>
@@ -3987,6 +4126,10 @@
       <title>
         <key>ru</key>
         <value>Job state</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İş durumu</value>
       </title>
       <id>11</id>
       <valueType>
@@ -4005,6 +4148,10 @@
       <title>
         <key>ru</key>
         <value>Messages</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Mesajlar</value>
       </title>
       <id>12</id>
       <valueType>
@@ -4026,6 +4173,10 @@
         <key>ru</key>
         <value>Picture</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Resim</value>
+      </title>
       <id>14</id>
       <valueType>
         <types>Number</types>
@@ -4044,12 +4195,16 @@
   <attributes>
     <name>Object</name>
     <title>
+      <key>ru</key>
+      <value>Объект</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Объект</value>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -4065,12 +4220,16 @@
   <attributes>
     <name>ScheduledJobsFillingTime</name>
     <title>
+      <key>ru</key>
+      <value>Время заполнения регламентных</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Scheduled jobs filling time</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Время заполнения регламентных</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevlerin doldurulma süresi</value>
     </title>
     <id>16</id>
     <valueType>
@@ -4089,21 +4248,29 @@
   <formCommands>
     <name>RefreshScheduledJobs</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Refresh</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Yenile</value>
     </title>
     <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Обновить регламентные задания и состояния каждого (может занять продолжительное время)</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Refresh scheduled jobs and states (may take a long time)</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Обновить регламентные задания и состояния каждого (может занять продолжительное время)</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevleri ve durumları yenile (uzun zaman alabilir)</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4121,21 +4288,29 @@
   <formCommands>
     <name>Schedule</name>
     <title>
+      <key>ru</key>
+      <value>Расписание</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Schedule</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Расписание</value>
+      <key>tr</key>
+      <value>Zamanlama</value>
     </title>
     <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Расписание</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Schedule</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Расписание</value>
+      <key>tr</key>
+      <value>Zamanlama</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4153,21 +4328,29 @@
   <formCommands>
     <name>RefreshBackgroundJobs</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Refresh</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Yenile</value>
     </title>
     <id>3</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Обновить фоновые задания</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Refresh background jobs</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Обновить фоновые задания</value>
+      <key>tr</key>
+      <value>Arkaplan görevlerini Yenile</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4185,21 +4368,29 @@
   <formCommands>
     <name>CancelBackgroundJob</name>
     <title>
+      <key>ru</key>
+      <value>Отменить фоновое задание</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Cancel background job</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отменить фоновое задание</value>
+      <key>tr</key>
+      <value>Arkaplan işini iptal et</value>
     </title>
     <id>4</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Отменить фоновое задание</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Cancel background job</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Отменить фоновое задание</value>
+      <key>tr</key>
+      <value>Arkaplan görevini iptal et</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4217,21 +4408,29 @@
   <formCommands>
     <name>ScheduledJobsListSettings</name>
     <title>
+      <key>ru</key>
+      <value>Настройка списка...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>List settings</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Настройка списка...</value>
+      <key>tr</key>
+      <value>Liste ayarları</value>
     </title>
     <id>5</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка списка регламентных заданий</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Scheduled jobs list settings</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Настройка списка регламентных заданий</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevler listesi ayarları</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4249,21 +4448,29 @@
   <formCommands>
     <name>BackgroundJobsListSettings</name>
     <title>
+      <key>ru</key>
+      <value>Настройка списка...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>List settings</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Настройка списка...</value>
+      <key>tr</key>
+      <value>Liste ayarları</value>
     </title>
     <id>6</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка списка регламентных заданий</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Background jobs list settings</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Настройка списка регламентных заданий</value>
+      <key>tr</key>
+      <value>Arka plan işleri listesi ayarları</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4281,17 +4488,25 @@
   <formCommands>
     <name>SetScheduledJobsFilter</name>
     <title>
+      <key>ru</key>
+      <value>Установить отбор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Set filter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Установить отбор</value>
+      <key>tr</key>
+      <value>Filtreyi ayarla</value>
     </title>
     <id>7</id>
     <toolTip>
       <key>en</key>
       <value>Set scheduled jobs filter</value>
+    </toolTip>
+    <toolTip>
+      <key>tr</key>
+      <value>Zamanlanmış görevler filtresini ayarla</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4309,21 +4524,29 @@
   <formCommands>
     <name>DisableScheduledJobsFilter</name>
     <title>
+      <key>ru</key>
+      <value>Отключить отбор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Disable filter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отключить отбор</value>
+      <key>tr</key>
+      <value>Filtreyi devre dışı bırak</value>
     </title>
     <id>8</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Отключить отбор регламентных заданий</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Disable scheduled jobs filter</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Отключить отбор регламентных заданий</value>
+      <key>tr</key>
+      <value>Zamanlanmış görevler filtresini devre dışı bırak</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4341,21 +4564,29 @@
   <formCommands>
     <name>SetBackgroundJobsFilter</name>
     <title>
+      <key>ru</key>
+      <value>Установить отбор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Set filter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Установить отбор</value>
+      <key>tr</key>
+      <value>Filtreyi ayarla</value>
     </title>
     <id>9</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Установить отбор фоновых заданий</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Set background jobs filter</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Установить отбор фоновых заданий</value>
+      <key>tr</key>
+      <value>Arkaplan görevler filtresini ayarla</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4373,21 +4604,29 @@
   <formCommands>
     <name>DisableBackgroundJobsFilter</name>
     <title>
+      <key>ru</key>
+      <value>Отключить отбор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Disable filter</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отключить отбор</value>
+      <key>tr</key>
+      <value>Filtreyi devre dışı bırak</value>
     </title>
     <id>10</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Отключить отбор фоновых заданий</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Disable background jobs filter</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Отключить отбор фоновых заданий</value>
+      <key>tr</key>
+      <value>Arka plan görevleri filtresini devre dışı bırak</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4405,21 +4644,29 @@
   <formCommands>
     <name>Run</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить В фоновом задании</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute In background job</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить В фоновом задании</value>
+      <key>tr</key>
+      <value>Arka plan görevinde çalıştır</value>
     </title>
     <id>12</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Выполнить В фоновом задании</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Execute In background job</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Выполнить В фоновом задании</value>
+      <key>tr</key>
+      <value>Arkaplanda çalıştır</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4434,21 +4681,29 @@
   <formCommands>
     <name>ExecuteManually</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить На клиенте</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute At client</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить На клиенте</value>
+      <key>tr</key>
+      <value>İstemcide çalıştır</value>
     </title>
     <id>13</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Выполнить На клиенте</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Execute At client</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Выполнить На клиенте</value>
+      <key>tr</key>
+      <value>İstemcide çalıştır</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4466,21 +4721,29 @@
   <formCommands>
     <name>EventLog</name>
     <title>
+      <key>ru</key>
+      <value>Журнал регистрации</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Event log</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Журнал регистрации</value>
+      <key>tr</key>
+      <value>Olay günlüğü</value>
     </title>
     <id>11</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Журнал регистрации</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Event log</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Журнал регистрации</value>
+      <key>tr</key>
+      <value>Olay günlüğü</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4495,21 +4758,29 @@
   <formCommands>
     <name>FilterByCurrent</name>
     <title>
+      <key>ru</key>
+      <value>Отбор по текущему</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Filter by current</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отбор по текущему</value>
+      <key>tr</key>
+      <value>Mevcut değere göre filtreleme</value>
     </title>
     <id>14</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Отбор по текущему</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Filter by current</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Отбор по текущему</value>
+      <key>tr</key>
+      <value>Mevcut değere göre filtreleme</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -4528,21 +4799,29 @@
   <formCommands>
     <name>ExecuteAtServer</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить на сервере</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute at server</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить на сервере</value>
+      <key>tr</key>
+      <value>Sunucuda çalıştır</value>
     </title>
     <id>15</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Выполнить на сервере</value>
+    </toolTip>
     <toolTip>
       <key>en</key>
       <value>Execute at server</value>
     </toolTip>
     <toolTip>
-      <key>ru</key>
-      <value>Выполнить на сервере</value>
+      <key>tr</key>
+      <value>Sunucuda çalıştır</value>
     </toolTip>
     <use>
       <common>true</common>

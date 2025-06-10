@@ -429,7 +429,7 @@ Procedure NewRequestFile(Command)
 		InitializeConsole();
 	Else
 		ShowQueryBox(New CallbackDescription("NewRequestFileFinish", ThisObject),
-			NStr("ru = 'Дерево запросов непустое. Продолжить?'; en = 'The query tree is not empty. Continue?'"), QuestionDialogMode.YesNo, 15, DialogReturnCode.No);
+			NStr("ru = 'Дерево запросов непустое. Продолжить?'; en = 'The query tree is not empty. Continue?'; tr = 'Sorgu ağacı boş değil. Devam edilsin mi?'"), QuestionDialogMode.YesNo, 15, DialogReturnCode.No);
 	EndIf;
 EndProcedure
 
@@ -439,7 +439,7 @@ Procedure OpenRequestFile(Command)
 		LoadFileConsole();
 	Else
 		ShowQueryBox(New CallbackDescription("OpenReportFileFinish", ThisObject),
-			NStr("ru = 'Дерево запросов непустое. Продолжить?'; en = 'The query tree is not empty. Continue?'"), QuestionDialogMode.YesNo, 15, DialogReturnCode.No);
+			NStr("ru = 'Дерево запросов непустое. Продолжить?'; en = 'The query tree is not empty. Continue?'; tr = 'Sorgu ağacı boş değil. Devam edilsin mi?'"), QuestionDialogMode.YesNo, 15, DialogReturnCode.No);
 	EndIf;
 EndProcedure
 
@@ -931,7 +931,7 @@ Function SavedFileDescriptionStructure()
 
 	// For now, let's comment out saving in JSON, because... the library generates errors on binary data
 	UT_CommonClient.AddFormatToSavingFileDescription(Structure,
-		NStr("ru = 'Файл запросов консоли HTTP (*.uihttp)'; en = 'HTTP console request file (*.uihttp)'"), "uihttp");
+		NStr("ru = 'Файл запросов консоли HTTP (*.uihttp)'; en = 'HTTP console request file (*.uihttp)'; tr = 'HTTP konsolu istek dosyası (*.uihttp)'"), "uihttp");
 
 	Return Structure;
 EndFunction
@@ -1172,9 +1172,9 @@ Procedure FillRequestsFromFile(FileRequest, CollectionRequestItems, FormatVersio
 			BinaryData = Storage.Get();
 			NewRequestsRow.BodyBinaryData = UT_Common.ValueStorageContainerBinaryData(BinaryData);
 		Except
-			UT_CommonClientServer.MessageToUser(NStr("ru = 'Для запроса'; en = 'For request'")
+			UT_CommonClientServer.MessageToUser(NStr("ru = 'Для запроса'; en = 'For request'; tr = 'İstek için'")
 				+ " " + NewRequestsRow.Name
-				+ NStr("ru = ' не удалось прочитать двоичные данные тела запроса'; en = ' failed to read request body binary data'"));
+				+ NStr("ru = ' не удалось прочитать двоичные данные тела запроса'; en = ' failed to read request body binary data'; tr = 'İstek gövdesi ikili verisi okunamadı'"));
 		EndTry;
 	EndIf;
 
@@ -1445,12 +1445,12 @@ EndProcedure
 &AtClient
 Procedure ExecuteRequestReadingFilesMultiFinishInTemporaryStorage(Result, AdditionalParameters) Export
 	Если Result = Undefined Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось поместить файл тела во временное хранилище'; en = 'Failed to place body file in temporary storage'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось поместить файл тела во временное хранилище'; en = 'Failed to place body file in temporary storage'; tr = 'Gövde dosyası geçici depolamaya yerleştirilemedi'"));
 		Return;
 	EndIf;
 	
 	Если Result.Count() = 0 Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось поместить файл тела во временное хранилище'; en = 'Failed to place body file in temporary storage'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось поместить файл тела во временное хранилище'; en = 'Failed to place body file in temporary storage'; tr = 'Gövde dosyası geçici depolamaya yerleştirilemedi'"));
 		Return;
 	EndIf;
 	
@@ -1463,7 +1463,7 @@ EndProcedure
 &AtClient
 Procedure ExecuteRequestReadingFilesMultiPartFinishInTemporaryStorage(Result, AdditionalParameters) Export
 	If Result = Undefined Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось поместить файлы тела во временное хранилище'; en = 'Failed to put body files into temporary storage'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось поместить файлы тела во временное хранилище'; en = 'Failed to put body files into temporary storage'; tr = 'Gövde dosyası geçici depolamaya yerleştirilemedi'"));
 		Return;
 	EndIf;
 	
@@ -1540,7 +1540,7 @@ Procedure RecordRequestLog(Form, RequestsTreeRow, URLForExecution, RequestURL, P
 		If FindDisallowedXMLCharacters(ResposeBodyRow) = 0 Then
 			ResponseBodyAddressString = PutToTempStorage(ResposeBodyRow, Form.UUID);
 		Else
-			ResponseBodyAddressString = PutToTempStorage(NStr("ru = 'Содержит недопустимые символы XML'; en = 'Contains invalid XML characters'"),
+			ResponseBodyAddressString = PutToTempStorage(NStr("ru = 'Содержит недопустимые символы XML'; en = 'Contains invalid XML characters'; tr = 'Geçersiz XML karakterleri içeriyor'"),
 														Form.UUID);
 		EndIf;
 #Else
@@ -1548,7 +1548,7 @@ Procedure RecordRequestLog(Form, RequestsTreeRow, URLForExecution, RequestURL, P
 			Try
 				ResponseBodyAddressString = PutToTempStorage(ResposeBodyRow, Form.UUID);
 			Except
-				ResponseBodyAddressString = PutToTempStorage(NStr("ru = 'Содержит недопустимые символы XML'; en = 'Contains invalid XML characters'"),
+				ResponseBodyAddressString = PutToTempStorage(NStr("ru = 'Содержит недопустимые символы XML'; en = 'Contains invalid XML characters'; tr = 'Geçersiz XML karakterleri içeriyor'"),
 															Form.UUID);
 			EndTry;
 #EndIf
@@ -1910,7 +1910,7 @@ Function PreparedHTTPRequest(Form, RequestsTreeRow, StructureURL, BodyFileData)
 #If WebClient Then
 			BOM = Undefined;
 			If RequestsTreeRow.UseBOM <> 0 Then
-				UT_CommonClientServer.MessageToUser(NStr("ru = 'Настройка использования BOM игнорируется на веб клиенте'; en = 'Setting to use BOM is ignored on the web client'"));
+				UT_CommonClientServer.MessageToUser(NStr("ru = 'Настройка использования BOM игнорируется на веб клиенте'; en = 'Setting to use BOM is ignored on the web client'; tr = 'BOM kullanma ayarı web istemcisinde göz ardı edilir'"));
 			EndIf;
 #Else
 				If RequestsTreeRow.UseBOM = 0 Then
@@ -1926,7 +1926,7 @@ Function PreparedHTTPRequest(Form, RequestsTreeRow, StructureURL, BodyFileData)
 #If WebClient Then
 			If Not WithoutTextEncoding Then
 				WithoutTextEncoding = True;
-				UT_CommonClientServer.MessageToUser(NStr("ru = 'При запросе в вебклиенте тело устанавливается в кодровке UTF-8 и настройка кодировки игнорируется'; en = 'When requesting in the web client, the body is set to UTF-8 encoding and the encoding setting is ignored'"));
+				UT_CommonClientServer.MessageToUser(NStr("ru = 'При запросе в вебклиенте тело устанавливается в кодровке UTF-8 и настройка кодировки игнорируется'; en = 'When requesting in the web client, the body is set to UTF-8 encoding and the encoding setting is ignored'; tr = 'Web istemcisinde istek yaparken, gövde UTF-8 kodlamasıyla ayarlanır ve kodlama ayarı göz ardı edilir'"));
 			EndIf;
 
 #EndIf
@@ -2288,12 +2288,12 @@ Function PossibleRequestExecution(RequestRow)
 	Result = True;
 
 	If Not UT_CommonClientServer.PlatformVersionNotLess("8.3.21") Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Запросы в контексте веб-клиента доступны, начиная с версии платформы 8.3.21'; en = 'Requests in the context of the web client are available starting from platform version 8.3.21'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Запросы в контексте веб-клиента доступны, начиная с версии платформы 8.3.21'; en = 'Requests in the context of the web client are available starting from platform version 8.3.21'; tr = 'Web istemcisi bağlamındaki istekler platform sürüm 8.3.21 ve sonrasında kullanılabilir'"));
 		Result = False;
 	EndIf;
 
 	If RequestRow.UseProxy Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'В веб клиенте не поддерживается использование прокси в HTTP запросах'; en = 'The web client does not support the use of proxies in HTTP requests'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'В веб клиенте не поддерживается использование прокси в HTTP запросах'; en = 'The web client does not support the use of proxies in HTTP requests'; tr = 'Web istemcisi HTTP isteklerinde proxy kullanımını desteklemez'"));
 		Result = False;
 	EndIf;
 	
@@ -2370,10 +2370,10 @@ Procedure InitializeForm()
 	
 	AuthenticationTypes = AuthenticationTypes();
 	Items.RequestsTreeAuthenticationType.ChoiceList.Add(AuthenticationTypes.None);
-	Items.RequestsTreeAuthenticationType.ChoiceList.Add(AuthenticationTypes.Basic, NStr("ru = 'Базовая(Логин,Пароль)'; en = 'Basic(Login,Password)'"));
-	Items.RequestsTreeAuthenticationType.ChoiceList.Add(AuthenticationTypes.BearerToken, NStr("ru = 'Bearer Токен'; en = 'Bearer Token'"));
+	Items.RequestsTreeAuthenticationType.ChoiceList.Add(AuthenticationTypes.Basic, NStr("ru = 'Базовая(Логин,Пароль)'; en = 'Basic(Login,Password)'; tr = 'Temel (Login, Parola)'"));
+	Items.RequestsTreeAuthenticationType.ChoiceList.Add(AuthenticationTypes.BearerToken, NStr("ru = 'Bearer Токен'; en = 'Bearer Token'; tr = 'Bearer Token'"));
 	Если UT_CommonClientServer.PlatformVersionNotLess("8.3.7") Then
-		Items.RequestsTreeAuthenticationType.ChoiceList.Add(AuthenticationTypes.NTML, NStr("ru = 'NTML (аутентифкация ОС)'; en = 'NTML (OS authentication)'"));
+		Items.RequestsTreeAuthenticationType.ChoiceList.Add(AuthenticationTypes.NTML, NStr("ru = 'NTML (аутентифкация ОС)'; en = 'NTML (OS authentication)'; tr = 'NTML (OS authentication)'"));
 	EndIf;
 	
 	Items.MultipartBodyRequestsTreeType.ChoiceList.Clear();

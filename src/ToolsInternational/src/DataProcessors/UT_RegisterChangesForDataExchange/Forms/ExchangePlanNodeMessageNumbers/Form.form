@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Номера сообщений узла плана обмена</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Exchange plan node message numbers</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Номера сообщений узла плана обмена</value>
+    <key>tr</key>
+    <value>Alışveriş planı düğüm mesajı numaraları</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>Group3</name>
@@ -15,22 +19,24 @@
       <name>SentNo</name>
       <id>7</id>
       <title>
+        <key>ru</key>
+        <value>Отправленного</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Sent</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Отправленного</value>
+        <key>tr</key>
+        <value>Gönderilmiş</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>SentNo</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>SentNo</segments>
       </dataPath>
       <extendedTooltip>
         <name>SentNoExtendedTooltip</name>
@@ -83,10 +89,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>ReceivedNo</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ReceivedNo</segments>
       </dataPath>
       <extendedTooltip>
         <name>ReceivedNoExtendedTooltip</name>
@@ -133,12 +137,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Номера сообщений</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Message numbers</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Номера сообщений</value>
+      <key>tr</key>
+      <value>Mesaj numaraları</value>
     </title>
     <horizontalStretch>true</horizontalStretch>
     <verticalStretch>true</verticalStretch>
@@ -174,12 +182,16 @@
       <name>WriteNodeChanges</name>
       <id>14</id>
       <title>
+        <key>ru</key>
+        <value>Записать</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Write</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Записать</value>
+        <key>tr</key>
+        <value>Kaydet</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -213,12 +225,16 @@
       <name>Cancel</name>
       <id>13</id>
       <title>
+        <key>ru</key>
+        <value>Закрыть</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Close</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Закрыть</value>
+        <key>tr</key>
+        <value>Kapat</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -297,6 +313,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -307,6 +324,10 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_RegisterChangesForDataExchange</types>
@@ -322,12 +343,16 @@
   <attributes>
     <name>ExchangeNodeRef</name>
     <title>
+      <key>ru</key>
+      <value>Узел обмена</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Exchange node</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Узел обмена</value>
+      <key>tr</key>
+      <value>Değişim düğümü</value>
     </title>
     <id>2</id>
     <valueType>
@@ -347,12 +372,16 @@
   <attributes>
     <name>SentNo</name>
     <title>
+      <key>ru</key>
+      <value>Номер отправленного</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Sent no</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Номер отправленного</value>
+      <key>tr</key>
+      <value>Gönderilmiş numarası</value>
     </title>
     <id>3</id>
     <valueType>
@@ -373,12 +402,16 @@
   <attributes>
     <name>ReceivedNo</name>
     <title>
+      <key>ru</key>
+      <value>Номер принятого</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Received no</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Номер принятого</value>
+      <key>tr</key>
+      <value>Kabul edilen numarası</value>
     </title>
     <id>4</id>
     <valueType>
@@ -399,12 +432,16 @@
   <attributes>
     <name>DataVersion</name>
     <title>
+      <key>ru</key>
+      <value>Версия данных</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Data version</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Версия данных</value>
+      <key>tr</key>
+      <value>Veri sürümü</value>
     </title>
     <id>5</id>
     <valueType>
@@ -421,12 +458,16 @@
   <formCommands>
     <name>WriteNodeChanges</name>
     <title>
+      <key>ru</key>
+      <value>Записать изменения узла</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Write node changes</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Записать изменения узла</value>
+      <key>tr</key>
+      <value>Düğüm değişikliklerini yaz</value>
     </title>
     <id>1</id>
     <toolTip>

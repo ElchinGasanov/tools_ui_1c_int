@@ -12,7 +12,7 @@ Var FormClosing;
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 
-	MessageText = NStr("ru = 'Пожалуйста, подождите...';en = 'Wait please'");
+	MessageText = NStr("ru = 'Пожалуйста, подождите...'; en = 'Wait please'; tr = 'Lütfen bekleyin...'");
 	If Not IsBlankString(Parameters.MessageText) Then
 		MessageText = Parameters.MessageText + Chars.LF + MessageText;
 		Items.DecorationConsumingOperationExplanatoryText.Title = MessageText;
@@ -164,7 +164,7 @@ Procedure ShowNotification()
 	EndIf;
 
 	ShowUserNotification(?(Notification.Текст <> Undefined, Notification.Текст, NStr(
-		"ru = 'Действие выполнено';en = 'Action completed'")), NotificationURL, NotificationExplanation);
+		"ru = 'Действие выполнено'; en = 'Action completed'; tr = 'Eylem tamamlandı'")), NotificationURL, NotificationExplanation);
 
 EndProcedure
 

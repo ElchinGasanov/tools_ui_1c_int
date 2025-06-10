@@ -318,19 +318,19 @@ EndProcedure
   Procedure CreateWriteParametersAttributesFormOnCreateAtServer(Form, FormGroup) Export
 	WriteSettings=New Structure;
 	WriteSettings.Insert("WithoutChangesAutoRecording", New Structure("Value,Title", False,
-		"Without changes autorecording"));
+		NStr("en = 'Without changes autorecording'; tr = 'Değişiklik yapılmadan otomatik kayıt'")));
 	WriteSettings.Insert("WritingInLoadMode", New Structure("Value,Title", False,
-		"Writing in load mode (Without checks)"));
+		Nstr("en = 'Writing in load mode (Without checks)'; tr = 'Yükleme modunda yazma (Kontroller olmadan)'")));
 	WriteSettings.Insert("PrivilegedMode", New Structure("Value,Title", False,
-		"Privileged mode"));
+		Nstr("en = 'Privileged mode'; tr = 'Ayrıcalıklı mod'")));
 	WriteSettings.Insert("UseAdditionalProperties", New Structure("Value,Title", False,
-		"Use additional properties"));
+		Nstr("en = 'Use additional properties'; tr = 'Ek özellikleri kullan'")));
 	WriteSettings.Insert("AdditionalProperties", New Structure("Value,Title", New Structure,
-		"Additional properties"));
+		Nstr("en = 'Additional properties'; tr = 'Ek özellikler'")));
 	WriteSettings.Insert("UseBeforeWriteProcedure", New Structure("Value,Title", False,
-		"Without changes autorecording"));
+		Nstr("en = 'Without changes autorecording'; tr = 'Değişiklik yapılmadan otomatik kayıt'")));
 	WriteSettings.Insert("BeforeWriteProcedure", New Structure("Value,Title", "",
-		"Without changes autorecording"));
+		Nstr("en = 'Without changes autorecording'; tr = 'Değişiklik yapılmadan otomatik kayıt'")));
 
 	ParameterPrefix="WriteParameter_";
 
@@ -385,7 +385,7 @@ EndProcedure
 	ButtonDescription.Name=ParameterPrefix + "EditWriteSettings";
 	ButtonDescription.CommandName=ButtonDescription.Name;
 	ButtonDescription.ItemParent=FormGroup;
-	ButtonDescription.Title=NStr("en = 'Other write settings';ru = 'Другие параметры записи'");        //"Другие параметры записи";
+	ButtonDescription.Title=NStr("ru = 'Другие параметры записи'; en = 'Other write settings'; tr = 'Diğer yazma ayarları'");        //"Другие параметры записи";
 	ButtonDescription.Picture=PictureLib.DataCompositionOutputParameters;
 	ButtonDescription.IsHyperLink=True;
 	ButtonDescription.Action="Attachable_SetWriteSettings";

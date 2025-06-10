@@ -108,12 +108,16 @@
         <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
           <choiceList>
             <presentation>
+              <key>ru</key>
+              <value>На локальном компьютере или на компьютере в локальной сети</value>
+            </presentation>
+            <presentation>
               <key>en</key>
               <value>On a local computer or on a computer on a local network</value>
             </presentation>
             <presentation>
-              <key>ru</key>
-              <value>На локальном компьютере или на компьютере в локальной сети</value>
+              <key>tr</key>
+              <value>Yerel bir bilgisayarda veya yerel ağdaki bir bilgisayarda</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>0</value>
@@ -121,12 +125,16 @@
           </choiceList>
           <choiceList>
             <presentation>
+              <key>ru</key>
+              <value>На сервере 1С:Предприятия</value>
+            </presentation>
+            <presentation>
               <key>en</key>
               <value>At 1C:Enterprise Server</value>
             </presentation>
             <presentation>
-              <key>ru</key>
-              <value>На сервере 1С:Предприятия</value>
+              <key>tr</key>
+              <value>1C:Enterprise sunucusunda</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>1</value>
@@ -681,14 +689,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <activeLanguage>1</activeLanguage>
-        <paths xsi:type="form:DataPath">
-          <segments>SaveDirectories.Source</segments>
-        </paths>
-        <paths xsi:type="form:DataPath">
-          <segments>SaveDirectories.Source</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>SaveDirectories.Source</segments>
       </dataPath>
       <extendedTooltip>
         <name>SaveDirectoriesSourceExtendedTooltip</name>
@@ -738,14 +740,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <activeLanguage>1</activeLanguage>
-        <paths xsi:type="form:DataPath">
-          <segments>SaveDirectories.Directory</segments>
-        </paths>
-        <paths xsi:type="form:DataPath">
-          <segments>SaveDirectories.Directory</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>SaveDirectories.Directory</segments>
       </dataPath>
       <extendedTooltip>
         <name>SaveDirectoriesDirectoryExtendedTooltip</name>
@@ -977,6 +973,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>SaveDirectories</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -1015,6 +1012,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>SaveDirectories</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -1053,6 +1051,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>SaveDirectories</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -1095,6 +1094,7 @@
     <initialListView>Auto</initialListView>
     <horizontalStretch>true</horizontalStretch>
     <verticalStretch>true</verticalStretch>
+    <rowFilter xsi:type="core:UndefinedValue"/>
   </items>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
@@ -1168,17 +1168,18 @@
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>OnCreateAtServer</name>
-  </handlers>
-  <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
+  </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
   </handlers>
   <handlers>
     <event>FillCheckProcessingAtServer</event>
     <name>FillCheckProcessingAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -1196,6 +1197,10 @@
     <title>
       <key>en</key>
       <value>Save directories</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kaydetme dizinleri</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1216,6 +1221,10 @@
       <title>
         <key>en</key>
         <value>Source</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Kaynak</value>
       </title>
       <id>3</id>
       <valueType>
@@ -1239,6 +1248,10 @@
         <key>en</key>
         <value>Directory</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Dizin</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -1261,6 +1274,10 @@
         <key>en</key>
         <value>Check</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>İşaret</value>
+      </title>
       <id>5</id>
       <valueType>
         <types>Boolean</types>
@@ -1281,6 +1298,10 @@
       <title>
         <key>en</key>
         <value>Only modules</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Sadece modüller</value>
       </title>
       <id>6</id>
       <valueType>
@@ -1304,6 +1325,10 @@
       <key>en</key>
       <value>Common save directory</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ortak kayıt dizini</value>
+    </title>
     <id>8</id>
     <valueType>
       <types>String</types>
@@ -1325,6 +1350,10 @@
     <title>
       <key>en</key>
       <value>User</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kullanıcı</value>
     </title>
     <id>10</id>
     <valueType>
@@ -1348,6 +1377,10 @@
       <key>en</key>
       <value>Password</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Şifre</value>
+    </title>
     <id>11</id>
     <valueType>
       <types>String</types>
@@ -1369,6 +1402,10 @@
     <title>
       <key>en</key>
       <value>Platform launch file</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Platform başlatma dosyası</value>
     </title>
     <id>12</id>
     <valueType>
@@ -1392,6 +1429,10 @@
     <title>
       <key>en</key>
       <value>Infobase placement</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Infobase yerleşimi</value>
     </title>
     <id>13</id>
     <valueType>
@@ -1417,6 +1458,10 @@
       <key>en</key>
       <value>Infobase directory</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İnfoBase dizini</value>
+    </title>
     <id>14</id>
     <valueType>
       <types>String</types>
@@ -1438,6 +1483,10 @@
     <title>
       <key>en</key>
       <value>Infobase server</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>İnfobase suncusu</value>
     </title>
     <id>15</id>
     <valueType>
@@ -1461,6 +1510,10 @@
       <key>en</key>
       <value>Info base name</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İnfoBase adı</value>
+    </title>
     <id>16</id>
     <valueType>
       <types>String</types>
@@ -1482,6 +1535,10 @@
     <title>
       <key>en</key>
       <value>Set checks</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>İşaretleri koy</value>
     </title>
     <id>1</id>
     <use>
@@ -1507,6 +1564,10 @@
       <key>en</key>
       <value>Unset checks</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İşaretleri kaldır</value>
+    </title>
     <id>2</id>
     <use>
       <common>true</common>
@@ -1531,6 +1592,10 @@
       <key>en</key>
       <value>Select common save directory</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ortak kaydetme dizinini seçin</value>
+    </title>
     <id>3</id>
     <use>
       <common>true</common>
@@ -1551,6 +1616,10 @@
     <title>
       <key>en</key>
       <value>Unload source modules</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kaynak modülleri al</value>
     </title>
     <id>4</id>
     <use>

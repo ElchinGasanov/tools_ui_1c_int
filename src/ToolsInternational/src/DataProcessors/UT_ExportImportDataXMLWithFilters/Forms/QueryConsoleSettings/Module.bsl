@@ -27,7 +27,7 @@ Procedure PathToExternalQueryConsoleStartChoice(Item, ChoiceData, StandardProces
 	StandardProcessing = False;
 	Dialog = New FileDialog(FileDialogMode.Open);
 	Dialog.CheckFileExistence = True;
-	Dialog.Filter = NStr("ru='Внешние обработки (*.epf)|*.epf'; en = 'External data processors (*.epf)|*.epf'");
+	Dialog.Filter = NStr("ru = 'Внешние обработки (*.epf)|*.epf'; en = 'External data processors (*.epf)|*.epf'; tr = 'Harici veri işlemcileri (*.epf)|*.epf'");
 	Dialog.Show(New NotifyDescription("PathToExternalQueryConsoleStartChoiceCompletion", ThisForm,
 		New Structure("Dialog", Dialog)));
 

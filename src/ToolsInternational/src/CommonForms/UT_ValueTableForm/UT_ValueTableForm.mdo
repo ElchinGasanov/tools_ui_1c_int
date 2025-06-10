@@ -5,6 +5,10 @@
     <key>ru</key>
     <value>Форма таблицы значений</value>
   </synonym>
+  <synonym>
+    <key>tr</key>
+    <value>Veri tablosunun formu</value>
+  </synonym>
   <usePurposes>PersonalComputer</usePurposes>
   <usePurposes>MobileDevice</usePurposes>
 </mdclass:CommonForm>

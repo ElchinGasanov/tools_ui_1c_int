@@ -25,13 +25,13 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		
 	If EnumerationsMetadata = Undefined Then
 		Cancel = True;
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось открыть выбор перечисления'; en = 'Failed to open enumeration selection'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось открыть выбор перечисления'; en = 'Failed to open enumeration selection'; tr = 'Enum seçimi açılamadı'"));
 		Return;
 	EndIf;
 	
 	If Not UT_Common.IsEnumbyType(EnumerationsMetadata) Then
 		Cancel = True;
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Нельзя выбирать значения перечисления для других типов'; en = 'Cannot select enum values ​​for other types|'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Нельзя выбирать значения перечисления для других типов'; en = 'Cannot select enum values for other types|'; tr = 'Diğer tipler için enum değerleri seçilemez'"));
 		Return;
 	EndIf;
 	

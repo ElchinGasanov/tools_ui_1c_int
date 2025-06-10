@@ -93,6 +93,10 @@
           <key>en</key>
           <value>Group actions</value>
         </title>
+        <title>
+          <key>tr</key>
+          <value>Eylemler</value>
+        </title>
         <toolTip>
           <key>ru</key>
           <value>Группа действия</value>
@@ -144,10 +148,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>SettingsOwner</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>SettingsOwner</segments>
               </dataPath>
               <titleLocation>None</titleLocation>
               <handlers>
@@ -211,10 +213,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>TextOfFilterBySettingsStorages</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>TextOfFilterBySettingsStorages</segments>
               </dataPath>
               <titleLocation>None</titleLocation>
               <extendedTooltip>
@@ -249,12 +249,12 @@
               <showInFooter>true</showInFooter>
               <extInfo xsi:type="form:InputFieldExtInfo">
                 <handlers>
-                  <event>Clearing</event>
-                  <name>TextOfFilterBySettingsStoragesClearing</name>
-                </handlers>
-                <handlers>
                   <event>StartChoice</event>
                   <name>TextOfFilterBySettingsStoragesStartChoice</name>
+                </handlers>
+                <handlers>
+                  <event>Clearing</event>
+                  <name>TextOfFilterBySettingsStoragesClearing</name>
                 </handlers>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
@@ -390,10 +390,8 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:MultiLanguageDataPath">
-                        <paths xsi:type="form:DataPath">
-                          <segments>ConfigurationTree.Check</segments>
-                        </paths>
+                      <dataPath xsi:type="form:DataPath">
+                        <segments>ConfigurationTree.Check</segments>
                       </dataPath>
                       <handlers>
                         <event>OnChange</event>
@@ -439,10 +437,8 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:MultiLanguageDataPath">
-                        <paths xsi:type="form:DataPath">
-                          <segments>ConfigurationTree.Picture</segments>
-                        </paths>
+                      <dataPath xsi:type="form:DataPath">
+                        <segments>ConfigurationTree.Picture</segments>
                       </dataPath>
                       <titleLocation>None</titleLocation>
                       <extendedTooltip>
@@ -481,6 +477,10 @@
                         <autoMaxHeight>true</autoMaxHeight>
                         <horizontalStretch>true</horizontalStretch>
                         <verticalStretch>true</verticalStretch>
+                        <border xsi:type="core:BorderDef">
+                          <style>Single</style>
+                          <width>1</width>
+                        </border>
                       </extInfo>
                     </items>
                     <items xsi:type="form:FormField">
@@ -491,10 +491,8 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:MultiLanguageDataPath">
-                        <paths xsi:type="form:DataPath">
-                          <segments>ConfigurationTree.PresentationName</segments>
-                        </paths>
+                      <dataPath xsi:type="form:DataPath">
+                        <segments>ConfigurationTree.PresentationName</segments>
                       </dataPath>
                       <extendedTooltip>
                         <name>ConfigurationTreePresentationNameExtendedTooltip</name>
@@ -544,10 +542,8 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:MultiLanguageDataPath">
-                        <paths xsi:type="form:DataPath">
-                          <segments>ConfigurationTree.SettingsCount</segments>
-                        </paths>
+                      <dataPath xsi:type="form:DataPath">
+                        <segments>ConfigurationTree.SettingsCount</segments>
                       </dataPath>
                       <extendedTooltip>
                         <name>ConfigurationTreeSettingsCountExtendedTooltip</name>
@@ -601,6 +597,10 @@
                       <key>en</key>
                       <value>Configuration tree by name</value>
                     </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Adına göre konfigurasyon ağacı</value>
+                    </title>
                     <toolTip>
                       <key>ru</key>
                       <value>Дерево конфигурации по имени</value>
@@ -637,10 +637,8 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:MultiLanguageDataPath">
-                        <paths xsi:type="form:DataPath">
-                          <segments>ConfigurationTree.Check</segments>
-                        </paths>
+                      <dataPath xsi:type="form:DataPath">
+                        <segments>ConfigurationTree.Check</segments>
                       </dataPath>
                       <handlers>
                         <event>OnChange</event>
@@ -686,10 +684,8 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:MultiLanguageDataPath">
-                        <paths xsi:type="form:DataPath">
-                          <segments>ConfigurationTree.Picture</segments>
-                        </paths>
+                      <dataPath xsi:type="form:DataPath">
+                        <segments>ConfigurationTree.Picture</segments>
                       </dataPath>
                       <titleLocation>None</titleLocation>
                       <extendedTooltip>
@@ -728,6 +724,10 @@
                         <autoMaxHeight>true</autoMaxHeight>
                         <horizontalStretch>true</horizontalStretch>
                         <verticalStretch>true</verticalStretch>
+                        <border xsi:type="core:BorderDef">
+                          <style>Single</style>
+                          <width>1</width>
+                        </border>
                       </extInfo>
                     </items>
                     <items xsi:type="form:FormField">
@@ -738,10 +738,8 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:MultiLanguageDataPath">
-                        <paths xsi:type="form:DataPath">
-                          <segments>ConfigurationTree.PresentationSynonym</segments>
-                        </paths>
+                      <dataPath xsi:type="form:DataPath">
+                        <segments>ConfigurationTree.PresentationSynonym</segments>
                       </dataPath>
                       <extendedTooltip>
                         <name>ConfigurationTreePresentationSynonymExtendedTooltip</name>
@@ -791,10 +789,8 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:MultiLanguageDataPath">
-                        <paths xsi:type="form:DataPath">
-                          <segments>ConfigurationTree.SettingsCount</segments>
-                        </paths>
+                      <dataPath xsi:type="form:DataPath">
+                        <segments>ConfigurationTree.SettingsCount</segments>
                       </dataPath>
                       <extendedTooltip>
                         <name>ConfigurationTreeSettingsCount1ExtendedTooltip</name>
@@ -846,6 +842,10 @@
                     <title>
                       <key>en</key>
                       <value>Configuration tree by synonym</value>
+                    </title>
+                    <title>
+                      <key>tr</key>
+                      <value>Eşanlamlısına göre konfigurasyon ağacı</value>
                     </title>
                     <toolTip>
                       <key>ru</key>
@@ -950,6 +950,7 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>ConfigurationTree</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -988,6 +989,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>ConfigurationTree</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -1027,6 +1029,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>ConfigurationTree</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -1156,10 +1159,8 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:MultiLanguageDataPath">
-                      <paths xsi:type="form:DataPath">
-                        <segments>SettingsTable.ObjectKey</segments>
-                      </paths>
+                    <dataPath xsi:type="form:DataPath">
+                      <segments>SettingsTable.ObjectKey</segments>
                     </dataPath>
                     <extendedTooltip>
                       <name>SelectedSettingsTableObjectKeyExtendedTooltip</name>
@@ -1278,6 +1279,7 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
+                    <source>SelectedSettingsTable</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -1316,6 +1318,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
+                    <source>SelectedSettingsTable</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -1355,6 +1358,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
+                    <source>SelectedSettingsTable</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -1521,10 +1525,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>SettingsTable.Check</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>SettingsTable.Check</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <handlers>
@@ -1575,10 +1577,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>SettingsTable.SettingsStorageName</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>SettingsTable.SettingsStorageName</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>SettingsTableSettingsStorageNameExtendedTooltip</name>
@@ -1629,10 +1629,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>SettingsTable.ObjectKey</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>SettingsTable.ObjectKey</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>SettingsTableObjectKeyExtendedTooltip</name>
@@ -1682,10 +1680,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>SettingsTable.SettingsKey</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>SettingsTable.SettingsKey</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>SettingsTableSettingsKeyExtendedTooltip</name>
@@ -1735,10 +1731,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>SettingsTable.Presentation</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>SettingsTable.Presentation</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>SettingsTablePresentationExtendedTooltip</name>
@@ -1792,10 +1786,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>SettingsTable.SettingsAdditional</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>SettingsTable.SettingsAdditional</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>SettingsTableSettingsAdditionalExtendedTooltip</name>
@@ -1885,6 +1877,7 @@
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
+                  <source>SettingsTable</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -1923,6 +1916,7 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
+                  <source>SettingsTable</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -1962,6 +1956,7 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
+                  <source>SettingsTable</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -2173,10 +2168,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>Users.Check</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>Users.Check</segments>
                   </dataPath>
                   <titleLocation>None</titleLocation>
                   <handlers>
@@ -2223,10 +2216,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>Users.Picture</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>Users.Picture</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>UsersTablePictureExtendedTooltip</name>
@@ -2263,6 +2254,10 @@
                     <autoMaxHeight>true</autoMaxHeight>
                     <horizontalStretch>true</horizontalStretch>
                     <verticalStretch>true</verticalStretch>
+                    <border xsi:type="core:BorderDef">
+                      <style>Single</style>
+                      <width>1</width>
+                    </border>
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormField">
@@ -2273,10 +2268,8 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:MultiLanguageDataPath">
-                    <paths xsi:type="form:DataPath">
-                      <segments>Users.Name</segments>
-                    </paths>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>Users.Name</segments>
                   </dataPath>
                   <extendedTooltip>
                     <name>UsersTableUserExtendedTooltip</name>
@@ -2406,11 +2399,11 @@
                   </extendedTooltip>
                   <commandName>Form.Item.UsersTable.StandardCommand.Find</commandName>
                   <representation>Auto</representation>
-                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>UsersTableCancelSearch</name>
@@ -2437,11 +2430,11 @@
                   </extendedTooltip>
                   <commandName>Form.Item.UsersTable.StandardCommand.CancelSearch</commandName>
                   <representation>Auto</representation>
-                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2484,6 +2477,7 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
+                <source>UsersTable</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -2522,6 +2516,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
+                <source>UsersTable</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -2561,6 +2556,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
+                <source>UsersTable</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -2747,6 +2743,10 @@
         <key>en</key>
         <value>Page main</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Temel</value>
+      </title>
       <toolTip>
         <key>ru</key>
         <value>Страница основное</value>
@@ -2783,10 +2783,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ConfigurationObjectsRepresentationVariant</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ConfigurationObjectsRepresentationVariant</segments>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -2951,14 +2949,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <activeLanguage>1</activeLanguage>
-                <paths xsi:type="form:DataPath">
-                  <segments>Users.Check</segments>
-                </paths>
-                <paths xsi:type="form:DataPath">
-                  <segments>Users.Check</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Users.Check</segments>
               </dataPath>
               <extendedTooltip>
                 <name>UsersCheckExtendedTooltip</name>
@@ -2998,14 +2990,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <activeLanguage>1</activeLanguage>
-                <paths xsi:type="form:DataPath">
-                  <segments>Users.FullName</segments>
-                </paths>
-                <paths xsi:type="form:DataPath">
-                  <segments>Users.FullName</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Users.FullName</segments>
               </dataPath>
               <extendedTooltip>
                 <name>UsersFullNameExtendedTooltip</name>
@@ -3123,6 +3109,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>Users</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3161,6 +3148,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>Users</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -3200,6 +3188,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>Users</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3244,6 +3233,7 @@
           <initialListView>Auto</initialListView>
           <horizontalStretch>true</horizontalStretch>
           <verticalStretch>true</verticalStretch>
+          <rowFilter xsi:type="core:UndefinedValue"/>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -3251,12 +3241,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Пользователи</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Users</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Пользователи</value>
+          <key>tr</key>
+          <value>Kullanıcılar</value>
         </title>
         <extendedTooltip>
           <name>PageUsersExtendedTooltip</name>
@@ -3367,6 +3361,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -3379,6 +3374,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -3402,6 +3401,10 @@
       <key>en</key>
       <value>Users</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Kullanıcılar</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>ValueTable</types>
@@ -3421,6 +3424,10 @@
       <title>
         <key>en</key>
         <value>Check</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İşaret</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3443,6 +3450,10 @@
         <key>en</key>
         <value>Name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -3464,6 +3475,10 @@
       <title>
         <key>en</key>
         <value>Picture</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Resim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3489,6 +3504,10 @@
         <key>en</key>
         <value>Full name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Tam ad</value>
+      </title>
       <id>19</id>
       <valueType>
         <types>String</types>
@@ -3509,6 +3528,10 @@
       </title>
       <title>
         <key>en</key>
+        <value>UUID</value>
+      </title>
+      <title>
+        <key>tr</key>
         <value>UUID</value>
       </title>
       <id>20</id>
@@ -3533,6 +3556,10 @@
     <title>
       <key>en</key>
       <value>Settings owner</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar sahibi</value>
     </title>
     <id>4</id>
     <valueType>
@@ -3559,6 +3586,10 @@
       <key>en</key>
       <value>Configuration tree</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Konfigurasyon ağacı</value>
+    </title>
     <id>5</id>
     <valueType>
       <types>ValueTree</types>
@@ -3578,6 +3609,10 @@
       <title>
         <key>en</key>
         <value>Presentation name</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3601,6 +3636,10 @@
         <key>en</key>
         <value>Path</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Yol</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -3622,6 +3661,10 @@
       <title>
         <key>en</key>
         <value>Order</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Sıra</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3647,6 +3690,10 @@
         <key>en</key>
         <value>Metadata objects class</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>MetaVeri Nesne Sınıfı</value>
+      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -3669,6 +3716,10 @@
         <key>en</key>
         <value>Generate presentation of child rows from metadata synonyms</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Meta veri eşanlamlılarından alt satırların sunumunu oluştur</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>Boolean</types>
@@ -3689,6 +3740,10 @@
       <title>
         <key>en</key>
         <value>Missing in configuration</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Konfigurasyonda eksik</value>
       </title>
       <id>7</id>
       <valueType>
@@ -3711,6 +3766,10 @@
         <key>en</key>
         <value>Presentation synonym</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim eşanlamlısı</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>String</types>
@@ -3732,6 +3791,10 @@
       <title>
         <key>en</key>
         <value>Picture</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Resim</value>
       </title>
       <id>9</id>
       <valueType>
@@ -3757,6 +3820,10 @@
         <key>en</key>
         <value>Check</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>İşaret</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>Number</types>
@@ -3780,6 +3847,10 @@
       <title>
         <key>en</key>
         <value>Filter ID</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Filtre ID</value>
       </title>
       <id>5</id>
       <valueType>
@@ -3806,6 +3877,10 @@
         <key>en</key>
         <value>Level</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Seviye</value>
+      </title>
       <id>11</id>
       <valueType>
         <types>Number</types>
@@ -3829,6 +3904,10 @@
       <title>
         <key>en</key>
         <value>Settings count</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarların sayısı</value>
       </title>
       <id>12</id>
       <valueType>
@@ -3854,6 +3933,10 @@
     <title>
       <key>en</key>
       <value>Configuration objects representation variant</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Konfigurasyon nesnelerin gösterim seçeneği</value>
     </title>
     <id>6</id>
     <valueType>
@@ -3882,6 +3965,10 @@
       <key>en</key>
       <value>Settings table</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar tablosu</value>
+    </title>
     <id>7</id>
     <valueType>
       <types>ValueTable</types>
@@ -3901,6 +3988,10 @@
       <title>
         <key>en</key>
         <value>Object key</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Nesne anahtar</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3924,6 +4015,10 @@
         <key>en</key>
         <value>Settings key</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarlar anahtar</value>
+      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -3945,6 +4040,10 @@
       <title>
         <key>en</key>
         <value>Presentation</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Gösterim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3968,6 +4067,10 @@
         <key>en</key>
         <value>Check</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>İşaret</value>
+      </title>
       <id>5</id>
       <valueType>
         <types>Boolean</types>
@@ -3982,12 +4085,16 @@
     <columns>
       <name>FilterId1</name>
       <title>
+        <key>ru</key>
+        <value>Идентификатор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 1</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификатор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 1</value>
       </title>
       <id>6</id>
       <valueType>
@@ -4032,12 +4139,16 @@
     <columns>
       <name>FilterId3</name>
       <title>
+        <key>ru</key>
+        <value>Идентификтор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 3</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификтор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 3</value>
       </title>
       <id>8</id>
       <valueType>
@@ -4057,12 +4168,16 @@
     <columns>
       <name>FilterId4</name>
       <title>
+        <key>ru</key>
+        <value>Идентификтор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 4</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификтор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 4</value>
       </title>
       <id>9</id>
       <valueType>
@@ -4082,12 +4197,16 @@
     <columns>
       <name>FilterId5</name>
       <title>
+        <key>ru</key>
+        <value>Идентификтор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 5</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификтор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 5</value>
       </title>
       <id>10</id>
       <valueType>
@@ -4107,12 +4226,16 @@
     <columns>
       <name>FilterId6</name>
       <title>
+        <key>ru</key>
+        <value>Идентификтор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 6</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификтор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 6</value>
       </title>
       <id>11</id>
       <valueType>
@@ -4132,12 +4255,16 @@
     <columns>
       <name>FilterId7</name>
       <title>
+        <key>ru</key>
+        <value>Идентификтор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 7</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификтор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 7</value>
       </title>
       <id>12</id>
       <valueType>
@@ -4157,12 +4284,16 @@
     <columns>
       <name>FilterId8</name>
       <title>
+        <key>ru</key>
+        <value>Идентификтор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 8</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификтор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 8</value>
       </title>
       <id>13</id>
       <valueType>
@@ -4182,12 +4313,16 @@
     <columns>
       <name>FilterId9</name>
       <title>
+        <key>ru</key>
+        <value>Идентификтор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 9</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификтор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 9</value>
       </title>
       <id>14</id>
       <valueType>
@@ -4207,12 +4342,16 @@
     <columns>
       <name>FilterId0</name>
       <title>
+        <key>ru</key>
+        <value>Идентификтор отбора1</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Filter id 0</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Идентификтор отбора1</value>
+        <key>tr</key>
+        <value>Filtre ID 0</value>
       </title>
       <id>15</id>
       <valueType>
@@ -4239,6 +4378,10 @@
         <key>en</key>
         <value>Settings storage name</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarlar depolama adı</value>
+      </title>
       <id>16</id>
       <valueType>
         <types>String</types>
@@ -4260,6 +4403,10 @@
       <title>
         <key>en</key>
         <value>Settings additional</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarlar ek</value>
       </title>
       <id>17</id>
       <valueType>
@@ -4283,6 +4430,10 @@
     <title>
       <key>en</key>
       <value>Filter by settings storages</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar deposuna göre filtrele</value>
     </title>
     <id>8</id>
     <valueType>
@@ -4311,6 +4462,10 @@
       <key>en</key>
       <value>Text of filter by settings storages</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar depolamalarına göre filtreleme metni</value>
+    </title>
     <id>9</id>
     <valueType>
       <types>String</types>
@@ -4332,6 +4487,10 @@
     <title>
       <key>en</key>
       <value>Update owner settings</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Sahip ayarlarını güncelle</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -4362,6 +4521,10 @@
       <key>en</key>
       <value>Show selected settings</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Seçilen ayarları göster</value>
+    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -4386,6 +4549,10 @@
     <title>
       <key>en</key>
       <value>Deselect setting</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayar seçimini iptal et</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -4415,6 +4582,10 @@
       <key>en</key>
       <value>Delete selected settings</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Seçili ayarları sil</value>
+    </title>
     <id>4</id>
     <toolTip>
       <key>ru</key>
@@ -4443,6 +4614,10 @@
       <key>en</key>
       <value>Show selected users</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Seçilen kullanıcıları göster</value>
+    </title>
     <id>5</id>
     <toolTip>
       <key>ru</key>
@@ -4467,6 +4642,10 @@
     <title>
       <key>en</key>
       <value>Copy selected settings</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Seçili ayarları kopyala</value>
     </title>
     <id>6</id>
     <toolTip>

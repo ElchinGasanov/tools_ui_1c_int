@@ -223,7 +223,7 @@ Procedure ExportData(Command)
 		
 		If IsBlankString(ExportFileName) Then
 			
-			MessageText = NStr("ru = 'Поле ""Имя файла"" не заполнено'; en = 'The File name field is not filled.'");
+			MessageText = NStr("ru = 'Поле ""Имя файла"" не заполнено'; en = 'The File name field is not filled.'; tr = 'Dosya adı alanı doldurulmamış.'");
 			MessageToUser(MessageText, "ExportFileName");
 			Return;
 			
@@ -231,15 +231,15 @@ Procedure ExportData(Command)
 		
 	EndIf;
 
-	Status(NStr("ru = 'Выполняется выгрузка данных. Пожалуйста, подождите...'; en = 'Export data. Please wait...'"));
+	Status(NStr("ru = 'Выполняется выгрузка данных. Пожалуйста, подождите...'; en = 'Export data. Please wait...'; tr = 'Veriler dışa aktarılıyor. Lütfen bekleyin...'"));
 
 	FileAddressInTempStorage = "";
 	ExportDataAtServer(FileAddressInTempStorage);
 	
 	If OperatingModeAtClient And Not IsBlankString(FileAddressInTempStorage) Then
 		
-		FileName = ?(Object.UseFastInfoSetFormat, NStr("ru = 'Файл выгрузки.fi'; en = 'Export file.fi'"), 
-			NStr("ru = 'Файл выгрузки.xml'; en = 'Export file.xml'"));
+		FileName = ?(Object.UseFastInfoSetFormat, NStr("ru = 'Файл выгрузки.fi'; en = 'Export file.fi'; tr = 'Dışa aktarılan dosya.fi'"),
+		NStr("ru = 'Файл выгрузки.xml'; en = 'Export file.xml'; tr = 'Dışa aktarılan dosya.xml'"));
 		GetFile(FileAddressInTempStorage, FileName);
 		
 	EndIf;
@@ -262,7 +262,7 @@ Procedure ImportData(Command)
 	//Filter = NStr("ru = 'XML файлы'; en = 'XML files'")	+ "(*.xml)|*.xml";
 	//FileOpenDialog.Filter = Filter;
 	FileOpenDialog.Multiselect = False;
-	FileOpenDialog.Title = NStr("ru = 'Выберите файлы'; en = 'Select files'");
+	FileOpenDialog.Title = NStr("ru = 'Выберите файлы'; en = 'Select files'; tr = 'Dosyaları seçin'");
 
 	NotifyDescription = New NotifyDescription("ImportDataCompletion", ThisObject);
 	BeginPuttingFiles(NotifyDescription, FileAddressInTempStorage, FileOpenDialog, True,
@@ -284,7 +284,7 @@ EndProcedure
 &AtClient
 Procedure RecalculateDataToExportByRef(Command)
 
-	Status(NStr("ru = 'Выполняется поиск объектов метаданных, которые могут быть выгружены по ссылкам...'; en = 'Searching for the metadata objects available to export by refs...'"));
+	Status(NStr("ru = 'Выполняется поиск объектов метаданных, которые могут быть выгружены по ссылкам...'; en = 'Searching for the metadata objects available to export by refs...'; tr = 'Referanslara göre dışa aktarılabilecek metaveri nesneleri aranıyor...'"));
 	SaveTreeView(Object.MetadataTree.GetItems());
 	RecalculateDataToExportByRefAtServer();
 	RestoreTreeView(Object.MetadataTree.GetItems());
@@ -348,7 +348,7 @@ Function QueryConsoleParameters()
 
 	Else
 
-		FormParameters.Insert("Title", NStr("ru='Выбор данных для выгрузки'; en = 'Choose data for export'"));
+		FormParameters.Insert("Title", NStr("ru = 'Выбор данных для выгрузки'; en = 'Choose data for export'; tr = 'Dışa aktarılacak verileri seçin'"));
 		FormParameters.Insert("ChoiceMode", True);
 		FormParameters.Insert("CloseOnChoice", False);
 
@@ -381,7 +381,7 @@ Procedure OpenInApplicationCompletion(Exists, AdditionalParameters) Export
 
 	Else
 
-		MessageToUser(NStr("ru = 'Файл не найден'; en = 'File not found'"), DataPath);
+		MessageToUser(NStr("ru = 'Файл не найден'; en = 'File not found'; tr = 'Dosya bulunamadı'"), DataPath);
 
 	EndIf;
 
@@ -415,7 +415,7 @@ Procedure ProcessFileChoiceStart(StandardProcessing)
 	FileDialog = New FileDialog(DialogMode);
 	FileDialog.CheckFileExist = Not ExportMode;
 	FileDialog.Multiselect = False;
-	FileDialog.Title = NStr("ru = 'Задайте имя файла выгрузки'; en = 'Specify export file name'");
+	FileDialog.Title = NStr("ru = 'Задайте имя файла выгрузки'; en = 'Specify export file name'; tr = 'Dışa aktarma dosya adını belirtin'");
 	FileDialog.FullFileName = ?(ExportMode, ExportFileName, ImportFileName);
 	
 	FileDialog.Filter = "Format export(*.xml)|*.xml|FastInfoSet (*.fi)|*.fi|All files (*.*)|*.*";
@@ -561,14 +561,21 @@ Procedure SetMarksOfDataToExport(SourceTreeRows, TreeToReplaceRows)
 EndProcedure
 
 &AtClient
-Procedure ImportDataCompletion(Result, Address, SelectedFileName, AdditionalParameters) Export
-	If Not Result Then
+//Procedure ImportDataCompletion(Result, Address, SelectedFileName, AdditionalParameters) Export
+Procedure ImportDataCompletion(Result, AdditionalParameters) Export
+	
+    //If Not Result Then
+    //	Return;
+    //EndIf;
+	
+	If Result.Count() = 0 Then
 		Return;
 	EndIf;
 
-	Status(NStr("ru = 'Выполняется загрузка данных. Пожалуйста, подождите...'; en = 'Import data. Please wait...'"));
 
-	ImportDataAtServer(Address);
+	Status(NStr("ru = 'Выполняется загрузка данных. Пожалуйста, подождите...'; en = 'Import data. Please wait...'; tr = 'Veriler yükleniyor. Lütfen bekleyin...'"));
+
+	ImportDataAtServer(Result[0].Location);
 
 EndProcedure
 
@@ -737,9 +744,8 @@ Function CheckPlatformVersionAndCompatibilityMode()
 		AND Metadata.CompatibilityMode <> Metadata.ObjectProperties.CompatibilityMode["Version8_3_2"]))) Then
 		
 		Raise NStr("ru = 'Обработка предназначена для запуска на версии платформы
-			|1С:Предприятие 8.3 с отключенным режимом совместимости или выше'; 
-			|en = 'The data processor is intended for use with 
-			|1C:Enterprise 8.3 or later, with disabled compatibility mode'");		
+																		   |1С:Предприятие 8.3 с отключенным режимом совместимости или выше'; en = 'The data processor is intended for use with 
+																		   |1C:Enterprise 8.3 or later, with disabled compatibility mode'; tr = 'Veri işlemcisi, 1C:Enterprise 8.3 veya üzeri, devre dışı bırakılmış uyumluluk moduyla kullanılmak üzere tasarlanmıştır'");		
 	EndIf;
 EndFunction
 

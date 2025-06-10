@@ -11,10 +11,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>QueryName</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>QueryName</segments>
       </dataPath>
       <extendedTooltip>
         <name>QueryNameExtendedTooltip</name>
@@ -64,10 +62,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>SetParameterValues</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>SetParameterValues</segments>
       </dataPath>
       <extendedTooltip>
         <name>SetParameterValuesExtendedTooltip</name>
@@ -188,10 +184,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>Text</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>Text</segments>
     </dataPath>
     <titleLocation>None</titleLocation>
     <extendedTooltip>
@@ -328,6 +322,7 @@
   </handlers>
   <width>100</width>
   <height>30</height>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -353,12 +348,16 @@
   <attributes>
     <name>Text</name>
     <title>
+      <key>ru</key>
+      <value>Текст</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текст</value>
+      <key>tr</key>
+      <value>Metin</value>
     </title>
     <id>2</id>
     <valueType>
@@ -374,12 +373,16 @@
   <attributes>
     <name>QueryName</name>
     <title>
+      <key>ru</key>
+      <value>Имя запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query name</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Имя запроса</value>
+      <key>tr</key>
+      <value>Sorgu adı</value>
     </title>
     <id>3</id>
     <valueType>
@@ -396,12 +399,16 @@
   <attributes>
     <name>SetParameterValues</name>
     <title>
+      <key>ru</key>
+      <value>Значения параметров</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Parameter values</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Значения параметров</value>
+      <key>tr</key>
+      <value>Parametre değerleri</value>
     </title>
     <id>4</id>
     <valueType>
@@ -417,12 +424,16 @@
   <attributes>
     <name>QueryText</name>
     <title>
+      <key>ru</key>
+      <value>Текст запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текст запроса</value>
+      <key>tr</key>
+      <value>Sorgu metni</value>
     </title>
     <id>5</id>
     <valueType>
@@ -438,12 +449,16 @@
   <attributes>
     <name>QueryParameters</name>
     <title>
+      <key>ru</key>
+      <value>Параметры запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query parameters</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Параметры запроса</value>
+      <key>tr</key>
+      <value>Sorgu parametreleri</value>
     </title>
     <id>6</id>
     <valueType>
@@ -460,12 +475,16 @@
   <attributes>
     <name>UT_AlgorithmText</name>
     <title>
+      <key>ru</key>
+      <value>У и текст алгоритма</value>
+    </title>
+    <title>
       <key>en</key>
       <value>U t algorithm text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>У и текст алгоритма</value>
+      <key>tr</key>
+      <value>algoritma metni</value>
     </title>
     <id>7</id>
     <valueType>
@@ -506,12 +525,16 @@
   <formCommands>
     <name>Refresh</name>
     <title>
+      <key>ru</key>
+      <value>Обновить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Refresh</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
+      <key>tr</key>
+      <value>Yenile</value>
     </title>
     <id>1</id>
     <toolTip>

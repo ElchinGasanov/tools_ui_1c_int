@@ -9,7 +9,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		
 		Items.BoundaryGroup.Visible = True;
 		Items.PointInTimeGroup.Visible = False;
-		Title = NStr("ru = 'Граница времени'; en = 'Time boundary'");
+		Title = NStr("ru = 'Граница времени'; en = 'Time boundary'; tr = 'Zaman sınırı'");
 		
 		BoundaryValue = Value.Value;
 		BoundaryType = Value.BoundaryType;
@@ -18,7 +18,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		
 		Items.BoundaryGroup.Visible = False;
 		Items.PointInTimeGroup.Visible = True;
-		Title = NStr("ru = 'Момент времени'; en = 'Point in time'");
+		Title = NStr("ru = 'Момент времени'; en = 'Point in time'; tr = 'Zaman noktası'");
 		
 		PointInTimeDate = Value.Date;
 		PointInTimeRef = Value.Ref;

@@ -27,9 +27,9 @@ Procedure ProcessObject(Reference, SequenceNumberObject, ParametersWriteObjects)
 //		ProcessedObject.Write(DocumentWriteMode.UndoPosting);
 		If UT_Common.WriteObjectToDB(ProcessedObject, ParametersWriteObjects, ,
 			DocumentWriteMode.UndoPosting) Then
-			UT_CommonClientServer.MessageToUser(StrTemplate(Nstr("ru = 'Объект %1 УСПЕХ!!!';en = 'Object %1 SUCCESS!!!'"), ProcessedObject));
+			UT_CommonClientServer.MessageToUser(StrTemplate(Nstr("ru = 'Объект %1 УСПЕХ!!!'; en = 'Object %1 SUCCESS!!!'; tr = 'Nesne %1 BAŞARILI!!!'"), ProcessedObject));
 		Else
-			UT_CommonClientServer.MessageToUser(StrTemplate(Nstr("ru = 'Объект %1 ОШИБКА!!!';en = 'Object %1 ERROR!!!'"), ProcessedObject));
+			UT_CommonClientServer.MessageToUser(StrTemplate(Nstr("ru = 'Объект %1 ОШИБКА!!!'; en = 'Object %1 ERROR!!!'; tr = 'Nesne %1 HATA!!!'"), ProcessedObject));
 		EndIf;
 
 	EndIf;
@@ -101,8 +101,9 @@ Procedure ExecuteCommand(Command)
 		ThisObject.FormOwner));
 
 	Message = StrTemplate(Nstr("ru = 'Обработка <%1> завершена! 
-					 |Обработано объектов: %2.';en = 'Processing of <%1> completed!
-					 |Objects processed: %2.'"), TrimAll(ThisForm.Title), ProcessedObjects);
+											  |Обработано объектов: %2.'; en = 'Processing of <%1> completed!
+											  |Objects processed: %2.'; tr = '<%1>''in işlenmesi tamamlandı!
+											  |İşlenen nesneler: %2.'"), TrimAll(ThisForm.Title), ProcessedObjects);
 	ShowMessageBox(, Message);
 EndProcedure
 
@@ -119,7 +120,7 @@ Procedure CurrentSettingChoiceProcessing(Item, SelectedValue, StandardProcessing
 
 		If ThisForm.Modified Then
 			ShowQueryBox(New NotifyDescription("CurrentSettingChoiceProcessingEnd", ThisForm,
-				New Structure("SelectedValue", SelectedValue)), Nstr("ru = 'Сохранить текущую настройку?';en = 'Save current setting?'"),
+				New Structure("SelectedValue", SelectedValue)), Nstr("ru = 'Сохранить текущую настройку?'; en = 'Save current setting?'; tr = 'Mevcut ayar kaydedilsin mi?'"),
 				QuestionDialogMode.YesNo, , DialogReturnCode.Yes);
 			Return;
 		EndIf;

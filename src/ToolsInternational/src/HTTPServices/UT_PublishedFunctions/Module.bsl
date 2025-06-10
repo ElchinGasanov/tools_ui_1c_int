@@ -106,7 +106,7 @@ Procedure ProcessRequest(WebID, IncomingParameters, Response)
 	QueryResult = Query.Execute();
 	If QueryResult.IsEmpty() Then
 		Response.StatusCode = 404;
-		Response.ResponseBody = NStr("ru = 'Ошибка: не найден алгоритм!'; en = 'Error:  algorithm not found'");
+		Response.ResponseBody = NStr("ru = 'Ошибка: не найден алгоритм!'; en = 'Error:  algorithm not found'; tr = 'Hata: algoritma bulunamadı'");
 		Return;
 	EndIf;
 		
@@ -115,7 +115,7 @@ Procedure ProcessRequest(WebID, IncomingParameters, Response)
 	ExecutionResult = UT_AlgorithmsServer.ExecuteAlgorithm(SelectionDetailRecords.Algorithm);
 	If ExecutionResult = Undefined Then
 		Response.StatusCode = 404;
-		Response.ResponseBody = NStr("ru = 'Ошибка: Путой алгоритм!'; en = 'Error:  algorithm is empty'");
+		Response.ResponseBody = NStr("ru = 'Ошибка: Путой алгоритм!'; en = 'Error:  algorithm is empty'; tr = 'Hata: algoritma boş'");
 		Return;
 	EndIf;
 	

@@ -211,12 +211,16 @@
       <name>FormClose</name>
       <id>3</id>
       <title>
+        <key>ru</key>
+        <value>Close</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Close</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Close</value>
+        <key>tr</key>
+        <value>Kapat</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -257,6 +261,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -270,6 +275,14 @@
     <title>
       <key>ru</key>
       <value>Interaction URL</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Interaction URL</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Etkileşim URL'si</value>
     </title>
     <id>1</id>
     <valueType>
@@ -289,6 +302,14 @@
       <key>ru</key>
       <value>Session ID</value>
     </title>
+    <title>
+      <key>en</key>
+      <value>Session ID</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Oturum İD</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -306,6 +327,14 @@
     <title>
       <key>ru</key>
       <value>User name</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>User name</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kullancı ismi</value>
     </title>
     <id>3</id>
     <valueType>
@@ -326,6 +355,14 @@
     <title>
       <key>ru</key>
       <value>Connect</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Connect</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Bağlan</value>
     </title>
     <id>1</id>
     <use>

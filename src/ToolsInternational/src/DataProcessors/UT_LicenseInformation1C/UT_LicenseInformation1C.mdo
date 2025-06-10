@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_LicenseInformation1C</name>
   <synonym>
+    <key>ru</key>
+    <value>Информация о лицензиях 1С [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>1C License information [UT]</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Информация о лицензиях 1С [УИ]</value>
+    <key>tr</key>
+    <value>1C Lisans Bilgisi [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_LicenseInformation1C.Form.Form</defaultForm>
@@ -33,6 +37,10 @@
       <key>ru</key>
       <value>Licenses list</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Lisanslar listesi</value>
+    </synonym>
     <standardAttributes>
       <dataHistory>Use</dataHistory>
       <name>LineNumber</name>
@@ -46,6 +54,10 @@
       <synonym>
         <key>ru</key>
         <value>License number</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Lisans numarası</value>
       </synonym>
       <type>
         <types>String</types>
@@ -65,6 +77,10 @@
         <key>ru</key>
         <value>Description</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Tanım</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -82,6 +98,10 @@
       <synonym>
         <key>ru</key>
         <value>Pin code</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Pin kod</value>
       </synonym>
       <type>
         <types>String</types>
@@ -101,6 +121,10 @@
         <key>ru</key>
         <value>Last name</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Soy isim</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -118,6 +142,10 @@
       <synonym>
         <key>ru</key>
         <value>Name</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>İsim</value>
       </synonym>
       <type>
         <types>String</types>
@@ -137,6 +165,10 @@
         <key>ru</key>
         <value>Middle name</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Baba adı</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -153,6 +185,10 @@
       <name>EMail</name>
       <synonym>
         <key>ru</key>
+        <value>E mail</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
         <value>E mail</value>
       </synonym>
       <type>
@@ -173,6 +209,10 @@
         <key>ru</key>
         <value>Organization</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Şirket</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -188,12 +228,16 @@
     <attributes uuid="94799b17-0021-4267-ae40-2d452b4e296e">
       <name>Country</name>
       <synonym>
+        <key>ru</key>
+        <value>Страна</value>
+      </synonym>
+      <synonym>
         <key>en</key>
         <value>Country</value>
       </synonym>
       <synonym>
-        <key>ru</key>
-        <value>Страна</value>
+        <key>tr</key>
+        <value>Ülke</value>
       </synonym>
       <type>
         <types>String</types>
@@ -213,6 +257,10 @@
         <key>ru</key>
         <value>ZIP</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Posta Kodu</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -230,6 +278,10 @@
       <synonym>
         <key>ru</key>
         <value>Region</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Bölge</value>
       </synonym>
       <type>
         <types>String</types>
@@ -249,6 +301,10 @@
         <key>ru</key>
         <value>Town</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Şehir</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -266,6 +322,10 @@
       <synonym>
         <key>ru</key>
         <value>District</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>İlçe</value>
       </synonym>
       <type>
         <types>String</types>
@@ -285,6 +345,10 @@
         <key>ru</key>
         <value>Street</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Sokak</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -302,6 +366,10 @@
       <synonym>
         <key>ru</key>
         <value>House</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Ev</value>
       </synonym>
       <type>
         <types>String</types>
@@ -321,6 +389,10 @@
         <key>ru</key>
         <value>Apartment</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Apartman</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -339,6 +411,10 @@
         <key>ru</key>
         <value>Activation date</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Aktivasyon tarihi</value>
+      </synonym>
       <type>
         <types>Date</types>
         <dateQualifiers>
@@ -355,6 +431,10 @@
         <key>ru</key>
         <value>Registration number</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Kayıt numarası</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -370,6 +450,10 @@
       <synonym>
         <key>ru</key>
         <value>Product code</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Ürün kodu</value>
       </synonym>
       <type>
         <types>String</types>
@@ -389,6 +473,10 @@
         <key>ru</key>
         <value>License file name</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Lisans dosya adı</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers>
@@ -407,6 +495,10 @@
         <key>ru</key>
         <value>Text information</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Metin bilgisi</value>
+      </synonym>
       <type>
         <types>String</types>
         <stringQualifiers/>
@@ -423,6 +515,10 @@
         <key>ru</key>
         <value>Active</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Aktif</value>
+      </synonym>
       <type>
         <types>Boolean</types>
       </type>
@@ -435,6 +531,10 @@
       <synonym>
         <key>ru</key>
         <value>License count</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Lisans sayısı</value>
       </synonym>
       <type>
         <types>Number</types>
@@ -452,6 +552,10 @@
         <key>ru</key>
         <value>Manual input</value>
       </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Manuel giriş</value>
+      </synonym>
       <type>
         <types>Boolean</types>
       </type>
@@ -467,6 +571,10 @@
       <synonym>
         <key>ru</key>
         <value>Building</value>
+      </synonym>
+      <synonym>
+        <key>tr</key>
+        <value>Yapı</value>
       </synonym>
       <type>
         <types>String</types>
@@ -487,6 +595,10 @@
       <key>ru</key>
       <value>Form</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Form</value>
+    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
@@ -495,6 +607,10 @@
     <synonym>
       <key>ru</key>
       <value>Form license activation</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Lisans aktivasyonu formu</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

@@ -11,10 +11,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Scheduled</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Scheduled</segments>
       </dataPath>
       <extendedTooltip>
         <name>ScheduledExtendedTooltip</name>
@@ -66,10 +64,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Description</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Description</segments>
       </dataPath>
       <extendedTooltip>
         <name>DescriprtionExtendedTooltip</name>
@@ -119,10 +115,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Method</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Method</segments>
       </dataPath>
       <extendedTooltip>
         <name>MethodExtendedTooltip</name>
@@ -172,10 +166,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Key</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Key</segments>
       </dataPath>
       <extendedTooltip>
         <name>KeyExtendedTooltip</name>
@@ -225,10 +217,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Begin</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Begin</segments>
       </dataPath>
       <extendedTooltip>
         <name>BeginExtendedTooltip</name>
@@ -277,10 +267,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>End</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>End</segments>
       </dataPath>
       <extendedTooltip>
         <name>EndExtendedTooltip</name>
@@ -327,12 +315,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Общие</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Common</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Общие</value>
+      <key>tr</key>
+      <value>Genel</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -379,10 +371,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Active</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Active</segments>
       </dataPath>
       <extendedTooltip>
         <name>ActiveExtendedTooltip</name>
@@ -424,10 +414,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Completed</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Completed</segments>
       </dataPath>
       <extendedTooltip>
         <name>CompletedExtendedTooltip</name>
@@ -469,10 +457,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Failed</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Failed</segments>
       </dataPath>
       <extendedTooltip>
         <name>FailedExtendedTooltip</name>
@@ -514,10 +500,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>Canceled</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Canceled</segments>
       </dataPath>
       <extendedTooltip>
         <name>CanceledExtendedTooltip</name>
@@ -557,12 +541,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Состояние</value>
+    </title>
+    <title>
       <key>en</key>
       <value>State</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Состояние</value>
+      <key>tr</key>
+      <value>Durum</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -677,6 +665,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -691,6 +680,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -707,12 +700,16 @@
   <attributes>
     <name>Scheduled</name>
     <title>
+      <key>ru</key>
+      <value>Регламентное</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Scheduled</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Регламентное</value>
+      <key>tr</key>
+      <value>Zamanlanmış</value>
     </title>
     <id>2</id>
     <valueType>
@@ -729,12 +726,16 @@
   <attributes>
     <name>Description</name>
     <title>
+      <key>ru</key>
+      <value>Наименование</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Description</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Наименование</value>
+      <key>tr</key>
+      <value>Tanım</value>
     </title>
     <id>3</id>
     <valueType>
@@ -751,12 +752,16 @@
   <attributes>
     <name>Method</name>
     <title>
+      <key>ru</key>
+      <value>Метод</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Method</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Метод</value>
+      <key>tr</key>
+      <value>Metot adı</value>
     </title>
     <id>4</id>
     <valueType>
@@ -773,12 +778,16 @@
   <attributes>
     <name>Key</name>
     <title>
+      <key>ru</key>
+      <value>Ключ</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Key</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Ключ</value>
+      <key>tr</key>
+      <value>Anahtar</value>
     </title>
     <id>5</id>
     <valueType>
@@ -795,12 +804,16 @@
   <attributes>
     <name>Begin</name>
     <title>
+      <key>ru</key>
+      <value>Начало</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Begin</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Начало</value>
+      <key>tr</key>
+      <value>Başlangıç</value>
     </title>
     <id>6</id>
     <valueType>
@@ -817,12 +830,16 @@
   <attributes>
     <name>End</name>
     <title>
+      <key>ru</key>
+      <value>Конец</value>
+    </title>
+    <title>
       <key>en</key>
       <value>End</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Конец</value>
+      <key>tr</key>
+      <value>Son</value>
     </title>
     <id>7</id>
     <valueType>
@@ -839,12 +856,16 @@
   <attributes>
     <name>Active</name>
     <title>
+      <key>ru</key>
+      <value>Активно</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Active</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Активно</value>
+      <key>tr</key>
+      <value>Aktif</value>
     </title>
     <id>8</id>
     <valueType>
@@ -860,12 +881,16 @@
   <attributes>
     <name>Completed</name>
     <title>
+      <key>ru</key>
+      <value>Завершено</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Completed</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Завершено</value>
+      <key>tr</key>
+      <value>Tamamlanmış</value>
     </title>
     <id>9</id>
     <valueType>
@@ -881,12 +906,16 @@
   <attributes>
     <name>Failed</name>
     <title>
+      <key>ru</key>
+      <value>Завершено аварийно</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Failed</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Завершено аварийно</value>
+      <key>tr</key>
+      <value>Arızalı</value>
     </title>
     <id>10</id>
     <valueType>
@@ -902,12 +931,16 @@
   <attributes>
     <name>Canceled</name>
     <title>
+      <key>ru</key>
+      <value>Отменено</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Canceled</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отменено</value>
+      <key>tr</key>
+      <value>İptal edildi</value>
     </title>
     <id>11</id>
     <valueType>
@@ -924,6 +957,10 @@
     <name>OK</name>
     <title>
       <key>en</key>
+      <value>OK</value>
+    </title>
+    <title>
+      <key>tr</key>
       <value>OK</value>
     </title>
     <id>1</id>
@@ -953,4 +990,5 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
+  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

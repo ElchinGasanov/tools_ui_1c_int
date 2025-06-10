@@ -5,4 +5,12 @@
     <key>ru</key>
     <value>Increase font</value>
   </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Increase font</value>
+  </synonym>
+  <synonym>
+    <key>tr</key>
+    <value>Yazı tipini büyüt</value>
+  </synonym>
 </mdclass:CommonPicture>

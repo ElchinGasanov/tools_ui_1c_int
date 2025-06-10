@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <items xsi:type="form:FormGroup">
     <name>AvailableFieldAndMethodsGroup</name>
     <id>30</id>
@@ -65,6 +65,10 @@
             <autoMaxHeight>true</autoMaxHeight>
             <horizontalStretch>true</horizontalStretch>
             <verticalStretch>true</verticalStretch>
+            <border xsi:type="core:BorderDef">
+              <style>Single</style>
+              <width>1</width>
+            </border>
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
@@ -198,6 +202,7 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
+        <source>DCSFields</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -236,6 +241,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
+        <source>DCSFields</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -274,6 +280,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
+        <source>DCSFields</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -481,13 +488,14 @@
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>OnCreateAtServer</name>
-  </handlers>
-  <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
+  </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -499,12 +507,16 @@
   <attributes>
     <name>ExpressionEditingField</name>
     <title>
+      <key>ru</key>
+      <value>Поле редактирования выражения</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Expression editing field</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Поле редактирования выражения</value>
+      <key>tr</key>
+      <value>İfade düzenleme alanı</value>
     </title>
     <id>2</id>
     <valueType>
@@ -528,6 +540,10 @@
       <key>en</key>
       <value>Expression text</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>İfade metni</value>
+    </title>
     <id>3</id>
     <valueType>
       <types>String</types>
@@ -550,6 +566,10 @@
       <key>en</key>
       <value>DCSFields</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>DCS Alanları</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>ValueTree</types>
@@ -569,6 +589,10 @@
       <title>
         <key>en</key>
         <value>Field</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Alan</value>
       </title>
       <id>5</id>
       <valueType>
@@ -592,6 +616,10 @@
         <key>en</key>
         <value>Data path</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Yol</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>String</types>
@@ -614,6 +642,10 @@
         <key>en</key>
         <value>Picture</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Resim</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>Picture</types>
@@ -634,6 +666,10 @@
       <title>
         <key>en</key>
         <value>Value type</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Değer türü</value>
       </title>
       <id>9</id>
       <valueType>
@@ -656,6 +692,10 @@
     <title>
       <key>en</key>
       <value>Apply</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Uygula</value>
     </title>
     <id>1</id>
     <toolTip>

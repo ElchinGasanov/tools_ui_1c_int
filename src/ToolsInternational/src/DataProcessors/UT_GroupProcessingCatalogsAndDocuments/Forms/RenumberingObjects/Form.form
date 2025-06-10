@@ -4,6 +4,10 @@
     <key>ru</key>
     <value>Перенумерация объектов</value>
   </title>
+  <title>
+    <key>tr</key>
+    <value>Nesneleri yeniden numaralandırma</value>
+  </title>
   <items xsi:type="form:FormField">
     <name>CurrentSetting</name>
     <id>1</id>
@@ -16,10 +20,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>CurrentSettingRepresentation</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>CurrentSettingRepresentation</segments>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -82,10 +84,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>InitialNumber</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>InitialNumber</segments>
       </dataPath>
       <extendedTooltip>
         <name>InitialNumberExtendedTooltip</name>
@@ -134,10 +134,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>DoNotChangeNumericalNumbering</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>DoNotChangeNumericalNumbering</segments>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <handlers>
@@ -219,10 +217,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>LinePrefix</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>LinePrefix</segments>
       </dataPath>
       <extendedTooltip>
         <name>LinePrefixExtendedTooltip</name>
@@ -271,10 +267,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>PrefixHandlingMethod</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>PrefixHandlingMethod</segments>
       </dataPath>
       <titleLocation>None</titleLocation>
       <handlers>
@@ -318,6 +312,10 @@
             <key>ru</key>
             <value>Не изменять существующие префиксы</value>
           </presentation>
+          <presentation>
+            <key>tr</key>
+            <value>Mevcut önekleri değiştirme</value>
+          </presentation>
           <value xsi:type="core:NumberValue">
             <value>1</value>
           </value>
@@ -326,6 +324,10 @@
           <presentation>
             <key>ru</key>
             <value>Заменить существующие префиксы на введенную строку</value>
+          </presentation>
+          <presentation>
+            <key>tr</key>
+            <value>Mevcut önekleri girilen dizeyle değiştir</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>2</value>
@@ -336,6 +338,10 @@
             <key>ru</key>
             <value>Добавить введенную строку в начало существующих префиксов</value>
           </presentation>
+          <presentation>
+            <key>tr</key>
+            <value>Girilen dizeyi mevcut öneklerin başına ekle</value>
+          </presentation>
           <value xsi:type="core:NumberValue">
             <value>3</value>
           </value>
@@ -345,6 +351,10 @@
             <key>ru</key>
             <value>Добавить введенную строку в конец существующих префиксов</value>
           </presentation>
+          <presentation>
+            <key>tr</key>
+            <value>Girilen dizeyi mevcut öneklerin sonuna ekle</value>
+          </presentation>
           <value xsi:type="core:NumberValue">
             <value>4</value>
           </value>
@@ -353,6 +363,10 @@
           <presentation>
             <key>ru</key>
             <value>Заменить подстроку</value>
+          </presentation>
+          <presentation>
+            <key>tr</key>
+            <value>Alt dizeyi değiştir</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>5</value>
@@ -372,10 +386,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>ReplaceableSubstring</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ReplaceableSubstring</segments>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <extendedTooltip>
@@ -429,6 +441,10 @@
     <title>
       <key>en</key>
       <value>Group number prefixes</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Sayı önekleri</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -614,6 +630,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -631,6 +648,10 @@
     <title>
       <key>en</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -654,6 +675,10 @@
       <key>en</key>
       <value>Current setting</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut ayar</value>
+    </title>
     <id>3</id>
     <valueType/>
     <view>
@@ -672,6 +697,10 @@
     <title>
       <key>en</key>
       <value>Found objects</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Bulunan nesneler</value>
     </title>
     <id>5</id>
     <valueType>
@@ -697,6 +726,10 @@
       <key>en</key>
       <value>Current setting representation</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut görünüm ayarı</value>
+    </title>
     <id>6</id>
     <valueType>
       <types>String</types>
@@ -718,6 +751,10 @@
     <title>
       <key>en</key>
       <value>Current line</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Mevcut satır</value>
     </title>
     <id>4</id>
     <valueType>
@@ -743,6 +780,10 @@
       <key>en</key>
       <value>Replaceable substring</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Değiştirilecek alt dize</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -764,6 +805,10 @@
     <title>
       <key>en</key>
       <value>Initial number</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Başlangıç numarası</value>
     </title>
     <id>7</id>
     <valueType>
@@ -790,6 +835,10 @@
       <key>en</key>
       <value>Do not change numerical numbering</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sayısal numaralandırmayı değiştirme</value>
+    </title>
     <id>8</id>
     <valueType>
       <types>Boolean</types>
@@ -810,6 +859,10 @@
     <title>
       <key>en</key>
       <value>Prefix handling method</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Önek işleme yöntemi</value>
     </title>
     <id>9</id>
     <valueType>
@@ -836,6 +889,10 @@
       <key>en</key>
       <value>Line prefix</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Önek satırı</value>
+    </title>
     <id>10</id>
     <valueType>
       <types>String</types>
@@ -857,6 +914,10 @@
     <title>
       <key>en</key>
       <value>Parent</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Üst öğe</value>
     </title>
     <id>11</id>
     <valueType>
@@ -883,6 +944,10 @@
       <key>en</key>
       <value>Search object</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Arama nesnesi</value>
+    </title>
     <id>12</id>
     <valueType/>
     <view>
@@ -901,6 +966,10 @@
     <title>
       <key>en</key>
       <value>Object type name</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne türü adı</value>
     </title>
     <id>13</id>
     <valueType>
@@ -924,6 +993,10 @@
       <key>en</key>
       <value>Number type</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Numara türü</value>
+    </title>
     <id>14</id>
     <valueType>
       <types>String</types>
@@ -945,6 +1018,10 @@
     <title>
       <key>en</key>
       <value>Number length</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Sayı uzunluğu</value>
     </title>
     <id>15</id>
     <valueType>
@@ -969,6 +1046,10 @@
     <title>
       <key>en</key>
       <value>Execute command</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Komutu çalıştır</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -999,6 +1080,10 @@
     <title>
       <key>en</key>
       <value>Save settings</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarları kaydet</value>
     </title>
     <id>2</id>
     <toolTip>

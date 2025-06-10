@@ -90,8 +90,9 @@ Procedure ExecuteCommand(Command)
 	ProcessedObjects = ExecuteProcessing();
 
 	Message = StrTemplate(Nstr("ru = 'Обработка <%1> завершена! 
-					 |Обработано объектов: %2.';en = 'Processing of <%1> completed!
-					 |Objects processed: %2.'"), TrimAll(ThisForm.Title), ProcessedObjects);
+											  |Обработано объектов: %2.'; en = 'Processing of <%1> completed!
+											  |Objects processed: %2.'; tr = '<%1>''in işlenmesi tamamlandı!
+											  |İşlenen nesneler: %2.'"), TrimAll(ThisForm.Title), ProcessedObjects);
 	ShowMessageBox(, Message);
 EndProcedure
 
@@ -108,7 +109,7 @@ Procedure CurrentSettingChoiceProcessing(Item, SelectedValue, StandardProcessing
 
 		If ThisForm.Modified Then
 			ShowQueryBox(New NotifyDescription("CurrentSettingChoiceProcessingEnd", ThisForm,
-				New Structure("SelectedValue", SelectedValue)), Nstr("ru = 'Сохранить текущую настройку?';en = 'Save current setting?'"),
+				New Structure("SelectedValue", SelectedValue)), Nstr("ru = 'Сохранить текущую настройку?'; en = 'Save current setting?'; tr = 'Mevcut ayar kaydedilsin mi?'"),
 				QuestionDialogMode.YesNo, , DialogReturnCode.Yes);
 			Return;
 		EndIf;

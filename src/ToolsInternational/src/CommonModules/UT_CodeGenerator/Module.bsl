@@ -85,7 +85,7 @@ Function ValueInCodeString(Value, NameOfVariableToFill = "") Export
 	ElsIf UT_Common.IsReference(ValueType) Then 
 		Return RefInCodeString(Value);
 	Else
-		Return NStr("ru = '???//Тип'; en = 'Type'") + " " + ValueType + NStr("ru = ' пока не поддерживается For генерации'; en = ' not yet supported for generation'");
+		Return NStr("ru = '???//Тип'; en = 'Type'; tr = 'Tip'") + " " + ValueType + NStr("ru = ' пока не поддерживается For генерации'; en = ' not yet supported for generation'; tr = 'henüz desteklenmiyor'");
 	EndIf;
 EndFunction
 

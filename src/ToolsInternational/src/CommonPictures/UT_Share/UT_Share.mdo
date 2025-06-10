@@ -5,4 +5,12 @@
     <key>ru</key>
     <value>Share</value>
   </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Share</value>
+  </synonym>
+  <synonym>
+    <key>tr</key>
+    <value>Paylaş</value>
+  </synonym>
 </mdclass:CommonPicture>

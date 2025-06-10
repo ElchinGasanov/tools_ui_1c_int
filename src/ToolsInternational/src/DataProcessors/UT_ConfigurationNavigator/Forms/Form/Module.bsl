@@ -280,7 +280,7 @@ Procedure OnOpen(Cancel)
 	TreeLines.Clear();
 
 	ValueTreeGroup = TreeLines.Add();
-	ValueTreeGroup.Presentation = NSTR("ru = 'Стандартные хранилища настроек';en = 'Standart settings storages'");
+	ValueTreeGroup.Presentation = NSTR("ru = 'Стандартные хранилища настроек'; en = 'Standart settings storages'; tr = 'Standart ayarlar depolama'");
 
 	SectionStructure = New Structure("ReportsVariantsStorage, FormDataSettingsStorage, CommonSettingsStorage
 								   |, DynamicListsUserSettingsStorage, ReportsUserSettingsStorage, SystemSettingsStorage");
@@ -353,8 +353,9 @@ Procedure _DeleteDBUser(Command)
 	If CurrentData <> Undefined And StrFind(CurrentData.FullName, "User.") = 1 Then
 		nText = StrTemplate(
 		NStr("ru = 'Пользователь ""%1"" будет удален из информационной базы!
-								  |Продолжить?';en = 'The user ""%1"" will be deleted from the base!
-								  |Continue?'"), CurrentData.Name);
+											  |Продолжить?'; en = 'The user ""%1"" will be deleted from the base!
+											  |Continue?'; tr = '""%1"" kullanıcısı veritabanından silinecek!
+											  |Devam edilsin mi?'"), CurrentData.Name);
 								  
 		ShowQueryBox(New NotifyDescription("vDeleteUserAnswer", ThisForm, CurrentData), nText,
 			QuestionDialogMode.YesNoCancel, 20);
@@ -383,7 +384,7 @@ Function vDeleteUser(ID)
 		vUser = InfoBaseUsers.FindByUUID(userUUID);
 		If vUser = Undefined Then
 			pResult.Cancel = True;
-			pResult.ReasonForRefusal = Nstr("ru = 'Указанный пользователь не найден!';en = 'The specified user was not found!'");
+			pResult.ReasonForRefusal = Nstr("ru = 'Указанный пользователь не найден!'; en = 'The specified user was not found!'; tr = 'Belirtilen kullanıcı bulunamadı!'");
 			Return pResult;
 		EndIf;
 
@@ -391,7 +392,7 @@ Function vDeleteUser(ID)
 
 		If pCurrentUser.UUID = userUUID Then
 			pResult.Cancel = True;
-			pResult.ReasonForRefusal = Nstr("ru = 'Нельзя удалить текущего пользоватля!';en = 'You cannot delete the current user!'");
+			pResult.ReasonForRefusal = Nstr("ru = 'Нельзя удалить текущего пользоватля!'; en = 'You cannot delete the current user!'; tr = 'Mevcut kullanıcıyı silemezsiniz!'");
 			Return pResult;
 		EndIf;
 
@@ -415,7 +416,7 @@ Procedure kShowObjectProperties(Command)
 
 		If CurrentData <> Undefined Then
 			pFullName = CurrentData.Metadata;
-			If pFullName = Nstr("ru = '<не задано>';en = '<not set>'") Then
+			If pFullName = Nstr("ru = '<не задано>'; en = '<not set>'; tr = '<ayarlanmamış>'") Then
 				Return;
 			EndIf;
 
@@ -1083,7 +1084,7 @@ Procedure SettingsTableBeforeDeleteRow(Item, Cancel)
 	If Not IsBlankString(_NameOfSettingsManager) Then
 		StructureOfParameters = New Structure;
 		StructureOfParameters.Insert("RowArray", New FixedArray(Item.SelectedRows));
-		vShowQueryBox(NStr("ru = 'Отмеченные настройки будут удалены. Продолжить?';en = 'The marked settings will be deleted. Continue?'"), "SettingsTableBeforeDeleteRowNext",
+		vShowQueryBox(NStr("ru = 'Отмеченные настройки будут удалены. Продолжить?'; en = 'The marked settings will be deleted. Continue?'; tr = 'İşaretlenen ayarlar silinecektir. Devam edilsin mi?'"), "SettingsTableBeforeDeleteRowNext",
 			StructureOfParameters);
 	EndIf;
 EndProcedure
@@ -1105,7 +1106,7 @@ Procedure kUpdateSettingsTable(Command)
 
 		If Not vUpdateTableSettings(CurrentData.NodeType, CurrentData.Name) Then
 			CurrentData.NodeType = "-";
-			CurrentData.Presentation = CurrentData.Name + Nstr("ru = ' (не поддерживается)';en = ' (not supported)'");
+			CurrentData.Presentation = CurrentData.Name + Nstr("ru = ' (не поддерживается)'; en = ' (not supported)'; tr = '(desteklenmiyor)'");
 		EndIf;
 
 		_NameOfSettingsManager = CurrentData.Name;
@@ -1116,7 +1117,7 @@ EndProcedure
 
 &AtClient
 Procedure vUpdateHeadersSettings()
-	Items.DecorationSettings.Title = _NameOfSettingsManager + " (" + SettingsTable.Count() + NStr("ru = ' шт.';en = 'pcs.'") + ")";
+	Items.DecorationSettings.Title = _NameOfSettingsManager + " (" + SettingsTable.Count() + NStr("ru = ' шт.'; en = 'pcs.'; tr = 'adet.'") + ")";
 EndProcedure
 
 
@@ -1157,12 +1158,12 @@ Procedure vFillServiceTree()
 					TreeLine.Enabled = Eval(PropertyStructure.AvailabilityExpression);
 				EndIf;
 				If Not TreeLine.Enabled Then
-					TreeLine.Presentation = TreeLine.Presentation +Nstr("ru = '(не доступно)';en = 'not available'") ;
+					TreeLine.Presentation = TreeLine.Presentation +Nstr("ru = '(не доступно)'; en = 'not available'; tr = '(müsait değil)'") ;
 				EndIf;
 
 				If TreeLine.Name = "ExclusiveMode" Then
-					TreeLine.Presentation = ?(_FormContext.ExclusiveMode, Nstr("ru = 'Отключить монопольный режим';en = 'Turn off exclusive mode'"),
-						NStr("ru = 'Установить монопольный режим';en = 'Set exclusive mode'"));
+					TreeLine.Presentation = ?(_FormContext.ExclusiveMode, Nstr("ru = 'Отключить монопольный режим'; en = 'Turn off exclusive mode'; tr = 'Özel modu kapat'"),
+						NStr("ru = 'Установить монопольный режим'; en = 'Set exclusive mode'; tr = 'Özel Modu Ayarla'"));
 				EndIf;
 			EndIf;
 		EndIf;
@@ -1192,7 +1193,7 @@ Procedure vProcessServiceCommand(TreeLine)
 	ElsIf TreeLine.Name = "RefreshReusableValues" Then
 		RefreshReusableValues();
 	ElsIf TreeLine.Name = "ClearFavorites" Then
-		vShowQueryBox(Nstr("ru = 'Избранное будет очищено. Продолжить?';en = 'The favorites will clear. Continue?'"), "vClearFavorites");
+		vShowQueryBox(Nstr("ru = 'Избранное будет очищено. Продолжить?'; en = 'The favorites will clear. Continue?'; tr = 'Favoriler temizlenecek. Devam edilsin mi?'"), "vClearFavorites");
 	ElsIf TreeLine.Name = "DisplayScale" Then
 		kChangeScaleOfForm(Undefined);
 	ElsIf TreeLine.Name = "SetSessionsLock" Then
@@ -1200,8 +1201,8 @@ Procedure vProcessServiceCommand(TreeLine)
 			FormWindowOpeningMode.LockOwnerWindow);
 	ElsIf TreeLine.Name = "ExclusiveMode" Then
 		vSetExclusiveMode(_FormContext);
-		TreeLine.Presentation = ?(_FormContext.ExclusiveMode, NStr("ru = 'Отключить монопольный режим';en = 'Disable exclusive mode'"),
-			NStr("ru = 'Установить монопольный режим';en = 'Set exclusive mode'"));
+		TreeLine.Presentation = ?(_FormContext.ExclusiveMode, NStr("ru = 'Отключить монопольный режим'; en = 'Disable exclusive mode'; tr = 'Özel modu devre dışı bırak'"),
+			NStr("ru = 'Установить монопольный режим'; en = 'Set exclusive mode'; tr = 'Özel modu ayarla'"));
 	ElsIf TreeLine.Name = "Run1C" Then
 #If WebClient Then
 		vOperationNotSupportedForWebClient();
@@ -1367,31 +1368,31 @@ Procedure vSetHeadersOfRightsTables()
 		RightName = FoundLines[0].Right + ": ";
 	EndIf;
 
-	RoleTitle = RightName + NStr("ru = 'Роли, имеющие доступ';en = 'Roles that have access'")+" (";
-	UsersTitle = RightName + NStr("ru = 'Пользователи, имеющие доступ';en = 'Users that have access'")+" (";
+	RoleTitle = RightName + NStr("ru = 'Роли, имеющие доступ'; en = 'Roles that have access'; tr = 'Erişimi olan roller'")+" (";
+	UsersTitle = RightName + NStr("ru = 'Пользователи, имеющие доступ'; en = 'Users that have access'; tr = 'Erişimi olan kullanıcılar'")+" (";
 
 	CurrentData = Items.ObjectsTree.CurrentData;
 	If CurrentData <> Undefined And CurrentData.NodeType = "MetadataObject" Then
 		If StrFind(CurrentData.FullName, "Role.") = 1 Then
 			RoleTitle = "";
-			UsersTitle = NStr("ru = 'Пользователи, имеющие данную роль';en = 'Users who have this role'")+" (";
+			UsersTitle = NStr("ru = 'Пользователи, имеющие данную роль'; en = 'Users who have this role'; tr = 'Bu role sahip kullanıcılar'")+" (";
 		ElsIf StrFind(CurrentData.FullName, "User.") = 1 Then
-			RoleTitle = NStr("ru = 'Роли данного пользователя';en = 'Roles of this user'")+" (";
+			RoleTitle = NStr("ru = 'Роли данного пользователя'; en = 'Roles of this user'; tr = 'Bu kullanıcının rolleri'")+" (";
 			UsersTitle = "";
 		EndIf;
 	EndIf;
 
 	If IsBlankString(RoleTitle) Then
-		Items.RolesDecoration.Title = NStr("ru = 'Для заданного объекта не используются';en = 'Not used for the specified object'");
+		Items.RolesDecoration.Title = NStr("ru = 'Для заданного объекта не используются'; en = 'Not used for the specified object'; tr = 'Belirtilen nesne için kullanılmıyor'");
 	Else
-		Items.RolesDecoration.Title = RoleTitle + RolesWithAccessTable.Count() + NStr("ru = ' шт.)';en = 'pcs.)'");
+		Items.RolesDecoration.Title = RoleTitle + RolesWithAccessTable.Count() + NStr("ru = ' шт.)'; en = 'pcs.)'; tr = 'adet.)'");
 	EndIf;
 
 	If IsBlankString(UsersTitle) Then
-		Items.UsersDecoration.Title = NStr("ru = 'Для заданного объекта не используются';en = 'Not used for the specified object'");
+		Items.UsersDecoration.Title = NStr("ru = 'Для заданного объекта не используются'; en = 'Not used for the specified object'; tr = 'Belirtilen nesne için kullanılmıyor'");
 	Else
 		Items.UsersDecoration.Title = UsersTitle + UsersWithAccessTable.Count()
-			+ NStr("ru = ' шт.)';en = 'pcs.)'");
+			+ NStr("ru = ' шт.)'; en = 'pcs.)'; tr = 'adet.)'");
 	EndIf;
 
 EndProcedure
@@ -1798,12 +1799,12 @@ Procedure _UpdateNumberingOfObjects(Command)
 	If CurrentData <> Undefined Then
 		If CurrentData.NodeType = "MetadataObject" Or CurrentData.NodeType = "Configuration" Then
 			If Not vIsAdministratorRights() Then
-				vShowMessageBox(NStr("ru = 'Нет прав на выполнение операции!';en = 'No rights to perform the operation!'"));
+				vShowMessageBox(NStr("ru = 'Нет прав на выполнение операции!'; en = 'No rights to perform the operation!'; tr = 'İşlemi gerçekleştirme hakkı yok!'"));
 				Return;
 			EndIf;
 
-			pText = ?(CurrentData.NodeType = "Configuration", NStr("ru = 'Нумерация всех объектов будет обновлена. Продолжить?';en = 'The numbering of all objects will be updated. Continue?'"),
-				NStr("ru = 'Нумерация объекта будет обновлена. Продолжить?';en = 'The numbering the object will be updated. Continue?'"));
+			pText = ?(CurrentData.NodeType = "Configuration", NStr("ru = 'Нумерация всех объектов будет обновлена. Продолжить?'; en = 'The numbering of all objects will be updated. Continue?'; tr = 'Tüm nesnelerin numaralandırması güncellenecek. Devam edilsin mi?'"),
+				NStr("ru = 'Нумерация объекта будет обновлена. Продолжить?'; en = 'The numbering the object will be updated. Continue?'; tr = 'Nesnenin numaralandırılması güncellenecektir. Devam edilsin mi?'"));
 			ShowQueryBox(New NotifyDescription("vUpdateNumberOfObjectsResponse", ThisForm, CurrentData.FullName),
 				pText, QuestionDialogMode.YesNoCancel, 20);
 		EndIf;
@@ -1812,7 +1813,7 @@ EndProcedure
 
 &AtClient
 Procedure _UpdateNumberingOfAllObjects(Command)
-	pText = NStr("ru = 'Нумерация всех объектов будет обновлена. Продолжить?';en = 'The numbering of all objects will be updated. Continue?'");
+	pText = NStr("ru = 'Нумерация всех объектов будет обновлена. Продолжить?'; en = 'The numbering of all objects will be updated. Continue?'; tr = 'Tüm nesnelerin numaralandırması güncellenecek. Devam edilsin mi?'");
 	ShowQueryBox(New NotifyDescription("vUpdateNumberOfObjectsResponse", ThisForm, "Configuration"), pText,
 		QuestionDialogMode.YesNoCancel, 20);
 EndProcedure
@@ -1856,8 +1857,8 @@ Procedure _FillInSchema(Command)
 
 	vFillInSX();
 
-	Items._IndexesPage.Title = NStr("ru = 'Все индексы БД (';en = 'All indexes of DB ('") + _Indexes.Count() + ")";
-	Items.TablePage.Title = NStr("ru = 'Все таблицы БД (';en = 'All tables  of DB ('") + _Tables.Count() + ")";
+	Items._IndexesPage.Title = NStr("ru = 'Все индексы БД ('; en = 'All indexes of DB ('; tr = 'Tüm DB dizinleri ('") + _Indexes.Count() + ")";
+	Items.TablePage.Title = NStr("ru = 'Все таблицы БД ('; en = 'All tables  of DB ('; tr = 'DB''nin tüm tabloları ('") + _Tables.Count() + ")";
 EndProcedure
 
 &AtServer
@@ -1869,10 +1870,10 @@ Procedure vFillInSX()
 		FillPropertyValues(NewRow, Row);
 
 		If NewRow.TableName = "" Then
-			NewRow.TableName = NStr("ru = '<не задано>'; en = '<not set>'");
+			NewRow.TableName = NStr("ru = '<не задано>'; en = '<not set>'; tr = '<ayarlanmamış>'");
 		EndIf;
 		If NewRow.Metadata = "" Then
-			NewRow.Metadata = NStr("ru = '<не задано>'; en = '<not set>'");
+			NewRow.Metadata = NStr("ru = '<не задано>'; en = '<not set>'; tr = '<ayarlanmamış>'");
 		EndIf;    
 		
 
@@ -1881,7 +1882,7 @@ Procedure vFillInSX()
 			NewRow.IndexName = LineX.StorageIndexName;
 			FillPropertyValues(NewRow, Row, "TableName, Metadata");
 			If NewRow.Metadata = "" Then
-				NewRow.Metadata = NStr("ru = '<не задано>'; en = '<not set>'");
+				NewRow.Metadata = NStr("ru = '<не задано>'; en = '<not set>'; tr = '<ayarlanmamış>'");
 			EndIf;
 		EndDo;
 	EndDo;
@@ -2009,12 +2010,14 @@ Procedure _DBUserListBeforeDeleteRow(Item, Cancel)
 		Return;
 	ElsIf pCount = 1 Then
 		pText = StrTemplate (NSTR("ru = 'Отмеченные пользователи (%1 шт) будут удалены из информационной базы! 
-		|Продолжить?'; en = 'Selected users  (%1 pc) will be deleted from database! 
-		|Continue?'"),_DBUserList.FindByID(pSelectedLines[0]).Name)                 			   
+					|Продолжить?'; en = 'Selected users  (%1 pc) will be deleted from database! 
+					|Continue?'; tr = 'İşaretlenen kullanıcılar (%1 adet) bilgi tabanından kaldırılacaktır!
+					|Devam edilsin mi?'"),_DBUserList.FindByID(pSelectedLines[0]).Name)                 			   
 	Else
 		pText = StrTemplate (NSTR("ru = 'Отмеченные пользователи (%1 шт) будут удалены из информационной базы! 
-		|Продолжить?'; en = 'Selected users  (%1 pc) will be deleted from database! 
-		|Continue?'"),pCount)      				   
+					|Продолжить?'; en = 'Selected users  (%1 pc) will be deleted from database! 
+					|Continue?'; tr = 'İşaretlenen kullanıcılar (%1 adet) bilgi tabanından kaldırılacaktır!
+					|Devam edilsin mi?'"),pCount)      				   
 	EndIf;
 
 	vShowQueryBox(pText, "vDeleteDataBaseUsersResponse", pSelectedLines);
@@ -2092,7 +2095,7 @@ Procedure _FillInSessionsList(Command)
 
 	_SessionList.Sort("SessionStart");
 
-	Items.SessionsGroup.Title = NStr("ru = 'Сеансы информационной базы (';en = 'Sessions of the information base ('") + pArray.Count() + ")";
+	Items.SessionsGroup.Title = NStr("ru = 'Сеансы информационной базы ('; en = 'Sessions of the information base ('; tr = 'Bilgi tabanı oturumları ('") + pArray.Count() + ")";
 EndProcedure
 
 &AtServerNoContext
@@ -2145,7 +2148,7 @@ Procedure _FillInConnectionsList(Command)
 
 	_ConnectionsList.Sort("SessionStart");
 
-	Items.ConnectionsGroup.Title = NStr("ru = 'Соединения информационной базы';en = 'Connections of the information base'")+" (" + pArray.Count() + ")";
+	Items.ConnectionsGroup.Title = NStr("ru = 'Соединения информационной базы'; en = 'Connections of the information base'; tr = 'Bilgi tabanının bağlantıları'")+" (" + pArray.Count() + ")";
 EndProcedure
 
 &AtServerNoContext
@@ -2194,16 +2197,16 @@ Procedure _FinishSessions(Command)
 
 	If pSessionsArray.Count() = 0 Then
 		vShowMessageBox(NStr("ru = 'Невозможно завершить текущий Session!
-							 |For выхода из программы можно закрыть главное окно программы.';
-							 |en = 'Unable to terminate the current session!
-							 |For exiting the program, you can close the main program window.'"));
+																							   |For выхода из программы можно закрыть главное окно программы.'; en = 'Unable to terminate the current session!
+																							   |For exiting the program, you can close the main program window.'; tr = 'Mevcut oturum sonlandırılamıyor!
+																							   |Programdan çıkmak için ana program penceresini kapatabilirsiniz.'"));
 		Return;
 	EndIf;
 
 	pText = StrTemplate(NStr("ru = 'Отмеченные сеансы (%1 шт) будут завершены.
-							 |Продолжить?';
-							 |en = 'The marked sessions (%1 pcs) will be completed.
-							 |Continue?'"), 
+										 |Продолжить?'; en = 'The marked sessions (%1 pcs) will be completed.
+										 |Continue?'; tr = 'İşaretlenen oturumlar (%1 adet) kapatılacaktır.
+										 |Devam edilsin mi?'"), 
 					   pSessionsArray.Count());
 
 	vShowQueryBox(pText, "vEndSessionsResponse", pSessionsArray);
@@ -2219,7 +2222,7 @@ Procedure vEndSessionsResponse(Response, pSessionsArray) Export
 		If mClusterParameters.FileDB Then
 			Items._SessionList_FinishSessions.Enabled = False;
 			Items.ClusterAdministratorGroup.ReadOnly = True;
-			vShowMessageBox(NStr("ru = 'Завершение сеансов реализовано только для клиент-серверного варианта!';en = 'Session termination is implemented only for the client-server version!'"));
+			vShowMessageBox(NStr("ru = 'Завершение сеансов реализовано только для клиент-серверного варианта!'; en = 'Session termination is implemented only for the client-server version!'; tr = 'Oturum sonlandırma sadece istemci-sunucu sürümünde uygulanmaktadır!'"));
 			Return;
 		EndIf;
 
@@ -2304,7 +2307,7 @@ Function vGetClaster(ServerAgentConnection, Val ClasterPort, Val NameOfClusterAd
 
 	EndDo;
 
-	Raise StrTemplate(NStr("ru = 'На рабочем сервере %1 не найден класетер %2';en = 'Cluster %2 not found on production server %1'"), ServerAgentConnection.ConnectionString,
+	Raise StrTemplate(NStr("ru = 'На рабочем сервере %1 не найден класетер %2'; en = 'Cluster %2 not found on production server %1'; tr = '%1 üretim sunucusunda %2 clusteri bulunamadı'"), ServerAgentConnection.ConnectionString,
 		ClasterPort);
 
 EndFunction
@@ -2385,7 +2388,7 @@ Procedure _FillInExtensionList(Command)
 
 	_ExtensionsList.Sort("Name");
 
-	Items.ConfigurationExtensions.Title = NStr("ru = 'Расширения конфигурации';en = 'Configuration Extensions'")+" (" + _ExtensionsList.Count() + ")";
+	Items.ConfigurationExtensions.Title = NStr("ru = 'Расширения конфигурации'; en = 'Configuration Extensions'; tr = 'Konfigurasyon Uzantıları'")+" (" + _ExtensionsList.Count() + ")";
 EndProcedure
 
 &AtServer

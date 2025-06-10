@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Выбор настройки</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Select setting</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Выбор настройки</value>
+    <key>tr</key>
+    <value>Ayarın seçilmesi</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>FieldsGroup</name>
@@ -31,10 +35,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>SettingsList.Check</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>SettingsList.Check</segments>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -80,10 +82,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>SettingsList.Presentation</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>SettingsList.Presentation</segments>
         </dataPath>
         <extendedTooltip>
           <name>SettingsListPresentationExtendedTooltip</name>
@@ -131,10 +131,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>SettingsList.Value</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>SettingsList.Value</segments>
         </dataPath>
         <extendedTooltip>
           <name>SettingsListValueExtendedTooltip</name>
@@ -218,6 +216,7 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
+        <source>SettingsList</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -256,6 +255,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
+        <source>SettingsList</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
           <horizontalLocation>Left</horizontalLocation>
@@ -295,6 +295,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
+        <source>SettingsList</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -550,6 +551,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <autoFillCheck>true</autoFillCheck>
@@ -560,6 +562,10 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_ImportDataFromSpreadsheetDocument</types>
@@ -575,12 +581,16 @@
   <attributes>
     <name>SettingsList</name>
     <title>
+      <key>ru</key>
+      <value>Список настроек</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Settings list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Список настроек</value>
+      <key>tr</key>
+      <value>Ayarlar listesi</value>
     </title>
     <id>2</id>
     <valueType>
@@ -595,12 +605,16 @@
     <columns>
       <name>Check</name>
       <title>
+        <key>ru</key>
+        <value>Пометка</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Check</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Пометка</value>
+        <key>tr</key>
+        <value>İşaret</value>
       </title>
       <id>1</id>
       <valueType>
@@ -616,12 +630,16 @@
     <columns>
       <name>Presentation</name>
       <title>
+        <key>ru</key>
+        <value>Представление</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Presentation</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Представление</value>
+        <key>tr</key>
+        <value>Gösterim</value>
       </title>
       <id>2</id>
       <valueType>
@@ -638,12 +656,16 @@
     <columns>
       <name>Value</name>
       <title>
+        <key>ru</key>
+        <value>Значение</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Value</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Значение</value>
+        <key>tr</key>
+        <value>Değer</value>
       </title>
       <id>3</id>
       <valueType>
@@ -660,11 +682,15 @@
   <formCommands>
     <name>OK</name>
     <title>
+      <key>ru</key>
+      <value>OK</value>
+    </title>
+    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>ru</key>
+      <key>tr</key>
       <value>OK</value>
     </title>
     <id>1</id>
@@ -689,12 +715,16 @@
   <formCommands>
     <name>Cancel</name>
     <title>
+      <key>ru</key>
+      <value>Отмена</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Cancel</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Отмена</value>
+      <key>tr</key>
+      <value>İptal</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -718,12 +748,16 @@
   <formCommands>
     <name>Delete</name>
     <title>
+      <key>ru</key>
+      <value>Удалить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Delete</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Удалить</value>
+      <key>tr</key>
+      <value>Sil</value>
     </title>
     <id>3</id>
     <toolTip>

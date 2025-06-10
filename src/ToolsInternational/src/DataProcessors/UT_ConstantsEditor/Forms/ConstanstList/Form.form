@@ -74,12 +74,16 @@
       <name>ShowSynonym</name>
       <id>70</id>
       <title>
+        <key>ru</key>
+        <value>Показывать синоним</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Show synonym</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Показывать синоним</value>
+        <key>tr</key>
+        <value>Eş anlamlısını göster</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -418,12 +422,12 @@
       <showInFooter>true</showInFooter>
       <extInfo xsi:type="form:InputFieldExtInfo">
         <handlers>
-          <event>Clearing</event>
-          <name>ConstantsTableConstantValueClearing</name>
-        </handlers>
-        <handlers>
           <event>StartChoice</event>
           <name>ConstantsTableConstantValueStartChoice</name>
+        </handlers>
+        <handlers>
+          <event>Clearing</event>
+          <name>ConstantsTableConstantValueClearing</name>
         </handlers>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -476,7 +480,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>ConstantsTableSearchString</source>
+      <source>ConstantsTable</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -515,7 +519,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>ConstantsTableViewStatus</source>
+      <source>ConstantsTable</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -554,7 +558,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>ConstantsTableSearchControl</source>
+      <source>ConstantsTable</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -877,6 +881,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -889,12 +894,16 @@
   <attributes>
     <name>Object</name>
     <title>
+      <key>ru</key>
+      <value>Объект</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Объект</value>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -911,12 +920,16 @@
   <attributes>
     <name>ConstantsTable</name>
     <title>
+      <key>ru</key>
+      <value>Таблица констант</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Constants Table</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Таблица констант</value>
+      <key>tr</key>
+      <value>Sabitler Tablosu</value>
     </title>
     <id>2</id>
     <valueType>
@@ -931,12 +944,16 @@
     <columns>
       <name>ConstantName</name>
       <title>
+        <key>ru</key>
+        <value>Имя</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
+        <key>tr</key>
+        <value>Ad</value>
       </title>
       <id>2</id>
       <valueType>
@@ -953,12 +970,16 @@
     <columns>
       <name>ConstantSynonym</name>
       <title>
+        <key>ru</key>
+        <value>Синоним</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Synonym</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Синоним</value>
+        <key>tr</key>
+        <value>Eş anlamlısı</value>
       </title>
       <id>3</id>
       <valueType>
@@ -975,12 +996,16 @@
     <columns>
       <name>TypeDescription</name>
       <title>
+        <key>ru</key>
+        <value>Тип</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Type</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Тип</value>
+        <key>tr</key>
+        <value>Tür</value>
       </title>
       <id>4</id>
       <valueType>
@@ -996,12 +1021,16 @@
     <columns>
       <name>FunctionalOption</name>
       <title>
+        <key>ru</key>
+        <value>Ф.опция</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Functional оption</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Ф.опция</value>
+        <key>tr</key>
+        <value>İşlevsel seçenek</value>
       </title>
       <id>5</id>
       <valueType>
@@ -1018,12 +1047,16 @@
     <columns>
       <name>PrivilegedGetMode</name>
       <title>
+        <key>ru</key>
+        <value>Привилегированный режим</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Privileged mode</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Привилегированный режим</value>
+        <key>tr</key>
+        <value>Ayrıcalıklı mod</value>
       </title>
       <id>6</id>
       <valueType>
@@ -1039,12 +1072,16 @@
     <columns>
       <name>ConstantValue</name>
       <title>
+        <key>ru</key>
+        <value>Значение</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Value</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Значение</value>
+        <key>tr</key>
+        <value>Değer</value>
       </title>
       <id>7</id>
       <valueType/>
@@ -1065,6 +1102,10 @@
         <key>en</key>
         <value>Is changed</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Değiştirilmiş</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>Boolean</types>
@@ -1079,12 +1120,16 @@
     <columns>
       <name>HasValueStorage</name>
       <title>
+        <key>ru</key>
+        <value>Есть хранилище значения</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Has value storage</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Есть хранилище значения</value>
+        <key>tr</key>
+        <value>Değer deposu var</value>
       </title>
       <id>9</id>
       <valueType>
@@ -1107,6 +1152,10 @@
         <key>en</key>
         <value>Value storage only</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Sadece değer deposu</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>Boolean</types>
@@ -1128,6 +1177,10 @@
         <key>en</key>
         <value>Found</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Bulundu</value>
+      </title>
       <id>13</id>
       <valueType>
         <types>Boolean</types>
@@ -1143,12 +1196,16 @@
   <attributes>
     <name>SearchBar</name>
     <title>
+      <key>ru</key>
+      <value>Строка поиска</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Search bar</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Строка поиска</value>
+      <key>tr</key>
+      <value>Arama çubuğu</value>
     </title>
     <id>11</id>
     <valueType>
@@ -1165,12 +1222,16 @@
   <attributes>
     <name>ShowSynonym</name>
     <title>
+      <key>ru</key>
+      <value>Показывать синоним</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Show Synonym</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Показывать синоним</value>
+      <key>tr</key>
+      <value>Eş anlamlısını göster</value>
     </title>
     <id>12</id>
     <valueType>
@@ -1186,12 +1247,16 @@
   <formCommands>
     <name>Write</name>
     <title>
+      <key>ru</key>
+      <value>Записать</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Write</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Записать</value>
+      <key>tr</key>
+      <value>Kaydet</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1215,12 +1280,16 @@
   <formCommands>
     <name>Reread</name>
     <title>
+      <key>ru</key>
+      <value>Перечитать</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Reread</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Перечитать</value>
+      <key>tr</key>
+      <value>Yeniden oku</value>
     </title>
     <id>2</id>
     <use>

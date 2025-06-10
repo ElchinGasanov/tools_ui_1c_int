@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_CodeConsole</name>
   <synonym>
+    <key>ru</key>
+    <value>Консоль кода [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Code console [UT]</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Консоль кода [УИ]</value>
+    <key>tr</key>
+    <value>Kod konsolu [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_CodeConsole.Form.Form</defaultForm>
@@ -23,6 +27,10 @@
     <key>en</key>
     <value>Code console</value>
   </extendedPresentation>
+  <extendedPresentation>
+    <key>tr</key>
+    <value>Kod konsolu</value>
+  </extendedPresentation>
   <explanation>
     <key>ru</key>
     <value>Позволяет выполнять код из предприятия без создания внешних обработок. Есть подсветка синтаксиса и минимальная контекстная подсказка.</value>
@@ -30,6 +38,10 @@
   <explanation>
     <key>en</key>
     <value>Allows you to execute code from the enterprise without creating external processing. There is syntax highlighting and minimal context hints.</value>
+  </explanation>
+  <explanation>
+    <key>tr</key>
+    <value>Harici işlem oluşturmadan işletmeden kod yürütmenize olanak tanır. Sözdizimi vurgulaması ve minimum bağlam ipuçları vardır.</value>
   </explanation>
   <forms uuid="c64c5360-b585-4331-9178-b5c3bcbaadb5">
     <name>Form</name>

@@ -14,10 +14,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_BoundaryValue</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_BoundaryValue</segments>
         </dataPath>
         <extendedTooltip>
           <name>_BoundaryValueExtendedTooltip</name>
@@ -68,10 +66,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_BoundaryBoundaryType</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_BoundaryBoundaryType</segments>
         </dataPath>
         <extendedTooltip>
           <name>_BoundaryBoundaryTypeExtendedTooltip</name>
@@ -128,12 +124,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Граница</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Boundary</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Граница</value>
+        <key>tr</key>
+        <value>Sınır</value>
       </title>
       <extendedTooltip>
         <name>GroupBoundaryExtendedTooltip</name>
@@ -167,10 +167,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_PointInTimeDate</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_PointInTimeDate</segments>
         </dataPath>
         <extendedTooltip>
           <name>_PointInTimeDateExtendedTooltip</name>
@@ -219,10 +217,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>_PointInTimeRef</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>_PointInTimeRef</segments>
         </dataPath>
         <extendedTooltip>
           <name>_PointInTimeRefExtendedTooltip</name>
@@ -271,12 +267,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Момент времени</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Point in time</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Момент времени</value>
+        <key>tr</key>
+        <value>Zaman içinde bir an</value>
       </title>
       <extendedTooltip>
         <name>GroupPointInTimeExtendedTooltip</name>
@@ -307,6 +307,10 @@
     <title>
       <key>en</key>
       <value>Group pages</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Grup sayfaları</value>
     </title>
     <horizontalStretch>true</horizontalStretch>
     <extendedTooltip>
@@ -406,6 +410,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -416,12 +421,16 @@
   <attributes>
     <name>_BoundaryValue</name>
     <title>
+      <key>ru</key>
+      <value>Значение</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Value</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Значение</value>
+      <key>tr</key>
+      <value>Değer</value>
     </title>
     <id>2</id>
     <valueType>
@@ -439,12 +448,16 @@
   <attributes>
     <name>_BoundaryBoundaryType</name>
     <title>
+      <key>ru</key>
+      <value>Вид границы</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Boundary type</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Вид границы</value>
+      <key>tr</key>
+      <value>Sınır türü</value>
     </title>
     <id>3</id>
     <valueType>
@@ -461,12 +474,16 @@
   <attributes>
     <name>_PointInTimeDate</name>
     <title>
+      <key>ru</key>
+      <value>Дата</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Date</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Дата</value>
+      <key>tr</key>
+      <value>Tarih</value>
     </title>
     <id>4</id>
     <valueType>
@@ -483,12 +500,16 @@
   <attributes>
     <name>_PointInTimeRef</name>
     <title>
+      <key>ru</key>
+      <value>Ссылка</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Reference</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Ссылка</value>
+      <key>tr</key>
+      <value>Referans</value>
     </title>
     <id>5</id>
     <valueType>
@@ -511,6 +532,10 @@
       <key>en</key>
       <value>Value type</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Değer türü</value>
+    </title>
     <id>6</id>
     <valueType>
       <types>String</types>
@@ -526,12 +551,16 @@
   <formCommands>
     <name>CommandClose</name>
     <title>
+      <key>ru</key>
+      <value>Закрыть</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Close</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Закрыть</value>
+      <key>tr</key>
+      <value>Kapat</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -551,12 +580,16 @@
   <formCommands>
     <name>CommandOK</name>
     <title>
+      <key>ru</key>
+      <value>ОК</value>
+    </title>
+    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
+      <key>tr</key>
+      <value>OK</value>
     </title>
     <id>2</id>
     <toolTip>

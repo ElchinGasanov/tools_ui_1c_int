@@ -734,12 +734,12 @@ Procedure kShowObjectProperties(Command)
 			List.SortByValue();
 			Try
 				List.ShowChooseItem(New NotifyDescription("kShowObjectPropertiesNext", ThisForm),
-					NStr("ru = 'Выбор типа';en = 'Selection of type'"));
+					NStr("ru = 'Выбор типа'; en = 'Selection of type'; tr = 'Tür seçimi'"));
 			Except
 				SelectedItem = Undefined;
 
 				List.ShowChooseItem(New NotifyDescription("kShowObjectPropertiesFinish", ThisForm),
-					NStr("ru = 'Выбор типа';en = 'Selection of type'"));
+					NStr("ru = 'Выбор типа'; en = 'Selection of type'; tr = 'Tür seçimi'"));
 			EndTry;
 		EndIf;
 	EndIf;
@@ -1128,7 +1128,7 @@ Procedure vFillValuesTypeOfCharacteristic(MDObject, TreeNode)
 		Table.Sort("NBSp, StringType");
 
 		TreeSection = TreeNode.GetItems().Add();
-		Text = Nstr("ru = 'ТипыЗначенийХарактеристик';en = 'TypesOfCharacteristicValues'");
+		Text = Nstr("ru = 'ТипыЗначенийХарактеристик'; en = 'TypesOfCharacteristicValues'; tr = 'KarakteristikDeğerlerinTürleri'");
 		TreeSection.Name = StrTemplate("1% (2%)" ,Text, Table.Count());
 
 		For Each Row In Table Do
@@ -1290,7 +1290,7 @@ Procedure vFillParametersOfCommand(MDObject, TreeNode)
 		Table.Sort("StringType");
 
 		TreeSection = TreeNode.GetItems().Add();
-		TreeSection.Name = Nstr("ru = 'Параметры команды (';en = 'Command parameters ('") + Table.Count() + ")";
+		TreeSection.Name = Nstr("ru = 'Параметры команды ('; en = 'Command parameters ('; tr = 'Komut parametreleri ('") + Table.Count() + ")";
 		For Each Row In Table Do
 			TreeRow = TreeSection.GetItems().Add();
 			FillPropertyValues(TreeRow, Row);
@@ -1303,7 +1303,7 @@ Procedure vFillObjectRecorders(MDObject, TreeNode)
 	TableOfResults = vGetRecorderTable(MDObject.FullName());
 	If TableOfResults.Count() <> 0 Then
 		TreeSection = TreeNode.GetItems().Add();
-		TreeSection.Name = Nstr("ru = 'Регистраторы (';en = 'Recorders ('") + TableOfResults.Count() + ")";
+		TreeSection.Name = Nstr("ru = 'Регистраторы ('; en = 'Recorders ('; tr = 'Kaydediciler ('") + TableOfResults.Count() + ")";
 		For Each Itm In TableOfResults Do
 			TreeRow = TreeSection.GetItems().Add();
 			FillPropertyValues(TreeRow, Itm);
@@ -1317,7 +1317,7 @@ Procedure vFillEventSubscriptionsOfObject(MDObject, TreeNode)
 		TableOfResults = vGetEventSubscriptionsTable(MDObject.FullName());
 		If TableOfResults.Count() <> 0 Then
 			TreeSection = TreeNode.GetItems().Add();
-			TreeSection.Name = Nstr("ru = 'ПодпискиНаСобытия (';en = 'EventSubscriptions ('") + TableOfResults.Count() + ")";
+			TreeSection.Name = Nstr("ru = 'ПодпискиНаСобытия ('; en = 'EventSubscriptions ('; tr = 'OlayAbonelikleri ('") + TableOfResults.Count() + ")";
 			For Each Itm In TableOfResults Do
 				TreeRow = TreeSection.GetItems().Add();
 				FillPropertyValues(TreeRow, Itm);
@@ -1333,7 +1333,7 @@ Procedure vFillSubsytemOfObject(MDObject, TreeNode)
 		TableOfResults = vGetSubSystemTable(MDObject.FullName());
 		If TableOfResults.Count() <> 0 Then
 			TreeSection = TreeNode.GetItems().Add();
-			TreeSection.Name = Nstr("ru = 'Подсистемы (';en = 'Subsystems ('") + TableOfResults.Count() + ")";
+			TreeSection.Name = Nstr("ru = 'Подсистемы ('; en = 'Subsystems ('; tr = 'AltSistemler ('") + TableOfResults.Count() + ")";
 			For Each Itm In TableOfResults Do
 				TreeRow = TreeSection.GetItems().Add();
 				FillPropertyValues(TreeRow, Itm);
@@ -1349,7 +1349,7 @@ Procedure vFillCommonObjectCommand(MDObject, TreeNode)
 		TableOfResults = vGetCommonCommandsTable(MDObject.FullName());
 		If TableOfResults.Count() <> 0 Then
 			TreeSection = TreeNode.GetItems().Add();
-			TreeSection.Name = Nstr("ru = 'ОбщиеКоманды (';en = 'CommonCommands ('") + TableOfResults.Count() + ")";			
+			TreeSection.Name = Nstr("ru = 'ОбщиеКоманды ('; en = 'CommonCommands ('; tr = 'GenelKomutlar ('") + TableOfResults.Count() + ")";			
 			For Each Itm In TableOfResults Do
 				TreeRow = TreeSection.GetItems().Add();
 				FillPropertyValues(TreeRow, Itm);
@@ -1365,7 +1365,7 @@ Procedure vFillOtherObjectCommand(MDObject, TreeNode)
 		TableOfResults = vGetExternalCommandsTable(MDObject.FullName());
 		If TableOfResults.Count() <> 0 Then
 			TreeSection = TreeNode.GetItems().Add();
-			TreeSection.Name = Nstr("ru = 'ЧужиеКоманды (';en = 'OtherCommands ('") + TableOfResults.Count() + ")";			
+			TreeSection.Name = Nstr("ru = 'ЧужиеКоманды ('; en = 'OtherCommands ('; tr = 'DiğerKomutlar ('") + TableOfResults.Count() + ")";			
 			For Each Itm In TableOfResults Do
 				TreeRow = TreeSection.GetItems().Add();
 				FillPropertyValues(TreeRow, Itm);
@@ -1379,7 +1379,7 @@ EndProcedure
 Procedure vFillStandartObjectsAttributes(MDObject, TreeNode)
 	If MDObject.StandardAttributes.Count() <> 0 Then
 		TreeSection = TreeNode.GetItems().Add();
-		TreeSection.Name = Nstr("ru = 'СтандартныеРеквизиты';en = 'StandardAttributes'");
+		TreeSection.Name = Nstr("ru = 'СтандартныеРеквизиты'; en = 'StandardAttributes'; tr = 'StandardÖznitelikler'");
 		For Each Itm In MDObject.StandardAttributes Do
 			TreeRow = TreeSection.GetItems().Add();
 			TreeRow.Name = Itm.Name;
@@ -1933,7 +1933,7 @@ Procedure vFullInSessionParameterProperty(FullName)
 		Table.Sort("Name");
 
 		TreeSection = TreeNode.GetItems().Add();
-		TreeSection.Name = NStr("ru = 'Типы (';en = 'Types ('") + Table.Count() + ")";
+		TreeSection.Name = NStr("ru = 'Типы ('; en = 'Types ('; tr = 'Türler ('") + Table.Count() + ")";
 		For Each Row In Table Do
 			TreeRow = TreeSection.GetItems().Add();
 			FillPropertyValues(TreeRow, Row);
@@ -1973,7 +1973,7 @@ Procedure vFullInSessionParameterProperty(FullName)
 
 	Items._UseTextWhenWritingConstants.ReadOnly = Items._TextConstantValue.ReadOnly;
 
-	Items._ConstantValue.Title =  NStr("ru = 'Значение параметра';en = 'Parameter value'");
+	Items._ConstantValue.Title =  NStr("ru = 'Значение параметра'; en = 'Parameter value'; tr = 'Parametre değeri'");
 EndProcedure
 
 &AtServer
@@ -2060,7 +2060,7 @@ Procedure vFullInDefinedTypeProperty(FullName)
 		Table.Sort("Name");
 
 		TreeSection = TreeNode.GetItems().Add();
-		TreeSection.Name = NsTR("ru = 'Типы (';en = 'Types ('") + Table.Count() + ")";
+		TreeSection.Name = NsTR("ru = 'Типы ('; en = 'Types ('; tr = 'Türler ('") + Table.Count() + ")";
 		For Each Row In Table Do
 			TreeRow = TreeSection.GetItems().Add();
 			FillPropertyValues(TreeRow, Row);
@@ -2250,14 +2250,14 @@ EndProcedure
 &AtClient
 Procedure _UpdateNumberOfObjects(Command)
 	If Not vHaveAdministratorRights() Then
-		TextMassage = Nstr("ru = 'Нет прав на выполнение операции!';en = 'No rights to perform the operation!'");
+		TextMassage = Nstr("ru = 'Нет прав на выполнение операции!'; en = 'No rights to perform the operation!'; tr = 'İşlemi gerçekleştirme hakkı yok!'");
 		ShowMessageBox( , TextMassage, 20);
 		Return;
 	EndIf;
 
 	pText = ?(_FullName = "Configuration", 
-		Nstr("ru = 'Нумерация всех объектов будет обновлена. Продолжить?';en = 'The numbering of all objects will be updated. Continue?'"),
-		Nstr("ru = 'Нумерация обекта будет обновлена. Продолжить?';en = 'The numbering of object will be updated. Continue?'"));
+		Nstr("ru = 'Нумерация всех объектов будет обновлена. Продолжить?'; en = 'The numbering of all objects will be updated. Continue?'; tr = 'Tüm nesnelerin numaralandırması güncellenecek. Devam etmek istiyor musunuz?'"),
+		Nstr("ru = 'Нумерация обекта будет обновлена. Продолжить?'; en = 'The numbering of object will be updated. Continue?'; tr = 'Nesne numaralandırması güncellenecek. Devam etmek istiyor musunuz?'"));
 
 	ShowQueryBox(New NotifyDescription("vUpdateNumberOfObjectsResponse", ThisForm), pText,
 		QuestionDialogMode.YesNoCancel, 20);
@@ -2303,19 +2303,19 @@ EndProcedure
 
 &AtClient
 Procedure _RecalculateTotals(Command)
-	vShowQuestion("vProcessTotalsManagementCommand", Nstr("ru = 'Будет выполнен полный пересчет итогов. Продолжить?';en = 'A complete recalculation of the totals will be performed. Continue?'"),
+	vShowQuestion("vProcessTotalsManagementCommand", Nstr("ru = 'Будет выполнен полный пересчет итогов. Продолжить?'; en = 'A complete recalculation of the totals will be performed. Continue?'; tr = 'Toplamların tamamen yeniden hesaplanması gerçekleştirilecek. Devam etmek istiyor musunuz?'"),
 		"RecalcTotals");
 EndProcedure
 
 &AtClient
 Procedure _RecalculateCurrentTotals(Command)
-	vShowQuestion("vProcessTotalsManagementCommand", Nstr("ru = 'Текущие итоги будут пересчитаны. Продолжить?';en = 'The current totals will be recalculated. Continue?'"),
+	vShowQuestion("vProcessTotalsManagementCommand", Nstr("ru = 'Текущие итоги будут пересчитаны. Продолжить?'; en = 'The current totals will be recalculated. Continue?'; tr = 'Mevcut toplamlar yeniden hesaplanacak. Devam etmek istiyor musunuz?'"),
 		"RecalcPresentTotals");
 EndProcedure
 
 &AtClient
 Procedure _RecalculateTotalsForThePeriod(Command)
-	vShowQuestion("vProcessTotalsManagementCommand", Nstr("ru = 'Будут пересчитаны итоги за заданный период. Продолжить?';en = 'The totals for the specified period will be recalculated. Continue?'"),
+	vShowQuestion("vProcessTotalsManagementCommand", Nstr("ru = 'Будут пересчитаны итоги за заданный период. Продолжить?'; en = 'The totals for the specified period will be recalculated. Continue?'; tr = 'Belirtilen döneme ait toplamlar yeniden hesaplanacaktır. Devam etmek istiyor musunuz?'"),
 		"RecalcTotalsForPeriod");
 EndProcedure
 
@@ -2324,11 +2324,11 @@ Procedure _InstallPriodOfCalculatedTotals(Command)
 	pName = ThisForm.CurrentItem.Name;
 	If Right(pName, 1) = "1" Then
 		vShowQuestion("vProcessTotalsManagementCommand",
-			Nstr("ru = 'Будет изменен минимальный период рассчитанных итогов. Продолжить?';en = 'The minimum period of calculated totals will be changed. Continue?'"),
+			Nstr("ru = 'Будет изменен минимальный период рассчитанных итогов. Продолжить?'; en = 'The minimum period of calculated totals will be changed. Continue?'; tr = 'Hesaplanan toplamların minimum periyodu değişecek. Devam etmek istiyor musunuz?'"),
 			"SetMinTotalsPeriod");
 	ElsIf Right(pName, 1) = "2" Then
 		vShowQuestion("vProcessTotalsManagementCommand",
-			Nstr("ru = 'Будет изменен максимальный период рассчитанных итогов. Продолжить?';en = 'The maximum period of calculated totals will be changed. Continue?'"),
+			Nstr("ru = 'Будет изменен максимальный период рассчитанных итогов. Продолжить?'; en = 'The maximum period of calculated totals will be changed. Continue?'; tr = 'Hesaplanan toplamların maksimum periyodu değiştirilecek. Devam etmek istiyor musunuz?'"),
 			"SetMaxTotalsPeriod");
 	EndIf;
 EndProcedure
@@ -2356,7 +2356,7 @@ EndFunction
 
 &AtClient
 Procedure _RegistryPropertyOnChange(Item)
-	vShowQuestion("vProcessRegisterPropertyChange", NStr("ru = 'Свойство регистра будет изменено. Продолжить?';en = 'The register property will be changed. Continue?'"),
+	vShowQuestion("vProcessRegisterPropertyChange", NStr("ru = 'Свойство регистра будет изменено. Продолжить?'; en = 'The register property will be changed. Continue?'; tr = 'Kayıt özelliği değiştirilecek. Devam etmek istiyor musunuz?'"),
 		Item.Name);
 EndProcedure
 
@@ -2373,7 +2373,7 @@ EndProcedure
 &AtServerNoContext
 Function vRunTotalsManagementCommand(Val FullName, Val CommandName, Val pSettingsStructure)
 	If Not vHaveAdministratorRights() Then
-		Message(NStr("ru = 'Нет прав на выполнение операции!';en = 'No rights to perform the operation!'"));
+		Message(NStr("ru = 'Нет прав на выполнение операции!'; en = 'No rights to perform the operation!'; tr = 'İşlemi gerçekleştirme hakkı yok!'"));
 		Return False;
 	EndIf;
 
@@ -2416,7 +2416,7 @@ EndFunction
 &AtServerNoContext
 Function vChangeRegisterProperty(Val FullName, Val PropertyName, Val pValue)
 	If Not vHaveAdministratorRights() Then
-		Message(NStr("ru = 'Нет прав на выполнение операции!';en = 'No rights to perform the operation!'"));
+		Message(NStr("ru = 'Нет прав на выполнение операции!'; en = 'No rights to perform the operation!'; tr = 'İşlemi gerçekleştirme hakkı yok!'"));
 		Return False;
 	EndIf;
 

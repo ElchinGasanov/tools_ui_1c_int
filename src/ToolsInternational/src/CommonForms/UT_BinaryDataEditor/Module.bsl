@@ -48,7 +48,7 @@ Procedure LoadFromFile(Command)
 		ThisObject);
 	
 	FileDialog = New FileDialog(FileDialogMode.Open);
-	FileDialog.Title = NStr("ru = 'Выбор файла'; en = 'Chose file'");
+	FileDialog.Title = NStr("ru = 'Выбор файла'; en = 'Chose file'; tr = 'Dosyayı seçme'");
 	FileDialog.Multiselect = False;
 	FileDialog.CheckFileExistence = True;
 	FileReadingParameters.FileDialog = FileDialog;
@@ -62,7 +62,7 @@ Procedure SaveToFile(Command)
 	SaveParameters.TempStorageFileDirectory = BinaryDataAdress;
 	
 	FileDialog = New FileDialog(FileDialogMode.Save);
-	FileDialog.Title = NStr("ru = 'Сохранение файла'; en = 'Save file'");
+	FileDialog.Title = NStr("ru = 'Сохранение файла'; en = 'Save file'; tr = 'Dosyayı kaydet'");
 	FileDialog.Multiselect = False;
 	SaveParameters.FileDialog = FileDialog;
 	

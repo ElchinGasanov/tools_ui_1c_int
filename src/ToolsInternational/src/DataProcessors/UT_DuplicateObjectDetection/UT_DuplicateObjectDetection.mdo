@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_DuplicateObjectDetection</name>
   <synonym>
+    <key>ru</key>
+    <value>Поиск и удаление дублей [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Duplicate object detection [UT]</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Поиск и удаление дублей [УИ]</value>
+    <key>tr</key>
+    <value>Yinelenen nesne tespiti [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_DuplicateObjectDetection.Form.SearchForDuplicates</defaultForm>
@@ -21,30 +25,42 @@
     </pages>
   </help>
   <extendedPresentation>
+    <key>ru</key>
+    <value>Поиск и удаление дублей</value>
+  </extendedPresentation>
+  <extendedPresentation>
     <key>en</key>
     <value>Duplicate object detection</value>
   </extendedPresentation>
   <extendedPresentation>
-    <key>ru</key>
-    <value>Поиск и удаление дублей</value>
+    <key>tr</key>
+    <value>Yinelenen nesne tespiti</value>
   </extendedPresentation>
+  <explanation>
+    <key>ru</key>
+    <value>Форк стандартной обработки из БСП, в которую добавлены несколько параметров выполнения замены</value>
+  </explanation>
   <explanation>
     <key>en</key>
     <value>SSL data processor fork with additional parameters</value>
   </explanation>
   <explanation>
-    <key>ru</key>
-    <value>Форк стандартной обработки из БСП, в которую добавлены несколько параметров выполнения замены</value>
+    <key>tr</key>
+    <value>Ek parametrelerle SSL veri işlemci fork-u</value>
   </explanation>
   <forms uuid="28379a56-96ca-4eee-8431-24152ab0f12b">
     <name>SearchForDuplicates</name>
+    <synonym>
+      <key>ru</key>
+      <value>Поиск дублей</value>
+    </synonym>
     <synonym>
       <key>en</key>
       <value>Search for duplicates</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Поиск дублей</value>
+      <key>tr</key>
+      <value>Yinelenenleri arama</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -52,12 +68,16 @@
   <forms uuid="8a50aeac-cc71-4bbf-a862-26a5cfb55a55">
     <name>FilterRules</name>
     <synonym>
+      <key>ru</key>
+      <value>Правила отбора</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Filter rules</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Правила отбора</value>
+      <key>tr</key>
+      <value>Filtre kuralları</value>
     </synonym>
     <help>
       <pages>
@@ -70,12 +90,16 @@
   <forms uuid="a299aa85-a9c9-4909-b18a-7e0091b6a0e2">
     <name>DuplicatesSearchArea</name>
     <synonym>
+      <key>ru</key>
+      <value>Область поиска дублей</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Duplicates search area</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Область поиска дублей</value>
+      <key>tr</key>
+      <value>Yinelenen arama alanı</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -83,12 +107,16 @@
   <forms uuid="95da7f1f-08f6-4269-af3a-d356e8de1384">
     <name>SearchRules</name>
     <synonym>
+      <key>ru</key>
+      <value>Правила поиска</value>
+    </synonym>
+    <synonym>
       <key>en</key>
       <value>Search rules</value>
     </synonym>
     <synonym>
-      <key>ru</key>
-      <value>Правила поиска</value>
+      <key>tr</key>
+      <value>Arama kuralları</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

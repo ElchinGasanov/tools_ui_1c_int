@@ -147,7 +147,7 @@ Function _TempTable(QueryORTempTablesManager) Export
 		Try
 			Query.ExecuteBatch();
 		Except
-			Return NStr("ru = 'Ошибка выполнения запроса';en = 'Query execution error'") + ErrorDescription();
+			Return NStr("ru = 'Ошибка выполнения запроса'; en = 'Query execution error'; tr = 'Sorgu yürütme hatası'") + ErrorDescription();
 		EndTry;
 
 		Return UT_CommonServerCall.TempTablesManagerTempTablesStructure(
@@ -229,7 +229,7 @@ Function _Alg2(AlgorithmText) Export
 	ParametersArray = StrSplit(ProcedureParameters, ",");
 	ParametersCount = ParametersArray.Count();
 	If ParametersCount > 9 Then
-		Return NStr("ru='Слишком много параметров'; en='Too many parameters'");
+		Return NStr("ru = 'Слишком много параметров'; en = 'Too many parameters'; tr = 'Çok fazla parametre var'");
 	EndIf;
 	For ParameterNum = ParametersCount + 1 To 9 Do
 		ParametersArray.Add("");

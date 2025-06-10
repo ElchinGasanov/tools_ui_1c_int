@@ -24,7 +24,7 @@ Procedure ExecuteQuery(Command)
 	
 	If IsBlankString(QueryText) Then
 		
-		MessageToUser(NStr("ru = 'Не задан текст запроса'; en = 'Query text is not specified'"), "QueryText");
+		MessageToUser(NStr("ru = 'Не задан текст запроса'; en = 'Query text is not specified'; tr = 'Sorgu metni belirtilmemiş'"), "QueryText");
 		Return;
 		
 	EndIf;

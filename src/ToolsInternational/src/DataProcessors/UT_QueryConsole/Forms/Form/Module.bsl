@@ -72,7 +72,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 
 	Items.TempTablesValue.ChoiceButtonPicture = PictureLib.Change;
 
-	Object.Title = NStr("ru = 'Консоль запросов 9000 v'; en = 'Query console 9000 v'") + Object.DataProcessorVersion;
+	Object.Title = NStr("ru = 'Консоль запросов 9000 v'; en = 'Query console 9000 v'; tr = 'Sorgu konsolu 9000 v'") + Object.DataProcessorVersion;
 
 	MacroParameter = "__";
 	
@@ -130,7 +130,8 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	EndIf;
 #EndRegion
 
-		AlgorithmHintBeforeExecution =NStr("ru = 'Доступны переменные: mQuery (Тип-Запрос)';en = 'Variables available: mQuery (Type-Query)'");
+		AlgorithmHintBeforeExecution =NStr("ru = 'Доступны переменные: mQuery (Тип-Запрос)'; en = 'Variables available: mQuery (Type-Query)'; tr = 'Mevcut değişkenler: mQuery (Type-Query)'");
+
 EndProcedure
 
 &AtClient
@@ -149,18 +150,18 @@ Procedure BeforeClose(Cancel, Exit, WarningText, StandardProcessing)
 		WarningText = "";
 		If Modified Then
 			//There will be a warning about an unsaved Query.
-			WarningText = NStr("ru = 'В консоли запросов 9000 имеется не сохраненный пакет запросов! '; en = 'Query console 9000 contains an unsaved query batch.'");
+			WarningText = NStr("ru = 'В консоли запросов 9000 имеется не сохраненный пакет запросов! '; en = 'Query console 9000 contains an unsaved query batch.'; tr = 'Sorgu konsolu 9000 kaydedilmemiş bir sorgu paketi içeriyor.'");
 			Cancel = True;
 		EndIf;
 
 		If Items.TechnologicalLog.Check Then
-			WarningText = WarningText + NStr("ru = 'Технологический журнал не выключен! '; en = 'technological log is not disabled.'");
+			WarningText = WarningText + NStr("ru = 'Технологический журнал не выключен! '; en = 'technological log is not disabled.'; tr = 'teknolojik log devre dışı bırakılmadı.'");
 			Cancel = True;
 		EndIf;
 
 		If Not ValueIsFilled(WarningText) Then
 			//It is always better to close the console with your hands to save the state.
-			WarningText = NStr("ru = 'Для сохранения состояний консоль запросов 9000 рекомендуется закрывать вручную.'; en = 'For saving states it is recommended to close query console 9000 manually'");
+			WarningText = NStr("ru = 'Для сохранения состояний консоль запросов 9000 рекомендуется закрывать вручную.'; en = 'For saving states it is recommended to close query console 9000 manually'; tr = 'Durumları kaydetmek için sorgu konsolu 9000''i manuel olarak kapatmanız önerilir'");
 			Cancel = True;
 		EndIf;
 
@@ -282,7 +283,7 @@ Procedure QueryBatchBeforeEditEnd(Item, NewRow, CancelEdit, Cancel)
 
 	Row = FindInTree(QueryBatch, "Name", QueryName, Item.CurrentRow);
 	If Row <> Undefined Then
-		ShowConsoleMessageBox(NStr("ru = 'Запрос с таким именем уже есть! Введите другое имя.'; en = 'This query name already exists. Please enter another name.'"));
+		ShowConsoleMessageBox(NStr("ru = 'Запрос с таким именем уже есть! Введите другое имя.'; en = 'This query name already exists. Please enter another name.'; tr = 'Bu sorgu adı zaten mevcut. Lütfen başka bir ad girin.'"));
 		Cancel = True;
 		Return;
 	EndIf;
@@ -377,7 +378,7 @@ Procedure QueryParametersValueTextEditEnd(Item, Text, ChoiceData, DataGetParamet
 		Try
 			Value = New UUID(Text);
 		Except
-			Raise NStr("ru = 'Не корректное значение уникального идентификатора'; en = 'UUID is incorrect.'");
+			Raise NStr("ru = 'Не корректное значение уникального идентификатора'; en = 'UUID is incorrect.'; tr = 'UUID yanlış.'");
 		EndTry;
 		QueryParameters_SaveValue(Items.QueryParameters.CurrentRow, Value);
 		StandardProcessing = False;
@@ -711,13 +712,15 @@ Procedure GetCodeForTrace_Command(Command)
 									  |Object,
 									  |Title,
 									  |CodeToCopy,
-									  |Info", Object, NStr("ru = 'Код для перехвата запроса в отладчике'; en = 'Code to hook the query in the debugger.'"), strCode, NStr("ru = 'Для перехвата запроса в отладчике скопируйте и выполните по Shift+F9 указанный код.
-																											   |Консоль запросов должна быть запущена в той же информационной базе под тем же пользователем.																											   |Для получения запросов в консоль используйте команду на закладке текста запроса ""Перехват | Получить перехваченные запросы (Ctrl+F9)""
-																											   |В настройках пользователя должна быть отключена защита от опасных действий.'; 
-																											   |en = 'To hook the query in the debugger, copy and execute this code by Shift + F9.
-																											   |Query console must be launched in the same infobase under the same login.
-																											   |To receive queries to the console, use the ""Hooking | Get hooked queries (Ctrl+F9)"" command.
-																											   |""Unsafe operation protection"" user setting must be switched off.'"));
+									  |Info", Object, NStr("ru = 'Код для перехвата запроса в отладчике'; en = 'Code to hook the query in the debugger.'; tr = 'Hata ayıklayıcıda sorguyu yakalamak için kod.'"), strCode, NStr("ru = 'Для перехвата запроса в отладчике скопируйте и выполните по Shift+F9 указанный код.
+																																													|Консоль запросов должна быть запущена в той же информационной базе под тем же пользователем.																											   |Для получения запросов в консоль используйте команду на закладке текста запроса ""Перехват | Получить перехваченные запросы (Ctrl+F9)""
+																																													|В настройках пользователя должна быть отключена защита от опасных действий.'; en = 'To hook the query in the debugger, copy and execute this code by Shift + F9.
+																																													|Query console must be launched in the same infobase under the same login.
+																																													|To receive queries to the console, use the ""Hooking | Get hooked queries (Ctrl+F9)"" command.
+																																													|""Unsafe operation protection"" user setting must be switched off.'; tr = 'Sorguyu hata ayıklayıcıda yakalamak için bu kodu kopyalayıp Shift + F9 ile çalıştırın.
+																																													|Sorgu konsolu, aynı bilgi tabanında ve aynı oturumla başlatılmış olmalıdır.
+																																													|Sorguları konsola almak için ""Yakalama | Yakalanan sorguları al (Ctrl+F9)"" komutunu kullanın.
+																																													|""Kullanıcı ayarlarında ''Güvensiz işlem koruması''"" kapalı olmalıdır.'"));
 	OpenForm(FormFullName("Info"), OpeningParameters, ThisForm, False, , , ,
 		FormWindowOpeningMode.LockOwnerWindow);
 EndProcedure
@@ -725,7 +728,7 @@ EndProcedure
 &AtClient
 Procedure GetHookedQueries_Command(Command)
 
-	strExplanation = NStr("ru = 'Загрузка перехваченных запросов'; en = 'Loading hooked queries'");
+	strExplanation = NStr("ru = 'Загрузка перехваченных запросов'; en = 'Loading hooked queries'; tr = 'Yakalanan sorgular yükleniyor'");
 
 	PutEditingQuery();
 
@@ -733,7 +736,7 @@ Procedure GetHookedQueries_Command(Command)
 
 	j = 1;
 	For Each strFile In arQueryFiles Do
-		Status(NStr("ru = 'Загрузка перехваченного запроса: '; en = Loading hooked query: ") + j + NStr("ru = ' из '; en = ' out of '") + arQueryFiles.Count(), (j - 1) * 100
+		Status(NStr("ru = 'Загрузка перехваченного запроса: '; en = 'Loading hooked query: '; tr = 'Yakalanan sorgu yükleniyor:'") + j + NStr("ru = ' из '; en = ' out of '; tr = ' den'") + arQueryFiles.Count(), (j - 1) * 100
 			/ arQueryFiles.Count(), strExplanation);
 		NewQuery = QueryBatch.GetItems().Add();
 		Items.QueryBatch.CurrentRow = NewQuery.GetID();
@@ -742,9 +745,9 @@ Procedure GetHookedQueries_Command(Command)
 		j = j + 1;
 	EndDo;
 
-	Status(NStr("ru = 'Удаление временных файлов...'; en = 'Deleting temporary files...'"), 100, strExplanation);
+	Status(NStr("ru = 'Удаление временных файлов...'; en = 'Deleting temporary files...'; tr = 'Geçici dosyalar siliniyor...'"), 100, strExplanation);
 	DeleteFilesAtServer(arQueryFiles);
-	ShowConsoleMessageBox(NStr("ru = 'Загружено перехваченных запросов: '; en = 'Hooked queries loaded: '") + arQueryFiles.Count());
+	ShowConsoleMessageBox(NStr("ru = 'Загружено перехваченных запросов: '; en = 'Hooked queries loaded: '; tr = 'Yakalanan sorgular yüklendi:'") + arQueryFiles.Count());
 	Modified = Modified Or arQueryFiles.Count() > 0;
 
 EndProcedure
@@ -756,9 +759,9 @@ Procedure DeleteHookedQueries_Command(Command)
 
 	arQueryFiles = GetFileListAtServerFromTempFilesDir("*." + Object.LockedQueriesExtension);
 
-	Status(NStr("ru = 'Удаление временных файлов...'; en = 'Deleting temporary files...'"), 100);
+	Status(NStr("ru = 'Удаление временных файлов...'; en = 'Deleting temporary files...'; tr = 'Geçici dosyalar siliniyor...'"), 100);
 	DeleteFilesAtServer(arQueryFiles);
-	ShowConsoleMessageBox(NStr("ru = 'Удалено перехваченных запросов: '; en = 'Hooked queries deleted: '") + arQueryFiles.Count());
+	ShowConsoleMessageBox(NStr("ru = 'Удалено перехваченных запросов: '; en = 'Hooked queries deleted: '; tr = 'Yakalanan sorgular silindi:'") + arQueryFiles.Count());
 
 EndProcedure
 
@@ -888,7 +891,7 @@ Procedure QueryBatchCopy_Command(Command)
 	NewRow = Row.GetItems().Add();
 	FillPropertyValues(NewRow, Row, ,
 		"InWizard, Info, ResultReturningRowsCount, ResultRowCount, RowCountDifference");
-	NewRow.Name = NStr("ru = 'Копия '; en = 'Copy '") + NewRow.Name;
+	NewRow.Name = NStr("ru = 'Копия '; en = 'Copy '; tr = 'Kopya'") + NewRow.Name;
 	Items.QueryBatch.CurrentRow = NewRow.GetID();
 	Items.QueryBatch.CurrentItem = Items.QueryListQuery;
 	Items.QueryBatch.ChangeRow();
@@ -1047,7 +1050,7 @@ Procedure QueryPlan_Command(Command)
 		FormWindowOpeningMode.LockOwnerWindow);
 
 	If Form = Undefined Then
-		ShowConsoleMessageBox(NStr("ru = 'Не удалось получить информацию о запросе'; en  ='Cannot get query info.'"));
+		ShowConsoleMessageBox(NStr("ru = 'Не удалось получить информацию о запросе'; en = 'Cannot get query info.'; tr = 'Sorgu bilgisi alınamıyor.'"));
 	EndIf;
 
 EndProcedure
@@ -1155,7 +1158,7 @@ EndProcedure
 Procedure ExecuteDataProcessor_Command(Command)
 
 	If Not ValueIsFilled(ResultInBatch) Or Number(ResultInBatch) <= 0 Then
-		ShowConsoleMessageBox(NStr("ru = 'Выполнение невозможно - результат запроса отсутствует'; en = 'Query result not found.'"));
+		ShowConsoleMessageBox(NStr("ru = 'Выполнение невозможно - результат запроса отсутствует'; en = 'Query result not found.'; tr = 'Sorgu sonucu bulunamadı.'"));
 		Return;
 	EndIf;
 
@@ -1163,7 +1166,7 @@ Procedure ExecuteDataProcessor_Command(Command)
 		//Interrupting
 		InterruptBackgroundJob();
 		ShowBackgroundJobState();
-		ShowConsoleMessageBox(NStr("ru = 'Выполнение прервано пользователем!'; en = 'Execution was interrupted by user.'"));
+		ShowConsoleMessageBox(NStr("ru = 'Выполнение прервано пользователем!'; en = 'Execution was interrupted by user.'; tr = 'Yürütme kullanıcı tarafından kesintiye uğradı.'"));
 		Return;
 	EndIf;
 
@@ -1218,7 +1221,7 @@ EndProcedure
 
 &AtClient
 Procedure AlgorithmHelp_Command(Command)
-	OpeningParameters = New Structure("TemplateName, Title", "AlgorithmHelp_"+Upper(CurrentSystemLanguage()), NStr("ru = 'Обработка результата запроса кодом'; en = 'Query result processing by code'"));
+	OpeningParameters = New Structure("TemplateName, Title", "AlgorithmHelp_"+Upper(CurrentSystemLanguage()), NStr("ru = 'Обработка результата запроса кодом'; en = 'Query result processing by code'; tr = 'Kod ile sorgu sonucu işleme'"));
 	OpenForm(FormFullName("Help"), OpeningParameters, ThisForm);
 EndProcedure
 
@@ -1245,7 +1248,7 @@ Procedure GetCodeWithParameters_Command(Command)
 										|Title,
 										|Content", Object, QueryName, CurrentQueryText(),
 		QueryParameters_GetAsString(), AlgorithmCurrentText(), CodeExecutionMethod, 
-		NStr("ru = 'Код для выполнения запроса на встроенном языке 1С'; en = 'Code for executing the query by 1C:Enterprise language'"));
+		NStr("ru = 'Код для выполнения запроса на встроенном языке 1С'; en = 'Code for executing the query by 1C:Enterprise language'; tr = 'Sorguyu 1C:Enterprise diliyle yürütmek için kod'"));
 
 	OpenForm(FormFullName("CodeForm"), OpeningParameters, ThisForm, False, , , ,
 		FormWindowOpeningMode.LockOwnerWindow);
@@ -1310,7 +1313,7 @@ Procedure Command_ExecuteProcessingCompleteConnectionProcessingExecution(Result,
 		// row-by-row execution in the background with indication
 		stResult = RunDataProcessorAtServer(AlgorithmCurrentText(), True);
 	Else
-		stResult = New Structure("Success, ErrorDescription", False, NStr("ru = 'Неверный метод исполнения кода'; en = 'Incorrect code execution method'"));
+		stResult = New Structure("Success, ErrorDescription", False, NStr("ru = 'Неверный метод исполнения кода'; en = 'Incorrect code execution method'; tr = 'Yanlış kod yürütme yöntemi'"));
 	EndIf;
 
 	If CodeExecutionMethod = 3 Или CodeExecutionMethod = 4 Then
@@ -1357,7 +1360,7 @@ Procedure UT_FillWithDebugData()
 	TreeRows=QueryBatch.GetItems();
 
 	NewRow=TreeRows.Add();
-	NewRow.Name=NStr("ru = 'Отладка'; en = 'Debug'");
+	NewRow.Name=NStr("ru = 'Отладка'; en = 'Debug'; tr = 'Hata ayıklama'");
 	NewRow.QueryText=DebugData.Text;
 	NewRow.QueryParameters=New ValueList;
 
@@ -1396,7 +1399,7 @@ Procedure UT_FillWithDebugData()
 				NewParameter.Insert("ValueType", New TypeDescription(TypeArray));
 				NewParameter.Insert("Value", NewParameter.Container.Presentation);
 			ElsIf NewParameter.ContainerType = 3 Then
-				NewParameter.Insert("ValueType", NStr("ru = 'Талица значений'; en = 'Value table'"));
+				NewParameter.Insert("ValueType", NStr("ru = 'Талица значений'; en = 'Value table'; tr = 'Değer tablosu'"));
 				NewParameter.Insert("Value", NewParameter.Container.Presentation);
 			Else
 				NewParameter.Insert("ValueType", TypeDescriptionByType(TypeOf(CurParameter.Value)));
@@ -1491,7 +1494,7 @@ Procedure UT_FillRequestsFromDCS()
 					NewParameter.Insert("ValueType", New TypeDescription(TypesArray));
 					NewParameter.Insert("Value", NewParameter.Container.Presentation);
 				ElsIf NewParameter.ContainerType = 3 Then
-					NewParameter.Insert("ValueType", NStr("ru = 'Таблица значений'; en = 'Value table'"));
+					NewParameter.Insert("ValueType", NStr("ru = 'Таблица значений'; en = 'Value table'; tr = 'Değer tablosu'"));
 					NewParameter.Insert("Value", NewParameter.Container.Presentation);
 				Else
 					NewParameter.Insert("ValueType", TypeDescriptionByType(TypeOf(CurrentProperty.Value)));
@@ -1537,7 +1540,7 @@ Procedure AfterAttachingFileSystemExtension(Attached, AdditionalParameters) Expo
 	FileExtensionConnected = Attached;
 
 	If Not FileExtensionConnected Then
-		ShowConsoleMessageBox(NStr("ru = 'Для работы консоли необходимо установить расширение работы с файлами.'; en = 'The file system extension must be installed.'"));
+		ShowConsoleMessageBox(NStr("ru = 'Для работы консоли необходимо установить расширение работы с файлами.'; en = 'The file system extension must be installed.'; tr = 'Dosya sistemi uzantısının kurulu olması gerekir.'"));
 		BeginInstallFileSystemExtension();
 		Close();
 		Return;
@@ -1902,8 +1905,8 @@ EndProcedure
 
 &AtClient
 Procedure AllowBackgroundExecution()
-	Items.CodeExecutionMethod.ChoiceList.Add(3, NStr("ru = 'простое в фоне (БСП 2.3)'; en = 'simple in background (SSL 2.3)'"));
-	Items.CodeExecutionMethod.ChoiceList.Add(4, NStr("ru = 'построчно в фоне с индикацией (БСП 2.3)'; en = 'line by line in background with indication (SSL 2.3)'"));
+	Items.CodeExecutionMethod.ChoiceList.Add(3, NStr("ru = 'простое в фоне (БСП 2.3)'; en = 'simple in background (SSL 2.3)'; tr = 'arka planda basit (SSL 2.3)'"));
+	Items.CodeExecutionMethod.ChoiceList.Add(4, NStr("ru = 'построчно в фоне с индикацией (БСП 2.3)'; en = 'line by line in background with indication (SSL 2.3)'; tr = 'Arkaplanda satır satır göstergeli (SSL 2.3)'"));
 EndProcedure
 
 &AtClient
@@ -2128,11 +2131,11 @@ EndFunction
 Function GetErrorInfoPresentation(ErrorInfo)
 
 	If ValueIsFilled(ErrorInfo.ModuleName) And ValueIsFilled(ErrorInfo.LineNumber) Then
-		ErrorInfoPresentation = ErrorInfo.ModuleName + StrTemplate(NStr("ru = ' строка %1'; en = ' line %1'"),
+		ErrorInfoPresentation = ErrorInfo.ModuleName + StrTemplate(NStr("ru = ' строка %1'; en = ' line %1'; tr = ' satır %1'"),
 			ErrorInfo.LineNumber) + "
 									|";
 	ElsIf ValueIsFilled(ErrorInfo.LineNumber) Then
-		ErrorInfoPresentation = StrTemplate(NStr("ru = 'Строка %1'; en = 'Line %1'"), ErrorInfo.LineNumber) + "
+		ErrorInfoPresentation = StrTemplate(NStr("ru = 'Строка %1'; en = 'Line %1'; tr = 'Satır %1'"), ErrorInfo.LineNumber) + "
 																								   			  |";
 	Else
 		ErrorInfoPresentation = "";
@@ -3170,7 +3173,7 @@ Function ExecuteBatch(Query, QuerySchema)
 			Query.Text = "DROP " + SchemaQuery.TableName;
 			Query.Execute();
 		Else
-			Return NStr("ru = 'Неизвестный тип запроса схемы'; en = 'Unknown type of schema query'");
+			Return NStr("ru = 'Неизвестный тип запроса схемы'; en = 'Unknown type of schema query'; tr = 'Bilinmeyen sorgu şema türü'");
 		EndIf;
 
 	EndDo;
@@ -3384,7 +3387,7 @@ Function SaveWithQuestion(AdditionalParameters)
 	If Modified Then
 		ShowQueryBox(
 			New NotifyDescription("AfterSaveQuestion", ThisForm, AdditionalParameters),
-			NStr("ru = 'Имеется не сохраненный пакет запросов. Сохранить?'; en = 'Unsaved query batch exists. Do you want to save?'"), QuestionDialogMode.YesNoCancel, ,
+			NStr("ru = 'Имеется не сохраненный пакет запросов. Сохранить?'; en = 'Unsaved query batch exists. Do you want to save?'; tr = 'Kaydedilmemiş sorgu paketi mevcut. Kaydetmek istiyor musunuz?'"), QuestionDialogMode.YesNoCancel, ,
 			DialogReturnCode.Yes);
 		Return False;
 	EndIf;
@@ -3520,7 +3523,7 @@ Procedure RefreshAlgorithmFormItems()
 			Items.ResultRecordStructure.Enabled = True;
 		Else
 			Items.ExecuteDataProcessor.Enabled = False;
-			ExecutionStatus = NStr("ru = '(запрос не выполнен)'; en = 'query was not executed'");
+			ExecutionStatus = NStr("ru = '(запрос не выполнен)'; en = 'query was not executed'; tr = 'Sorgu çalıştırılmadı'");
 			Items.ResultRecordStructure.Enabled = False;
 		EndIf;
 	EndIf;
@@ -3546,7 +3549,7 @@ Function QueryParameters_GetValue(RowID)
 		Or ParameterRow.ContainerType = 3 Then
 		Return FormAttributeToValue("Object").Container_RestoreValue(ParameterRow.Container);
 	Else
-		Raise NStr("ru = 'Ошибка в типе контейнера параметра'; en = 'Parameter container type error.'");
+		Raise NStr("ru = 'Ошибка в типе контейнера параметра'; en = 'Parameter container type error.'; tr = 'Parametre konteyneri türü hatası.'");
 	EndIf;
 
 EndFunction
@@ -3570,11 +3573,11 @@ Procedure QueryParameters_SaveValue(RowID, Val Value)
 		ParameterRow.Container = FormAttributeToValue("Object").Container_SaveValue(Value);
 		ParameterRow.Value = ParameterRow.Container.Presentation;
 	ElsIf ParameterRow.ContainerType = 3 Then
-		ParameterRow.ValueType = NStr("ru = 'Таблица значений'; en = 'Value table'");
+		ParameterRow.ValueType = NStr("ru = 'Таблица значений'; en = 'Value table'; tr = 'Değer tablosu'");
 		ParameterRow.Container = FormAttributeToValue("Object").Container_SaveValue(Value);
 		ParameterRow.Value = ParameterRow.Container.Presentation;
 	Else
-		Raise NStr("ru = 'Ошибка в типе контейнера параметра'; en = 'Parameter container type error.'");
+		Raise NStr("ru = 'Ошибка в типе контейнера параметра'; en = 'Parameter container type error.'; tr = 'Parametre konteyneri türü hatası.'");
 	EndIf;
 
 	Modified = True;
@@ -3686,7 +3689,7 @@ Procedure QueryParameters_SetType(RowID, ContainerType, ValueType)
 
 	ParameterRow.ContainerType = ContainerType;
 	If ParameterRow.ContainerType = 3 Then
-		ParameterRow.ValueType = NStr("ru = 'Таблица значений'; en = 'Value table'");
+		ParameterRow.ValueType = NStr("ru = 'Таблица значений'; en = 'Value table'; tr = 'Değer tablosu'");
 	Else
 		ParameterRow.ValueType = ValueType;
 	EndIf;
@@ -3807,7 +3810,7 @@ Procedure ExtractEditingQuery(BesidesThisQuery = Undefined, RestoreEditingPositi
 		SetAlgorithmText("",True,"");
 		SetAlgorithmTextBeforeExecution("",True,"");
 		SetQueryEditingAvailability(False);
-		Items.QueryGroupPages.ChildItems.QueryPage.Title = NStr("ru = 'Запрос'; en = 'Query'");
+		Items.QueryGroupPages.ChildItems.QueryPage.Title = NStr("ru = 'Запрос'; en = 'Query'; tr = 'Sorgu'");
 		QueryParameters.Clear();
 		TempTables.Clear();
 		Return;
@@ -3827,10 +3830,10 @@ Procedure ExtractEditingQuery(BesidesThisQuery = Undefined, RestoreEditingPositi
 
 	If stQueryData.InWizard Then
 		SetQueryEditingAvailability(False);
-		Items.QueryGroupPages.ChildItems.QueryPage.Title = NStr("ru = 'Запрос (в конструкторе)'; en = 'Query (in wizard)'");
+		Items.QueryGroupPages.ChildItems.QueryPage.Title = NStr("ru = 'Запрос (в конструкторе)'; en = 'Query (in wizard)'; tr = 'Sorgu (sihirbazda)'");
 	Else
 		SetQueryEditingAvailability(True);
-		Items.QueryGroupPages.ChildItems.QueryPage.Title = NStr("ru = 'Запрос'; en = 'Query'");
+		Items.QueryGroupPages.ChildItems.QueryPage.Title = NStr("ru = 'Запрос'; en = 'Query'; tr = 'Sorgu'");
 	EndIf;
 
 	EditingQuery = Items.QueryBatch.CurrentRow;
@@ -4043,11 +4046,11 @@ Procedure QueryBatch_LoadCompletion(AdditionalParameters) Export
 	fOK = fOK And stLoadedData.Property("Version");
 
 	If Not fOK Then
-		ConsoleError(NStr("ru = 'Не верный формат файла!'; en = 'File format is incorrect.'"));
+		ConsoleError(NStr("ru = 'Не верный формат файла!'; en = 'File format is incorrect.'; tr = 'Dosya formatı yanlış.'"));
 	EndIf;
 
 	If stLoadedData.Version > FormatVersion Then
-		ConsoleError(NStr("ru = 'Используется более новая версия формата. Обновите консоль запросов!'; en = 'A newer format version is required. Please update the query console.'"));
+		ConsoleError(NStr("ru = 'Используется более новая версия формата. Обновите консоль запросов!'; en = 'A newer format version is required. Please update the query console.'; tr = 'Daha yeni bir format sürümü gerekiyor. Lütfen sorgu konsolunu güncelleyin.'"));
 	EndIf;
 	
 	// Saved states - a structure for storing values not included into options (form flags states, 
@@ -4499,7 +4502,7 @@ Procedure ProcessParameterNameChange(NewRow, CancelEditing, Cancel)
 
 	If Not NameIsCorrect(strParameterName) Then
 		ShowConsoleMessageBox(
-			NStr("ru = 'Неверное имя параметра! Имя должно состоять из одного слова, начинаться с буквы и не содержать специальных символов кроме ""_"".'; en = 'Parameter name is incorrect. The name must consist of one word, start with a letter and contain no special characters except ""_"".'"));
+			NStr("ru = 'Неверное имя параметра! Имя должно состоять из одного слова, начинаться с буквы и не содержать специальных символов кроме ""_"".'; en = 'Parameter name is incorrect. The name must consist of one word, start with a letter and contain no special characters except ""_"".'; tr = 'Parametre adı yanlış. Ad tek kelimeden oluşmalı, harfle başlamalı ve ""_"" dışında özel karakter içermemelidir.'"));
 		Cancel = True;
 		Return;
 	EndIf;
@@ -4511,7 +4514,7 @@ Procedure ProcessParameterNameChange(NewRow, CancelEditing, Cancel)
 				PreviousValueParameterName, strParameterName);
 			ShowQueryBox(
 				New NotifyDescription("ChangeParameterNameInQueryText", ThisForm, AdditionalParameters),
-				NStr("ru = 'Запрос содержит изменяемое мия параметра. Изменить имя параметра в тексте запроса?'; en = 'Query contains a variable parameter name. Do you want to change parameter name in the query text?'"),
+				NStr("ru = 'Запрос содержит изменяемое мия параметра. Изменить имя параметра в тексте запроса?'; en = 'Query contains a variable parameter name. Do you want to change parameter name in the query text?'; tr = 'Sorgu değişken bir parametre adı içeriyor. Parametre adını sorgu metninde değiştirmek istiyor musunuz?'"),
 				QuestionDialogMode.YesNo, , DialogReturnCode.Yes);
 		EndIf;
 	EndIf;
@@ -4788,10 +4791,10 @@ Function FillFromXMLReader(XMLReader)
 			strQueryText = Undefined;
 			If Not ParametersStructure.Property("Text", strQueryText) Or Not ParametersStructure.Property(
 				"Parameters", stQueryParameters) Then
-				strError = NStr("ru = 'Ошибка структуры.'; en = 'Structure error.'");
+				strError = NStr("ru = 'Ошибка структуры.'; en = 'Structure error.'; tr = 'Yapısal hata.'");
 			EndIf;
 		Else
-			strError = NStr("ru = 'Ошибка структуры.'; en = 'Structure error.'");
+			strError = NStr("ru = 'Ошибка структуры.'; en = 'Structure error.'; tr = 'Yapısal hata.'");
 		EndIf;
 
 	Except
@@ -4801,8 +4804,7 @@ Function FillFromXMLReader(XMLReader)
 	XMLReader.Close();
 
 	If ValueIsFilled(strError) Then
-		Return NStr("ru = 'Не возможно сформировать запрос - ошибка структуры введенного XML. Техническая информация: ';
-		|en = 'Unable to generate a query. XML structure error.Details: '") + strError;
+		Return NStr("ru = 'Не возможно сформировать запрос - ошибка структуры введенного XML. Техническая информация: '; en = 'Unable to generate a query. XML structure error.Details: '; tr = 'Sorgu oluşturulamadı. XML yapı hatası.Ayrıntılar:'") + strError;
 	EndIf;
 	
 	//Reading query parameters
@@ -4810,7 +4812,7 @@ Function FillFromXMLReader(XMLReader)
 	stError = ParametersFillFromQueryAtServer(QueryText);
 	If ValueIsFilled(stError) Then
 		Message(
-			NStr("ru = 'Не удалось получить параметры из текста запроса. Параметры будут заполнены только по объекту запроса('; en = 'Cannot get the parameters from the query text. Parameters will be filled up only by query object.'")
+			NStr("ru = 'Не удалось получить параметры из текста запроса. Параметры будут заполнены только по объекту запроса('; en = 'Cannot get the parameters from the query text. Parameters will be filled up only by query object.'; tr = 'Sorgu metninden parametreler alınamıyor. Parametreler yalnızca sorgu nesnesi tarafından doldurulacak.'")
 			+ stError.ErrorDescription + ").", MessageStatus.Information);
 	EndIf;
 
@@ -4913,7 +4915,7 @@ Function FillFromXMLAtServer(CurrentQueryText)
 	strQuerySignatureString = "<Structure xmlns=""http://v8.1c.ru/8.1/data/core""";
 	strQueryWindowText = CurrentQueryText;
 	If Left(strQueryWindowText, StrLen(strQuerySignatureString)) <> strQuerySignatureString Then
-		Return NStr("ru = 'В поле текста запроса должна быть строка, кодирующая запрос с параметрами. Подробности на закладке ""Информация"".'; en = 'Query text field must contain a string that encodes a query with a parameters. Details on the Info tab.'");
+		Return NStr("ru = 'В поле текста запроса должна быть строка, кодирующая запрос с параметрами. Подробности на закладке ""Информация"".'; en = 'Query text field must contain a string that encodes a query with a parameters. Details on the Info tab.'; tr = 'Sorgu metni alanı, parametrelerle birlikte bir sorguyu kodlayan bir dize içermelidir. Ayrıntılar Bilgi sekmesinde.'");
 	EndIf;
 
 	XMLReader = New XMLReader;
@@ -5368,20 +5370,20 @@ Function RunDataProcessorAtServer(Algorithm, fLineByLine = True)
 	StandardSubsystemsServerModuleName = "StandardSubsystemsServer";
 	If Metadata.CommonModules.Find(TimeConsumingOperationsModuleName) = Undefined Or Metadata.CommonModules.Find(
 		StandardSubsystemsServerModuleName) = Undefined Then
-		Return New Structure("Success, ErrorDescription", False, NStr("ru = 'Модули БСП не найдены'; en = 'SSL modules not found.'"));
+		Return New Structure("Success, ErrorDescription", False, NStr("ru = 'Модули БСП не найдены'; en = 'SSL modules not found.'; tr = 'SSL modülleri bulunamadı.'"));
 	EndIf;
 
 	StandardSubsystemsServerModule = Eval(StandardSubsystemsServerModuleName);
 	Try
 		Version = StandardSubsystemsServerModule.LibraryVersion();
 	Except
-		Return New Structure("Success, ErrorDescription", False, NStr("ru = 'Модули БСП не найдены'; en = 'SSL modules not found.'"));
+		Return New Structure("Success, ErrorDescription", False, NStr("ru = 'Модули БСП не найдены'; en = 'SSL modules not found.'; tr = 'SSL modülleri bulunamadı.'"));
 	EndTry;
 
 	arVersion = StrSplit(Version, ".");
 	If Number(arVersion[0]) <= 2 And Not (Number(arVersion[0]) = 2 And Number(arVersion[1]) >= 3) Then
 		Return New Structure("Success, ErrorDescription", False, StrTemplate(
-			NStr("ru = 'Необходима БСП версии не ниже 2.3 (версия БСП текущей конфигурации %1)'; en = 'SSL version 2.3 or later is required (current SSL version is %1)'"), Version));
+			NStr("ru = 'Необходима БСП версии не ниже 2.3 (версия БСП текущей конфигурации %1)'; en = 'SSL version 2.3 or later is required (current SSL version is %1)'; tr = 'SSL sürüm 2.3 veya daha yenisi gereklidir (mevcut SSL sürümü %1).'"), Version));
 	EndIf;
 
 	BackgroundJobResultAddress = PutToTempStorage(Undefined, UUID);
@@ -5484,20 +5486,20 @@ Procedure ShowAlgorithmExecutionStatus(ProgressState = Undefined, Seconds = Unde
 		If ProgressState <> Undefined Then
 			strProgress = Format(ProgressState.Progress, "ND=3; NFD=0; NZ=") + "%";
 			If ProgressState.Progress > 0 And ProgressState.DurationAtProgressTime > 1000 Then
-				strTimeLeft = StrTemplate(NStr("ru = 'осталось примерно %1'; en = 'about %1 left'"), TimeFromSeconds(Round(
+				strTimeLeft = StrTemplate(NStr("ru = 'осталось примерно %1'; en = 'about %1 left'; tr = 'yaklaşık %1 kaldı'"), TimeFromSeconds(Round(
 					ProgressState.DurationAtProgressTime / ProgressState.Progress * (100
 					- ProgressState.Progress) / 1000)));
 			Else
 				strTimeLeft = "";
 			EndIf;
-			strExplanation = StrTemplate(NStr("ru = '%1 прошло %2 %3'; en = '%1 passed %2 %3'"), strProgress, strDuration, strTimeLeft);
+			strExplanation = StrTemplate(NStr("ru = '%1 прошло %2 %3'; en = '%1 passed %2 %3'; tr = '%1 geçti %2 %3'"), strProgress, strDuration, strTimeLeft);
 		Else
 			strProgress = "";
-			strExplanation = StrTemplate(NStr("ru = '%1 прошло %2'; en = '%1 passed %2'"), strProgress, strDuration);
+			strExplanation = StrTemplate(NStr("ru = '%1 прошло %2'; en = '%1 passed %2'; tr = '%1 %2''yi geçti'"), strProgress, strDuration);
 		EndIf;
 
 		If fInStatus Then
-			Status(NStr("ru = 'Выполнение алгоритма'; en = 'Algorithm execution'"), ProgressState.Progress, strExplanation);
+			Status(NStr("ru = 'Выполнение алгоритма'; en = 'Algorithm execution'; tr = 'Algoritma yürütmesi'"), ProgressState.Progress, strExplanation);
 		Else
 			ExecutionStatus = strExplanation;
 		EndIf;
@@ -6051,7 +6053,7 @@ Procedure UT_AddResultStructureContextAlgorithm()
 	
 	For Each Variable In ResultRecordStructure.GetItems() Do
 		VariableStructure = New Structure;
-		If Variable.Name=NStr("ru = 'Выборка'; en = 'Selection'") Then
+		If Variable.Name=NStr("ru = 'Выборка'; en = 'Selection'; tr = 'Seçim'") Then
 			VariableStructure.Insert("Type", "QueryResultSelection");
 		Else
 			VariableStructure.Insert("Type", "Structure");

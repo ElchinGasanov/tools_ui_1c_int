@@ -26,6 +26,10 @@
                 <key>ru</key>
                 <value>HEAD</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>HEAD</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
@@ -109,11 +113,15 @@
             <name>HEADEditor</name>
             <id>150</id>
             <title>
+              <key>ru</key>
+              <value>HTML (Head)</value>
+            </title>
+            <title>
               <key>en</key>
               <value>HTML (Head)</value>
             </title>
             <title>
-              <key>ru</key>
+              <key>tr</key>
               <value>HTML (Head)</value>
             </title>
             <visible>true</visible>
@@ -121,10 +129,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>HEADEditor</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>HEADEditor</segments>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -171,11 +177,15 @@
             <common>true</common>
           </userVisible>
           <title>
+            <key>ru</key>
+            <value>HEAD</value>
+          </title>
+          <title>
             <key>en</key>
             <value>HEAD</value>
           </title>
           <title>
-            <key>ru</key>
+            <key>tr</key>
             <value>HEAD</value>
           </title>
           <extendedTooltip>
@@ -217,6 +227,10 @@
               </title>
               <title>
                 <key>ru</key>
+                <value>BODY</value>
+              </title>
+              <title>
+                <key>tr</key>
                 <value>BODY</value>
               </title>
               <visible>true</visible>
@@ -302,11 +316,15 @@
             <name>BODYEditor</name>
             <id>62</id>
             <title>
+              <key>ru</key>
+              <value>HTML (Body)</value>
+            </title>
+            <title>
               <key>en</key>
               <value>HTML (Body)</value>
             </title>
             <title>
-              <key>ru</key>
+              <key>tr</key>
               <value>HTML (Body)</value>
             </title>
             <visible>true</visible>
@@ -314,10 +332,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>BODYEditor</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>BODYEditor</segments>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -364,11 +380,15 @@
             <common>true</common>
           </userVisible>
           <title>
+            <key>ru</key>
+            <value>BODY</value>
+          </title>
+          <title>
             <key>en</key>
             <value>BODY</value>
           </title>
           <title>
-            <key>ru</key>
+            <key>tr</key>
             <value>BODY</value>
           </title>
           <extendedTooltip>
@@ -410,6 +430,10 @@
               </title>
               <title>
                 <key>ru</key>
+                <value>CSS</value>
+              </title>
+              <title>
+                <key>tr</key>
                 <value>CSS</value>
               </title>
               <visible>true</visible>
@@ -458,22 +482,24 @@
               <name>BodyIncludesCSSText</name>
               <id>188</id>
               <title>
+                <key>ru</key>
+                <value>Включать в</value>
+              </title>
+              <title>
                 <key>en</key>
                 <value>Include into</value>
               </title>
               <title>
-                <key>ru</key>
-                <value>Включать в</value>
+                <key>tr</key>
+                <value>İçine dahil et</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>BodyIncludesCSSText</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>BodyIncludesCSSText</segments>
               </dataPath>
               <extendedTooltip>
                 <name>BodyIncludesCSSTextExtendedTooltip</name>
@@ -508,12 +534,16 @@
               <extInfo xsi:type="form:CheckBoxFieldExtInfo">
                 <checkBoxType>Tumbler</checkBoxType>
                 <editFormat>
+                  <key>ru</key>
+                  <value>БЛ=HEAD; БИ=BODY</value>
+                </editFormat>
+                <editFormat>
                   <key>en</key>
                   <value>BF=HEAD; BT=BODY</value>
                 </editFormat>
                 <editFormat>
-                  <key>ru</key>
-                  <value>БЛ=HEAD; БИ=BODY</value>
+                  <key>tr</key>
+                  <value>BF=HEAD; BT=BODY</value>
                 </editFormat>
               </extInfo>
             </items>
@@ -558,11 +588,15 @@
             <name>CSSEditor</name>
             <id>68</id>
             <title>
+              <key>ru</key>
+              <value>HTML (CSS)</value>
+            </title>
+            <title>
               <key>en</key>
               <value>HTML (CSS)</value>
             </title>
             <title>
-              <key>ru</key>
+              <key>tr</key>
               <value>HTML (CSS)</value>
             </title>
             <visible>true</visible>
@@ -570,10 +604,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>CSSEditor</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>CSSEditor</segments>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -668,6 +700,10 @@
                 <key>ru</key>
                 <value>JS</value>
               </title>
+              <title>
+                <key>tr</key>
+                <value>JS</value>
+              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
@@ -726,10 +762,8 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>BodyIncludesJSText</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>BodyIncludesJSText</segments>
               </dataPath>
               <extendedTooltip>
                 <name>BodyIncludesJSTextExtendedTooltip</name>
@@ -764,12 +798,16 @@
               <extInfo xsi:type="form:CheckBoxFieldExtInfo">
                 <checkBoxType>Tumbler</checkBoxType>
                 <editFormat>
+                  <key>ru</key>
+                  <value>БЛ=HEAD; БИ=BODY</value>
+                </editFormat>
+                <editFormat>
                   <key>en</key>
                   <value>BF=HEAD; BT=BODY</value>
                 </editFormat>
                 <editFormat>
-                  <key>ru</key>
-                  <value>БЛ=HEAD; БИ=BODY</value>
+                  <key>tr</key>
+                  <value>BF=HEAD; BT=BODY</value>
                 </editFormat>
               </extInfo>
             </items>
@@ -814,11 +852,15 @@
             <name>JSEditor</name>
             <id>65</id>
             <title>
+              <key>ru</key>
+              <value>HTML (JS)</value>
+            </title>
+            <title>
               <key>en</key>
               <value>HTML (JS)</value>
             </title>
             <title>
-              <key>ru</key>
+              <key>tr</key>
               <value>HTML (JS)</value>
             </title>
             <visible>true</visible>
@@ -826,10 +868,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>JSEditor</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>JSEditor</segments>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -876,11 +916,15 @@
             <common>true</common>
           </userVisible>
           <title>
+            <key>ru</key>
+            <value>JS</value>
+          </title>
+          <title>
             <key>en</key>
             <value>JS</value>
           </title>
           <title>
-            <key>ru</key>
+            <key>tr</key>
             <value>JS</value>
           </title>
           <extendedTooltip>
@@ -913,12 +957,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Отдельно</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Parts</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Отдельно</value>
+          <key>tr</key>
+          <value>Ayrı ayrı</value>
         </title>
         <extendedTooltip>
           <name>EditorModeAllPagesGroupExtendedTooltip</name>
@@ -948,22 +996,24 @@
           <name>GeneratedHTMLEditor</name>
           <id>75</id>
           <title>
+            <key>ru</key>
+            <value>Редактор полученного HTML</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Generated HTML editor</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Редактор полученного HTML</value>
+            <key>tr</key>
+            <value>Oluşturulan HTML düzenleyici</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>GeneratedHTMLEditor</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>GeneratedHTMLEditor</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -1010,12 +1060,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Весь текст</value>
+        </title>
+        <title>
           <key>en</key>
           <value>HTML</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Весь текст</value>
+          <key>tr</key>
+          <value>HTML</value>
         </title>
         <extendedTooltip>
           <name>GeneratedHTMLTextGroupExtendedTooltip</name>
@@ -1061,10 +1115,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>LinkedLibraries.Path</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>LinkedLibraries.Path</segments>
             </dataPath>
             <extendedTooltip>
               <name>LinkedLibrariesPathExtendedTooltip</name>
@@ -1118,10 +1170,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>LinkedLibraries.AdditionalParameters</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>LinkedLibraries.AdditionalParameters</segments>
             </dataPath>
             <extendedTooltip>
               <name>LinkedLibrariesAdditionalParametersExtendedTooltip</name>
@@ -1414,12 +1464,16 @@
                 <common>true</common>
               </userVisible>
               <title>
+                <key>ru</key>
+                <value>Типовые библиотеки</value>
+              </title>
+              <title>
                 <key>en</key>
                 <value>Library samples</value>
               </title>
               <title>
-                <key>ru</key>
-                <value>Типовые библиотеки</value>
+                <key>tr</key>
+                <value>Kütüphane örnekleri</value>
               </title>
               <extendedTooltip>
                 <name>LinkedLibrariesSamplesGroupExtendedTooltip</name>
@@ -1486,6 +1540,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>LinkedLibraries</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1524,6 +1579,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>LinkedLibraries</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -1563,6 +1619,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>LinkedLibraries</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1624,10 +1681,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>LibraryEditor</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>LibraryEditor</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -1674,12 +1729,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Подключаемые библиотеки</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Linked libraries</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Подключаемые библиотеки</value>
+          <key>tr</key>
+          <value>Bağlantılı kütüphaneler</value>
         </title>
         <extendedTooltip>
           <name>LinkedLibrariesPageGroupExtendedTooltip</name>
@@ -1746,11 +1805,15 @@
           <name>GeneratedHTML</name>
           <id>25</id>
           <title>
+            <key>ru</key>
+            <value>HTML</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Generated HTML</value>
           </title>
           <title>
-            <key>ru</key>
+            <key>tr</key>
             <value>HTML</value>
           </title>
           <visible>true</visible>
@@ -1758,10 +1821,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>GeneratedHTML</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>GeneratedHTML</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -1817,12 +1878,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Представление</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Presentation</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Представление</value>
+          <key>tr</key>
+          <value>Gösterim</value>
         </title>
         <extendedTooltip>
           <name>GeneratedHTMLPresentationGroupExtendedTooltip</name>
@@ -1886,22 +1951,24 @@
             <name>UseConsole</name>
             <id>194</id>
             <title>
+              <key>ru</key>
+              <value>Использовать консоль	</value>
+            </title>
+            <title>
               <key>en</key>
               <value>Use console</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Использовать консоль	</value>
+              <key>tr</key>
+              <value>Konsolu kullan</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>UseConsole</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>UseConsole</segments>
             </dataPath>
             <extendedTooltip>
               <name>UseConsoleExtendedTooltip</name>
@@ -1976,22 +2043,24 @@
           <name>GeneratedHTMLConsoleOutput</name>
           <id>113</id>
           <title>
+            <key>ru</key>
+            <value>Вывод консоли полученного HTML</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Generated HTML console output</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Вывод консоли полученного HTML</value>
+            <key>tr</key>
+            <value>Oluşturulan HTML konsol çıktısı</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>GeneratedHTMLConsoleOutput</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>GeneratedHTMLConsoleOutput</segments>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -2039,12 +2108,16 @@
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Консоль</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Console</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Консоль</value>
+          <key>tr</key>
+          <value>Konsol</value>
         </title>
         <extendedTooltip>
           <name>ConsolePageGroupExtendedTooltip</name>
@@ -2082,13 +2155,17 @@
               <title>
                 <key>en</key>
                 <value>&lt;color #e9967a>&amp;AtClient&lt;/>
-GeneratedHTMLDocumentComplete(Item)
-</value>
+GeneratedHTMLDocumentComplete(Item)</value>
               </title>
               <title>
                 <key>ru</key>
                 <value>&lt;color #e9967a>&amp;НаКлиенте&lt;/>
 РезультирущийHTMLДокументСформирован(Элемент)</value>
+              </title>
+              <title>
+                <key>tr</key>
+                <value>&lt;color #e9967a>&amp;AtClient&lt;/>
+GeneratedHTMLDocumentComplete(Item)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2136,10 +2213,8 @@ GeneratedHTMLDocumentComplete(Item)
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:MultiLanguageDataPath">
-                <paths xsi:type="form:DataPath">
-                  <segments>DocumentCompleteEventEditor</segments>
-                </paths>
+              <dataPath xsi:type="form:DataPath">
+                <segments>DocumentCompleteEventEditor</segments>
               </dataPath>
               <titleLocation>None</titleLocation>
               <extendedTooltip>
@@ -2186,12 +2261,16 @@ GeneratedHTMLDocumentComplete(Item)
               <common>true</common>
             </userVisible>
             <title>
+              <key>ru</key>
+              <value>Событие &quot;Документ сформирован&quot;</value>
+            </title>
+            <title>
               <key>en</key>
               <value>&quot;Document complete&quot; event</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Событие &quot;Документ сформирован&quot;</value>
+              <key>tr</key>
+              <value>&quot;Document complete&quot; olayı</value>
             </title>
             <extendedTooltip>
               <name>EventHandlerDocumentCompletePageGroupExtendedTooltip</name>
@@ -2223,13 +2302,17 @@ GeneratedHTMLDocumentComplete(Item)
               <title>
                 <key>en</key>
                 <value>&lt;color #e9967a>&amp;AtClient&lt;/>
-GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
-</value>
+GeneratedHTMLOnClick(Item, EventData, StandardProcessing)</value>
               </title>
               <title>
                 <key>ru</key>
                 <value>&lt;color #e9967a>&amp;НаКлиенте&lt;/>
 РезультирущийHTMLПриНажатии(Элемент, ДанныеСобытия, СтандартнаяОбработка)</value>
+              </title>
+              <title>
+                <key>tr</key>
+                <value>&lt;color #e9967a>&amp;AtClient&lt;/>
+GeneratedHTMLOnClick(Item, EventData, StandardProcessing)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2326,12 +2409,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
               <common>true</common>
             </userVisible>
             <title>
+              <key>ru</key>
+              <value>Событие &quot;При нажатии&quot;</value>
+            </title>
+            <title>
               <key>en</key>
               <value>&quot;On click&quot; event</value>
             </title>
             <title>
-              <key>ru</key>
-              <value>Событие &quot;При нажатии&quot;</value>
+              <key>tr</key>
+              <value>&quot;On click&quot; olayı</value>
             </title>
             <extendedTooltip>
               <name>EventHandlerOnClickPageGroupExtendedTooltip</name>
@@ -2396,12 +2483,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
           <common>true</common>
         </userVisible>
         <title>
+          <key>ru</key>
+          <value>Обработчики событий</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Event handlers</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Обработчики событий</value>
+          <key>tr</key>
+          <value>Olay işleyicileri</value>
         </title>
         <extendedTooltip>
           <name>EventHandlersPageGroupExtendedTooltip</name>
@@ -2468,12 +2559,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Основная</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Main</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Основная</value>
+      <key>tr</key>
+      <value>Temel</value>
     </title>
     <extendedTooltip>
       <name>MainGroupExtendedTooltip</name>
@@ -2631,12 +2726,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Файл</value>
+      </title>
+      <title>
         <key>en</key>
         <value>File</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Файл</value>
+        <key>tr</key>
+        <value>Dosya</value>
       </title>
       <extendedTooltip>
         <name>FormFileGroupExtendedTooltip</name>
@@ -2758,10 +2857,6 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <autoFill>true</autoFill>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>OnCreateAtServer</name>
-  </handlers>
-  <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
@@ -2769,6 +2864,11 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <event>BeforeClose</event>
     <name>BeforeClose</name>
   </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
+  </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -2782,6 +2882,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <title>
       <key>ru</key>
       <value>Object</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -2801,6 +2905,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>JSEditor</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>JSEditör</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -2816,12 +2924,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <attributes>
     <name>GeneratedHTML</name>
     <title>
+      <key>ru</key>
+      <value>HTML</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Generated HTML</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>HTML</value>
+      <key>tr</key>
+      <value>Generated HTML</value>
     </title>
     <id>3</id>
     <valueType>
@@ -2841,6 +2953,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>CSSEditor</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>CSS Editörü</value>
+    </title>
     <id>4</id>
     <valueType>
       <types>String</types>
@@ -2857,6 +2973,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <name>BODYEditor</name>
     <title>
       <key>ru</key>
+      <value>BODYEditor</value>
+    </title>
+    <title>
+      <key>tr</key>
       <value>BODYEditor</value>
     </title>
     <id>5</id>
@@ -2877,6 +2997,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>Linked libraries</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Bağlantılı kütüphaneler</value>
+    </title>
     <id>6</id>
     <valueType>
       <types>ValueTable</types>
@@ -2892,6 +3016,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <title>
         <key>ru</key>
         <value>Path</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Yol</value>
       </title>
       <id>8</id>
       <valueType>
@@ -2911,6 +3039,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
         <key>ru</key>
         <value>Additional parameters</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Ek parametreler</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>String</types>
@@ -2927,12 +3059,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <attributes>
     <name>GeneratedHTMLEditor</name>
     <title>
+      <key>ru</key>
+      <value>Редактор полученного HTML</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Generated HTML editor</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Редактор полученного HTML</value>
+      <key>tr</key>
+      <value>Oluşturulan HTML düzenleyici</value>
     </title>
     <id>9</id>
     <valueType>
@@ -2952,6 +3088,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>Tool data file name</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Araç veri dosyası adı</value>
+    </title>
     <id>11</id>
     <valueType>
       <types>String</types>
@@ -2967,12 +3107,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <attributes>
     <name>GeneratedHTMLConsoleOutput</name>
     <title>
+      <key>ru</key>
+      <value>Вывод консоли полученного HTML</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Generated HTML console output</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Вывод консоли полученного HTML</value>
+      <key>tr</key>
+      <value>Oluşturulan HTML konsol çıktısı</value>
     </title>
     <id>13</id>
     <valueType>
@@ -2992,6 +3136,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>Viewport scaled to form</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Görünüm alanı forma ölçeklendi</value>
+    </title>
     <id>14</id>
     <valueType>
       <types>Boolean</types>
@@ -3008,6 +3156,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <title>
       <key>ru</key>
       <value>Document complete event editor</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Belge tamamlama etkinliği düzenleyicisi</value>
     </title>
     <id>15</id>
     <valueType>
@@ -3027,6 +3179,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>On click event editor</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Tıklama olayı düzenleyicisi</value>
+    </title>
     <id>16</id>
     <valueType>
       <types>String</types>
@@ -3044,6 +3200,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <title>
       <key>ru</key>
       <value>Library address</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kütüphane adresi</value>
     </title>
     <id>18</id>
     <valueType>
@@ -3063,6 +3223,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>HEADEditor</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>HEADEditör</value>
+    </title>
     <id>19</id>
     <valueType>
       <types>String</types>
@@ -3080,6 +3244,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <title>
       <key>ru</key>
       <value>Library editor</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kütüphane editörü</value>
     </title>
     <id>20</id>
     <valueType>
@@ -3099,6 +3267,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>Body includes CSSText</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Gövde CSSText'i içerir</value>
+    </title>
     <id>21</id>
     <valueType>
       <types>Boolean</types>
@@ -3115,6 +3287,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <title>
       <key>ru</key>
       <value>Включать текст JS ВТело</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Gövdeye JS metni ekleyin</value>
     </title>
     <id>22</id>
     <valueType>
@@ -3133,6 +3309,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>Use console</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Konsolu kullan</value>
+    </title>
     <id>23</id>
     <valueType>
       <types>Boolean</types>
@@ -3149,6 +3329,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
     <title>
       <key>ru</key>
       <value>Saved editor text</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Kaydedilen düzenleyici metni</value>
     </title>
     <id>24</id>
     <valueType>
@@ -3168,6 +3352,10 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
       <key>ru</key>
       <value>Current editor name</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Current editor name</value>
+    </title>
     <id>25</id>
     <valueType>
       <types>String</types>
@@ -3185,12 +3373,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>UpdateGeneratedHTML</name>
     <title>
+      <key>ru</key>
+      <value>Обновить HTML (Ctrl+Q)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update HTML (Ctrl+Q)</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить HTML (Ctrl+Q)</value>
+      <key>tr</key>
+      <value>HTML'yi güncelle (Ctrl+Q)</value>
     </title>
     <id>1</id>
     <use>
@@ -3211,11 +3403,15 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>LibrarySampleBootstrap4</name>
     <title>
+      <key>ru</key>
+      <value>Bootstrap 4</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Bootstrap 4</value>
     </title>
     <title>
-      <key>ru</key>
+      <key>tr</key>
       <value>Bootstrap 4</value>
     </title>
     <id>4</id>
@@ -3232,11 +3428,15 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>LibrarySampleJQuery</name>
     <title>
+      <key>ru</key>
+      <value>JQuery</value>
+    </title>
+    <title>
       <key>en</key>
       <value>JQuery</value>
     </title>
     <title>
-      <key>ru</key>
+      <key>tr</key>
       <value>JQuery</value>
     </title>
     <id>5</id>
@@ -3253,12 +3453,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>LibrarySampleFontAwesome</name>
     <title>
+      <key>ru</key>
+      <value>Font awesome</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Font awesome</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Font awesome</value>
+      <key>tr</key>
+      <value>Font Awesome</value>
     </title>
     <id>6</id>
     <use>
@@ -3274,11 +3478,15 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>LibrarySamplePoperJS</name>
     <title>
+      <key>ru</key>
+      <value>Poper JS</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Poper JS</value>
     </title>
     <title>
-      <key>ru</key>
+      <key>tr</key>
       <value>Poper JS</value>
     </title>
     <id>8</id>
@@ -3295,12 +3503,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>LibrarySampleResetCSS</name>
     <title>
+      <key>ru</key>
+      <value>Reset CSS</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Reset CSS</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Reset CSS</value>
+      <key>tr</key>
+      <value>CSS'yi sıfırla</value>
     </title>
     <id>9</id>
     <use>
@@ -3316,12 +3528,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>LibrarySampleAnimateCSS</name>
     <title>
+      <key>ru</key>
+      <value>Animate CSS</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Animate CSS</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Animate CSS</value>
+      <key>tr</key>
+      <value>CSS'i canlandır</value>
     </title>
     <id>10</id>
     <use>
@@ -3337,11 +3553,15 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>LibrarySampleSocketIO</name>
     <title>
+      <key>ru</key>
+      <value>Socket IO</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Socket IO</value>
     </title>
     <title>
-      <key>ru</key>
+      <key>tr</key>
       <value>Socket IO</value>
     </title>
     <id>11</id>
@@ -3358,12 +3578,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>SaveFile</name>
     <title>
+      <key>ru</key>
+      <value>Сохранить (Ctrl+S)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Save (Ctrl+S)</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сохранить (Ctrl+S)</value>
+      <key>tr</key>
+      <value>Kaydet (Ctrl+S)</value>
     </title>
     <id>12</id>
     <use>
@@ -3383,12 +3607,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>SaveFileAs</name>
     <title>
+      <key>ru</key>
+      <value>Сохранить как</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Save As</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сохранить как</value>
+      <key>tr</key>
+      <value>Farklı kaydet</value>
     </title>
     <id>13</id>
     <use>
@@ -3407,12 +3635,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>NewFile</name>
     <title>
+      <key>ru</key>
+      <value>Новый (Ctrl+N)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>New (Ctrl+N)</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Новый (Ctrl+N)</value>
+      <key>tr</key>
+      <value>Yeni (Ctrl+N)</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -3436,12 +3668,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>CloseTool</name>
     <title>
+      <key>ru</key>
+      <value>Закрыть</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Close</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Закрыть</value>
+      <key>tr</key>
+      <value>Kapat</value>
     </title>
     <id>15</id>
     <use>
@@ -3461,12 +3697,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>OpenFile</name>
     <title>
+      <key>ru</key>
+      <value>Открыть (Ctrl+O)</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Open (Ctrl+O)</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Открыть (Ctrl+O)</value>
+      <key>tr</key>
+      <value>Aç (Ctrl+O)</value>
     </title>
     <id>16</id>
     <use>
@@ -3486,12 +3726,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>UpdateConsoleOutput</name>
     <title>
+      <key>ru</key>
+      <value>Обновить вывод консоли</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Update console output</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Обновить вывод консоли</value>
+      <key>tr</key>
+      <value>Konsol çıktısını güncelle</value>
     </title>
     <id>17</id>
     <use>
@@ -3507,12 +3751,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>CollapseExpandViewportToForm</name>
     <title>
+      <key>ru</key>
+      <value>Развернуть/свернуть просмотр на всю форму</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Collapse/Expand viewport to form</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Развернуть/свернуть просмотр на всю форму</value>
+      <key>tr</key>
+      <value>Görünümü formun tamamına genişlet/daralt</value>
     </title>
     <id>18</id>
     <use>
@@ -3531,12 +3779,16 @@ GeneratedHTMLOnClick(Item, EventData, StandardProcessing)
   <formCommands>
     <name>SaveLibrary</name>
     <title>
+      <key>ru</key>
+      <value>Сохранить библиотеку</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Save library</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Сохранить библиотеку</value>
+      <key>tr</key>
+      <value>Kütüphaneyi kaydet</value>
     </title>
     <id>2</id>
     <toolTip>

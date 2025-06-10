@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_SettingsStoragesManager</name>
   <synonym>
+    <key>ru</key>
+    <value>Менеджер хранилищ настроек [УИ]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>Settings storages manager (UT)</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Менеджер хранилищ настроек [УИ]</value>
+    <key>tr</key>
+    <value>Ayarlar Depolama Yöneticisi [UT]</value>
   </synonym>
   <defaultForm>DataProcessor.UT_SettingsStoragesManager.Form.Form</defaultForm>
   <extendedPresentation>
@@ -22,6 +26,10 @@
     <name>Form</name>
     <synonym>
       <key>ru</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
       <value>Form</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>

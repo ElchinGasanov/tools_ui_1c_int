@@ -180,7 +180,7 @@ Procedure SetDynamicListParametersAtServer(RowSelected)
 			Column.ToolTip = CurrentAttribute.Presentation;
 			HaveDisplayedAttributes = True;
 		Except
-			Message(NSTR("ru = 'Не удалось создать колонку списка для реквизита';en = 'Failed to create a list column for attribute'") + CurrentAttribute.Name);
+			Message(NSTR("ru = 'Не удалось создать колонку списка для реквизита'; en = 'Failed to create a list column for attribute'; tr = 'Öznitelik için bir liste sütunu oluşturulamadı'") + CurrentAttribute.Name);
 		EndTry;
 	EndDo;
 	FormItem.ChoiceMode=ChoiceMode;

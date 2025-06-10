@@ -42,12 +42,12 @@ EndFunction
 Function LinkToCodeInServiceAfterDownload(TextOfAlgorithm, QueryMode) Export
 	ResultOfSubmission = UT_Paste1CAPI.LoadingResultAlgorithmIntoService(TextOfAlgorithm, QueryMode);
 	If ResultOfSubmission = Undefined Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось загрузить алгоритм в сервис'; en = 'Failed to load the algorithm into the service'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось загрузить алгоритм в сервис'; en = 'Failed to load the algorithm into the service'; tr = 'Algoritma servise yüklenmedi'"));
 		Return "";
 	EndIf;
 	
 	If Not ResultOfSubmission.Successfully Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось загрузить алгоритм в сервис: '; en = 'Failed to load the algorithm into the service'")
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось загрузить алгоритм в сервис: '; en = 'Failed to load the algorithm into the service'; tr = 'Algoritma servise yüklenemedi'")
 															 + ResultOfSubmission.Errors);
 		Return "";
 
@@ -70,7 +70,7 @@ Function AlgorithmDataInService(Link) Export
 	
 	ArrayPaths = StrSplit(StructureLinks.Путь, "/", False);
 	If ArrayPaths.Count() = 0 Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Указан невалидный адрес кода'; en = 'Invalid code address specified'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Указан невалидный адрес кода'; en = 'Invalid code address specified'; tr = 'Geçersiz kod adresi belirtildi'"));
 		Return Undefined;
 	EndIf;
 		

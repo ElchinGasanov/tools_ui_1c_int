@@ -78,7 +78,7 @@ Procedure SaveSetting() Export
 	
 	If IsBlankString(CurrentSettingRepresentation) Then
 		ShowMessageBox( ,
-			Nstr("ru = 'Задайте имя новой настройки для сохранения или выберите существующую настройку для перезаписи.';en = 'Specify a name for the new setting to save, or select an existing setting to overwrite.'"));
+			Nstr("ru = 'Задайте имя новой настройки для сохранения или выберите существующую настройку для перезаписи.'; en = 'Specify a name for the new setting to save, or select an existing setting to overwrite.'; tr = 'Kaydedilecek yeni ayar için bir ad belirtin veya üzerine yazmak üzere mevcut bir ayarı seçin.'"));
 	EndIf;
 
 	NewSetting = New Structure;
@@ -135,7 +135,7 @@ EndProcedure // SaveSetting()
 Procedure DownloadSettings() Export
 
 	If Items.CurrentSetting.ChoiceList.Count() = 0 Then
-		SetNameSettings(Nstr("ru = 'Новая настройка';en = 'New setting'"));
+		SetNameSettings(Nstr("ru = 'Новая настройка'; en = 'New setting'; tr = 'Yeni ayar'"));
 	Else
 		If Not CurrentSetting.Other = Undefined Then
 			mSetting = CurrentSetting.Other;
@@ -230,7 +230,7 @@ Procedure ProcessIndicator(Indicator, Counter = 0) Export
 			Seconds = Int(Int(Remaining - (Minutes * 60)));
 			TimeRemaining = Format(Hours, "ND=2; NZ=00; NLZ=") + ":" + Format(Minutes, "ND=2; NZ=00; NLZ=") + ":"
 				+ Format(Seconds, "ND=2; NZ=00; NLZ=");
-			TextRemaining = StrTemplate(Nstr("ru = 'Осталось: ~ %1';en = 'Remaining: ~ %1'"), TimeRemaining);
+			TextRemaining = StrTemplate(Nstr("ru = 'Осталось: ~ %1'; en = 'Remaining: ~ %1'; tr = 'Kalan: ~ %1'"), TimeRemaining);
 		Else
 			TextRemaining = "";
 		EndIf;
@@ -314,8 +314,9 @@ EndProcedure
 Procedure ExecuteCommand(Command)
 	ProcessedObjects = ExecuteProcessing();
 	Message = StrTemplate(Nstr("ru = 'Обработка <%1> завершена! 
-					 |Обработано объектов: %2.';en = 'Processing of <%1> completed!
-					 |Objects processed: %2.'"), TrimAll(ThisForm.Title), ProcessedObjects);
+											  |Обработано объектов: %2.'; en = 'Processing of <%1> completed!
+											  |Objects processed: %2.'; tr = '<%1>''in işlenmesi tamamlandı!
+											  |İşlenen nesneler: %2.'"), TrimAll(ThisForm.Title), ProcessedObjects);
 	ShowMessageBox(, Message);
 EndProcedure
 
@@ -332,7 +333,7 @@ Procedure CurrentSettingChoiceProcessing(Item, SelectedValue, StandardProcessing
 
 		If ThisForm.Modified Then
 			ShowQueryBox(New NotifyDescription("CurrentSettingChoiceProcessingEnd", ThisForm,
-				New Structure("SelectedValue", SelectedValue)), Nstr("ru = 'Сохранить текущую настройку?';en = 'Save current setting?'"),
+				New Structure("SelectedValue", SelectedValue)), Nstr("ru = 'Сохранить текущую настройку?'; en = 'Save current setting?'; tr = 'Mevcut ayar kaydedilsin mi?'"),
 				QuestionDialogMode.YesNo, , DialogReturnCode.Yes);
 			Return;
 		EndIf;

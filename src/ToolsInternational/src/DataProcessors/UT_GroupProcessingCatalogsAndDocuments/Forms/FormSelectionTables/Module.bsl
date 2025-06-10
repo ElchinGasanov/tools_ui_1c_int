@@ -13,16 +13,16 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 //	ИмяТипаОбъекта = ?(ObjectType = 1,"Document","Catalog");
 	If ProcessTabularParts Then
 		If ObjectType = 1 Then
-			Title = Nstr("ru = 'Фильтр по табличным частям документов ';en = 'Filter by tabular parts of documents'");
+			Title = Nstr("ru = 'Фильтр по табличным частям документов '; en = 'Filter by tabular parts of documents'; tr = 'Belgelerin tablo bölümlerine göre filtrele'");
 		Else
-			Title = Nstr("ru = 'Фильтр по табличным частям справочников ';en = 'Filter by tabular parts of catalogs'");
+			Title = Nstr("ru = 'Фильтр по табличным частям справочников '; en = 'Filter by tabular parts of catalogs'; tr = 'Katalogların tablo bölümlerine göre filtreleme'");
 		EndIf;
 		
 	Else
 		If ObjectType = 1 Then
-			Title = Nstr("ru = 'Фильтр по документам';en = 'Filter by documents'");
+			Title = Nstr("ru = 'Фильтр по документам'; en = 'Filter by documents'; tr = 'Belgelere göre filtrele'");
 		Else
-			Title = Nstr("ru = 'Фильтр по справочникам';en = 'Filter by catalogs'");
+			Title = Nstr("ru = 'Фильтр по справочникам'; en = 'Filter by catalogs'; tr = 'Kataloglara göre filtrele'");
 		EndIf;
 	EndIf;
 	For Each MetadataItem In MetadataOfObjects Do

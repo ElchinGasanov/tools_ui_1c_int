@@ -142,11 +142,11 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameExecutionModeViaDataProcessor(),
 																				  EditorID);
 		DescriptionButtons.CommandName = DescriptionButtons.Name;
-		DescriptionButtons.Title = NStr("ru = 'Через обработку'; en = 'Through processing'");
+		DescriptionButtons.Title = NStr("ru = 'Через обработку'; en = 'Through processing'; tr = 'İşleme yoluyla'");
 		DescriptionButtons.ItemParent = CommandBarGroup;
 		DescriptionButtons.Action = "Attachable_ExecuteCodeEditorCommand";
 		DescriptionButtons.Picture = PictureLib.DataProcessor;
-		DescriptionButtons.ToolTip = NStr("ru = 'Режим выполнения кода через обработку. Позволяет использовать свои процедуры и функции'; en = 'Code execution mode through processing. Allows you to use your own procedures and functions'");
+		DescriptionButtons.ToolTip = NStr("ru = 'Режим выполнения кода через обработку. Позволяет использовать свои процедуры и функции'; en = 'Code execution mode through processing. Allows you to use your own procedures and functions'; tr = 'İşleme yoluyla kod yürütme modu. Kendi prosedürlerinizi ve fonksiyonlarınızı kullanmanıza olanak tanır'");
 		DescriptionButtons.Representation = ButtonRepresentation.Picture;
 		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
 		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);
@@ -169,11 +169,11 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 	DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameShareAlgorithm(),
 																			  EditorID);
 	DescriptionButtons.CommandName = DescriptionButtons.Name;
-	DescriptionButtons.Title = NStr("ru = 'Поделиться алгоритмом'; en = 'Share algorithm'");
+	DescriptionButtons.Title = NStr("ru = 'Поделиться алгоритмом'; en = 'Share algorithm'; tr = 'Algoritmayı paylaş'");
 	DescriptionButtons.ItemParent = Submenu;
 	DescriptionButtons.Action = "Attachable_ExecuteCodeEditorCommand";
 	//DescriptionButtons.Picture = PictureLib.DataProcessor;
-	DescriptionButtons.ToolTip = NStr("ru = 'Поделиться кодом алгоритма'; en = 'Share algorithm code'");
+	DescriptionButtons.ToolTip = NStr("ru = 'Поделиться кодом алгоритма'; en = 'Share algorithm code'; tr = 'Algoritma kodunu paylaş'");
 	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
 	UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
 	UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);		
@@ -182,11 +182,11 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 	DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameLoadAlgorithm(),
 																			  EditorID);
 	DescriptionButtons.CommandName = DescriptionButtons.Name;
-	DescriptionButtons.Title =  NStr("ru = 'Загрузить алгоритм'; en = 'Download algorithm'");
+	DescriptionButtons.Title =  NStr("ru = 'Загрузить алгоритм'; en = 'Download algorithm'; tr = 'Algoritmayı indir'");
 	DescriptionButtons.ItemParent = Submenu;
 	DescriptionButtons.Action = "Attachable_ExecuteCodeEditorCommand";
 	//DescriptionButtons.Picture = PictureLib.DataProcessor;
-	DescriptionButtons.ToolTip = NStr("ru = 'Загрузить расшаренный код'; en = 'Download shared code'");
+	DescriptionButtons.ToolTip = NStr("ru = 'Загрузить расшаренный код'; en = 'Download shared code'; tr = 'Paylaşılan kodu indir'");
 	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
 	UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
 	UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);		
@@ -212,11 +212,11 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameStartSessionInteractions(),
 																				  EditorID);
 		DescriptionButtons.CommandName = DescriptionButtons.Name;
-		DescriptionButtons.Title = NStr("ru = 'Начать сессию взаимодейтсвия'; en = 'Start an interaction session'");
+		DescriptionButtons.Title = NStr("ru = 'Начать сессию взаимодейтсвия'; en = 'Start an interaction session'; tr = 'Bir etkileşim oturumu başlat'");
 		DescriptionButtons.ItemParent = Submenu;
 		DescriptionButtons.Action = "Attachable_ExecuteCodeEditorCommand";
 	//DescriptionButtons.Picture = PictureLib.DataProcessor;
-		DescriptionButtons.ToolTip = NStr("ru = 'Начать сессию совместного кодинга'; en = 'Start a co-coding session'");
+		DescriptionButtons.ToolTip = NStr("ru = 'Начать сессию совместного кодинга'; en = 'Start a co-coding session'; tr = 'Ortak kodlama oturumu başlatın'");
 	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
 		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
 		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);
@@ -225,11 +225,11 @@ Procedure CreateCodeEditorItems(Form, EditorID, EditorField, EditorEvents = Unde
 		DescriptionButtons.Name = UT_CodeEditorClientServer.CommandBarButtonName(UT_CodeEditorClientServer.CommandNameFinishSessionInteractions(),
 																				  EditorID);
 		DescriptionButtons.CommandName = DescriptionButtons.Name;
-		DescriptionButtons.Title =  NStr("ru = 'Завершить сессию взаимодейтсвия'; en = 'Finish interaction session'");
+		DescriptionButtons.Title =  NStr("ru = 'Завершить сессию взаимодейтсвия'; en = 'Finish interaction session'; tr = 'Etkileşim oturumunu bitir'");
 		DescriptionButtons.ItemParent = Submenu;
 		DescriptionButtons.Action = "Attachable_ExecuteCodeEditorCommand";
 	//DescriptionButtons.Picture = PictureLib.DataProcessor;
-		DescriptionButtons.ToolTip = NStr("ru = 'Завершить сессию совместного кодинга'; en = 'Finish a co-coding session'");
+		DescriptionButtons.ToolTip = NStr("ru = 'Завершить сессию совместного кодинга'; en = 'Finish a co-coding session'; tr = 'Ortak kodlama oturumunu tamamlayın'");
 	//DescriptionButtons.Representation = ButtonRepresentation.Picture;
 		UT_Forms.CreateCommandByDescription(Form, DescriptionButtons);
 		UT_Forms.CreateButtonByDescription(Form, DescriptionButtons);

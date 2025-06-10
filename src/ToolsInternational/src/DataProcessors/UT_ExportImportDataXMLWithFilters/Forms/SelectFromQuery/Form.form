@@ -20,10 +20,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>QueryParameters.ParameterName</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>QueryParameters.ParameterName</segments>
       </dataPath>
       <extendedTooltip>
         <name>QueryParametersParameterNameExtendedTooltip</name>
@@ -72,10 +70,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>QueryParameters.IsExpression</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>QueryParameters.IsExpression</segments>
       </dataPath>
       <toolTip>
         <key>en</key>
@@ -129,10 +125,8 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>QueryParameters.ParameterValue</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>QueryParameters.ParameterValue</segments>
       </dataPath>
       <extendedTooltip>
         <name>QueryParametersParameterValueExtendedTooltip</name>
@@ -215,6 +209,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>QueryParameters</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -253,6 +248,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>QueryParameters</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -292,6 +288,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>QueryParameters</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -352,22 +349,24 @@
     <name>QueryText</name>
     <id>7</id>
     <title>
+      <key>ru</key>
+      <value>Текст запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Текст запроса</value>
+      <key>tr</key>
+      <value>Sorgu metni</value>
     </title>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>DocumentQueryText</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>DocumentQueryText</segments>
     </dataPath>
     <extendedTooltip>
       <name>QueryTextExtendedTooltip</name>
@@ -424,6 +423,10 @@
         <title>
           <key>ru</key>
           <value>Запрос не выполнен</value>
+        </title>
+        <title>
+          <key>tr</key>
+          <value>Sorgu yürütülmedi</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -564,12 +567,16 @@
       <name>FormAddToExportResult</name>
       <id>50</id>
       <title>
+        <key>ru</key>
+        <value>Выбрать результат</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Select result</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Выбрать результат</value>
+        <key>tr</key>
+        <value>Sonuç seç</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -603,12 +610,16 @@
       <name>FormExecute</name>
       <id>14</id>
       <title>
+        <key>ru</key>
+        <value>Выполнить</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Execute</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Выполнить</value>
+        <key>tr</key>
+        <value>Yürüt</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -675,6 +686,7 @@
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -700,12 +712,16 @@
   <attributes>
     <name>DocumentQueryText</name>
     <title>
+      <key>ru</key>
+      <value>Документ текст запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Document query text</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Документ текст запроса</value>
+      <key>tr</key>
+      <value>Sorgu metni belgesi</value>
     </title>
     <id>3</id>
     <valueType>
@@ -721,12 +737,16 @@
   <attributes>
     <name>QueryParameters</name>
     <title>
+      <key>ru</key>
+      <value>Параметры запроса</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Query parameters</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Параметры запроса</value>
+      <key>tr</key>
+      <value>Sorgu parametreleri</value>
     </title>
     <id>4</id>
     <valueType>
@@ -741,12 +761,16 @@
     <columns>
       <name>ParameterName</name>
       <title>
+        <key>ru</key>
+        <value>Имя параметра</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Parameter name</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Имя параметра</value>
+        <key>tr</key>
+        <value>Parametre adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -763,12 +787,16 @@
     <columns>
       <name>ParameterValue</name>
       <title>
+        <key>ru</key>
+        <value>Значение параметра</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Parameter value</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Значение параметра</value>
+        <key>tr</key>
+        <value>Parametre değeri</value>
       </title>
       <id>2</id>
       <valueType/>
@@ -782,12 +810,16 @@
     <columns>
       <name>IsExpression</name>
       <title>
+        <key>ru</key>
+        <value>В</value>
+      </title>
+      <title>
         <key>en</key>
         <value>In</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>В</value>
+        <key>tr</key>
+        <value>İçinde</value>
       </title>
       <id>3</id>
       <valueType>
@@ -803,12 +835,16 @@
     <columns>
       <name>ParameterType</name>
       <title>
+        <key>ru</key>
+        <value>Тип параметра</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Parameter type</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Тип параметра</value>
+        <key>tr</key>
+        <value>Parametre tipi</value>
       </title>
       <id>4</id>
       <valueType>
@@ -825,12 +861,16 @@
   <formCommands>
     <name>ExecuteQuery</name>
     <title>
+      <key>ru</key>
+      <value>Выполнить запрос</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Execute query</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выполнить запрос</value>
+      <key>tr</key>
+      <value>Sorguyu yürüt</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -858,12 +898,16 @@
   <formCommands>
     <name>FillParameters</name>
     <title>
+      <key>ru</key>
+      <value>Заполнить параметры</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Fill parameters</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Заполнить параметры</value>
+      <key>tr</key>
+      <value>Parametreleri doldur</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -891,12 +935,16 @@
   <formCommands>
     <name>AddToExportResult</name>
     <title>
+      <key>ru</key>
+      <value>Добавить в результат выгрузки</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Add to export result</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Добавить в результат выгрузки</value>
+      <key>tr</key>
+      <value>İndirme sonucuna ekle</value>
     </title>
     <id>3</id>
     <toolTip>

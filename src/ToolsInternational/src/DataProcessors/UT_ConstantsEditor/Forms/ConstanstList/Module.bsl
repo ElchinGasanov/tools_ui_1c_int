@@ -104,7 +104,7 @@ EndProcedure
 Procedure Reread(Command)
 	If IsChangedConstants() Then
 		ShowQueryBox(New NotifyDescription("RereadEnd", ThisObject),
-		NStr("en = 'Some constants has changed. Write changed before rereading?'; ru = 'Есть измененные константы. Произвести запись перед чтением?'"), QuestionDialogMode.YesNoCancel);
+		NStr("ru = 'Есть измененные константы. Произвести запись перед чтением?'; en = 'Some constants has changed. Write changed before rereading?'; tr = 'Bazı sabitler değişti. Yeniden okumadan önce değişiklikler kaydedilsin mi?'"), QuestionDialogMode.YesNoCancel);
 	Иначе
 		ReadConstants();
 	EndIf;

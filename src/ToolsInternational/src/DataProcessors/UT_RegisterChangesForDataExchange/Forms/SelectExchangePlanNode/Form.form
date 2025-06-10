@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
+    <key>ru</key>
+    <value>Выбор узла плана обмена</value>
+  </title>
+  <title>
     <key>en</key>
     <value>Select exchange plan node</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Выбор узла плана обмена</value>
+    <key>tr</key>
+    <value>Alışveriş planı düğümünü seçilmesi</value>
   </title>
   <items xsi:type="form:Table">
     <name>ExchangeNodesTree</name>
@@ -52,10 +56,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ExchangeNodesTree.Check</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ExchangeNodesTree.Check</segments>
         </dataPath>
         <titleLocation>None</titleLocation>
         <handlers>
@@ -108,10 +110,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>ExchangeNodesTree.Description</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ExchangeNodesTree.Description</segments>
         </dataPath>
         <extendedTooltip>
           <name>ExchangeNodesTreeCodeDescriptionExtendedTooltip</name>
@@ -155,12 +155,16 @@
         <common>true</common>
       </userVisible>
       <title>
+        <key>ru</key>
+        <value>Описание узла</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Node description</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Описание узла</value>
+        <key>tr</key>
+        <value>Düğüm açıklaması</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -195,22 +199,24 @@
       <name>ExchangeNodesTreeCode</name>
       <id>31</id>
       <title>
+        <key>ru</key>
+        <value>Код</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Code</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Код</value>
+        <key>tr</key>
+        <value>Kod</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:MultiLanguageDataPath">
-        <paths xsi:type="form:DataPath">
-          <segments>ExchangeNodesTree.Code</segments>
-        </paths>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ExchangeNodesTree.Code</segments>
       </dataPath>
       <extendedTooltip>
         <name>ExchangeNodesTreeCodeExtendedTooltip</name>
@@ -295,6 +301,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>ExchangeNodesTree</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -333,6 +340,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>ExchangeNodesTree</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -372,6 +380,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>ExchangeNodesTree</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -398,12 +407,16 @@
         <name>ExchangeNodesTreeContextMenuSelectNode</name>
         <id>27</id>
         <title>
+          <key>ru</key>
+          <value>Выбрать узел</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Select node</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Выбрать узел</value>
+          <key>tr</key>
+          <value>Düğüm seç</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -439,12 +452,16 @@
         <name>ExchangeNodesTreeContextMenuChangeNode</name>
         <id>28</id>
         <title>
+          <key>ru</key>
+          <value>Изменить узел</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Change node</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Изменить узел</value>
+          <key>tr</key>
+          <value>Düğüm değiştir</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -715,6 +732,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -725,6 +743,10 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_RegisterChangesForDataExchange</types>
@@ -740,12 +762,16 @@
   <attributes>
     <name>ExchangeNodesTree</name>
     <title>
+      <key>ru</key>
+      <value>Дерево узлов обмена</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Exchange nodes tree</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Дерево узлов обмена</value>
+      <key>tr</key>
+      <value>Alışveriş düğümleri ağacı</value>
     </title>
     <id>2</id>
     <valueType>
@@ -760,12 +786,16 @@
     <columns>
       <name>Description</name>
       <title>
+        <key>ru</key>
+        <value>Узел обмена</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Exchange node</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Узел обмена</value>
+        <key>tr</key>
+        <value>Alışveriş düğümü</value>
       </title>
       <id>1</id>
       <valueType>
@@ -782,12 +812,16 @@
     <columns>
       <name>PictureIndex</name>
       <title>
+        <key>ru</key>
+        <value>Индекс картинки</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Picture index</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Индекс картинки</value>
+        <key>tr</key>
+        <value>Resim endeksi</value>
       </title>
       <id>8</id>
       <valueType>
@@ -807,6 +841,14 @@
         <key>ru</key>
         <value>Check</value>
       </title>
+      <title>
+        <key>en</key>
+        <value>Check</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İşaret</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>Number</types>
@@ -824,12 +866,16 @@
     <columns>
       <name>Ref</name>
       <title>
+        <key>ru</key>
+        <value>Ссылка</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Ref</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Ссылка</value>
+        <key>tr</key>
+        <value>Referans</value>
       </title>
       <id>4</id>
       <valueType>
@@ -845,12 +891,16 @@
     <columns>
       <name>Code</name>
       <title>
+        <key>ru</key>
+        <value>Код</value>
+      </title>
+      <title>
         <key>en</key>
         <value>Code</value>
       </title>
       <title>
-        <key>ru</key>
-        <value>Код</value>
+        <key>tr</key>
+        <value>Kod</value>
       </title>
       <id>2</id>
       <valueType>
@@ -868,12 +918,16 @@
   <attributes>
     <name>MultipleChoice</name>
     <title>
+      <key>ru</key>
+      <value>Множественный выбор</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Multiple choice</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Множественный выбор</value>
+      <key>tr</key>
+      <value>Çoklu seçim</value>
     </title>
     <id>3</id>
     <valueType>
@@ -889,12 +943,16 @@
   <formCommands>
     <name>SelectNode</name>
     <title>
+      <key>ru</key>
+      <value>Выбрать</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Select</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выбрать</value>
+      <key>tr</key>
+      <value>Seç</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -921,12 +979,16 @@
   <formCommands>
     <name>ChangeNode</name>
     <title>
+      <key>ru</key>
+      <value>Изменить</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Change</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Изменить</value>
+      <key>tr</key>
+      <value>Düzenle</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -954,12 +1016,16 @@
   <formCommands>
     <name>EditObject</name>
     <title>
+      <key>ru</key>
+      <value>Редактировать объект</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Edit object</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Редактировать объект</value>
+      <key>tr</key>
+      <value>Nesneyi düzenle</value>
     </title>
     <id>3</id>
     <use>

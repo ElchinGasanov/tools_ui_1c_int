@@ -57,16 +57,15 @@ Function ExternalDataProcessorInfo() Export
 
 	RegistrationParameters.Insert("Kind", "AdditionalDataProcessor");
 	RegistrationParameters.Insert("Purpose", Undefined);
-	RegistrationParameters.Insert("Description", NStr("ru = 'Загрузка данных из табличного документа'; en = 'Import data from spreadsheet document'"));
+	RegistrationParameters.Insert("Description", NStr("ru = 'Загрузка данных из табличного документа'; en = 'Import data from spreadsheet document'; tr = 'E-tablo belgesinden veri aktarımı'"));
 	RegistrationParameters.Insert("Version", "1.4");
 	RegistrationParameters.Insert("SafeMode", False);
 	RegistrationParameters.Insert("Information", NStr(
-		"ru = 'Обработка используется для загрузки данных в справочники, табличные части документов и справочников, а также в регистры сведений из табличного документа в формате Excel, MXL, DBF, txt.';
-		|en = 'The data processor is used to import data into catalogs, tabular sections of documents and catalogs, as well as into information registers from a spreadsheet document in Excel, MXL, DBF, txt format.'"));
+		"ru = 'Обработка используется для загрузки данных в справочники, табличные части документов и справочников, а также в регистры сведений из табличного документа в формате Excel, MXL, DBF, txt.'; en = 'The data processor is used to import data into catalogs, tabular sections of documents and catalogs, as well as into information registers from a spreadsheet document in Excel, MXL, DBF, txt format.'; tr = 'Veri işlemcisi, Excel, MXL, DBF, txt formatındaki elektronik tablo belgelerinden kataloglara, belgelerin ve katalogların tablo bölümlerine ve bilgi kayıt tablolarına veri aktarmak için kullanılır.'"));
 
 	CommandTable = GetCommandTable();
 
-	AddCommand(CommandTable, NStr("ru = 'Загрузка из табличного документа'; en = 'Import from spreadsheet document'"),
+	AddCommand(CommandTable, NStr("ru = 'Загрузка из табличного документа'; en = 'Import from spreadsheet document'; tr = 'Elektronik tablo belgesinden aktarım'"),
 		"Opening_ImportDataFromSpreadsheetDocument_" + StrReplace(RegistrationParameters.Version, ".", "_"),
 		"FormOpening");
 

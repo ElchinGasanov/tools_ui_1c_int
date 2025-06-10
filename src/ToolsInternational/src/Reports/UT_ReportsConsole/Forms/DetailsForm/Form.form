@@ -4,6 +4,10 @@
     <key>ru</key>
     <value>Расшифровка</value>
   </title>
+  <title>
+    <key>tr</key>
+    <value>Deşifre</value>
+  </title>
   <items xsi:type="form:FormGroup">
     <name>MainCommandBar</name>
     <id>5</id>
@@ -48,6 +52,10 @@
       <title>
         <key>en</key>
         <value>Settings</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Ayarlar</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -103,11 +111,11 @@
       </extendedTooltip>
       <commandName>Form.StandardCommand.NewWindow</commandName>
       <representation>Auto</representation>
-      <onlyInAllActions>true</onlyInAllActions>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
+      <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
     </items>
     <items xsi:type="form:Button">
       <name>ChangeForm</name>
@@ -135,11 +143,11 @@
       </extendedTooltip>
       <commandName>Form.StandardCommand.CustomizeForm</commandName>
       <representation>Auto</representation>
-      <onlyInAllActions>true</onlyInAllActions>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
+      <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
     </items>
     <items xsi:type="form:Button">
       <name>Help</name>
@@ -167,11 +175,11 @@
       </extendedTooltip>
       <commandName>Form.StandardCommand.Help</commandName>
       <representation>Auto</representation>
-      <onlyInAllActions>false</onlyInAllActions>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
+      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
     </items>
     <items xsi:type="form:Button">
       <name>ChangeVariant</name>
@@ -179,6 +187,10 @@
       <title>
         <key>en</key>
         <value>ChangeVariant</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Varyantı Değiştir</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -297,6 +309,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>SettingsComposerUserSettings</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -335,6 +348,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>SettingsComposerUserSettings</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -374,6 +388,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>SettingsComposerUserSettings</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -435,10 +450,8 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>Result</segments>
-      </paths>
+    <dataPath xsi:type="form:DataPath">
+      <segments>Result</segments>
     </dataPath>
     <defaultItem>true</defaultItem>
     <titleLocation>None</titleLocation>
@@ -487,6 +500,7 @@
       <verticalScrollBar>ScrollAlways</verticalScrollBar>
       <horizontalScrollBar>ScrollAlways</horizontalScrollBar>
       <selectionShowMode>Always</selectionShowMode>
+      <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
       <showGroups>true</showGroups>
       <enableStartDrag>true</enableStartDrag>
       <enableDrag>true</enableDrag>
@@ -507,6 +521,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -520,6 +535,10 @@
     <title>
       <key>en</key>
       <value>Report</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Rapor</value>
     </title>
     <id>1</id>
     <valueType>
@@ -543,6 +562,10 @@
       <key>en</key>
       <value>Result</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Sonuç</value>
+    </title>
     <id>3</id>
     <valueType>
       <types>SpreadsheetDocument</types>
@@ -564,6 +587,10 @@
     <title>
       <key>en</key>
       <value>Details data URL</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayrıntılı veri URL'si</value>
     </title>
     <id>4</id>
     <valueType>
@@ -587,6 +614,10 @@
       <key>en</key>
       <value>Executed report schema URL</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Yürütülen rapor şeması URL'si</value>
+    </title>
     <id>5</id>
     <valueType>
       <types>String</types>
@@ -609,6 +640,10 @@
       <key>en</key>
       <value>Details form name</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Ayrıntılı veri ismi</value>
+    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -624,12 +659,16 @@
   <formCommands>
     <name>ChangeVariant</name>
     <title>
+      <key>ru</key>
+      <value>Изменить вариант...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Change variant...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Изменить вариант...</value>
+      <key>tr</key>
+      <value>Varyantı değiştir...</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -655,6 +694,10 @@
     <title>
       <key>en</key>
       <value>Generate</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Oluştur</value>
     </title>
     <id>2</id>
     <toolTip>

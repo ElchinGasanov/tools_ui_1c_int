@@ -146,7 +146,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>FixedSettingsFilterSearchString</source>
+          <source>FixedSettingsFilter</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -185,7 +185,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>FixedSettingsFilterViewStatus</source>
+          <source>FixedSettingsFilter</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -224,7 +224,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>FixedSettingsFilterSearchControl</source>
+          <source>FixedSettingsFilter</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -290,6 +290,10 @@
       <title>
         <key>en</key>
         <value>Fixed settings</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Sabit ayarlar</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -380,7 +384,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>SettingsFilterSearchString</source>
+          <source>SettingsFilter</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -419,7 +423,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>SettingsFilterViewStatus</source>
+          <source>SettingsFilter</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -458,7 +462,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>SettingsFilterSearchControl</source>
+          <source>SettingsFilter</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -526,6 +530,10 @@
       <title>
         <key>en</key>
         <value>Standart settings</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Standart ayarlar</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -598,6 +606,7 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <autoFillCheck>true</autoFillCheck>
@@ -611,6 +620,10 @@
     <title>
       <key>en</key>
       <value>Settings composer</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Ayarlar composeri</value>
     </title>
     <id>1</id>
     <valueType>

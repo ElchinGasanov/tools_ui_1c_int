@@ -12,7 +12,7 @@ Procedure SetParameterName(Command)
 	ParameterName=TrimAll(ParameterName);
 	If ParameterNameHasErrors(ParameterName) Then
 		Message = New UserMessage;
-		Message.Text = NSTR("ru = 'Введите наименование параметра';en = 'Input parameter name'");
+		Message.Text = NSTR("ru = 'Введите наименование параметра'; en = 'Input parameter name'; tr = 'Giriş parametresi adı'");
 		Message.Field = "ParameterName";
 		Message.Message();
 	Else
@@ -21,7 +21,7 @@ Procedure SetParameterName(Command)
 			Notify("ParameterChanged");
 			Close();
 		Else 
-			ThisObject.Title= StrTemplate(NSTR("ru = 'Новый параметр';en = 'New parameter'"),ParameterName);
+			ThisObject.Title= StrTemplate(NSTR("ru = 'Новый параметр'; en = 'New parameter'; tr = 'Yeni parametre'"),ParameterName);
 			FormItemsVisibilityManaging("SelectedType", False);
 		EndIf;
 	EndIf;
@@ -46,10 +46,10 @@ EndProcedure
 &AtClient
 Procedure ExternalFileStartChoice(Item, ChoiceData, StandardProcessing)
 	StandardProcessing=False;
-	Dialog = New FileDialog(FileDialogMode.Opening);
-	Dialog.Title = NSTR("ru = 'Выберите файл';en = 'Choose file'");
+	Dialog = New FileDialog(FileDialogMode.Open);
+	Dialog.Title = NSTR("ru = 'Выберите файл'; en = 'Choose file'; tr = 'Dosya seçin'");
 	Dialog.FullFileName = "";
-	Filter =NSTR("ru = 'Все файлы  (*.*)|*.*';en = 'All files (*.*)|*.*'");
+	Filter =NSTR("ru = 'Все файлы  (*.*)|*.*'; en = 'All files (*.*)|*.*'; tr = 'Tüm dosyalar (*.*)|*.*'");
 	Dialog.Filter = Filter;
 	Dialog.Multiselect = False;
 	Dialog.Show(New NotifyDescription("ExternalFileStartChoiceOnEnd", ThisObject));
@@ -113,15 +113,15 @@ EndProcedure
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	If IsBlankString(Parameters.ParameterName) Then
-		ThisObject.Title=NStr("ru = 'Новый параметр';en = 'New parameter'");
+		ThisObject.Title=NStr("ru = 'Новый параметр'; en = 'New parameter'; tr = 'Yeni parametre'");
 		FormItemsVisibilityManaging("Title", False);
 	ElsIf Parameters.Rename Then
-		ThisObject.Title=StrTemplate("%1 :%2",Parameters.ParameterName,NSTR("ru = 'Новое имя параметра';en = 'New parameter name'"));
+		ThisObject.Title=StrTemplate("%1 :%2",Parameters.ParameterName,NSTR("ru = 'Новое имя параметра'; en = 'New parameter name'; tr = 'Yeni parametre adı'"));
 		ParameterName=Parameters.ParameterName;
 		FormItemsVisibilityManaging("Title");
 	Else
 		ParameterName=Parameters.ParameterName;
-		ThisObject.Title=StrTemplate("%1 :%2",Parameters.ParameterName,NSTR("ru = 'Изменение параметра';en = 'Changing  parameter'"));;
+		ThisObject.Title=StrTemplate("%1 :%2",Parameters.ParameterName,NSTR("ru = 'Изменение параметра'; en = 'Changing  parameter'; tr = 'Parametre değiştirme'"));;
 		OnParameterChangeAction();
 	EndIf;
 EndProcedure
@@ -198,7 +198,7 @@ EndProcedure
 Procedure AddColumn(Command)
 	ColumnName="";
 	ShowInputValue(New NotifyDescription("AddColumnEnd", ThisObject, New Structure("ColumnName",
-		ColumnName)), ColumnName, Nstr("ru = 'Введите имя новой колонки';en = 'Input name of new column'"), "String");
+		ColumnName)), ColumnName, Nstr("ru = 'Введите имя новой колонки'; en = 'Input name of new column'; tr = 'Yeni sütunun giriş adı'"), "String");
 EndProcedure
 
 &AtClient
@@ -229,10 +229,10 @@ Procedure DeleteColumn(Command)
 	ColumnName=Items.CollectionParameter.CurrentItem.Name;
 	If Items.CollectionParameter.CurrentItem <> Undefined Then
 		ShowQueryBox(New NotifyDescription("DeleteColumnEnd", ThisObject, New Structure("ColumnName",
-			ColumnName)),StrTemplate("%1 %2 ?",NStr("ru = 'Вы уверены , что хотите изменить удалить колонку';en = 'Are you sure you want to change delete column'"),ColumnName) ,
+			ColumnName)),StrTemplate("%1 %2 ?",NStr("ru = 'Вы уверены , что хотите изменить удалить колонку'; en = 'Are you sure you want to change delete column'; tr = 'Sil sütununu değiştirmek istediğinizden emin misiniz?'"),ColumnName) ,
 			QuestionDialogMode.YesNo);
 	Else
-		ShowMessageBox(Undefined, NSTR("ru = 'Нужно выбрать колонку таблицы !';en = 'You need to select a table column !'"));
+		ShowMessageBox(Undefined, NSTR("ru = 'Нужно выбрать колонку таблицы !'; en = 'You need to select a table column !'; tr = 'Bir tablo sütunu seçmeniz gerekiyor!'"));
 	EndIf;
 EndProcedure
 

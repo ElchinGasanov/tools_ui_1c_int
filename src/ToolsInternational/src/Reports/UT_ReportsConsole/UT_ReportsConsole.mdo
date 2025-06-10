@@ -6,16 +6,16 @@
   </producedTypes>
   <name>UT_ReportsConsole</name>
   <synonym>
-    <key></key>
-    <value>U t reports console</value>
+    <key>ru</key>
+    <value>Консоль отчетов [УИ]</value>
   </synonym>
   <synonym>
     <key>en</key>
     <value>Reports console [UT]</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>Консоль отчетов [УИ]</value>
+    <key>tr</key>
+    <value>Raporlar konsolu [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>Report.UT_ReportsConsole.Form.Form</defaultForm>
@@ -24,6 +24,10 @@
     <name>Form</name>
     <synonym>
       <key>ru</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
       <value>Form</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
@@ -35,6 +39,10 @@
       <key>ru</key>
       <value>Details form</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Detay formu</value>
+    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
@@ -44,6 +52,10 @@
       <key>ru</key>
       <value>Variant form</value>
     </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Varyant formu</value>
+    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
@@ -52,6 +64,10 @@
     <synonym>
       <key>ru</key>
       <value>Main data composition schema</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Ana veri kompozisyon şeması</value>
     </synonym>
     <templateType>DataCompositionSchema</templateType>
   </templates>

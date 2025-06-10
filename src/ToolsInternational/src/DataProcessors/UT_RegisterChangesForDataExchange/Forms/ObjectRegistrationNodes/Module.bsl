@@ -30,7 +30,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		RegistrationTable = "";
 		ObjectAsString = RegistrationObject;
 	EndIf;
-	Title = NStr("ru = 'Регистрация '; en = 'Registration'") + CurrentObject.RefPresentation(ObjectAsString) + Details;
+	Title = NStr("ru = 'Регистрация '; en = 'Registration'; tr = 'Kayıt'") + CurrentObject.RefPresentation(ObjectAsString) + Details;
 
 	ReadExchangeNodes();
 EndProcedure
@@ -58,7 +58,7 @@ Procedure ExchangeNodeTreeSelection(Item, RowSelected, Field, StandardProcessing
 	Notification = New NotifyDescription("ExchangeNodeTreeChoiceCompletion", ThisObject, New Structure);
 	Notification.AdditionalParameters.Insert("Node", CurrentData.Ref);
 	
-	Tooltip = NStr("ru = 'Номер отправленного'; en = 'Number of the last sent message'"); 
+	Tooltip = NStr("ru = 'Номер отправленного'; en = 'Number of the last sent message'; tr = 'Son gönderilen mesajın numarası'"); 
 	ShowInputNumber(Notification, CurrentData.MessageNo, Tooltip);
 EndProcedure
 
@@ -112,11 +112,10 @@ EndProcedure
 &AtClient
 Procedure EditRegistration(Command)
 	
-	QuestionTitle = NStr("ru = 'Подтверждение'; en = 'Confirm operation'");
+	QuestionTitle = NStr("ru = 'Подтверждение'; en = 'Confirm operation'; tr = 'Onay'");
 	Text = NStr("ru = 'Изменить регистрацию ""%1""
-	             |на узлах?'; 
-	             |en = 'Do you want to change %1 registration
-	             |at all nodes?'");
+								 |на узлах?'; en = 'Do you want to change %1 registration
+								 |at all nodes?'; tr = 'Tüm düğümlerdeki %1 kaydını değiştirmek istiyor musunuz?'");
 	
 	Text = StrReplace(Text, "%1", RegistrationObject);
 	
@@ -133,8 +132,8 @@ Procedure EditRegistrationCompletion(Val QuestionResult, Val AdditionalParameter
 	
 	Count = NodeRegistrationEdit(ExchangeNodesTree);
 	If Count > 0 Then
-		Text = NStr("ru = 'Регистрация %1 была изменена на %2 узлах'; en = 'Registration of %1 changed at %2 nodes.'");
-		NotificationTitle = NStr("ru = 'Изменение регистрации:'; en = 'Registration changed:'");
+		Text = NStr("ru = 'Регистрация %1 была изменена на %2 узлах'; en = 'Registration of %1 changed at %2 nodes.'; tr = '%1 kaydı %2 düğümünde değişti.'");
+		NotificationTitle = NStr("ru = 'Изменение регистрации:'; en = 'Registration changed:'; tr = 'Kayıt değişikliği:'");
 		
 		Text = StrReplace(Text, "%1", RegistrationObject);
 		Text = StrReplace(Text, "%2", Count);

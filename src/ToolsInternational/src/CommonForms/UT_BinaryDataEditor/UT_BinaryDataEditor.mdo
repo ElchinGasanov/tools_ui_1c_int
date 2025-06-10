@@ -5,6 +5,14 @@
     <key>ru</key>
     <value>Binary Data Editor</value>
   </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Binary Data Editor</value>
+  </synonym>
+  <synonym>
+    <key>tr</key>
+    <value>İkili Veri Düzenleyicisi</value>
+  </synonym>
   <usePurposes>PersonalComputer</usePurposes>
   <usePurposes>MobileDevice</usePurposes>
 </mdclass:CommonForm>

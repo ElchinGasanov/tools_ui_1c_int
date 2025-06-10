@@ -349,11 +349,11 @@
         </extendedTooltip>
         <commandName>Form.Item.Список.StandardCommand.Copy</commandName>
         <representation>Picture</representation>
-        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>СписокИзменить</name>
@@ -380,11 +380,11 @@
         </extendedTooltip>
         <commandName>Form.Item.Список.StandardCommand.Change</commandName>
         <representation>Auto</representation>
-        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>СписокУдалить</name>
@@ -411,11 +411,11 @@
         </extendedTooltip>
         <commandName>Form.Item.Список.StandardCommand.Delete</commandName>
         <representation>Picture</representation>
-        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>СписокПеречитать</name>
@@ -455,16 +455,16 @@
       <horizontalAlign>Left</horizontalAlign>
     </autoCommandBar>
     <handlers>
-      <event>BeforeRowChange</event>
-      <name>СписокПередНачаломИзменения</name>
+      <event>Selection</event>
+      <name>СписокВыбор</name>
     </handlers>
     <handlers>
       <event>BeforeAddRow</event>
       <name>СписокПередНачаломДобавления</name>
     </handlers>
     <handlers>
-      <event>Selection</event>
-      <name>СписокВыбор</name>
+      <event>BeforeRowChange</event>
+      <name>СписокПередНачаломИзменения</name>
     </handlers>
     <searchStringAddition>
       <visible>true</visible>
@@ -499,7 +499,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>СписокСтрокаПоиска</source>
+      <source>Список</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -538,7 +538,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>СписокСостояниеПросмотра</source>
+      <source>Список</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -577,7 +577,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>СписокУправлениеПоиском</source>
+      <source>Список</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -629,6 +629,10 @@
   <items xsi:type="form:FormField">
     <name>СписокТекстАлгоритма</name>
     <id>50</id>
+    <title>
+      <key>tr</key>
+      <value>Algoritma metni</value>
+    </title>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -691,6 +695,7 @@
     <event>OnCreateAtServer</event>
     <name>ПриСозданииНаСервере</name>
   </handlers>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -704,6 +709,10 @@
     <title>
       <key>ru</key>
       <value>Список</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Liste</value>
     </title>
     <id>1</id>
     <valueType>
@@ -720,6 +729,14 @@
       <title>
         <key>ru</key>
         <value>Идентификатор</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>İD</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İD</value>
       </title>
       <id>2</id>
       <valueType>
@@ -739,6 +756,10 @@
         <key>ru</key>
         <value>Наименование</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Ad</value>
+      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -756,6 +777,10 @@
       <title>
         <key>ru</key>
         <value>Комментарий</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Yorum</value>
       </title>
       <id>4</id>
       <valueType>
@@ -775,6 +800,10 @@
         <key>ru</key>
         <value>Текст алгоритма</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Algoritma kodu</value>
+      </title>
       <id>5</id>
       <valueType>
         <types>String</types>
@@ -793,6 +822,10 @@
         <key>ru</key>
         <value>Кэшировать</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Önbellek</value>
+      </title>
       <id>6</id>
       <valueType>
         <types>Boolean</types>
@@ -809,6 +842,10 @@
       <title>
         <key>ru</key>
         <value>Записывать ошибки ВЖР</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Hataları log-a kaydet</value>
       </title>
       <id>7</id>
       <valueType>
@@ -827,6 +864,10 @@
         <key>ru</key>
         <value>На клиенте</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>İstemcide</value>
+      </title>
       <id>8</id>
       <valueType>
         <types>Boolean</types>
@@ -843,6 +884,10 @@
       <title>
         <key>ru</key>
         <value>Выбрасывать исключение</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>İstisna</value>
       </title>
       <id>9</id>
       <valueType>
@@ -861,6 +906,10 @@
         <key>ru</key>
         <value>Выполнять в транзакции</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>İşlemi içinde çalıştır</value>
+      </title>
       <id>10</id>
       <valueType>
         <types>Boolean</types>
@@ -877,6 +926,10 @@
       <title>
         <key>ru</key>
         <value>Идентификатор HTTP</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>HTTP ID</value>
       </title>
       <id>11</id>
       <valueType>
@@ -896,6 +949,10 @@
         <key>ru</key>
         <value>Идентификатор регламентного задания</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Düzenli görev kimliği</value>
+      </title>
       <id>12</id>
       <valueType>
         <types>String</types>
@@ -913,6 +970,10 @@
       <title>
         <key>ru</key>
         <value>Выполнять по расписанию</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Zamanlanmış olarak çalıştır</value>
       </title>
       <id>13</id>
       <valueType>
@@ -932,6 +993,10 @@
       <key>ru</key>
       <value>Объект</value>
     </title>
+    <title>
+      <key>tr</key>
+      <value>Object</value>
+    </title>
     <id>14</id>
     <valueType>
       <types>DataProcessorObject.UT_Algorithms2</types>
@@ -949,6 +1014,14 @@
     <title>
       <key>ru</key>
       <value>Перечитать</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Read</value>
+    </title>
+    <title>
+      <key>tr</key>
+      <value>Tekrar oku</value>
     </title>
     <id>1</id>
     <use>

@@ -130,11 +130,11 @@
         </extendedTooltip>
         <commandName>Form.Command.EditInExternalApplication</commandName>
         <representation>Auto</representation>
-        <onlyInAllActions>true</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -484,11 +484,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.Font</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>IncreaseFontSize</name>
@@ -610,11 +610,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.Bold</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SpreadsheetDocumentItalic</name>
@@ -641,11 +641,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.Italic</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SpreadsheetDocumentUnderline</name>
@@ -672,11 +672,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.Underline</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>Strikeout</name>
@@ -703,11 +703,11 @@
             </extendedTooltip>
             <commandName>Form.Command.Strikeout</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>true</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -769,11 +769,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.AlignLeft</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SpreadsheetDocumentAlignCenter</name>
@@ -800,11 +800,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.AlignCenter</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SpreadsheetDocumentAlignRight</name>
@@ -831,11 +831,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.AlignRight</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SpreadsheetDocumentAlignJustify</name>
@@ -862,11 +862,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.AlignJustify</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -926,11 +926,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BackColor</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SpreadsheetDocumentTextColor</name>
@@ -957,11 +957,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.TextColor</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SpreadsheetDocumentBorderColor</name>
@@ -988,11 +988,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderColor</commandName>
             <representation>Auto</representation>
-            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1082,11 +1082,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderLeft</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentBorderTop</name>
@@ -1113,11 +1113,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderTop</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentBorderRight</name>
@@ -1144,11 +1144,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderRight</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentBorderBottom</name>
@@ -1175,11 +1175,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderBottom</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentBorderAll</name>
@@ -1206,11 +1206,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderAll</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentBorderOutline</name>
@@ -1237,11 +1237,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderOutline</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentBorderInside</name>
@@ -1268,11 +1268,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderInside</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentThickBorderOutline</name>
@@ -1299,11 +1299,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.ThickBorderOutline</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentThickBorderTop</name>
@@ -1330,11 +1330,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.ThickBorderTop</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentThickBorderBottom</name>
@@ -1361,11 +1361,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.ThickBorderBottom</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>SpreadsheetDocumentBorderNone</name>
@@ -1392,11 +1392,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.BorderNone</commandName>
           <representation>Auto</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1459,11 +1459,11 @@
           </extendedTooltip>
           <commandName>Form.Item.SpreadsheetDocument.StandardCommand.Merge</commandName>
           <representation>Picture</representation>
-          <onlyInAllActions>false</onlyInAllActions>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1604,6 +1604,10 @@
         <key>ru</key>
         <value>Картинка предупреждения</value>
       </title>
+      <title>
+        <key>tr</key>
+        <value>Uyarı resmi</value>
+      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -1648,6 +1652,10 @@
       <title>
         <key>ru</key>
         <value>Изменение имен областей, а также параметров макета может привести к потере работоспособности печатной формы.</value>
+      </title>
+      <title>
+        <key>tr</key>
+        <value>Alan adlarının veya şablon parametrelerinin değiştirilmesi formun işlevselliğinin kaybolmasına yol açabilir.</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -1736,10 +1744,6 @@
       <dataPath xsi:type="form:DataPath">
         <segments>DistributedTemplate</segments>
       </dataPath>
-      <handlers>
-        <event>OnActivate</event>
-        <name>ПоставляемыйМакетПриАктивизации</name>
-      </handlers>
       <extendedTooltip>
         <name>DistributedTemplateExtendedTooltip</name>
         <id>271</id>
@@ -1772,7 +1776,7 @@
       <showInFooter>true</showInFooter>
       <extInfo xsi:type="form:SpreadSheetDocFieldExtInfo">
         <handlers>
-          <event>OnActivateArea</event>
+          <event>OnActivate</event>
           <name>DistributedTemplateOnActivate</name>
         </handlers>
         <width>50</width>
@@ -1789,6 +1793,7 @@
         <verticalScrollBar>ScrollAuto</verticalScrollBar>
         <horizontalScrollBar>ScrollAuto</horizontalScrollBar>
         <selectionShowMode>Always</selectionShowMode>
+        <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
         <showGroups>true</showGroups>
         <enableStartDrag>true</enableStartDrag>
         <enableDrag>true</enableDrag>
@@ -1814,10 +1819,6 @@
         <segments>SpreadsheetDocument</segments>
       </dataPath>
       <titleLocation>None</titleLocation>
-      <handlers>
-        <event>OnActivate</event>
-        <name>ТабличныйДокументПриАктивизации</name>
-      </handlers>
       <extendedTooltip>
         <name>SpreadsheetDocumentExtendedTooltip</name>
         <id>144</id>
@@ -1850,7 +1851,7 @@
       <showInFooter>true</showInFooter>
       <extInfo xsi:type="form:SpreadSheetDocFieldExtInfo">
         <handlers>
-          <event>OnActivateArea</event>
+          <event>OnActivate</event>
           <name>SpreadsheetDocumentOnActivate</name>
         </handlers>
         <width>50</width>
@@ -1865,6 +1866,7 @@
         <verticalScrollBar>ScrollAlways</verticalScrollBar>
         <horizontalScrollBar>ScrollAlways</horizontalScrollBar>
         <selectionShowMode>Always</selectionShowMode>
+        <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
         <edit>true</edit>
         <showGroups>true</showGroups>
         <enableStartDrag>true</enableStartDrag>
@@ -1937,6 +1939,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -2056,12 +2059,16 @@
   <attributes>
     <name>DistributedTemplate</name>
     <title>
+      <key>ru</key>
+      <value>Поставляемый макет</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Distributed template</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Поставляемый макет</value>
+      <key>tr</key>
+      <value>Sunulan şablon</value>
     </title>
     <id>8</id>
     <valueType>
@@ -2108,12 +2115,16 @@
   <formCommands>
     <name>WriteAndClose</name>
     <title>
+      <key>ru</key>
+      <value>Записать и закрыть</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Write and close</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Записать и закрыть</value>
+      <key>tr</key>
+      <value>Kaydet ve kapat</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -2137,12 +2148,16 @@
   <formCommands>
     <name>Edit</name>
     <title>
+      <key>ru</key>
+      <value>Редактирование</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Edit</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Редактирование</value>
+      <key>tr</key>
+      <value>Düzenlemek</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -2170,12 +2185,16 @@
   <formCommands>
     <name>IncreaseFontSize</name>
     <title>
+      <key>ru</key>
+      <value>Увеличить размер шрифта</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Increase font size</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Увеличить размер шрифта</value>
+      <key>tr</key>
+      <value>Yazı tipi boyutunu büyüt</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -2200,12 +2219,16 @@
   <formCommands>
     <name>DecreaseFontSize</name>
     <title>
+      <key>ru</key>
+      <value>Уменьшить размер шрифта</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Decrease font size</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Уменьшить размер шрифта</value>
+      <key>tr</key>
+      <value>Yazı tipi boyutunu küçült</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -2230,12 +2253,16 @@
   <formCommands>
     <name>Write</name>
     <title>
+      <key>ru</key>
+      <value>Записать</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Write</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Записать</value>
+      <key>tr</key>
+      <value>Yaz</value>
     </title>
     <id>31</id>
     <toolTip>
@@ -2262,12 +2289,16 @@
   <formCommands>
     <name>Strikeout</name>
     <title>
+      <key>ru</key>
+      <value>Зачеркивание</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Strikeout</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Зачеркивание</value>
+      <key>tr</key>
+      <value>Üstü çizili</value>
     </title>
     <id>32</id>
     <toolTip>
@@ -2292,12 +2323,16 @@
   <formCommands>
     <name>EditInExternalApplication</name>
     <title>
+      <key>ru</key>
+      <value>Редактировать во внешней программе...</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Edit in external application...</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Редактировать во внешней программе...</value>
+      <key>tr</key>
+      <value>Harici uygulamada düzenle...</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -2321,12 +2356,16 @@
   <formCommands>
     <name>Translate</name>
     <title>
+      <key>ru</key>
+      <value>Перевести</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Translate</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Перевести</value>
+      <key>tr</key>
+      <value>Çevir</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -2350,12 +2389,16 @@
   <formCommands>
     <name>ShowHideOriginal</name>
     <title>
+      <key>ru</key>
+      <value>Показывать поставляемый макет</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Show the distributed template</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Показывать поставляемый макет</value>
+      <key>tr</key>
+      <value>Sunulan şablonu göster</value>
     </title>
     <id>4</id>
     <toolTip>

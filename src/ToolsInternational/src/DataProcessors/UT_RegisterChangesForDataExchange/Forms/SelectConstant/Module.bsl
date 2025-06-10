@@ -20,7 +20,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		Row.Description                  = Parameters.PresentationsArray[CurIndex];
 	EndDo;
 	
-	AutoRecordTitle = NStr("ru = 'Авторегистрация для узла ""%1""'; en = 'Register changes for node %1 automatically'");
+	AutoRecordTitle = NStr("ru = 'Авторегистрация для узла ""%1""'; en = 'Register changes for node %1 automatically'; tr = '%1 düğümü için değişiklikleri otomatik olarak kaydet'");
 	
 	Items.AutoRecordDecoration.Title = StrReplace(AutoRecordTitle, "%1", Parameters.ExchangeNode);
 EndProcedure

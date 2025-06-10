@@ -249,7 +249,7 @@ Procedure RefreshDocumentAtServer(Parameters)
 	
 	CopyFormData(Parameters.Object, Object);
 	
-	Title = StrTemplate(NStr("ru = '%1 / Результат%2'; en = '%1 / Result%2'"), Parameters.QueryName, Parameters.ResultInBatch - 1);
+	Title = StrTemplate(NStr("ru = '%1 / Результат%2'; en = '%1 / Result%2'; tr = '%1 / Sonuç%2'"), Parameters.QueryName, Parameters.ResultInBatch - 1);
 	
 	Items.TreeGroup.Visible = Parameters.ResultKind = "tree";
 	

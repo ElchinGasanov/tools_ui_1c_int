@@ -6,10 +6,12 @@
 		<languageInfo>
 			<id>ru</id>
 			<code>Russian</code>
+			<description/>
 		</languageInfo>
 		<languageInfo>
 			<id>en</id>
 			<code>English</code>
+			<description/>
 		</languageInfo>
 	</languageSettings>
 	<columns>
@@ -236,6 +238,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>3</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>4</index>
 		<row>
 			<c>
@@ -299,6 +307,26 @@
 	<height>5</height>
 	<vgRows>5</vgRows>
 	<namedItem xsi:type="NamedItemCells">
+		<name>Attributes</name>
+		<area>
+			<type>Columns</type>
+			<beginRow>-1</beginRow>
+			<endRow>-1</endRow>
+			<beginColumn>3</beginColumn>
+			<endColumn>8</endColumn>
+		</area>
+	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
+		<name>Header</name>
+		<area>
+			<type>Rows</type>
+			<beginRow>0</beginRow>
+			<endRow>0</endRow>
+			<beginColumn>-1</beginColumn>
+			<endColumn>-1</endColumn>
+		</area>
+	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
 		<name>Key1</name>
 		<area>
 			<type>Columns</type>
@@ -329,21 +357,11 @@
 		</area>
 	</namedItem>
 	<namedItem xsi:type="NamedItemCells">
-		<name>Attributes</name>
-		<area>
-			<type>Columns</type>
-			<beginRow>-1</beginRow>
-			<endRow>-1</endRow>
-			<beginColumn>3</beginColumn>
-			<endColumn>8</endColumn>
-		</area>
-	</namedItem>
-	<namedItem xsi:type="NamedItemCells">
-		<name>Header</name>
+		<name>RowWithErrors</name>
 		<area>
 			<type>Rows</type>
-			<beginRow>0</beginRow>
-			<endRow>0</endRow>
+			<beginRow>4</beginRow>
+			<endRow>4</endRow>
 			<beginColumn>-1</beginColumn>
 			<endColumn>-1</endColumn>
 		</area>
@@ -354,16 +372,6 @@
 			<type>Rows</type>
 			<beginRow>2</beginRow>
 			<endRow>2</endRow>
-			<beginColumn>-1</beginColumn>
-			<endColumn>-1</endColumn>
-		</area>
-	</namedItem>
-	<namedItem xsi:type="NamedItemCells">
-		<name>RowWithErrors</name>
-		<area>
-			<type>Rows</type>
-			<beginRow>4</beginRow>
-			<endRow>4</endRow>
 			<beginColumn>-1</beginColumn>
 			<endColumn>-1</endColumn>
 		</area>

@@ -61,8 +61,8 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	ArbitraryQueryText = Parameters.ArbitraryQueryText;
 	SearchString = Parameters.SearchString;
 
-	Items.SearchMode.ChoiceList.Add(0, Nstr("ru = 'Фильтр по реквизитам';en = 'Filter by attributes'"));
-	Items.SearchMode.ChoiceList.Add(1, Nstr("ru = 'Произвольный запрос';en = 'Arbitrary query'"));
+	Items.SearchMode.ChoiceList.Add(0, Nstr("ru = 'Фильтр по реквизитам'; en = 'Filter by attributes'; tr = 'Niteliklere göre filtrele'"));
+	Items.SearchMode.ChoiceList.Add(1, Nstr("ru = 'Произвольный запрос'; en = 'Arbitrary query'; tr = 'Rastgele sorgu'"));
 
 	SearchMode = Parameters.SearchMode;
 	QueryParameters.Load(Parameters.QueryParameters.Unload());
@@ -109,14 +109,14 @@ EndProcedure
 Procedure UpdateParameters(Command)
 	Result = FillQueryParameters();
 	If Result <> True Then
-		ShowMessageBox( , Result, 60, Nstr("ru = 'Ошибка!';en = 'Error!'"));
+		ShowMessageBox( , Result, 60, Nstr("ru = 'Ошибка!'; en = 'Error!'; tr = 'Hata'"));
 	EndIf;
 EndProcedure
 
 &AtServer
 Function FillQueryParameters()
 	If IsBlankString(QueryText) Then
-		Return Nstr("ru = 'Отсутствует текст запроса.';en = 'Missing query text.'");
+		Return Nstr("ru = 'Отсутствует текст запроса.'; en = 'Missing query text.'; tr = 'Sorgu metni eksik.'");
 	EndIf;
 
 	Query = New Query(ArbitraryQueryText);

@@ -130,7 +130,7 @@ EndProcedure
 &AtClient
 Procedure SourceObjectByReference(Command)
 	CompletionHandler = New NotifyDescription("InputURLCompletion", ThisObject);
-	ShowInputString(CompletionHandler, , NStr("ru = 'Нав. ссылка на объект (e1cib/data/...)'; en = 'Object URL (e1cib/data/...)'"));
+	ShowInputString(CompletionHandler, , NStr("ru = 'Нав. ссылка на объект (e1cib/data/...)'; en = 'Object URL (e1cib/data/...)'; tr = 'Nesne URL''si (e1cib/data/...)'"));
 EndProcedure
 
 &AtClient
@@ -179,7 +179,7 @@ EndProcedure
 &AtServer
 Procedure ExecuteReferencesSearchAtServer()
 	If NOT ValueIsFilled(Object.SourceObject) Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбран объект, на который необходимо найти ссылки'; en = 'Object to find references is not selected'"), ,
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбран объект, на который необходимо найти ссылки'; en = 'Object to find references is not selected'; tr = 'Referansları bulmak için nesne seçilmedi'"), ,
 			"Object.SourceObject");
 		Return;
 	EndIf;
@@ -289,14 +289,14 @@ EndProcedure
 &AtClient
 Procedure ExecuteReferencesSearch()
 	If NOT ValueIsFilled(Object.SourceObject) Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбран объект, на который необходимо найти ссылки'; en = 'Object to find references is not selected'"), ,
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбран объект, на который необходимо найти ссылки'; en = 'Object to find references is not selected'; tr = 'Referansları bulmak için nesne seçilmedi'"), ,
 			"Object.SourceObject");
 		Return;
 	EndIf;
 
-	Status(NStr("ru = 'Выполняется поиск ссылок на объект'; en = 'Object references search in progress'"), , , PictureLib.SearchControl);	
+	Status(NStr("ru = 'Выполняется поиск ссылок на объект'; en = 'Object references search in progress'; tr = 'Nesneye ilişkin referansları arama'"), , , PictureLib.SearchControl);	
 	ExecuteReferencesSearchAtServer();
-	Status(NStr("ru = 'Поиск ссылок на объект завершен'; en = 'Object references search completed'"), , , PictureLib.SearchControl);
+	Status(NStr("ru = 'Поиск ссылок на объект завершен'; en = 'Object references search completed'; tr = 'Nesne referansları araması tamamlandı'"), , , PictureLib.SearchControl);
 
 	ThisObject.CurrentItem = Items.SearchResult;
 	

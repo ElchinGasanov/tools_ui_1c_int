@@ -53,7 +53,7 @@ Function ClipboardAddin() Export
 		Return Addin;
 	Except
 		ErrorText = NStr(
-			"ru = 'Не удалось подключить внешнюю компоненту для работы с буфером обмена. Подробности в журнале регистрации.';en = 'Failed to connect an Addin to work with the clipboard. Details in the event log.'");
+			"ru = 'Не удалось подключить внешнюю компоненту для работы с буфером обмена. Подробности в журнале регистрации.'; en = 'Failed to connect an Addin to work with the clipboard. Details in the event log.'; tr = 'Panoyla çalışmak için kullanılan dış componentle bağlantı kurulamadı. Ayrıntılar event log-da.'");
 		Message(ErrorText + ErrorDescription());
 		Return Undefined;
 	EndTry;
@@ -502,7 +502,7 @@ Function ImageForCopyToClipboard(Picture)
 	ElsIf TypeOf(CurrentImage) = Type("BinaryData") Then
 		BinaryData=CurrentImage;
 	Else
-		Message(NSTR("ru = 'Неверный тип картинки';en = 'Incorrect image type'"));
+		Message(NSTR("ru = 'Неверный тип картинки'; en = 'Incorrect image type'; tr = 'Yanlış görüntü türü'"));
 		BinaryData=Undefined;
 	EndIf;
 

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form" xmlns:schema="http://g5.1c.ru/v8/dt/data-composition-system/schema">
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <title>
+    <key>ru</key>
+    <value>Выбор объектов отбором</value>
+  </title>
   <title>
     <key>en</key>
     <value>Select objects using filter</value>
   </title>
   <title>
-    <key>ru</key>
-    <value>Выбор объектов отбором</value>
+    <key>tr</key>
+    <value>Filtre kullanarak nesnelerin seçilmesi</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>Group1</name>
@@ -185,12 +189,16 @@
             <common>true</common>
           </userVisible>
           <title>
+            <key>ru</key>
+            <value>Действия отбора</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Filter actions</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Действия отбора</value>
+            <key>tr</key>
+            <value>Filtre eylemleri</value>
           </title>
           <extendedTooltip>
             <name>FilterGroup1ExtendedTooltip</name>
@@ -220,12 +228,16 @@
             <common>true</common>
           </userVisible>
           <title>
+            <key>ru</key>
+            <value>Действия формы</value>
+          </title>
+          <title>
             <key>en</key>
             <value>Form actions</value>
           </title>
           <title>
-            <key>ru</key>
-            <value>Действия формы</value>
+            <key>tr</key>
+            <value>Form eylemleri</value>
           </title>
           <extendedTooltip>
             <name>FilterGroup2ExtendedTooltip</name>
@@ -290,6 +302,7 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
+        <source>Filter</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -328,6 +341,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
+        <source>Filter</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
           <horizontalLocation>Left</horizontalLocation>
@@ -367,6 +381,7 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
+        <source>Filter</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -430,12 +445,16 @@
       <common>true</common>
     </userVisible>
     <title>
+      <key>ru</key>
+      <value>Элементы отбора</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Filter items</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Элементы отбора</value>
+      <key>tr</key>
+      <value>Filtre elemanları</value>
     </title>
     <extendedTooltip>
       <name>Group1ExtendedTooltip</name>
@@ -482,12 +501,16 @@
         <name>DataListSelectFilteredValues</name>
         <id>22</id>
         <title>
+          <key>ru</key>
+          <value>Выбрать все</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Select all</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Выбрать все</value>
+          <key>tr</key>
+          <value>Tümünü seç</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -524,12 +547,16 @@
         <name>DataListSelectCurrentRow</name>
         <id>21</id>
         <title>
+          <key>ru</key>
+          <value>Выбрать</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Select</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Выбрать</value>
+          <key>tr</key>
+          <value>Seç</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -565,12 +592,16 @@
         <name>DataListClose</name>
         <id>20</id>
         <title>
+          <key>ru</key>
+          <value>Закрыть</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Close</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Закрыть</value>
+          <key>tr</key>
+          <value>Kapat</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -642,6 +673,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>DataList</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -680,6 +712,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>DataList</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -719,6 +752,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>DataList</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -745,12 +779,16 @@
         <name>DataListContextMenuSelectFilteredValues</name>
         <id>23</id>
         <title>
+          <key>ru</key>
+          <value>Выбрать все отобранные</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Select items that match the filter</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Выбрать все отобранные</value>
+          <key>tr</key>
+          <value>Filtreyle eşleşen öğeleri seçin</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -786,12 +824,16 @@
         <name>DataListContextMenuSelectCurrentRow</name>
         <id>24</id>
         <title>
+          <key>ru</key>
+          <value>Выбрать текущие данные</value>
+        </title>
+        <title>
           <key>en</key>
           <value>Select current data</value>
         </title>
         <title>
-          <key>ru</key>
-          <value>Выбрать текущие данные</value>
+          <key>tr</key>
+          <value>Mevcut verileri seçin</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1117,6 +1159,7 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -1127,6 +1170,10 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
+    <title>
+      <key>tr</key>
+      <value>Nesne</value>
+    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_RegisterChangesForDataExchange</types>
@@ -1142,12 +1189,16 @@
   <attributes>
     <name>DataList</name>
     <title>
+      <key>ru</key>
+      <value>Список данных</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Data list</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Список данных</value>
+      <key>tr</key>
+      <value>Veri listesi</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1166,34 +1217,21 @@
       <customQuery>true</customQuery>
       <autoSaveUserSettings>true</autoSaveUserSettings>
       <getInvisibleFieldPresentations>true</getInvisibleFieldPresentations>
-      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
-        <dataPath>Ref</dataPath>
-        <field>Ref</field>
-        <title>
-          <localValue>
-            <content>
-              <key>ru</key>
-              <value>Ref</value>
-            </content>
-          </localValue>
-        </title>
-        <role>
-          <accountTypeExpression></accountTypeExpression>
-          <balanceGroupName></balanceGroupName>
-          <accountField></accountField>
-        </role>
-      </fields>
     </extInfo>
   </attributes>
   <attributes>
     <name>DataStructure</name>
     <title>
+      <key>ru</key>
+      <value>Структура данных</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Data structure</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Структура данных</value>
+      <key>tr</key>
+      <value>Veri yapısı</value>
     </title>
     <id>3</id>
     <valueType/>
@@ -1207,12 +1245,16 @@
   <attributes>
     <name>DataFormKey</name>
     <title>
+      <key>ru</key>
+      <value>Ключ формы данных</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Data form key</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Ключ формы данных</value>
+      <key>tr</key>
+      <value>Veri formu anahtarı</value>
     </title>
     <id>5</id>
     <valueType/>
@@ -1226,12 +1268,16 @@
   <formCommands>
     <name>SelectFilteredValues</name>
     <title>
+      <key>ru</key>
+      <value>Выбрать</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Select</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выбрать</value>
+      <key>tr</key>
+      <value>Seç</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1255,12 +1301,16 @@
   <formCommands>
     <name>SelectCurrentRow</name>
     <title>
+      <key>ru</key>
+      <value>Выбрать</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Select</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Выбрать</value>
+      <key>tr</key>
+      <value>Seç</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -1284,12 +1334,16 @@
   <formCommands>
     <name>OpenCurrentObject</name>
     <title>
+      <key>ru</key>
+      <value>Открыть</value>
+    </title>
+    <title>
       <key>en</key>
       <value>Open</value>
     </title>
     <title>
-      <key>ru</key>
-      <value>Открыть</value>
+      <key>tr</key>
+      <value>Aç</value>
     </title>
     <id>3</id>
     <toolTip>

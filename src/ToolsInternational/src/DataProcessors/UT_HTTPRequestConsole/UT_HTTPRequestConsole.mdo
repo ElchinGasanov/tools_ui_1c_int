@@ -6,12 +6,16 @@
   </producedTypes>
   <name>UT_HTTPRequestConsole</name>
   <synonym>
+    <key>ru</key>
+    <value>HTTP Request Console [UT]</value>
+  </synonym>
+  <synonym>
     <key>en</key>
     <value>HTTP Request console [UT]</value>
   </synonym>
   <synonym>
-    <key>ru</key>
-    <value>HTTP Request Console [UT]</value>
+    <key>tr</key>
+    <value>HTTP İsteği konsolu [UT]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_HTTPRequestConsole.Form.Form</defaultForm>
@@ -41,6 +45,10 @@
     <synonym>
       <key>ru</key>
       <value>Form request details</value>
+    </synonym>
+    <synonym>
+      <key>tr</key>
+      <value>Form talep detayları</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

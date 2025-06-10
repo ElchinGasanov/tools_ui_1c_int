@@ -191,7 +191,7 @@ Procedure SupplementStructure(Receiver, Source, Replace = Undefined) Export
 			if Replace = False then
 				Continue;
 			else
-				Raise StrTemplate(Nstr("ru = 'Пересечение ключей источника и приемника: ""%1"".'; en='Intersection of source and receiver keys: ""%1"".'"),
+				Raise StrTemplate(Nstr("ru = 'Пересечение ключей источника и приемника: ""%1"".'; en = 'Intersection of source and receiver keys: ""%1"".'; tr = 'Kaynak ve alıcı anahtarlarının kesişimi: ""%1"".'"),
 					Element.Key);
 			Endif;
 		EndIf;
@@ -497,7 +497,7 @@ EndFunction
 // Returns:
 // 	String - Warning text about the incorrect variable name
 Function WrongVariableNameWarningText() Export
-	Return NStr("ru = 'Неверное имя колонки! Имя должно состоять из одного слова, начинаться с буквы и не содержать специальных символов кроме """"_"""".""';en = 'en=''Invalid column name! The name must consist of a single word, start with a letter and contain no special characters other than """"_"""".""'");
+	Return NStr("ru = 'Неверное имя колонки! Имя должно состоять из одного слова, начинаться с буквы и не содержать специальных символов кроме """"_"""".""'; en = 'en=''Invalid column name! The name must consist of a single word, start with a letter and contain no special characters other than """"_"""".""'; tr = 'Geçersiz sütun adı! Ad tek bir kelimeden oluşmalı, bir harfle başlamalı ve """"_"""" dışında özel karakter içermemelidir.'");
 EndFunction
 
 #EndRegion
@@ -1533,11 +1533,11 @@ Function CompareVersions(Val Version1String, Val Version2String) Export
 	String2 = ?(IsBlankString(Version2String), "0.0.0.0", Version2String);
 	Version1 = StrSplit(String1, ".");
 	If Version1.Count() <> 4 Then
-		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра Version1String: %1'; en='Wrong format of parameter Version1String: %1'"), Version1String);
+		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра Version1String: %1'; en = 'Wrong format of parameter Version1String: %1'; tr = 'Version1String parametresinin yanlış formatı: %1'"), Version1String);
 	EndIf;
 	Version2 = StrSplit(String2, ".");
 	If Version2.Count() <> 4 Then
-		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра Version2String: %1'; en='Wrong format of parameter Version2String: %1'"), Version2String);
+		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра Version2String: %1'; en = 'Wrong format of parameter Version2String: %1'; tr = 'Version2String parametresinin formatı yanlış: %1'"), Version2String);
 	EndIf;
 
 	Result = 0;
@@ -1566,11 +1566,11 @@ Function CompareVersionsWithoutBuildNumber(Val Version1String, Val Version2Strin
 	String2 = ?(IsBlankString(Version2String), "0.0.0", Version2String);
 	Version1 = StrSplit(String1, ".");
 	If Version1.Count() <> 3 Then
-		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра Version1String: %1'; en='Wrong format of parameter Version1String: %1'"), Version1String);
+		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра Version1String: %1'; en = 'Wrong format of parameter Version1String: %1'; tr = 'Version1String parametresinin yanlış formatı: %1'"), Version1String);
 	EndIf;
 	Version2 = StrSplit(String2, ".");
 	If Version2.Count() <> 3 Then
-		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра Version2String: %1'; en='Wrong format of parameter Version2String: %1'"), Version2String);
+		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра Version2String: %1'; en = 'Wrong format of parameter Version2String: %1'; tr = 'Version2String parametresinin formatı yanlış: %1'"), Version2String);
 	EndIf;
 
 	Result = 0;
@@ -1932,7 +1932,7 @@ Function TypesPresentation(ExpectedTypes) Export
 			Result = Result + TypePresentation(Type);
 			Index = Index + 1;
 			If Index > 10 Then
-				Result = Result + ",... " + StrTemplate(Nstr("ru = '(всего %1 типов)';en = '(total %1 of types)'"), ExpectedTypes.Count());
+				Result = Result + ",... " + StrTemplate(Nstr("ru = '(всего %1 типов)'; en = '(total %1 of types)'; tr = '(toplam %1 tür)'"), ExpectedTypes.Count());
 				Break;
 			EndIf;
 		EndDo;
@@ -1954,7 +1954,7 @@ Function TypePresentation(Type) Export
 		Return "Undefined";
 	ElsIf TypeOf(Type) = Type("TypeDescription") Then
 		TypeString = String(Type);
-		Return ?(StrLen(TypeString) > 150, Left(TypeString, 150) + "..." + StrTemplate(NStr("ru = '(всего %1 типов)';en = '(total %1 types'"),
+		Return ?(StrLen(TypeString) > 150, Left(TypeString, 150) + "..." + StrTemplate(NStr("ru = '(всего %1 типов)'; en = '(total %1 types'; tr = '(toplam %1 tür'"),
 			Type.Types().Count()), TypeString);
 	    Else
 		TypeString = String(Type);
@@ -3046,28 +3046,30 @@ Procedure CheckParameter(Val ProcedureOrFunctionName, Val ParameterName, Val Par
 
 	Context = "CommonClientServer.CheckParameter";
 	Validate(TypeOf(ProcedureOrFunctionName) = Type("String"), NStr(
-		"ru = 'Недопустимое значение параметра ИмяПроцедурыИлиФункции'; en = 'Invalid value of ProcedureOrFunctionName parameter.'"), Context);
+		"ru = 'Недопустимое значение параметра ИмяПроцедурыИлиФункции'; en = 'Invalid value of ProcedureOrFunctionName parameter.'; tr = 'ProcedureOrFunctionName parametresinin geçersiz değeri.'"), Context);
 	Validate(TypeOf(ParameterName) = Type("String"), NStr(
-		"ru = 'Недопустимое значение параметра ИмяПараметра'; en = 'Invalid value of ParameterName parameter.'"), Context);
+		"ru = 'Недопустимое значение параметра ИмяПараметра'; en = 'Invalid value of ParameterName parameter.'; tr = 'ParameterName parametresinin değeri geçersiz.'"), Context);
 
 	IsCorrectType = ExpectedTypeValue(ParameterValue, ExpectedTypes);
-	Validate(IsCorrectType <> Undefined, NStr("ru = 'Недопустимое значение параметра ОжидаемыеТипы'; en = 'Invalid value of ExpectedTypes parameter.'"), Context);
+	Validate(IsCorrectType <> Undefined, NStr("ru = 'Недопустимое значение параметра ОжидаемыеТипы'; en = 'Invalid value of ExpectedTypes parameter.'; tr = 'ExpectedTypes parametresinin geçersiz değeri.'"), Context);
 
 	InvalidParameter = NStr("en = 'Invalid value of the %1 parameter in %2.
-			           |Expected value: %3, passed value: %4 (type: %5).'");
+																		  |Expected value: %3, passed value: %4 (type: %5).'; tr = '%2''deki %1 parametresinin geçersiz değeri.
+																		  |Beklenen değer: %3, geçirilen değer: %4 (tür: %5).'");
 	Validate(IsCorrectType, StrTemplate(InvalidParameter, ParameterName, ProcedureOrFunctionName,
 		TypesPresentation(ExpectedTypes), ?(ParameterValue <> Undefined, ParameterValue, NStr(
-		"ru = 'Неопределено'; en = 'Undefined'")), TypeOf(ParameterValue)));
+		"ru = 'Неопределено'; en = 'Undefined'; tr = 'Tanımlanmamış'")), TypeOf(ParameterValue)));
 
 	If TypeOf(ParameterValue) = Type("Structure") AND PropertiesTypesToExpect <> Undefined Then
 
-		Validate(TypeOf(PropertiesTypesToExpect) = Type("Structure"), NStr("ru = 'Недопустимое значение параметра ИмяПроцедурыИлиФункции';
-				 | en = 'Invalid value of ProcedureOrFunctionName parameter.'"), Context);
+		Validate(TypeOf(PropertiesTypesToExpect) = Type("Structure"), NStr("ru = 'Недопустимое значение параметра ИмяПроцедурыИлиФункции'; en = 'Invalid value of ProcedureOrFunctionName parameter.'; tr = 'ProcedureOrFunctionName parametresinin geçersiz değeri.'"), Context);
 
 		NoProperty = NStr("en = 'Invalid value of parameter %1 (Structure) in %2.
-					       |Expected value: %3 (type: %4).'");						   
+															|Expected value: %3 (type: %4).'; tr = '%2''deki %1 (Structure) parametresinin geçersiz değeri.
+															|Beklenen değer: %3 (tür: %4).'");						   
 		InvalidProperty = NStr("en = 'Invalid value of property %1 in parameter %2 (Structure) in %3.
-					           |Expected value: %4; passed value: %5 (type: %6).'");				           
+																				  |Expected value: %4; passed value: %5 (type: %6).'; tr = '%3 parametresindeki %2 (Structure) özelliğinin geçersiz değeri.
+																				  |Beklenen değer: %4; geçirilen değer: %5 (tür: %6).'");				           
 		For Each Property In PropertiesTypesToExpect Do
 
 			ExpectedPropertyName = Property.Key;
@@ -3080,7 +3082,7 @@ Procedure CheckParameter(Val ProcedureOrFunctionName, Val ParameterName, Val Par
 			IsCorrectType = ExpectedTypeValue(PropertyValue, ExpectedPropertyType);
 			Validate(IsCorrectType, StrTemplate(InvalidProperty, ExpectedPropertyName, ParameterName,
 				ProcedureOrFunctionName, TypesPresentation(ExpectedTypes), ?(PropertyValue <> Undefined,
-				PropertyValue, NStr("ru = 'Неопределено'; en = 'Undefined'")), TypeOf(PropertyValue)));
+				PropertyValue, NStr("ru = 'Неопределено'; en = 'Undefined'; tr = 'Tanımlanmamış'")), TypeOf(PropertyValue)));
 		EndDo;
 	EndIf;
 
@@ -3099,12 +3101,12 @@ Procedure Validate(Val Condition, Val Message = "", Val CheckContext = "") Expor
 
 	If Condition <> True Then
 		If IsBlankString(Message) Then
-			RaiseText = Nstr("ru = 'Недопустимая операция';en='Invalid operation'"); // Assertion failed
+			RaiseText = Nstr("ru = 'Недопустимая операция'; en = 'Invalid operation'; tr = 'Geçersiz işlem'"); // Assertion failed
 		Else
 			RaiseText = Message;
 		Endif;
 		If Not IsBlankString(CheckContext) Then
-			RaiseText = RaiseText + " " + StrTemplate(Nstr("ru = 'в %1';en='at %1'"), CheckContext);
+			RaiseText = RaiseText + " " + StrTemplate(Nstr("ru = 'в %1'; en = 'at %1'; tr = '%1''de'"), CheckContext);
 		EndIf;
 		Raise RaiseText;
 	EndIf;
@@ -3184,7 +3186,7 @@ EndFunction
 
 Function PredefinedValueNotFoundErrorText(PredefinedItemFullName) Export
 	
-	Return StrTemplate(NStr("ru = 'Предопределенное значение ""%1"" не найдено.'; en = 'Predefined value ""%1"" is not found.'"), PredefinedItemFullName);
+	Return StrTemplate(NStr("ru = 'Предопределенное значение ""%1"" не найдено.'; en = 'Predefined value ""%1"" is not found.'; tr = 'Predefined ""%1"" değeri bulunamadı.'"), PredefinedItemFullName);
 
 EndFunction
 

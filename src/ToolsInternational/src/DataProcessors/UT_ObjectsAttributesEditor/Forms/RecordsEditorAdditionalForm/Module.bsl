@@ -44,13 +44,13 @@ Procedure BeforeClose(Cancel, Exit, WarningText, StandardProcessing)
 		If Exit = Undefined Then
 			// For old platform versions
 			Cancel = True;
-			vShowQueryBox("vCloseForm", NSTR("ru = 'Редактор движений будет закрыт. Продолжить?';en = 'Records editor will be closed. Do you want to continue?'"));
+			vShowQueryBox("vCloseForm", NSTR("ru = 'Редактор движений будет закрыт. Продолжить?'; en = 'Records editor will be closed. Do you want to continue?'; tr = 'Kayıtlar düzenleyicisi kapatılacak. Devam etmek istiyor musunuz?'"));
 			Return;
 		EndIf;
 
 		If Exit = False Then
 			Cancel = True;
-			vShowQueryBox("vCloseForm", NSTR("ru = 'Редактор движений будет закрыт. Продолжить?';en = 'Records editor will be closed. Do you want to continue?'"));
+			vShowQueryBox("vCloseForm", NSTR("ru = 'Редактор движений будет закрыт. Продолжить?'; en = 'Records editor will be closed. Do you want to continue?'; tr = 'Kayıtlar düzenleyicisi kapatılacak. Devam etmek istiyor musunuz?'"));
 		EndIf;
 	EndIf;
 EndProcedure
@@ -101,7 +101,7 @@ EndProcedure
 &AtClient
 Function vCheckRecorder()
 	If Not ValueIsFilled(mObjectRef) Then
-		vShowMessageBox(NSTR("ru = 'Не задан объект для записи движений!';en = 'Object for write records is not set.'"));
+		vShowMessageBox(NSTR("ru = 'Не задан объект для записи движений!'; en = 'Object for write records is not set.'; tr = 'Kayıt yazma nesnesi ayarlanmadı.'"));
 		Return False;
 	EndIf;
 
@@ -125,7 +125,7 @@ Procedure _Refresh(Command)
 
 	vRefresh();
 
-	Items.RegistersGroup.Title =NSTR("ru = 'Движения документа (';en = 'Document records ('")  + _TabRegisters.Count() + ")";
+	Items.RegistersGroup.Title =NSTR("ru = 'Движения документа ('; en = 'Document records ('; tr = 'Belge etkinlikleri ('")  + _TabRegisters.Count() + ")";
 EndProcedure
 
 &AtClient
@@ -136,11 +136,11 @@ Procedure _Write(Command)
 
 	Value = _TabRegisters.FindRows(New Structure("Write", True)).Count();
 	If Value = 0 Then
-		vShowMessageBox(NSTR("ru = 'Не отмечены регистры для записи.';en = 'Registers for writing are not set.'"));
+		vShowMessageBox(NSTR("ru = 'Не отмечены регистры для записи.'; en = 'Registers for writing are not set.'; tr = 'Yazma için kayıtlar ayarlanmadı.'"));
 		Return;
 	EndIf;
 
-	vShowQueryBox("_WriteNext", StrTemplate(NSTR("ru = 'Отмеченные регистры (%1 шт) будут записаны в базу. Продолжить?'; en = 'Selected registers  (%1 pcs) will be written to database. Do you want to continue?'"),
+	vShowQueryBox("_WriteNext", StrTemplate(NSTR("ru = 'Отмеченные регистры (%1 шт) будут записаны в базу. Продолжить?'; en = 'Selected registers  (%1 pcs) will be written to database. Do you want to continue?'; tr = 'Seçilen kayıtlar (%1 adet) veritabanına yazılacak. Devam edilsin mi?'"),
 		Value));
 EndProcedure
 
@@ -185,11 +185,11 @@ Procedure _ClearRecords(Command)
 
 	Value = Items._TabRegisters.SelectedRows;
 	If Value.Count() = 0 Then
-		vShowMessageBox(NSTR("ru = 'Не отмечены регистры для очистки.';en = 'Registers for clearing are not set.'"));
+		vShowMessageBox(NSTR("ru = 'Не отмечены регистры для очистки.'; en = 'Registers for clearing are not set.'; tr = 'Silmek için kayıtlar ayarlanmadı.'"));
 		Return;
 	EndIf;
 
-	vShowQueryBox("_ClearRecordsNext", StrTemplate(NSTR("ru = 'Выбранные регистры (%1 шт) будут очищены. Продолжить?'; en = 'Selected registers  (%1 pcs) will be cleared. Do you want to continue?'"),
+	vShowQueryBox("_ClearRecordsNext", StrTemplate(NSTR("ru = 'Выбранные регистры (%1 шт) будут очищены. Продолжить?'; en = 'Selected registers  (%1 pcs) will be cleared. Do you want to continue?'; tr = 'Seçilen kayıtlar (%1 adet) silinecek. Devam etmek istiyor musunuz?'"),
 		Value.Count()));
 EndProcedure
 
@@ -251,10 +251,10 @@ Procedure _WriteSet(Command)
 
 	CurrData = Items._TabRegisters.CurrentData;
 	If CurrData = Undefined Then
-		vShowMessageBox(NSTR("ru = 'Не задан набор записей для сохранения';en = 'Recordset for saving is not set.'"));
+		vShowMessageBox(NSTR("ru = 'Не задан набор записей для сохранения'; en = 'Recordset for saving is not set.'; tr = 'Kaydetmek için kayıt seti ayarlanmadı.'"));
 		Return;
 	EndIf;
-	vShowQueryBox("_WriteSetNext", NSTR("ru = 'Набор записей будет записан в базу. Продолжить?'; en = 'Recordset will be saved to database. Do you want to continue?'"));
+	vShowQueryBox("_WriteSetNext", NSTR("ru = 'Набор записей будет записан в базу. Продолжить?'; en = 'Recordset will be saved to database. Do you want to continue?'; tr = 'Kayıt seti veritabanına kaydedilecek. Devam etmek istiyor musunuz?'"));
 EndProcedure
 
 &AtClient
@@ -496,7 +496,7 @@ Function vWriteRecordSet(Val RegisterType, Val RegisterName)
 	Selection = Query.Execute().Select();
 	pPeriod = ?(Selection.Next(), Selection.Date, Undefined);
 	If pPeriod = Undefined Then
-		Message(NSTR("ru = 'Не найден указанный документ!';en = 'The specified document was not found.'"));
+		Message(NSTR("ru = 'Не найден указанный документ!'; en = 'The specified document was not found.'; tr = 'Belirtilen belge bulunamadı!'"));
 		Return False;
 	EndIf;
 
