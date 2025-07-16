@@ -1,0 +1,2708 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<ScalingMode>Compact</ScalingMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<ButtonGroup name="FormMainGroup" id="74">
+				<Title>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Form main group</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа основное</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Form main group</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа основное</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="FormMainGroupExtendedTooltip" id="75"/>
+				<ChildItems>
+					<Button name="FormRefreshObjectData" id="7">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.RefreshObjectData</CommandName>
+						<ExtendedTooltip name="FormRefreshObjectDataExtendedTooltip" id="8"/>
+					</Button>
+					<Button name="Form_FillBySample" id="271">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command._FillBySample</CommandName>
+						<ExtendedTooltip name="Form_FillBySampleExtendedTooltip" id="272"/>
+					</Button>
+					<Button name="FormOpenObject" id="58">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.OpenObject</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.UT_DatabaseObjectEditor</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="FormOpenObjectExtendedTooltip" id="59"/>
+					</Button>
+				</ChildItems>
+			</ButtonGroup>
+			<ButtonGroup name="FormWriteGroup" id="68">
+				<Title>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Form write group</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа записать</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Form write group</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа записать</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="FormWriteGroupExtendedTooltip" id="69"/>
+				<ChildItems>
+					<Button name="FormWriteObject" id="9">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.WriteObject</CommandName>
+						<ExtendedTooltip name="FormWriteObjectExtendedTooltip" id="10"/>
+					</Button>
+					<Popup name="FormWriteAsNewGroup" id="265">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Записать как новый</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Write as new</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Yeni olarak yaz</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Write object as new</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Записать объект как новый</v8:content>
+							</v8:item>
+						</ToolTip>
+						<Picture>
+							<xr:Ref>StdPicture.SaveReportSettings</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Representation>PictureAndText</Representation>
+						<ExtendedTooltip name="FormWriteAsNewGroupExtendedTooltip" id="266"/>
+						<ChildItems>
+							<Button name="Form_WriteObjectAsNew" id="267">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command._WriteObjectAsNew</CommandName>
+								<ExtendedTooltip name="Form_WriteObjectAsNewExtendedTooltip" id="268"/>
+							</Button>
+							<Button name="Form_WriteObjectAsNewWithSpecifiedUUID" id="269">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command._WriteObjectAsNewWithSpecifiedUUID</CommandName>
+								<ExtendedTooltip name="Form_WriteObjectAsNewWithSpecifiedUUIDExtendedTooltip" id="270"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<Button name="Form_DeleteObject" id="242">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command._DeleteObject</CommandName>
+						<ExtendedTooltip name="Form_DeleteObjectExtendedTooltip" id="243"/>
+					</Button>
+					<Popup name="FormUnloadGroup" id="210">
+						<Visible>false</Visible>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выгрузка XML</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>XML unloading</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>XML boşaltma</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Load / unload XML</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выгрузка / загрузка XML</v8:content>
+							</v8:item>
+						</ToolTip>
+						<Picture>
+							<xr:Ref>StdPicture.CreateInitialImage</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Representation>PictureAndText</Representation>
+						<ExtendedTooltip name="FormUnloadGroupExtendedTooltip" id="211"/>
+						<ChildItems>
+							<Button name="Form_UnloadObject" id="212">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command._UnloadObject</CommandName>
+								<ExtendedTooltip name="Form_UnloadObjectExtendedTooltip" id="213"/>
+							</Button>
+							<Button name="Form_UnloadObjectWithRecords" id="214">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command._UnloadObjectWithRecords</CommandName>
+								<ExtendedTooltip name="Form_UnloadObjectWithRecordsExtendedTooltip" id="215"/>
+							</Button>
+							<Button name="Form_UnloadObjectRecords" id="216">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command._UnloadObjectRecords</CommandName>
+								<ExtendedTooltip name="Form_UnloadObjectRecordsExtendedTooltip" id="217"/>
+							</Button>
+							<ButtonGroup name="FormGroup1" id="220">
+								<ExtendedTooltip name="FormGroup1ExtendedTooltip" id="221"/>
+								<ChildItems>
+									<Button name="Form_LoadXMLData" id="218">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command._LoadXMLData</CommandName>
+										<ExtendedTooltip name="Form_LoadXMLDataExtendedTooltip" id="219"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+						</ChildItems>
+					</Popup>
+				</ChildItems>
+			</ButtonGroup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">OnLoadDataFromSettingsAtServer</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">BeforeLoadDataFromSettingsAtServer</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ObjectGroup" id="78">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объект</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>50</Width>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ObjectGroupExtendedTooltip" id="79"/>
+			<ChildItems>
+				<InputField name="mObjectRef" id="1">
+					<DataPath>mObjectRef</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<ChoiceButton>true</ChoiceButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<ClearButton>true</ClearButton>
+					<OpenButton>true</OpenButton>
+					<ContextMenu name="mObjectRefContextMenu" id="2"/>
+					<ExtendedTooltip name="mObjectRefExtendedTooltip" id="3"/>
+					<Events>
+						<Event name="OnChange">mObjectRefOnChange</Event>
+						<Event name="StartChoice">mObjectRefStartChoice</Event>
+						<Event name="Clearing">mObjectRefClearing</Event>
+					</Events>
+				</InputField>
+				<Button name="_SelectDeletedObject" id="263">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command._SelectDeletedObject</CommandName>
+					<ExtendedTooltip name="_SelectDeletedObjectExtendedTooltip" id="264"/>
+				</Button>
+				<InputField name="_ObjectType" id="48">
+					<DataPath>_ObjectType</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Object type</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип объекта</v8:content>
+						</v8:item>
+					</ToolTip>
+					<TextColor>style:FieldSelectionBackColor</TextColor>
+					<ContextMenu name="_ObjectTypeContextMenu" id="49"/>
+					<ExtendedTooltip name="_ObjectTypeExtendedTooltip" id="50"/>
+				</InputField>
+				<Button name="_OpenListForm" id="189">
+					<Type>UsualButton</Type>
+					<Visible>false</Visible>
+					<CommandName>Form.Command._OpenListForm</CommandName>
+					<ExtendedTooltip name="_OpenListFormExtendedTooltip" id="190"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="WriteParametersGroup" id="173">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры записи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write parameters</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt seçenekleri</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write parameters group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа параметры записи</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Collapsible</Behavior>
+			<CollapsedRepresentationTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры записи</v8:content>
+				</v8:item>
+			</CollapsedRepresentationTitle>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="WriteParametersGroupExtendedTooltip" id="174"/>
+			<ChildItems>
+				<CheckBoxField name="_UseNonStandardFormToSelect" id="224">
+					<DataPath>_UseNonStandardFormToSelect</DataPath>
+					<Visible>false</Visible>
+					<TitleTextColor>style:FieldSelectionBackColor</TitleTextColor>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="_UseNonStandardFormToSelectContextMenu" id="225"/>
+					<ExtendedTooltip name="_UseNonStandardFormToSelectExtendedTooltip" id="226"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="SearchGroup" id="185">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск объекта по UUID и URL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object search by UUID and URL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>UUID ve URL ile nesne arama</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Search group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа поиск</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="SearchGroupExtendedTooltip" id="186"/>
+			<ChildItems>
+				<UsualGroup name="RefsGroup" id="76">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Refs group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ссылки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="RefsGroupExtendedTooltip" id="77"/>
+					<ChildItems>
+						<InputField name="_GUID" id="51">
+							<DataPath>_UUID</DataPath>
+							<TitleTextColor>style:FieldSelectionBackColor</TitleTextColor>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Universally unique identifier</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Уникальный идентификатор</v8:content>
+								</v8:item>
+							</ToolTip>
+							<TextColor>style:FieldSelectionBackColor</TextColor>
+							<ContextMenu name="_GUIDКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="_GUIDРасширеннаяПодсказка" id="53"/>
+						</InputField>
+						<InputField name="_URL" id="136">
+							<DataPath>_URL</DataPath>
+							<TitleTextColor>style:FieldSelectionBackColor</TitleTextColor>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Uniform resource locator</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Навигационная ссылка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<TextColor>style:FieldSelectionBackColor</TextColor>
+							<ContextMenu name="_URLКонтекстноеМеню" id="137"/>
+							<ExtendedTooltip name="_URLРасширеннаяПодсказка" id="138"/>
+							<Events>
+								<Event name="OnChange">_URLOnChange</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="CommandsGroup" id="139">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Commands group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа команды</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Commands group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа команды</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="CommandsGroupExtendedTooltip" id="140"/>
+					<ChildItems>
+						<UsualGroup name="UT_Group" id="296">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>У и группа</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>U t group</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="UT_GroupExtendedTooltip" id="297"/>
+							<ChildItems>
+								<CommandBar name="SearchCommandBar" id="85">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Search command bar</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Search command bar</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Search command bar</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Командная панель поиск</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ExtendedTooltip name="SearchCommandBarExtendedTooltip" id="86"/>
+									<ChildItems>
+										<Popup name="ByUUIDSubmenu" id="87">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Найти объект по UUID</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Find object by UUID</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>UUID'ye göre nesneyi bul</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>style:FieldSelectionBackColor</TitleTextColor>
+											<ExtendedTooltip name="ByUUIDSubmenuExtendedTooltip" id="88"/>
+											<ChildItems>
+												<Button name="FormFindObjectByTypeAndUUID" id="56">
+													<Type>CommandBarButton</Type>
+													<Representation>PictureAndText</Representation>
+													<CommandName>Form.Command.FindObjectByType_UUID</CommandName>
+													<Picture>
+														<xr:Ref>StdPicture.SyncContents</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+													<ExtendedTooltip name="FormFindObjectByTypeAndUUIDExtendedTooltip" id="57"/>
+												</Button>
+												<Button name="FormFindObjectByUUID" id="54">
+													<Type>CommandBarButton</Type>
+													<Representation>PictureAndText</Representation>
+													<CommandName>Form.Command.FindObjectByUUID</CommandName>
+													<Picture>
+														<xr:Ref>StdPicture.ScheduledJob</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+													<ExtendedTooltip name="FormFindObjectByUUIDExtendedTooltip" id="55"/>
+												</Button>
+											</ChildItems>
+										</Popup>
+									</ChildItems>
+								</CommandBar>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="UT_CreationDate" id="293">
+							<DataPath>UT_CreationDate</DataPath>
+							<ContextMenu name="UT_CreationDateContextMenu" id="294"/>
+							<ExtendedTooltip name="UT_CreationDateExtendedTooltip" id="295"/>
+						</InputField>
+						<CommandBar name="SearchByHREFGroup" id="145">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Search by HREF group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа поиск по HREF</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Search by HREF group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа поиск по HREF</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="SearchByHREFGroupExtendedTooltip" id="146"/>
+							<ChildItems>
+								<Button name="FindObjectByURL" id="147">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.FindObjectByURL</CommandName>
+									<TextColor>style:FieldSelectionBackColor</TextColor>
+									<ExtendedTooltip name="FindObjectByURLExtendedTooltip" id="148"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ValueTypeGroup" id="257">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип данных для значения в текущем поле</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Data type for value in current field</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Geçerli alandaki değer için veri türü</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Value type group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа тип значения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ValueTypeGroupExtendedTooltip" id="258"/>
+			<ChildItems>
+				<InputField name="_CurrentFieldValueType" id="254">
+					<DataPath>_CurrentFieldValueType</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Data type for the value in the current field. Click Show value type button to display it.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип данных для значения в текущем поле - отображается по команде "Показать тип значения"</v8:content>
+						</v8:item>
+					</ToolTip>
+					<TextColor>style:FieldSelectionBackColor</TextColor>
+					<ContextMenu name="_CurrentFieldValueTypeContextMenu" id="255"/>
+					<ExtendedTooltip name="_CurrentFieldValueTypeExtendedTooltip" id="256"/>
+				</InputField>
+				<CommandBar name="ValueTypeButtonGroup" id="261">
+					<ExtendedTooltip name="ValueTypeButtonGroupExtendedTooltip" id="262"/>
+					<ChildItems>
+						<Button name="_ShowValueType" id="259">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command._ShowValueType</CommandName>
+							<ExtendedTooltip name="_ShowValueTypeExtendedTooltip" id="260"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="FillingValuesGroup" id="175">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнение колонок таблиц данных (табличных частей и движений)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filling in columns of data tables (tabular sections and records)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Veri tablolarının sütunlarını doldurma (tablo bölümleri ve kayıtlar)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill values</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнение значений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<CollapsedRepresentationTitle>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filling in columns of data tables</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнение колонок таблиц данных</v8:content>
+				</v8:item>
+			</CollapsedRepresentationTitle>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="FillingValuesGroupExtendedTooltip" id="176"/>
+			<ChildItems>
+				<UsualGroup name="FillingValuesGroup1" id="289">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Filling values group1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заполнение значений1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Filling values group1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заполнение значений1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="FillingValuesGroup1ExtendedTooltip" id="290"/>
+					<ChildItems>
+						<LabelDecoration name="Decoration1" id="286">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:FieldSelectionBackColor</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>To set a unique identifier, use the right mouse button</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для задания уникального идентификатора используйте правую кнопку мыши</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Benzersiz tanımlayıcı atamak için farenin sağ tuşunu kullanın</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Decoration1ContextMenu" id="287"/>
+							<ExtendedTooltip name="Decoration1ExtendedTooltip" id="288"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="FillingValuesGroup2" id="291">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Filling values group2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заполнение значений2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Filling values group2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа заполнение значений2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="FillingValuesGroup2ExtendedTooltip" id="292"/>
+					<ChildItems>
+						<InputField name="_ValueToFill" id="177">
+							<DataPath>_ValueToFill</DataPath>
+							<ChoiceButton>true</ChoiceButton>
+							<ClearButton>true</ClearButton>
+							<OpenButton>true</OpenButton>
+							<ContextMenu name="_ValueToFillContextMenu" id="178">
+								<ChildItems>
+									<ButtonGroup name="_ValueToFillContextMenuGroup1" id="284">
+										<ExtendedTooltip name="_ValueToFillContextMenuGroup1ExtendedTooltip" id="285"/>
+										<ChildItems>
+											<Button name="_ValueToFillContextMenu_InsertUUID" id="282">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command._InsertUUID</CommandName>
+												<ExtendedTooltip name="_ValueToFillContextMenu_InsertUUIDExtendedTooltip" id="283"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</ContextMenu>
+							<ExtendedTooltip name="_ValueToFillExtendedTooltip" id="179"/>
+							<Events>
+								<Event name="StartChoice">_ValueToFillStartChoice</Event>
+								<Event name="Clearing">_ValueToFillClearing</Event>
+							</Events>
+						</InputField>
+						<Button name="_FillCurrentColumnData" id="180">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command._FillCurrentColumnData</CommandName>
+							<ExtendedTooltip name="_FillCurrentColumnDataExtendedTooltip" id="181"/>
+						</Button>
+						<CheckBoxField name="_ProcessOnlySelectedRowsOnFilling" id="182">
+							<DataPath>_ProcessOnlySelectedRows</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="_ProcessOnlySelectedRowsOnFillingContextMenu" id="183"/>
+							<ExtendedTooltip name="_ProcessOnlySelectedRowsOnFillingExtendedTooltip" id="184"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ObjectEditorGroup" id="130">
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ObjectEditorGroupExtendedTooltip" id="131"/>
+			<ChildItems>
+				<Pages name="PagesGroup" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Pages group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа страницы</v8:content>
+						</v8:item>
+					</Title>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="PagesGroupExtendedTooltip" id="14"/>
+					<ChildItems>
+						<Page name="PageObjectAttributes" id="15">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Реквизиты</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Attributes</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Öznitelikler</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Object attributes</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Реквизиты объекта</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="PageObjectAttributesExtendedTooltip" id="16"/>
+							<ChildItems>
+								<LabelDecoration name="ObjectAttributesDecoration" id="127">
+									<TextColor>style:FieldSelectionBackColor</TextColor>
+									<Font ref="style:TextFont" bold="false" italic="false" underline="true" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Object attributes editing</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Редактирование реквизитов объекта</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Nesne nitelikleri düzenleme</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ObjectAttributesDecorationContextMenu" id="128"/>
+									<ExtendedTooltip name="ObjectAttributesDecorationExtendedTooltip" id="129"/>
+								</LabelDecoration>
+								<Table name="ObjectAttributes" id="17">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ObjectAttributes</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ObjectAttributesContextMenu" id="18">
+										<ChildItems>
+											<Button name="ObjectAttributesContextMenuSortListAsc" id="42">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ObjectAttributes.StandardCommand.SortListAsc</CommandName>
+												<ExtendedTooltip name="ObjectAttributesContextMenuSortListAscExtendedTooltip" id="43"/>
+											</Button>
+											<Button name="ObjectAttributesContextMenuSortListDesc" id="44">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ObjectAttributes.StandardCommand.SortListDesc</CommandName>
+												<ExtendedTooltip name="ObjectAttributesContextMenuSortListDescExtendedTooltip" id="45"/>
+											</Button>
+											<Button name="ObjectAttributesContextMenuOutputList" id="46">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.ObjectAttributes.StandardCommand.OutputList</CommandName>
+												<ExtendedTooltip name="ObjectAttributesContextMenuOutputListExtendedTooltip" id="47"/>
+											</Button>
+											<ButtonGroup name="ObjectAttributesContextMenuGroup1" id="66">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Object attributes context menu group1</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ObjectAttributesContextMenuGroup1ExtendedTooltip" id="67"/>
+												<ChildItems>
+													<Button name="ObjectAttributesContextMenu_InsertUUID" id="273">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._InsertUUID</CommandName>
+														<ExtendedTooltip name="ObjectAttributesContextMenu_InsertUUIDExtendedTooltip" id="274"/>
+													</Button>
+													<Button name="ObjectAttributesContextMenuOpenObject" id="64">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.OpenObject</CommandName>
+														<ExtendedTooltip name="ObjectAttributesContextMenuOpenObjectExtendedTooltip" id="65"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="ObjectAttributesCommandBar" id="19">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ObjectAttributesExtendedTooltip" id="20"/>
+									<SearchStringAddition name="ObjectAttributesSearchString" id="21">
+										<AdditionSource>
+											<Item>ObjectAttributes</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ObjectAttributesSearchStringContextMenu" id="22"/>
+										<ExtendedTooltip name="ObjectAttributesSearchStringExtendedTooltip" id="23"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ObjectAttributesViewStatus" id="24">
+										<AdditionSource>
+											<Item>ObjectAttributes</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<HorizontalLocation>Left</HorizontalLocation>
+										<ContextMenu name="ObjectAttributesViewStatusContextMenu" id="25"/>
+										<ExtendedTooltip name="ObjectAttributesViewStatusExtendedTooltip" id="26"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ObjectAttributesSearchControl" id="27">
+										<AdditionSource>
+											<Item>ObjectAttributes</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ObjectAttributesSearchControlContextMenu" id="28"/>
+										<ExtendedTooltip name="ObjectAttributesSearchControlExtendedTooltip" id="29"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="ObjectAttributesName" id="30">
+											<DataPath>ObjectAttributes.Name</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<TextColor>style:FieldSelectionBackColor</TextColor>
+											<ContextMenu name="ObjectAttributesNameContextMenu" id="31"/>
+											<ExtendedTooltip name="ObjectAttributesNameExtendedTooltip" id="32"/>
+										</InputField>
+										<InputField name="ObjectAttributesPresentation" id="33">
+											<DataPath>ObjectAttributes.Presentation</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ObjectAttributesPresentationContextMenu" id="34"/>
+											<ExtendedTooltip name="ObjectAttributesPresentationExtendedTooltip" id="35"/>
+										</InputField>
+										<InputField name="ObjectAttributesValue" id="36">
+											<DataPath>ObjectAttributes.Value</DataPath>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<ChoiceButton>true</ChoiceButton>
+											<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+											<ClearButton>true</ClearButton>
+											<OpenButton>true</OpenButton>
+											<TypeLink>
+												<xr:DataPath>Items.ObjectAttributes.CurrentData.ValueType</xr:DataPath>
+												<xr:LinkItem>0</xr:LinkItem>
+											</TypeLink>
+											<ContextMenu name="ObjectAttributesValueContextMenu" id="37"/>
+											<ExtendedTooltip name="ObjectAttributesValueExtendedTooltip" id="38"/>
+											<Events>
+												<Event name="StartChoice">ObjectAttributesValueStartChoice</Event>
+												<Event name="Clearing">ObjectAttributesValueClearing</Event>
+											</Events>
+										</InputField>
+										<InputField name="ObjectAttributesTypeString" id="82">
+											<DataPath>ObjectAttributes.TypeString</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<TextColor>style:FieldSelectionBackColor</TextColor>
+											<ContextMenu name="ObjectAttributesTypeStringContextMenu" id="83"/>
+											<ExtendedTooltip name="ObjectAttributesTypeStringExtendedTooltip" id="84"/>
+										</InputField>
+										<InputField name="ObjectAttributesValueType" id="39">
+											<DataPath>ObjectAttributes.ValueType</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ObjectAttributesValueTypeContextMenu" id="40"/>
+											<ExtendedTooltip name="ObjectAttributesValueTypeExtendedTooltip" id="41"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</Page>
+						<Page name="PageSettings" id="149">
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Действия "ПередЗаписью"</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Actions "BeforeWrite"</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>"BeforeWrite" Eylemleri</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>AdditionalProperties</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДополнительныеСвойства</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="PageSettingsExtendedTooltip" id="150"/>
+							<ChildItems>
+								<LabelDecoration name="AdditionalPropertiesDecoration" id="207">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Font ref="style:TextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>List of properties that will be set in the Object.AdditionalProperties before write or posting object</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Перечень свойств, которые будут установлены в Объект.ДополнительныеСвойства перед записью или проведением объекта</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Nesne yazılmadan veya kaydedilmeden önce Object.AdditionalProperties içinde ayarlanacak özelliklerin listesi</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="AdditionalPropertiesDecorationContextMenu" id="208"/>
+									<ExtendedTooltip name="AdditionalPropertiesDecorationExtendedTooltip" id="209"/>
+								</LabelDecoration>
+							</ChildItems>
+						</Page>
+						<Page name="PageDocumentRecords" id="91">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Движения</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Records</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Etkinlikler</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Document records page</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Стр движения документа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="PageDocumentRecordsExtendedTooltip" id="92"/>
+							<ChildItems>
+								<UsualGroup name="Group1" id="236">
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>NormalSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Group1ExtendedTooltip" id="237"/>
+								</UsualGroup>
+								<CommandBar name="DocumentCommandsGroup" id="197">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Document commands group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа команды для документа</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ExtendedTooltip name="DocumentCommandsGroupExtendedTooltip" id="198"/>
+									<ChildItems>
+										<ButtonGroup name="PostingGroup" id="199">
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Posting group</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа проведение</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Posting group</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа проведение</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="PostingGroupExtendedTooltip" id="200"/>
+											<ChildItems>
+												<Button name="_PostDocument" id="193">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command._PostDocument</CommandName>
+													<ExtendedTooltip name="_PostDocumentExtendedTooltip" id="194"/>
+												</Button>
+												<Button name="_UndoPosting" id="195">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command._UndoPosting</CommandName>
+													<ExtendedTooltip name="_UndoPostingExtendedTooltip" id="196"/>
+												</Button>
+											</ChildItems>
+										</ButtonGroup>
+										<Button name="_ShowAllRecords" id="134">
+											<Type>CommandBarButton</Type>
+											<Width>4</Width>
+											<CommandName>Form.Command._ShowAllRecords</CommandName>
+											<ExtendedTooltip name="_ShowAllRecordsExtendedTooltip" id="135"/>
+										</Button>
+										<Button name="_OpenRecordsEditor" id="187">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command._OpenRecordsEditor</CommandName>
+											<ExtendedTooltip name="_OpenRecordsEditorExtendedTooltip" id="188"/>
+										</Button>
+										<ButtonGroup name="AdditionalRecordsGroup" id="240">
+											<ExtendedTooltip name="AdditionalRecordsGroupExtendedTooltip" id="241"/>
+											<ChildItems>
+												<Button name="_OpenAdditionalRecordsEditor" id="238">
+													<Type>CommandBarButton</Type>
+													<CommandName>Form.Command._OpenAdditionalRecordsEditor</CommandName>
+													<ExtendedTooltip name="_OpenAdditionalRecordsEditorExtendedTooltip" id="239"/>
+												</Button>
+											</ChildItems>
+										</ButtonGroup>
+									</ChildItems>
+								</CommandBar>
+								<UsualGroup name="RecordSetGroup" id="96">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Редактирование движений документа</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Document records editing</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Belge etkinliklerinin düzenlenmesi</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>style:FieldSelectionBackColor</TitleTextColor>
+									<TitleFont ref="style:TextFont" bold="false" italic="false" underline="true" strikeout="false" kind="StyleItem"/>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Record set group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа набор записей</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ExtendedTooltip name="RecordSetGroupExtendedTooltip" id="97"/>
+									<ChildItems>
+										<InputField name="_RecordSetName" id="93">
+											<DataPath>_RecordSetName</DataPath>
+											<ClearButton>true</ClearButton>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ContextMenu name="_RecordSetNameContextMenu" id="94"/>
+											<ExtendedTooltip name="_RecordSetNameExtendedTooltip" id="95"/>
+											<Events>
+												<Event name="OnChange">_RecordSetNameOnChange</Event>
+											</Events>
+										</InputField>
+										<InputField name="_RegisterFullName" id="98">
+											<DataPath>_RecordSetName</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<TextColor>style:FieldSelectionBackColor</TextColor>
+											<ContextMenu name="_RegisterFullNameContextMenu" id="99"/>
+											<ExtendedTooltip name="_RegisterFullNameExtendedTooltip" id="100"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<Table name="_RecordSet" id="101">
+									<Representation>List</Representation>
+									<RowInputMode>AfterCurrentRow</RowInputMode>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>_RecordSet</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="_RecordSetContextMenu" id="102">
+										<ChildItems>
+											<Button name="_RecordSetContextMenu_InsertUUID" id="275">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command._InsertUUID</CommandName>
+												<ExtendedTooltip name="_RecordSetContextMenu_InsertUUIDExtendedTooltip" id="276"/>
+											</Button>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="_RecordSetCommandBar" id="103">
+										<ChildItems>
+											<Button name="_RecordSetFind" id="123">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item._RecordSet.StandardCommand.Find</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="_RecordSetFindExtendedTooltip" id="124"/>
+											</Button>
+											<Button name="_RecordSetCancelSearch" id="121">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item._RecordSet.StandardCommand.CancelSearch</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="_RecordSetCancelSearchExtendedTooltip" id="122"/>
+											</Button>
+											<ButtonGroup name="_RecordSetGroup1" id="125">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Record set group1</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="_RecordSetGroup1ExtendedTooltip" id="126"/>
+												<ChildItems>
+													<Button name="_RecordSet_SwitchRecordsActivity" id="132">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._SwitchRecordsActivity</CommandName>
+														<ExtendedTooltip name="_RecordSet_SwitchRecordsActivityExtendedTooltip" id="133"/>
+													</Button>
+													<Button name="_RecordSet_RefreshRecordSet" id="117">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._RefreshRecordSet</CommandName>
+														<ExtendedTooltip name="_RecordSet_RefreshRecordSetExtendedTooltip" id="118"/>
+													</Button>
+													<Button name="_RecordSet_WriteRecordSet" id="119">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._WriteRecordSet</CommandName>
+														<ExtendedTooltip name="_RecordSet_WriteRecordSetExtendedTooltip" id="120"/>
+													</Button>
+													<Button name="_RecordSet_UnloadRecordSet" id="222">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._UnloadRecordSet</CommandName>
+														<ExtendedTooltip name="_RecordSet_UnloadRecordSetExtendedTooltip" id="223"/>
+													</Button>
+												</ChildItems>
+											</ButtonGroup>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="_RecordSetExtendedTooltip" id="104"/>
+									<SearchStringAddition name="_RecordSetSearchString" id="105">
+										<AdditionSource>
+											<Item>_RecordSet</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="_RecordSetSearchStringContextMenu" id="106"/>
+										<ExtendedTooltip name="_RecordSetSearchStringExtendedTooltip" id="107"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="_RecordSetViewStatus" id="108">
+										<AdditionSource>
+											<Item>_RecordSet</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<HorizontalLocation>Left</HorizontalLocation>
+										<ContextMenu name="_RecordSetViewStatusContextMenu" id="109"/>
+										<ExtendedTooltip name="_RecordSetViewStatusExtendedTooltip" id="110"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="_RecordSetSearchControl" id="111">
+										<AdditionSource>
+											<Item>_RecordSet</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="_RecordSetSearchControlContextMenu" id="112"/>
+										<ExtendedTooltip name="_RecordSetSearchControlExtendedTooltip" id="113"/>
+									</SearchControlAddition>
+								</Table>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_ObjectsAttributesEditor</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="mObjectRef" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект ИБ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>DB object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>DB nesnesi</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="FormsPath" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Путь к формам</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Path to forms</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Formlara giden yol</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ObjectAttributes" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object attributes</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne öznitelikleri</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Name" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ad</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Presentation" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Gösterim</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Value" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Value</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Değer</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="ValueType" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип ( представление )</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Type ( presentation )</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tür (gösterim)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Category" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Категория</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Category</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kategori</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ForGroupOrItem" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Для группы или элемента</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>For group or item</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Bir grup veya unsur için</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="TypeString" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Type</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tür</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_PrefixForNewItems" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Префикс для новых элементов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Prefix for new items</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yeni öğeler için önek</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="mPreviousObjectRef" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предыдущий объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Previous object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Önceki nesne</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="_ObjectType" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object type</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne türü</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_UUID" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>UUID</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>UUID</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>UUID</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_RecordSetName" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Набор записей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Record set</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt seti</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_RecordSet" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Набор записей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Record set</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt seti</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_RecordSetNamePrevious" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Набор записей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Record set</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt seti</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_URL" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>URL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>URL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>URL</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_ValueToFill" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение для заполнения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Value to fill</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Doldurulması gereken değer</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:Type>v8:UUID</v8:Type>
+				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_ProcessOnlySelectedRows" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обрабатывать только выделенные строки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Process only selected rows</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yalnızca seçili satırları işle</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_PostingIsAllowed" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проведение разрешено</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Posting is allowed</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kaydetme izin ver</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_UseNonStandardFormToSelect" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать нестандартную форму для выбора объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use non-standard form to select object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi seçmek için özel bir formu kullan</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_ConfigurationAllowsAdditionalRecords" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конфигурация допускает доп движения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Configuration allows additional register records</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Konfigurasyon ek kaydetmelere izin veriyor</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_CurrentFieldValueType" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип данных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Data type</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Veri türü</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="UT_CreationDate" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата создания</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Creation date</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Oluşturulma tarihi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="RefreshObjectData" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить данные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh data</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Verileri yenile</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh object data</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить данные объекта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>RefreshObjectData</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="WriteObject" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yaz...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать объект</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>WriteObject</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="FindObjectByUUID" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти объект по UUID ( это может быть долго! )</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find object by UUID (it could take a long time)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>UUID'ye göre nesneyi bul (uzun zaman alabilir!)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find object by UUID (it could take a long time because of search across the entire infobase)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти объект по UUID ( это может быть долго - поиск по всей базе! )</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>FindObjectByUUID</Action>
+		</Command>
+		<Command name="FindObjectByType_UUID" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти объект по Типу и UUID</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find object by Type and UUID</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi Tür ve UUID'ye göre bulun</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find object by type and UUID</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти объект по типу UUID</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>FindObjectByType_UUID</Action>
+		</Command>
+		<Command name="OpenObject" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть объект...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open object...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi aç...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open current object in special form</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть текущий объект в спец. форме</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckSyntax</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>OpenObject</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_RefreshRecordSet" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yenile</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_RefreshRecordSet</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_WriteRecordSet" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yaz...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write record set</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать набор записей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_WriteRecordSet</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_SwitchRecordsActivity" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переключить активность записей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Switch records activity</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt Etkinliğini Değiştir</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Switch records activity</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переключить активность записей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SwitchActivity</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_SwitchRecordsActivity</Action>
+		</Command>
+		<Command name="_ShowAllRecords" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать все движения...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all records...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tüm Etkinlikleri göster...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show registers with records</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать регистры, по которым есть движения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DebitCredit</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_ShowAllRecords</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="FindObjectByURL" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти объект по URL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find object by URL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>URL ile nesneyi bul</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find object by URL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти объект по навигационной ссылке</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GotoURL</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>FindObjectByURL</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_FillCurrentColumnData" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить данные текущей колонки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill current column data</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Mevcut sütunun verilerini doldur</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill current column data</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить данные текущей колонки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ScheduledJob</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_FillCurrentColumnData</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_OpenRecordsEditor" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактор движений...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Records editor...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt editörü...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open records editor...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть редактор движений...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.QueryWizard</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_OpenRecordsEditor</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_OpenListForm" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Спец. форма списка...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Special list form...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Special list form...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open list dynamic form</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть динамическую форму списка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ShowInList</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_OpenListForm</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_UndoPosting" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить проведение...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Undo posting...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kaydetmeyi iptal et</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Undo document posting...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить проведение документа...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UndoPosting</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_UndoPosting</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_PostDocument" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести документ...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Post document...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Belgeyi kaydet...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Post document...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести документ...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Post</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_PostDocument</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_UnloadObject" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить объект...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload object...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi boşalt...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload object...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить объект...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_UnloadObject</Action>
+		</Command>
+		<Command name="_UnloadObjectWithRecords" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить объект с движениями...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload object with records...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi Etkinliklerle boşalt...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload object with records...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить объект с движениями...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_UnloadObjectWithRecords</Action>
+		</Command>
+		<Command name="_UnloadObjectRecords" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить движения объекта...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload object records...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne Etkinliklerini boşalt...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload object records...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить движения объекта...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_UnloadObjectRecords</Action>
+		</Command>
+		<Command name="_LoadXMLData" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить данные XML...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Load XML data...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>XML verilerini yükle...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Load XML data...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить данные XML...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ReadChanges</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_LoadXMLData</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_UnloadRecordSet" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить XML...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload XML...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>XML'i boşalt...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unload record set...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить набор записей...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateInitialImage</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_UnloadRecordSet</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_OpenAdditionalRecordsEditor" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактор движений (доп)...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Records editor (additional)...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıt editörü (ek)...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open additional records editor...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть редактор дополнительных движений...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.QueryWizard</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_OpenAdditionalRecordsEditor</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_DeleteObject" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sil...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete object...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить объект...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_DeleteObject</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_ShowValueType" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Göster</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show value type in current field</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать тип значения в текущем поле</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+T</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseType</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_ShowValueType</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_SelectDeletedObject" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать битую ссылку ( &lt;Объект не найден&gt; ... )</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select broken reference (&lt;Object not found&gt;... )</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Bozuk referansı seç (&lt;Nesne bulunamadı&gt;...)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select broken reference (&lt;Object not found&gt;... )</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать битую ссылку ( &lt;Объект не найден&gt; ... )</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_SelectDeletedObject</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_WriteObjectAsNew" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать как новый...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write as new...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yeni olarak yaz...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write object as new</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать объект как новый</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_WriteObjectAsNew</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_WriteObjectAsNewWithSpecifiedUUID" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать как новый с заданным UUID...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write as new with specified UUID...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Belirtilen UUID ile yeni olarak yaz...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write object as new with specified UUID</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать объект как новый с заданным UUID</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_WriteObjectAsNewWithSpecifiedUUID</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_FillBySample" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по образцу...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill by sample...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Örneğe göre doldur...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill by sample...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по образцу...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionStandardSettings</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_FillBySample</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_InsertUUID" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вставить уникальный идентификатор...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Insert UUID...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>UUID'yi ekle...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Insert UUID...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вставить уникальный идентификатор...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Char</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_InsertUUID</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="mObjectRef">
+			<Type/>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

@@ -1,0 +1,2852 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Поиск и удаление дублей</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Duplicate object detection</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>tr</v8:lang>
+			<v8:content>Yinelenen nesne tespiti</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="BeforeClose">BeforeClose</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Header" id="406" DisplayImportance="VeryHigh">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Header</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Başlık</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="HeaderExtendedTooltip" id="407"/>
+			<ChildItems>
+				<InputField name="DuplicatesSearchArea" id="9">
+					<DataPath>DuplicatesSearchArea</DataPath>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>true</ChoiceButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<ListChoiceMode>true</ListChoiceMode>
+					<QuickChoice>false</QuickChoice>
+					<ContextMenu name="DuplicatesSearchAreaContextMenu" id="10"/>
+					<ExtendedTooltip name="DuplicatesSearchAreaExtendedTooltip" id="11"/>
+					<Events>
+						<Event name="OnChange">DuplicatesSearchAreaOnChange</Event>
+						<Event name="StartChoice">DuplicatesSearchAreaStartChoice</Event>
+						<Event name="Clearing">DuplicatesSearchAreaClearing</Event>
+					</Events>
+				</InputField>
+				<InputField name="FilterRulesPresentation" id="413">
+					<DataPath>FilterRulesPresentation</DataPath>
+					<ChoiceButton>true</ChoiceButton>
+					<ClearButton>true</ClearButton>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="FilterRulesPresentationContextMenu" id="414"/>
+					<ExtendedTooltip name="FilterRulesPresentationExtendedTooltip" id="415"/>
+					<Events>
+						<Event name="StartChoice">FilterRulesPresentationStartChoice</Event>
+						<Event name="Clearing">FilterRulesPresentationClearing</Event>
+					</Events>
+				</InputField>
+				<LabelField name="SearchRulesPresentation" id="408">
+					<DataPath>SearchRulesPresentation</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="SearchRulesPresentationContextMenu" id="409"/>
+					<ExtendedTooltip name="SearchRulesPresentationExtendedTooltip" id="410"/>
+					<Events>
+						<Event name="Click">SearchRulesPresentationClick</Event>
+					</Events>
+				</LabelField>
+				<UsualGroup name="ReplacementParametersGroup" id="464">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры замены</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Replacement parameters</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Değiştirme parametreleri</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="ReplacementParametersGroupExtendedTooltip" id="465"/>
+					<ChildItems>
+						<CheckBoxField name="ConsiderAppliedRules" id="466">
+							<DataPath>ConsiderAppliedRules</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для БСП -ных конфигураций, если есть подсистема ПоискИУдалениеДублей выполняется проверка возможности замены. Проверяет каждую пару "дубль-оригинал" (вызывается функция
+"ВозможностьЗаменыЭлементов" модуля менеджера)</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ConsiderAppliedRulesContextMenu" id="467"/>
+							<ExtendedTooltip name="ConsiderAppliedRulesExtendedTooltip" id="468"/>
+						</CheckBoxField>
+						<CheckBoxField name="ReplaceInTransaction" id="469">
+							<DataPath>ReplaceInTransaction</DataPath>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Определяет размер транзакции.
+//           Истина -Транзакция охватывает все места использования одного дубля. Может быть очень ресурсоемко  в случае большого количества мест использований.
+//           Ложь   - замена каждого места использования выполняется в отдельной транзакции.</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Defines transaction size.
+//		True - Transaction covers all instances for one duplicate. In case of a large number of instances it may take a lot of resources.
+//		False - Every usage instance processed in separate transaction.</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>İşlem boyutunu tanımlar.
+
+Doğru - İşlem, bir kopya için tüm kullanım örneklerini kapsar. Çok sayıda kullanım örneği varsa, bu durum yüksek kaynak kullanımı anlamına gelebilir.
+
+Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ReplaceInTransactionContextMenu" id="470"/>
+							<ExtendedTooltip name="ReplaceInTransactionExtendedTooltip" id="471"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="WritingParametersGroup" id="462">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры записи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Writing parameters</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Yazma parametreleri</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Collapsible</Behavior>
+					<CollapsedRepresentationTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры записи</v8:content>
+						</v8:item>
+					</CollapsedRepresentationTitle>
+					<Collapsed>true</Collapsed>
+					<Representation>StrongSeparation</Representation>
+					<ExtendedTooltip name="WritingParametersGroupExtendedTooltip" id="463"/>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="WizardSteps" id="58">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаги мастера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Wizard steps</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sihirbaz adımları</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="WizardStepsExtendedTooltip" id="59"/>
+			<ChildItems>
+				<Page name="NoSearchPerformedStep" id="62">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг поиск не выполнялся</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>No search performed step</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Arama yapılmayan adım</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="NoSearchPerformedStepExtendedTooltip" id="63"/>
+					<ChildItems>
+						<SpreadSheetDocumentField name="NoSearchPerformed" id="64">
+							<DataPath>NoSearchPerformed</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>1</Height>
+							<VerticalScrollBar>false</VerticalScrollBar>
+							<HorizontalScrollBar>false</HorizontalScrollBar>
+							<ContextMenu name="NoSearchPerformedContextMenu" id="65"/>
+							<ExtendedTooltip name="NoSearchPerformedExtendedTooltip" id="66"/>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="PerformSearchStep" id="186">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг выполнение поиска</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Perform search step</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Arama yapma adımı</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="PerformSearchStepExtendedTooltip" id="187"/>
+					<ChildItems>
+						<SpreadSheetDocumentField name="PerformSearch" id="188">
+							<DataPath>NoSearchPerformed</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>1</Height>
+							<VerticalScrollBar>false</VerticalScrollBar>
+							<HorizontalScrollBar>false</HorizontalScrollBar>
+							<ContextMenu name="PerformSearchContextMenu" id="189"/>
+							<ExtendedTooltip name="PerformSearchExtendedTooltip" id="190"/>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="MainItemSelectionStep" id="98">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг выбор основного элемента</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Main item selection step</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ana öğe seçimi adımı</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="MainItemSelectionStepExtendedTooltip" id="99"/>
+					<ChildItems>
+						<CommandBar name="MainItemOperationCommands" id="96">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды работы с основным элементов</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Main item operation commands</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Ana öğe işlem komutları</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="MainItemOperationCommandsExtendedTooltip" id="97"/>
+							<ChildItems>
+								<Button name="SelectMainItem" id="88">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.SelectMainItem</CommandName>
+									<ExtendedTooltip name="SelectMainItemExtendedTooltip" id="89"/>
+								</Button>
+								<Button name="OpenCandidate" id="90">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.OpenCandidate</CommandName>
+									<ExtendedTooltip name="OpenCandidateExtendedTooltip" id="91"/>
+								</Button>
+								<Button name="EditFoundDuplicate" id="476">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.EditFoundDuplicate</CommandName>
+									<ExtendedTooltip name="EditFoundDuplicateExtendedTooltip" id="477"/>
+								</Button>
+								<Button name="ExpandDuplicatesGroups" id="92">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ExpandDuplicatesGroups</CommandName>
+									<ExtendedTooltip name="ExpandDuplicatesGroupsExtendedTooltip" id="93"/>
+								</Button>
+								<Button name="CollapseDuplicatesGroups" id="94">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.CollapseDuplicatesGroups</CommandName>
+									<ExtendedTooltip name="CollapseDuplicatesGroupsExtendedTooltip" id="95"/>
+								</Button>
+								<Button name="RetrySearch" id="326">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.RetrySearch</CommandName>
+									<ExtendedTooltip name="RetrySearchExtendedTooltip" id="327"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+						<UsualGroup name="MainItemVerticalGroup" id="153">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вертикальная основного элемента</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Main item vertical group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Ana öğe dikey grup</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="MainItemVerticalGroupExtendedTooltip" id="154"/>
+							<ChildItems>
+								<UsualGroup name="FoundDuplicatesHorizontalGroup" id="155">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Горизонтальная найденные дубли</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Duplicates found horizontal group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Bulunan yinelenenler yatay grup</v8:content>
+										</v8:item>
+									</Title>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="FoundDuplicatesHorizontalGroupExtendedTooltip" id="156"/>
+									<ChildItems>
+										<Table name="FoundDuplicates" id="67">
+											<Representation>Tree</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<Height>5</Height>
+											<SelectionMode>SingleRow</SelectionMode>
+											<RowSelectionMode>Row</RowSelectionMode>
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<InitialTreeView>ExpandAllLevels</InitialTreeView>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>FoundDuplicates</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Found duplicates</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Найденные дубли</v8:content>
+												</v8:item>
+											</Title>
+											<CommandSet>
+												<ExcludedCommand>Change</ExcludedCommand>
+											</CommandSet>
+											<ContextMenu name="FoundDuplicatesContextMenu" id="68">
+												<ChildItems>
+													<Button name="FoundDuplicatesContextMenuSelectMainItem" id="117">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.SelectMainItem</CommandName>
+														<ExtendedTooltip name="FoundDuplicatesContextMenuSelectMainItemExtendedTooltip" id="118"/>
+													</Button>
+													<ButtonGroup name="FoundDuplicatesContextMenuCustomizeGroup" id="422">
+														<Title>
+															<v8:item>
+																<v8:lang>en</v8:lang>
+																<v8:content>Found duplicates context menu customize group</v8:content>
+															</v8:item>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Найденные дубли контекстное меню группа изменить</v8:content>
+															</v8:item>
+														</Title>
+														<ExtendedTooltip name="FoundDuplicatesContextMenuCustomizeGroupExtendedTooltip" id="423"/>
+														<ChildItems>
+															<Button name="FoundDuplicatesContextMenuOpenCandidate" id="430">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.OpenCandidate</CommandName>
+																<ExtendedTooltip name="FoundDuplicatesContextMenuOpenCandidateExtendedTooltip" id="431"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<Button name="FoundDuplicatesContextMenuCopyToClipboard" id="418">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.FoundDuplicates.StandardCommand.CopyToClipboard</CommandName>
+														<ExtendedTooltip name="FoundDuplicatesContextMenuCopyToClipboardExtendedTooltip" id="419"/>
+													</Button>
+													<Button name="FoundDuplicatesContextMenuOutputList" id="416">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.FoundDuplicates.StandardCommand.OutputList</CommandName>
+														<ExtendedTooltip name="FoundDuplicatesContextMenuOutputListExtendedTooltip" id="417"/>
+													</Button>
+													<ButtonGroup name="FoundDuplicatesContextMenuCustomizeFormGroup" id="426">
+														<Title>
+															<v8:item>
+																<v8:lang>en</v8:lang>
+																<v8:content>Found duplicates context menu customize form group</v8:content>
+															</v8:item>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Найденные дубли контекстное меню группа изменить форму</v8:content>
+															</v8:item>
+														</Title>
+														<ExtendedTooltip name="FoundDuplicatesContextMenuCustomizeFormGroupExtendedTooltip" id="427"/>
+														<ChildItems>
+															<Button name="FoundDuplicatesContextMenuCustomizeForm" id="424">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+																<ExtendedTooltip name="FoundDuplicatesContextMenuCustomizeFormExtendedTooltip" id="425"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<Button name="FoundDuplicatesContextMenuEditFoundDuplicate" id="474">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.EditFoundDuplicate</CommandName>
+														<ExtendedTooltip name="FoundDuplicatesContextMenuEditFoundDuplicateExtendedTooltip" id="475"/>
+													</Button>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="FoundDuplicatesCommandBar" id="69">
+												<Autofill>false</Autofill>
+											</AutoCommandBar>
+											<ExtendedTooltip name="FoundDuplicatesExtendedTooltip" id="70"/>
+											<SearchStringAddition name="FoundDuplicatesSearchString" id="364">
+												<AdditionSource>
+													<Item>FoundDuplicates</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="FoundDuplicatesSearchStringContextMenu" id="365"/>
+												<ExtendedTooltip name="FoundDuplicatesSearchStringExtendedTooltip" id="366"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="FoundDuplicatesViewStatus" id="367">
+												<AdditionSource>
+													<Item>FoundDuplicates</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="FoundDuplicatesViewStatusContextMenu" id="368"/>
+												<ExtendedTooltip name="FoundDuplicatesViewStatusExtendedTooltip" id="369"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="FoundDuplicatesSearchControl" id="370">
+												<AdditionSource>
+													<Item>FoundDuplicates</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="FoundDuplicatesSearchControlContextMenu" id="371"/>
+												<ExtendedTooltip name="FoundDuplicatesSearchControlExtendedTooltip" id="372"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">FoundDuplicatesSelection</Event>
+												<Event name="OnActivateRow">FoundDuplicatesOnActivateRow</Event>
+											</Events>
+											<ChildItems>
+												<ColumnGroup name="UseDescription" id="109">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Использовать наименование</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Use description</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>Açıklamayı kullan</v8:content>
+														</v8:item>
+													</Title>
+													<Group>InCell</Group>
+													<ExtendedTooltip name="UseDescriptionExtendedTooltip" id="110"/>
+													<ChildItems>
+														<InputField name="FoundDuplicatesDescription" id="100">
+															<DataPath>FoundDuplicates.Description</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>5</Width>
+															<ContextMenu name="FoundDuplicatesDescriptionContextMenu" id="101"/>
+															<ExtendedTooltip name="FoundDuplicatesDescriptionExtendedTooltip" id="102"/>
+														</InputField>
+														<PictureField name="FoundDuplicatesMain" id="114">
+															<DataPath>FoundDuplicates.Main</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ValuesPicture>
+																<xr:Ref>StdPicture.MoveRight</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</ValuesPicture>
+															<FileDragMode>AsFile</FileDragMode>
+															<ContextMenu name="FoundDuplicatesMainContextMenu" id="115"/>
+															<ExtendedTooltip name="FoundDuplicatesMainExtendedTooltip" id="116"/>
+														</PictureField>
+														<CheckBoxField name="FoundDuplicatesCheck" id="103">
+															<DataPath>FoundDuplicates.Check</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ThreeState>true</ThreeState>
+															<ContextMenu name="FoundDuplicatesCheckContextMenu" id="104"/>
+															<ExtendedTooltip name="FoundDuplicatesCheckExtendedTooltip" id="105"/>
+															<Events>
+																<Event name="OnChange">FoundDuplicatesCheckOnChange</Event>
+															</Events>
+														</CheckBoxField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="FoundDuplicatesCode" id="111">
+													<DataPath>FoundDuplicates.Code</DataPath>
+													<UserVisible>
+														<xr:Common>false</xr:Common>
+													</UserVisible>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="FoundDuplicatesCodeContextMenu" id="112"/>
+													<ExtendedTooltip name="FoundDuplicatesCodeExtendedTooltip" id="113"/>
+												</InputField>
+												<InputField name="FoundDuplicatesCount" id="119">
+													<DataPath>FoundDuplicates.Count</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<TitleLocation>None</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Мест использования</v8:content>
+														</v8:item>
+													</ToolTip>
+													<HorizontalAlign>Left</HorizontalAlign>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>4</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="FoundDuplicatesCountContextMenu" id="120"/>
+													<ExtendedTooltip name="FoundDuplicatesCountExtendedTooltip" id="121"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+										<Pages name="UsageInstancesPages" id="147">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Страницы места использования</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Usage instances pages</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Kullanım örnekleri sayfaları</v8:content>
+												</v8:item>
+											</Title>
+											<PagesRepresentation>None</PagesRepresentation>
+											<ExtendedTooltip name="UsageInstancesPagesExtendedTooltip" id="148"/>
+											<ChildItems>
+												<Page name="UsageInstances" id="149">
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Usage instances</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Места использования</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="UsageInstancesExtendedTooltip" id="150"/>
+													<ChildItems>
+														<Table name="CandidateUsageInstances" id="137">
+															<Representation>List</Representation>
+															<TitleLocation>Top</TitleLocation>
+															<ReadOnly>true</ReadOnly>
+															<ChangeRowSet>false</ChangeRowSet>
+															<ChangeRowOrder>false</ChangeRowOrder>
+															<HeightInTableRows>1</HeightInTableRows>
+															<Header>false</Header>
+															<HorizontalLines>false</HorizontalLines>
+															<VerticalLines>false</VerticalLines>
+															<AutoInsertNewRow>true</AutoInsertNewRow>
+															<EnableStartDrag>true</EnableStartDrag>
+															<EnableDrag>true</EnableDrag>
+															<FileDragMode>AsFile</FileDragMode>
+															<DataPath>CandidateUsageInstances</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Места использования кандидата</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Candidate usage instances</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>tr</v8:lang>
+																	<v8:content>Aday kullanım örnekleri</v8:content>
+																</v8:item>
+															</Title>
+															<RowFilter xsi:nil="true"/>
+															<ContextMenu name="CandidateUsageInstancesContextMenu" id="138">
+																<ChildItems>
+																	<Button name="CandidateUsageInstancesContextMenuOutputList" id="446">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Item.CandidateUsageInstances.StandardCommand.OutputList</CommandName>
+																		<ExtendedTooltip name="CandidateUsageInstancesContextMenuOutputListExtendedTooltip" id="447"/>
+																	</Button>
+																	<Button name="CandidateUsageInstancesContextMenuEditCandidateUsageInstance" id="480">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.EditCandidateUsageInstance</CommandName>
+																		<ExtendedTooltip name="CandidateUsageInstancesContextMenuEditCandidateUsageInstanceExtendedTooltip" id="481"/>
+																	</Button>
+																</ChildItems>
+															</ContextMenu>
+															<AutoCommandBar name="CandidateUsageInstancesCommandBar" id="139">
+																<ChildItems>
+																	<Button name="CandidateUsageInstancesEditCandidateUsageInstance" id="478">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.EditCandidateUsageInstance</CommandName>
+																		<ExtendedTooltip name="CandidateUsageInstancesEditCandidateUsageInstanceExtendedTooltip" id="479"/>
+																	</Button>
+																</ChildItems>
+															</AutoCommandBar>
+															<ExtendedTooltip name="CandidateUsageInstancesExtendedTooltip" id="140"/>
+															<SearchStringAddition name="CandidateUsageInstancesSearchString" id="373">
+																<AdditionSource>
+																	<Item>CandidateUsageInstances</Item>
+																	<Type>SearchStringRepresentation</Type>
+																</AdditionSource>
+																<ContextMenu name="CandidateUsageInstancesSearchStringContextMenu" id="374"/>
+																<ExtendedTooltip name="CandidateUsageInstancesSearchStringExtendedTooltip" id="375"/>
+															</SearchStringAddition>
+															<ViewStatusAddition name="CandidateUsageInstancesViewStatus" id="376">
+																<AdditionSource>
+																	<Item>CandidateUsageInstances</Item>
+																	<Type>ViewStatusRepresentation</Type>
+																</AdditionSource>
+																<HorizontalLocation>Left</HorizontalLocation>
+																<ContextMenu name="CandidateUsageInstancesViewStatusContextMenu" id="377"/>
+																<ExtendedTooltip name="CandidateUsageInstancesViewStatusExtendedTooltip" id="378"/>
+															</ViewStatusAddition>
+															<SearchControlAddition name="CandidateUsageInstancesSearchControl" id="379">
+																<AdditionSource>
+																	<Item>CandidateUsageInstances</Item>
+																	<Type>SearchControl</Type>
+																</AdditionSource>
+																<ContextMenu name="CandidateUsageInstancesSearchControlContextMenu" id="380"/>
+																<ExtendedTooltip name="CandidateUsageInstancesSearchControlExtendedTooltip" id="381"/>
+															</SearchControlAddition>
+															<Events>
+																<Event name="Selection">CandidateUsageInstancesSelection</Event>
+															</Events>
+															<ChildItems>
+																<InputField name="CandidateUsageInstancesDataPresentation" id="144">
+																	<DataPath>CandidateUsageInstances.DataPresentation</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<EditMode>EnterOnInput</EditMode>
+																	<AutoCellHeight>true</AutoCellHeight>
+																	<MultiLine>true</MultiLine>
+																	<ContextMenu name="CandidateUsageInstancesDataPresentationContextMenu" id="145"/>
+																	<ExtendedTooltip name="CandidateUsageInstancesDataPresentationExtendedTooltip" id="146"/>
+																</InputField>
+															</ChildItems>
+														</Table>
+													</ChildItems>
+												</Page>
+												<Page name="GroupDetails" id="151">
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Group details</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Описание группы</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="GroupDetailsExtendedTooltip" id="152"/>
+													<ChildItems>
+														<LabelDecoration name="CurrentDuplicatesGroupDetails" id="134">
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<HorizontalStretch>true</HorizontalStretch>
+															<VerticalStretch>true</VerticalStretch>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Current duplicates group details</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Описание текущей группы дублей</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>tr</v8:lang>
+																	<v8:content>Mevcut yinelenenler grup detayları</v8:content>
+																</v8:item>
+															</Title>
+															<HorizontalAlign>Center</HorizontalAlign>
+															<VerticalAlign>Center</VerticalAlign>
+															<Border width="1">
+																<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+															</Border>
+															<ContextMenu name="CurrentDuplicatesGroupDetailsContextMenu" id="135"/>
+															<ExtendedTooltip name="CurrentDuplicatesGroupDetailsExtendedTooltip" id="136"/>
+														</LabelDecoration>
+													</ChildItems>
+												</Page>
+											</ChildItems>
+										</Pages>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="FoundItemStateHorizontalGroup" id="157">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Found item state horizontal group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Горизонтальная состояние найденного</v8:content>
+										</v8:item>
+									</Title>
+									<Height>2</Height>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="FoundItemStateHorizontalGroupExtendedTooltip" id="158"/>
+									<ChildItems>
+										<LabelField name="FoundDuplicatesStateDetails" id="202">
+											<DataPath>FoundDuplicatesStateDetails</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<VerticalStretch>true</VerticalStretch>
+											<ContextMenu name="FoundDuplicatesStateDetailsContextMenu" id="203"/>
+											<ExtendedTooltip name="FoundDuplicatesStateDetailsExtendedTooltip" id="204"/>
+										</LabelField>
+										<LabelDecoration name="AllUsageInstances" id="328">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>All usage instances</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Все места использования</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Tüm kullanım örnekleri</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<ContextMenu name="AllUsageInstancesContextMenu" id="329"/>
+											<ExtendedTooltip name="AllUsageInstancesExtendedTooltip" id="330"/>
+											<Events>
+												<Event name="Click">AllUsageInstancesClick</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="DeletionStep" id="205">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг выполнение удаления</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Deletion step</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Silme adımı</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="DeletionStepExtendedTooltip" id="206"/>
+					<ChildItems>
+						<SpreadSheetDocumentField name="Deletion" id="207">
+							<DataPath>NoSearchPerformed</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>1</Height>
+							<VerticalScrollBar>false</VerticalScrollBar>
+							<HorizontalScrollBar>false</HorizontalScrollBar>
+							<ContextMenu name="DeletionContextMenu" id="208"/>
+							<ExtendedTooltip name="DeletionExtendedTooltip" id="209"/>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="SuccessfulDeletionStep" id="212">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг успешное удаление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Successful deletion step</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Başarılı silme adımı</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<ExtendedTooltip name="SuccessfulDeletionStepExtendedTooltip" id="213"/>
+					<ChildItems>
+						<PictureDecoration name="Decoration5" id="352">
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Abs>Picture.zip</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Decoration5ContextMenu" id="353"/>
+							<ExtendedTooltip name="Decoration5ExtendedTooltip" id="354"/>
+						</PictureDecoration>
+						<LabelField name="FoundDuplicatesStateDetails1" id="344">
+							<DataPath>FoundDuplicatesStateDetails</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Left</HorizontalAlign>
+							<VerticalAlign>Center</VerticalAlign>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Height>5</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="FoundDuplicatesStateDetails1ContextMenu" id="345"/>
+							<ExtendedTooltip name="FoundDuplicatesStateDetails1ExtendedTooltip" id="346"/>
+						</LabelField>
+					</ChildItems>
+				</Page>
+				<Page name="UnsuccessfulReplacementsStep" id="210">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг неудачные замены</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Unsuccessful replacements step</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Başarısız değiştirme adımı</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="UnsuccessfulReplacementsStepExtendedTooltip" id="211"/>
+					<ChildItems>
+						<UsualGroup name="UnprocessedDuplicatesVerticalGroup" id="238">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Pending duplicates vertical group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вертикальная необработанные дубли</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа вертикальная основного элемента</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="UnprocessedDuplicatesVerticalGroupExtendedTooltip" id="239"/>
+							<ChildItems>
+								<LabelDecoration name="UnsuccessfulReplacementsPageHeader" id="331">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Failed to replace duplicates in some usage locations:</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Не удалось заменить дубли на оригиналы в некоторых местах использования:</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Bazı kullanım yerlerinde yinelenenler değiştirilemedi:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="UnsuccessfulReplacementsPageHeaderContextMenu" id="332"/>
+									<ExtendedTooltip name="UnsuccessfulReplacementsPageHeaderExtendedTooltip" id="333"/>
+								</LabelDecoration>
+								<UsualGroup name="UnprocessedDuplicatesHorizontalGroup" id="240">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Pending duplicates horizontal group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Горизонтальная необработанные дубли</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа горизонтальная найденные дубли</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="UnprocessedDuplicatesHorizontalGroupExtendedTooltip" id="241"/>
+									<ChildItems>
+										<Table name="UnprocessedDuplicates" id="242">
+											<Representation>Tree</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<Height>7</Height>
+											<SelectionMode>SingleRow</SelectionMode>
+											<RowSelectionMode>Row</RowSelectionMode>
+											<UseAlternationRowColor>true</UseAlternationRowColor>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<InitialTreeView>ExpandAllLevels</InitialTreeView>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>UnprocessedDuplicates</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Unprocessed duplicates</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Необработанные дубли</v8:content>
+												</v8:item>
+											</Title>
+											<CommandSet>
+												<ExcludedCommand>Change</ExcludedCommand>
+											</CommandSet>
+											<ContextMenu name="UnprocessedDuplicatesContextMenu" id="243">
+												<ChildItems>
+													<ButtonGroup name="UnprocessedDuplicatesContextMenuOpenGroup" id="442">
+														<Title>
+															<v8:item>
+																<v8:lang>en</v8:lang>
+																<v8:content>Unprocessed duplicates context menu open group</v8:content>
+															</v8:item>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Необработанные дубли контекстное меню группа открыть</v8:content>
+															</v8:item>
+														</Title>
+														<ExtendedTooltip name="UnprocessedDuplicatesContextMenuOpenGroupExtendedTooltip" id="443"/>
+														<ChildItems>
+															<Button name="UnprocessedDuplicatesContextMenuOpenUnprocessedDuplicate" id="432">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.OpenUnprocessedDuplicate</CommandName>
+																<ExtendedTooltip name="UnprocessedDuplicatesContextMenuOpenUnprocessedDuplicateExtendedTooltip" id="433"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+													<Button name="UnprocessedDuplicatesContextMenuEditUnprocessedDuplicate" id="484">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.EditUnprocessedDuplicate</CommandName>
+														<ExtendedTooltip name="UnprocessedDuplicatesContextMenuEditUnprocessedDuplicateExtendedTooltip" id="485"/>
+													</Button>
+													<Button name="UnprocessedDuplicatesContextMenuCopyToClipboard" id="434">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.UnprocessedDuplicates.StandardCommand.CopyToClipboard</CommandName>
+														<ExtendedTooltip name="UnprocessedDuplicatesContextMenuCopyToClipboardExtendedTooltip" id="435"/>
+													</Button>
+													<Button name="UnprocessedDuplicatesContextMenuOutputList" id="436">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.UnprocessedDuplicates.StandardCommand.OutputList</CommandName>
+														<ExtendedTooltip name="UnprocessedDuplicatesContextMenuOutputListExtendedTooltip" id="437"/>
+													</Button>
+													<ButtonGroup name="UnprocessedDuplicatesContextMenuCustomizeFormGroup" id="440">
+														<Title>
+															<v8:item>
+																<v8:lang>en</v8:lang>
+																<v8:content>Unprocessed duplicates context menu customize form group</v8:content>
+															</v8:item>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Необработанные дубли контекстное меню группа изменить форму</v8:content>
+															</v8:item>
+														</Title>
+														<ExtendedTooltip name="UnprocessedDuplicatesContextMenuCustomizeFormGroupExtendedTooltip" id="441"/>
+														<ChildItems>
+															<Button name="UnprocessedDuplicatesContextMenuCustomizeForm" id="438">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+																<ExtendedTooltip name="UnprocessedDuplicatesContextMenuCustomizeFormExtendedTooltip" id="439"/>
+															</Button>
+														</ChildItems>
+													</ButtonGroup>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="UnprocessedDuplicatesCommandBar" id="244">
+												<Autofill>false</Autofill>
+												<ChildItems>
+													<Button name="UnprocessedDuplicatesEditUnprocessedDuplicate" id="482">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.EditUnprocessedDuplicate</CommandName>
+														<ExtendedTooltip name="UnprocessedDuplicatesEditUnprocessedDuplicateExtendedTooltip" id="483"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="UnprocessedDuplicatesExtendedTooltip" id="245"/>
+											<SearchStringAddition name="UnprocessedDuplicatesSearchString" id="382">
+												<AdditionSource>
+													<Item>UnprocessedDuplicates</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="UnprocessedDuplicatesSearchStringContextMenu" id="383"/>
+												<ExtendedTooltip name="UnprocessedDuplicatesSearchStringExtendedTooltip" id="384"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="UnprocessedDuplicatesViewStatus" id="385">
+												<AdditionSource>
+													<Item>UnprocessedDuplicates</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="UnprocessedDuplicatesViewStatusContextMenu" id="386"/>
+												<ExtendedTooltip name="UnprocessedDuplicatesViewStatusExtendedTooltip" id="387"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="UnprocessedDuplicatesSearchControl" id="388">
+												<AdditionSource>
+													<Item>UnprocessedDuplicates</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="UnprocessedDuplicatesSearchControlContextMenu" id="389"/>
+												<ExtendedTooltip name="UnprocessedDuplicatesSearchControlExtendedTooltip" id="390"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">UnprocessedDuplicatesSelection</Event>
+												<Event name="OnActivateRow">UnprocessedDuplicatesOnActivateRow</Event>
+											</Events>
+											<ChildItems>
+												<ColumnGroup name="MainDescription" id="246">
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Main description</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Основной наименование</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Использовать наименование</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>InCell</Group>
+													<ExtendedTooltip name="MainDescriptionExtendedTooltip" id="247"/>
+													<ChildItems>
+														<PictureField name="UnprocessedDuplicatesMain" id="305">
+															<DataPath>UnprocessedDuplicates.Main</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleLocation>None</TitleLocation>
+															<EditMode>EnterOnInput</EditMode>
+															<ValuesPicture>
+																<xr:Ref>StdPicture.MoveRight</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</ValuesPicture>
+															<FileDragMode>AsFile</FileDragMode>
+															<ContextMenu name="UnprocessedDuplicatesMainContextMenu" id="306"/>
+															<ExtendedTooltip name="UnprocessedDuplicatesMainExtendedTooltip" id="307"/>
+														</PictureField>
+														<InputField name="UnprocessedDuplicatesDescription" id="296">
+															<DataPath>UnprocessedDuplicates.Description</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>17</Width>
+															<ContextMenu name="UnprocessedDuplicatesDescriptionContextMenu" id="297"/>
+															<ExtendedTooltip name="UnprocessedDuplicatesDescriptionExtendedTooltip" id="298"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="UnprocessedDuplicatesCode" id="293">
+													<DataPath>UnprocessedDuplicates.Code</DataPath>
+													<UserVisible>
+														<xr:Common>false</xr:Common>
+													</UserVisible>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="UnprocessedDuplicatesCodeContextMenu" id="294"/>
+													<ExtendedTooltip name="UnprocessedDuplicatesCodeExtendedTooltip" id="295"/>
+												</InputField>
+												<InputField name="UnprocessedDuplicatesCount" id="299">
+													<DataPath>UnprocessedDuplicates.Count</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<TitleLocation>None</TitleLocation>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Неудачных замен</v8:content>
+														</v8:item>
+													</ToolTip>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>4</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="UnprocessedDuplicatesCountContextMenu" id="300"/>
+													<ExtendedTooltip name="UnprocessedDuplicatesCountExtendedTooltip" id="301"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+										<Pages name="UnprocessedItemsUsageInstancesPages" id="265">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Страницы места использования необработанных</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Unprocessed items usage instances pages</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>İşlenmemiş öğelerin kullanım örnekleri sayfaları</v8:content>
+												</v8:item>
+											</Title>
+											<Width>24</Width>
+											<PagesRepresentation>None</PagesRepresentation>
+											<ExtendedTooltip name="UnprocessedItemsUsageInstancesPagesExtendedTooltip" id="266"/>
+											<ChildItems>
+												<Page name="UnprocessedItemsUsageInstanceDetails" id="267">
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Unprocessed items usage instance details</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Описание мест использования необработанных</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Места использования</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ExtendedTooltip name="UnprocessedItemsUsageInstanceDetailsExtendedTooltip" id="268"/>
+													<ChildItems>
+														<Table name="UnprocessedDuplicatesUsageInstances" id="269">
+															<Representation>List</Representation>
+															<TitleLocation>Top</TitleLocation>
+															<ReadOnly>true</ReadOnly>
+															<ChangeRowSet>false</ChangeRowSet>
+															<ChangeRowOrder>false</ChangeRowOrder>
+															<Height>2</Height>
+															<RowSelectionMode>Row</RowSelectionMode>
+															<Header>false</Header>
+															<HorizontalLines>false</HorizontalLines>
+															<VerticalLines>false</VerticalLines>
+															<AutoInsertNewRow>true</AutoInsertNewRow>
+															<EnableStartDrag>true</EnableStartDrag>
+															<EnableDrag>true</EnableDrag>
+															<FileDragMode>AsFile</FileDragMode>
+															<DataPath>UnprocessedDuplicatesUsageInstances</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Unprocessed duplicates usage instances</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Места использования необработанных</v8:content>
+																</v8:item>
+															</Title>
+															<RowFilter xsi:nil="true"/>
+															<ContextMenu name="UnprocessedDuplicatesUsageInstancesContextMenu" id="270">
+																<ChildItems>
+																	<Button name="UnprocessedDuplicatesUsageInstancesContextMenuEditUnprocessedItemsUsageInstance" id="488">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.EditUnprocessedDuplicatesUsageInstance</CommandName>
+																		<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesContextMenuEditUnprocessedItemsUsageInstanceExtendedTooltip" id="489"/>
+																	</Button>
+																	<Button name="UnprocessedDuplicatesUsageInstancesContextMenuOutputList" id="444">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Item.UnprocessedDuplicatesUsageInstances.StandardCommand.OutputList</CommandName>
+																		<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesContextMenuOutputListExtendedTooltip" id="445"/>
+																	</Button>
+																</ChildItems>
+															</ContextMenu>
+															<AutoCommandBar name="UnprocessedDuplicatesUsageInstancesCommandBar" id="271">
+																<ChildItems>
+																	<Button name="UnprocessedDuplicatesUsageInstancesEditUnprocessedDuplicatesUsageInstance" id="486">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.EditUnprocessedDuplicatesUsageInstance</CommandName>
+																		<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesEditUnprocessedDuplicatesUsageInstanceExtendedTooltip" id="487"/>
+																	</Button>
+																</ChildItems>
+															</AutoCommandBar>
+															<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesExtendedTooltip" id="272"/>
+															<SearchStringAddition name="UnprocessedDuplicatesUsageInstancesSearchString" id="391">
+																<AdditionSource>
+																	<Item>UnprocessedDuplicatesUsageInstances</Item>
+																	<Type>SearchStringRepresentation</Type>
+																</AdditionSource>
+																<ContextMenu name="UnprocessedDuplicatesUsageInstancesSearchStringContextMenu" id="392"/>
+																<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesSearchStringExtendedTooltip" id="393"/>
+															</SearchStringAddition>
+															<ViewStatusAddition name="UnprocessedDuplicatesUsageInstancesViewStatus" id="394">
+																<AdditionSource>
+																	<Item>UnprocessedDuplicatesUsageInstances</Item>
+																	<Type>ViewStatusRepresentation</Type>
+																</AdditionSource>
+																<HorizontalLocation>Left</HorizontalLocation>
+																<ContextMenu name="UnprocessedDuplicatesUsageInstancesViewStatusContextMenu" id="395"/>
+																<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesViewStatusExtendedTooltip" id="396"/>
+															</ViewStatusAddition>
+															<SearchControlAddition name="UnprocessedDuplicatesUsageInstancesSearchControl" id="397">
+																<AdditionSource>
+																	<Item>UnprocessedDuplicatesUsageInstances</Item>
+																	<Type>SearchControl</Type>
+																</AdditionSource>
+																<ContextMenu name="UnprocessedDuplicatesUsageInstancesSearchControlContextMenu" id="398"/>
+																<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesSearchControlExtendedTooltip" id="399"/>
+															</SearchControlAddition>
+															<Events>
+																<Event name="Selection">UnprocessedDuplicatesUsageInstancesSelection</Event>
+																<Event name="OnActivateRow">UnprocessedDuplicatesUsageInstancesOnActivateRow</Event>
+															</Events>
+															<ChildItems>
+																<PictureField name="UnprocessedDuplicatesUsageInstancesIcon" id="320">
+																	<DataPath>UnprocessedDuplicatesUsageInstances.Icon</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>1</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<ContextMenu name="UnprocessedDuplicatesUsageInstancesIconContextMenu" id="321"/>
+																	<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesIconExtendedTooltip" id="322"/>
+																</PictureField>
+																<InputField name="UnprocessedDuplicatesUsageInstancesDataPresentation" id="311">
+																	<DataPath>UnprocessedDuplicatesUsageInstances.ErrorObjectPresentation</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="UnprocessedDuplicatesUsageInstancesDataPresentationContextMenu" id="312"/>
+																	<ExtendedTooltip name="UnprocessedDuplicatesUsageInstancesDataPresentationExtendedTooltip" id="313"/>
+																</InputField>
+															</ChildItems>
+														</Table>
+														<InputField name="UnprocessedDuplicatesErrorDescription" id="285">
+															<DataPath>UnprocessedDuplicatesErrorDescription</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleLocation>None</TitleLocation>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<Height>3</Height>
+															<VerticalStretch>false</VerticalStretch>
+															<MultiLine>true</MultiLine>
+															<ContextMenu name="UnprocessedDuplicatesErrorDescriptionContextMenu" id="286"/>
+															<ExtendedTooltip name="UnprocessedDuplicatesErrorDescriptionExtendedTooltip" id="287"/>
+														</InputField>
+													</ChildItems>
+												</Page>
+												<Page name="UnprocessedItemsGroupDetails" id="276">
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Unprocessed items group details</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Описание группы необработанных</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Описание группы</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ExtendedTooltip name="UnprocessedItemsGroupDetailsExtendedTooltip" id="277"/>
+													<ChildItems>
+														<LabelDecoration name="CurrentDuplicatesGroupDetails1" id="280">
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<HorizontalStretch>true</HorizontalStretch>
+															<VerticalStretch>true</VerticalStretch>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Current duplicates group details</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Описание текущей группы дублей</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>tr</v8:lang>
+																	<v8:content>Mevcut yinelenenler grup detayları</v8:content>
+																</v8:item>
+															</Title>
+															<HorizontalAlign>Center</HorizontalAlign>
+															<VerticalAlign>Center</VerticalAlign>
+															<Border width="1">
+																<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+															</Border>
+															<ContextMenu name="CurrentDuplicatesGroupDetails1ContextMenu" id="281"/>
+															<ExtendedTooltip name="CurrentDuplicatesGroupDetails1ExtendedTooltip" id="282"/>
+														</LabelDecoration>
+													</ChildItems>
+												</Page>
+											</ChildItems>
+										</Pages>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="NoteForUnprocessedGroup" id="283">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Pending items note</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пояснение к необработанным</v8:content>
+										</v8:item>
+									</Title>
+									<Shortcut>Ctrl+S</Shortcut>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="NoteForUnprocessedGroupExtendedTooltip" id="284"/>
+									<ChildItems>
+										<LabelDecoration name="Decoration3" id="334">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>true</VerticalStretch>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Duplicate group(s) deletion is suspended until the issues are fixed.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Удаление групп(ы) дублей было отменено до выяснения и устранения причин.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Sorunlar giderilene kadar yinelenen grup(lar) silme işlemi askıya alındı.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="Decoration3ContextMenu" id="335"/>
+											<ExtendedTooltip name="Decoration3ExtendedTooltip" id="336"/>
+										</LabelDecoration>
+										<LabelDecoration name="AllUnprocessedItemsUsageInstances" id="323">
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>All usage locations</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Все места использования</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Tüm kullanım yerleri</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<ContextMenu name="AllUnprocessedItemsUsageInstancesContextMenu" id="324"/>
+											<ExtendedTooltip name="AllUnprocessedItemsUsageInstancesExtendedTooltip" id="325"/>
+											<Events>
+												<Event name="Click">AllUnprocessedItemsUsageInstancesClick</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="DuplicatesNotFoundStep" id="227">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаг дублей не найдено</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Duplicates not found step</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Yinelenen bulunamadı adımı</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="DuplicatesNotFoundStepExtendedTooltip" id="228"/>
+					<ChildItems>
+						<SpreadSheetDocumentField name="DuplicatesNotFound" id="229">
+							<DataPath>NoSearchPerformed</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>1</Height>
+							<VerticalScrollBar>false</VerticalScrollBar>
+							<HorizontalScrollBar>false</HorizontalScrollBar>
+							<ContextMenu name="DuplicatesNotFoundContextMenu" id="230"/>
+							<ExtendedTooltip name="DuplicatesNotFoundExtendedTooltip" id="231"/>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="ErrorOccurredStep" id="448">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Возникла ошибка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Error occurred</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Hata oluştu</v8:content>
+						</v8:item>
+					</Title>
+					<Group>HorizontalIfPossible</Group>
+					<ExtendedTooltip name="ErrorOccurredStepExtendedTooltip" id="449"/>
+					<ChildItems>
+						<PictureDecoration name="WarningPicture32" id="450">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Warning picture32</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка предупреждение32</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Picture>
+								<xr:Abs>Picture.zip</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="WarningPicture32ContextMenu" id="451"/>
+							<ExtendedTooltip name="WarningPicture32ExtendedTooltip" id="452"/>
+						</PictureDecoration>
+						<LabelDecoration name="ErrorTextLabel" id="453">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>5</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Error text label</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Надпись текст ошибки</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<VerticalAlign>Center</VerticalAlign>
+							<ContextMenu name="ErrorTextLabelContextMenu" id="454"/>
+							<ExtendedTooltip name="ErrorTextLabelExtendedTooltip" id="455"/>
+						</LabelDecoration>
+						<LabelDecoration name="DetailsRef" id="456">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Details</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подробнее</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Detaylar</v8:content>
+								</v8:item>
+							</Title>
+							<GroupVerticalAlign>Center</GroupVerticalAlign>
+							<Hyperlink>true</Hyperlink>
+							<VerticalAlign>Center</VerticalAlign>
+							<ContextMenu name="DetailsRefContextMenu" id="457"/>
+							<ExtendedTooltip name="DetailsRefExtendedTooltip" id="458"/>
+							<Events>
+								<Event name="Click">DetailsRefClick</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="WizardActionsPanel" id="167">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Wizard actions panel</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Панель действий мастера</v8:content>
+				</v8:item>
+			</Title>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="WizardActionsPanelExtendedTooltip" id="168"/>
+			<ChildItems>
+				<CommandBar name="BackGroup" id="169">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Назад</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Back</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Geri</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="BackGroupExtendedTooltip" id="170"/>
+					<ChildItems>
+						<Button name="WizardStepBack" id="171">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.WizardStepBack</CommandName>
+							<ExtendedTooltip name="WizardStepBackExtendedTooltip" id="172"/>
+						</Button>
+					</ChildItems>
+				</CommandBar>
+				<CommandBar name="ForwardGroup" id="173">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Forward</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вперед</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalLocation>Right</HorizontalLocation>
+					<ExtendedTooltip name="ForwardGroupExtendedTooltip" id="174"/>
+					<ChildItems>
+						<Button name="WizardStepNext" id="175">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.WizardStepNext</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Удалить дубли</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Delete duplicates</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Yinelenenleri sil</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="WizardStepNextExtendedTooltip" id="176"/>
+						</Button>
+						<Button name="WizardStepCancel" id="177">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.WizardStepCancel</CommandName>
+							<ExtendedTooltip name="WizardStepCancelExtendedTooltip" id="178"/>
+						</Button>
+						<ButtonGroup name="FormHelpGroup" id="184">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Form help</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Справка формы</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="FormHelpGroupExtendedTooltip" id="185"/>
+							<ChildItems>
+								<Button name="Help" id="179">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.StandardCommand.Help</CommandName>
+									<ExtendedTooltip name="HelpExtendedTooltip" id="180"/>
+								</Button>
+							</ChildItems>
+						</ButtonGroup>
+					</ChildItems>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="PicturesGroup" id="75">
+			<Visible>false</Visible>
+			<Enabled>false</Enabled>
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pictures</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Картинок</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="PicturesGroupExtendedTooltip" id="76"/>
+			<ChildItems>
+				<PictureDecoration name="Warning32" id="83">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Warning32</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Внимание32</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Abs>Picture.zip</xr:Abs>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Warning32ContextMenu" id="84"/>
+					<ExtendedTooltip name="Warning32ExtendedTooltip" id="85"/>
+				</PictureDecoration>
+				<PictureDecoration name="TimeConsumingOperation48" id="77">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Time consuming operation48</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Длительная операция48</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Abs>Picture.zip</xr:Abs>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="TimeConsumingOperation48ContextMenu" id="78"/>
+					<ExtendedTooltip name="TimeConsumingOperation48ExtendedTooltip" id="79"/>
+				</PictureDecoration>
+				<PictureDecoration name="Information32" id="181">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Information32</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Информация32</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.UT_Information32</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Information32ContextMenu" id="182"/>
+					<ExtendedTooltip name="Information32ExtendedTooltip" id="183"/>
+				</PictureDecoration>
+				<PictureDecoration name="Attention16" id="196">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Attention16</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Внимание16</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Abs>Picture.zip</xr:Abs>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Attention16ContextMenu" id="197"/>
+					<ExtendedTooltip name="Attention16ExtendedTooltip" id="198"/>
+				</PictureDecoration>
+				<PictureDecoration name="Information16" id="214">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Information16</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Информация16</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Abs>Picture.zip</xr:Abs>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Information16ContextMenu" id="215"/>
+					<ExtendedTooltip name="Information16ExtendedTooltip" id="216"/>
+				</PictureDecoration>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_DuplicateObjectDetection</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="CompositionSchemaAddress" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kompozisyon Şeması Adresi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="DuplicatesSearchArea" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Искать в</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Search into</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>İçinde ara</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="PrefilterComposer" id="6">
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="AppliedRulesDetails" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Uygulanan Kuralların Ayrıntıları</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="SearchRules" id="8">
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Attribute" id="1">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Rule" id="2">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ComparisonOptions" id="3">
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+				<Column name="AttributePresentation" id="4">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ConsiderAppliedRules" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать прикладные правила</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Consider applied rules</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Uygulanan kuralları dikkate al</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="AllComparisonOptions" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tüm Karşılaştırma Seçenekleri</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="NoSearchPerformed" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск не выполнялся</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>No search performed</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Arama yapılmadı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="FoundDuplicates" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найденные дубли</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Found duplicates</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Bulunan yinelenenler</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ref" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ref</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="Code" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Code</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kod</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="Description" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Description</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Açıklama</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Count" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Мест использования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Usage instances count</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kullanım örnekleri sayısı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Check" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Check</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İşaret</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Main" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основной</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Main</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Temel</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="UsageInstancesAddress" id="13">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="CandidateUsageInstances" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Места использования кандидата</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Candidate usage instances</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Aday kullanım örnekleri</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Data" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Veri</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="DataPresentation" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление данных</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Data presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Veri gösterimi</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="FoundDuplicatesStateDetails" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание состояния найденных дублей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Found duplicates state details</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Bulunan yinelenenlerin durum ayrıntıları</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:FormattedString</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="IsExternalDataProcessor" id="16">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="DataProcessorName" id="17">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ReplacementResultAddress" id="20">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="NoteTextColor" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Note text color</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ErrorNoteTextColor" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Error note text color</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="InaccessibleDataColor" id="22">
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="UnprocessedDuplicates" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Необработанные дубли</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unprocessed duplicates</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>İşlenmemiş yinelenenler</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ref" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ref</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="Code" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Code</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kod</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="Description" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Description</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Açıklama</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Count" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Мест использования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Usage instances count</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kullanım örnekleri sayısı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Check" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İşaret</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Main" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основной</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Main</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Temel</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="UnprocessedDuplicatesUsageInstances" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Места использования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Usage instances</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kullanım örnekleri</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ErrorObject" id="1">
+					<Type/>
+				</Column>
+				<Column name="ErrorObjectPresentation" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление объекта ошибки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Error object presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Hata nesnesi sunumu</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Icon" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пиктограмма</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Icon</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Piktogram</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ErrorText" id="4">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="UnprocessedDuplicatesErrorDescription" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание ошибки необработанных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Unprocessed duplicates error description</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>İşlenmemiş yinelenenler hata açıklaması</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="WizardSettings" id="27">
+			<Type/>
+		</Attribute>
+		<Attribute name="SearchRulesPresentation" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сравнивать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Compare</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Karşılaştır</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="FilterRulesPresentation" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбирать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Filtrele</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="FuzzySearch1" id="29">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="TotalDuplicatesFound" id="30">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="SettingsAddress" id="32">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="CurrentRowID" id="33">
+			<Type/>
+		</Attribute>
+		<Attribute name="DuplicatesSearchErrorDescription" id="34">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="TotalItems" id="35">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ReplaceInTransaction" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Replace in transaction</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="SelectMainItem" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить как оригинал</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mark as original</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Orijinal olarak işaretle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mark the current item as the original. Original will replace other duplicates.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Указать текущий элемент как оригинал, на который будут замены все остальные элемент группы дублей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveRight</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SelectMainItem</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="OpenCandidate" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Aç</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open candidate</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть кандидата в дубли</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>OpenCandidate</Action>
+		</Command>
+		<Command name="ExpandDuplicatesGroups" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Expand</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Genişlet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Expand duplicates groups</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть группы дублей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ExpandAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ExpandDuplicatesGroups</Action>
+		</Command>
+		<Command name="CollapseDuplicatesGroups" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свернуть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Collapse</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Gizle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Collapse duplicates groups</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свернуть группы дублей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CollapseAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>CollapseDuplicatesGroups</Action>
+		</Command>
+		<Command name="WizardStepNext" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Далее &gt;</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Next &gt;</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>İleri &gt;</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Proceed to the next step.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продолжить выполнение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>WizardButtonHandler</Action>
+		</Command>
+		<Command name="WizardStepBack" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt; Назад</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>&lt; Back</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>&lt; Geri</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Return to the previous step.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернутся на предыдущий шаг</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>WizardButtonHandler</Action>
+		</Command>
+		<Command name="WizardStepCancel" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancel</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>İptal</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Exit the wizard.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прекратить работу мастера</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>WizardButtonHandler</Action>
+		</Command>
+		<Command name="RetrySearch" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Повторить поиск</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Retry search</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Aramayı tekrar dene</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Retry search</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Повторить поиск</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>RetrySearch</Action>
+		</Command>
+		<Command name="OpenUnprocessedDuplicate" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Aç</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open Item</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть элемент</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>OpenUnprocessedDuplicate</Action>
+		</Command>
+		<Command name="EditFoundDuplicate" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать Объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.UT_DatabaseObjectEditor</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>EditFoundDuplicate</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="EditCandidateUsageInstance" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.UT_DatabaseObjectEditor</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>EditCandidateUsageInstance</Action>
+		</Command>
+		<Command name="EditUnprocessedDuplicate" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.UT_DatabaseObjectEditor</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>EditUnprocessedDuplicate</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="EditUnprocessedDuplicatesUsageInstance" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.UT_DatabaseObjectEditor</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>EditUnprocessedDuplicatesUsageInstance</Action>
+		</Command>
+	</Commands>
+</Form>

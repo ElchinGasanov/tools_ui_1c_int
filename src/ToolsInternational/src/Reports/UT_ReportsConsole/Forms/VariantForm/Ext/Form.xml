@@ -1,0 +1,1873 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ReportFormType>Variant</ReportFormType>
+	<AutoShowState>ShowOnComposition</AutoShowState>
+	<ReportResultViewMode>Auto</ReportResultViewMode>
+	<ViewModeApplicationOnSetReportResult>Auto</ViewModeApplicationOnSetReportResult>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Settings" id="1">
+			<Representation>Tree</Representation>
+			<Autofill>true</Autofill>
+			<SkipOnInput>false</SkipOnInput>
+			<HorizontalLines>false</HorizontalLines>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Report.SettingsComposer.Settings</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Settings table</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Ayarlar tablosu</v8:content>
+				</v8:item>
+			</Title>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ContextMenu name="SettingsContextMenu" id="2"/>
+			<AutoCommandBar name="SettingsCommandBar" id="3"/>
+			<ExtendedTooltip name="SettingsExtendedTooltip" id="124"/>
+			<SearchStringAddition name="SettingsSearchString" id="125">
+				<AdditionSource>
+					<Item>Settings</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="SettingsSearchStringContextMenu" id="126"/>
+				<ExtendedTooltip name="SettingsSearchStringExtendedTooltip" id="127"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="SettingsViewStatus" id="128">
+				<AdditionSource>
+					<Item>Settings</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<HorizontalLocation>Left</HorizontalLocation>
+				<ContextMenu name="SettingsViewStatusContextMenu" id="129"/>
+				<ExtendedTooltip name="SettingsViewStatusExtendedTooltip" id="130"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="SettingsSearchControl" id="131">
+				<AdditionSource>
+					<Item>Settings</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="SettingsSearchControlContextMenu" id="132"/>
+				<ExtendedTooltip name="SettingsSearchControlExtendedTooltip" id="133"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">SettingsOnActivateRow</Event>
+				<Event name="OnActivateField">SettingsOnActivateField</Event>
+			</Events>
+		</Table>
+		<Pages name="SettingsPages" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Settings pages</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Ayarlar sayfaları</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="SettingsPagesExtendedTooltip" id="134"/>
+			<ChildItems>
+				<Page name="DataParametersPage" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Parameters</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Parametreler</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.DataCompositionDataParameters</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="DataParametersPageExtendedTooltip" id="135"/>
+					<ChildItems>
+						<Table name="DataParameters" id="6">
+							<Representation>Tree</Representation>
+							<Autofill>true</Autofill>
+							<SkipOnInput>false</SkipOnInput>
+							<Width>50</Width>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Items.Settings.CurrentData.ItemDataParameters</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Parameter settings</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Parametre ayarları</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ContextMenu name="DataParametersContextMenu" id="7"/>
+							<AutoCommandBar name="DataParametersCommandBar" id="8"/>
+							<ExtendedTooltip name="DataParametersExtendedTooltip" id="136"/>
+							<SearchStringAddition name="DataParametersSearchString" id="137">
+								<AdditionSource>
+									<Item>DataParameters</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="DataParametersSearchStringContextMenu" id="138"/>
+								<ExtendedTooltip name="DataParametersSearchStringExtendedTooltip" id="139"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="DataParametersViewStatus" id="140">
+								<AdditionSource>
+									<Item>DataParameters</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="DataParametersViewStatusContextMenu" id="141"/>
+								<ExtendedTooltip name="DataParametersViewStatusExtendedTooltip" id="142"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="DataParametersSearchControl" id="143">
+								<AdditionSource>
+									<Item>DataParameters</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="DataParametersSearchControlContextMenu" id="144"/>
+								<ExtendedTooltip name="DataParametersSearchControlExtendedTooltip" id="145"/>
+							</SearchControlAddition>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="UserFieldsPage" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пользовательские поля</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>User-defined fields</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kullanıcı tanımlı alanlar</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.DataCompositionUserFields</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="UserFieldsPageExtendedTooltip" id="146"/>
+					<ChildItems>
+						<Table name="UserFields" id="10">
+							<Representation>List</Representation>
+							<Autofill>true</Autofill>
+							<SkipOnInput>false</SkipOnInput>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Items.Settings.CurrentData.ItemUserFields</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>User-defined field settings</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ContextMenu name="UserFieldsContextMenu" id="11"/>
+							<AutoCommandBar name="UserFieldsCommandBar" id="12"/>
+							<ExtendedTooltip name="UserFieldsExtendedTooltip" id="147"/>
+							<SearchStringAddition name="UserFieldsSearchString" id="148">
+								<AdditionSource>
+									<Item>UserFields</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="UserFieldsSearchStringContextMenu" id="149"/>
+								<ExtendedTooltip name="UserFieldsSearchStringExtendedTooltip" id="150"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="UserFieldsViewStatus" id="151">
+								<AdditionSource>
+									<Item>UserFields</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="UserFieldsViewStatusContextMenu" id="152"/>
+								<ExtendedTooltip name="UserFieldsViewStatusExtendedTooltip" id="153"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="UserFieldsSearchControl" id="154">
+								<AdditionSource>
+									<Item>UserFields</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="UserFieldsSearchControlContextMenu" id="155"/>
+								<ExtendedTooltip name="UserFieldsSearchControlExtendedTooltip" id="156"/>
+							</SearchControlAddition>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="GroupFieldsPage" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группируемые поля</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group fields</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Grup alanları</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.DataCompositionGroupFields</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="GroupFieldsPageExtendedTooltip" id="157"/>
+					<ChildItems>
+						<Pages name="GroupFieldsPages" id="14">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group fields pages</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="GroupFieldsPagesExtendedTooltip" id="158"/>
+							<ChildItems>
+								<Page name="GroupFieldsSettings" id="15">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group fields settings</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ChildItemsWidth>LeftNarrowest</ChildItemsWidth>
+									<ExtendedTooltip name="GroupFieldsSettingsExtendedTooltip" id="159"/>
+									<ChildItems>
+										<Table name="GroupFieldsAvailableFields" id="16">
+											<Representation>Tree</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<Width>60</Width>
+											<HeightInTableRows>15</HeightInTableRows>
+											<ChoiceMode>true</ChoiceMode>
+											<HorizontalLines>false</HorizontalLines>
+											<VerticalLines>false</VerticalLines>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemGroupFields.GroupFieldsAvailableFields</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Available fields of grouped fields</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="GroupFieldsAvailableFieldsContextMenu" id="17"/>
+											<AutoCommandBar name="GroupFieldsAvailableFieldsCommandBar" id="18"/>
+											<ExtendedTooltip name="GroupFieldsAvailableFieldsExtendedTooltip" id="160"/>
+											<SearchStringAddition name="GroupFieldsAvailableFieldsSearchString" id="161">
+												<AdditionSource>
+													<Item>GroupFieldsAvailableFields</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="GroupFieldsAvailableFieldsSearchStringContextMenu" id="162"/>
+												<ExtendedTooltip name="GroupFieldsAvailableFieldsSearchStringExtendedTooltip" id="163"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="GroupFieldsAvailableFieldsViewStatus" id="164">
+												<AdditionSource>
+													<Item>GroupFieldsAvailableFields</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="GroupFieldsAvailableFieldsViewStatusContextMenu" id="165"/>
+												<ExtendedTooltip name="GroupFieldsAvailableFieldsViewStatusExtendedTooltip" id="166"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="GroupFieldsAvailableFieldsSearchControl" id="167">
+												<AdditionSource>
+													<Item>GroupFieldsAvailableFields</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="GroupFieldsAvailableFieldsSearchControlContextMenu" id="168"/>
+												<ExtendedTooltip name="GroupFieldsAvailableFieldsSearchControlExtendedTooltip" id="169"/>
+											</SearchControlAddition>
+										</Table>
+										<Table name="GroupFields" id="19">
+											<Representation>List</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemGroupFields</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Grouped fields table</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="GroupFieldsContextMenu" id="20"/>
+											<AutoCommandBar name="GroupFieldsCommandBar" id="21"/>
+											<ExtendedTooltip name="GroupFieldsExtendedTooltip" id="170"/>
+											<SearchStringAddition name="GroupFieldsSearchString" id="171">
+												<AdditionSource>
+													<Item>GroupFields</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="GroupFieldsSearchStringContextMenu" id="172"/>
+												<ExtendedTooltip name="GroupFieldsSearchStringExtendedTooltip" id="173"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="GroupFieldsViewStatus" id="174">
+												<AdditionSource>
+													<Item>GroupFields</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="GroupFieldsViewStatusContextMenu" id="175"/>
+												<ExtendedTooltip name="GroupFieldsViewStatusExtendedTooltip" id="176"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="GroupFieldsSearchControl" id="177">
+												<AdditionSource>
+													<Item>GroupFields</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="GroupFieldsSearchControlContextMenu" id="178"/>
+												<ExtendedTooltip name="GroupFieldsSearchControlExtendedTooltip" id="179"/>
+											</SearchControlAddition>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="UnavailableGroupFieldsSettings" id="22">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unavailable group fields settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="UnavailableGroupFieldsSettingsExtendedTooltip" id="180"/>
+									<ChildItems>
+										<LabelDecoration name="UnavailableGroupFieldsLabel" id="23">
+											<Height>2</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>The item cannot contain grouping fields.
+Browse the structure tree and select a grouping to view or edit grouping field structure.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Текущий элемент не может содержать поля группировки.
+Выберите в дереве структуры группировку, для которой требуется просмотреть или изменить состав полей группировки.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Geçerli öğe, gruplayıcı alanlar içeremez.
+Yapı ağacından, gruplayıcı alanlarını görüntülemek veya değiştirmek istediğiniz bir gruplamayı seçin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="UnavailableGroupFieldsLabelContextMenu" id="24"/>
+											<ExtendedTooltip name="UnavailableGroupFieldsLabelExtendedTooltip" id="181"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="SelectionFieldsPage" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поля</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Fields</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Alanlar</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.DataCompositionSelection</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="SelectionFieldsPageExtendedTooltip" id="182"/>
+					<ChildItems>
+						<CheckBoxField name="LocalSelectedFields" id="26">
+							<DataPath>LocalSelectedFields</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Текущий элемент имеет собственные настройки выбранных полей (для детальной настройки элемента)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Assign the item with personal field settings</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Geçerli öğe, öğenin ayrıntılı ayarları için kendi seçili alan ayarlarına sahiptir.</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="LocalSelectedFieldsContextMenu" id="27"/>
+							<ExtendedTooltip name="LocalSelectedFieldsExtendedTooltip" id="183"/>
+							<Events>
+								<Event name="OnChange">LocalSelectedFieldsOnChange</Event>
+							</Events>
+						</CheckBoxField>
+						<Pages name="SelectionFieldsPages" id="28">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Fields pages</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="SelectionFieldsPagesExtendedTooltip" id="184"/>
+							<ChildItems>
+								<Page name="SelectedFieldsSettings" id="29">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Selected fields settings</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ChildItemsWidth>LeftNarrowest</ChildItemsWidth>
+									<ExtendedTooltip name="SelectedFieldsSettingsExtendedTooltip" id="185"/>
+									<ChildItems>
+										<Table name="SelectionAvailableFields" id="30">
+											<Representation>Tree</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<Width>60</Width>
+											<HeightInTableRows>15</HeightInTableRows>
+											<ChoiceMode>true</ChoiceMode>
+											<HorizontalLines>false</HorizontalLines>
+											<VerticalLines>false</VerticalLines>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemSelection.SelectionAvailableFields</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Available fields of fields</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="SelectionAvailableFieldsContextMenu" id="31"/>
+											<AutoCommandBar name="SelectionAvailableFieldsCommandBar" id="32"/>
+											<ExtendedTooltip name="SelectionAvailableFieldsExtendedTooltip" id="186"/>
+											<SearchStringAddition name="SelectionAvailableFieldsSearchString" id="187">
+												<AdditionSource>
+													<Item>SelectionAvailableFields</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="SelectionAvailableFieldsSearchStringContextMenu" id="188"/>
+												<ExtendedTooltip name="SelectionAvailableFieldsSearchStringExtendedTooltip" id="189"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="SelectionAvailableFieldsViewStatus" id="190">
+												<AdditionSource>
+													<Item>SelectionAvailableFields</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="SelectionAvailableFieldsViewStatusContextMenu" id="191"/>
+												<ExtendedTooltip name="SelectionAvailableFieldsViewStatusExtendedTooltip" id="192"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="SelectionAvailableFieldsSearchControl" id="193">
+												<AdditionSource>
+													<Item>SelectionAvailableFields</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="SelectionAvailableFieldsSearchControlContextMenu" id="194"/>
+												<ExtendedTooltip name="SelectionAvailableFieldsSearchControlExtendedTooltip" id="195"/>
+											</SearchControlAddition>
+										</Table>
+										<Table name="Selection" id="33">
+											<Representation>Tree</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<InitialTreeView>ExpandAllLevels</InitialTreeView>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemSelection</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Fields table</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="SelectionContextMenu" id="34"/>
+											<AutoCommandBar name="SelectionCommandBar" id="35"/>
+											<ExtendedTooltip name="SelectionExtendedTooltip" id="196"/>
+											<SearchStringAddition name="SelectionSearchString" id="197">
+												<AdditionSource>
+													<Item>Selection</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="SelectionSearchStringContextMenu" id="198"/>
+												<ExtendedTooltip name="SelectionSearchStringExtendedTooltip" id="199"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="SelectionViewStatus" id="200">
+												<AdditionSource>
+													<Item>Selection</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="SelectionViewStatusContextMenu" id="201"/>
+												<ExtendedTooltip name="SelectionViewStatusExtendedTooltip" id="202"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="SelectionSearchControl" id="203">
+												<AdditionSource>
+													<Item>Selection</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="SelectionSearchControlContextMenu" id="204"/>
+												<ExtendedTooltip name="SelectionSearchControlExtendedTooltip" id="205"/>
+											</SearchControlAddition>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="DisabledSelectedFieldsSettings" id="36">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Disabled selected fields settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="DisabledSelectedFieldsSettingsExtendedTooltip" id="206"/>
+									<ChildItems>
+										<LabelDecoration name="LocalSelectedFieldsLabel" id="37">
+											<Height>3</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>The item adopts selected fields from the report.
+In the report structure tree, select the item and then select required fields.
+To add custom fields, select the check box above.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Выбранные поля для текущего элемента будут автоматически формироваться на основании выбранных полей всего отчета.
+Выберите в дереве структуры элемент - отчет для редактирования его выбранных полей.
+Если необходимо, чтобы текущий элемент имел выбранные поля, отличные от выбранных полей отчета, установите флажок, расположенный над этим текстом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Geçerli öğeye ait seçili alanlar, raporun genelinde seçilen alanlara göre otomatik olarak oluşturulacaktır.
+Seçili alanları düzenlemek için yapı ağacından bir öğe — rapor — seçin.
+Geçerli öğenin, rapordakilerden farklı seçili alanlara sahip olması gerekiyorsa, bu metnin üstünde bulunan onay kutusunu işaretleyin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="LocalSelectedFieldsLabelContextMenu" id="38"/>
+											<ExtendedTooltip name="LocalSelectedFieldsLabelExtendedTooltip" id="207"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToSelectedReportFields" id="39">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View selected report fields</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к выбранным полям отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Seçili rapor alanlarını görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToSelectedReportFieldsContextMenu" id="40"/>
+											<ExtendedTooltip name="GoToSelectedReportFieldsExtendedTooltip" id="208"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="UnavailableSelectedFieldsSettings" id="41">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unavailable selected fields settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="UnavailableSelectedFieldsSettingsExtendedTooltip" id="209"/>
+									<ChildItems>
+										<LabelDecoration name="UnavailableSelectedFieldsLabel" id="42">
+											<Height>2</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Cannot add selected fields to the item.
+In the report structure tree, select the item and then select required fields.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>У текущего элемента не могут быть установлены выбранные поля.
+Выберите в дереве структуры элемент - отчет для редактирования его выбранных полей.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğe için seçili alanlar ayarlanamıyor.
+Seçili alanları düzenlemek için yapı ağacından bir öğe - rapor seçin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="UnavailableSelectedFieldsLabelContextMenu" id="43"/>
+											<ExtendedTooltip name="UnavailableSelectedFieldsLabelExtendedTooltip" id="210"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToSelectedReportFields1" id="44">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View selected report fields</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к выбранным полям отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Seçili rapor alanlarını görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToSelectedReportFields1ContextMenu" id="45"/>
+											<ExtendedTooltip name="GoToSelectedReportFields1ExtendedTooltip" id="211"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="FilterPage" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Filter</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Filtre</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.DataCompositionFilter</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="FilterPageExtendedTooltip" id="212"/>
+					<ChildItems>
+						<CheckBoxField name="LocalFilter" id="47">
+							<DataPath>LocalFilter</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Текущий элемент имеет собственный отбор (для фильтрации записей, выводимых в элементе)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Assign the item with personal filters to filter item records</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Öğe kayıtlarını filtrelemek için öğeyi kişisel filtrelerle atayın</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="LocalFilterContextMenu" id="48"/>
+							<ExtendedTooltip name="LocalFilterExtendedTooltip" id="213"/>
+							<Events>
+								<Event name="OnChange">LocalFilterOnChange</Event>
+							</Events>
+						</CheckBoxField>
+						<Pages name="FilterPages" id="49">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Filter pages</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="FilterPagesExtendedTooltip" id="214"/>
+							<ChildItems>
+								<Page name="FilterSettings" id="50">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Filter settings</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ChildItemsWidth>LeftNarrowest</ChildItemsWidth>
+									<ExtendedTooltip name="FilterSettingsExtendedTooltip" id="215"/>
+									<ChildItems>
+										<Table name="AvailableFilterFields" id="51">
+											<Representation>Tree</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<Width>60</Width>
+											<HeightInTableRows>15</HeightInTableRows>
+											<ChoiceMode>true</ChoiceMode>
+											<HorizontalLines>false</HorizontalLines>
+											<VerticalLines>false</VerticalLines>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemFilter.FilterAvailableFields</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Available filter fields</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="AvailableFilterFieldsContextMenu" id="52"/>
+											<AutoCommandBar name="AvailableFilterFieldsCommandBar" id="53"/>
+											<ExtendedTooltip name="AvailableFilterFieldsExtendedTooltip" id="216"/>
+											<SearchStringAddition name="AvailableFilterFieldsSearchString" id="217">
+												<AdditionSource>
+													<Item>AvailableFilterFields</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="AvailableFilterFieldsSearchStringContextMenu" id="218"/>
+												<ExtendedTooltip name="AvailableFilterFieldsSearchStringExtendedTooltip" id="219"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="AvailableFilterFieldsViewStatus" id="220">
+												<AdditionSource>
+													<Item>AvailableFilterFields</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="AvailableFilterFieldsViewStatusContextMenu" id="221"/>
+												<ExtendedTooltip name="AvailableFilterFieldsViewStatusExtendedTooltip" id="222"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="AvailableFilterFieldsSearchControl" id="223">
+												<AdditionSource>
+													<Item>AvailableFilterFields</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="AvailableFilterFieldsSearchControlContextMenu" id="224"/>
+												<ExtendedTooltip name="AvailableFilterFieldsSearchControlExtendedTooltip" id="225"/>
+											</SearchControlAddition>
+										</Table>
+										<Table name="Filter" id="54">
+											<Representation>Tree</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<InitialTreeView>ExpandAllLevels</InitialTreeView>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemFilter</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Filter table</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ViewMode>All</ViewMode>
+											<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+											<ContextMenu name="FilterContextMenu" id="55"/>
+											<AutoCommandBar name="FilterCommandBar" id="56"/>
+											<ExtendedTooltip name="FilterExtendedTooltip" id="226"/>
+											<SearchStringAddition name="FilterSearchString" id="227">
+												<AdditionSource>
+													<Item>Filter</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="FilterSearchStringContextMenu" id="228"/>
+												<ExtendedTooltip name="FilterSearchStringExtendedTooltip" id="229"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="FilterViewStatus" id="230">
+												<AdditionSource>
+													<Item>Filter</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="FilterViewStatusContextMenu" id="231"/>
+												<ExtendedTooltip name="FilterViewStatusExtendedTooltip" id="232"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="FilterSearchControl" id="233">
+												<AdditionSource>
+													<Item>Filter</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="FilterSearchControlContextMenu" id="234"/>
+												<ExtendedTooltip name="FilterSearchControlExtendedTooltip" id="235"/>
+											</SearchControlAddition>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="DisabledFilterSettings" id="57">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Disabled filter settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="DisabledFilterSettingsExtendedTooltip" id="236"/>
+									<ChildItems>
+										<LabelDecoration name="LocalFilterLabel" id="58">
+											<Height>3</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>No filter is assigned to the item.
+In the structure tree, select the report and edit report filters.
+To assign the item with a personal filter, select the check box above.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>В текущем элементе отбор не установлен.
+Выберите в дереве структуры отчет для редактирования отбора отчета в целом.
+Если необходимо, чтобы текущий элемент имел собственный отбор, установите флажок, расположенный над этим текстом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğede filtre ayarlanmamış.
+Raporun genel filtresini düzenlemek için yapı ağacından bir rapor seçin.
+Eğer mevcut öğenin kendi filtresine sahip olması gerekiyorsa, bu metnin üstünde bulunan onay kutusunu işaretleyin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="LocalFilterLabelContextMenu" id="59"/>
+											<ExtendedTooltip name="LocalFilterLabelExtendedTooltip" id="237"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToReportFilter" id="60">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View report filters</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к отбору отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Rapor filtrelerini görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToReportFilterContextMenu" id="61"/>
+											<ExtendedTooltip name="GoToReportFilterExtendedTooltip" id="238"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="UnavailableFilterSettings" id="62">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unavailable filter settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="UnavailableFilterSettingsExtendedTooltip" id="239"/>
+									<ChildItems>
+										<LabelDecoration name="UnavailableFilterLabel" id="63">
+											<Height>2</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Cannot assign filters to the item.
+In the structure tree, select the report and edit report filters.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>У текущего элемента не может быть установлен отбор.
+Выберите в дереве структуры отчет для редактирования отбора отчета в целом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğeye filtre uygulanamaz.
+Raporun genel filtresini düzenlemek için yapı ağacından bir rapor seçin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="UnavailableFilterLabelContextMenu" id="64"/>
+											<ExtendedTooltip name="UnavailableFilterLabelExtendedTooltip" id="240"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToReportFilter1" id="65">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View report filters</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к отбору отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Rapor filtrelerini görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToReportFilter1ContextMenu" id="66"/>
+											<ExtendedTooltip name="GoToReportFilter1ExtendedTooltip" id="241"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="OrderPage" id="67">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сортировка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Sort</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Sıralama</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.DataCompositionOrder</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="OrderPageExtendedTooltip" id="242"/>
+					<ChildItems>
+						<CheckBoxField name="LocalOrder" id="68">
+							<DataPath>LocalOrder</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Текущий элемент имеет собственную сортировку (для  упорядочивания записей, выводимых в элементе)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Assign the item with personal sorts to sort item records</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Mevcut öğenin kendi sıralaması vardır (öğede görüntülenen girdileri sıralamak için)</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="LocalOrderContextMenu" id="69"/>
+							<ExtendedTooltip name="LocalOrderExtendedTooltip" id="243"/>
+							<Events>
+								<Event name="OnChange">LocalOrderOnChange</Event>
+							</Events>
+						</CheckBoxField>
+						<Pages name="OrderPages" id="70">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Order pages</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="OrderPagesExtendedTooltip" id="244"/>
+							<ChildItems>
+								<Page name="OrderSettings" id="71">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Sorting page</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ChildItemsWidth>LeftNarrowest</ChildItemsWidth>
+									<ExtendedTooltip name="OrderSettingsExtendedTooltip" id="245"/>
+									<ChildItems>
+										<Table name="AvailableOrderFields" id="72">
+											<Representation>Tree</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<Width>60</Width>
+											<HeightInTableRows>15</HeightInTableRows>
+											<ChoiceMode>true</ChoiceMode>
+											<HorizontalLines>false</HorizontalLines>
+											<VerticalLines>false</VerticalLines>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemOrder.OrderAvailableFields</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Available sort fields</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="AvailableOrderFieldsContextMenu" id="73"/>
+											<AutoCommandBar name="AvailableOrderFieldsCommandBar" id="74"/>
+											<ExtendedTooltip name="AvailableOrderFieldsExtendedTooltip" id="246"/>
+											<SearchStringAddition name="AvailableOrderFieldsSearchString" id="247">
+												<AdditionSource>
+													<Item>AvailableOrderFields</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="AvailableOrderFieldsSearchStringContextMenu" id="248"/>
+												<ExtendedTooltip name="AvailableOrderFieldsSearchStringExtendedTooltip" id="249"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="AvailableOrderFieldsViewStatus" id="250">
+												<AdditionSource>
+													<Item>AvailableOrderFields</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="AvailableOrderFieldsViewStatusContextMenu" id="251"/>
+												<ExtendedTooltip name="AvailableOrderFieldsViewStatusExtendedTooltip" id="252"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="AvailableOrderFieldsSearchControl" id="253">
+												<AdditionSource>
+													<Item>AvailableOrderFields</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="AvailableOrderFieldsSearchControlContextMenu" id="254"/>
+												<ExtendedTooltip name="AvailableOrderFieldsSearchControlExtendedTooltip" id="255"/>
+											</SearchControlAddition>
+										</Table>
+										<Table name="Order" id="75">
+											<Representation>List</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemOrder</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Sort table</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="OrderContextMenu" id="76"/>
+											<AutoCommandBar name="OrderCommandBar" id="77"/>
+											<ExtendedTooltip name="OrderExtendedTooltip" id="256"/>
+											<SearchStringAddition name="OrderSearchString" id="257">
+												<AdditionSource>
+													<Item>Order</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="OrderSearchStringContextMenu" id="258"/>
+												<ExtendedTooltip name="OrderSearchStringExtendedTooltip" id="259"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="OrderViewStatus" id="260">
+												<AdditionSource>
+													<Item>Order</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="OrderViewStatusContextMenu" id="261"/>
+												<ExtendedTooltip name="OrderViewStatusExtendedTooltip" id="262"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="OrderSearchControl" id="263">
+												<AdditionSource>
+													<Item>Order</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="OrderSearchControlContextMenu" id="264"/>
+												<ExtendedTooltip name="OrderSearchControlExtendedTooltip" id="265"/>
+											</SearchControlAddition>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="DisabledOrderSettings" id="78">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Disabled sort page</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="DisabledOrderSettingsExtendedTooltip" id="266"/>
+									<ChildItems>
+										<LabelDecoration name="LocalOrderLabel" id="79">
+											<Height>3</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>No sort is assigned to the item.
+In the structure tree, select the report and edit report sorts.
+To assign the item with a personal sort, select the check box above.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>В текущем элементе сортировка не установлена.
+Выберите в дереве структуры отчет для редактирования сортировки отчета в целом.
+Если необходимо, чтобы текущий элемент имел собственную сортировку, установите флажок, расположенный над этим текстом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğede sıralama ayarlanmamış.
+Raporun genel sıralamasını düzenlemek için yapı ağacından bir rapor seçin.
+Eğer mevcut öğenin kendi sıralamasına sahip olması gerekiyorsa, bu metnin üstündeki onay kutusunu işaretleyin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="LocalOrderLabelContextMenu" id="80"/>
+											<ExtendedTooltip name="LocalOrderLabelExtendedTooltip" id="267"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToReportOrder" id="81">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View report sorts</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к сортировке отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Rapor türlerini görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToReportOrderContextMenu" id="82"/>
+											<ExtendedTooltip name="GoToReportOrderExtendedTooltip" id="268"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="UnavailableOrderSettings" id="83">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unavailable order settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="UnavailableOrderSettingsExtendedTooltip" id="269"/>
+									<ChildItems>
+										<LabelDecoration name="UnavailableOrderLabel" id="84">
+											<Height>2</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Cannot assign sorts to the item.
+In the structure tree, select the report and edit report sorts.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>У текущего элемента не может быть установлена сортировка.
+Выберите в дереве структуры отчет для редактирования сортировки отчета в целом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğeye sıralama uygulanamaz.
+Raporun genel sıralamasını düzenlemek için yapı ağacından bir rapor seçin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="UnavailableOrderLabelContextMenu" id="85"/>
+											<ExtendedTooltip name="UnavailableOrderLabelExtendedTooltip" id="270"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToReportOrder1" id="86">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View report sorts</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к сортировке отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Rapor türlerini görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToReportOrder1ContextMenu" id="87"/>
+											<ExtendedTooltip name="GoToReportOrder1ExtendedTooltip" id="271"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="ConditionalAppearancePage" id="88">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условное оформление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Conditional appearance</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Koşullu görünüm</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.DataCompositionConditionalAppearance</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ConditionalAppearancePageExtendedTooltip" id="272"/>
+					<ChildItems>
+						<CheckBoxField name="LocalConditionalAppearance" id="89">
+							<DataPath>LocalConditionalAppearance</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Текущий элемент имеет собственное условное оформление (для оформления записей, выводимых в элементе)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Assign the item with personal conditional appearance to format item records</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Kayıt öğelerini biçimlendirmek için, öğeye kişisel koşullu görünüm atayın.</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="LocalConditionalAppearanceContextMenu" id="90"/>
+							<ExtendedTooltip name="LocalConditionalAppearanceExtendedTooltip" id="273"/>
+							<Events>
+								<Event name="OnChange">LocalConditionalAppearanceOnChange</Event>
+							</Events>
+						</CheckBoxField>
+						<Pages name="ConditionalAppearancePages" id="91">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Conditional appearance pages</v8:content>
+								</v8:item>
+							</Title>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ConditionalAppearancePagesExtendedTooltip" id="274"/>
+							<ChildItems>
+								<Page name="ConditionalAppearanceSettings" id="92">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Conditional appearance page</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ConditionalAppearanceSettingsExtendedTooltip" id="275"/>
+									<ChildItems>
+										<Table name="ConditionalAppearance" id="93">
+											<Representation>List</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemConditionalAppearance</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Conditional appearance table</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+											<ContextMenu name="ConditionalAppearanceContextMenu" id="94"/>
+											<AutoCommandBar name="ConditionalAppearanceCommandBar" id="95"/>
+											<ExtendedTooltip name="ConditionalAppearanceExtendedTooltip" id="276"/>
+											<SearchStringAddition name="ConditionalAppearanceSearchString" id="277">
+												<AdditionSource>
+													<Item>ConditionalAppearance</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ConditionalAppearanceSearchStringContextMenu" id="278"/>
+												<ExtendedTooltip name="ConditionalAppearanceSearchStringExtendedTooltip" id="279"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ConditionalAppearanceViewStatus" id="280">
+												<AdditionSource>
+													<Item>ConditionalAppearance</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="ConditionalAppearanceViewStatusContextMenu" id="281"/>
+												<ExtendedTooltip name="ConditionalAppearanceViewStatusExtendedTooltip" id="282"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ConditionalAppearanceSearchControl" id="283">
+												<AdditionSource>
+													<Item>ConditionalAppearance</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ConditionalAppearanceSearchControlContextMenu" id="284"/>
+												<ExtendedTooltip name="ConditionalAppearanceSearchControlExtendedTooltip" id="285"/>
+											</SearchControlAddition>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="DisabledConditionalAppearanceSettings" id="96">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Disabled conditional appearance page</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="DisabledConditionalAppearanceSettingsExtendedTooltip" id="286"/>
+									<ChildItems>
+										<LabelDecoration name="LocalConditionalAppearanceLabel" id="97">
+											<Height>3</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>No conditional appearance is assigned to the item.
+In the structure tree, select the report and edit report conditional appearance.
+To assign the item with a personal conditional appearance, select the check box above.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>В текущем элементе условное оформление не установлено.
+Выберите в дереве структуры отчет для редактирования условного оформления отчета в целом.
+Если необходимо, чтобы текущий элемент имел собственное условное оформление, установите флажок, расположенный над этим текстом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğede koşullu biçimlendirme ayarlanmadı.
+Raporun genel koşullu biçimlendirmesini düzenlemek için yapı ağacından bir rapor seçin.
+Eğer mevcut öğenin kendi koşullu biçimlendirmesine sahip olması gerekiyorsa, bu metnin üstünde bulunan onay kutusunu işaretleyin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="LocalConditionalAppearanceLabelContextMenu" id="98"/>
+											<ExtendedTooltip name="LocalConditionalAppearanceLabelExtendedTooltip" id="287"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToReportConditionalAppearance" id="99">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View report conditional appearance</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к условному оформлению отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Raporun koşullu biçimlendirmesini görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToReportConditionalAppearanceContextMenu" id="100"/>
+											<ExtendedTooltip name="GoToReportConditionalAppearanceExtendedTooltip" id="288"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="UnavailableConditionalAppearanceSettings" id="101">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unavailable conditional appearance settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="UnavailableConditionalAppearanceSettingsExtendedTooltip" id="289"/>
+									<ChildItems>
+										<LabelDecoration name="UnavailableConditionalAppearanceLabel" id="102">
+											<Height>2</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Cannot assign conditional appearance to the item.
+In the structure tree, select the report and edit report conditional appearance.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>У текущего элемента не может быть установлено условное оформление.
+Выберите в дереве структуры отчет для редактирования условного оформления отчета в целом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğeye koşullu biçimlendirme uygulanamaz.
+Raporun genel koşullu biçimlendirmesini düzenlemek için yapı ağacından bir rapor seçin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="UnavailableConditionalAppearanceLabelContextMenu" id="103"/>
+											<ExtendedTooltip name="UnavailableConditionalAppearanceLabelExtendedTooltip" id="290"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToReportConditionalAppearance1" id="104">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View report conditional appearance</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к условному оформлению отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Raporun koşullu biçimlendirmesini görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToReportConditionalAppearance1ContextMenu" id="105"/>
+											<ExtendedTooltip name="GoToReportConditionalAppearance1ExtendedTooltip" id="291"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="OutputParametersPage" id="106">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительные настройки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Additional settings</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ek ayarlar</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.DataCompositionOutputParameters</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="OutputParametersPageExtendedTooltip" id="292"/>
+					<ChildItems>
+						<CheckBoxField name="LocalOutputParameters" id="107">
+							<DataPath>LocalOutputParameters</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Текущий элемент имеет собственные дополнительные настройки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Mevcut öğenin kendine ait ek ayarları var</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="LocalOutputParametersContextMenu" id="108"/>
+							<ExtendedTooltip name="LocalOutputParametersExtendedTooltip" id="293"/>
+							<Events>
+								<Event name="OnChange">LocalOutputParametersOnChange</Event>
+							</Events>
+						</CheckBoxField>
+						<Pages name="OutputParametersPages" id="109">
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="OutputParametersPagesExtendedTooltip" id="294"/>
+							<ChildItems>
+								<Page name="OutputParametersSettings" id="110">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Output parameters settings</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="OutputParametersSettingsExtendedTooltip" id="295"/>
+									<ChildItems>
+										<Table name="OutputParameters" id="111">
+											<Representation>Tree</Representation>
+											<Autofill>true</Autofill>
+											<SkipOnInput>false</SkipOnInput>
+											<Width>50</Width>
+											<InitialTreeView>ExpandAllLevels</InitialTreeView>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Items.Settings.CurrentData.ItemOutputParameters</DataPath>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<ContextMenu name="OutputParametersContextMenu" id="112"/>
+											<AutoCommandBar name="OutputParametersCommandBar" id="113"/>
+											<ExtendedTooltip name="OutputParametersExtendedTooltip" id="296"/>
+											<SearchStringAddition name="OutputParametersSearchString" id="297">
+												<AdditionSource>
+													<Item>OutputParameters</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="OutputParametersSearchStringContextMenu" id="298"/>
+												<ExtendedTooltip name="OutputParametersSearchStringExtendedTooltip" id="299"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="OutputParametersViewStatus" id="300">
+												<AdditionSource>
+													<Item>OutputParameters</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="OutputParametersViewStatusContextMenu" id="301"/>
+												<ExtendedTooltip name="OutputParametersViewStatusExtendedTooltip" id="302"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="OutputParametersSearchControl" id="303">
+												<AdditionSource>
+													<Item>OutputParameters</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="OutputParametersSearchControlContextMenu" id="304"/>
+												<ExtendedTooltip name="OutputParametersSearchControlExtendedTooltip" id="305"/>
+											</SearchControlAddition>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="DisabledOutputParametersSettings" id="114">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Disabled output parameters settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="DisabledOutputParametersSettingsExtendedTooltip" id="306"/>
+									<ChildItems>
+										<LabelDecoration name="LocalOutputParametersLabel" id="115">
+											<Height>3</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>No additional settings are assigned to the item.
+In the structure tree, select the report and edit report additional settings.
+To assign the item with personal additional settings, select the check box above.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>В текущем элементе дополнительные настройки не установлены.
+Выберите в дереве структуры отчет для редактирования дополнительных настроек отчета в целом.
+Если необходимо, чтобы текущий элемент имел собственные дополнительные настройки, установите флажок, расположенный над этим текстом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğede ek ayarlar yapılmamıştır.
+Raporun genel ek ayarlarını düzenlemek için yapı ağacından bir rapor seçin.
+Eğer mevcut öğenin kendi ek ayarlarına sahip olması gerekiyorsa, bu metnin üstünde bulunan onay kutusunu işaretleyin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="LocalOutputParametersLabelContextMenu" id="116"/>
+											<ExtendedTooltip name="LocalOutputParametersLabelExtendedTooltip" id="307"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToReportOutputParameters" id="117">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View additional report settings</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к дополнительным настройкам отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Ek rapor ayarlarını görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToReportOutputParametersContextMenu" id="118"/>
+											<ExtendedTooltip name="GoToReportOutputParametersExtendedTooltip" id="308"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="UnavailableOutputParametersSettings" id="119">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Unavailable output parameters settings</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="UnavailableOutputParametersSettingsExtendedTooltip" id="309"/>
+									<ChildItems>
+										<LabelDecoration name="UnavailableOutputParametersLabel" id="120">
+											<Height>2</Height>
+											<HorizontalStretch>true</HorizontalStretch>
+											<VerticalStretch>false</VerticalStretch>
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Cannot assign additional settings to the item.
+In the structure tree, select the report and edit additional report settings.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>У текущего элемента не могут быть установлены дополнительные настройки.
+Выберите в дереве структуры отчет для редактирования дополнительных настроек отчета в целом.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Mevcut öğeye ek ayarlar uygulanamaz.
+Raporun genel ek ayarlarını düzenlemek için yapı ağacından bir rapor seçin.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="UnavailableOutputParametersLabelContextMenu" id="121"/>
+											<ExtendedTooltip name="UnavailableOutputParametersLabelExtendedTooltip" id="310"/>
+										</LabelDecoration>
+										<LabelDecoration name="GoToReportOutputParameters1" id="122">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>View additional report settings</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Нажмите здесь для перехода к дополнительным настройкам отчета.</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Ek rapor ayarlarını görüntüle</v8:content>
+												</v8:item>
+											</Title>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="GoToReportOutputParameters1ContextMenu" id="123"/>
+											<ExtendedTooltip name="GoToReportOutputParameters1ExtendedTooltip" id="311"/>
+											<Events>
+												<Event name="Click">GoToReport</Event>
+											</Events>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Report" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Report</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Rapor</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:ReportObject.UT_ReportsConsole</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="LocalSelectedFields" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Локальные выбранные поля</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Local selected fields</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yerel seçili alanlar</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="LocalFilter" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Локальный отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Local filter</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yerel filtre</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="LocalOrder" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Локальный порядок</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Local order</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yerel düzen</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="LocalConditionalAppearance" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Локальное условное оформление</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Local conditional appearance</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yerel koşullu görünüm</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="LocalOutputParameters" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Локальное условное оформление</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Local output parameters</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yerel çıktı parametreleri</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="ExecutedReportSchemaURL">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

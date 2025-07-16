@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="HeaderGroup" id="20">
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="HeaderGroupExtendedTooltip" id="21"/>
+			<ChildItems>
+				<UsualGroup name="SearchGroup" id="27">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="SearchGroupExtendedTooltip" id="28"/>
+					<ChildItems>
+						<InputField name="SourceObject" id="1">
+							<DataPath>Object.SourceObject</DataPath>
+							<ChoiceButton>true</ChoiceButton>
+							<ClearButton>true</ClearButton>
+							<ContextMenu name="SourceObjectContextMenu" id="2"/>
+							<ExtendedTooltip name="SourceObjectExtendedTooltip" id="3"/>
+							<Events>
+								<Event name="OnChange">SourceObjectOnChange</Event>
+								<Event name="StartChoice">SourceObjectStartChoice</Event>
+								<Event name="Clearing">SourceObjectClearing</Event>
+							</Events>
+						</InputField>
+						<Button name="SourceObjectByReference" id="86">
+							<Type>UsualButton</Type>
+							<Representation>Picture</Representation>
+							<Width>3</Width>
+							<CommandName>Form.Command.SourceObjectByReference</CommandName>
+							<ExtendedTooltip name="SourceObjectByReferenceExtendedTooltip" id="87"/>
+						</Button>
+						<Button name="EditSourceObject" id="84">
+							<Type>UsualButton</Type>
+							<Width>3</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<CommandName>Form.Command.EditSourceObject</CommandName>
+							<ExtendedTooltip name="EditSourceObjectExtendedTooltip" id="85"/>
+						</Button>
+						<InputField name="SourceUUID" id="24">
+							<DataPath>SourceUUID</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Идентификатор</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>UUID</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>UUID</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="SourceUUIDContextMenu" id="25"/>
+							<ExtendedTooltip name="SourceUUIDExtendedTooltip" id="26"/>
+						</InputField>
+						<Button name="FindReferences" id="22">
+							<Type>UsualButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.FindReferences</CommandName>
+							<ExtendedTooltip name="FindReferencesExtendedTooltip" id="23"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="SearchResult" id="34">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<Footer>true</Footer>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>SearchResult</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="SearchResultContextMenu" id="36">
+				<ChildItems>
+					<Button name="TableContextMenuOpenObject" id="68">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.OpenObject</CommandName>
+						<ExtendedTooltip name="TableContextMenuOpenObjectExtendedTooltip" id="69"/>
+					</Button>
+					<Button name="TableContextMenuSearchForObject" id="70">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.SearchForObject</CommandName>
+						<ExtendedTooltip name="TableContextMenuSearchForObjectExtendedTooltip" id="71"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="SearchResultCommandBar" id="35">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="SearchResultOpenObject" id="72">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.OpenObject</CommandName>
+						<ExtendedTooltip name="SearchResultOpenObjectExtendedTooltip" id="73"/>
+					</Button>
+					<Button name="SearchResultSearchForObject" id="74">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.SearchForObject</CommandName>
+						<ExtendedTooltip name="SearchResultSearchForObjectExtendedTooltip" id="75"/>
+					</Button>
+					<Button name="Find" id="76">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.SearchResult.StandardCommand.Find</CommandName>
+						<ExtendedTooltip name="FindExtendedTooltip" id="77"/>
+					</Button>
+					<Button name="SearchResultCancelSearch" id="78">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.SearchResult.StandardCommand.CancelSearch</CommandName>
+						<ExtendedTooltip name="SearchResultCancelSearchExtendedTooltip" id="79"/>
+					</Button>
+					<Button name="SearchResultOutputList" id="80">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.SearchResult.StandardCommand.OutputList</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="SearchResultOutputListExtendedTooltip" id="81"/>
+					</Button>
+					<Button name="SearchResultEditObject" id="82">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.EditObject</CommandName>
+						<ExtendedTooltip name="SearchResultEditObjectExtendedTooltip" id="83"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="SearchResultExtendedTooltip" id="37"/>
+			<SearchStringAddition name="SearchResultSearchString" id="38">
+				<AdditionSource>
+					<Item>SearchResult</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="SearchResultSearchStringContextMenu" id="39"/>
+				<ExtendedTooltip name="SearchResultSearchStringExtendedTooltip" id="40"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="SearchResultViewStatus" id="44">
+				<AdditionSource>
+					<Item>SearchResult</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<HorizontalLocation>Left</HorizontalLocation>
+				<ContextMenu name="SearchResultViewStatusContextMenu" id="45"/>
+				<ExtendedTooltip name="SearchResultViewStatusExtendedTooltip" id="46"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="SearchResultSearchControl" id="41">
+				<AdditionSource>
+					<Item>SearchResult</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="SearchResultSearchControlContextMenu" id="42"/>
+				<ExtendedTooltip name="SearchResultSearchControlExtendedTooltip" id="43"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">SearchResultSelection</Event>
+				<Event name="OnActivateRow">SearchResultOnRowActivation</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="SearchResultFoundReferences" id="50">
+					<DataPath>SearchResult.ObjectPresentation</DataPath>
+					<FooterDataPath>Object.FoundCount</FooterDataPath>
+					<FooterText>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>References found:</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Найдено ссылок:</v8:content>
+						</v8:item>
+					</FooterText>
+					<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+					<ContextMenu name="SearchResultFoundReferencesContextMenu" id="51"/>
+					<ExtendedTooltip name="SearchResultFoundReferencesExtendedTooltip" id="52"/>
+				</InputField>
+				<InputField name="SearchResultUUID" id="59">
+					<DataPath>SearchResult.UUID</DataPath>
+					<ContextMenu name="SearchResultUUIDContextMenu" id="60"/>
+					<ExtendedTooltip name="SearchResultUUIDExtendedTooltip" id="61"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_ObjectReferencesSearch</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="SourceUUID" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Уникальный идентификатор источника</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Source UUID</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>UUID kaynağı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="SearchResult" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат поиска</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Search result</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Arama sonucu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ref" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Reference</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Referans</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ObjectPresentation" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление объекта</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Object presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Nesne gösterimi</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="FoundObject" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Найденный объект</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Found object</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Bulunan nesne</v8:content>
+						</v8:item>
+					</Title>
+					<Type/>
+				</Column>
+				<Column name="Picture" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Picture</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Resim</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8ui:Picture</v8:Type>
+					</Type>
+				</Column>
+				<Column name="UUID" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уникальный идентификатор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>UUID</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>UUID</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="CanBeOpened" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Можно открыть</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Can be opened</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Açılabilir</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ReferenceType" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылочный тип</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Reference type</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Referans türü</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="FindReferences" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти ссылки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find references</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Referansları bul</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Find references</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти ссылки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>FindReferences</Action>
+		</Command>
+		<Command name="OpenObject" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi aç</v8:content>
+				</v8:item>
+			</Title>
+			<Action>OpenObject</Action>
+		</Command>
+		<Command name="SearchForObject" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск для объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Search for object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne için arama</v8:content>
+				</v8:item>
+			</Title>
+			<Action>SearchForObject</Action>
+		</Command>
+		<Command name="EditObject" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesneyi düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.UT_DatabaseObjectEditor</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>EditObject</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="EditSourceObject" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать исходный объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit source object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Orijinal nesneyi düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.UT_DatabaseObjectEditor</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>EditSourceObject</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="SourceObjectByReference" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исходный объект по ссылке</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Source object by reference</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Referansa göre kaynak nesne</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Source object by URL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исходный объект по навигационной ссылке</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GotoURL</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SourceObjectByReference</Action>
+		</Command>
+	</Commands>
+</Form>

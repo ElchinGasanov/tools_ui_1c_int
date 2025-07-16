@@ -1,0 +1,3995 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoTitle>false</AutoTitle>
+	<ScalingMode>Compact</ScalingMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="PagesGroup" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sayfalar grubu</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="PagesGroupExtendedTooltip" id="56"/>
+			<ChildItems>
+				<Page name="ObjectPage" id="57">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойства объекта</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Object property</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Nesne özelliği</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ObjectPageExtendedTooltip" id="58"/>
+					<ChildItems>
+						<Table name="PropertyTree" id="1">
+							<Representation>Tree</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<Width>20</Width>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<SearchOnInput>Use</SearchOnInput>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>PropertyTree</DataPath>
+							<CommandSet>
+								<ExcludedCommand>HierarchicalList</ExcludedCommand>
+								<ExcludedCommand>List</ExcludedCommand>
+							</CommandSet>
+							<ContextMenu name="PropertyTreeContextMenu" id="2">
+								<ChildItems>
+									<Button name="PropertyTreeGroupContextMenuSortListAsc" id="34">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.PropertyTree.StandardCommand.SortListAsc</CommandName>
+										<ExtendedTooltip name="PropertyTreeGroupContextMenuSortListAscExtendedTooltip" id="35"/>
+									</Button>
+									<Button name="PropertyTreeGroupContextMenuSortListDesc" id="36">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.PropertyTree.StandardCommand.SortListDesc</CommandName>
+										<ExtendedTooltip name="PropertyTreeGroupContextMenuSortListDescExtendedTooltip" id="37"/>
+									</Button>
+									<ButtonGroup name="PropertyTreeGroupContextMenuGroup1" id="42">
+										<Title>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Property tree group context menu group1</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="PropertyTreeGroupContextMenuGroup1ExtendedTooltip" id="43"/>
+										<ChildItems>
+											<Button name="PropertyTreeGroupContextMenukShowObjectProperties" id="32">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.kShowObjectProperties</CommandName>
+												<ExtendedTooltip name="PropertyTreeGroupContextMenukShowObjectPropertiesExtendedTooltip" id="33"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="PropertyTreeCommandBar" id="3">
+								<ChildItems>
+									<ButtonGroup name="PropertyTreeGroup1" id="46">
+										<Title>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Property tree group1</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="PropertyTreeGroup1ExtendedTooltip" id="47"/>
+										<ChildItems>
+											<Button name="PropertyTreeGroup_CollapseAllNodes" id="44">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command._CollapseAllNodes</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="PropertyTreeGroup_CollapseAllNodesExtendedTooltip" id="45"/>
+											</Button>
+											<Button name="PropertyTreeGroup_ExpandAllNodes" id="40">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command._ExpandAllNodes</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="PropertyTreeGroup_ExpandAllNodesExtendedTooltip" id="41"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="PropertyTreeGroupkOpemListForm" id="28">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.kOpemListForm</CommandName>
+										<ExtendedTooltip name="PropertyTreeGroupkOpemListFormExtendedTooltip" id="29"/>
+									</Button>
+									<Button name="PropertyTreeGroupkOpemListFormAdditional" id="38">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.kOpemListFormAdditional</CommandName>
+										<ExtendedTooltip name="PropertyTreeGroupkOpemListFormAdditionalExtendedTooltip" id="39"/>
+									</Button>
+									<Button name="PropertyTreeGroupkShowObjectProperties" id="30">
+										<Type>CommandBarButton</Type>
+										<DefaultButton>true</DefaultButton>
+										<CommandName>Form.Command.kShowObjectProperties</CommandName>
+										<ExtendedTooltip name="PropertyTreeGroupkShowObjectPropertiesExtendedTooltip" id="31"/>
+									</Button>
+									<Button name="PropertyTreeGroup_UpdateNumberOfObjects" id="163">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command._UpdateNumberOfObjects</CommandName>
+										<ExtendedTooltip name="PropertyTreeGroup_UpdateNumberOfObjectsExtendedTooltip" id="164"/>
+									</Button>
+									<Button name="PropertyTreeGroup_OpenObject" id="51">
+										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
+										<CommandName>Form.Command._OpenObject</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="PropertyTreeGroup_OpenObjectExtendedTooltip" id="52"/>
+									</Button>
+									<ButtonGroup name="PropertyTreeGroup2" id="53">
+										<Title>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Property tree group2</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="PropertyTreeGroup2ExtendedTooltip" id="54"/>
+										<ChildItems>
+											<Button name="PropertyTreeGroupCustomizeForm" id="26">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+												<ExtendedTooltip name="PropertyTreeGroupCustomizeFormExtendedTooltip" id="27"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="PropertyTreeExtendedTooltip" id="4"/>
+							<SearchStringAddition name="PropertyTreeSearchString" id="5">
+								<AdditionSource>
+									<Item>PropertyTree</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="PropertyTreeSearchStringContextMenu" id="6"/>
+								<ExtendedTooltip name="PropertyTreeSearchStringExtendedTooltip" id="7"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="PropertyTreeViewStatus" id="8">
+								<AdditionSource>
+									<Item>PropertyTree</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="PropertyTreeViewStatusContextMenu" id="9"/>
+								<ExtendedTooltip name="PropertyTreeViewStatusExtendedTooltip" id="10"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="PropertyTreeSearchControl" id="11">
+								<AdditionSource>
+									<Item>PropertyTree</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="PropertyTreeSearchControlContextMenu" id="12"/>
+								<ExtendedTooltip name="PropertyTreeSearchControlExtendedTooltip" id="13"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">PropertyTreeSelection</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="PropertyTreeName" id="14">
+									<DataPath>PropertyTree.Name</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<ContextMenu name="PropertyTreeNameContextMenu" id="15"/>
+									<ExtendedTooltip name="PropertyTreeNameExtendedTooltip" id="16"/>
+								</InputField>
+								<InputField name="PropertyTreeIndexing" id="48">
+									<DataPath>PropertyTree.Indexing</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="PropertyTreeIndexingContextMenu" id="49"/>
+									<ExtendedTooltip name="PropertyTreeIndexingExtendedTooltip" id="50"/>
+								</InputField>
+								<InputField name="PropertyTreeSynonym" id="17">
+									<DataPath>PropertyTree.Synonym</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<ContextMenu name="PropertyTreeSynonymContextMenu" id="18"/>
+									<ExtendedTooltip name="PropertyTreeSynonymExtendedTooltip" id="19"/>
+								</InputField>
+								<InputField name="PropertyTreeStringType" id="23">
+									<DataPath>PropertyTree.StringType</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<ContextMenu name="PropertyTreeStringTypeContextMenu" id="24"/>
+									<ExtendedTooltip name="PropertyTreeStringTypeExtendedTooltip" id="25"/>
+								</InputField>
+								<InputField name="PropertyTreeComment" id="20">
+									<DataPath>PropertyTree.Comment</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<ContextMenu name="PropertyTreeCommentContextMenu" id="21"/>
+									<ExtendedTooltip name="PropertyTreeCommentExtendedTooltip" id="22"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ValuePage" id="484">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Values</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Değerler</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница значение</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ValuePageExtendedTooltip" id="485"/>
+					<ChildItems>
+						<CommandBar name="ValueGroup" id="489">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа значение</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Value group</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа значение</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ValueGroupExtendedTooltip" id="490"/>
+							<ChildItems>
+								<Button name="_ReadConstant" id="491">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command._ReadConstant</CommandName>
+									<ExtendedTooltip name="_ReadConstantExtendedTooltip" id="492"/>
+								</Button>
+								<Button name="_RecordConstant" id="493">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command._RecordConstant</CommandName>
+									<ExtendedTooltip name="_RecordConstantExtendedTooltip" id="494"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+						<LabelDecoration name="ConstantDecoration" id="495">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:FieldSelectionBackColor</TextColor>
+							<Font ref="style:TextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ВАЖНО: в этой версии реализована поддержка только простых и ссылочных типов!</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Constant decoration</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Sabit dekorasyon</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ConstantDecorationContextMenu" id="496"/>
+							<ExtendedTooltip name="ConstantDecorationExtendedTooltip" id="497"/>
+						</LabelDecoration>
+						<UsualGroup name="ConstantGroup" id="498">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа константа</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Constant group</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа константа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ConstantGroupExtendedTooltip" id="499"/>
+							<ChildItems>
+								<InputField name="_ConstantValue" id="486">
+									<DataPath>_ConstantValue</DataPath>
+									<ClearButton>true</ClearButton>
+									<OpenButton>true</OpenButton>
+									<ContextMenu name="_ConstantValueContextMenu" id="487"/>
+									<ExtendedTooltip name="_ConstantValueExtendedTooltip" id="488"/>
+								</InputField>
+								<InputField name="_TypeOfConstantValue" id="500">
+									<DataPath>_TypeOfConstantValue</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="_TypeOfConstantValueContextMenu" id="501"/>
+									<ExtendedTooltip name="_TypeOfConstantValueExtendedTooltip" id="502"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="_UseTextWhenWritingConstants" id="506">
+							<DataPath>_UseTextWhenWritingConstants</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="_UseTextWhenWritingConstantsContextMenu" id="507"/>
+							<ExtendedTooltip name="_UseTextWhenWritingConstantsExtendedTooltip" id="508"/>
+						</CheckBoxField>
+						<TextDocumentField name="_TextConstantValue" id="503">
+							<DataPath>_TextConstantValue</DataPath>
+							<ContextMenu name="_TextConstantValueContextMenu" id="504"/>
+							<ExtendedTooltip name="_TextConstantValueExtendedTooltip" id="505"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="AccessRightPage" id="299">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Права доступа</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Access right page</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Erişim hakları</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Права доступа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="AccessRightPageExtendedTooltip" id="300"/>
+					<ChildItems>
+						<UsualGroup name="Group4" id="404">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group4</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Group4ExtendedTooltip" id="405"/>
+							<ChildItems>
+								<InputField name="_AccessRightToObject" id="399">
+									<DataPath>_AccessRightToObject</DataPath>
+									<TitleTextColor>style:FieldSelectionBackColor</TitleTextColor>
+									<ClearButton>true</ClearButton>
+									<ListChoiceMode>true</ListChoiceMode>
+									<TextColor>style:FieldSelectionBackColor</TextColor>
+									<ContextMenu name="_AccessRightToObjectContextMenu" id="400"/>
+									<ExtendedTooltip name="_AccessRightToObjectExtendedTooltip" id="401"/>
+									<Events>
+										<Event name="OnChange">_AccessRightToObjectOnChange</Event>
+									</Events>
+								</InputField>
+								<Button name="_FullInAccessRights" id="402">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command._FullInAccessRights</CommandName>
+									<ExtendedTooltip name="_FullInAccessRightsExtendedTooltip" id="403"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<Pages name="AccessRightToObject" id="301">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Права доступа к объеткту</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Access right to object</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Nesneye erişim hakları</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Права доступа к объеткту</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>TabsOnTop</PagesRepresentation>
+							<ExtendedTooltip name="AccessRightToObjectExtendedTooltip" id="302"/>
+							<ChildItems>
+								<Page name="AccessRightToObject_Role" id="303">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Роли</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Access right to object role</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Roller</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Роли</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="AccessRightToObject_RoleExtendedTooltip" id="304"/>
+									<ChildItems>
+										<Table name="RolesWithAccessTable" id="309">
+											<Representation>List</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>RolesWithAccessTable</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+											</CommandSet>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="RolesWithAccessTableContextMenu" id="310">
+												<ChildItems>
+													<Button name="RolesWithAccessTableContextMenu_OpenAccessRightsObject" id="417">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._OpenAccessRightsObject</CommandName>
+														<ExtendedTooltip name="RolesWithAccessTableContextMenu_OpenAccessRightsObjectExtendedTooltip" id="418"/>
+													</Button>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="RolesWithAccessTableCommandBar" id="311">
+												<Autofill>false</Autofill>
+												<ChildItems>
+													<Button name="RolesWithAccessTableSortListAsc" id="369">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.RolesWithAccessTable.StandardCommand.SortListAsc</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="RolesWithAccessTableSortListAscExtendedTooltip" id="370"/>
+													</Button>
+													<Button name="RolesWithAccessTableSortListDesc" id="371">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.RolesWithAccessTable.StandardCommand.SortListDesc</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="RolesWithAccessTableSortListDescExtendedTooltip" id="372"/>
+													</Button>
+													<Button name="RolesWithAccessTableFind" id="373">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.RolesWithAccessTable.StandardCommand.Find</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="RolesWithAccessTableFindExtendedTooltip" id="374"/>
+													</Button>
+													<Button name="RolesWithAccessTableCancelSearch" id="375">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.RolesWithAccessTable.StandardCommand.CancelSearch</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="RolesWithAccessTableCancelSearchExtendedTooltip" id="376"/>
+													</Button>
+													<Button name="RolesWithAccessTableOutputList" id="377">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.RolesWithAccessTable.StandardCommand.OutputList</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="RolesWithAccessTableOutputListExtendedTooltip" id="378"/>
+													</Button>
+													<Button name="RolesWithAccessTable_OpenAccessRightsObject" id="411">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._OpenAccessRightsObject</CommandName>
+														<ExtendedTooltip name="RolesWithAccessTable_OpenAccessRightsObjectExtendedTooltip" id="412"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="RolesWithAccessTableExtendedTooltip" id="312"/>
+											<SearchStringAddition name="RolesWithAccessTableSearchString" id="313">
+												<AdditionSource>
+													<Item>RolesWithAccessTable</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="RolesWithAccessTableSearchStringContextMenu" id="314"/>
+												<ExtendedTooltip name="RolesWithAccessTableSearchStringExtendedTooltip" id="315"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="RolesWithAccessTableViewStatus" id="316">
+												<AdditionSource>
+													<Item>RolesWithAccessTable</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="RolesWithAccessTableViewStatusContextMenu" id="317"/>
+												<ExtendedTooltip name="RolesWithAccessTableViewStatusExtendedTooltip" id="318"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="RolesWithAccessTableSearchControl" id="319">
+												<AdditionSource>
+													<Item>RolesWithAccessTable</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="RolesWithAccessTableSearchControlContextMenu" id="320"/>
+												<ExtendedTooltip name="RolesWithAccessTableSearchControlExtendedTooltip" id="321"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">RolesWithAccessTableSelection</Event>
+											</Events>
+											<ChildItems>
+												<CheckBoxField name="RolesWithAccessTableRestrictionByCondition" id="406">
+													<DataPath>RolesWithAccessTable.RestrictionByCondition</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="RolesWithAccessTableRestrictionByConditionContextMenu" id="407"/>
+													<ExtendedTooltip name="RolesWithAccessTableRestrictionByConditionExtendedTooltip" id="408"/>
+												</CheckBoxField>
+												<InputField name="RolesWithAccessTableName" id="322">
+													<DataPath>RolesWithAccessTable.Name</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="RolesWithAccessTableNameContextMenu" id="323"/>
+													<ExtendedTooltip name="RolesWithAccessTableNameExtendedTooltip" id="324"/>
+												</InputField>
+												<InputField name="RolesWithAccessTableSynonym" id="325">
+													<DataPath>RolesWithAccessTable.Synonym</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="RolesWithAccessTableSynonymContextMenu" id="326"/>
+													<ExtendedTooltip name="RolesWithAccessTableSynonymExtendedTooltip" id="327"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="_AccessRightForRole" id="409">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Доступные объекты</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Access right for role</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Rol için erişim hakkı</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Доступные объекты</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="_AccessRightForRoleExtendedTooltip" id="410"/>
+									<ChildItems>
+										<Table name="_AvailableObjects" id="263">
+											<Representation>List</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>_AvailableObjects</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+											</CommandSet>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="_AvailableObjectsContextMenu" id="264">
+												<ChildItems>
+													<Button name="_AvailableObjectsContextMenu_OpenAccessRightsObject" id="419">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._OpenAccessRightsObject</CommandName>
+														<ExtendedTooltip name="_AvailableObjectsContextMenu_OpenAccessRightsObjectExtendedTooltip" id="420"/>
+													</Button>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="_AvailableObjectsCommandBar" id="265">
+												<ChildItems>
+													<Button name="_AvailableObjectsSortListAsc" id="288">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item._AvailableObjects.StandardCommand.SortListAsc</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="_AvailableObjectsSortListAscExtendedTooltip" id="289"/>
+													</Button>
+													<Button name="_AvailableObjectsSortListDesc" id="290">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item._AvailableObjects.StandardCommand.SortListDesc</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="_AvailableObjectsSortListDescExtendedTooltip" id="291"/>
+													</Button>
+													<Button name="_AvailableObjectsFind" id="292">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item._AvailableObjects.StandardCommand.Find</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="_AvailableObjectsFindExtendedTooltip" id="293"/>
+													</Button>
+													<Button name="_AvailableObjectsCancelSearch" id="294">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item._AvailableObjects.StandardCommand.CancelSearch</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="_AvailableObjectsCancelSearchExtendedTooltip" id="295"/>
+													</Button>
+													<Button name="_AvailableObjects_OpenAccessRightsObject" id="413">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._OpenAccessRightsObject</CommandName>
+														<ExtendedTooltip name="_AvailableObjects_OpenAccessRightsObjectExtendedTooltip" id="414"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="_AvailableObjectsExtendedTooltip" id="266"/>
+											<SearchStringAddition name="_AvailableObjectsSearchString" id="267">
+												<AdditionSource>
+													<Item>_AvailableObjects</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="_AvailableObjectsSearchStringContextMenu" id="268"/>
+												<ExtendedTooltip name="_AvailableObjectsSearchStringExtendedTooltip" id="269"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="_AvailableObjectsViewStatus" id="270">
+												<AdditionSource>
+													<Item>_AvailableObjects</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="_AvailableObjectsViewStatusContextMenu" id="271"/>
+												<ExtendedTooltip name="_AvailableObjectsViewStatusExtendedTooltip" id="272"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="_AvailableObjectsSearchControl" id="273">
+												<AdditionSource>
+													<Item>_AvailableObjects</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="_AvailableObjectsSearchControlContextMenu" id="274"/>
+												<ExtendedTooltip name="_AvailableObjectsSearchControlExtendedTooltip" id="275"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">_AvailableObjectsSelection</Event>
+											</Events>
+											<ChildItems>
+												<CheckBoxField name="_AvailableObjectsRestrictionByCondition" id="296">
+													<DataPath>_AvailableObjects.RestrictionByCondition</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="_AvailableObjectsRestrictionByConditionContextMenu" id="297"/>
+													<ExtendedTooltip name="_AvailableObjectsRestrictionByConditionExtendedTooltip" id="298"/>
+												</CheckBoxField>
+												<InputField name="_AvailableObjectsKind" id="276">
+													<DataPath>_AvailableObjects.Kind</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<ContextMenu name="_AvailableObjectsKindContextMenu" id="277"/>
+													<ExtendedTooltip name="_AvailableObjectsKindExtendedTooltip" id="278"/>
+												</InputField>
+												<InputField name="_AvailableObjectsName" id="279">
+													<DataPath>_AvailableObjects.Name</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>20</Width>
+													<ContextMenu name="_AvailableObjectsNameContextMenu" id="280"/>
+													<ExtendedTooltip name="_AvailableObjectsNameExtendedTooltip" id="281"/>
+												</InputField>
+												<InputField name="_AvailableObjectsPresentation" id="282">
+													<DataPath>_AvailableObjects.Presentation</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>20</Width>
+													<ContextMenu name="_AvailableObjectsPresentationContextMenu" id="283"/>
+													<ExtendedTooltip name="_AvailableObjectsPresentationExtendedTooltip" id="284"/>
+												</InputField>
+												<InputField name="_AvailableObjectsFullName" id="285">
+													<DataPath>_AvailableObjects.FullName</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>40</Width>
+													<ContextMenu name="_AvailableObjectsFullNameContextMenu" id="286"/>
+													<ExtendedTooltip name="_AvailableObjectsFullNameExtendedTooltip" id="287"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="AccessRightToObject_Users" id="305">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пользователи</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Access right to object users</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Nesne kullanıcılarına erişim hakkı</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пользователи</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="AccessRightToObject_UsersExtendedTooltip" id="306"/>
+									<ChildItems>
+										<Table name="UsersWithAccessTable" id="328">
+											<Representation>List</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>UsersWithAccessTable</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+											</CommandSet>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="UsersWithAccessTableContextMenu" id="329">
+												<ChildItems>
+													<Button name="UsersWithAccessTableContextMenu_OpenAccessRightsObject" id="421">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._OpenAccessRightsObject</CommandName>
+														<ExtendedTooltip name="UsersWithAccessTableContextMenu_OpenAccessRightsObjectExtendedTooltip" id="422"/>
+													</Button>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="UsersWithAccessTableCommandBar" id="330">
+												<Autofill>false</Autofill>
+												<ChildItems>
+													<Button name="UsersWithAccessTableSortListAsc" id="379">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.UsersWithAccessTable.StandardCommand.SortListAsc</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="UsersWithAccessTableSortListAscExtendedTooltip" id="380"/>
+													</Button>
+													<Button name="UsersWithAccessTableSortListDesc" id="381">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.UsersWithAccessTable.StandardCommand.SortListDesc</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="UsersWithAccessTableSortListDescExtendedTooltip" id="382"/>
+													</Button>
+													<Button name="UsersWithAccessTableFind" id="383">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.UsersWithAccessTable.StandardCommand.Find</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="UsersWithAccessTableFindExtendedTooltip" id="384"/>
+													</Button>
+													<Button name="UsersWithAccessTableCancelSearch" id="385">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.UsersWithAccessTable.StandardCommand.CancelSearch</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="UsersWithAccessTableCancelSearchExtendedTooltip" id="386"/>
+													</Button>
+													<Button name="UsersWithAccessTableOutputList" id="387">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Item.UsersWithAccessTable.StandardCommand.OutputList</CommandName>
+														<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+														<ExtendedTooltip name="UsersWithAccessTableOutputListExtendedTooltip" id="388"/>
+													</Button>
+													<Button name="UsersWithAccessTable_OpenAccessRightsObject" id="415">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command._OpenAccessRightsObject</CommandName>
+														<ExtendedTooltip name="UsersWithAccessTable_OpenAccessRightsObjectExtendedTooltip" id="416"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="UsersWithAccessTableExtendedTooltip" id="331"/>
+											<SearchStringAddition name="UsersWithAccessTableSearchString" id="332">
+												<AdditionSource>
+													<Item>UsersWithAccessTable</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="UsersWithAccessTableSearchStringContextMenu" id="333"/>
+												<ExtendedTooltip name="UsersWithAccessTableSearchStringExtendedTooltip" id="334"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="UsersWithAccessTableViewStatus" id="335">
+												<AdditionSource>
+													<Item>UsersWithAccessTable</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<HorizontalLocation>Left</HorizontalLocation>
+												<ContextMenu name="UsersWithAccessTableViewStatusContextMenu" id="336"/>
+												<ExtendedTooltip name="UsersWithAccessTableViewStatusExtendedTooltip" id="337"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="UsersWithAccessTableSearchControl" id="338">
+												<AdditionSource>
+													<Item>UsersWithAccessTable</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="UsersWithAccessTableSearchControlContextMenu" id="339"/>
+												<ExtendedTooltip name="UsersWithAccessTableSearchControlExtendedTooltip" id="340"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="Selection">UsersWithAccessTableSelection</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="UsersWithAccessTableName" id="341">
+													<DataPath>UsersWithAccessTable.Name</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="UsersWithAccessTableNameContextMenu" id="342"/>
+													<ExtendedTooltip name="UsersWithAccessTableNameExtendedTooltip" id="343"/>
+												</InputField>
+												<InputField name="UsersWithAccessTableFullName" id="344">
+													<DataPath>UsersWithAccessTable.FullName</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="UsersWithAccessTableFullNameContextMenu" id="345"/>
+													<ExtendedTooltip name="UsersWithAccessTableFullNameExtendedTooltip" id="346"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="StorageStructurePage" id="61">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Структура хранения</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Storage structure page</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Depolama yapısı sayfası</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<ExtendedTooltip name="StorageStructurePageExtendedTooltip" id="62"/>
+					<ChildItems>
+						<UsualGroup name="SXGroup" id="82">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа СХ</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>SXGroup</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа СХ</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="SXGroupExtendedTooltip" id="83"/>
+							<ChildItems>
+								<Table name="_SXTable" id="63">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>_SXTable</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="_SXTableContextMenu" id="64"/>
+									<AutoCommandBar name="_SXTableCommandBar" id="65">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="_SXTableSortListAsc" id="165">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item._SXTable.StandardCommand.SortListAsc</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="_SXTableSortListAscExtendedTooltip" id="166"/>
+											</Button>
+											<Button name="_SXTableSortListDesc" id="167">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item._SXTable.StandardCommand.SortListDesc</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="_SXTableSortListDescExtendedTooltip" id="168"/>
+											</Button>
+											<Button name="_SXTableFind" id="169">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item._SXTable.StandardCommand.Find</CommandName>
+												<ExtendedTooltip name="_SXTableFindExtendedTooltip" id="170"/>
+											</Button>
+											<Button name="_SXTableCancelSearch" id="171">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item._SXTable.StandardCommand.CancelSearch</CommandName>
+												<ExtendedTooltip name="_SXTableCancelSearchExtendedTooltip" id="172"/>
+											</Button>
+											<Button name="_SXTableOutputList" id="173">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item._SXTable.StandardCommand.OutputList</CommandName>
+												<ExtendedTooltip name="_SXTableOutputListExtendedTooltip" id="174"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="_SXTableExtendedTooltip" id="66"/>
+									<SearchStringAddition name="_SXTableSearchString" id="67">
+										<AdditionSource>
+											<Item>_SXTable</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="_SXTableSearchStringContextMenu" id="68"/>
+										<ExtendedTooltip name="_SXTableSearchStringExtendedTooltip" id="69"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="_SXTableViewStatus" id="70">
+										<AdditionSource>
+											<Item>_SXTable</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<HorizontalLocation>Left</HorizontalLocation>
+										<ContextMenu name="_SXTableViewStatusContextMenu" id="71"/>
+										<ExtendedTooltip name="_SXTableViewStatusExtendedTooltip" id="72"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="_SXTableSearchControl" id="73">
+										<AdditionSource>
+											<Item>_SXTable</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="_SXTableSearchControlContextMenu" id="74"/>
+										<ExtendedTooltip name="_SXTableSearchControlExtendedTooltip" id="75"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnActivateRow">_SXTableOnActivateRow</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="_SXTableTableName" id="76">
+											<DataPath>_SXTable.TableName</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="_SXTableTableNameContextMenu" id="77"/>
+											<ExtendedTooltip name="_SXTableTableNameExtendedTooltip" id="78"/>
+										</InputField>
+										<InputField name="_SXTablePurpose" id="79">
+											<DataPath>_SXTable.Purpose</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="_SXTablePurposeContextMenu" id="80"/>
+											<ExtendedTooltip name="_SXTablePurposeExtendedTooltip" id="81"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="DetailSXGroup" id="84">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа СХПодробно</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Detail SXGroup</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа СХПодробно</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="DetailSXGroupExtendedTooltip" id="85"/>
+							<ChildItems>
+								<UsualGroup name="Group1" id="161">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group1</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Group1ExtendedTooltip" id="162"/>
+									<ChildItems>
+										<InputField name="__DBTable" id="155">
+											<DataPath>Items._SXTable.CurrentData.StorageTableName</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="__DBTableContextMenu" id="156"/>
+											<ExtendedTooltip name="__DBTableExtendedTooltip" id="157"/>
+										</InputField>
+										<InputField name="__Purpose" id="158">
+											<DataPath>Items._SXTable.CurrentData.Purpose</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<ContextMenu name="__PurposeContextMenu" id="159"/>
+											<ExtendedTooltip name="__PurposeExtendedTooltip" id="160"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="_ShowStorageStructureIn1CTerms" id="481">
+									<DataPath>_ShowStorageStructureIn1CTerms</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="_ShowStorageStructureIn1CTermsContextMenu" id="482"/>
+									<ExtendedTooltip name="_ShowStorageStructureIn1CTermsExtendedTooltip" id="483"/>
+									<Events>
+										<Event name="OnChange">_ShowStorageStructureIn1CTermsOnChange</Event>
+									</Events>
+								</CheckBoxField>
+								<Pages name="SXPagesGroup" id="86">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа СХСтраницы</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>SXPages group</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа СХСтраницы</v8:content>
+										</v8:item>
+									</ToolTip>
+									<PagesRepresentation>TabsOnTop</PagesRepresentation>
+									<ExtendedTooltip name="SXPagesGroupExtendedTooltip" id="87"/>
+									<ChildItems>
+										<Page name="SXPageFields" id="88">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Поля</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>SXPage fields</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Alanlar</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Поля</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="SXPageFieldsExtendedTooltip" id="89"/>
+											<ChildItems>
+												<Table name="_SXFielsd" id="92">
+													<Representation>List</Representation>
+													<ChangeRowSet>false</ChangeRowSet>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>_SXFielsd</DataPath>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="_SXFielsdContextMenu" id="93"/>
+													<AutoCommandBar name="_SXFielsdCommandBar" id="94">
+														<Autofill>false</Autofill>
+														<ChildItems>
+															<Button name="_SXFielsdSortListAsc" id="175">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXFielsd.StandardCommand.SortListAsc</CommandName>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="_SXFielsdSortListAscExtendedTooltip" id="176"/>
+															</Button>
+															<Button name="_SXFielsdSortListDesc" id="177">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXFielsd.StandardCommand.SortListDesc</CommandName>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="_SXFielsdSortListDescExtendedTooltip" id="178"/>
+															</Button>
+															<Button name="_SXFielsdFind" id="179">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXFielsd.StandardCommand.Find</CommandName>
+																<ExtendedTooltip name="_SXFielsdFindExtendedTooltip" id="180"/>
+															</Button>
+															<Button name="_SXFielsdCancelSearch" id="181">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXFielsd.StandardCommand.CancelSearch</CommandName>
+																<ExtendedTooltip name="_SXFielsdCancelSearchExtendedTooltip" id="182"/>
+															</Button>
+															<Button name="_SXFielsdOutputList" id="183">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXFielsd.StandardCommand.OutputList</CommandName>
+																<ExtendedTooltip name="_SXFielsdOutputListExtendedTooltip" id="184"/>
+															</Button>
+														</ChildItems>
+													</AutoCommandBar>
+													<ExtendedTooltip name="_SXFielsdExtendedTooltip" id="95"/>
+													<SearchStringAddition name="_SXFielsdSearchString" id="96">
+														<AdditionSource>
+															<Item>_SXFielsd</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="_SXFielsdSearchStringContextMenu" id="97"/>
+														<ExtendedTooltip name="_SXFielsdSearchStringExtendedTooltip" id="98"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="_SXFielsdViewStatus" id="99">
+														<AdditionSource>
+															<Item>_SXFielsd</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<HorizontalLocation>Left</HorizontalLocation>
+														<ContextMenu name="_SXFielsdViewStatusContextMenu" id="100"/>
+														<ExtendedTooltip name="_SXFielsdViewStatusExtendedTooltip" id="101"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="_SXFielsdSearchControl" id="102">
+														<AdditionSource>
+															<Item>_SXFielsd</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="_SXFielsdSearchControlContextMenu" id="103"/>
+														<ExtendedTooltip name="_SXFielsdSearchControlExtendedTooltip" id="104"/>
+													</SearchControlAddition>
+													<ChildItems>
+														<InputField name="_SXFielsdFieldName" id="108">
+															<DataPath>_SXFielsd.FieldName</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="_SXFielsdFieldNameContextMenu" id="109"/>
+															<ExtendedTooltip name="_SXFielsdFieldNameExtendedTooltip" id="110"/>
+														</InputField>
+														<InputField name="_SXFielsdStorageFieldName" id="111">
+															<DataPath>_SXFielsd.StorageFieldName</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="_SXFielsdStorageFieldNameContextMenu" id="112"/>
+															<ExtendedTooltip name="_SXFielsdStorageFieldNameExtendedTooltip" id="113"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</Page>
+										<Page name="_SXIndexesPages" id="90">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Индексы</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>SXIndexes pages</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Endeksler</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Индексы</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="_SXIndexesPagesExtendedTooltip" id="91"/>
+											<ChildItems>
+												<Table name="_SXIndexes" id="114">
+													<Representation>List</Representation>
+													<ChangeRowSet>false</ChangeRowSet>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>_SXIndexes</DataPath>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="_SXIndexesContextMenu" id="115"/>
+													<AutoCommandBar name="_SXIndexesCommandBar" id="116">
+														<Autofill>false</Autofill>
+														<ChildItems>
+															<Button name="_SXIndexesSortListAsc" id="185">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexes.StandardCommand.SortListAsc</CommandName>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="_SXIndexesSortListAscExtendedTooltip" id="186"/>
+															</Button>
+															<Button name="_SXIndexesSortListDesc" id="187">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexes.StandardCommand.SortListDesc</CommandName>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="_SXIndexesSortListDescExtendedTooltip" id="188"/>
+															</Button>
+															<Button name="_SXIndexesFind" id="189">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexes.StandardCommand.Find</CommandName>
+																<ExtendedTooltip name="_SXIndexesFindExtendedTooltip" id="190"/>
+															</Button>
+															<Button name="__SXIndexesCancelSearch" id="191">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexes.StandardCommand.CancelSearch</CommandName>
+																<ExtendedTooltip name="__SXIndexesCancelSearchExtendedTooltip" id="192"/>
+															</Button>
+															<Button name="_SXIndexesOutputList" id="193">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexes.StandardCommand.OutputList</CommandName>
+																<ExtendedTooltip name="_SXIndexesOutputListExtendedTooltip" id="194"/>
+															</Button>
+														</ChildItems>
+													</AutoCommandBar>
+													<ExtendedTooltip name="_SXIndexesExtendedTooltip" id="117"/>
+													<SearchStringAddition name="_SXIndexesSearchString" id="118">
+														<AdditionSource>
+															<Item>_SXIndexes</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="_SXIndexesSearchStringContextMenu" id="119"/>
+														<ExtendedTooltip name="_SXIndexesSearchStringExtendedTooltip" id="120"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="_SXIndexesViewStatus" id="121">
+														<AdditionSource>
+															<Item>_SXIndexes</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<HorizontalLocation>Left</HorizontalLocation>
+														<ContextMenu name="_SXIndexesViewStatusContextMenu" id="122"/>
+														<ExtendedTooltip name="_SXIndexesViewStatusExtendedTooltip" id="123"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="_SXIndexesSearchControl" id="124">
+														<AdditionSource>
+															<Item>_SXIndexes</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="_SXIndexesSearchControlContextMenu" id="125"/>
+														<ExtendedTooltip name="_SXIndexesSearchControlExtendedTooltip" id="126"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnActivateRow">_SXIndexesOnActivateRow</Event>
+													</Events>
+													<ChildItems>
+														<InputField name="_SXIndexesStorageIndexName" id="130">
+															<DataPath>_SXIndexes.StorageIndexName</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="_SXIndexesStorageIndexNameContextMenu" id="131"/>
+															<ExtendedTooltip name="_SXIndexesStorageIndexNameExtendedTooltip" id="132"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+												<Table name="_SXIndexFields" id="133">
+													<Representation>List</Representation>
+													<ChangeRowSet>false</ChangeRowSet>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>_SXIndexFields</DataPath>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="_SXIndexFieldsContextMenu" id="134"/>
+													<AutoCommandBar name="_SXIndexFieldsCommandBar" id="135">
+														<Autofill>false</Autofill>
+														<ChildItems>
+															<Button name="_SXIndexFieldsSortListAsc" id="195">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexFields.StandardCommand.SortListAsc</CommandName>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="_SXIndexFieldsSortListAscExtendedTooltip" id="196"/>
+															</Button>
+															<Button name="_SXIndexFieldsSortListDesc" id="197">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexFields.StandardCommand.SortListDesc</CommandName>
+																<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+																<ExtendedTooltip name="_SXIndexFieldsSortListDescExtendedTooltip" id="198"/>
+															</Button>
+															<Button name="_SXIndexFieldsFind" id="199">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexFields.StandardCommand.Find</CommandName>
+																<ExtendedTooltip name="_SXIndexFieldsFindExtendedTooltip" id="200"/>
+															</Button>
+															<Button name="_SXIndexFieldsCancelSearch" id="201">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexFields.StandardCommand.CancelSearch</CommandName>
+																<ExtendedTooltip name="_SXIndexFieldsCancelSearchExtendedTooltip" id="202"/>
+															</Button>
+															<Button name="_SXIndexFieldsOutputList" id="203">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Item._SXIndexFields.StandardCommand.OutputList</CommandName>
+																<ExtendedTooltip name="_SXIndexFieldsOutputListExtendedTooltip" id="204"/>
+															</Button>
+														</ChildItems>
+													</AutoCommandBar>
+													<ExtendedTooltip name="_SXIndexFieldsExtendedTooltip" id="136"/>
+													<SearchStringAddition name="_SXIndexFieldsSearchString" id="137">
+														<AdditionSource>
+															<Item>_SXIndexFields</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="_SXIndexFieldsSearchStringContextMenu" id="138"/>
+														<ExtendedTooltip name="_SXIndexFieldsSearchStringExtendedTooltip" id="139"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="_SXIndexFieldsViewStatus" id="140">
+														<AdditionSource>
+															<Item>_SXIndexFields</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<HorizontalLocation>Left</HorizontalLocation>
+														<ContextMenu name="_SXIndexFieldsViewStatusContextMenu" id="141"/>
+														<ExtendedTooltip name="_SXIndexFieldsViewStatusExtendedTooltip" id="142"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="_SXIndexFieldsSearchControl" id="143">
+														<AdditionSource>
+															<Item>_SXIndexFields</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="_SXIndexFieldsSearchControlContextMenu" id="144"/>
+														<ExtendedTooltip name="_SXIndexFieldsSearchControlExtendedTooltip" id="145"/>
+													</SearchControlAddition>
+													<ChildItems>
+														<InputField name="_SXIndexFieldsFieldName" id="149">
+															<DataPath>_SXIndexFields.FieldName</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="_SXIndexFieldsFieldNameContextMenu" id="150"/>
+															<ExtendedTooltip name="_SXIndexFieldsFieldNameExtendedTooltip" id="151"/>
+														</InputField>
+														<InputField name="_SXIndexFieldsStorageFieldName" id="152">
+															<DataPath>_SXIndexFields.StorageFieldName</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="_SXIndexFieldsStorageFieldNameContextMenu" id="153"/>
+															<ExtendedTooltip name="_SXIndexFieldsStorageFieldNameExtendedTooltip" id="154"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</Page>
+									</ChildItems>
+								</Pages>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ManagingTotalsPage" id="205">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Управление итогами</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Managing totals page</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Sonuç yönetimi</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ManagingTotalsPageExtendedTooltip" id="206"/>
+					<ChildItems>
+						<LabelDecoration name="_ManagingTotalsLabel" id="257">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:FieldSelectionBackColor</TextColor>
+							<Font ref="style:TextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Операции доступны только администратору системы!</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Managing totals label</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Toplam etiketini yönetme</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="_ManagingTotalsLabelContextMenu" id="258"/>
+							<ExtendedTooltip name="_ManagingTotalsLabelExtendedTooltip" id="259"/>
+						</LabelDecoration>
+						<CommandBar name="CommandBarManagingTotals" id="207">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команданая панель управления итогами</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Command bar managing totals</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команданая панель управления итогами</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="CommandBarManagingTotalsExtendedTooltip" id="208"/>
+							<ChildItems>
+								<Button name="_UpdateTotalsManagement" id="209">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command._UpdateTotalsManagement</CommandName>
+									<ExtendedTooltip name="_UpdateTotalsManagementExtendedTooltip" id="210"/>
+								</Button>
+								<Button name="_RecalculateTotals" id="211">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command._RecalculateTotals</CommandName>
+									<ExtendedTooltip name="_RecalculateTotalsExtendedTooltip" id="212"/>
+								</Button>
+								<Button name="_RecalculateCurrentTotals" id="213">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command._RecalculateCurrentTotals</CommandName>
+									<ExtendedTooltip name="_RecalculateCurrentTotalsExtendedTooltip" id="214"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+						<UsualGroup name="UsingTotalsGroup" id="215">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Основные свойства регистра</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Using totals group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Toplamlar grubunu kullanma</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ExtendedTooltip name="UsingTotalsGroupExtendedTooltip" id="216"/>
+							<ChildItems>
+								<CheckBoxField name="_AggregateMode" id="228">
+									<DataPath>_AggregateMode</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="_AggregateModeContextMenu" id="229"/>
+									<ExtendedTooltip name="_AggregateModeExtendedTooltip" id="230"/>
+									<Events>
+										<Event name="OnChange">_RegistryPropertyOnChange</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="_UseAggregates" id="231">
+									<DataPath>_UseAggregates</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="_UseAggregatesContextMenu" id="232"/>
+									<ExtendedTooltip name="_UseAggregatesExtendedTooltip" id="233"/>
+									<Events>
+										<Event name="OnChange">_RegistryPropertyOnChange</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="_UseCurrentTotals" id="217">
+									<DataPath>_UseCurrentTotals</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="_UseCurrentTotalsContextMenu" id="218"/>
+									<ExtendedTooltip name="_UseCurrentTotalsExtendedTooltip" id="219"/>
+									<Events>
+										<Event name="OnChange">_RegistryPropertyOnChange</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="_UseTotals" id="220">
+									<DataPath>_UseTotals</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="_UseTotalsContextMenu" id="221"/>
+									<ExtendedTooltip name="_UseTotalsExtendedTooltip" id="222"/>
+									<Events>
+										<Event name="OnChange">_RegistryPropertyOnChange</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="_DividingTotalsMode" id="223">
+									<DataPath>_DividingTotalsMode</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="_DividingTotalsModeContextMenu" id="224"/>
+									<ExtendedTooltip name="_DividingTotalsModeExtendedTooltip" id="225"/>
+									<Events>
+										<Event name="OnChange">_RegistryPropertyOnChange</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="RecalculateTotalsForPeriodGroup" id="234">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пересчет итогов за период</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Recalculate totals for period group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Dönem grubu için toplamları yeniden hesaplama</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа пересчет итогов за период</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ExtendedTooltip name="RecalculateTotalsForPeriodGroupExtendedTooltip" id="235"/>
+							<ChildItems>
+								<InputField name="_PeriodRecalculationTotals" id="238">
+									<DataPath>_PeriodRecalculationTotals</DataPath>
+									<ContextMenu name="_PeriodRecalculationTotalsContextMenu" id="239"/>
+									<ExtendedTooltip name="_PeriodRecalculationTotalsExtendedTooltip" id="240"/>
+								</InputField>
+								<Button name="_RecalculateTotalsForThePeriod" id="236">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command._RecalculateTotalsForThePeriod</CommandName>
+									<ExtendedTooltip name="_RecalculateTotalsForThePeriodExtendedTooltip" id="237"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="CalculatedTotalsGroup" id="241">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Период рассчитанных итогов</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Calculated totals group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Hesaplanan sonuçların dönemi</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа период рассчитанных итогов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ExtendedTooltip name="CalculatedTotalsGroupExtendedTooltip" id="242"/>
+							<ChildItems>
+								<UsualGroup name="Group2" id="249">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group2</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Group2ExtendedTooltip" id="250"/>
+									<ChildItems>
+										<InputField name="_MinimumPeriodOfCalculatedTotals" id="243">
+											<DataPath>_MinimumPeriodOfCalculatedTotals</DataPath>
+											<ContextMenu name="_MinimumPeriodOfCalculatedTotalsContextMenu" id="244"/>
+											<ExtendedTooltip name="_MinimumPeriodOfCalculatedTotalsExtendedTooltip" id="245"/>
+										</InputField>
+										<InputField name="_MaximumPeriodOfCalculatedTotals" id="246">
+											<DataPath>_MaximumPeriodOfCalculatedTotals</DataPath>
+											<ContextMenu name="_MaximumPeriodOfCalculatedTotalsContextMenu" id="247"/>
+											<ExtendedTooltip name="_MaximumPeriodOfCalculatedTotalsExtendedTooltip" id="248"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Group3" id="251">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Group3</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Group3ExtendedTooltip" id="252"/>
+									<ChildItems>
+										<Button name="_InstallPriodOfCalculatedTotals1" id="253">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command._InstallPriodOfCalculatedTotals</CommandName>
+											<ExtendedTooltip name="_InstallPriodOfCalculatedTotals1ExtendedTooltip" id="254"/>
+										</Button>
+										<Button name="_InstallPriodOfCalculatedTotals2" id="255">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command._InstallPriodOfCalculatedTotals</CommandName>
+											<ExtendedTooltip name="_InstallPriodOfCalculatedTotals2ExtendedTooltip" id="256"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="DependentObjectsPage" id="423">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылки на объект</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Dependent objects page</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Nesne bağlantıları</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылки на объект (зависимые объекты)</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="DependentObjectsPageExtendedTooltip" id="424"/>
+					<ChildItems>
+						<Table name="_DependentObjects" id="425">
+							<Representation>Tree</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<SearchOnInput>Use</SearchOnInput>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>_DependentObjects</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+							</CommandSet>
+							<ContextMenu name="_DependentObjectsContextMenu" id="426"/>
+							<AutoCommandBar name="_DependentObjectsCommandBar" id="427">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="_DependentObjectsSortListAsc" id="453">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item._DependentObjects.StandardCommand.SortListAsc</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="_DependentObjectsSortListAscExtendedTooltip" id="454"/>
+									</Button>
+									<Button name="_DependentObjectsSortListDesc" id="455">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item._DependentObjects.StandardCommand.SortListDesc</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="_DependentObjectsSortListDescExtendedTooltip" id="456"/>
+									</Button>
+									<ButtonGroup name="DependentObjectsGroup2" id="475">
+										<Title>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Dependent objects group2</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="DependentObjectsGroup2ExtendedTooltip" id="476"/>
+										<ChildItems>
+											<Button name="_DependentObjects_CollapseAllNodes" id="477">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command._CollapseAllNodes</CommandName>
+												<ExtendedTooltip name="_DependentObjects_CollapseAllNodesExtendedTooltip" id="478"/>
+											</Button>
+											<Button name="_DependentObjects_ExpandAllNodes" id="479">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command._ExpandAllNodes</CommandName>
+												<ExtendedTooltip name="_DependentObjects_ExpandAllNodesExtendedTooltip" id="480"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<Button name="_ЗависимыеОбъектыВывестиСписок" id="461">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item._DependentObjects.StandardCommand.OutputList</CommandName>
+										<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="_ЗависимыеОбъектыВывестиСписокРасширеннаяПодсказка" id="462"/>
+									</Button>
+									<ButtonGroup name="DependentObjectsGroup1" id="465">
+										<Title>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Dependent objects group1</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="DependentObjectsGroup1ExtendedTooltip" id="466"/>
+										<ChildItems>
+											<Button name="_DependentObjects_FillInDependentObjects" id="463">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command._FillInDependentObjects</CommandName>
+												<ExtendedTooltip name="_DependentObjects_FillInDependentObjectsExtendedTooltip" id="464"/>
+											</Button>
+											<Button name="_DependentObjects_OpenSubordinateObject" id="473">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command._OpenSubordinateObject</CommandName>
+												<ExtendedTooltip name="_DependentObjects_OpenSubordinateObjectExtendedTooltip" id="474"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="_DependentObjectsExtendedTooltip" id="428"/>
+							<SearchStringAddition name="_DependentObjectsSearchString" id="429">
+								<AdditionSource>
+									<Item>_DependentObjects</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="_DependentObjectsSearchStringContextMenu" id="430"/>
+								<ExtendedTooltip name="_DependentObjectsSearchStringExtendedTooltip" id="431"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="_DependentObjectsViewStatus" id="432">
+								<AdditionSource>
+									<Item>_DependentObjects</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="_DependentObjectsViewStatusContextMenu" id="433"/>
+								<ExtendedTooltip name="_DependentObjectsViewStatusExtendedTooltip" id="434"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="_DependentObjectsSearchControl" id="435">
+								<AdditionSource>
+									<Item>_DependentObjects</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="_DependentObjectsSearchControlContextMenu" id="436"/>
+								<ExtendedTooltip name="_DependentObjectsSearchControlExtendedTooltip" id="437"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">_DependentObjectsSelection</Event>
+								<Event name="OnActivateRow">_DependentObjectsOnActivateRow</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="_DependentObjectsName" id="441">
+									<DataPath>_DependentObjects.Name</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="_DependentObjectsNameContextMenu" id="442"/>
+									<ExtendedTooltip name="_DependentObjectsNameExtendedTooltip" id="443"/>
+								</InputField>
+								<InputField name="_DependentObjectsPresentation" id="444">
+									<DataPath>_DependentObjects.Presentation</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="_DependentObjectsPresentationContextMenu" id="445"/>
+									<ExtendedTooltip name="_DependentObjectsPresentationExtendedTooltip" id="446"/>
+								</InputField>
+								<InputField name="_DependentObjectsFullName" id="447">
+									<DataPath>_DependentObjects.FullName</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="_DependentObjectsFullNameContextMenu" id="448"/>
+									<ExtendedTooltip name="_DependentObjectsFullNameExtendedTooltip" id="449"/>
+								</InputField>
+								<InputField name="_DependentObjectsWhereFound" id="467">
+									<DataPath>_DependentObjects.WhereFound</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="_DependentObjectsWhereFoundContextMenu" id="468"/>
+									<ExtendedTooltip name="_DependentObjectsWhereFoundExtendedTooltip" id="469"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<TextDocumentField name="_WhereFound" id="470">
+							<DataPath>_WhereFound</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>Top</TitleLocation>
+							<Height>4</Height>
+							<ContextMenu name="_WhereFoundContextMenu" id="471"/>
+							<ExtendedTooltip name="_WhereFoundExtendedTooltip" id="472"/>
+						</TextDocumentField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_ConfigurationNavigator</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="PropertyTree" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево свойств</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Property tree</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Özellikler ağacı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Name" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ad</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>256</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Synonym" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Synonym</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Eş anlamlısı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>512</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Comment" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Comment</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Yorum</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>1000</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="StringType" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>String type</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tip</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ref" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Ref</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ref</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="NodeType" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид узла</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Node type</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Düğüm türü</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Indexing" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индексирование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Indexing</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Dizinleme</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_ListFormName" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя формы списка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List form name</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Liste formu adı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="PathToForms" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Путь к формам</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Path to forms</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Formlara giden yol</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_StorageAddresses" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адреса хранилищ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Storage addresses</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Depolama adresleri</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="_ShowEventSubscriptions" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать подписки объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show event subscriptions</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Etkinlik aboneliklerini göster</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>_ShowEventSubscriptions</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="_ShowObjectsSubsytems" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать подсистемы объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show objects subsytems</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne alt sistemlerini göster</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>_ShowObjectsSubsytems</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="_ShowExternalObjectCommands" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать чужие команды объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show external object commands</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Harici nesne komutlarını göster</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>_ShowExternalObjectCommands</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="_ShowCommonObjectCommands" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать общие команды объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show common object commands</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Ortak nesne komutlarını göster</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>_ShowCommonObjectCommands</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="_FullName" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полное имя</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Full name</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tam adı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_EmptyRef" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пустая ссылка на объект</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Empty ref</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Boş ref</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="_SXTable" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>СХТаблицы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>SXTable</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>SXTablolar</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="TableName" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Table name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tablo adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="StorageTableName" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя таблицы БД</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Storage table name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Depolama tablosu adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Purpose" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Назначение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Purpose</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Amaç</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Metadata" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Метаданные</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Metadata</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Metaveri</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="TableNumber" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер таблицы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Table number</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tablo numarası</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_SXFielsd" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>СХПоля</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>SXFielsd</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>SXAlanları</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="StorageTableName" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя таблицы БД</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Storage table name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Depolama tablosu adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="FieldName" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя поля</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Field name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Alan adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="StorageFieldName" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя поля БД</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Storage field name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Depolama alanı adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="TableNumber" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер таблицы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Table number</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tablo numarası</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_SXIndexes" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>СХИндексы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>SXIndexes</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>SXIndeksleri</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="StorageTableName" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя таблицы БД</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Storage table name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Depolama tablosu adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="StorageIndexName" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя индекса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Storage index name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Depolama dizin adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="TableNumber" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер таблицы</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Table number</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tablo numarası</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="IndexNumber" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер индекса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Index number</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Dizin numarası</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_SXIndexFields" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>СХПоля индексов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>SXIndex fields</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>SXIndex alanları</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="StorageIndexName" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя индекса хранения</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Storage index name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Depolama dizin adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="FieldName" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя поля</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Field name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Alan adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="StorageFieldName" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя поля БД</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Storage field name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Depolama alanı adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="IndexNumber" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер индекса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Index number</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Endeks numarası</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_ShowStorageStructureIn1CTerms" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать структуру хранения в терминах модели 1С</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show storage structure in1 c terms</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Depolama yapısını 1C terimleriyle göster</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>_ShowStorageStructureIn1CTerms</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="_UseTotals" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование итогов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use totals</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Toplamları kullan</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_UseCurrentTotals" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование текущих итогов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use current totals</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Mevcut toplamları kullan</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_DividingTotalsMode" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим разделения итогов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Dividing totals mode</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Toplamları bölme modu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_AggregateMode" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим агрегатов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Aggregate mode</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Toplama modu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_UseAggregates" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование агрегатов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use aggregates</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Agregaları kullanın</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_PeriodRecalculationTotals" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период пересчета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period recalculation totals</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Dönem yeniden hesaplama toplamları</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="_MinimumPeriodOfCalculatedTotals" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Минимальный период рассчитанных итогов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Minimum period of calculated totals</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Hesaplanan toplamların asgari süresi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_MaximumPeriodOfCalculatedTotals" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Максимальный период рассчитанных итогов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Maximum period of calculated totals</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Hesaplanan toplamların maksimum süresi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_AvailableObjects" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступные объекты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Available objects</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Mevcut nesneler</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Kind" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Kind</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tür</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Name" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ad</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Presentation" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Gösterim</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="FullName" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Полное имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Full name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tam adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="RestrictionByCondition" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ограничение условием</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Restriction by condition</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Koşula bağlı kısıtlama</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_AdditionalVars" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доп переменные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional vars</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Ek değişkenler</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="UsersWithAccessTable" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таб пользователи с доступом</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Users with access table</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Erişim tablosu olan kullanıcılar</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Name" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ad</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>256</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="FullName" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Полное имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Full name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tam adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>512</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="RolesWithAccessTable" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таб роли с доступом</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Roles with access table</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Erişim tablosu olan roller</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Name" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ad</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>256</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Synonym" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Synonym</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Eş anlamlısı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>512</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="RestrictionByCondition" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ограничение условием</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Restriction by condition</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Koşula bağlı kısıtlama</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_AccessRightToObject" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверяемое право доступа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Access right to object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kontrol edilen erişim hakları</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_DependentObjects" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зависимые объекты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Dependent objects</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Bağımlı nesneler</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="NodeType" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид узла</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Node type</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Düğüm türü</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>0</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Name" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ad</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Presentation" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Gösterim</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="FullName" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Полное имя</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Full name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Tam adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="WhereFound" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Где найдено</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Where found</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Nerede bulundu</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="_WhereFound" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Где найдено</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Where found</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nerede bulundu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_ConstantValue" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение константы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Constant value</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sabit değer</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>ent:AccumulationRecordType</v8:Type>
+				<v8:Type>xs:boolean</v8:Type>
+				<v8:Type>ent:AccountingRecordType</v8:Type>
+				<v8:Type>ent:AccountType</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:Type>v8:UUID</v8:Type>
+				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_TypeOfConstantValue" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип значения константы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Type of constant value</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sabit değer türü</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_TextConstantValue" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текстовое значение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Text constant value</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Metin sabit değeri</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="_UseTextWhenWritingConstants" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать текстовое значение при записи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use text when writing constants</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sabitleri yazarken metin kullanın</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="kOpemListForm" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стандартная форма...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Standart form ...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Standart form ...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть встроенную форму</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Catalog</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>kOpemListForm</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="kShowObjectProperties" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свойства объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object properties</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne özellikleri</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать свойства объекта</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Properties</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>kShowObjectProperties</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="kOpemListFormAdditional" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Динамический список</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Dynamic list</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Dinamik liste</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть альтернативную форму списка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ShowInList</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>kOpemListFormAdditional</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_ExpandAllNodes" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть все группы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Expand all nodes</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tüm grupları genişlet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть все группы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ExpandAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_ExpandAllNodes</Action>
+		</Command>
+		<Command name="_CollapseAllNodes" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свернуть все группы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Collapse all nodes</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tüm grupları daralt</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свернуть все группы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CollapseAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_CollapseAllNodes</Action>
+		</Command>
+		<Command name="_OpenObject" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактор объектов...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne düzenleyici...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть редактор объектов...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckSyntax</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_OpenObject</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_UpdateNumberOfObjects" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить нумерацию...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update number of objects</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne sayısını güncelle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить нумерацию объектов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ScheduledJob</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_UpdateNumberOfObjects</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_UpdateTotalsManagement" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update totals management</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Toplam yönetimini güncelle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_UpdateTotalsManagement</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_RecalculateTotals" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать итоги...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Recalculate totals</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Toplamları yeniden hesapla</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать итоги (за весь период)...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_RecalculateTotals</Action>
+		</Command>
+		<Command name="_RecalculateCurrentTotals" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать текущие итоги...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Recalculate current totals</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Mevcut toplamları yeniden hesapla</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать текущие итоги...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_RecalculateCurrentTotals</Action>
+		</Command>
+		<Command name="_RecalculateTotalsForThePeriod" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать итоги за период...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Recalculate totals for the period</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Dönem için toplamları yeniden hesapla</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчитать итоги за указанный период...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_RecalculateTotalsForThePeriod</Action>
+		</Command>
+		<Command name="_InstallPriodOfCalculatedTotals" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Install priod of calculated totals</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Düzenleme...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить заданное значение...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>_InstallPriodOfCalculatedTotals</Action>
+		</Command>
+		<Command name="_FullInAccessRights" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Full in access rights</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yenile</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить права доступа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_FullInAccessRights</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_OpenAccessRightsObject" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свойства объекта...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open access rights object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne özellikleri...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свойства текущего объекта...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Properties</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_OpenAccessRightsObject</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_FillInDependentObjects" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in dependent objects</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Doldur</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить ссылки на объект</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ScheduledJob</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_FillInDependentObjects</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_OpenSubordinateObject" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свойства объекта...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open subordinate object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne özellikleri...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свойства текущего объекта...</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Properties</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_OpenSubordinateObject</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_ReadConstant" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочитать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Read constant</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sabiti oku</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочитать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_ReadConstant</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="_RecordConstant" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Record constant</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yaz</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>_RecordConstant</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="PathToForms">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="RegisterRecordsAdress">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="FullName">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

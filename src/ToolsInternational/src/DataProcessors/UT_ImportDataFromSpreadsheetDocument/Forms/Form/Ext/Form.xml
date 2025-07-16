@@ -1,0 +1,2238 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Import" id="5">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Import</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Загрузить данные</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Import data</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>tr</v8:lang>
+						<v8:content>Verileri yükle</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ImportExtendedTooltip" id="132"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="ChoiceProcessing">ChoiceProcessing</Event>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+		<Event name="OnClose">OnClose</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ModeAndImportGroup" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mode and import group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа режима и загрузки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mode and import group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа режима и загрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ModeAndImportGroupExtendedTooltip" id="129"/>
+			<ChildItems>
+				<RadioButtonField name="ImportMode" id="3">
+					<DataPath>Object.ImportMode</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Загрузка в</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import to</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İçe aktar</v8:content>
+						</v8:item>
+					</Title>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Справочник</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Catalog</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>tr</v8:lang>
+										<v8:content>Katalog</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Табличную часть</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Tabular section</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>tr</v8:lang>
+										<v8:content>Tablo bölümü</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Регистр сведений</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>en</v8:lang>
+										<v8:content>Information register</v8:content>
+									</v8:item>
+									<v8:item>
+										<v8:lang>tr</v8:lang>
+										<v8:content>Bilgi kayıt tablosu</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ImportModeContextMenu" id="4"/>
+					<ExtendedTooltip name="ImportModeExtendedTooltip" id="130"/>
+					<Events>
+						<Event name="OnChange">ImportModeOnChange</Event>
+					</Events>
+				</RadioButtonField>
+				<LabelDecoration name="BlankDecoration" id="125">
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="BlankDecorationContextMenu" id="126"/>
+					<ExtendedTooltip name="BlankDecorationExtendedTooltip" id="131"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ModeBarGroup" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mode bar group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа панель режима</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mode bar group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа панель режима</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="ModeBarGroupExtendedTooltip" id="133"/>
+			<ChildItems>
+				<Page name="ImportToCatalogGroup" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import to catalog group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа загрузка в справочник</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import to catalog group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа загрузка в справочник</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ImportToCatalogGroupExtendedTooltip" id="134"/>
+					<ChildItems>
+						<InputField name="ObjectType" id="8">
+							<DataPath>Object.CatalogObjectType</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вид справочника</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Catalog type</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Katalog türü</v8:content>
+								</v8:item>
+							</Title>
+							<OpenButton>true</OpenButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ContextMenu name="ObjectTypeContextMenu" id="9"/>
+							<ExtendedTooltip name="ObjectTypeExtendedTooltip" id="135"/>
+							<Events>
+								<Event name="OnChange">ObjectTypeOnChange</Event>
+								<Event name="Opening">ObjectTypeOpening</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ImportToTabularSectionGroup" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import to tabular section group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа загрузка в табличную часть</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import to tabular section group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа загрузка в табличную часть</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ImportToTabularSectionGroupExtendedTooltip" id="136"/>
+					<ChildItems>
+						<InputField name="SourceRef" id="11">
+							<DataPath>Object.SourceRef</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ссылка</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Reference</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Referans</v8:content>
+								</v8:item>
+							</Title>
+							<ChoiceButton>true</ChoiceButton>
+							<OpenButton>true</OpenButton>
+							<ContextMenu name="SourceRefContextMenu" id="12"/>
+							<ExtendedTooltip name="SourceRefExtendedTooltip" id="137"/>
+							<Events>
+								<Event name="OnChange">SourceRefOnChange</Event>
+							</Events>
+						</InputField>
+						<InputField name="SourceTabularSection" id="13">
+							<DataPath>Object.SourceTabularSection</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Табличная часть</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Tabular section</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Tablo bölümü</v8:content>
+								</v8:item>
+							</Title>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ContextMenu name="SourceTabularSectionContextMenu" id="14"/>
+							<ExtendedTooltip name="SourceTabularSectionExtendedTooltip" id="138"/>
+							<Events>
+								<Event name="OnChange">SourceTabularSectionOnChange</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ImportToInformationRegisterGroup" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import to information register group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Import to information register group</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import to information register group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа загрузка в регистр сведений</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ImportToInformationRegisterGroupExtendedTooltip" id="139"/>
+					<ChildItems>
+						<InputField name="RegisterTypeName" id="16">
+							<DataPath>Object.RegisterTypeName</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вид регистра</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Register type</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Kayıt tablosu türü</v8:content>
+								</v8:item>
+							</Title>
+							<OpenButton>true</OpenButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ContextMenu name="RegisterTypeNameContextMenu" id="17"/>
+							<ExtendedTooltip name="RegisterTypeNameExtendedTooltip" id="140"/>
+							<Events>
+								<Event name="OnChange">RegisterTypeNameOnChange</Event>
+								<Event name="Opening">RegisterTypeNameOpening</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<Pages name="ImportSettingsGroup" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Import settings group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа загрузка настройка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Import settings group</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа загрузка настройка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ImportSettingsGroupExtendedTooltip" id="141"/>
+			<ChildItems>
+				<Page name="ImportGroup" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Табличный документ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Spreadsheet document</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>E-tablo belgesi</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа загрузка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ImportGroupExtendedTooltip" id="142"/>
+					<ChildItems>
+						<CommandBar name="SpreadsheetDocumentCommandGroup" id="20">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Spreadsheet document command group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа команд табличного документа</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Spreadsheet document command group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа команд табличного документа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="SpreadsheetDocumentCommandGroupExtendedTooltip" id="143"/>
+							<ChildItems>
+								<Button name="Open" id="21">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.Open</CommandName>
+									<ExtendedTooltip name="OpenExtendedTooltip" id="144"/>
+								</Button>
+								<Button name="Save" id="22">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.Save</CommandName>
+									<ExtendedTooltip name="SaveExtendedTooltip" id="145"/>
+								</Button>
+								<Button name="Refresh" id="23">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.Refresh</CommandName>
+									<ExtendedTooltip name="RefreshExtendedTooltip" id="146"/>
+								</Button>
+								<Button name="FillControl" id="24">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.FillControl</CommandName>
+									<ExtendedTooltip name="FillControlExtendedTooltip" id="147"/>
+								</Button>
+								<Button name="NextNote" id="25">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.NextNote</CommandName>
+									<ExtendedTooltip name="NextNoteExtendedTooltip" id="148"/>
+								</Button>
+								<Button name="PreviousNote" id="26">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.PreviousNote</CommandName>
+									<ExtendedTooltip name="PreviousNoteExtendedTooltip" id="149"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+						<SpreadSheetDocumentField name="SpreadsheetDocument" id="27">
+							<DataPath>SpreadsheetDocument</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ShowHeaders>true</ShowHeaders>
+							<VerticalScrollBar>true</VerticalScrollBar>
+							<HorizontalScrollBar>true</HorizontalScrollBar>
+							<Edit>true</Edit>
+							<ContextMenu name="SpreadsheetDocumentContextMenu" id="28"/>
+							<ExtendedTooltip name="SpreadsheetDocumentExtendedTooltip" id="150"/>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</Page>
+				<Page name="SettingsGroup" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Settings</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ayarlar</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Settings group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="SettingsGroupExtendedTooltip" id="151"/>
+					<ChildItems>
+						<UsualGroup name="CommonImportParametersGroup" id="30">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Common import parameters group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа параметры загрузки общие</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Common import parameters group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа параметры загрузки общие</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="CommonImportParametersGroupExtendedTooltip" id="152"/>
+							<ChildItems>
+								<InputField name="SpreadsheetDocumentFirstDataRow" id="31">
+									<DataPath>Object.SpreadsheetDocumentFirstDataRow</DataPath>
+									<ContextMenu name="SpreadsheetDocumentFirstDataRowContextMenu" id="32"/>
+									<ExtendedTooltip name="SpreadsheetDocumentFirstDataRowExtendedTooltip" id="153"/>
+								</InputField>
+								<CheckBoxField name="DontCreateNewItems" id="33">
+									<DataPath>Object.DontCreateNewItems</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="DontCreateNewItemsContextMenu" id="34"/>
+									<ExtendedTooltip name="DontCreateNewItemsExtendedTooltip" id="154"/>
+								</CheckBoxField>
+								<CheckBoxField name="ReplaceExistingRecords" id="35">
+									<DataPath>Object.ReplaceExistingRecords</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ReplaceExistingRecordsContextMenu" id="36"/>
+									<ExtendedTooltip name="ReplaceExistingRecordsExtendedTooltip" id="155"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<CommandBar name="ImportSettingsCommandGroup" id="37">
+							<Title>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Import settings command group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа команд настройки загрузки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Import settings command group</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа команд настройки загрузки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ImportSettingsCommandGroupExtendedTooltip" id="156"/>
+							<ChildItems>
+								<Button name="RestoreValuesFromFile" id="38">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.RestoreValuesFromFile</CommandName>
+									<ExtendedTooltip name="RestoreValuesFromFileExtendedTooltip" id="157"/>
+								</Button>
+								<Button name="SaveValuesToFile" id="39">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.SaveValuesToFile</CommandName>
+									<ExtendedTooltip name="SaveValuesToFileExtendedTooltip" id="158"/>
+								</Button>
+								<ButtonGroup name="RestoreSaveGroup" id="40">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Restore save group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа восстановить сохранить</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Restore save group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа восстановить сохранить</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="RestoreSaveGroupExtendedTooltip" id="159"/>
+									<ChildItems>
+										<Button name="RestoreValues" id="41">
+											<Type>CommandBarButton</Type>
+											<Visible>false</Visible>
+											<Enabled>false</Enabled>
+											<CommandName>Form.Command.RestoreValues</CommandName>
+											<ExtendedTooltip name="RestoreValuesExtendedTooltip" id="160"/>
+										</Button>
+										<Button name="SaveValues" id="42">
+											<Type>CommandBarButton</Type>
+											<Visible>false</Visible>
+											<Enabled>false</Enabled>
+											<CommandName>Form.Command.SaveValues</CommandName>
+											<ExtendedTooltip name="SaveValuesExtendedTooltip" id="161"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+								<ButtonGroup name="RereadGroup" id="43">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Reread group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа перечитать</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Reread group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа перечитать</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="RereadGroupExtendedTooltip" id="162"/>
+									<ChildItems>
+										<Button name="Reread" id="44">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Reread</CommandName>
+											<ExtendedTooltip name="RereadExtendedTooltip" id="163"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+								<ButtonGroup name="ChangeGroup" id="45">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Change group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа изменить</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Change group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа изменить</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ChangeGroupExtendedTooltip" id="164"/>
+									<ChildItems>
+										<Button name="Change" id="46">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ImportedAttributesTable.StandardCommand.Change</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="ChangeExtendedTooltip" id="165"/>
+										</Button>
+										<Button name="EndEdit" id="47">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ImportedAttributesTable.StandardCommand.EndEdit</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="EndEditExtendedTooltip" id="166"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+								<ButtonGroup name="MoveRowsGroup" id="48">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Move rows group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа переместить строки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Move rows group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа переместить строки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="MoveRowsGroupExtendedTooltip" id="167"/>
+									<ChildItems>
+										<Button name="MoveUp" id="49">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ImportedAttributesTable.StandardCommand.MoveUp</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="MoveUpExtendedTooltip" id="168"/>
+										</Button>
+										<Button name="MoveDown" id="50">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ImportedAttributesTable.StandardCommand.MoveDown</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="MoveDownExtendedTooltip" id="169"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+								<ButtonGroup name="SortRowsGroup" id="51">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Sort rows group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа сортировка строк</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Sort rows group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа сортировка строк</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="SortRowsGroupExtendedTooltip" id="170"/>
+									<ChildItems>
+										<Button name="SortListAsc" id="52">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ImportedAttributesTable.StandardCommand.SortListAsc</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="SortListAscExtendedTooltip" id="171"/>
+										</Button>
+										<Button name="SortListDesc" id="53">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Item.ImportedAttributesTable.StandardCommand.SortListDesc</CommandName>
+											<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+											<ExtendedTooltip name="SortListDescExtendedTooltip" id="172"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+								<ButtonGroup name="MarksGroup" id="54">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Marks group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа управление пометками</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Marks group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа управление пометками</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="MarksGroupExtendedTooltip" id="173"/>
+									<ChildItems>
+										<Button name="CheckAll" id="55">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.CheckAll</CommandName>
+											<ExtendedTooltip name="CheckAllExtendedTooltip" id="174"/>
+										</Button>
+										<Button name="UncheckAll" id="56">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.UncheckAll</CommandName>
+											<ExtendedTooltip name="UncheckAllExtendedTooltip" id="175"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+								<Popup name="ColumnsNumerationGroup" id="57">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Columns numeration</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Нумерация колонок</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Columns numeration group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа нумерация колонок</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ColumnsNumerationGroupExtendedTooltip" id="176"/>
+									<ChildItems>
+										<Button name="ManualSpreadsheetDocumentColumnsNumeration" id="58">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.ManualSpreadsheetDocumentColumnsNumeration</CommandName>
+											<ExtendedTooltip name="ManualSpreadsheetDocumentColumnsNumerationExtendedTooltip" id="177"/>
+										</Button>
+										<Button name="RenumberColumns" id="59">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.RenumberColumns</CommandName>
+											<ExtendedTooltip name="RenumberColumnsExtendedTooltip" id="178"/>
+										</Button>
+									</ChildItems>
+								</Popup>
+								<ButtonGroup name="EventsGroup" id="60">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Events group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа события</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Events group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа события</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="EventsGroupExtendedTooltip" id="179"/>
+									<ChildItems>
+										<Button name="Events" id="61">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.Events</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Events...</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>События...</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="EventsExtendedTooltip" id="180"/>
+										</Button>
+									</ChildItems>
+								</ButtonGroup>
+							</ChildItems>
+						</CommandBar>
+						<Table name="ImportedAttributesTable" id="62">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ImportedAttributesTable</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ImportedAttributesTableContextMenu" id="63"/>
+							<AutoCommandBar name="ImportedAttributesTableCommandBar" id="64">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ImportedAttributesTableExtendedTooltip" id="181"/>
+							<SearchStringAddition name="ImportedAttributesTableSearchString" id="182">
+								<AdditionSource>
+									<Item>ImportedAttributesTable</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ImportedAttributesTableSearchStringContextMenu" id="183"/>
+								<ExtendedTooltip name="ImportedAttributesTableSearchStringExtendedTooltip" id="184"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ImportedAttributesTableViewStatus" id="185">
+								<AdditionSource>
+									<Item>ImportedAttributesTable</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<HorizontalLocation>Left</HorizontalLocation>
+								<ContextMenu name="ImportedAttributesTableViewStatusContextMenu" id="186"/>
+								<ExtendedTooltip name="ImportedAttributesTableViewStatusExtendedTooltip" id="187"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ImportedAttributesTableSearchControl" id="188">
+								<AdditionSource>
+									<Item>ImportedAttributesTable</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ImportedAttributesTableSearchControlContextMenu" id="189"/>
+								<ExtendedTooltip name="ImportedAttributesTableSearchControlExtendedTooltip" id="190"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="ImportedAttributesTableCheck" id="119">
+									<DataPath>ImportedAttributesTable.Check</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ImportedAttributesTableCheckContextMenu" id="120"/>
+									<ExtendedTooltip name="ImportedAttributesTableCheckExtendedTooltip" id="191"/>
+								</CheckBoxField>
+								<InputField name="ImportedAttributesTableAttributePresentation" id="93">
+									<DataPath>ImportedAttributesTable.AttributePresentation</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableAttributePresentationContextMenu" id="94"/>
+									<ExtendedTooltip name="ImportedAttributesTableAttributePresentationExtendedTooltip" id="192"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableAttributeName" id="95">
+									<DataPath>ImportedAttributesTable.AttributeName</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableAttributeNameContextMenu" id="96"/>
+									<ExtendedTooltip name="ImportedAttributesTableAttributeNameExtendedTooltip" id="193"/>
+								</InputField>
+								<CheckBoxField name="ImportedAttributesTablePossibleSearchField" id="97">
+									<DataPath>ImportedAttributesTable.PossibleSearchField</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ImportedAttributesTablePossibleSearchFieldContextMenu" id="98"/>
+									<ExtendedTooltip name="ImportedAttributesTablePossibleSearchFieldExtendedTooltip" id="194"/>
+								</CheckBoxField>
+								<CheckBoxField name="ImportedAttributesTableSearchField" id="99">
+									<DataPath>ImportedAttributesTable.SearchField</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ImportedAttributesTableSearchFieldContextMenu" id="100"/>
+									<ExtendedTooltip name="ImportedAttributesTableSearchFieldExtendedTooltip" id="195"/>
+								</CheckBoxField>
+								<InputField name="ImportedAttributesTableTypeDescription" id="101">
+									<DataPath>ImportedAttributesTable.TypeDescription</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableTypeDescriptionContextMenu" id="102"/>
+									<ExtendedTooltip name="ImportedAttributesTableTypeDescriptionExtendedTooltip" id="196"/>
+									<Events>
+										<Event name="StartChoice">ImportedAttributesTableTypeDescriptionStartChoice</Event>
+									</Events>
+								</InputField>
+								<InputField name="ImportedAttributesTableAvailableTypes" id="127">
+									<DataPath>ImportedAttributesTable.AvailableTypes</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableAvailableTypesContextMenu" id="128"/>
+									<ExtendedTooltip name="ImportedAttributesTableAvailableTypesExtendedTooltip" id="197"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableImportMode" id="103">
+									<DataPath>ImportedAttributesTable.ImportMode</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Искать</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Search</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">Search</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Устанавливать</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Set</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">Set</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Вычислять</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Evaluate</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">Evaluate</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ImportedAttributesTableImportModeContextMenu" id="104"/>
+									<ExtendedTooltip name="ImportedAttributesTableImportModeExtendedTooltip" id="198"/>
+									<Events>
+										<Event name="OnChange">ImportedAttributesTableImportModeOnChange</Event>
+									</Events>
+								</InputField>
+								<InputField name="ImportedAttributesTableColumnNumber" id="105">
+									<DataPath>ImportedAttributesTable.ColumnNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableColumnNumberContextMenu" id="106"/>
+									<ExtendedTooltip name="ImportedAttributesTableColumnNumberExtendedTooltip" id="199"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableDefaultValue" id="107">
+									<DataPath>ImportedAttributesTable.DefaultValue</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<TypeLink>
+										<xr:DataPath>Items.ImportedAttributesTable.CurrentData.TypeDescription</xr:DataPath>
+										<xr:LinkItem>0</xr:LinkItem>
+									</TypeLink>
+									<ContextMenu name="ImportedAttributesTableDefaultValueContextMenu" id="108"/>
+									<ExtendedTooltip name="ImportedAttributesTableDefaultValueExtendedTooltip" id="200"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableSearchBy" id="109">
+									<DataPath>ImportedAttributesTable.SearchBy</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableSearchByContextMenu" id="110"/>
+									<ExtendedTooltip name="ImportedAttributesTableSearchByExtendedTooltip" id="201"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableLinkByOwner" id="111">
+									<DataPath>ImportedAttributesTable.LinkByOwner</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableLinkByOwnerContextMenu" id="112"/>
+									<ExtendedTooltip name="ImportedAttributesTableLinkByOwnerExtendedTooltip" id="202"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableLinkByType" id="113">
+									<DataPath>ImportedAttributesTable.LinkByType</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableLinkByTypeContextMenu" id="114"/>
+									<ExtendedTooltip name="ImportedAttributesTableLinkByTypeExtendedTooltip" id="203"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableLinkByTypeItem" id="115">
+									<DataPath>ImportedAttributesTable.LinkByTypeItem</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableLinkByTypeItemContextMenu" id="116"/>
+									<ExtendedTooltip name="ImportedAttributesTableLinkByTypeItemExtendedTooltip" id="204"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableColumnWidth" id="117">
+									<DataPath>ImportedAttributesTable.ColumnWidth</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableColumnWidthContextMenu" id="118"/>
+									<ExtendedTooltip name="ImportedAttributesTableColumnWidthExtendedTooltip" id="205"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableExpression" id="121">
+									<DataPath>ImportedAttributesTable.Expression</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ImportedAttributesTableExpressionContextMenu" id="122"/>
+									<ExtendedTooltip name="ImportedAttributesTableExpressionExtendedTooltip" id="206"/>
+								</InputField>
+								<InputField name="ImportedAttributesTableAdditionalConditionsPresentation" id="123">
+									<DataPath>ImportedAttributesTable.AdditionalConditionsPresentation</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Link condition / Expression for value</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Условие связи / Выражение для значения</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceButton>true</ChoiceButton>
+									<ClearButton>true</ClearButton>
+									<SpinButton>false</SpinButton>
+									<OpenButton>false</OpenButton>
+									<ChooseType>false</ChooseType>
+									<TextEdit>false</TextEdit>
+									<ChoiceListButton>false</ChoiceListButton>
+									<ContextMenu name="ImportedAttributesTableAdditionalConditionsPresentationContextMenu" id="124"/>
+									<ExtendedTooltip name="ImportedAttributesTableAdditionalConditionsPresentationExtendedTooltip" id="207"/>
+									<Events>
+										<Event name="StartChoice">ImportedAttributesTableAdditionalConditionsPresentationStartChoice</Event>
+										<Event name="Clearing">ImportedAttributesTableAdditionalConditionsPresentationClearing</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_ImportDataFromSpreadsheetDocument</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ImportedAttributesTable" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица загружаемых реквизитов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Imported attributes table</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yüklenen öznitelikler tablosu</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="AttributePresentation" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление реквизита</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Attribute presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Öznitelik gösterimi</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="AttributeName" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя реквизита</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Attribute name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Öznitelik adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="PossibleSearchField" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Может быть полем поиска</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Possible search field</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Bir arama alanı olabilir</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="SearchField" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поле поиска</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Search field</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Arama alanı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="TypeDescription" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание типов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Type description</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Türlerin tanımı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ImportMode" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Режим загрузки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Import mode</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İçe aktarma modu</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>14</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ColumnNumber" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер колонки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Column number</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Sütun numarası</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="DefaultValue" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение по умолчанию</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Default value</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Varsayılan değer</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="SearchBy" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Искать по</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Search by</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Şuna göre ara</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="LinkByOwner" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Связь по владельцу</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Link by owner</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Sahibine göre bağlantı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="LinkByType" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Связь по типу</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Link by type</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Türüne göre bağlantı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="LinkByTypeItem" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Элемент связи по типу</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Link by type item</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Türe göre bağlantı öğesi</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ColumnWidth" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ширина колонки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Column width</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Sütun genişliği</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>3</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Check" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Check</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Check</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İşaret</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Expression" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выражение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Expression</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İfade</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="AdditionalConditionsPresentation" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление доп условий</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Additional conditions presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ek koşulların gösterimi</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="AvailableTypes" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступные типы реквизита</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Available attribute types</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kullanılabilir öznitelik türleri</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="SpreadsheetDocument" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Табличный документ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Spreadsheet document</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>E-tablo belgesi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="LinkByOwnerChoiceLists" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списки выбора связи по владельцу</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Link by owner choice lists</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sahibe göre bağlantı seçim listeleri</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="AttributeName" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя реквизита</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Attribute name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Öznitelik adı</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ChoiceList" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список выбора</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Choice list</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Seçim listesi</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="SavedSettingsList" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список сохраненных настроек</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Saved settings list</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kayıtlı ayarlar listesi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Check" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Check</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>İşaret</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Presentation" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Presentation</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Gösterim</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Value" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Value</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Değer</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="IntermediaryAttribute" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Промежуточный реквизит</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Intermediary attribute</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Ara öznitelik</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Import" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Import</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>İçe aktar</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Import</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ImportCommand</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="RestoreValues" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить значения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Restore values</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Değerleri geri yükle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Restore values</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить значения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.RestoreValues</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>RestoreValuesCommand</Action>
+		</Command>
+		<Command name="RestoreValuesFromFile" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить значения из файла</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Restore values from file</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Dosyadan değerleri geri yükle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Restore values from file</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить значения из файла</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.OpenFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>RestoreValuesFromFileCommand</Action>
+		</Command>
+		<Command name="FillControl" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контроль заполнения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill control</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Dolum kontrolü</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill control</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контроль заполнения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>FillControlCommand</Action>
+		</Command>
+		<Command name="Refresh" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Güncelle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Refresh</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>RefreshCommand</Action>
+		</Command>
+		<Command name="Open" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Aç</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.OpenFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>OpenCommand</Action>
+		</Command>
+		<Command name="RenumberColumns" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенумеровать колонки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Renumber columns</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sütunları yeniden numaralandır</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Renumber columns</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенумеровать колонки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>RenumberColumnsCommand</Action>
+		</Command>
+		<Command name="Reread" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечитать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Reread</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yeniden oku</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Reread</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечитать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Reread</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>RereadCommand</Action>
+		</Command>
+		<Command name="PreviousNote" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предыдущее примечание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Previous note</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Önceki not</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Previous note</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предыдущее примечание</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Previous</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>PreviousNoteCommand</Action>
+		</Command>
+		<Command name="ManualSpreadsheetDocumentColumnsNumeration" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ручная нумерация колонок табличного документа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Manual spreadsheet document columns numeration</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Manuel e- tablo belge sütun numaralandırması</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ручная нумерация колонок табличного документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ManualSpreadsheetDocumentColumnsNumerationCommand</Action>
+		</Command>
+		<Command name="NextNote" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Следующее примечание</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Next note</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Sonraki not</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Next note</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Следующее примечание</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Next</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>NextNoteCommand</Action>
+		</Command>
+		<Command name="UncheckAll" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Uncheck all</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>İşaretleri kaldır</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Uncheck all</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>UncheckAllCommand</Action>
+		</Command>
+		<Command name="Events" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>События</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Events</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Etkinlikler</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Events</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>События</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>EventsCommand</Action>
+		</Command>
+		<Command name="Save" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SaveCommand</Action>
+		</Command>
+		<Command name="SaveValues" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить значения</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save values</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Değerleri kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save values</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить значения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveValues</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SaveValuesCommand</Action>
+		</Command>
+		<Command name="SaveValuesToFile" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить значения в файл</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save values to file</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Değerleri dosyaya kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save values to file</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить значения в файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SaveValuesToFileCommand</Action>
+		</Command>
+		<Command name="CheckAll" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check all</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>İşaretle</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Check all</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>CheckAllCommand</Action>
+		</Command>
+	</Commands>
+</Form>

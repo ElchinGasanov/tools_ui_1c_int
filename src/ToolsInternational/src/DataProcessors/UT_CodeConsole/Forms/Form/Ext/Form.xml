@@ -1,0 +1,939 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Popup name="GroupFile" id="10">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Файл</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>File</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>tr</v8:lang>
+						<v8:content>Dosya</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="GroupFileExtendedTooltip" id="11"/>
+				<ChildItems>
+					<Button name="NewAlgorithm" id="104">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.NewAlgorithm</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>New algorithm</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Yeni algoritma</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="NewAlgorithmExtendedTooltip" id="105"/>
+					</Button>
+					<Button name="OpenFIle" id="17">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.OpenFIle</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Open fIle</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Dosyayı aç</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="OpenFIleExtendedTooltip" id="18"/>
+					</Button>
+					<Button name="SaveFile" id="19">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.SaveFile</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Save file</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Dosyayı kaydet</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="SaveFileExtendedTooltip" id="20"/>
+					</Button>
+					<Button name="SaveFileAs" id="102">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.SaveFileAs</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Save file as</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Dosyayı farklı kaydet</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="SaveFileAsExtendedTooltip" id="103"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Button name="FormExecute" id="1">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Execute</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Execute</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>tr</v8:lang>
+						<v8:content>Yürüt</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="FormExecuteExtendedTooltip" id="2"/>
+			</Button>
+			<Button name="Close" id="98">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Close</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>tr</v8:lang>
+						<v8:content>Kapat</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="CloseExtendedTooltip" id="99"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="BeforeClose">BeforeClose</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="GroupMain" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group main</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Grup ana</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="GroupMainExtendedTooltip" id="22"/>
+			<ChildItems>
+				<UsualGroup name="GroupAlgorithm" id="112">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Group algorithm</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Algorithm</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Algoritma</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="GroupAlgorithmExtendedTooltip" id="113"/>
+					<ChildItems>
+						<Table name="Algorithms" id="116">
+							<Representation>Tree</Representation>
+							<Height>3</Height>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Algorithms</DataPath>
+							<ContextMenu name="AlgorithmsContextMenu" id="118"/>
+							<AutoCommandBar name="AlgorithmsCommandBar" id="117"/>
+							<ExtendedTooltip name="AlgorithmsExtendedTooltip" id="119"/>
+							<SearchStringAddition name="AlgorithmsSearchString" id="120">
+								<AdditionSource>
+									<Item>Algorithms</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="AlgorithmsSearchStringContextMenu" id="121"/>
+								<ExtendedTooltip name="AlgorithmsSearchStringExtendedTooltip" id="122"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="AlgorithmsViewStatus" id="126">
+								<AdditionSource>
+									<Item>Algorithms</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="AlgorithmsViewStatusContextMenu" id="127"/>
+								<ExtendedTooltip name="AlgorithmsViewStatusExtendedTooltip" id="128"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="AlgorithmsSearchControl" id="123">
+								<AdditionSource>
+									<Item>Algorithms</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="AlgorithmsSearchControlContextMenu" id="124"/>
+								<ExtendedTooltip name="AlgorithmsSearchControlExtendedTooltip" id="125"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeEditEnd">AlgorithmsBeforeEditEnd</Event>
+								<Event name="OnActivateRow">AlgorithmsOnActivateRow</Event>
+								<Event name="OnStartEdit">AlgorithmsOnStartEdit</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="AlgorithmsName" id="129">
+									<DataPath>Algorithms.Name</DataPath>
+									<ContextMenu name="AlgorithmsNameContextMenu" id="130"/>
+									<ExtendedTooltip name="AlgorithmsNameExtendedTooltip" id="131"/>
+								</InputField>
+								<InputField name="AlgorithmsInfo" id="132">
+									<DataPath>Algorithms.Info</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HeaderPicture>
+										<xr:Ref>StdPicture.History</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<ContextMenu name="AlgorithmsInfoContextMenu" id="133"/>
+									<ExtendedTooltip name="AlgorithmsInfoExtendedTooltip" id="134"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<CheckBoxField name="AlgorithmAtClient" id="147">
+							<DataPath>Items.Algorithms.CurrentData.AtClient</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контекст</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Context</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Kontekst</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Tumbler</CheckBoxType>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>BF='На сервере'; BT='На клиенте'</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>BF='At server'; BT='At client'</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>BF=Sunucuda; BT=İstemcide</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="AlgorithmAtClientContextMenu" id="148"/>
+							<ExtendedTooltip name="AlgorithmAtClientExtendedTooltip" id="149"/>
+						</CheckBoxField>
+						<Table name="AlgorithmsVariables" id="150">
+							<Representation>List</Representation>
+							<TitleLocation>Auto</TitleLocation>
+							<Height>3</Height>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Items.Algorithms.CurrentData.Variables</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Переменные</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Variables</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Değişkenler</v8:content>
+								</v8:item>
+							</Title>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="AlgorithmsVariablesContextMenu" id="152"/>
+							<AutoCommandBar name="AlgorithmsVariablesCommandBar" id="151"/>
+							<ExtendedTooltip name="AlgorithmsVariablesExtendedTooltip" id="153"/>
+							<SearchStringAddition name="AlgorithmsVariablesSearchString" id="154">
+								<AdditionSource>
+									<Item>AlgorithmsVariables</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="AlgorithmsVariablesSearchStringContextMenu" id="155"/>
+								<ExtendedTooltip name="AlgorithmsVariablesSearchStringExtendedTooltip" id="156"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="AlgorithmsVariablesViewStatus" id="160">
+								<AdditionSource>
+									<Item>AlgorithmsVariables</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="AlgorithmsVariablesViewStatusContextMenu" id="161"/>
+								<ExtendedTooltip name="AlgorithmsVariablesViewStatusExtendedTooltip" id="162"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="AlgorithmsVariablesSearchControl" id="157">
+								<AdditionSource>
+									<Item>AlgorithmsVariables</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="AlgorithmsVariablesSearchControlContextMenu" id="158"/>
+								<ExtendedTooltip name="AlgorithmsVariablesSearchControlExtendedTooltip" id="159"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnEditEnd">AlgorithmsVariablesOnEditEnd</Event>
+								<Event name="BeforeEditEnd">AlgorithmsVariablesBeforeEditEnd</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="AlgorithmsVariablesName" id="175">
+									<DataPath>Items.Algorithms.CurrentData.Variables.Name</DataPath>
+									<ContextMenu name="AlgorithmsVariablesNameContextMenu" id="176"/>
+									<ExtendedTooltip name="AlgorithmsVariablesNameExtendedTooltip" id="177"/>
+								</InputField>
+								<InputField name="AlgorithmsVariablesValue" id="163">
+									<DataPath>Items.Algorithms.CurrentData.Variables.Value</DataPath>
+									<ContextMenu name="AlgorithmsVariablesValueContextMenu" id="164"/>
+									<ExtendedTooltip name="AlgorithmsVariablesValueExtendedTooltip" id="165"/>
+									<Events>
+										<Event name="OnChange">AlgorithmsVariablesValueOnChange</Event>
+										<Event name="StartChoice">AlgorithmsVariablesValueStartChoice</Event>
+										<Event name="Clearing">AlgorithmsVariablesValueClearing</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<InputField name="VariablesValueTypeOfPresentation" id="183">
+							<DataPath>Items.Algorithms.CurrentData.Variables.ValueTypeofPresentation</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Тип переменной</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Type of variable</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Değişken tipi</v8:content>
+								</v8:item>
+							</Title>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="VariablesValueTypeOfPresentationContextMenu" id="184"/>
+							<ExtendedTooltip name="VariablesValueTypeOfPresentationExtendedTooltip" id="185"/>
+						</InputField>
+						<UsualGroup name="GroupToolsSettings" id="186">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки инструмента</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Tools settings</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Araç ayarları</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="GroupToolsSettingsExtendedTooltip" id="187"/>
+							<ChildItems>
+								<CheckBoxField name="SaveBeforeExecution" id="188">
+									<DataPath>SaveBeforeExecution</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сохранять перед выполнением</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Save before execution</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Yürütmeden önce kaydet</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Saving the algorithms to a file before executing the algorithm will be performed</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="SaveBeforeExecutionContextMenu" id="189"/>
+									<ExtendedTooltip name="SaveBeforeExecutionExtendedTooltip" id="190"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="GroupCode" id="114">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Code</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Group code</v8:content>
+						</v8:item>
+					</Title>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="GroupCodeExtendedTooltip" id="115"/>
+					<ChildItems>
+						<TextDocumentField name="FieldAlgorithm" id="178">
+							<DataPath>FieldAlgorithm</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<ContextMenu name="FieldAlgorithmContextMenu" id="179"/>
+							<ExtendedTooltip name="FieldAlgorithmExtendedTooltip" id="180"/>
+						</TextDocumentField>
+						<CommandBar name="GroupFieldAlgorithmCommandPanel" id="181">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Group field algorithm command panel</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Field algorithm command panel</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Alan algoritması komut paneli</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="GroupFieldAlgorithmCommandPanelExtendedTooltip" id="182"/>
+						</CommandBar>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_CodeConsole</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="FieldAlgorithm" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поле алгоритма клиент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Field algorithm client</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Istemci algoritması alanı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="AlgorithmFileName" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя файла алгоритма</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Algorithm file name</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Algoritma dosya adı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>AlgorithmFileName</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="LibraryAdress" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес библиотеки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Library adress</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kütüphane adresi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Algorithms" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Algorithms</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Algorithm</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Algoritmalar</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="Name" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ad</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Info" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Info</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Bilgi</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="UseProcessorForCodeExecution" id="17">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Use processor for code execution</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Kod yürütme için işlemciyi kullan</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="AtClient" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>At client</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Istemcide</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="OriginalText" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Original text</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Orijinal metin</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Text" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Text</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Metin</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Variables" id="21">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Variables</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Değişkenler</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueTable</v8:Type>
+					</Type>
+				</Column>
+				<AdditionalColumns table="Algorithms.Variables">
+					<Column name="Value" id="22">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Значение</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Value</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Değer</v8:content>
+							</v8:item>
+						</Title>
+						<Type/>
+					</Column>
+					<Column name="ValueContainer" id="23">
+						<Title>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Value container</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Değer konteyneri</v8:content>
+							</v8:item>
+						</Title>
+						<Type/>
+					</Column>
+					<Column name="ValueTypeOf" id="24">
+						<Title>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Value type of</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Değer türü</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:TypeDescription</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ValueTypeofPresentation" id="25">
+						<Title>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Value typeof presentation</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Değer Gösterim türü</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Name" id="26">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Имя</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>Name</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>tr</v8:lang>
+								<v8:content>Ad</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="SaveBeforeExecution" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save before execution</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yürütmeden önce kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>SaveBeforeExecution</Field>
+			</Save>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Execute" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Execute</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yürüt</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить код</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ExecuteCode</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="OpenFIle" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть файл</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open file</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Dosyayı aç</v8:content>
+				</v8:item>
+			</Title>
+			<Shortcut>Ctrl+O</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.OpenFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>OpenFIle</Action>
+		</Command>
+		<Command name="SaveFile" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить файл</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save file</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Dosyayı kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<Shortcut>Ctrl+S</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SaveFile</Action>
+		</Command>
+		<Command name="EditVariableValue" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать значение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Edit value</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Değeri düzenle</v8:content>
+				</v8:item>
+			</Title>
+			<Action>EditVariableValue</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Close" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Close</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kapat</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>CloseConsole</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="SaveFileAs" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить файл как...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save file as</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Dosyayı farklı kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.SaveReportSettings</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SaveFileAs</Action>
+		</Command>
+		<Command name="NewAlgorithm" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новый алгоритм</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>New algorithm</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yeni algoritma</v8:content>
+				</v8:item>
+			</Title>
+			<Shortcut>Ctrl+N</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionNewNestedScheme</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>NewAlgorithm</Action>
+		</Command>
+	</Commands>
+</Form>

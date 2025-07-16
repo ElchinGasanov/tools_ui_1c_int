@@ -1,0 +1,1750 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="FormFileGroup" id="99">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Файл</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>File</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>tr</v8:lang>
+						<v8:content>Dosya</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="FormFileGroupExtendedTooltip" id="100"/>
+				<ChildItems>
+					<Button name="FormNewFile" id="101">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.NewFile</CommandName>
+						<ExtendedTooltip name="FormNewFileExtendedTooltip" id="102"/>
+					</Button>
+					<Button name="FormOpenFile" id="107">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.OpenFile</CommandName>
+						<ExtendedTooltip name="FormOpenFileExtendedTooltip" id="108"/>
+					</Button>
+					<Button name="FormSaveFile" id="103">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.SaveFile</CommandName>
+						<ExtendedTooltip name="FormSaveFileExtendedTooltip" id="104"/>
+					</Button>
+					<Button name="FormSaveFileAs" id="105">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.SaveFileAs</CommandName>
+						<ExtendedTooltip name="FormSaveFileAsExtendedTooltip" id="106"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Button name="CollapseExpandViewportToForm" id="120">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.CollapseExpandViewportToForm</CommandName>
+				<ExtendedTooltip name="CollapseExpandViewportToFormExtendedTooltip" id="121"/>
+			</Button>
+			<Button name="UpdateGeneratedHTML" id="49">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.UpdateGeneratedHTML</CommandName>
+				<ExtendedTooltip name="UpdateGeneratedHTMLExtendedTooltip" id="50"/>
+			</Button>
+			<Button name="FormCloseTool" id="109">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.CloseTool</CommandName>
+				<ExtendedTooltip name="FormCloseToolExtendedTooltip" id="110"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">OnOpen</Event>
+		<Event name="BeforeClose">BeforeClose</Event>
+		<Event name="OnCreateAtServer">OnCreateAtServer</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="MainGroup" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Main</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Temel</v8:content>
+				</v8:item>
+			</Title>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="MainGroupExtendedTooltip" id="24"/>
+			<ChildItems>
+				<Pages name="HTMLEditorPagesGroup" id="81">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>HTML editors pages group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы редакторов HTML</v8:content>
+						</v8:item>
+					</Title>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="HTMLEditorPagesGroupExtendedTooltip" id="82"/>
+					<ChildItems>
+						<Page name="EditorModeAllPagesGroup" id="60">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отдельно</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Parts</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Ayrı ayrı</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="EditorModeAllPagesGroupExtendedTooltip" id="61"/>
+							<ChildItems>
+								<UsualGroup name="HEADEditorGroup" id="146">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>HEAD</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>HEAD</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>HEAD</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ControlRepresentation>Picture</ControlRepresentation>
+									<Representation>None</Representation>
+									<ShowLeftMargin>false</ShowLeftMargin>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="HEADEditorGroupExtendedTooltip" id="147"/>
+									<ChildItems>
+										<UsualGroup name="HEADEditorTitleGroup" id="162">
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>HEAD title</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>HEAD заголовок</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="HEADEditorTitleGroupExtendedTooltip" id="163"/>
+											<ChildItems>
+												<LabelDecoration name="HEADEditorTitleCollapse" id="164">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>HEAD</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>HEAD</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>HEAD</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<ContextMenu name="HEADEditorTitleCollapseContextMenu" id="165"/>
+													<ExtendedTooltip name="HEADEditorTitleCollapseExtendedTooltip" id="166"/>
+													<Events>
+														<Event name="Click">HEADEditorTitleCollapseClick</Event>
+													</Events>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<HTMLDocumentField name="HEADEditor" id="150">
+											<DataPath>HEADEditor</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>HTML (Head)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>HTML (Head)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>HTML (Head)</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<Height>5</Height>
+											<ContextMenu name="HEADEditorContextMenu" id="151">
+												<Autofill>false</Autofill>
+											</ContextMenu>
+											<ExtendedTooltip name="HEADEditorExtendedTooltip" id="152"/>
+										</HTMLDocumentField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="BODYEditorGroup" id="148">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>BODY</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>BODY</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>BODY</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ControlRepresentation>Picture</ControlRepresentation>
+									<Representation>None</Representation>
+									<ShowLeftMargin>false</ShowLeftMargin>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="BODYEditorGroupExtendedTooltip" id="149"/>
+									<ChildItems>
+										<UsualGroup name="BODYEditorTitleGroup" id="173">
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>BODY title</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>BODY заголовок</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="BODYEditorTitleGroupExtendedTooltip" id="174"/>
+											<ChildItems>
+												<LabelDecoration name="BODYEditorTitleCollapse" id="175">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>BODY</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>BODY</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>BODY</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<ContextMenu name="BODYEditorTitleCollapseContextMenu" id="176"/>
+													<ExtendedTooltip name="BODYEditorTitleCollapseExtendedTooltip" id="177"/>
+													<Events>
+														<Event name="Click">BODYEditorTitleCollapseClick</Event>
+													</Events>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+										<HTMLDocumentField name="BODYEditor" id="62">
+											<DataPath>BODYEditor</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>HTML (Body)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>HTML (Body)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>HTML (Body)</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<Height>5</Height>
+											<ContextMenu name="BODYEditorContextMenu" id="63">
+												<Autofill>false</Autofill>
+											</ContextMenu>
+											<ExtendedTooltip name="BODYEditorExtendedTooltip" id="64"/>
+										</HTMLDocumentField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="CSSEditorGroup" id="153">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>CSS</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>CSS</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ControlRepresentation>Picture</ControlRepresentation>
+									<Representation>None</Representation>
+									<ShowLeftMargin>false</ShowLeftMargin>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="CSSEditorGroupExtendedTooltip" id="154"/>
+									<ChildItems>
+										<UsualGroup name="CSSEditorTitleGroup" id="178">
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>CSS title</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>CSS заголовок</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="CSSEditorTitleGroupExtendedTooltip" id="179"/>
+											<ChildItems>
+												<LabelDecoration name="CSSEditorTitleCollapse" id="180">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>CSS</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>CSS</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>CSS</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<ContextMenu name="CSSEditorTitleCollapseContextMenu" id="181"/>
+													<ExtendedTooltip name="CSSEditorTitleCollapseExtendedTooltip" id="182"/>
+													<Events>
+														<Event name="Click">CSSEditorTitleCollapseClick</Event>
+													</Events>
+												</LabelDecoration>
+												<CheckBoxField name="BodyIncludesCSSText" id="188">
+													<DataPath>BodyIncludesCSSText</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Включать в</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Include into</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>İçine dahil et</v8:content>
+														</v8:item>
+													</Title>
+													<CheckBoxType>Tumbler</CheckBoxType>
+													<EditFormat>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>БЛ=HEAD; БИ=BODY</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>BF=HEAD; BT=BODY</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>BF=HEAD; BT=BODY</v8:content>
+														</v8:item>
+													</EditFormat>
+													<ContextMenu name="BodyIncludesCSSTextContextMenu" id="189"/>
+													<ExtendedTooltip name="BodyIncludesCSSTextExtendedTooltip" id="190"/>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+										<HTMLDocumentField name="CSSEditor" id="68">
+											<DataPath>CSSEditor</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>HTML (CSS)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>HTML (CSS)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>HTML (CSS)</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<Height>5</Height>
+											<ContextMenu name="CSSEditorContextMenu" id="69">
+												<Autofill>false</Autofill>
+											</ContextMenu>
+											<ExtendedTooltip name="CSSEditorExtendedTooltip" id="70"/>
+										</HTMLDocumentField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="JSEditorGroup" id="155">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>JS</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>JS</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>JS</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<ControlRepresentation>Picture</ControlRepresentation>
+									<Representation>None</Representation>
+									<ShowLeftMargin>false</ShowLeftMargin>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="JSEditorGroupExtendedTooltip" id="156"/>
+									<ChildItems>
+										<UsualGroup name="JSEditorTitleGroup" id="183">
+											<Title>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>JS title</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>JS заголовок</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="JSEditorTitleGroupExtendedTooltip" id="184"/>
+											<ChildItems>
+												<LabelDecoration name="JSEditorTitleCollapse" id="185">
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>JS</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>JS</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>JS</v8:content>
+														</v8:item>
+													</Title>
+													<Hyperlink>true</Hyperlink>
+													<ContextMenu name="JSEditorTitleCollapseContextMenu" id="186"/>
+													<ExtendedTooltip name="JSEditorTitleCollapseExtendedTooltip" id="187"/>
+													<Events>
+														<Event name="Click">JSEditorTitleCollapseClick</Event>
+													</Events>
+												</LabelDecoration>
+												<CheckBoxField name="BodyIncludesJSText" id="191">
+													<DataPath>BodyIncludesJSText</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Include into</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Включать в</v8:content>
+														</v8:item>
+													</Title>
+													<CheckBoxType>Tumbler</CheckBoxType>
+													<EditFormat>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>БЛ=HEAD; БИ=BODY</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>BF=HEAD; BT=BODY</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>BF=HEAD; BT=BODY</v8:content>
+														</v8:item>
+													</EditFormat>
+													<ContextMenu name="BodyIncludesJSTextContextMenu" id="192"/>
+													<ExtendedTooltip name="BodyIncludesJSTextExtendedTooltip" id="193"/>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+										<HTMLDocumentField name="JSEditor" id="65">
+											<DataPath>JSEditor</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>HTML (JS)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>HTML (JS)</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>HTML (JS)</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<Height>5</Height>
+											<ContextMenu name="JSEditorContextMenu" id="66">
+												<Autofill>false</Autofill>
+											</ContextMenu>
+											<ExtendedTooltip name="JSEditorExtendedTooltip" id="67"/>
+										</HTMLDocumentField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</Page>
+						<Page name="GeneratedHTMLTextGroup" id="55">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Весь текст</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>HTML</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>HTML</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="GeneratedHTMLTextGroupExtendedTooltip" id="56"/>
+							<ChildItems>
+								<HTMLDocumentField name="GeneratedHTMLEditor" id="75">
+									<DataPath>GeneratedHTMLEditor</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Редактор полученного HTML</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Generated HTML editor</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Oluşturulan HTML düzenleyici</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="GeneratedHTMLEditorContextMenu" id="76">
+										<Autofill>false</Autofill>
+									</ContextMenu>
+									<ExtendedTooltip name="GeneratedHTMLEditorExtendedTooltip" id="77"/>
+								</HTMLDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="LinkedLibrariesPageGroup" id="28">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подключаемые библиотеки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Linked libraries</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Bağlantılı kütüphaneler</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="LinkedLibrariesPageGroupExtendedTooltip" id="29"/>
+							<ChildItems>
+								<Table name="LinkedLibraries" id="30">
+									<Representation>List</Representation>
+									<Height>3</Height>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>LinkedLibraries</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="LinkedLibrariesContextMenu" id="32"/>
+									<AutoCommandBar name="LinkedLibrariesCommandBar" id="31">
+										<ChildItems>
+											<Button name="LinkedLibrariesSaveLibrary" id="160">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.SaveLibrary</CommandName>
+												<ExtendedTooltip name="LinkedLibrariesSaveLibraryExtendedTooltip" id="161"/>
+											</Button>
+											<Popup name="LinkedLibrariesSamplesGroup" id="83">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Типовые библиотеки</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>Library samples</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>tr</v8:lang>
+														<v8:content>Kütüphane örnekleri</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="LinkedLibrariesSamplesGroupExtendedTooltip" id="84"/>
+												<ChildItems>
+													<Button name="LinkedLibrariesLibrarySampleBootstrap4" id="85">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.LibrarySampleBootstrap4</CommandName>
+														<ExtendedTooltip name="LinkedLibrariesLibrarySampleBootstrap4ExtendedTooltip" id="86"/>
+													</Button>
+													<Button name="LinkedLibrariesLibrarySampleJQuery" id="87">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.LibrarySampleJQuery</CommandName>
+														<ExtendedTooltip name="LinkedLibrariesLibrarySampleJQueryExtendedTooltip" id="88"/>
+													</Button>
+													<Button name="LinkedLibrariesLibrarySampleFontAwesome" id="89">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.LibrarySampleFontAwesome</CommandName>
+														<ExtendedTooltip name="LinkedLibrariesLibrarySampleFontAwesomeExtendedTooltip" id="90"/>
+													</Button>
+													<Button name="LinkedLibrariesLibrarySamplePoperJS" id="91">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.LibrarySamplePoperJS</CommandName>
+														<ExtendedTooltip name="LinkedLibrariesLibrarySamplePoperJSExtendedTooltip" id="92"/>
+													</Button>
+													<Button name="LinkedLibrariesLibrarySampleResetCSS" id="93">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.LibrarySampleResetCSS</CommandName>
+														<ExtendedTooltip name="LinkedLibrariesLibrarySampleResetCSSExtendedTooltip" id="94"/>
+													</Button>
+													<Button name="LinkedLibrariesLibrarySampleAnimateCSS" id="95">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.LibrarySampleAnimateCSS</CommandName>
+														<ExtendedTooltip name="LinkedLibrariesLibrarySampleAnimateCSSExtendedTooltip" id="96"/>
+													</Button>
+													<Button name="LinkedLibrariesLibrarySampleSocketIO" id="97">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.LibrarySampleSocketIO</CommandName>
+														<ExtendedTooltip name="LinkedLibrariesLibrarySampleSocketIOExtendedTooltip" id="98"/>
+													</Button>
+												</ChildItems>
+											</Popup>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="LinkedLibrariesExtendedTooltip" id="33"/>
+									<SearchStringAddition name="LinkedLibrariesSearchString" id="34">
+										<AdditionSource>
+											<Item>LinkedLibraries</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="LinkedLibrariesSearchStringContextMenu" id="35"/>
+										<ExtendedTooltip name="LinkedLibrariesSearchStringExtendedTooltip" id="36"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="LinkedLibrariesViewStatus" id="40">
+										<AdditionSource>
+											<Item>LinkedLibraries</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<HorizontalLocation>Left</HorizontalLocation>
+										<ContextMenu name="LinkedLibrariesViewStatusContextMenu" id="41"/>
+										<ExtendedTooltip name="LinkedLibrariesViewStatusExtendedTooltip" id="42"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="LinkedLibrariesSearchControl" id="37">
+										<AdditionSource>
+											<Item>LinkedLibraries</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="LinkedLibrariesSearchControlContextMenu" id="38"/>
+										<ExtendedTooltip name="LinkedLibrariesSearchControlExtendedTooltip" id="39"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnActivateRow">LinkedLibrariesOnActivateRow</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="LinkedLibrariesPath" id="46">
+											<DataPath>LinkedLibraries.Path</DataPath>
+											<ChoiceButton>true</ChoiceButton>
+											<ContextMenu name="LinkedLibrariesPathContextMenu" id="47"/>
+											<ExtendedTooltip name="LinkedLibrariesPathExtendedTooltip" id="48"/>
+											<Events>
+												<Event name="StartChoice">LinkedLibrariesPathStartChoice</Event>
+											</Events>
+										</InputField>
+										<InputField name="LinkedLibrariesAdditionalParameters" id="78">
+											<DataPath>LinkedLibraries.AdditionalParameters</DataPath>
+											<ContextMenu name="LinkedLibrariesAdditionalParametersContextMenu" id="79"/>
+											<ExtendedTooltip name="LinkedLibrariesAdditionalParametersExtendedTooltip" id="80"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<HTMLDocumentField name="LibraryEditor" id="157">
+									<DataPath>LibraryEditor</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>JS</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<Width>1</Width>
+									<Height>3</Height>
+									<ContextMenu name="LibraryEditorContextMenu" id="158">
+										<Autofill>false</Autofill>
+									</ContextMenu>
+									<ExtendedTooltip name="LibraryEditorExtendedTooltip" id="159"/>
+								</HTMLDocumentField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+				<Pages name="GeneratedHTMLPagesGroup" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Generated HTML pages group</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страницы группы результирующего HTML</v8:content>
+						</v8:item>
+					</Title>
+					<PagesRepresentation>TabsOnTop</PagesRepresentation>
+					<ExtendedTooltip name="GeneratedHTMLPagesGroupExtendedTooltip" id="52"/>
+					<Events>
+						<Event name="OnCurrentPageChange">GeneratedHTMLPagesGroupOnCurrentPageChange</Event>
+					</Events>
+					<ChildItems>
+						<Page name="GeneratedHTMLPresentationGroup" id="53">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Представление</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Presentation</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Gösterim</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="GeneratedHTMLPresentationGroupExtendedTooltip" id="54"/>
+							<ChildItems>
+								<HTMLDocumentField name="GeneratedHTML" id="25">
+									<DataPath>GeneratedHTML</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>HTML</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Generated HTML</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>HTML</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="GeneratedHTMLContextMenu" id="26"/>
+									<ExtendedTooltip name="GeneratedHTMLExtendedTooltip" id="27"/>
+									<Events>
+										<Event name="DocumentComplete">GeneratedHTMLDocumentComplete</Event>
+										<Event name="OnClick">GeneratedHTMLOnClick</Event>
+									</Events>
+								</HTMLDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="ConsolePageGroup" id="111">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Консоль</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Console</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Konsol</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="ConsolePageGroupExtendedTooltip" id="112"/>
+							<ChildItems>
+								<UsualGroup name="CommandsAndConsoleSetupGroup" id="197">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Commands and console setup group</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Команды и настройка консоли</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="CommandsAndConsoleSetupGroupExtendedTooltip" id="198"/>
+									<ChildItems>
+										<Button name="ОбновитьВыводКонсоли" id="118">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.UpdateConsoleOutput</CommandName>
+											<ExtendedTooltip name="ОбновитьВыводКонсолиРасширеннаяПодсказка" id="119"/>
+										</Button>
+										<CheckBoxField name="UseConsole" id="194">
+											<DataPath>UseConsole</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Использовать консоль	</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Use console</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>Konsolu kullan</v8:content>
+												</v8:item>
+											</Title>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="UseConsoleContextMenu" id="195"/>
+											<ExtendedTooltip name="UseConsoleExtendedTooltip" id="196"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<HTMLDocumentField name="GeneratedHTMLConsoleOutput" id="113">
+									<DataPath>GeneratedHTMLConsoleOutput</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вывод консоли полученного HTML</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Generated HTML console output</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>tr</v8:lang>
+											<v8:content>Oluşturulan HTML konsol çıktısı</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<ContextMenu name="GeneratedHTMLConsoleOutputContextMenu" id="114"/>
+									<ExtendedTooltip name="GeneratedHTMLConsoleOutputExtendedTooltip" id="115"/>
+								</HTMLDocumentField>
+							</ChildItems>
+						</Page>
+						<Page name="EventHandlersPageGroup" id="122">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обработчики событий</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Event handlers</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>tr</v8:lang>
+									<v8:content>Olay işleyicileri</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="EventHandlersPageGroupExtendedTooltip" id="123"/>
+							<ChildItems>
+								<Pages name="EventHandlersGroupPages" id="126">
+									<Title>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Event handlers group pages</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Cтраницы обрабочиков событий</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>true</HorizontalStretch>
+									<VerticalStretch>true</VerticalStretch>
+									<PagesRepresentation>TabsOnTop</PagesRepresentation>
+									<ExtendedTooltip name="EventHandlersGroupPagesExtendedTooltip" id="127"/>
+									<ChildItems>
+										<Page name="EventHandlerDocumentCompletePageGroup" id="128">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Событие "Документ сформирован"</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>"Document complete" event</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>"Document complete" olayı</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="EventHandlerDocumentCompletePageGroupExtendedTooltip" id="129"/>
+											<ChildItems>
+												<LabelDecoration name="DocumentCompleteEventTitleLabel" id="130">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<HorizontalStretch>true</HorizontalStretch>
+													<Title formatted="true">
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>&lt;color #e9967a&gt;&amp;AtClient&lt;/&gt;
+GeneratedHTMLDocumentComplete(Item)</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>&lt;color #e9967a&gt;&amp;НаКлиенте&lt;/&gt;
+РезультирущийHTMLДокументСформирован(Элемент)</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>&lt;color #e9967a&gt;&amp;AtClient&lt;/&gt;
+GeneratedHTMLDocumentComplete(Item)</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="DocumentCompleteEventTitleLabelContextMenu" id="131"/>
+													<ExtendedTooltip name="DocumentCompleteEventTitleLabelExtendedTooltip" id="132"/>
+												</LabelDecoration>
+												<HTMLDocumentField name="DocumentCompleteEventEditor" id="133">
+													<DataPath>DocumentCompleteEventEditor</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="DocumentCompleteEventEditorContextMenu" id="134">
+														<Autofill>false</Autofill>
+													</ContextMenu>
+													<ExtendedTooltip name="DocumentCompleteEventEditorExtendedTooltip" id="135"/>
+												</HTMLDocumentField>
+											</ChildItems>
+										</Page>
+										<Page name="EventHandlerOnClickPageGroup" id="136">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Событие "При нажатии"</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>"On click" event</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>tr</v8:lang>
+													<v8:content>"On click" olayı</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="EventHandlerOnClickPageGroupExtendedTooltip" id="137"/>
+											<ChildItems>
+												<LabelDecoration name="OnClickEventTitleLabel" id="138">
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<HorizontalStretch>true</HorizontalStretch>
+													<Title formatted="true">
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>&lt;color #e9967a&gt;&amp;AtClient&lt;/&gt;
+GeneratedHTMLOnClick(Item, EventData, StandardProcessing)</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>&lt;color #e9967a&gt;&amp;НаКлиенте&lt;/&gt;
+РезультирущийHTMLПриНажатии(Элемент, ДанныеСобытия, СтандартнаяОбработка)</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>tr</v8:lang>
+															<v8:content>&lt;color #e9967a&gt;&amp;AtClient&lt;/&gt;
+GeneratedHTMLOnClick(Item, EventData, StandardProcessing)</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="OnClickEventTitleLabelContextMenu" id="139"/>
+													<ExtendedTooltip name="OnClickEventTitleLabelExtendedTooltip" id="140"/>
+												</LabelDecoration>
+												<HTMLDocumentField name="OnClickEventEditor" id="141">
+													<DataPath>OnClickEventEditor</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ContextMenu name="OnClickEventEditorContextMenu" id="142"/>
+													<ExtendedTooltip name="OnClickEventEditorExtendedTooltip" id="143"/>
+												</HTMLDocumentField>
+											</ChildItems>
+										</Page>
+									</ChildItems>
+								</Pages>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Object" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Object</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Nesne</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.UT_HTMLEditor</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="JSEditor" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>JSEditor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>JSEditör</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="GeneratedHTML" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>HTML</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generated HTML</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Generated HTML</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="CSSEditor" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>CSSEditor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>CSS Editörü</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="BODYEditor" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>BODYEditor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>BODYEditor</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="LinkedLibraries" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Linked libraries</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Bağlantılı kütüphaneler</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Path" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Path</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Yol</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="AdditionalParameters" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Additional parameters</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>tr</v8:lang>
+							<v8:content>Ek parametreler</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="GeneratedHTMLEditor" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактор полученного HTML</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generated HTML editor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Oluşturulan HTML düzenleyici</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ToolDataFileName" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Tool data file name</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Araç veri dosyası adı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="GeneratedHTMLConsoleOutput" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вывод консоли полученного HTML</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Generated HTML console output</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Oluşturulan HTML konsol çıktısı</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ViewportScaledToForm" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Viewport scaled to form</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Görünüm alanı forma ölçeklendi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="DocumentCompleteEventEditor" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Document complete event editor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Belge tamamlama etkinliği düzenleyicisi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="OnClickEventEditor" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>On click event editor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Tıklama olayı düzenleyicisi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="LibraryAddress" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Library address</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kütüphane adresi</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="HEADEditor" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>HEADEditor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>HEADEditör</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="LibraryEditor" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Library editor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kütüphane editörü</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="BodyIncludesCSSText" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Body includes CSSText</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Gövde CSSText'i içerir</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="BodyIncludesJSText" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включать текст JS ВТело</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Gövdeye JS metni ekleyin</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="UseConsole" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Use console</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Konsolu kullan</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="SavedEditorText" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Saved editor text</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kaydedilen düzenleyici metni</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="CurrentEditorName" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Current editor name</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Current editor name</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>1000</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="UpdateGeneratedHTML" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить HTML (Ctrl+Q)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update HTML (Ctrl+Q)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>HTML'yi güncelle (Ctrl+Q)</v8:content>
+				</v8:item>
+			</Title>
+			<Shortcut>Ctrl+Q</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>UpdateGeneratedHTML</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="LibrarySampleBootstrap4" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Bootstrap 4</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Bootstrap 4</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Bootstrap 4</v8:content>
+				</v8:item>
+			</Title>
+			<Action>LibrarySampleBootstrap4</Action>
+		</Command>
+		<Command name="LibrarySampleJQuery" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>JQuery</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>JQuery</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>JQuery</v8:content>
+				</v8:item>
+			</Title>
+			<Action>LibrarySampleJQuery</Action>
+		</Command>
+		<Command name="LibrarySampleFontAwesome" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Font awesome</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Font awesome</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Font Awesome</v8:content>
+				</v8:item>
+			</Title>
+			<Action>LibrarySampleFontAwesome</Action>
+		</Command>
+		<Command name="LibrarySamplePoperJS" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Poper JS</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Poper JS</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Poper JS</v8:content>
+				</v8:item>
+			</Title>
+			<Action>LibrarySamplePoperJS</Action>
+		</Command>
+		<Command name="LibrarySampleResetCSS" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Reset CSS</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Reset CSS</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>CSS'yi sıfırla</v8:content>
+				</v8:item>
+			</Title>
+			<Action>LibrarySampleResetCSS</Action>
+		</Command>
+		<Command name="LibrarySampleAnimateCSS" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Animate CSS</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Animate CSS</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>CSS'i canlandır</v8:content>
+				</v8:item>
+			</Title>
+			<Action>LibrarySampleAnimateCSS</Action>
+		</Command>
+		<Command name="LibrarySampleSocketIO" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Socket IO</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Socket IO</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Socket IO</v8:content>
+				</v8:item>
+			</Title>
+			<Action>LibrarySampleSocketIO</Action>
+		</Command>
+		<Command name="SaveFile" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить (Ctrl+S)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save (Ctrl+S)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kaydet (Ctrl+S)</v8:content>
+				</v8:item>
+			</Title>
+			<Shortcut>Ctrl+S</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.SaveFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SaveFile</Action>
+		</Command>
+		<Command name="SaveFileAs" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить как</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save As</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Farklı kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.SaveReportSettings</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SaveFileAs</Action>
+		</Command>
+		<Command name="NewFile" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новый (Ctrl+N)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>New (Ctrl+N)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Yeni (Ctrl+N)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новый файл отчетов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+N</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.NewWindow</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>CreateNewFile</Action>
+		</Command>
+		<Command name="CloseTool" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Close</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kapat</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>CloseTool</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="OpenFile" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть (Ctrl+O)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open (Ctrl+O)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Aç (Ctrl+O)</v8:content>
+				</v8:item>
+			</Title>
+			<Shortcut>Ctrl+O</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.OpenFile</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>OpenFile</Action>
+		</Command>
+		<Command name="UpdateConsoleOutput" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить вывод консоли</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Update console output</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Konsol çıktısını güncelle</v8:content>
+				</v8:item>
+			</Title>
+			<Action>UpdateConsoleOutput</Action>
+		</Command>
+		<Command name="CollapseExpandViewportToForm" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Развернуть/свернуть просмотр на всю форму</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Collapse/Expand viewport to form</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Görünümü formun tamamına genişlet/daralt</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>StdPicture.CollapseAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>CollapseExpandViewportToForm</Action>
+		</Command>
+		<Command name="SaveLibrary" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить библиотеку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Save library</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>tr</v8:lang>
+					<v8:content>Kütüphaneyi kaydet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить библиотеку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>SaveLibrary</Action>
+		</Command>
+	</Commands>
+</Form>
