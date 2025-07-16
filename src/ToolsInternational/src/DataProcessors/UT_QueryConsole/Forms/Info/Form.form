@@ -14,10 +14,6 @@
         <key>ru</key>
         <value>Информация</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Bilgi</value>
-      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -63,8 +59,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>CodeToCopy</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>CodeToCopy</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -161,16 +159,12 @@
       <name>CancelCommand</name>
       <id>11</id>
       <title>
-        <key>ru</key>
-        <value>Закрыть</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Close</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kapat</value>
+        <key>ru</key>
+        <value>Закрыть</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -198,6 +192,7 @@
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
+      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
     </items>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -253,10 +248,6 @@
       <title>
         <key>ru</key>
         <value>Картинка копировать</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resmi kopyala</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -353,7 +344,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <width>80</width>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -363,10 +353,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_QueryConsole</types>
@@ -382,16 +368,12 @@
   <attributes>
     <name>CodeToCopy</name>
     <title>
-      <key>ru</key>
-      <value>Код для копирования</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Code to copy</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kopyalanacak kod</value>
+      <key>ru</key>
+      <value>Код для копирования</value>
     </title>
     <id>2</id>
     <valueType>
@@ -408,16 +390,12 @@
   <attributes>
     <name>Info</name>
     <title>
-      <key>ru</key>
-      <value>Информация</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Information</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Bilgi</value>
+      <key>ru</key>
+      <value>Информация</value>
     </title>
     <id>3</id>
     <valueType>
@@ -434,16 +412,12 @@
   <attributes>
     <name>FormattedInfo</name>
     <title>
-      <key>ru</key>
-      <value>Информация форматированная</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Formatted information</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Biçimlendirilmiş bilgi</value>
+      <key>ru</key>
+      <value>Информация форматированная</value>
     </title>
     <id>4</id>
     <valueType>

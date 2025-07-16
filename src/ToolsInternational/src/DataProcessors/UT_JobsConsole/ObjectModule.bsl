@@ -51,8 +51,8 @@ Function ExternalDataProcessorInfo() Export
 	CommandTable = InitializeCommandTable();
 	
 	TableRow = CommandTable.Add();
-	TableRow.ID = NStr("ru = 'ОткрытьКонсольЗаданий'; en = 'OpenJobsConsole'; tr = 'GörevKonsolunuAç'");
-	TableRow.Presentation = NStr("ru = 'Открыть консоль заданий'; en = 'Open Jobs console'; tr = 'Görev Konsolunu Aç'");
+	TableRow.ID = NStr("ru = 'ОткрытьКонсольЗаданий'; en = 'OpenJobsConsole'");
+	TableRow.Presentation = NStr("ru = 'Открыть консоль заданий'; en = 'Open Jobs console'");
 	TableRow.ShowNotification = False;
 	TableRow.StartupOption = "OpeningForm";
 	

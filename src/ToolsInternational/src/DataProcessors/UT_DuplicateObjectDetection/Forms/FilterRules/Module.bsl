@@ -36,7 +36,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	PrefilterComposer.LoadSettings(GetFromTempStorage(FilterComposerSettingsAddress));
 	DeleteFromTempStorage(FilterComposerSettingsAddress);
 	
-	Title = StrTemplate(NStr("ru = 'Правила отбора ""%1""'; en = 'Filter rule: %1'; tr = 'Filtre kuralı: %1'"), Parameters.FilterAreaPresentation);
+	Title = StrTemplate(NStr("ru = 'Правила отбора ""%1""'; en = 'Filter rule: %1'"), Parameters.FilterAreaPresentation);
 EndProcedure
 
 #EndRegion

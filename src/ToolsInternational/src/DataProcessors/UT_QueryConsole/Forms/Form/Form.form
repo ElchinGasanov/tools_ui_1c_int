@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Консоль запросов 9000</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Query console 9000</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Sorgu konsolu 9000</value>
+    <key>ru</key>
+    <value>Консоль запросов 9000</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>FormCommandBarGroup</name>
@@ -248,8 +244,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>OutputLinesLimitTopEnabled</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>OutputLinesLimitTopEnabled</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <handlers>
@@ -292,23 +290,21 @@
       <name>OutputLinesLimitTopOption</name>
       <id>260</id>
       <title>
-        <key>ru</key>
-        <value>ПЕРВЫЕ</value>
-      </title>
-      <title>
         <key>en</key>
         <value>TOP</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>TOP</value>
+        <key>ru</key>
+        <value>ПЕРВЫЕ</value>
       </title>
       <visible>true</visible>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>OutputLinesLimitTop</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>OutputLinesLimitTop</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>OutputLinesLimitTopOptionExtendedTooltip</name>
@@ -412,6 +408,7 @@
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBar</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>QueryParametersNextToText</name>
@@ -503,6 +500,7 @@
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -613,17 +611,15 @@
           <items xsi:type="form:FormField">
             <name>QueryListQuery</name>
             <id>42</id>
-            <title>
-              <key>tr</key>
-              <value>Ad</value>
-            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>QueryBatch.Name</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>QueryBatch.Name</segments>
+              </paths>
             </dataPath>
             <toolTip>
               <key>en</key>
@@ -680,8 +676,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>QueryBatch.Info</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>QueryBatch.Info</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <toolTip>
@@ -771,6 +769,7 @@
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>QueryBatchCopyButton</name>
@@ -801,21 +800,18 @@
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>QueryBatchChangeButton</name>
                 <id>214</id>
                 <title>
-                  <key>ru</key>
-                  <value>Изменить</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Change</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Değiştir</value>
+                  <key>ru</key>
+                  <value>Изменить</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -843,6 +839,7 @@
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>QueryBatchDeleteButton</name>
@@ -873,6 +870,7 @@
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>QueryBatchQueryBatchLevelUp</name>
@@ -903,6 +901,7 @@
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>QueryBatchMoveUpButton</name>
@@ -933,6 +932,7 @@
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>QueryBatchMoveDownButton</name>
@@ -963,6 +963,7 @@
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1064,6 +1065,7 @@
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>QueryBatchDeleteHookedQueries</name>
@@ -1100,16 +1102,12 @@
                 <common>true</common>
               </userVisible>
               <title>
-                <key>ru</key>
-                <value>Перехват</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Hooking</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Yakalama</value>
+                <key>ru</key>
+                <value>Перехват</value>
               </title>
               <toolTip>
                 <key>en</key>
@@ -1199,7 +1197,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>QueryBatch</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1238,7 +1235,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>QueryBatch</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1277,7 +1273,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>QueryBatch</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1335,16 +1330,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Request package</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Query batch</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Sorgu paketi</value>
+          <key>ru</key>
+          <value>Request package</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -1390,8 +1381,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>SaveCommentsOption</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>SaveCommentsOption</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <handlers>
@@ -1442,8 +1435,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>AutoSaveBeforeQueryExecutionOption</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>AutoSaveBeforeQueryExecutionOption</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -1490,8 +1485,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.OptionProcessing__</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.OptionProcessing__</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <toolTipRepresentation>Button</toolTipRepresentation>
@@ -1527,19 +1524,6 @@ Example:
         &amp;__УИД_Товар
     ИЗ
         Справочник.Номенклатура КАК Номенклатура</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Kullanılabilir makrosütunlar:
-  &amp;_UUID - Bir başvuru için UUID alır
-  &amp;_CreationDate - UUID'ye göre başvurunun oluşturulma tarihi
-
-Örnek:
-  SELECT
-    Products.Ref AS Product,
-    &amp;__UUID_Product
-  FROM
-    Catalog.Products AS Products</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -1578,8 +1562,10 @@ Example:
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>AutoSaveIntervalOption</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>AutoSaveIntervalOption</segments>
+            </paths>
           </dataPath>
           <titleLocation>Top</titleLocation>
           <handlers>
@@ -1630,24 +1616,22 @@ Example:
           <name>AlgorithmExecutionUpdateIntervalOption</name>
           <id>387</id>
           <title>
-            <key>ru</key>
-            <value>Интервал обновления отображения состояния выполнения алгоритма, миллисекунды</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Algorithm execution state refresh interval, milliseconds</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Algoritma yürütme durumu yenileme aralığı, milisaniye</value>
+            <key>ru</key>
+            <value>Интервал обновления отображения состояния выполнения алгоритма, миллисекунды</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.AlgorithmExecutionUpdateIntervalOption</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.AlgorithmExecutionUpdateIntervalOption</segments>
+            </paths>
           </dataPath>
           <titleLocation>Top</titleLocation>
           <handlers>
@@ -1700,16 +1684,12 @@ Example:
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Options</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Options</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Seçenekler</value>
+          <key>ru</key>
+          <value>Options</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -1810,14 +1790,6 @@ Example:
                     <key>ru</key>
                     <value>Query wizard</value>
                   </title>
-                  <title>
-                    <key>en</key>
-                    <value>Query wizard</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Sorgu sihirbazı</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -1874,6 +1846,7 @@ Example:
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>FormatQueryText</name>
@@ -1936,6 +1909,7 @@ Example:
                   <placementArea>UserCmds</placementArea>
                   <picture xsi:type="form:FormPicture"/>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <commandUniqueness>false</commandUniqueness>
                 </items>
                 <items xsi:type="form:Button">
                   <name>RemoveCommentsFromQueryText</name>
@@ -1967,6 +1941,7 @@ Example:
                   <placementArea>UserCmds</placementArea>
                   <picture xsi:type="form:FormPicture"/>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <commandUniqueness>false</commandUniqueness>
                 </items>
                 <items xsi:type="form:Button">
                   <name>UT_ConvertQueryTextFromBuiltInLanguageExpression</name>
@@ -2089,6 +2064,8 @@ Example:
                   <placementArea>UserCmds</placementArea>
                   <picture xsi:type="form:FormPicture"/>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
+                  <commandUniqueness>false</commandUniqueness>
                 </items>
                 <items xsi:type="form:Button">
                   <name>RemoveLineFeedsFromQueryText</name>
@@ -2120,6 +2097,8 @@ Example:
                   <placementArea>UserCmds</placementArea>
                   <picture xsi:type="form:FormPicture"/>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
+                  <commandUniqueness>false</commandUniqueness>
                 </items>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2185,6 +2164,7 @@ Example:
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
+                    <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <items xsi:type="form:Button">
                     <name>GetHookedQueries</name>
@@ -2215,6 +2195,7 @@ Example:
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
+                    <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <items xsi:type="form:Button">
                     <name>GetCodeForTrace</name>
@@ -2248,6 +2229,7 @@ Example:
                       <picture>StdPicture.DataCompositionSettingsWizard</picture>
                     </picture>
                     <representationInContextMenu>Auto</representationInContextMenu>
+                    <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2376,8 +2358,10 @@ Example:
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>QueryText</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>QueryText</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <handlers>
@@ -2585,8 +2569,10 @@ Example:
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>QueryParameters.Name</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>QueryParameters.Name</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>QueryParametersNameExtendedTooltip</name>
@@ -2634,8 +2620,10 @@ Example:
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>QueryParameters.ValueType</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>QueryParameters.ValueType</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>QueryParametersParameterTypeExtendedTooltip</name>
@@ -2686,8 +2674,10 @@ Example:
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>QueryParameters.ContainerType</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>QueryParameters.ContainerType</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>QueryParametersFormExtendedTooltip</name>
@@ -2724,10 +2714,6 @@ Example:
                       <horizontalStretch>true</horizontalStretch>
                       <verticalStretch>true</verticalStretch>
                       <valuesPicture xsi:type="form:FormPicture"/>
-                      <border xsi:type="core:BorderDef">
-                        <style>Single</style>
-                        <width>1</width>
-                      </border>
                     </extInfo>
                   </items>
                   <items xsi:type="form:FormField">
@@ -2738,8 +2724,10 @@ Example:
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>QueryParameters.Value</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>QueryParameters.Value</segments>
+                      </paths>
                     </dataPath>
                     <handlers>
                       <event>OnChange</event>
@@ -2863,6 +2851,7 @@ Example:
                       <autoMaxHeight>true</autoMaxHeight>
                       <placementArea>UserCmds</placementArea>
                       <representationInContextMenu>Auto</representationInContextMenu>
+                      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                     </items>
                     <items xsi:type="form:Button">
                       <name>QueryParametersDeleteButton</name>
@@ -2893,6 +2882,7 @@ Example:
                       <autoMaxHeight>true</autoMaxHeight>
                       <placementArea>UserCmds</placementArea>
                       <representationInContextMenu>Auto</representationInContextMenu>
+                      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                     </items>
                     <items xsi:type="form:Button">
                       <name>QueryParametersMoveUpButton</name>
@@ -2923,6 +2913,7 @@ Example:
                       <autoMaxHeight>true</autoMaxHeight>
                       <placementArea>UserCmds</placementArea>
                       <representationInContextMenu>Auto</representationInContextMenu>
+                      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                     </items>
                     <items xsi:type="form:Button">
                       <name>QueryParametersMoveDownButton</name>
@@ -2953,6 +2944,7 @@ Example:
                       <autoMaxHeight>true</autoMaxHeight>
                       <placementArea>UserCmds</placementArea>
                       <representationInContextMenu>Auto</representationInContextMenu>
+                      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                     </items>
                     <items xsi:type="form:Button">
                       <name>FillParametersFromQuery</name>
@@ -3031,12 +3023,12 @@ Example:
                     <name>QueryParametersOnActivateRow</name>
                   </handlers>
                   <handlers>
-                    <event>OnStartEdit</event>
-                    <name>QueryParametersWhenEditingStarts</name>
-                  </handlers>
-                  <handlers>
                     <event>OnChange</event>
                     <name>QueryParametersOnChange</name>
+                  </handlers>
+                  <handlers>
+                    <event>OnStartEdit</event>
+                    <name>QueryParametersWhenEditingStarts</name>
                   </handlers>
                   <searchStringAddition>
                     <visible>true</visible>
@@ -3071,7 +3063,6 @@ Example:
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>QueryParameters</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3110,7 +3101,6 @@ Example:
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>QueryParameters</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3149,7 +3139,6 @@ Example:
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>QueryParameters</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3206,16 +3195,12 @@ Example:
                   <common>true</common>
                 </userVisible>
                 <title>
-                  <key>ru</key>
-                  <value>Параметры запроса</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Query parameters</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Sorgu parametreleri</value>
+                  <key>ru</key>
+                  <value>Параметры запроса</value>
                 </title>
                 <toolTip>
                   <key>en</key>
@@ -3347,16 +3332,12 @@ Example:
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Request</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Query</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sorgu</value>
+            <key>ru</key>
+            <value>Request</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -3396,16 +3377,12 @@ Example:
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Параметры запроса</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Query parameters</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sorgu parametreleri</value>
+            <key>ru</key>
+            <value>Параметры запроса</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -3459,8 +3436,10 @@ Example:
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>TempTables.Name</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>TempTables.Name</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>TempTablesNameExtendedTooltip</name>
@@ -3509,8 +3488,10 @@ Example:
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>TempTables.Value</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>TempTables.Value</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>TempTablesValueExtendedTooltip</name>
@@ -3615,6 +3596,7 @@ Example:
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>TempTablesDeleteButton</name>
@@ -3645,6 +3627,7 @@ Example:
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>TempTablesMoveUpButton</name>
@@ -3675,6 +3658,7 @@ Example:
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>TempTablesMoveDownButton</name>
@@ -3705,6 +3689,7 @@ Example:
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3746,7 +3731,6 @@ Example:
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>TempTables</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3785,7 +3769,6 @@ Example:
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>TempTables</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3824,7 +3807,6 @@ Example:
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>TempTables</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3882,16 +3864,12 @@ Example:
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Менеджер временных таблиц</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Temp tables manager</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Geçici tablolar yöneticisi</value>
+            <key>ru</key>
+            <value>Менеджер временных таблиц</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -4066,16 +4044,12 @@ Example:
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Алгоритм перед выполнением</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Algorithm before execution</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Yürütme öncesi algoritma</value>
+            <key>ru</key>
+            <value>Алгоритм перед выполнением</value>
           </title>
           <extendedTooltip>
             <name>AlgorithmTextBeforeExecutionPageExtendedTooltip</name>
@@ -4137,6 +4111,7 @@ Example:
                 <placementArea>UserCmds</placementArea>
                 <picture xsi:type="form:FormPicture"/>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <commandUniqueness>false</commandUniqueness>
               </items>
               <items xsi:type="form:Button">
                 <name>RemoveLineFeedsFromQueryText1</name>
@@ -4168,6 +4143,7 @@ Example:
                 <placementArea>UserCmds</placementArea>
                 <picture xsi:type="form:FormPicture"/>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <commandUniqueness>false</commandUniqueness>
               </items>
               <items xsi:type="form:Button">
                 <name>AddCommentsToQueryText1</name>
@@ -4199,6 +4175,7 @@ Example:
                 <placementArea>UserCmds</placementArea>
                 <picture xsi:type="form:FormPicture"/>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <commandUniqueness>false</commandUniqueness>
               </items>
               <items xsi:type="form:Button">
                 <name>RemoveCommentsFromQueryText1</name>
@@ -4230,6 +4207,7 @@ Example:
                 <placementArea>UserCmds</placementArea>
                 <picture xsi:type="form:FormPicture"/>
                 <representationInContextMenu>Auto</representationInContextMenu>
+                <commandUniqueness>false</commandUniqueness>
               </items>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4317,8 +4295,10 @@ Example:
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>CodeExecutionMethod</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>CodeExecutionMethod</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>CodeExecutionMethodExtendedTooltip</name>
@@ -4439,8 +4419,10 @@ Example:
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>ExecutionStatus</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>ExecutionStatus</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <extendedTooltip>
@@ -4621,8 +4603,10 @@ Example:
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>AlgorithmText</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>AlgorithmText</segments>
+                </paths>
               </dataPath>
               <titleLocation>None</titleLocation>
               <extendedTooltip>
@@ -4683,8 +4667,10 @@ Example:
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>ResultRecordStructure.Name</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>ResultRecordStructure.Name</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>СтруктураЗаписиРезультатаИмяРасширеннаяПодсказка</name>
@@ -4780,7 +4766,6 @@ Example:
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>ResultRecordStructure</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -4819,7 +4804,6 @@ Example:
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>ResultRecordStructure</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -4858,7 +4842,6 @@ Example:
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>ResultRecordStructure</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -4909,6 +4892,7 @@ Example:
               <verticalStretch>true</verticalStretch>
               <enableStartDrag>true</enableStartDrag>
               <enableDrag>true</enableDrag>
+              <fileDragMode>AsFileRef</fileDragMode>
               <rowPictureDataPath xsi:type="form:DataPath">
                 <segments>ResultRecordStructure.Picture</segments>
               </rowPictureDataPath>
@@ -4964,16 +4948,12 @@ Example:
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Обработка результата</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Result processing</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sonuç işleme</value>
+            <key>ru</key>
+            <value>Обработка результата</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -5236,8 +5216,10 @@ Example:
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>ResultInBatch</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>ResultInBatch</segments>
+                </paths>
               </dataPath>
               <titleLocation>None</titleLocation>
               <handlers>
@@ -5413,8 +5395,10 @@ Example:
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ResultKind</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ResultKind</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -5484,8 +5468,10 @@ Example:
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>OutputLinesLimitEnabled</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>OutputLinesLimitEnabled</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <handlers>
@@ -5528,23 +5514,21 @@ Example:
             <name>OutputLinesLimitOption</name>
             <id>245</id>
             <title>
-              <key>ru</key>
-              <value>Ограничение строк</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Line limit</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Satır sınırı</value>
+              <key>ru</key>
+              <value>Ограничение строк</value>
             </title>
             <visible>true</visible>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>OutputLinesLimit</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>OutputLinesLimit</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>OutputLinesLimitOptionExtendedTooltip</name>
@@ -5614,6 +5598,7 @@ Example:
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5658,7 +5643,7 @@ Example:
             <showLeftMargin>true</showLeftMargin>
             <united>true</united>
             <backColor xsi:type="core:ColorRef">
-              <color>Style.NavigationColor</color>
+              <color>-42</color>
             </backColor>
             <throughAlign>Auto</throughAlign>
             <currentRowUse>Auto</currentRowUse>
@@ -5702,8 +5687,10 @@ Example:
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ResultQueryName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ResultQueryName</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -5775,6 +5762,7 @@ Example:
             <groupHorizontalAlign>Left</groupHorizontalAlign>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>QueryResultTreeTree</name>
@@ -5806,6 +5794,7 @@ Example:
             <groupHorizontalAlign>Left</groupHorizontalAlign>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>QueryResultTreeExpandAll</name>
@@ -5836,6 +5825,7 @@ Example:
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>QueryResultTreeCollapseAll</name>
@@ -6138,6 +6128,7 @@ Example:
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>QueryResultFindButton</name>
@@ -6168,6 +6159,7 @@ Example:
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>QueryResultCancelSearchButton</name>
@@ -6198,6 +6190,7 @@ Example:
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>QueryResultToSpreadsheetDocument1</name>
@@ -6549,8 +6542,10 @@ Example:
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>QueryResultBatch.Name</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>QueryResultBatch.Name</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>QueryResultBatchNameExtendedTooltip</name>
@@ -6600,8 +6595,10 @@ Example:
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>QueryResultBatch.Info</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>QueryResultBatch.Info</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -6698,7 +6695,6 @@ Example:
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>QueryResultBatch</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -6737,7 +6733,6 @@ Example:
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>QueryResultBatch</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -6776,7 +6771,6 @@ Example:
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>QueryResultBatch</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -6823,6 +6817,7 @@ Example:
         <initialListView>Auto</initialListView>
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
+        <fileDragMode>AsFileRef</fileDragMode>
         <rowPictureDataPath xsi:type="form:DataPath">
           <segments>QueryResultBatch.ResultKind</segments>
         </rowPictureDataPath>
@@ -6954,7 +6949,6 @@ Example:
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>QueryResult</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -6993,7 +6987,6 @@ Example:
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>QueryResult</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7032,7 +7025,6 @@ Example:
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>QueryResult</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7183,7 +7175,6 @@ Example:
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>QueryResultTree</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7222,7 +7213,6 @@ Example:
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>QueryResultTree</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7261,7 +7251,6 @@ Example:
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>QueryResultTree</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -7496,10 +7485,6 @@ Example:
               <autoMaxHeight>true</autoMaxHeight>
               <horizontalStretch>true</horizontalStretch>
               <verticalStretch>true</verticalStretch>
-              <border xsi:type="core:BorderDef">
-                <style>Single</style>
-                <width>1</width>
-              </border>
             </extInfo>
           </items>
           <items xsi:type="form:FormField">
@@ -7633,7 +7618,6 @@ Example:
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>UT_RowProperties</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7672,7 +7656,6 @@ Example:
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>UT_RowProperties</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7711,7 +7694,6 @@ Example:
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>UT_RowProperties</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7788,7 +7770,6 @@ Example:
         <initialListView>Auto</initialListView>
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
-        <rowFilter xsi:type="core:UndefinedValue"/>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -7894,10 +7875,6 @@ Example:
         <key>ru</key>
         <value>Картинка выбор типа</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Resim türünü seçilmesi</value>
-      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -8001,7 +7978,6 @@ Example:
     <name>OnCreateAtServer</name>
   </handlers>
   <excludedCommands>Help</excludedCommands>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -8011,10 +7987,6 @@ Example:
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_QueryConsole</types>
@@ -8030,16 +8002,12 @@ Example:
   <attributes>
     <name>QueryText</name>
     <title>
-      <key>ru</key>
-      <value>Текст запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query text</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu metni</value>
+      <key>ru</key>
+      <value>Текст запроса</value>
     </title>
     <id>2</id>
     <valueType>
@@ -8057,16 +8025,12 @@ Example:
   <attributes>
     <name>QueryResult</name>
     <title>
-      <key>ru</key>
-      <value>Результат запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sonucu</value>
+      <key>ru</key>
+      <value>Результат запроса</value>
     </title>
     <id>3</id>
     <valueType>
@@ -8082,16 +8046,12 @@ Example:
   <attributes>
     <name>QueryBatch</name>
     <title>
-      <key>ru</key>
-      <value>Пакет запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query batch</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgular Paketi</value>
+      <key>ru</key>
+      <value>Пакет запросов</value>
     </title>
     <id>4</id>
     <valueType>
@@ -8107,16 +8067,12 @@ Example:
     <columns>
       <name>Name</name>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Имя</value>
       </title>
       <id>1</id>
       <valueType>
@@ -8133,16 +8089,12 @@ Example:
     <columns>
       <name>Initialized</name>
       <title>
-        <key>ru</key>
-        <value>Инициализирован</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Initialized</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Başlatıldı</value>
+        <key>ru</key>
+        <value>Инициализирован</value>
       </title>
       <id>2</id>
       <valueType>
@@ -8158,16 +8110,12 @@ Example:
     <columns>
       <name>QueryText</name>
       <title>
-        <key>ru</key>
-        <value>Текст запроса</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Query text</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sorgu metni</value>
+        <key>ru</key>
+        <value>Текст запроса</value>
       </title>
       <id>3</id>
       <valueType>
@@ -8184,16 +8132,12 @@ Example:
     <columns>
       <name>InWizard</name>
       <title>
-        <key>ru</key>
-        <value>В конструкторе</value>
-      </title>
-      <title>
         <key>en</key>
         <value>In wizard</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sihirbazda</value>
+        <key>ru</key>
+        <value>В конструкторе</value>
       </title>
       <id>4</id>
       <valueType>
@@ -8209,16 +8153,12 @@ Example:
     <columns>
       <name>QueryParameters</name>
       <title>
-        <key>ru</key>
-        <value>Параметры запроса</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Query parameters</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sorgu parametreleri</value>
+        <key>ru</key>
+        <value>Параметры запроса</value>
       </title>
       <id>5</id>
       <valueType/>
@@ -8232,16 +8172,12 @@ Example:
     <columns>
       <name>TempTables</name>
       <title>
-        <key>ru</key>
-        <value>Временные таблицы</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Temp tables</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Geçici tablolar</value>
+        <key>ru</key>
+        <value>Временные таблицы</value>
       </title>
       <id>6</id>
       <valueType/>
@@ -8255,16 +8191,12 @@ Example:
     <columns>
       <name>Info</name>
       <title>
-        <key>ru</key>
-        <value>Инф</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Info</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Bilgi</value>
+        <key>ru</key>
+        <value>Инф</value>
       </title>
       <id>7</id>
       <valueType>
@@ -8281,16 +8213,12 @@ Example:
     <columns>
       <name>ResultReturningRowsCount</name>
       <title>
-        <key>ru</key>
-        <value>Количество реально возвращенных строк результата, а не выведенных в таблицу</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Amount of result rows actually returned, not displayed in the table</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Tabloda görüntülenmeyen, gerçekte döndürülen sonuç satırlarının miktarı</value>
+        <key>ru</key>
+        <value>Количество реально возвращенных строк результата, а не выведенных в таблицу</value>
       </title>
       <id>8</id>
       <valueType>
@@ -8309,16 +8237,12 @@ Example:
     <columns>
       <name>ResultRowCount</name>
       <title>
-        <key>ru</key>
-        <value>Количество строк результата, выведенных в таблицу</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Amount of result rows displayed in the table</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Tabloda görüntülenen sonuç satırlarının miktarı</value>
+        <key>ru</key>
+        <value>Количество строк результата, выведенных в таблицу</value>
       </title>
       <id>9</id>
       <valueType>
@@ -8337,16 +8261,12 @@ Example:
     <columns>
       <name>RowCountDifference</name>
       <title>
-        <key>ru</key>
-        <value>Разница между количеством возвращенных строк и количеством строк результата, для условного оформления</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Difference between the returned rows amount and the result rows amount, for conditional appearance</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Koşullu dekor için döndürülen satır miktarı ile sonuç satır miktarı arasındaki fark</value>
+        <key>ru</key>
+        <value>Разница между количеством возвращенных строк и количеством строк результата, для условного оформления</value>
       </title>
       <id>10</id>
       <valueType>
@@ -8365,16 +8285,12 @@ Example:
     <columns>
       <name>CodeText</name>
       <title>
-        <key>ru</key>
-        <value>Текст кода</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code text</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod metni</value>
+        <key>ru</key>
+        <value>Текст кода</value>
       </title>
       <id>11</id>
       <valueType>
@@ -8391,16 +8307,12 @@ Example:
     <columns>
       <name>CodeExecutionMethod</name>
       <title>
-        <key>ru</key>
-        <value>Метод исполнения кода</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code execution method</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod yürütme yöntemi</value>
+        <key>ru</key>
+        <value>Метод исполнения кода</value>
       </title>
       <id>12</id>
       <valueType>
@@ -8419,16 +8331,12 @@ Example:
     <columns>
       <name>CursorBeginRow</name>
       <title>
-        <key>ru</key>
-        <value>Начальная строка позиции курсора</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Cursor begin row</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İmleç konumunun başlangıç satırı</value>
+        <key>ru</key>
+        <value>Начальная строка позиции курсора</value>
       </title>
       <id>13</id>
       <valueType>
@@ -8447,16 +8355,12 @@ Example:
     <columns>
       <name>CursorBeginColumn</name>
       <title>
-        <key>ru</key>
-        <value>Начальная колонка позиции курсора</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Cursor begin column</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İmleç başlangıç sütunu</value>
+        <key>ru</key>
+        <value>Начальная колонка позиции курсора</value>
       </title>
       <id>14</id>
       <valueType>
@@ -8475,16 +8379,12 @@ Example:
     <columns>
       <name>CursorEndRow</name>
       <title>
-        <key>ru</key>
-        <value>Конечная строка позиции курсора</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Cursor end row</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İmleç son satır</value>
+        <key>ru</key>
+        <value>Конечная строка позиции курсора</value>
       </title>
       <id>15</id>
       <valueType>
@@ -8503,16 +8403,12 @@ Example:
     <columns>
       <name>CursorEndColumn</name>
       <title>
-        <key>ru</key>
-        <value>Конечная колонка позиции курсора</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Cursor end column</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İmleç son sütun</value>
+        <key>ru</key>
+        <value>Конечная колонка позиции курсора</value>
       </title>
       <id>16</id>
       <valueType>
@@ -8531,16 +8427,12 @@ Example:
     <columns>
       <name>CodeCursorBeginRow</name>
       <title>
-        <key>ru</key>
-        <value>Начальная строка позиции курсора алгоритма</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code cursor begin row</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod imleci satır başlangıcı</value>
+        <key>ru</key>
+        <value>Начальная строка позиции курсора алгоритма</value>
       </title>
       <id>17</id>
       <valueType>
@@ -8559,16 +8451,12 @@ Example:
     <columns>
       <name>CodeCursorBeginColumn</name>
       <title>
-        <key>ru</key>
-        <value>Начальная колонка позиции курсора алгоритма</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code cursor begin column</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod imleci sütun başlangıcı</value>
+        <key>ru</key>
+        <value>Начальная колонка позиции курсора алгоритма</value>
       </title>
       <id>18</id>
       <valueType>
@@ -8587,16 +8475,12 @@ Example:
     <columns>
       <name>CodeCursorEndRow</name>
       <title>
-        <key>ru</key>
-        <value>Конечная строка позиции курсора алгоритма</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code cursor end row</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod imleci satır sonu</value>
+        <key>ru</key>
+        <value>Конечная строка позиции курсора алгоритма</value>
       </title>
       <id>19</id>
       <valueType>
@@ -8615,16 +8499,12 @@ Example:
     <columns>
       <name>CodeCursorEndColumn</name>
       <title>
-        <key>ru</key>
-        <value>Конечная колонка позиции курсора алгоритма</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code cursor end column</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod imleci sütun sonu</value>
+        <key>ru</key>
+        <value>Конечная колонка позиции курсора алгоритма</value>
       </title>
       <id>20</id>
       <valueType>
@@ -8643,16 +8523,12 @@ Example:
     <columns>
       <name>AlgorithmBeforeExecution</name>
       <title>
-        <key>ru</key>
-        <value>Алгоритм перед выполнением</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Algorithm before execution</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Yürütme öncesi algoritma</value>
+        <key>ru</key>
+        <value>Алгоритм перед выполнением</value>
       </title>
       <id>62</id>
       <valueType>
@@ -8669,16 +8545,12 @@ Example:
     <columns>
       <name>AlgorithmBeforeExecutionOriginal</name>
       <title>
-        <key>ru</key>
-        <value>Алгоритм перед выполнением</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Algorithm before execution</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Yürütme öncesi algoritma</value>
+        <key>ru</key>
+        <value>Алгоритм перед выполнением</value>
       </title>
       <id>63</id>
       <valueType>
@@ -8698,10 +8570,6 @@ Example:
         <key>en</key>
         <value>Query text original</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Sorgu metni orijinali</value>
-      </title>
       <id>64</id>
       <valueType>
         <types>String</types>
@@ -8720,10 +8588,6 @@ Example:
         <key>en</key>
         <value>Code text original</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kod metni orijinal</value>
-      </title>
       <id>65</id>
       <valueType>
         <types>String</types>
@@ -8740,16 +8604,12 @@ Example:
   <attributes>
     <name>QueryParameters</name>
     <title>
-      <key>ru</key>
-      <value>Параметры запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query parameters</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu parametreleri</value>
+      <key>ru</key>
+      <value>Параметры запроса</value>
     </title>
     <id>5</id>
     <valueType>
@@ -8765,16 +8625,12 @@ Example:
     <columns>
       <name>Name</name>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Имя</value>
       </title>
       <id>1</id>
       <valueType>
@@ -8791,16 +8647,12 @@ Example:
     <columns>
       <name>Value</name>
       <title>
-        <key>ru</key>
-        <value>Значение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Value</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değer</value>
+        <key>ru</key>
+        <value>Значение</value>
       </title>
       <id>2</id>
       <valueType/>
@@ -8814,16 +8666,12 @@ Example:
     <columns>
       <name>ValueType</name>
       <title>
-        <key>ru</key>
-        <value>Тип</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Type</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Tür</value>
+        <key>ru</key>
+        <value>Тип</value>
       </title>
       <id>3</id>
       <valueType>
@@ -8841,16 +8689,12 @@ Example:
     <columns>
       <name>Container</name>
       <title>
-        <key>ru</key>
-        <value>Контейнер</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Container</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Konteyner</value>
+        <key>ru</key>
+        <value>Контейнер</value>
       </title>
       <id>4</id>
       <valueType/>
@@ -8864,16 +8708,12 @@ Example:
     <columns>
       <name>ContainerType</name>
       <title>
-        <key>ru</key>
-        <value>Тип контейнера</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Container type</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Konteyner türü</value>
+        <key>ru</key>
+        <value>Тип контейнера</value>
       </title>
       <id>5</id>
       <valueType>
@@ -8893,10 +8733,6 @@ Example:
         <key>ru</key>
         <value>Use</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kullan</value>
-      </title>
       <id>66</id>
       <valueType>
         <types>Boolean</types>
@@ -8912,16 +8748,12 @@ Example:
   <attributes>
     <name>QueryCount</name>
     <title>
-      <key>ru</key>
-      <value>Количество запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query count</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sayısı</value>
+      <key>ru</key>
+      <value>Количество запросов</value>
     </title>
     <id>6</id>
     <valueType>
@@ -8940,16 +8772,12 @@ Example:
   <attributes>
     <name>EditingQuery</name>
     <title>
-      <key>ru</key>
-      <value>Редактируемый запрос</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Editing query</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Düzenlenen sorgu</value>
+      <key>ru</key>
+      <value>Редактируемый запрос</value>
     </title>
     <id>7</id>
     <valueType>
@@ -8966,16 +8794,12 @@ Example:
   <attributes>
     <name>QueryInWizard</name>
     <title>
-      <key>ru</key>
-      <value>Запрос в конструкторе</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query in wizard</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sihirbazda sorgu</value>
+      <key>ru</key>
+      <value>Запрос в конструкторе</value>
     </title>
     <id>8</id>
     <valueType>
@@ -8994,16 +8818,12 @@ Example:
   <attributes>
     <name>QueriesFileName</name>
     <title>
-      <key>ru</key>
-      <value>Имя файла запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Queries file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgular dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла запросов</value>
     </title>
     <id>9</id>
     <valueType>
@@ -9020,16 +8840,12 @@ Example:
   <attributes>
     <name>QueryBatch_DisplayingName</name>
     <title>
-      <key>ru</key>
-      <value>Пакет запросов имя для отображения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query batch displaying name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu paketi görüntü adı</value>
+      <key>ru</key>
+      <value>Пакет запросов имя для отображения</value>
     </title>
     <id>11</id>
     <valueType>
@@ -9046,16 +8862,12 @@ Example:
   <attributes>
     <name>TempTables</name>
     <title>
-      <key>ru</key>
-      <value>Временные таблицы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Temp tables</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Geçici tablolar</value>
+      <key>ru</key>
+      <value>Временные таблицы</value>
     </title>
     <id>14</id>
     <valueType>
@@ -9070,16 +8882,12 @@ Example:
     <columns>
       <name>Name</name>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Имя</value>
       </title>
       <id>1</id>
       <valueType>
@@ -9096,16 +8904,12 @@ Example:
     <columns>
       <name>Container</name>
       <title>
-        <key>ru</key>
-        <value>Контейнер</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Container</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Konteyner</value>
+        <key>ru</key>
+        <value>Контейнер</value>
       </title>
       <id>2</id>
       <valueType/>
@@ -9119,16 +8923,12 @@ Example:
     <columns>
       <name>Value</name>
       <title>
-        <key>ru</key>
-        <value>Таблица</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Table</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değer</value>
+        <key>ru</key>
+        <value>Таблица</value>
       </title>
       <id>3</id>
       <valueType>
@@ -9146,16 +8946,12 @@ Example:
   <attributes>
     <name>CommentsData</name>
     <title>
-      <key>ru</key>
-      <value>Данные комментариев</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Comments data</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yorum verileri</value>
+      <key>ru</key>
+      <value>Данные комментариев</value>
     </title>
     <id>16</id>
     <valueType/>
@@ -9169,16 +8965,12 @@ Example:
   <attributes>
     <name>OutputLinesLimit</name>
     <title>
-      <key>ru</key>
-      <value>Ограничение количества строк результата запроса в режиме отладки (0 - неограничено)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query result lines limit in the debug mode (0 - unlimited)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Hata ayıklama modunda sorgu sonucu satırları sınırı (0 - sınırsız)</value>
+      <key>ru</key>
+      <value>Ограничение количества строк результата запроса в режиме отладки (0 - неограничено)</value>
     </title>
     <id>10</id>
     <valueType>
@@ -9198,16 +8990,12 @@ Example:
   <attributes>
     <name>SaveCommentsOption</name>
     <title>
-      <key>ru</key>
-      <value>Сохранять комментарии при редактировании в конструкторе запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Save comments after editing with query wizard</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sihirbazı ile düzenlemeden sonra yorumları kaydet</value>
+      <key>ru</key>
+      <value>Сохранять комментарии при редактировании в конструкторе запросов</value>
     </title>
     <id>13</id>
     <valueType>
@@ -9224,16 +9012,12 @@ Example:
   <attributes>
     <name>AutoSaveIntervalOption</name>
     <title>
-      <key>ru</key>
-      <value>Интервал автосохранения, сек (0 - отключено)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Auto save interval, sec (0 - disabled)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Otomatik kaydetme aralığı, sn (0 - devre dışı)</value>
+      <key>ru</key>
+      <value>Интервал автосохранения, сек (0 - отключено)</value>
     </title>
     <id>18</id>
     <valueType>
@@ -9253,16 +9037,12 @@ Example:
   <attributes>
     <name>QueryResultColumnsMap</name>
     <title>
-      <key>ru</key>
-      <value>Соответствие колонок результата запроса элемента формы и колонок реквизита формы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Map of form item query result columns and form attribute columns</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Form öğesi sorgu sonucu sütunlarının ve form özniteliği sütunlarının haritası</value>
+      <key>ru</key>
+      <value>Соответствие колонок результата запроса элемента формы и колонок реквизита формы</value>
     </title>
     <id>19</id>
     <valueType/>
@@ -9276,16 +9056,12 @@ Example:
   <attributes>
     <name>OutputLinesLimitTop</name>
     <title>
-      <key>ru</key>
-      <value>Использовать выражение ПЕРВЫЕ для ограничения количества выводимых строк</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Using TOP for output lines limit</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Çıkış satırları sınırı için TOP kullanımı</value>
+      <key>ru</key>
+      <value>Использовать выражение ПЕРВЫЕ для ограничения количества выводимых строк</value>
     </title>
     <id>20</id>
     <valueType>
@@ -9302,16 +9078,12 @@ Example:
   <attributes>
     <name>PreviousValueParameterName</name>
     <title>
-      <key>ru</key>
-      <value>Старое значение имя параметра</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Previous value parameter name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Önceki değer parametre adı</value>
+      <key>ru</key>
+      <value>Старое значение имя параметра</value>
     </title>
     <id>21</id>
     <valueType>
@@ -9328,16 +9100,12 @@ Example:
   <attributes>
     <name>UsedFileName</name>
     <title>
-      <key>ru</key>
-      <value>Используемое имя файла</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Used file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kullanılan dosya adı</value>
+      <key>ru</key>
+      <value>Используемое имя файла</value>
     </title>
     <id>22</id>
     <valueType>
@@ -9354,16 +9122,12 @@ Example:
   <attributes>
     <name>DataProcessorServerFileName</name>
     <title>
-      <key>ru</key>
-      <value>Имя файла обработки на сервере</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Data processor server file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Veri işlemcisi sunucu dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла обработки на сервере</value>
     </title>
     <id>23</id>
     <valueType>
@@ -9380,16 +9144,12 @@ Example:
   <attributes>
     <name>ResultInBatch</name>
     <title>
-      <key>ru</key>
-      <value>Результат в пакете</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Result in batch</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Paketde sonuç</value>
+      <key>ru</key>
+      <value>Результат в пакете</value>
     </title>
     <id>12</id>
     <valueType>
@@ -9406,16 +9166,12 @@ Example:
   <attributes>
     <name>QueryResultAddress</name>
     <title>
-      <key>ru</key>
-      <value>Адрес результата запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query result address</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sonucu adresi</value>
+      <key>ru</key>
+      <value>Адрес результата запроса</value>
     </title>
     <id>24</id>
     <valueType>
@@ -9432,16 +9188,12 @@ Example:
   <attributes>
     <name>OutputLinesLimitTopEnabled</name>
     <title>
-      <key>ru</key>
-      <value>Ограничение выводимых строк первые вкл</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Output lines limit top enabled</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Çıkış satırları üst sınırı etkinleştirildi</value>
+      <key>ru</key>
+      <value>Ограничение выводимых строк первые вкл</value>
     </title>
     <id>25</id>
     <valueType>
@@ -9457,16 +9209,12 @@ Example:
   <attributes>
     <name>OutputLinesLimitEnabled</name>
     <title>
-      <key>ru</key>
-      <value>Ограничение выводимых строк вкл</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Output lines limit enabled</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Çıkış satırları sınırı etkinleştirildi</value>
+      <key>ru</key>
+      <value>Ограничение выводимых строк вкл</value>
     </title>
     <id>26</id>
     <valueType>
@@ -9482,16 +9230,12 @@ Example:
   <attributes>
     <name>ResultQueryName</name>
     <title>
-      <key>ru</key>
-      <value>Имя запроса результата</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Result query name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sonuç sorgu adı</value>
+      <key>ru</key>
+      <value>Имя запроса результата</value>
     </title>
     <id>27</id>
     <valueType>
@@ -9508,16 +9252,12 @@ Example:
   <attributes>
     <name>QueryResultContainerColumns</name>
     <title>
-      <key>ru</key>
-      <value>Список колонок в таблице контейнеров</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Columns in container table</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Konteyner tablosundaki sütunlar</value>
+      <key>ru</key>
+      <value>Список колонок в таблице контейнеров</value>
     </title>
     <id>29</id>
     <valueType/>
@@ -9531,16 +9271,12 @@ Example:
   <attributes>
     <name>AutoSaveBeforeQueryExecutionOption</name>
     <title>
-      <key>ru</key>
-      <value>Автосохранение перед выполнением запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Auto save before query execution</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu yürütülmeden önce otomatik kaydet</value>
+      <key>ru</key>
+      <value>Автосохранение перед выполнением запроса</value>
     </title>
     <id>30</id>
     <valueType>
@@ -9557,16 +9293,12 @@ Example:
   <attributes>
     <name>QueryResultTree</name>
     <title>
-      <key>ru</key>
-      <value>Результат запроса в виде дерева значений</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query result as a value tree</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sonucunu değerler ağacı olarak al</value>
+      <key>ru</key>
+      <value>Результат запроса в виде дерева значений</value>
     </title>
     <id>31</id>
     <valueType>
@@ -9582,16 +9314,12 @@ Example:
   <attributes>
     <name>ResultKind</name>
     <title>
-      <key>ru</key>
-      <value>Вид результата</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Result kind</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sonuç türü</value>
+      <key>ru</key>
+      <value>Вид результата</value>
     </title>
     <id>32</id>
     <valueType>
@@ -9608,16 +9336,12 @@ Example:
   <attributes>
     <name>UserDataDirectory</name>
     <title>
-      <key>ru</key>
-      <value>Рабочий каталог данных пользователя</value>
-    </title>
-    <title>
       <key>en</key>
       <value>User data directory</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kullanıcı veri dizini</value>
+      <key>ru</key>
+      <value>Рабочий каталог данных пользователя</value>
     </title>
     <id>33</id>
     <valueType>
@@ -9634,16 +9358,12 @@ Example:
   <attributes>
     <name>StateAutoSaveFileName</name>
     <title>
-      <key>ru</key>
-      <value>Имя файла автосохранения состояния</value>
-    </title>
-    <title>
       <key>en</key>
       <value>State auto save file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Otomatik kaydetme durumu dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла автосохранения состояния</value>
     </title>
     <id>34</id>
     <valueType>
@@ -9660,16 +9380,12 @@ Example:
   <attributes>
     <name>QueryResultTotals</name>
     <title>
-      <key>ru</key>
-      <value>Результат запроса итоги</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query result totals</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sonucu toplamları</value>
+      <key>ru</key>
+      <value>Результат запроса итоги</value>
     </title>
     <id>35</id>
     <valueType>
@@ -9685,16 +9401,12 @@ Example:
   <attributes>
     <name>MacroParameter</name>
     <title>
-      <key>ru</key>
-      <value>Макро параметр</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Macro parameter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Makro parametre</value>
+      <key>ru</key>
+      <value>Макро параметр</value>
     </title>
     <id>37</id>
     <valueType>
@@ -9711,16 +9423,12 @@ Example:
   <attributes>
     <name>AlgorithmText</name>
     <title>
-      <key>ru</key>
-      <value>Код для обработки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Code to processing</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İşleme kodu</value>
+      <key>ru</key>
+      <value>Код для обработки</value>
     </title>
     <id>38</id>
     <valueType>
@@ -9738,16 +9446,12 @@ Example:
   <attributes>
     <name>FormDataChoicePredefined</name>
     <title>
-      <key>ru</key>
-      <value>Данные формы выбор предопределенного</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Form data choice predefined</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Form verileri önceden tanımlanan seçimi</value>
+      <key>ru</key>
+      <value>Данные формы выбор предопределенного</value>
     </title>
     <id>39</id>
     <valueType>
@@ -9764,16 +9468,12 @@ Example:
   <attributes>
     <name>Algorithms</name>
     <title>
-      <key>ru</key>
-      <value>Алгоритмы (в разработке)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Algorithms (in developing)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Algoritmalar (geliştirme aşamasında)</value>
+      <key>ru</key>
+      <value>Алгоритмы (в разработке)</value>
     </title>
     <id>15</id>
     <valueType>
@@ -9788,16 +9488,12 @@ Example:
     <columns>
       <name>Text</name>
       <title>
-        <key>ru</key>
-        <value>Текст</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Text</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Metin</value>
+        <key>ru</key>
+        <value>Текст</value>
       </title>
       <id>1</id>
       <valueType>
@@ -9814,16 +9510,12 @@ Example:
     <columns>
       <name>ExecutionMethod</name>
       <title>
-        <key>ru</key>
-        <value>Метод исполнения</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Execution method</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Yürütme yöntemi</value>
+        <key>ru</key>
+        <value>Метод исполнения</value>
       </title>
       <id>2</id>
       <valueType>
@@ -9841,16 +9533,12 @@ Example:
   <attributes>
     <name>CodeExecutionMethod</name>
     <title>
-      <key>ru</key>
-      <value>Метод выполнения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Execution method</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yürütme yöntemi</value>
+      <key>ru</key>
+      <value>Метод выполнения</value>
     </title>
     <id>28</id>
     <valueType>
@@ -9870,16 +9558,12 @@ Example:
   <attributes>
     <name>BackgroundJobID</name>
     <title>
-      <key>ru</key>
-      <value>ИдентификаторФоновогоЗадания</value>
-    </title>
-    <title>
       <key>en</key>
       <value>BackgroundJobID</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>ArkaplanİşID</value>
+      <key>ru</key>
+      <value>ИдентификаторФоновогоЗадания</value>
     </title>
     <id>36</id>
     <valueType>
@@ -9896,16 +9580,12 @@ Example:
   <attributes>
     <name>BackgroundJobResultAddress</name>
     <title>
-      <key>ru</key>
-      <value>Адрес результата фонового задания</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Background job result address</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Arkaplan iş sonucu adresi</value>
+      <key>ru</key>
+      <value>Адрес результата фонового задания</value>
     </title>
     <id>40</id>
     <valueType>
@@ -9922,16 +9602,12 @@ Example:
   <attributes>
     <name>ExecutionStatus</name>
     <title>
-      <key>ru</key>
-      <value>Состояние выполнения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Execution status</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yürütme durumu</value>
+      <key>ru</key>
+      <value>Состояние выполнения</value>
     </title>
     <id>41</id>
     <valueType>
@@ -9948,16 +9624,12 @@ Example:
   <attributes>
     <name>BackgroundJobProgressState</name>
     <title>
-      <key>ru</key>
-      <value>Состояние прогресса фонового задания</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Background job progress state</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Arkaplan iş ilerleme durumu</value>
+      <key>ru</key>
+      <value>Состояние прогресса фонового задания</value>
     </title>
     <id>42</id>
     <valueType/>
@@ -9971,16 +9643,12 @@ Example:
   <attributes>
     <name>StateAddress</name>
     <title>
-      <key>ru</key>
-      <value>Адрес состояния построчного выполнения с индикацией</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Line execution with indication state address</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Gösterge durumu adresiyle satır yürütme</value>
+      <key>ru</key>
+      <value>Адрес состояния построчного выполнения с индикацией</value>
     </title>
     <id>43</id>
     <valueType>
@@ -10000,10 +9668,6 @@ Example:
       <key>ru</key>
       <value>Query result batch</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sorgu sonucu paketi</value>
-    </title>
     <id>44</id>
     <valueType>
       <types>ValueTable</types>
@@ -10017,16 +9681,12 @@ Example:
     <columns>
       <name>Name</name>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Имя</value>
       </title>
       <id>1</id>
       <valueType>
@@ -10043,16 +9703,12 @@ Example:
     <columns>
       <name>Info</name>
       <title>
-        <key>ru</key>
-        <value>Инфо</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Info</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Bilgi</value>
+        <key>ru</key>
+        <value>Инфо</value>
       </title>
       <id>2</id>
       <valueType>
@@ -10069,16 +9725,12 @@ Example:
     <columns>
       <name>ResultKind</name>
       <title>
-        <key>ru</key>
-        <value>Тип результата</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Result kind</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sonuç türü</value>
+        <key>ru</key>
+        <value>Тип результата</value>
       </title>
       <id>3</id>
       <valueType>
@@ -10097,16 +9749,12 @@ Example:
     <columns>
       <name>Current</name>
       <title>
-        <key>ru</key>
-        <value>Текущий отображаемый</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Current</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Mevcut</value>
+        <key>ru</key>
+        <value>Текущий отображаемый</value>
       </title>
       <id>4</id>
       <valueType>
@@ -10123,16 +9771,12 @@ Example:
   <attributes>
     <name>ResultInForm</name>
     <title>
-      <key>ru</key>
-      <value>Результат на форме</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Result in form</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Formdaki sonuç</value>
+      <key>ru</key>
+      <value>Результат на форме</value>
     </title>
     <id>17</id>
     <valueType>
@@ -10151,16 +9795,12 @@ Example:
   <attributes>
     <name>ResultRecordStructure</name>
     <title>
-      <key>ru</key>
-      <value>Структура записи результата</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Result record structure</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sonuç kayıt yapısı</value>
+      <key>ru</key>
+      <value>Структура записи результата</value>
     </title>
     <id>45</id>
     <valueType>
@@ -10181,10 +9821,6 @@ Example:
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -10208,10 +9844,6 @@ Example:
         <key>en</key>
         <value>Type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tür</value>
-      </title>
       <id>2</id>
       <valueType/>
       <view>
@@ -10230,10 +9862,6 @@ Example:
       <title>
         <key>en</key>
         <value>Child nodes expanded</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Alt düğümler genişletildi</value>
       </title>
       <id>3</id>
       <valueType>
@@ -10256,10 +9884,6 @@ Example:
         <key>en</key>
         <value>Picture</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Resim</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>Picture</types>
@@ -10275,16 +9899,12 @@ Example:
   <attributes>
     <name>TechLogSwitchingPollingPeriodOption</name>
     <title>
-      <key>ru</key>
-      <value>Опция период опроса включения выключения технологического журнала</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Tech log switching polling period option</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tekink log anahtarlama anket dönemi seçeneği</value>
+      <key>ru</key>
+      <value>Опция период опроса включения выключения технологического журнала</value>
     </title>
     <id>46</id>
     <valueType>
@@ -10303,16 +9923,12 @@ Example:
   <attributes>
     <name>TechLogBeginEndTime</name>
     <title>
-      <key>ru</key>
-      <value>Технологический журнал время включения выключения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Tech log begin end time</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Teknik log süresi açık kapalı</value>
+      <key>ru</key>
+      <value>Технологический журнал время включения выключения</value>
     </title>
     <id>47</id>
     <valueType>
@@ -10331,16 +9947,12 @@ Example:
   <attributes>
     <name>TechLogEnabledAndRunning</name>
     <title>
-      <key>ru</key>
-      <value>Технологический журнал включен и работает</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Tech log enabled and running</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Teknik log etkinleştirildi ve çalışıyor</value>
+      <key>ru</key>
+      <value>Технологический журнал включен и работает</value>
     </title>
     <id>48</id>
     <valueType>
@@ -10356,16 +9968,12 @@ Example:
   <attributes>
     <name>FileExtensionConnected</name>
     <title>
-      <key>ru</key>
-      <value>Расширение для работы с файлами подключено</value>
-    </title>
-    <title>
       <key>en</key>
       <value>File extension connected</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dosya uzantısı bağlandı</value>
+      <key>ru</key>
+      <value>Расширение для работы с файлами подключено</value>
     </title>
     <id>49</id>
     <valueType>
@@ -10381,16 +9989,12 @@ Example:
   <attributes>
     <name>ContainerAttributeSuffix</name>
     <title>
-      <key>ru</key>
-      <value>Суффикс реквизита контейнера</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Container attribute suffix</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Konteyner öznitelik son eki</value>
+      <key>ru</key>
+      <value>Суффикс реквизита контейнера</value>
     </title>
     <id>50</id>
     <valueType>
@@ -10407,16 +10011,12 @@ Example:
   <attributes>
     <name>UT_Debug</name>
     <title>
-      <key>ru</key>
-      <value>У и отладка</value>
-    </title>
-    <title>
       <key>en</key>
       <value>U t debug</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ut hata ayıklama</value>
+      <key>ru</key>
+      <value>У и отладка</value>
     </title>
     <id>51</id>
     <valueType>
@@ -10432,16 +10032,12 @@ Example:
   <attributes>
     <name>UT_IncludedInUniversalTools</name>
     <title>
-      <key>ru</key>
-      <value>У и входит в состав универсальных инструментов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>U t included in universal tools</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Universal araçlara dahil</value>
+      <key>ru</key>
+      <value>У и входит в состав универсальных инструментов</value>
     </title>
     <id>54</id>
     <valueType>
@@ -10457,16 +10053,12 @@ Example:
   <attributes>
     <name>UT_RowProperties</name>
     <title>
-      <key>ru</key>
-      <value>У и свойства строки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>U t row properties</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ut satır özellikleri</value>
+      <key>ru</key>
+      <value>У и свойства строки</value>
     </title>
     <id>55</id>
     <valueType>
@@ -10481,16 +10073,12 @@ Example:
     <columns>
       <name>Property</name>
       <title>
-        <key>ru</key>
-        <value>Свойство</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Property</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Özellik</value>
+        <key>ru</key>
+        <value>Свойство</value>
       </title>
       <id>56</id>
       <valueType>
@@ -10507,16 +10095,12 @@ Example:
     <columns>
       <name>Value</name>
       <title>
-        <key>ru</key>
-        <value>Значение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Value</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değer</value>
+        <key>ru</key>
+        <value>Значение</value>
       </title>
       <id>57</id>
       <valueType/>
@@ -10530,16 +10114,12 @@ Example:
     <columns>
       <name>Picture</name>
       <title>
-        <key>ru</key>
-        <value>Картинка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Picture</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Resim</value>
+        <key>ru</key>
+        <value>Картинка</value>
       </title>
       <id>58</id>
       <valueType>
@@ -10556,16 +10136,12 @@ Example:
   <attributes>
     <name>RowPropertiesVisible</name>
     <title>
-      <key>ru</key>
-      <value>Видимость свойств строки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Row properties visible</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Satır özellikleri görünür</value>
+      <key>ru</key>
+      <value>Видимость свойств строки</value>
     </title>
     <id>59</id>
     <valueType>
@@ -10581,16 +10157,12 @@ Example:
   <attributes>
     <name>AlgorithmTextBeforeExecution</name>
     <title>
-      <key>ru</key>
-      <value>Текст алгоритм перед выполнением</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Algorithm text before execution</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yürütmeden önceki algoritma metni</value>
+      <key>ru</key>
+      <value>Текст алгоритм перед выполнением</value>
     </title>
     <id>60</id>
     <valueType>
@@ -10607,16 +10179,12 @@ Example:
   <attributes>
     <name>AlgorithmHintBeforeExecution</name>
     <title>
-      <key>ru</key>
-      <value>Подсказка алгоритма перед выполнением</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Algorithm hint before execution</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yürütme öncesi algoritma ipucu</value>
+      <key>ru</key>
+      <value>Подсказка алгоритма перед выполнением</value>
     </title>
     <id>61</id>
     <valueType>
@@ -10633,16 +10201,12 @@ Example:
   <formCommands>
     <name>ExecuteQuery</name>
     <title>
-      <key>ru</key>
-      <value>Выполнить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Execute</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Çalıştır</value>
+      <key>ru</key>
+      <value>Выполнить</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -10671,16 +10235,12 @@ Example:
   <formCommands>
     <name>QueryBatchNew</name>
     <title>
-      <key>ru</key>
-      <value>Новый</value>
-    </title>
-    <title>
       <key>en</key>
       <value>New</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yeni</value>
+      <key>ru</key>
+      <value>Новый</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -10708,16 +10268,12 @@ Example:
   <formCommands>
     <name>QueryBatchSave</name>
     <title>
-      <key>ru</key>
-      <value>Сохранить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Save</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kaydet</value>
+      <key>ru</key>
+      <value>Сохранить</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -10746,16 +10302,12 @@ Example:
   <formCommands>
     <name>LoadQueryBatch</name>
     <title>
-      <key>ru</key>
-      <value>Загрузить пакет запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Load query batch</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu paketini yükle</value>
+      <key>ru</key>
+      <value>Загрузить пакет запросов</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -10783,16 +10335,12 @@ Example:
   <formCommands>
     <name>QueryWizard</name>
     <title>
-      <key>ru</key>
-      <value>Конструктор запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query wizard</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sihirbazı</value>
+      <key>ru</key>
+      <value>Конструктор запросов</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -10822,16 +10370,12 @@ Example:
   <formCommands>
     <name>FillParametersFromQuery</name>
     <title>
-      <key>ru</key>
-      <value>Из запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>From query</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgudan</value>
+      <key>ru</key>
+      <value>Из запроса</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -10856,16 +10400,12 @@ Example:
   <formCommands>
     <name>FillFromXML</name>
     <title>
-      <key>ru</key>
-      <value>Заполнить из XML</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Fill from XML</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>XML'den doldur</value>
+      <key>ru</key>
+      <value>Заполнить из XML</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -10895,16 +10435,12 @@ Example:
   <formCommands>
     <name>QueryBatchSaveAs</name>
     <title>
-      <key>ru</key>
-      <value>Сохранить как...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Save as...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Farklı kaydet</value>
+      <key>ru</key>
+      <value>Сохранить как...</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -10928,16 +10464,12 @@ Example:
   <formCommands>
     <name>ClearParameters</name>
     <title>
-      <key>ru</key>
-      <value>Очистить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Clear</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Temizle</value>
+      <key>ru</key>
+      <value>Очистить</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -10962,16 +10494,12 @@ Example:
   <formCommands>
     <name>RemoveLineFeedsFromText</name>
     <title>
-      <key>ru</key>
-      <value>Убрать перенос строк из текста</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Remove line feeds from text</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metinden satır sonlarını kaldır</value>
+      <key>ru</key>
+      <value>Убрать перенос строк из текста</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -10996,16 +10524,12 @@ Example:
   <formCommands>
     <name>AddLineFeedsToText</name>
     <title>
-      <key>ru</key>
-      <value>Добавить перенос строк в текст</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add line feeds to text</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metne satır sonu ekle</value>
+      <key>ru</key>
+      <value>Добавить перенос строк в текст</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -11030,16 +10554,12 @@ Example:
   <formCommands>
     <name>AddCommentsToText</name>
     <title>
-      <key>ru</key>
-      <value>Добавить комментирование строк</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add comments</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yorum ekle</value>
+      <key>ru</key>
+      <value>Добавить комментирование строк</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -11065,16 +10585,12 @@ Example:
   <formCommands>
     <name>RemoveCommentsFromText</name>
     <title>
-      <key>ru</key>
-      <value>Убрать комментирование строк</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Remove comments</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yorumları kaldır</value>
+      <key>ru</key>
+      <value>Убрать комментирование строк</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -11100,16 +10616,12 @@ Example:
   <formCommands>
     <name>QuerySyntaxCheck</name>
     <title>
-      <key>ru</key>
-      <value>Синтаксический контроль</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Syntax check</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sözdizimi kontrolü</value>
+      <key>ru</key>
+      <value>Синтаксический контроль</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -11138,16 +10650,12 @@ Example:
   <formCommands>
     <name>FormatQueryText</name>
     <title>
-      <key>ru</key>
-      <value>Форматировать текст запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Format query text</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu metnini biçimlendir</value>
+      <key>ru</key>
+      <value>Форматировать текст запроса</value>
     </title>
     <id>16</id>
     <toolTip>
@@ -11172,16 +10680,12 @@ Example:
   <formCommands>
     <name>GetCodeForTrace</name>
     <title>
-      <key>ru</key>
-      <value>Получить код для перехвата в отладчике</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Get code for trace</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İzleme için kod al</value>
+      <key>ru</key>
+      <value>Получить код для перехвата в отладчике</value>
     </title>
     <id>17</id>
     <toolTip>
@@ -11209,16 +10713,12 @@ Example:
   <formCommands>
     <name>GetHookedQueries</name>
     <title>
-      <key>ru</key>
-      <value>Получить перехваченные запросы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Get hooked queries</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yakalanan sorguları al</value>
+      <key>ru</key>
+      <value>Получить перехваченные запросы</value>
     </title>
     <id>18</id>
     <toolTip>
@@ -11246,16 +10746,12 @@ Example:
   <formCommands>
     <name>QueryBatchAdd</name>
     <title>
-      <key>ru</key>
-      <value>Добавить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ekle</value>
+      <key>ru</key>
+      <value>Добавить</value>
     </title>
     <id>19</id>
     <toolTip>
@@ -11282,16 +10778,12 @@ Example:
   <formCommands>
     <name>QueryBatchLevelUp</name>
     <title>
-      <key>ru</key>
-      <value>Уровень вверх</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Level up</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seviye atla</value>
+      <key>ru</key>
+      <value>Уровень вверх</value>
     </title>
     <id>20</id>
     <toolTip>
@@ -11319,16 +10811,12 @@ Example:
   <formCommands>
     <name>QueryBatchCopy</name>
     <title>
-      <key>ru</key>
-      <value>Скопировать</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Copy</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kopyala</value>
+      <key>ru</key>
+      <value>Скопировать</value>
     </title>
     <id>21</id>
     <toolTip>
@@ -11355,16 +10843,12 @@ Example:
   <formCommands>
     <name>RefreshResult</name>
     <title>
-      <key>ru</key>
-      <value>Обновить результат</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Refresh result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sonucu yenile</value>
+      <key>ru</key>
+      <value>Обновить результат</value>
     </title>
     <id>22</id>
     <toolTip>
@@ -11392,16 +10876,12 @@ Example:
   <formCommands>
     <name>QueryResultTreeExpandAll</name>
     <title>
-      <key>ru</key>
-      <value>Результат запроса дерево развернуть все</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query result tree expand all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sonucu ağacı tümünü genişlet</value>
+      <key>ru</key>
+      <value>Результат запроса дерево развернуть все</value>
     </title>
     <id>23</id>
     <toolTip>
@@ -11430,16 +10910,12 @@ Example:
   <formCommands>
     <name>QueryResultTreeCollapseAll</name>
     <title>
-      <key>ru</key>
-      <value>Результат запроса дерева свернуть все</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query result tree collapse all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sonucu ağacını daralt</value>
+      <key>ru</key>
+      <value>Результат запроса дерева свернуть все</value>
     </title>
     <id>24</id>
     <toolTip>
@@ -11467,16 +10943,12 @@ Example:
   <formCommands>
     <name>ResultToSpreadsheetDocument</name>
     <title>
-      <key>ru</key>
-      <value>В документ</value>
-    </title>
-    <title>
       <key>en</key>
       <value>To document</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Belgeye</value>
+      <key>ru</key>
+      <value>В документ</value>
     </title>
     <id>25</id>
     <toolTip>
@@ -11505,16 +10977,12 @@ Example:
   <formCommands>
     <name>ShowHideResultPanelTotals</name>
     <title>
-      <key>ru</key>
-      <value>Итоги</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Totals</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Toplamlar</value>
+      <key>ru</key>
+      <value>Итоги</value>
     </title>
     <id>26</id>
     <toolTip>
@@ -11538,16 +11006,12 @@ Example:
   <formCommands>
     <name>ExecuteDataProcessor</name>
     <title>
-      <key>ru</key>
-      <value>Выполнить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Execute</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Çalıştır</value>
+      <key>ru</key>
+      <value>Выполнить</value>
     </title>
     <id>27</id>
     <toolTip>
@@ -11576,16 +11040,12 @@ Example:
   <formCommands>
     <name>InsertPredefinedValue</name>
     <title>
-      <key>ru</key>
-      <value>Вставить предопределенное</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Insert predefined value</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Önceden tanımlanmış değeri ekle</value>
+      <key>ru</key>
+      <value>Вставить предопределенное</value>
     </title>
     <id>28</id>
     <toolTip>
@@ -11614,16 +11074,12 @@ Example:
   <formCommands>
     <name>ResultToParameter</name>
     <title>
-      <key>ru</key>
-      <value>В параметр</value>
-    </title>
-    <title>
       <key>en</key>
       <value>To parameter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Parametreye</value>
+      <key>ru</key>
+      <value>В параметр</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -11651,16 +11107,12 @@ Example:
   <formCommands>
     <name>AlgorithmHelp</name>
     <title>
-      <key>ru</key>
-      <value>Справка</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Help</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yardım</value>
+      <key>ru</key>
+      <value>Справка</value>
     </title>
     <id>29</id>
     <toolTip>
@@ -11684,16 +11136,12 @@ Example:
   <formCommands>
     <name>GetCodeWithParameters</name>
     <title>
-      <key>ru</key>
-      <value>Получить код</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Get code</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kod al</value>
+      <key>ru</key>
+      <value>Получить код</value>
     </title>
     <id>30</id>
     <toolTip>
@@ -11722,16 +11170,12 @@ Example:
   <formCommands>
     <name>DeleteHookedQueries</name>
     <title>
-      <key>ru</key>
-      <value>Удалить перехваченные запросы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete hooked queries</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yakalanan sorguları sil</value>
+      <key>ru</key>
+      <value>Удалить перехваченные запросы</value>
     </title>
     <id>31</id>
     <toolTip>
@@ -11758,16 +11202,12 @@ Example:
   <formCommands>
     <name>ShowHideQueryResultBatch</name>
     <title>
-      <key>ru</key>
-      <value>Пакет запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query batch</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu paketi</value>
+      <key>ru</key>
+      <value>Пакет запросов</value>
     </title>
     <id>32</id>
     <toolTip>
@@ -11796,16 +11236,12 @@ Example:
   <formCommands>
     <name>QueryParametersNextToText</name>
     <title>
-      <key>ru</key>
-      <value>Параметры</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Parameters</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Parametreler</value>
+      <key>ru</key>
+      <value>Параметры</value>
     </title>
     <id>33</id>
     <toolTip>
@@ -11833,16 +11269,12 @@ Example:
   <formCommands>
     <name>TechnologicalLog</name>
     <title>
-      <key>ru</key>
-      <value>ТЖ</value>
-    </title>
-    <title>
       <key>en</key>
       <value>TechLog</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>TechLog</value>
+      <key>ru</key>
+      <value>ТЖ</value>
     </title>
     <id>34</id>
     <toolTip>
@@ -11866,16 +11298,12 @@ Example:
   <formCommands>
     <name>QueryPlan</name>
     <title>
-      <key>ru</key>
-      <value>План</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Plan</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Plan</value>
+      <key>ru</key>
+      <value>План</value>
     </title>
     <id>35</id>
     <toolTip>
@@ -11899,16 +11327,12 @@ Example:
   <formCommands>
     <name>GetConsoleTechLogFiles</name>
     <title>
-      <key>ru</key>
-      <value>Получить файлы технологического журнала консоли</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Get console tech log files</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Konsol teknik log dosyalarını al</value>
+      <key>ru</key>
+      <value>Получить файлы технологического журнала консоли</value>
     </title>
     <id>36</id>
     <toolTip>
@@ -11932,16 +11356,12 @@ Example:
   <formCommands>
     <name>UT_EditValue</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать значение</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit value</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değeri düzenle</value>
+      <key>ru</key>
+      <value>Редактировать значение</value>
     </title>
     <id>37</id>
     <use>
@@ -11967,10 +11387,6 @@ Example:
     <title>
       <key>en</key>
       <value>Properties</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Özellikler</value>
     </title>
     <id>38</id>
     <toolTip>
@@ -11998,16 +11414,12 @@ Example:
   <formCommands>
     <name>UT_EditPropertyRowValue</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать значение строки свойтсв</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit property row value</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Özellik satırı değerini düzenle</value>
+      <key>ru</key>
+      <value>Редактировать значение строки свойтсв</value>
     </title>
     <id>39</id>
     <use>
@@ -12026,16 +11438,12 @@ Example:
   <formCommands>
     <name>InsertMacroColumn</name>
     <title>
-      <key>ru</key>
-      <value>Вставить макро колонку</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Insert macro column</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Makro sütununu ekle</value>
+      <key>ru</key>
+      <value>Вставить макро колонку</value>
     </title>
     <id>40</id>
     <use>
@@ -12055,16 +11463,12 @@ Example:
   <formCommands>
     <name>QueryResultTableSortDesc</name>
     <title>
-      <key>ru</key>
-      <value>Сортировать по убыванию</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Sort descending</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Azalan sıralama</value>
+      <key>ru</key>
+      <value>Сортировать по убыванию</value>
     </title>
     <id>41</id>
     <toolTip>
@@ -12084,23 +11488,17 @@ Example:
     </action>
     <representation>Picture</representation>
     <currentRowUse>Auto</currentRowUse>
-    <associatedTableElementId xsi:type="core:StringValue">
-      <value>QueryResult</value>
-    </associatedTableElementId>
+    <associatedTableElementId>4</associatedTableElementId>
   </formCommands>
   <formCommands>
     <name>QueryResultTableSortAsc</name>
-    <title>
-      <key>ru</key>
-      <value>Сортировать по возрастанию</value>
-    </title>
     <title>
       <key>en</key>
       <value>Sort ascending</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Artan sıralama</value>
+      <key>ru</key>
+      <value>Сортировать по возрастанию</value>
     </title>
     <id>42</id>
     <toolTip>
@@ -12124,16 +11522,12 @@ Example:
   <formCommands>
     <name>QueryResultTreeSortAsc</name>
     <title>
-      <key>ru</key>
-      <value>Сортировать по возрастанию</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Sort ascending</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Artan sıralama</value>
+      <key>ru</key>
+      <value>Сортировать по возрастанию</value>
     </title>
     <id>43</id>
     <use>
@@ -12152,16 +11546,12 @@ Example:
   <formCommands>
     <name>QueryResultTreeSortDesc</name>
     <title>
-      <key>ru</key>
-      <value>Сортировать по убыванию</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Sort descending</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Azalan sıralama</value>
+      <key>ru</key>
+      <value>Сортировать по убыванию</value>
     </title>
     <id>44</id>
     <toolTip>
@@ -12180,23 +11570,13 @@ Example:
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
-    <associatedTableElementId xsi:type="core:StringValue">
-      <value>QueryResult</value>
-    </associatedTableElementId>
+    <associatedTableElementId>4</associatedTableElementId>
   </formCommands>
   <formCommands>
     <name>ShowHideQueryResult</name>
     <title>
       <key>ru</key>
       <value>Show hide query result</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Show hide query result</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sorgu sonucu göster/gizle</value>
     </title>
     <id>45</id>
     <use>
@@ -12214,14 +11594,6 @@ Example:
     <title>
       <key>ru</key>
       <value>Add request package</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Add request package</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstek paketi ekle</value>
     </title>
     <id>46</id>
     <toolTip>
@@ -12247,14 +11619,6 @@ Example:
     <title>
       <key>ru</key>
       <value>U t convert query text from built in language expression</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>U t convert query text from built in language expression</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Ut yerleşik dil ifadesinden sorgu metnini dönüştür</value>
     </title>
     <id>47</id>
     <toolTip>

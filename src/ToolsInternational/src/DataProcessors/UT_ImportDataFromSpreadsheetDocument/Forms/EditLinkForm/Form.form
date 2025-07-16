@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Редактирование связи поиска</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Edit search link</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Arama bağlantısını düzenle</value>
+    <key>ru</key>
+    <value>Редактирование связи поиска</value>
   </title>
   <items xsi:type="form:FormField">
     <name>SearchBy</name>
@@ -20,8 +16,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>SearchBy</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>SearchBy</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>SearchByExtendedTooltip</name>
@@ -70,8 +68,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>LinkByOwner</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>LinkByOwner</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>LinkByOwnerExtendedTooltip</name>
@@ -237,7 +237,6 @@
     <name>OnOpen</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -249,10 +248,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_ImportDataFromSpreadsheetDocument</types>
@@ -268,16 +263,12 @@
   <attributes>
     <name>SearchBy</name>
     <title>
-      <key>ru</key>
-      <value>Искать по</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Search by</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Şuna göre ara</value>
+      <key>ru</key>
+      <value>Искать по</value>
     </title>
     <id>2</id>
     <valueType>
@@ -294,16 +285,12 @@
   <attributes>
     <name>LinkByOwner</name>
     <title>
-      <key>ru</key>
-      <value>Связь по владельцу</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Link by owner</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sahibine göre bağlantı</value>
+      <key>ru</key>
+      <value>Связь по владельцу</value>
     </title>
     <id>3</id>
     <valueType>
@@ -321,16 +308,12 @@
   <attributes>
     <name>UsedTypes</name>
     <title>
-      <key>ru</key>
-      <value>Используемые типы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Used types</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kullanılan tipler</value>
+      <key>ru</key>
+      <value>Используемые типы</value>
     </title>
     <id>4</id>
     <valueType>
@@ -346,16 +329,12 @@
   <attributes>
     <name>UseOwner</name>
     <title>
-      <key>ru</key>
-      <value>Использовать владельца</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Use owner</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sahibini kullan</value>
+      <key>ru</key>
+      <value>Использовать владельца</value>
     </title>
     <id>5</id>
     <valueType>
@@ -371,16 +350,12 @@
   <formCommands>
     <name>ОК</name>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>ОК</value>
     </title>
     <id>1</id>
     <toolTip>

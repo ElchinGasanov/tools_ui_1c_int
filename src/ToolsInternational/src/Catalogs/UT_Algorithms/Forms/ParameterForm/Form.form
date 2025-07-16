@@ -19,8 +19,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ParameterName</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ParameterName</segments>
+        </paths>
       </dataPath>
       <titleHeight>1</titleHeight>
       <handlers>
@@ -103,16 +105,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Enter the name of the new parameter (standard requirements for prop names)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Enter the name of the new parameter (standard requirements for the names of the attributes)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yeni parametrenin adını girin (öznitelik adları için standart gereksinimler)</value>
+      <key>ru</key>
+      <value>Enter the name of the new parameter (standard requirements for prop names)</value>
     </title>
     <titleTextColor xsi:type="core:ColorDef">
       <red>128</red>
@@ -158,8 +156,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>SelectedType</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>SelectedType</segments>
+      </paths>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -248,16 +248,12 @@
       <name>DefinedType</name>
       <id>49</id>
       <title>
-        <key>ru</key>
-        <value>Description example  - Result = New ValueTable ....</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Example of description: Result = New ValueTable ...</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Açıklama örneği: Result = New ValueTable ...</value>
+        <key>ru</key>
+        <value>Description example  - Result = New ValueTable ....</value>
       </title>
       <titleTextColor xsi:type="core:ColorDef">
         <red>128</red>
@@ -267,8 +263,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>DefinedType</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>DefinedType</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>DefinedTypeExtendedTooltip</name>
@@ -335,10 +333,6 @@
       <key>en</key>
       <value>Group defined type</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Grup tanımlı tip</value>
-    </title>
     <toolTip>
       <key>ru</key>
       <value>Группа определяемый тип</value>
@@ -378,8 +372,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>TypeCollection</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>TypeCollection</segments>
+      </paths>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -473,8 +469,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>ExternalFile</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>ExternalFile</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>ExternalFileExtendedTooltip</name>
@@ -531,8 +529,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>AvailableTypes</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>AvailableTypes</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -584,16 +584,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Available types</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Group available types</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Grupta mevcut tipler</value>
+      <key>ru</key>
+      <value>Available types</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -640,8 +636,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TypeDescription</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TypeDescription</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>TypeDescriptionExtendedTooltip</name>
@@ -840,7 +838,6 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
-        <source>CollectionParameter</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -879,7 +876,6 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
-        <source>CollectionParameter</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
           <horizontalLocation>Left</horizontalLocation>
@@ -919,7 +915,6 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
-        <source>CollectionParameter</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -1065,7 +1060,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -1096,16 +1090,12 @@
   <attributes>
     <name>ParameterName</name>
     <title>
-      <key>ru</key>
-      <value>Наименование параметра</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Parameter name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Parametre adı</value>
+      <key>ru</key>
+      <value>Наименование параметра</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1122,16 +1112,12 @@
   <attributes>
     <name>SelectedType</name>
     <title>
-      <key>ru</key>
-      <value>Выбраный тип</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Selected type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçilmiş tip</value>
+      <key>ru</key>
+      <value>Выбраный тип</value>
     </title>
     <id>3</id>
     <valueType>
@@ -1148,16 +1134,12 @@
   <attributes>
     <name>TypeCollection</name>
     <title>
-      <key>ru</key>
-      <value>Тип коллекция</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Type collection</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tür koleksiyonu</value>
+      <key>ru</key>
+      <value>Тип коллекция</value>
     </title>
     <id>4</id>
     <valueType>
@@ -1174,16 +1156,12 @@
   <attributes>
     <name>ExternalFile</name>
     <title>
-      <key>ru</key>
-      <value>Внешний файл</value>
-    </title>
-    <title>
       <key>en</key>
       <value>External file</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Harici dosya</value>
+      <key>ru</key>
+      <value>Внешний файл</value>
     </title>
     <id>5</id>
     <valueType>
@@ -1200,16 +1178,12 @@
   <attributes>
     <name>AvailableTypes</name>
     <title>
-      <key>ru</key>
-      <value>Доступные типы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Available types</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Mevcut tipler</value>
+      <key>ru</key>
+      <value>Доступные типы</value>
     </title>
     <id>6</id>
     <valueType/>
@@ -1230,10 +1204,6 @@
       <key>en</key>
       <value>Type description</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tür açıklaması</value>
-    </title>
     <id>7</id>
     <valueType>
       <types>TypeDescription</types>
@@ -1248,16 +1218,12 @@
   <attributes>
     <name>CollectionParameter</name>
     <title>
-      <key>ru</key>
-      <value>Параметр коллекция</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Collection parameter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Koleksiyon parametresi</value>
+      <key>ru</key>
+      <value>Параметр коллекция</value>
     </title>
     <id>8</id>
     <valueType>
@@ -1279,10 +1245,6 @@
     <title>
       <key>en</key>
       <value>Defined type</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Tanımlı tip</value>
     </title>
     <id>9</id>
     <valueType>
@@ -1306,10 +1268,6 @@
       <key>en</key>
       <value>Storage URL</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Depolama URL'si</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>String</types>
@@ -1325,16 +1283,12 @@
   <formCommands>
     <name>SetParameterName</name>
     <title>
-      <key>ru</key>
-      <value>Set</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Set</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ayarla</value>
+      <key>ru</key>
+      <value>Set</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1365,10 +1319,6 @@
       <key>en</key>
       <value>Write and close</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yaz ve kapat</value>
-    </title>
     <id>2</id>
     <toolTip>
       <key>en</key>
@@ -1391,16 +1341,12 @@
   <formCommands>
     <name>AddColumn</name>
     <title>
-      <key>ru</key>
-      <value>Add сolumn</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add column</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sütun ekle</value>
+      <key>ru</key>
+      <value>Add сolumn</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -1428,16 +1374,12 @@
   <formCommands>
     <name>DeleteColumn</name>
     <title>
-      <key>ru</key>
-      <value>Delete сolumn</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete column</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sütunu sil</value>
+      <key>ru</key>
+      <value>Delete сolumn</value>
     </title>
     <id>4</id>
     <toolTip>

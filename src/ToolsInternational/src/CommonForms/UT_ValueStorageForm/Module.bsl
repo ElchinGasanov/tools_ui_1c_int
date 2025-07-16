@@ -29,7 +29,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 
 	ValueStorageData = ValueStorageData.Get();
 	If ValueStorageData = Undefined Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Хранилище пустое'; en = 'Storage is empty'; tr = 'Depo boş'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Хранилище пустое'; en = 'Storage is empty'"));
 		Cancel = True;
 		Return;
 	EndIf;

@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Выбор константы</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Select constant</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Sabit seçimi</value>
+    <key>ru</key>
+    <value>Выбор константы</value>
   </title>
   <items xsi:type="form:Table">
     <name>ConstantsList</name>
@@ -36,24 +32,22 @@
       <name>ConstantsListDescription</name>
       <id>12</id>
       <title>
-        <key>ru</key>
-        <value>Константа</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Constant</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sabit</value>
+        <key>ru</key>
+        <value>Константа</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ConstantsList.Description</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ConstantsList.Description</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>ConstantsListDescriptionExtendedTooltip</name>
@@ -98,22 +92,20 @@
       <name>ConstantsListAutoRecordPictureIndex</name>
       <id>14</id>
       <title>
-        <key>ru</key>
-        <value>Авторегистрация</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Auto record</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Oto kayıt</value>
+        <key>ru</key>
+        <value>Авторегистрация</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible/>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ConstantsList.AutoRecordPictureIndex</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ConstantsList.AutoRecordPictureIndex</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -151,10 +143,6 @@
         <autoMaxHeight>true</autoMaxHeight>
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
-        <border xsi:type="core:BorderDef">
-          <style>Single</style>
-          <width>1</width>
-        </border>
       </extInfo>
     </items>
     <commandBarLocation>None</commandBarLocation>
@@ -206,7 +194,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>ConstantsList</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -245,7 +232,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>ConstantsList</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -285,7 +271,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>ConstantsList</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -312,16 +297,12 @@
         <name>ConstantsListContextMenuSelectConstant</name>
         <id>16</id>
         <title>
-          <key>ru</key>
-          <value>Выбрать</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Select</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Seç</value>
+          <key>ru</key>
+          <value>Выбрать</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -627,10 +608,6 @@
         <key>ru</key>
         <value>Авторегистрация для узла</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Düğüm için otomatik kayıt</value>
-      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -762,7 +739,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -773,10 +749,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_RegisterChangesForDataExchange</types>
@@ -792,16 +764,12 @@
   <attributes>
     <name>ConstantsList</name>
     <title>
-      <key>ru</key>
-      <value>Список констант</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Constants list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sabitler listesi</value>
+      <key>ru</key>
+      <value>Список констант</value>
     </title>
     <id>2</id>
     <valueType>
@@ -819,16 +787,12 @@
     <columns>
       <name>MetaFullName</name>
       <title>
-        <key>ru</key>
-        <value>Мета полное имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Meta full name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Meta tam adı</value>
+        <key>ru</key>
+        <value>Мета полное имя</value>
       </title>
       <id>1</id>
       <valueType>
@@ -845,16 +809,12 @@
     <columns>
       <name>Description</name>
       <title>
-        <key>ru</key>
-        <value>Наименование</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Description</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Наименование</value>
       </title>
       <id>2</id>
       <valueType>
@@ -871,16 +831,12 @@
     <columns>
       <name>PictureIndex</name>
       <title>
-        <key>ru</key>
-        <value>Индекс картинки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Picture index</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Resim endeksi</value>
+        <key>ru</key>
+        <value>Индекс картинки</value>
       </title>
       <id>3</id>
       <valueType>
@@ -899,16 +855,12 @@
     <columns>
       <name>AutoRecordPictureIndex</name>
       <title>
-        <key>ru</key>
-        <value>Индекс картинки авторегистрация</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Auto record picture index</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Resim otokaydı dizini</value>
+        <key>ru</key>
+        <value>Индекс картинки авторегистрация</value>
       </title>
       <id>4</id>
       <valueType>
@@ -928,16 +880,12 @@
   <formCommands>
     <name>SelectConstant</name>
     <title>
-      <key>ru</key>
-      <value>Выбрать</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Select</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seç</value>
+      <key>ru</key>
+      <value>Выбрать</value>
     </title>
     <id>1</id>
     <toolTip>

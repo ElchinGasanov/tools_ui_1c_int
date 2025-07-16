@@ -15,8 +15,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>LicenseNumber</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>LicenseNumber</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicenseNumberExtendedTooltip</name>
@@ -65,8 +67,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>PinCode</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>PinCode</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>PinCodeExtendedTooltip</name>
@@ -115,8 +119,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>PreviousPinCode</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>PreviousPinCode</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>PreviousPinCodeExtendedTooltip</name>
@@ -214,8 +220,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Organization</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Organization</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>OrganizationExtendedTooltip</name>
@@ -264,8 +272,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>LastName</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>LastName</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LastNameExtendedTooltip</name>
@@ -314,8 +324,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Name</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Name</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>NameExtendedTooltip</name>
@@ -364,8 +376,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>MiddleName</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>MiddleName</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>MiddleNameExtendedTooltip</name>
@@ -414,8 +428,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>email</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>email</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>emailРасширеннаяПодсказка</name>
@@ -464,8 +480,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Country</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Country</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>CountryExtendedTooltip</name>
@@ -518,8 +536,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>State</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>State</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>StateExtendedTooltip</name>
@@ -568,8 +588,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ZIP</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ZIP</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>ZIPExtendedTooltip</name>
@@ -618,8 +640,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>District</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>District</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>DistrictExtendedTooltip</name>
@@ -668,8 +692,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Town</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Town</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>TownExtendedTooltip</name>
@@ -718,8 +744,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Street</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Street</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>StreetExtendedTooltip</name>
@@ -768,8 +796,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>House</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>House</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>HouseExtendedTooltip</name>
@@ -822,8 +852,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Building</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Building</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>BuildingExtendedTooltip</name>
@@ -872,8 +904,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Appartment</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Appartment</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>AppartmentExtendedTooltip</name>
@@ -926,10 +960,6 @@
     <title>
       <key>en</key>
       <value>Group license owner</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Lisans sahibi</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -1010,7 +1040,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -1024,10 +1053,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -1051,10 +1076,6 @@
       <key>en</key>
       <value>Last name</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Soy isim</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -1076,10 +1097,6 @@
     <title>
       <key>en</key>
       <value>Name</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İsim</value>
     </title>
     <id>3</id>
     <valueType>
@@ -1103,10 +1120,6 @@
       <key>en</key>
       <value>Middle name</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Baba adı</value>
-    </title>
     <id>4</id>
     <valueType>
       <types>String</types>
@@ -1123,10 +1136,6 @@
     <name>email</name>
     <title>
       <key>ru</key>
-      <value>Email</value>
-    </title>
-    <title>
-      <key>tr</key>
       <value>Email</value>
     </title>
     <id>5</id>
@@ -1151,10 +1160,6 @@
       <key>en</key>
       <value>Organization</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Şirket</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>String</types>
@@ -1176,10 +1181,6 @@
     <title>
       <key>en</key>
       <value>Country</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Ülke</value>
     </title>
     <id>7</id>
     <valueType>
@@ -1203,10 +1204,6 @@
       <key>en</key>
       <value>ZIP</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Posta Kodu</value>
-    </title>
     <id>8</id>
     <valueType>
       <types>String</types>
@@ -1228,10 +1225,6 @@
     <title>
       <key>en</key>
       <value>State</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Bölge</value>
     </title>
     <id>9</id>
     <valueType>
@@ -1255,10 +1248,6 @@
       <key>en</key>
       <value>District</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İlçe</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>String</types>
@@ -1280,10 +1269,6 @@
     <title>
       <key>en</key>
       <value>Town</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Şehir</value>
     </title>
     <id>11</id>
     <valueType>
@@ -1307,10 +1292,6 @@
       <key>en</key>
       <value>Street</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sokak</value>
-    </title>
     <id>12</id>
     <valueType>
       <types>String</types>
@@ -1332,10 +1313,6 @@
     <title>
       <key>en</key>
       <value>House</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Ev</value>
     </title>
     <id>13</id>
     <valueType>
@@ -1359,10 +1336,6 @@
       <key>en</key>
       <value>Building</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bina</value>
-    </title>
     <id>14</id>
     <valueType>
       <types>String</types>
@@ -1384,10 +1357,6 @@
     <title>
       <key>en</key>
       <value>Appartment</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Apartman</value>
     </title>
     <id>15</id>
     <valueType>
@@ -1411,10 +1380,6 @@
       <key>en</key>
       <value>License number</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Lisans numarası</value>
-    </title>
     <id>16</id>
     <valueType>
       <types>String</types>
@@ -1436,10 +1401,6 @@
     <title>
       <key>en</key>
       <value>Pin code</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>PIN kod</value>
     </title>
     <id>17</id>
     <valueType>
@@ -1463,10 +1424,6 @@
       <key>en</key>
       <value>Previous pin code</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Önceki pin kod</value>
-    </title>
     <id>18</id>
     <valueType>
       <types>String</types>
@@ -1488,10 +1445,6 @@
     <title>
       <key>en</key>
       <value>Command activate</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Etkinleştir</value>
     </title>
     <id>1</id>
     <toolTip>

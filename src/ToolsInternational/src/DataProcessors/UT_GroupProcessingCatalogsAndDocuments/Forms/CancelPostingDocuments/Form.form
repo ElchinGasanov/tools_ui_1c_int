@@ -4,10 +4,6 @@
     <key>ru</key>
     <value>Отменить проведение документов</value>
   </title>
-  <title>
-    <key>tr</key>
-    <value>Belgeleri kaydedilmesini iptal</value>
-  </title>
   <items xsi:type="form:FormField">
     <name>CurrentSetting</name>
     <id>1</id>
@@ -20,8 +16,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>CurrentSettingRepresentation</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>CurrentSettingRepresentation</segments>
+      </paths>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -227,7 +225,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -245,10 +242,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -272,10 +265,6 @@
       <key>en</key>
       <value>Current setting</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut ayar</value>
-    </title>
     <id>3</id>
     <valueType/>
     <view>
@@ -294,10 +283,6 @@
     <title>
       <key>en</key>
       <value>Found objects</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Bulunan nesneler</value>
     </title>
     <id>5</id>
     <valueType>
@@ -323,10 +308,6 @@
       <key>en</key>
       <value>Current setting representation</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut ayar gösterimi</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>String</types>
@@ -348,10 +329,6 @@
     <title>
       <key>en</key>
       <value>Current line</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut satır</value>
     </title>
     <id>4</id>
     <valueType>
@@ -377,10 +354,6 @@
       <key>en</key>
       <value>Parent</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Üst öğe</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>Number</types>
@@ -405,10 +378,6 @@
     <title>
       <key>en</key>
       <value>Search object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Arama nesnesi</value>
     </title>
     <id>7</id>
     <valueType/>

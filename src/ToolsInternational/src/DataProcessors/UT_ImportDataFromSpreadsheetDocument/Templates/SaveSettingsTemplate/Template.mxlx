@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns="http://v8.1c.ru/8.2/data/spreadsheet" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<languageSettings>
-		<currentLanguage>en</currentLanguage>
+		<currentLanguage>ru</currentLanguage>
 		<defaultLanguage>en</defaultLanguage>
 		<languageInfo>
 			<id>ru</id>
 			<code>Russian</code>
-			<description/>
 		</languageInfo>
 		<languageInfo>
 			<id>en</id>
 			<code>English</code>
-			<description/>
-		</languageInfo>
-		<languageInfo>
-			<id>tr</id>
-			<code>Turkish</code>
-			<description>Turkish</description>
 		</languageInfo>
 	</languageSettings>
 	<columns>
@@ -97,10 +90,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Data processor version:</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Veri işleyici sürümü:</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -146,10 +135,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Import mode:</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>İçe aktarma modu:</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -222,10 +207,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Object type (full object metadata name):</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Nesne türü (nesnenin tam metaveri adı):</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -296,10 +277,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Do not create new items (for catalog import mode):</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Yeni öğeler oluşturmayın (katalog içe aktarma modu için):</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -372,10 +349,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Replace existing records (for information register import mode):</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Mevcut kayıtları değiştir (bilgi kaydı içe aktarma modu için):</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -447,10 +420,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Manual spreadsheet document columns numeration</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Manuel e-tablo belge sütun numaralandırması</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -521,10 +490,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Spreadsheet document first data row:</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>E-tablo belgesinin ilk veri satırı:</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -609,10 +574,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Check</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>İşaret</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -627,10 +588,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Attribute name</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Öznitelik adı</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -647,10 +604,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Search field</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Arama alanı</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -665,10 +618,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Type description</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Türlerin tanımı</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -685,10 +634,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Import mode</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>İçe aktarma modu</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -704,10 +649,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Default value</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Varsayılan değer</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -722,10 +663,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Expression</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>İfade</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -786,10 +723,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Column number</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Sütun numarası</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -901,10 +834,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Search by</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Şuna göre ara</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -919,10 +848,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Link by owner</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Sahibine göre bağlantı</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -939,10 +864,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>Link by type</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Türüne göre bağlantı</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -957,10 +878,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Link by type item</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Öğe türüne göre bağlantı</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -1125,12 +1042,6 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>12</index>
-		<row>
-			<empty>true</empty>
-		</row>
-	</rowsItem>
-	<rowsItem>
 		<index>13</index>
 		<row>
 			<c>
@@ -1176,10 +1087,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Event handlers:</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Olay işleyicileri:</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -1245,10 +1152,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>Before write</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Kayıttan önce</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -1332,10 +1235,6 @@
 						<v8:item>
 							<v8:lang>en</v8:lang>
 							<v8:content>On write</v8:content>
-						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Kaydederken</v8:content>
 						</v8:item>
 					</tl>
 				</c>
@@ -1475,10 +1374,6 @@
 							<v8:lang>en</v8:lang>
 							<v8:content>After add row</v8:content>
 						</v8:item>
-						<v8:item>
-							<v8:lang>tr</v8:lang>
-							<v8:content>Satır ekledikten sonra</v8:content>
-						</v8:item>
 					</tl>
 				</c>
 			</c>
@@ -1548,20 +1443,18 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
-		<index>20</index>
-		<indexTo>21</indexTo>
-		<row>
-			<empty>true</empty>
-		</row>
-	</rowsItem>
-	<rowsItem>
 		<index>22</index>
 		<row>
 			<c>
 				<i>1</i>
 				<c>
 					<f>0</f>
-					<tl/>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content></v8:content>
+						</v8:item>
+					</tl>
 				</c>
 			</c>
 		</row>
@@ -1681,26 +1574,6 @@
 		<h>1</h>
 	</horizontalUnmerge>
 	<namedItem xsi:type="NamedItemCells">
-		<name>Events</name>
-		<area>
-			<type>Rows</type>
-			<beginRow>14</beginRow>
-			<endRow>17</endRow>
-			<beginColumn>-1</beginColumn>
-			<endColumn>-1</endColumn>
-		</area>
-	</namedItem>
-	<namedItem xsi:type="NamedItemCells">
-		<name>EventsAfterAddRow</name>
-		<area>
-			<type>Rows</type>
-			<beginRow>19</beginRow>
-			<endRow>19</endRow>
-			<beginColumn>-1</beginColumn>
-			<endColumn>-1</endColumn>
-		</area>
-	</namedItem>
-	<namedItem xsi:type="NamedItemCells">
 		<name>Header</name>
 		<area>
 			<type>Rows</type>
@@ -1730,11 +1603,31 @@
 			<endColumn>-1</endColumn>
 		</area>
 	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
+		<name>Events</name>
+		<area>
+			<type>Rows</type>
+			<beginRow>14</beginRow>
+			<endRow>17</endRow>
+			<beginColumn>-1</beginColumn>
+			<endColumn>-1</endColumn>
+		</area>
+	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
+		<name>EventsAfterAddRow</name>
+		<area>
+			<type>Rows</type>
+			<beginRow>19</beginRow>
+			<endRow>19</endRow>
+			<beginColumn>-1</beginColumn>
+			<endColumn>-1</endColumn>
+		</area>
+	</namedItem>
 	<line width="1" gap="false">
 		<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
 	</line>
 	<font xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" ref="sys:DefaultGUIFont" kind="WindowsFont"/>
-	<font faceName="" height="0" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+	<font height="0" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
 	<font faceName="Arial" height="8" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
 	<format>
 		<width>58</width>
@@ -1888,8 +1781,8 @@
 	<format>
 		<font>0</font>
 		<border>0</border>
-		<height>42</height>
 		<borderColor>style:BorderColor</borderColor>
+		<height>42</height>
 		<width>275</width>
 		<horizontalAlignment>Left</horizontalAlignment>
 		<verticalAlignment>Top</verticalAlignment>

@@ -20,8 +20,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ItemList.Value</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ItemList.Value</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>ItemListValueExtendedTooltip</name>
@@ -547,7 +549,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>ItemList</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -586,7 +587,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>ItemList</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -625,7 +625,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>ItemList</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -720,16 +719,12 @@
       <name>CancelCommand</name>
       <id>37</id>
       <title>
-        <key>ru</key>
-        <value>Отмена</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Cancel</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Iptal</value>
+        <key>ru</key>
+        <value>Отмена</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -825,7 +820,6 @@
   <excludedCommands>SaveValues</excludedCommands>
   <excludedCommands>Yes</excludedCommands>
   <width>50</width>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -835,10 +829,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_QueryConsole</types>
@@ -854,16 +844,12 @@
   <attributes>
     <name>ItemList</name>
     <title>
-      <key>ru</key>
-      <value>Список элементов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Item list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Elementlerin listesi</value>
+      <key>ru</key>
+      <value>Список элементов</value>
     </title>
     <id>2</id>
     <valueType>
@@ -882,16 +868,12 @@
   <attributes>
     <name>ContainerType</name>
     <title>
-      <key>ru</key>
-      <value>Тип контейнера</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Container type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Konteyner türü</value>
+      <key>ru</key>
+      <value>Тип контейнера</value>
     </title>
     <id>5</id>
     <valueType>
@@ -910,16 +892,12 @@
   <formCommands>
     <name>OKCommand</name>
     <title>
-      <key>ru</key>
-      <value>Команда ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK command</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>Команда ОК</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -943,16 +921,12 @@
   <formCommands>
     <name>ClearCommand</name>
     <title>
-      <key>ru</key>
-      <value>Очистить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Clear</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sil</value>
+      <key>ru</key>
+      <value>Очистить</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -983,10 +957,6 @@
       <key>en</key>
       <value>From сlipboard</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Panodan</value>
-    </title>
     <id>3</id>
     <use>
       <common>true</common>
@@ -1011,10 +981,6 @@
     <title>
       <key>en</key>
       <value>From a file on disk</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Diskteki bir dosyadan</value>
     </title>
     <id>4</id>
     <use>
@@ -1041,10 +1007,6 @@
       <key>en</key>
       <value>To clipboard</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Panoya</value>
-    </title>
     <id>5</id>
     <use>
       <common>true</common>
@@ -1070,10 +1032,6 @@
       <key>en</key>
       <value>To file on disk</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Diskteki dosyaya</value>
-    </title>
     <id>6</id>
     <use>
       <common>true</common>
@@ -1098,10 +1056,6 @@
     <title>
       <key>en</key>
       <value>From inner string from file</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Dosyanın iç dizesinden</value>
     </title>
     <id>8</id>
     <use>

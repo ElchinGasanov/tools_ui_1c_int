@@ -182,16 +182,12 @@
         <name>FieldOfAlgorithmBeforeRecording</name>
         <id>56</id>
         <title>
-          <key>ru</key>
-          <value>Алгоритм на языке 1С, выполняется перед записью или проведением Объекта после установки ДополнительныхСвойств (обращение к объекту через переменную Объект)</value>
-        </title>
-        <title>
           <key>en</key>
           <value>The algorithm in the 1C Script is executed before recording or posting the Object after setting AdditionalProperties (accessing the object through the Object variable)</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>1C dilinde, AdditionalProperties (Nesne değişkeni aracılığıyla nesneye başvurulması) ayarlandıktan sonra  Nesne kaydedilmeden veya yazmadan önce yürütülen algoritma</value>
+          <key>ru</key>
+          <value>Алгоритм на языке 1С, выполняется перед записью или проведением Объекта после установки ДополнительныхСвойств (обращение к объекту через переменную Объект)</value>
         </title>
         <titleFont xsi:type="core:FontDef">
           <height>8.0</height>
@@ -249,16 +245,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Процедура &quot;Перед записью&quot;</value>
-      </title>
-      <title>
         <key>en</key>
         <value>procedure &quot;BeforeWrite&quot; </value>
       </title>
       <title>
-        <key>tr</key>
-        <value>&quot;BeforeWrite&quot; prosedürü</value>
+        <key>ru</key>
+        <value>Процедура &quot;Перед записью&quot;</value>
       </title>
       <extendedTooltip>
         <name>GroupBeforeWriteProcedureExtendedTooltip</name>
@@ -338,10 +330,6 @@
           <key>ru</key>
           <value>Перечень свойств, которые будут установлены в Объект.ДополнительныеСвойства перед записью или проведением объекта</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Nesneyi kaydetmeden veya yazmadan önce Object.AdditionalProperties'de ayarlanacak özelliklerin listesi</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -402,8 +390,14 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>AdditionalProperties.Key</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <activeLanguage>1</activeLanguage>
+            <paths xsi:type="form:DataPath">
+              <segments>AdditionalProperties.Key</segments>
+            </paths>
+            <paths xsi:type="form:DataPath">
+              <segments>AdditionalProperties.Key</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>AdditionalPropertiesKeyExtendedTooltip</name>
@@ -452,8 +446,14 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>AdditionalProperties.Value</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <activeLanguage>1</activeLanguage>
+            <paths xsi:type="form:DataPath">
+              <segments>AdditionalProperties.Value</segments>
+            </paths>
+            <paths xsi:type="form:DataPath">
+              <segments>AdditionalProperties.Value</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>AdditionalPropertiesValueExtendedTooltip</name>
@@ -568,7 +568,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>AdditionalProperties</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -607,7 +606,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>AdditionalProperties</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -647,7 +645,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>AdditionalProperties</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -694,7 +691,6 @@
         <initialListView>Auto</initialListView>
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
-        <rowFilter xsi:type="core:UndefinedValue"/>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -702,16 +698,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Дополнительные свойства</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Additional properties</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ek özellikler</value>
+        <key>ru</key>
+        <value>Дополнительные свойства</value>
       </title>
       <extendedTooltip>
         <name>GroupAdditionalPropertiesExtendedTooltip</name>
@@ -740,16 +732,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Группа страницы параметров записи</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Write settings pages group</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yazma ayarları sayfaları grubu</value>
+      <key>ru</key>
+      <value>Группа страницы параметров записи</value>
     </title>
     <extendedTooltip>
       <name>GroupPagesWriteSettingsExtendedTooltip</name>
@@ -845,14 +833,13 @@
     <autoFill>true</autoFill>
   </autoCommandBar>
   <handlers>
-    <event>OnOpen</event>
-    <name>OnOpen</name>
-  </handlers>
-  <handlers>
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
+  <handlers>
+    <event>OnOpen</event>
+    <name>OnOpen</name>
+  </handlers>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -863,16 +850,12 @@
   <attributes>
     <name>PrivilegedMode</name>
     <title>
-      <key>ru</key>
-      <value>Привелигированный режим</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Privileged mode</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ayrıcalıklı modu</value>
+      <key>ru</key>
+      <value>Привелигированный режим</value>
     </title>
     <id>1</id>
     <valueType>
@@ -888,16 +871,12 @@
   <attributes>
     <name>WritingInLoadMode</name>
     <title>
-      <key>ru</key>
-      <value>Запись в режиме загрузки ( проверки отключены. ОбменДанными.Загрузка=Истина)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Writing in load mode (checks are disabled. DataExchange=True )</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yükleme modunda yazma (kontroller devre dışı bırakıldı. DataExchange=True )</value>
+      <key>ru</key>
+      <value>Запись в режиме загрузки ( проверки отключены. ОбменДанными.Загрузка=Истина)</value>
     </title>
     <id>2</id>
     <valueType>
@@ -913,16 +892,12 @@
   <attributes>
     <name>WithoutChangesAutoRecording</name>
     <title>
-      <key>ru</key>
-      <value>Без авторегистрации изменений</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Without changes autorecording</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Otomatik kayıtsız değişiklik</value>
+      <key>ru</key>
+      <value>Без авторегистрации изменений</value>
     </title>
     <id>3</id>
     <valueType>
@@ -938,16 +913,12 @@
   <attributes>
     <name>UseAdditionalProperties</name>
     <title>
-      <key>ru</key>
-      <value>Использовать доп свойства</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Use additional properties</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ek özellikleri kullan</value>
+      <key>ru</key>
+      <value>Использовать доп свойства</value>
     </title>
     <id>4</id>
     <valueType>
@@ -963,16 +934,12 @@
   <attributes>
     <name>AdditionalProperties</name>
     <title>
-      <key>ru</key>
-      <value>Дополнительные свойства (устанавилваются перед записью объекта)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Additional properties (set before writing the object)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Additional properties (set before writing the object)</value>
+      <key>ru</key>
+      <value>Дополнительные свойства (устанавилваются перед записью объекта)</value>
     </title>
     <id>5</id>
     <valueType>
@@ -997,10 +964,6 @@
         <key>en</key>
         <value>Key</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Anahtar</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>String</types>
@@ -1022,10 +985,6 @@
       <title>
         <key>en</key>
         <value>Value</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Değer</value>
       </title>
       <id>2</id>
       <valueType>
@@ -1052,16 +1011,12 @@
   <attributes>
     <name>UseBeforeWriteProcedure</name>
     <title>
-      <key>ru</key>
-      <value>Выполнить процедуру перед записью или проведением объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Perform the procedure before recording or posting an object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Bir nesneyi kaydetmeden veya post etmeden önce prosedürü çalıştır</value>
+      <key>ru</key>
+      <value>Выполнить процедуру перед записью или проведением объекта</value>
     </title>
     <id>6</id>
     <valueType>
@@ -1077,16 +1032,12 @@
   <attributes>
     <name>BeforeWriteProcedure</name>
     <title>
-      <key>ru</key>
-      <value>Алгоритм на языке 1С, выполняется перед записью или проведением Объекта после установки ДополнительныхСвойств (обращение к объекту через переменную Объект)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>The algorithm in the 1C Script is executed before recording or posting an Object after setting Additional Properties (accessing the object through the Object variable)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>1C dilinde, AdditionalProperties (Nesne değişkeni aracılığıyla nesneye başvurulması) ayarlandıktan sonra  Nesne kaydedilmeden veya yazmadan önce yürütülen algoritma</value>
+      <key>ru</key>
+      <value>Алгоритм на языке 1С, выполняется перед записью или проведением Объекта после установки ДополнительныхСвойств (обращение к объекту через переменную Объект)</value>
     </title>
     <id>7</id>
     <valueType>
@@ -1106,16 +1057,12 @@
   <attributes>
     <name>FieldofAlgorithmBeforeRecording</name>
     <title>
-      <key>ru</key>
-      <value>Поле алгоритма перед записью</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Field of Algorithm before recording</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt Öncesi Algoritma Alanı</value>
+      <key>ru</key>
+      <value>Поле алгоритма перед записью</value>
     </title>
     <id>9</id>
     <valueType>
@@ -1132,16 +1079,12 @@
   <attributes>
     <name>ObjectType</name>
     <title>
-      <key>ru</key>
-      <value>Тип объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Object type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne tipi</value>
+      <key>ru</key>
+      <value>Тип объекта</value>
     </title>
     <id>10</id>
     <valueType>
@@ -1157,16 +1100,12 @@
   <formCommands>
     <name>Apply</name>
     <title>
-      <key>ru</key>
-      <value>Применить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Apply</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Uygula</value>
+      <key>ru</key>
+      <value>Применить</value>
     </title>
     <id>1</id>
     <use>
@@ -1182,16 +1121,12 @@
   <formCommands>
     <name>InsertUUID</name>
     <title>
-      <key>ru</key>
-      <value>Вставить уникальный идентификатор...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Insert unique reference ID</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Benzersiz referans (İD) ekle</value>
+      <key>ru</key>
+      <value>Вставить уникальный идентификатор...</value>
     </title>
     <id>2</id>
     <toolTip>

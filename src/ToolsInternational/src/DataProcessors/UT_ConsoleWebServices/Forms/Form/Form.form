@@ -14,8 +14,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>LocationWSDL</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>LocationWSDL</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>LocationWSDLExtendedTooltip</name>
@@ -65,8 +67,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Username</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Username</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>UsernameExtendedTooltip</name>
@@ -115,8 +119,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Password</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Password</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>PasswordExtendedTooltip</name>
@@ -208,8 +214,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>WebServiceName</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>WebServiceName</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>WebServiceNameExtendedTooltip</name>
@@ -259,8 +267,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>WebServiceNamespaceURI</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>WebServiceNamespaceURI</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>WebServiceNamespaceURIExtendedTooltip</name>
@@ -353,8 +363,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>NamePointConnections</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>NamePointConnections</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>NamePointConnectionsExtendedTooltip</name>
@@ -404,8 +416,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>OperationName</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>OperationName</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>OperationNameExtendedTooltip</name>
@@ -545,10 +559,6 @@
       <key>en</key>
       <value>Command group</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Komutlar grubu</value>
-    </title>
     <toolTip>
       <key>ru</key>
       <value>Группа команд</value>
@@ -605,8 +615,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListWSDefinitions.LocationWSDL</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListWSDefinitions.LocationWSDL</segments>
+              </paths>
             </dataPath>
             <handlers>
               <event>OnChange</event>
@@ -659,8 +671,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListWSDefinitions.Username</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListWSDefinitions.Username</segments>
+              </paths>
             </dataPath>
             <handlers>
               <event>OnChange</event>
@@ -713,8 +727,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListWSDefinitions.Password</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListWSDefinitions.Password</segments>
+              </paths>
             </dataPath>
             <handlers>
               <event>OnChange</event>
@@ -861,6 +877,10 @@
             <autoFill>true</autoFill>
           </autoCommandBar>
           <handlers>
+            <event>60edb81d-887b-478e-94ee-7fef2b13393d</event>
+            <name>СписокWSОпределенийПриАктивизацииСтроки</name>
+          </handlers>
+          <handlers>
             <event>OnActivateRow</event>
             <name>ListWSDefinitionsOnActivateRow</name>
           </handlers>
@@ -897,7 +917,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>ListWSDefinitions</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -936,7 +955,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>ListWSDefinitions</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -976,7 +994,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>ListWSDefinitions</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1061,8 +1078,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListServices.LocationWSDL</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListServices.LocationWSDL</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ListServicesLocationWSDLExtendedTooltip</name>
@@ -1111,8 +1130,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListServices.WSService</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListServices.WSService</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ListServicesWSServiceExtendedTooltip</name>
@@ -1161,8 +1182,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListServices.URINamespaces</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListServices.URINamespaces</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ListServicesURINamespacesExtendedTooltip</name>
@@ -1312,7 +1335,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>ListServices</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1351,7 +1373,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>ListServices</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -1391,7 +1412,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>ListServices</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1476,8 +1496,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListPointsConnections.WSService</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListPointsConnections.WSService</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ListPointsConnectionsWSServiceExtendedTooltip</name>
@@ -1526,8 +1548,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListPointsConnections.NamePointConnections</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListPointsConnections.NamePointConnections</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ListPointsConnectionsNamePointConnectionsExtendedTooltip</name>
@@ -1677,7 +1701,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>ListPointsConnections</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1716,7 +1739,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>ListPointsConnections</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -1756,7 +1778,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>ListPointsConnections</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1824,10 +1845,6 @@
           <key>en</key>
           <value>Group definitions and web services</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Tanım grubu ve web servisleri</value>
-        </title>
         <toolTip>
           <key>ru</key>
           <value>Группа определения и вебсервисы</value>
@@ -1889,8 +1906,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListOperations.NamePointConnections</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListOperations.NamePointConnections</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ListOperationsNamePointConnectionsExtendedTooltip</name>
@@ -1939,8 +1958,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListOperations.OperationName</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListOperations.OperationName</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ListOperationsOperationNameExtendedTooltip</name>
@@ -1989,8 +2010,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ListOperations.ReturnableValueType</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ListOperations.ReturnableValueType</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ListOperationsReturnableValueTypeExtendedTooltip</name>
@@ -2140,7 +2163,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>ListOperations</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2179,7 +2201,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>ListOperations</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -2219,7 +2240,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>ListOperations</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2328,10 +2348,6 @@
         <key>en</key>
         <value>Group select operations</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>İşlemi seçimi</value>
-      </title>
       <toolTip>
         <key>ru</key>
         <value>Группа выбор операции</value>
@@ -2391,8 +2407,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>OperationParameters.ParameterName</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>OperationParameters.ParameterName</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>OperationParametersParameterNameExtendedTooltip</name>
@@ -2442,8 +2460,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>OperationParameters.Value</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>OperationParameters.Value</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>OperationParametersValueExtendedTooltip</name>
@@ -2496,8 +2516,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>OperationParameters.ParameterType</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>OperationParameters.ParameterType</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>OperationParametersParameterTypeExtendedTooltip</name>
@@ -2547,8 +2569,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>OperationParameters.Undefined</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>OperationParameters.Undefined</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>OperationParametersUndefinedExtendedTooltip</name>
@@ -2627,7 +2651,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>OperationParameters</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2666,7 +2689,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>OperationParameters</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -2706,7 +2728,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>OperationParameters</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2813,10 +2834,6 @@
       <title>
         <key>en</key>
         <value>Group parameters operations</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İşlem parametreleri</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -2950,8 +2967,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>TreeResult.Property</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>TreeResult.Property</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>TreeResultPropertyExtendedTooltip</name>
@@ -3000,8 +3019,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>TreeResult.Value</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>TreeResult.Value</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>TreeResultValueExtendedTooltip</name>
@@ -3058,8 +3079,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>TreeResult.Type</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>TreeResult.Type</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>TreeResultTypeExtendedTooltip</name>
@@ -3145,7 +3168,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>TreeResult</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3184,7 +3206,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>TreeResult</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -3224,7 +3245,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>TreeResult</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3294,10 +3314,6 @@
             <key>en</key>
             <value>Page tree</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>Nesneler ağacı</value>
-          </title>
           <toolTip>
             <key>ru</key>
             <value>Страница дерево</value>
@@ -3334,8 +3350,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ResultOperations</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ResultOperations</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -3390,10 +3408,6 @@
           <title>
             <key>en</key>
             <value>Page XML</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>XML</value>
           </title>
           <toolTip>
             <key>ru</key>
@@ -3470,10 +3484,6 @@
       <title>
         <key>en</key>
         <value>Group result</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İşlem  sonucu</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -3554,7 +3564,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -3569,10 +3578,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -3596,10 +3601,6 @@
       <key>en</key>
       <value>List services</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Servisler listesi</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>ValueTable</types>
@@ -3619,10 +3620,6 @@
       <title>
         <key>en</key>
         <value>Location WSDL</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>WSDL konumu</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3646,10 +3643,6 @@
         <key>en</key>
         <value>WSService</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>WSServis</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -3671,10 +3664,6 @@
       <title>
         <key>en</key>
         <value>URINamespaces</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>URI Ad Alanları</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3699,10 +3688,6 @@
       <key>en</key>
       <value>List points connections</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bağlantı noktalarının listesi</value>
-    </title>
     <id>3</id>
     <valueType>
       <types>ValueTable</types>
@@ -3721,10 +3706,6 @@
       </title>
       <title>
         <key>en</key>
-        <value>WSService</value>
-      </title>
-      <title>
-        <key>tr</key>
         <value>WSService</value>
       </title>
       <id>1</id>
@@ -3749,10 +3730,6 @@
         <key>en</key>
         <value>Name point connections</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Bağlantı noktası adı</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -3774,10 +3751,6 @@
       <title>
         <key>en</key>
         <value>Unique connection point identifier</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Benzersiz bağlantı noktası tanımlayıcısı</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3801,10 +3774,6 @@
       <key>en</key>
       <value>List operations</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İşlemlerin listesi</value>
-    </title>
     <id>4</id>
     <valueType>
       <types>ValueTable</types>
@@ -3824,10 +3793,6 @@
       <title>
         <key>en</key>
         <value>Name point connections</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Nokta bağlantıları adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3850,10 +3815,6 @@
       <title>
         <key>en</key>
         <value>Operation name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İşlem adı</value>
       </title>
       <id>2</id>
       <valueType>
@@ -3877,10 +3838,6 @@
         <key>en</key>
         <value>Returnable value type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Geri döndürülebilir değer türü</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -3902,10 +3859,6 @@
       <title>
         <key>en</key>
         <value>Unique connection point identifier</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Benzersiz bağlantı noktası tanımlayıcısı</value>
       </title>
       <id>4</id>
       <valueType>
@@ -3929,10 +3882,6 @@
       <key>en</key>
       <value>List parameters</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Parametre listesi</value>
-    </title>
     <id>5</id>
     <valueType>
       <types>ValueTable</types>
@@ -3952,10 +3901,6 @@
       <title>
         <key>en</key>
         <value>Name point connections</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Nokta bağlantıları adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3979,10 +3924,6 @@
         <key>en</key>
         <value>Operation name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>İşlem adı</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -4005,10 +3946,6 @@
         <key>en</key>
         <value>Parameter name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Parametre adı</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -4030,10 +3967,6 @@
       <title>
         <key>en</key>
         <value>Parameter type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Parametre türü</value>
       </title>
       <id>4</id>
       <valueType>
@@ -4058,10 +3991,6 @@
       <key>en</key>
       <value>Operation parameters</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İşlem parametreleri</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>ValueTable</types>
@@ -4081,10 +4010,6 @@
       <title>
         <key>en</key>
         <value>Parameter name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Parametre adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -4108,10 +4033,6 @@
         <key>en</key>
         <value>Parameter type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Parametre türü</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -4133,10 +4054,6 @@
       <title>
         <key>en</key>
         <value>Value</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Değer</value>
       </title>
       <id>3</id>
       <valueType>
@@ -4167,10 +4084,6 @@
         <key>en</key>
         <value>Undefined</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tanımlanmamış</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>Boolean</types>
@@ -4192,10 +4105,6 @@
         <key>en</key>
         <value>Structure</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Yapı</value>
-      </title>
       <id>5</id>
       <valueType/>
       <view>
@@ -4215,10 +4124,6 @@
     <title>
       <key>en</key>
       <value>Location WSDL</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>WSDL konumu</value>
     </title>
     <id>7</id>
     <valueType>
@@ -4242,10 +4147,6 @@
       <key>en</key>
       <value>Username</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kullanıcı adı</value>
-    </title>
     <id>8</id>
     <valueType>
       <types>String</types>
@@ -4267,10 +4168,6 @@
     <title>
       <key>en</key>
       <value>Password</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Parola</value>
     </title>
     <id>9</id>
     <valueType>
@@ -4294,10 +4191,6 @@
       <key>en</key>
       <value>Web service name</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Web servis adı</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>String</types>
@@ -4319,10 +4212,6 @@
     <title>
       <key>en</key>
       <value>Web service namespace URI</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Web servis URI ad alanı </value>
     </title>
     <id>11</id>
     <valueType>
@@ -4346,10 +4235,6 @@
       <key>en</key>
       <value>Name point connections</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bağlantı noktası adı</value>
-    </title>
     <id>12</id>
     <valueType>
       <types>String</types>
@@ -4371,10 +4256,6 @@
     <title>
       <key>en</key>
       <value>Operation name</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İşlem adı</value>
     </title>
     <id>13</id>
     <valueType>
@@ -4398,10 +4279,6 @@
       <key>en</key>
       <value>Result operations</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İşlemler sonucu</value>
-    </title>
     <id>14</id>
     <valueType>
       <types>String</types>
@@ -4423,10 +4300,6 @@
     <title>
       <key>en</key>
       <value>Operation name current</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İşlem adı geçerli</value>
     </title>
     <id>15</id>
     <valueType>
@@ -4450,10 +4323,6 @@
       <key>en</key>
       <value>Connection point name current</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bağlantı noktası adı geçerli</value>
-    </title>
     <id>16</id>
     <valueType>
       <types>String</types>
@@ -4476,10 +4345,6 @@
       <key>en</key>
       <value>Tree result</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Ağaç sonucu</value>
-    </title>
     <id>17</id>
     <valueType>
       <types>ValueTree</types>
@@ -4499,10 +4364,6 @@
       <title>
         <key>en</key>
         <value>Property</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Nitelik</value>
       </title>
       <id>1</id>
       <valueType>
@@ -4525,10 +4386,6 @@
       <title>
         <key>en</key>
         <value>Value</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Değer</value>
       </title>
       <id>2</id>
       <valueType>
@@ -4559,10 +4416,6 @@
         <key>en</key>
         <value>Type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Türü</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -4586,10 +4439,6 @@
       <key>en</key>
       <value>List WSDefinitions</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>WS Tanımları Listesi</value>
-    </title>
     <id>19</id>
     <valueType>
       <types>ValueTable</types>
@@ -4609,10 +4458,6 @@
       <title>
         <key>en</key>
         <value>Location WSDL</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>WSDL konumu</value>
       </title>
       <id>20</id>
       <valueType>
@@ -4636,10 +4481,6 @@
         <key>en</key>
         <value>Username</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kullanıcı adı</value>
-      </title>
       <id>21</id>
       <valueType>
         <types>String</types>
@@ -4661,10 +4502,6 @@
       <title>
         <key>en</key>
         <value>Password</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Parola</value>
       </title>
       <id>22</id>
       <valueType>
@@ -4688,10 +4525,6 @@
     <title>
       <key>en</key>
       <value>Get WSDL</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>WSDL'yi al</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -4722,10 +4555,6 @@
       <key>en</key>
       <value>Execute operation</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İşlemi gerçekleştir</value>
-    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -4755,10 +4584,6 @@
       <key>en</key>
       <value>Save</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kaydet</value>
-    </title>
     <id>3</id>
     <toolTip>
       <key>ru</key>
@@ -4787,10 +4612,6 @@
       <key>en</key>
       <value>Read</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Oku</value>
-    </title>
     <id>4</id>
     <toolTip>
       <key>ru</key>
@@ -4813,5 +4634,4 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

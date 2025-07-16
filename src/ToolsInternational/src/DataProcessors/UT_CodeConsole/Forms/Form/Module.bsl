@@ -199,7 +199,7 @@ EndProcedure
 #Region FormCommandsEventHandlers
 &AtClient
 Procedure CloseConsole(Command)
-	ShowQueryBox(New NotifyDescription("CloseConsoleEnd", ThisObject),NStr("ru = 'Выйти из консоли кода?'; en = 'Exit code console ?'; tr = 'Kod konsolundan çıkmak istiyor musunuz?'"),
+	ShowQueryBox(New NotifyDescription("CloseConsoleEnd", ThisObject),NStr("ru = 'Выйти из консоли кода?';en = 'Exit code console ?'"),
 		QuestionDialogMode.YesNo);
 EndProcedure
 
@@ -422,7 +422,7 @@ Function SavedFilesDescriptionStructure()
 	Structure=UT_CommonClient.EmptyDescriptionStructureOfSelectedFile();
 	Structure.FileName=AlgorithmFileName;
 
-	UT_CommonClient.AddFormatToSavingFileDescription(Structure,NStr("ru = 'Файл алгоритма(*.xbsl)'; en = 'Algorithm file (*.xbsl)'; tr = 'Algoritma dosyası (*.xbsl)'"));
+	UT_CommonClient.AddFormatToSavingFileDescription(Structure,NStr("ru = 'Файл алгоритма(*.xbsl)';en = 'Algorithm file (*.xbsl)'"), "xbsl");
 	Return Structure;
 EndFunction
 

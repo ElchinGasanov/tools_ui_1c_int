@@ -225,10 +225,6 @@
       <key>en</key>
       <value>CopyRef</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>CopyRef</value>
-    </title>
     <width>60</width>
     <extendedTooltip>
       <name>CopyRefExtendedTooltip</name>
@@ -269,7 +265,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -319,14 +314,6 @@
       <key>ru</key>
       <value>Paste from clipboard</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Paste from clipboard</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Panodan yapıştır</value>
-    </title>
     <id>1</id>
     <use>
       <common>true</common>
@@ -348,14 +335,6 @@
       <key>ru</key>
       <value>Download</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Download</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İndir</value>
-    </title>
     <id>2</id>
     <use>
       <common>true</common>
@@ -373,14 +352,6 @@
     <title>
       <key>ru</key>
       <value>Follow the link</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Follow the link</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Bağlantıyı takip edin</value>
     </title>
     <id>3</id>
     <use>
@@ -402,14 +373,6 @@
     <title>
       <key>ru</key>
       <value>Copy to clipboard</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Copy to clipboard</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Panoya kopyala</value>
     </title>
     <id>4</id>
     <use>

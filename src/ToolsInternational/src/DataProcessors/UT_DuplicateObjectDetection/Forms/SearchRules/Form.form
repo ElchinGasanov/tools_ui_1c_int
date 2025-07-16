@@ -31,8 +31,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>SearchRules.Use</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>SearchRules.Use</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <handlers>
@@ -79,8 +81,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>SearchRules.AttributePresentation</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>SearchRules.AttributePresentation</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>SearchRulesAttributePresentationExtendedTooltip</name>
@@ -163,8 +167,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>SearchRules.Rule</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>SearchRules.Rule</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>SearchRulesComparisonTypeExtendedTooltip</name>
@@ -270,7 +276,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>SearchRules</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -309,7 +314,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>SearchRules</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -349,7 +353,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>SearchRules</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -411,8 +414,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ConsiderAppliedRules</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ConsiderAppliedRules</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <handlers>
@@ -459,8 +464,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>AppliedRulesDetails</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>AppliedRulesDetails</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -689,7 +696,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -714,16 +720,12 @@
   <attributes>
     <name>ConsiderAppliedRules</name>
     <title>
-      <key>ru</key>
-      <value>Учитывать ограничения:</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Consider restrictions:</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sınırlamaları göz önünde bulundurun:</value>
+      <key>ru</key>
+      <value>Учитывать ограничения:</value>
     </title>
     <id>2</id>
     <valueType>
@@ -739,16 +741,12 @@
   <attributes>
     <name>AppliedRulesDetails</name>
     <title>
-      <key>ru</key>
-      <value>С учетом ограничений</value>
-    </title>
-    <title>
       <key>en</key>
       <value> Default restrictions</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Varsayılan kısıtlamalar</value>
+      <key>ru</key>
+      <value>С учетом ограничений</value>
     </title>
     <id>3</id>
     <valueType/>
@@ -762,16 +760,12 @@
   <attributes>
     <name>SearchRules</name>
     <title>
-      <key>ru</key>
-      <value>Считать элементы дублями, если</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Default duplicate criteria</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Varsayılan yinelenen ölçüt</value>
+      <key>ru</key>
+      <value>Считать элементы дублями, если</value>
     </title>
     <id>4</id>
     <valueType>
@@ -785,10 +779,6 @@
     </edit>
     <columns>
       <name>Attribute</name>
-      <title>
-        <key>tr</key>
-        <value>Nitelik</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>String</types>
@@ -804,16 +794,12 @@
     <columns>
       <name>Rule</name>
       <title>
-        <key>ru</key>
-        <value>Правило</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Rule</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kural</value>
+        <key>ru</key>
+        <value>Правило</value>
       </title>
       <id>2</id>
       <valueType>
@@ -843,16 +829,12 @@
     <columns>
       <name>AttributePresentation</name>
       <title>
-        <key>ru</key>
-        <value>Поле</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Field</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Alan</value>
+        <key>ru</key>
+        <value>Поле</value>
       </title>
       <id>4</id>
       <valueType>
@@ -869,16 +851,12 @@
     <columns>
       <name>Use</name>
       <title>
-        <key>ru</key>
-        <value>Использовать</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Use</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kullanmak</value>
+        <key>ru</key>
+        <value>Использовать</value>
       </title>
       <id>5</id>
       <valueType>
@@ -938,16 +916,12 @@
   <formCommands>
     <name>CompleteEditing</name>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>ОК</value>
     </title>
     <id>1</id>
     <toolTip>

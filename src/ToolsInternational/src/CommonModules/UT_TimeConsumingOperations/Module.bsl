@@ -47,8 +47,9 @@ Function ExecuteInBackground(Val ProcedureName, Val ProcedureParameters, Val Exe
 		ExecutionParameters, Type("Structure")); 
 	If ExecutionParameters.RunNotInBackground AND ExecutionParameters.RunInBackground Then
 		Raise NStr("ru = 'Параметры ""ВсегдаНеВФоне"" и ""ВсегдаВФоне""
-                |не могут одновременно принимать значение Истина в UT_TimeConsumingOperations.ExecuteInBackground.'; en = 'Parameters ""RunNotInBackground"" and ""RunInBackground""
-                |cannot both be True at the same time in UT_TimeConsumingOperations.ExecuteInBackground.'; tr = '""RunNotInBackground"" ve ""RunInBackground"" parametreleri UT_TimeConsumingOperations.ExecuteInBackground''da aynı anda True olamaz.'");
+			|не могут одновременно принимать значение Истина в UT_TimeConsumingOperations.ExecuteInBackground.'; 
+			|en = 'Parameters ""RunNotInBackground"" and ""RunInBackground""
+			|cannot both be True at the same time in UT_TimeConsumingOperations.ExecuteInBackground.'");
 	EndIf;
 
 		ResultAddress = ?(ExecutionParameters.ResultAddress <> Undefined, 
@@ -90,7 +91,7 @@ Function ExecuteInBackground(Val ProcedureName, Val ProcedureParameters, Val Exe
 			Result.BriefErrorPresentation = BriefErrorDescription(ErrorInfo());
 			Result.DetailedErrorPresentation = DetailErrorDescription(ErrorInfo());
 			WriteLogEvent(
-			NStr("ru = 'Ошибка выполнения'; en = 'Runtime error'; tr = 'Çalışma zamanı hatası'", UT_CommonClientServer.DefaultLanguageCode()),
+			NStr("ru = 'Ошибка выполнения'; en = 'Runtime error'", UT_CommonClientServer.DefaultLanguageCode()),
 			EventLogLevel.Error, , , Result.DetailedErrorPresentation);
 		EndTry;
 		Return Result;
@@ -152,11 +153,11 @@ Function ActionCompleted(Val JobID, Val ExceptionOnError = False, Val OutputProg
 
 	Job = FindJobByID(JobID);
 	If Job = Undefined Then
-		WriteLogEvent(NStr("ru = 'Длительные операции'; en = 'Time-consuming operations'; tr = 'Zaman alıcı işlemler'", UT_CommonClientServer.DefaultLanguageCode()),
-			EventLogLevel.Error, , , NStr("ru = 'Фоновое задание не найдено:'; en = 'The background job is not found'; tr = 'Arkaplan işi bulunamadı'") + " " + String(
+		WriteLogEvent(NStr("ru = 'Длительные операции'; en = 'Time-consuming operations'", UT_CommonClientServer.DefaultLanguageCode()),
+			EventLogLevel.Error, , , NStr("ru = 'Фоновое задание не найдено:'; en = 'The background job is not found'") + " " + String(
 			JobID));
 		If ExceptionOnError Then
-			Raise(NStr("ru = 'Не удалось выполнить данную операцию.'; en = 'Cannot perform the operation.'; tr = 'İşlem gerçekleştirilemiyor.'"));
+			Raise(NStr("ru = 'Не удалось выполнить данную операцию.'; en = 'Cannot perform the operation.'"));
 		EndIf;
 		Result.Status = "Error";
 		Return Result;
@@ -214,7 +215,7 @@ Function ActionCompleted(Val JobID, Val ExceptionOnError = False, Val OutputProg
 			If Not IsBlankString(Result.BriefErrorPresentation) Then
 				MessageText = Result.BriefErrorPresentation;
 			Else
-				MessageText = NStr("ru = 'Не удалось выполнить данную операцию.'; en = 'Cannot perform the operation.'; tr = 'İşlem gerçekleştirilemiyor.'");
+				MessageText = NStr("ru = 'Не удалось выполнить данную операцию.'; en = 'Cannot perform the operation.'");
 			EndIf;
 			Raise MessageText;
 		EndIf;
@@ -342,7 +343,7 @@ Procedure ExecuteProcedure(ProcedureName, ProcedureParameters)
 	EndIf;
 
 	Raise StrTemplate(
-		NStr("ru = 'Неверный формат параметра ИмяПроцедуры (переданное значение: %1)'; en = 'Invalid format of ProcedureName parameter (passed value: %1)'; tr = 'Geçersiz ProcedureName parametresi formatı (geçirilen değer: %1)'"), ProcedureName);
+		NStr("ru = 'Неверный формат параметра ИмяПроцедуры (переданное значение: %1)'; 	  en = 'Invalid format of ProcedureName parameter (passed value: %1)'"), ProcedureName);
 
 EndProcedure
 
@@ -386,10 +387,10 @@ Function RunBackgroundJob(ExecutionParameters, MethodName, Parameters, varKey, D
 		Session = GetCurrentInfoBaseSession();
 		If ExecutionParameters.WaitForCompletion = Undefined AND Session.ApplicationName = "BackgroundJob" Then
 			Raise NStr(
-				"ru = 'В файловой информационной базе невозможно одновременно выполнять более одного фонового задания'; en = 'In a file infobase, only one background job can run at a time.'; tr = 'Dosya tipli veritabanında aynı anda birden fazla arkaplan işi çalıştırmak mümkün değildir'");
+				"ru = 'В файловой информационной базе невозможно одновременно выполнять более одного фонового задания'; en = 'In a file infobase, only one background job can run at a time.'");
 		ElsIf Session.ApplicationName = "COMConnection" Then
 			Raise NStr(
-				"ru = 'В файловой информационной базе можно запустить фоновое задание только из клиентского приложения'; en = 'In a file infobase, background jobs can only be started from the client application.'; tr = 'Dosya tipli veritabanında arka plan işleri yalnızca istemci uygulamasından başlatılabilir.'");
+				"ru = 'В файловой информационной базе можно запустить фоновое задание только из клиентского приложения'; en = 'In a file infobase, background jobs can only be started from the client application.'");
 		EndIf;
 		
 	EndIf;
@@ -492,7 +493,8 @@ Procedure CancelJobExecution(Val JobID) Export
 		Job.Cancel();
 	Except
 		// It is possible that the job has completed at that moment and no error has occurred.
-		WriteLogEvent(NStr("ru = 'Длительные операции.Отмена выполнения фонового задания'; en = 'Time-consuming operations.Cancel background job'; tr = 'Zaman alıcı işlemler. Arka plan işini iptal et'",
+		WriteLogEvent(NStr("ru = 'Длительные операции.Отмена выполнения фонового задания';
+		| en = 'Time-consuming operations.Cancel background job'",
 			UT_CommonClientServer.DefaultLanguageCode()),EventLogLevel.Information, , , BriefErrorDescription(ErrorInfo()));
 	EndTry;
 	
@@ -598,7 +600,8 @@ Function JobCompleted(Val JobID) Export
 	ActionNotExecuted = True;
 	ShowFullErrorText = False;
 	If Job = Undefined Then
-		WriteLogEvent(NStr("ru = 'Длительные операции.Фоновое задание не найдено'; en = 'Time-consuming operations.Background job not found'; tr = 'Zaman alıcı işlemler. Arka plan işi bulunamadı'",
+		WriteLogEvent(NStr("ru = 'Длительные операции.Фоновое задание не найдено'; 
+		|en = 'Time-consuming operations.Background job not found'",
 			UT_CommonClientServer.DefaultLanguageCode()), EventLogLevel.Error, , , String(JobID));
 	Else
 		If Job.State = BackgroundJobState.Failed Then
@@ -608,9 +611,9 @@ Function JobCompleted(Val JobID) Export
 			EndIf;
 		ElsIf Job.State = BackgroundJobState.Canceled Then
 			WriteLogEvent(
-				NStr("ru = 'Длительные операции.Фоновое задание отменено администратором'; en = 'Time-consuming operations.Background job canceled by administrator'; tr = 'Zaman alıcı işlemler. Arka plan işi administrator tarafından iptal edildi'",
+				NStr("ru = 'Длительные операции.Фоновое задание отменено администратором'; en = 'Time-consuming operations.Background job canceled by administrator'",
 				UT_CommonClientServer.DefaultLanguageCode()), EventLogLevel.Error,,,
-				NStr("ru = 'Задание завершилось с неизвестной ошибкой.'; en = 'The job completed with an unknown error.'; tr = 'İş bilinmeyen bir hatayla tamamlandı.'"));
+				NStr("ru = 'Задание завершилось с неизвестной ошибкой.'; en = 'The job completed with an unknown error.'"));
 		Else
 			Return True;
 		EndIf;
@@ -621,7 +624,7 @@ Function JobCompleted(Val JobID) Export
 		Raise(ErrorText);
 	ElsIf ActionNotExecuted Then
 		Raise(NStr("ru = 'Не удалось выполнить данную операцию. 
-            |Подробности см. в Журнале регистрации.'; en = 'Cannot perform the operation. For more information, see the event log.'; tr = 'İşlem gerçekleştirilemiyor. Daha fazla bilgi için event log-a bakınız.'"));
+		                             |Подробности см. в Журнале регистрации.'; en = 'Cannot perform the operation. For more information, see the event log.'"));
 	EndIf;
 	
 EndFunction

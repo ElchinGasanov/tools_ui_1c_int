@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Правила отбора</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Filter rules</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Filtre kuralları</value>
+    <key>ru</key>
+    <value>Правила отбора</value>
   </title>
   <items xsi:type="form:Table">
     <name>PrefilterComposerSettingsFilter</name>
@@ -76,7 +72,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>PrefilterComposerSettingsFilter</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -115,7 +110,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>PrefilterComposerSettingsFilter</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -155,7 +149,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>PrefilterComposerSettingsFilter</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -350,7 +343,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -360,10 +352,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_DuplicateObjectDetection</types>
@@ -408,14 +396,6 @@
     <title>
       <key>ru</key>
       <value>ОК</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>OK</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>OK</value>
     </title>
     <id>1</id>
     <toolTip>

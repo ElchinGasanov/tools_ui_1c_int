@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Запуск сеанса 1С</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Run 1C session</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>1C oturumunu çalıştırma</value>
+    <key>ru</key>
+    <value>Запуск сеанса 1С</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>RunParameters</name>
@@ -23,8 +19,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Server</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Server</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>ServerExtendedTooltip</name>
@@ -73,8 +71,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>InfoBase</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>InfoBase</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>InfoBaseExtendedTooltip</name>
@@ -123,8 +123,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>RunMode</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>RunMode</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>RunModeExtendedTooltip</name>
@@ -209,8 +211,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>AdditionalParameters</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>AdditionalParameters</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>AdditionalParametersExtendedTooltip</name>
@@ -307,8 +311,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Starter1C</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Starter1C</segments>
+        </paths>
       </dataPath>
       <toolTip>
         <key>ru</key>
@@ -366,8 +372,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>CommandLine</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>CommandLine</segments>
+        </paths>
       </dataPath>
       <toolTip>
         <key>ru</key>
@@ -456,10 +464,6 @@
     <title>
       <key>en</key>
       <value>Run parameters</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Çalıştırma parametreleri</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -581,7 +585,6 @@
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -595,10 +598,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -622,10 +621,6 @@
       <key>en</key>
       <value>Server</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sunucu</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -647,10 +642,6 @@
     <title>
       <key>en</key>
       <value>Info base</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Bilgi tabanı</value>
     </title>
     <id>3</id>
     <valueType>
@@ -674,10 +665,6 @@
       <key>en</key>
       <value>Additional parameters</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Ek parametreler</value>
-    </title>
     <id>4</id>
     <valueType>
       <types>String</types>
@@ -693,16 +680,12 @@
   <attributes>
     <name>Starter1C</name>
     <title>
-      <key>ru</key>
-      <value>Стартер1С</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Starter 1C</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>1C Başlatıcı</value>
+      <key>ru</key>
+      <value>Стартер1С</value>
     </title>
     <id>5</id>
     <valueType>
@@ -725,10 +708,6 @@
     <title>
       <key>en</key>
       <value>Run mode</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Çalışma modu</value>
     </title>
     <id>6</id>
     <valueType>
@@ -754,10 +733,6 @@
       <key>en</key>
       <value>Command line</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Komut satırı</value>
-    </title>
     <id>7</id>
     <valueType>
       <types>String</types>
@@ -773,16 +748,12 @@
   <formCommands>
     <name>Run1C</name>
     <title>
-      <key>ru</key>
-      <value>Запустить1С</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Run 1C</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>1C Başlat</value>
+      <key>ru</key>
+      <value>Запустить1С</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -812,10 +783,6 @@
     <title>
       <key>en</key>
       <value>Generate command line</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Komut satırını oluştur</value>
     </title>
     <id>2</id>
     <toolTip>

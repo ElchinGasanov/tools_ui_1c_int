@@ -6,26 +6,22 @@
   </producedTypes>
   <name>UT_MarkedObjectsDeletion</name>
   <synonym>
-    <key>ru</key>
-    <value>Удаление помеченных объектов [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Marked objects deletion [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>İşaretli nesnelerin silinmesi [UT]</value>
+    <key>ru</key>
+    <value>Удаление помеченных объектов [УИ]</value>
   </synonym>
   <comment>Search and delete objects marked for deletion</comment>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_MarkedObjectsDeletion.Form.Form</defaultForm>
   <help>
     <pages>
-      <lang>en</lang>
+      <lang>ru</lang>
     </pages>
     <pages>
-      <lang>ru</lang>
+      <lang>en</lang>
     </pages>
   </help>
   <extendedPresentation>
@@ -41,10 +37,6 @@
     <synonym>
       <key>ru</key>
       <value>Удаление помеченных объектов</value>
-    </synonym>
-    <synonym>
-      <key>tr</key>
-      <value>İşaretli nesnelerin silinmesi</value>
     </synonym>
     <includeHelpInContents>true</includeHelpInContents>
     <usePurposes>PersonalComputer</usePurposes>

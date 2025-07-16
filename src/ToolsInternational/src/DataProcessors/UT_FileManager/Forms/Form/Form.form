@@ -17,8 +17,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CurrentDirectoryOnClient</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CurrentDirectoryOnClient</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <handlers>
@@ -129,8 +131,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FilesOnLeftPanel.Name</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FilesOnLeftPanel.Name</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FilesOnLeftPanelNameExtendedTooltip</name>
@@ -179,8 +183,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FilesOnLeftPanel.FileExtension</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FilesOnLeftPanel.FileExtension</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FilesOnLeftPanelFileExtensionExtendedTooltip</name>
@@ -229,8 +235,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FilesOnLeftPanel.ModifiedDate</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FilesOnLeftPanel.ModifiedDate</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FilesOnLeftPanelModifiedDateExtendedTooltip</name>
@@ -279,8 +287,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FilesOnLeftPanel.Size</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FilesOnLeftPanel.Size</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FilesOnLeftPanelSizeExtendedTooltip</name>
@@ -472,11 +482,11 @@
               </extendedTooltip>
               <commandName>Form.Command.Goto_Desktop_AtClient</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:Button">
               <name>GotoTempDirectoryAtClient</name>
@@ -503,11 +513,11 @@
               </extendedTooltip>
               <commandName>Form.Command.Goto_TempFilesDir_AtClient</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:Button">
               <name>GotoProgramDirectoryClient</name>
@@ -534,11 +544,11 @@
               </extendedTooltip>
               <commandName>Form.Command.Goto_BinDir_AtClient</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:Button">
               <name>GotoDocumentDirectoryClient</name>
@@ -565,11 +575,11 @@
               </extendedTooltip>
               <commandName>Form.Command.Goto_DocumentsDir_Client</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -577,16 +587,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Перейти</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Goto</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Git</value>
+              <key>ru</key>
+              <value>Перейти</value>
             </title>
             <extendedTooltip>
               <name>LeftPanelSubMenu_GotoExtendedTooltip</name>
@@ -617,16 +623,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Сортировать по</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Sort</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Sıralama</value>
+              <key>ru</key>
+              <value>Сортировать по</value>
             </title>
             <extendedTooltip>
               <name>SortGroupOfLeftPanelExtendedTooltip</name>
@@ -697,7 +699,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>FilesOnLeftPanel</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -736,7 +737,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>FilesOnLeftPanel</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -776,7 +776,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>FilesOnLeftPanel</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -842,8 +841,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Items.FilesOnLeftPanel.CurrentData.FullName</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Items.FilesOnLeftPanel.CurrentData.FullName</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -941,8 +942,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CurrentDirectoryOnServer</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CurrentDirectoryOnServer</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <handlers>
@@ -1052,8 +1055,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FilesOnRightPanel.Name</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FilesOnRightPanel.Name</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FilesOnRightPanelNameExtendedTooltip</name>
@@ -1102,8 +1107,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FilesOnRightPanel.FileExtension</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FilesOnRightPanel.FileExtension</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FilesOnRightPanelFileExtensionExtendedTooltip</name>
@@ -1152,8 +1159,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FilesOnRightPanel.ModifiedDate</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FilesOnRightPanel.ModifiedDate</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FilesOnRightPanelModifiedDateExtendedTooltip</name>
@@ -1202,8 +1211,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FilesOnRightPanel.Size</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FilesOnRightPanel.Size</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FilesOnRightPanelSizeExtendedTooltip</name>
@@ -1436,16 +1447,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Перейти</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Goto</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Git</value>
+              <key>ru</key>
+              <value>Перейти</value>
             </title>
             <toolTip>
               <key>ru</key>
@@ -1480,16 +1487,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Сортировать по</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Sort</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Sıralama</value>
+              <key>ru</key>
+              <value>Сортировать по</value>
             </title>
             <extendedTooltip>
               <name>SortGroupOfRightPanelExtendedTooltip</name>
@@ -1560,7 +1563,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>FilesOnRightPanel</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1599,7 +1601,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>FilesOnRightPanel</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -1639,7 +1640,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>FilesOnRightPanel</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1701,8 +1701,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Items.FilesOnRightPanel.CurrentData.FullName</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Items.FilesOnRightPanel.CurrentData.FullName</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -2046,7 +2048,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -2060,10 +2061,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -2087,10 +2084,6 @@
       <key>en</key>
       <value>Files on client</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstemcideki dosyalar</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>ValueTree</types>
@@ -2111,10 +2104,6 @@
         <key>en</key>
         <value>Name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>String</types>
@@ -2130,16 +2119,12 @@
     <columns>
       <name>FileExtension</name>
       <title>
-        <key>ru</key>
-        <value>Расширение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Extension</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Uzantı</value>
+        <key>ru</key>
+        <value>Расширение</value>
       </title>
       <id>2</id>
       <valueType>
@@ -2156,16 +2141,12 @@
     <columns>
       <name>ModifiedDate</name>
       <title>
-        <key>ru</key>
-        <value>Дата изменения</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Modified</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değiştirilmiş</value>
+        <key>ru</key>
+        <value>Дата изменения</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2182,16 +2163,12 @@
     <columns>
       <name>CreatedDate</name>
       <title>
-        <key>ru</key>
-        <value>Дата создания</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Created</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Oluşturuldu</value>
+        <key>ru</key>
+        <value>Дата создания</value>
       </title>
       <id>4</id>
       <valueType>
@@ -2215,10 +2192,6 @@
         <key>en</key>
         <value>Size</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Boyut</value>
-      </title>
       <id>5</id>
       <valueType>
         <types>Number</types>
@@ -2236,16 +2209,12 @@
     <columns>
       <name>IsDirectory</name>
       <title>
-        <key>ru</key>
-        <value>Это каталог</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Directory</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Dizin</value>
+        <key>ru</key>
+        <value>Это каталог</value>
       </title>
       <id>7</id>
       <valueType>
@@ -2267,10 +2236,6 @@
       <title>
         <key>en</key>
         <value>Picture index</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim dizini</value>
       </title>
       <id>8</id>
       <valueType>
@@ -2295,10 +2260,6 @@
       <title>
         <key>en</key>
         <value>Full name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tam ad</value>
       </title>
       <id>9</id>
       <valueType>
@@ -2343,10 +2304,6 @@
         <key>en</key>
         <value>Name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>String</types>
@@ -2362,16 +2319,12 @@
     <columns>
       <name>FileExtension</name>
       <title>
-        <key>ru</key>
-        <value>Расширение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Extension</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Uzantı</value>
+        <key>ru</key>
+        <value>Расширение</value>
       </title>
       <id>2</id>
       <valueType>
@@ -2388,16 +2341,12 @@
     <columns>
       <name>ModifiedDate</name>
       <title>
-        <key>ru</key>
-        <value>Дата изменения</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Modified</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değiştirilmiş</value>
+        <key>ru</key>
+        <value>Дата изменения</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2421,10 +2370,6 @@
         <key>en</key>
         <value>Created date</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Oluşturuldu</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -2446,10 +2391,6 @@
       <title>
         <key>en</key>
         <value>Size</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Boyut</value>
       </title>
       <id>5</id>
       <valueType>
@@ -2475,10 +2416,6 @@
         <key>en</key>
         <value>Is directory</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Dizin</value>
-      </title>
       <id>7</id>
       <valueType>
         <types>Boolean</types>
@@ -2499,10 +2436,6 @@
       <title>
         <key>en</key>
         <value>Picture index</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim dizini</value>
       </title>
       <id>8</id>
       <valueType>
@@ -2528,10 +2461,6 @@
         <key>en</key>
         <value>Full name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tam ad</value>
-      </title>
       <id>9</id>
       <valueType>
         <types>String</types>
@@ -2554,10 +2483,6 @@
     <title>
       <key>en</key>
       <value>Current directory on client</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstemcideki geçerli dizin</value>
     </title>
     <id>4</id>
     <valueType>
@@ -2584,10 +2509,6 @@
       <key>en</key>
       <value>Current directory on server</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sunucudaki geçerli dizin</value>
-    </title>
     <id>5</id>
     <valueType>
       <types>String</types>
@@ -2613,10 +2534,6 @@
       <key>en</key>
       <value>History of choose server</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Seçimin geçmişi (sunucu) </value>
-    </title>
     <id>6</id>
     <valueType>
       <types>ValueList</types>
@@ -2637,16 +2554,12 @@
   <attributes>
     <name>HistoryOfChooseClient</name>
     <title>
-      <key>ru</key>
-      <value>История выбора клиент</value>
-    </title>
-    <title>
       <key>en</key>
       <value>History of choose (client)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçimin geçmişi (istemci) </value>
+      <key>ru</key>
+      <value>История выбора клиент</value>
     </title>
     <id>7</id>
     <valueType>
@@ -2675,10 +2588,6 @@
       <key>en</key>
       <value>Windows client</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Windows client</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>Boolean</types>
@@ -2700,10 +2609,6 @@
       <key>en</key>
       <value>Windows server</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Windows server</value>
-    </title>
     <id>11</id>
     <valueType>
       <types>Boolean</types>
@@ -2718,16 +2623,12 @@
   <attributes>
     <name>PathParentOnServer</name>
     <title>
-      <key>ru</key>
-      <value>Разделитель пути сервер</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Path parent on server</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sunucudaki üst dizin yolu</value>
+      <key>ru</key>
+      <value>Разделитель пути сервер</value>
     </title>
     <id>12</id>
     <valueType>
@@ -2751,10 +2652,6 @@
       <key>en</key>
       <value>Path parent on client</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstemcideki üst dizin yolu</value>
-    </title>
     <id>13</id>
     <valueType>
       <types>String</types>
@@ -2777,10 +2674,6 @@
       <key>en</key>
       <value>Files on right panel</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sağ paneldeki dosyalar</value>
-    </title>
     <id>14</id>
     <valueType>
       <types>ValueTable</types>
@@ -2801,10 +2694,6 @@
         <key>en</key>
         <value>Name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
-      </title>
       <id>15</id>
       <valueType>
         <types>String</types>
@@ -2820,16 +2709,12 @@
     <columns>
       <name>FileExtension</name>
       <title>
-        <key>ru</key>
-        <value>Расширение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Extension</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Uzantı</value>
+        <key>ru</key>
+        <value>Расширение</value>
       </title>
       <id>25</id>
       <valueType>
@@ -2846,16 +2731,12 @@
     <columns>
       <name>ModifiedDate</name>
       <title>
-        <key>ru</key>
-        <value>Дата изменения</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Modified</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değiştirilmiş</value>
+        <key>ru</key>
+        <value>Дата изменения</value>
       </title>
       <id>26</id>
       <valueType>
@@ -2879,10 +2760,6 @@
         <key>en</key>
         <value>Created date</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Oluşturuldu</value>
-      </title>
       <id>27</id>
       <valueType>
         <types>Date</types>
@@ -2904,10 +2781,6 @@
       <title>
         <key>en</key>
         <value>Size</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Boyut</value>
       </title>
       <id>28</id>
       <valueType>
@@ -2933,10 +2806,6 @@
         <key>en</key>
         <value>Is directory</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Dizin</value>
-      </title>
       <id>29</id>
       <valueType>
         <types>Boolean</types>
@@ -2957,10 +2826,6 @@
       <title>
         <key>en</key>
         <value>Picture index</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim dizini</value>
       </title>
       <id>30</id>
       <valueType>
@@ -2986,10 +2851,6 @@
         <key>en</key>
         <value>Full name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tam ad</value>
-      </title>
       <id>31</id>
       <valueType>
         <types>String</types>
@@ -3013,10 +2874,6 @@
       <key>en</key>
       <value>Files on left panel</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sol paneldeki dosyalar</value>
-    </title>
     <id>16</id>
     <valueType>
       <types>ValueTable</types>
@@ -3038,10 +2895,6 @@
         <key>en</key>
         <value>Name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
-      </title>
       <id>17</id>
       <valueType>
         <types>String</types>
@@ -3057,16 +2910,12 @@
     <columns>
       <name>FileExtension</name>
       <title>
-        <key>ru</key>
-        <value>Расширение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Extension</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Uzantı</value>
+        <key>ru</key>
+        <value>Расширение</value>
       </title>
       <id>18</id>
       <valueType>
@@ -3083,16 +2932,12 @@
     <columns>
       <name>ModifiedDate</name>
       <title>
-        <key>ru</key>
-        <value>Дата изменения</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Modified</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değiştirilmiş</value>
+        <key>ru</key>
+        <value>Дата изменения</value>
       </title>
       <id>19</id>
       <valueType>
@@ -3116,10 +2961,6 @@
         <key>en</key>
         <value>Created date</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Oluşturuldu</value>
-      </title>
       <id>20</id>
       <valueType>
         <types>Date</types>
@@ -3141,10 +2982,6 @@
       <title>
         <key>en</key>
         <value>Size</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Boyut</value>
       </title>
       <id>21</id>
       <valueType>
@@ -3170,10 +3007,6 @@
         <key>en</key>
         <value>Is directory</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Dizin</value>
-      </title>
       <id>22</id>
       <valueType>
         <types>Boolean</types>
@@ -3194,10 +3027,6 @@
       <title>
         <key>en</key>
         <value>Picture index</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim dizini</value>
       </title>
       <id>23</id>
       <valueType>
@@ -3223,10 +3052,6 @@
         <key>en</key>
         <value>Full name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tam ad</value>
-      </title>
       <id>24</id>
       <valueType>
         <types>String</types>
@@ -3250,10 +3075,6 @@
       <key>en</key>
       <value>Current files table</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut dosyalar tablosu</value>
-    </title>
     <id>32</id>
     <valueType>
       <types>String</types>
@@ -3269,16 +3090,12 @@
   <formCommands>
     <name>UpdateAtClient</name>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Update</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Güncelle</value>
+      <key>ru</key>
+      <value>Обновить</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -3306,16 +3123,12 @@
   <formCommands>
     <name>UpdateAtServer</name>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Update</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Güncelle</value>
+      <key>ru</key>
+      <value>Обновить</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -3343,16 +3156,12 @@
   <formCommands>
     <name>Goto_TempFilesDir_AtServer</name>
     <title>
-      <key>ru</key>
-      <value>Каталог временных файлов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Temp</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Temp</value>
+      <key>ru</key>
+      <value>Каталог временных файлов</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -3373,16 +3182,12 @@
   <formCommands>
     <name>Goto_BinDir_AtServer</name>
     <title>
-      <key>ru</key>
-      <value>Каталог программы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Program Files</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Program Dosyaları</value>
+      <key>ru</key>
+      <value>Каталог программы</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -3403,16 +3208,12 @@
   <formCommands>
     <name>Goto_DocumentsDir_Client</name>
     <title>
-      <key>ru</key>
-      <value>Каталог документов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Documents</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dosyalar</value>
+      <key>ru</key>
+      <value>Каталог документов</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -3433,16 +3234,12 @@
   <formCommands>
     <name>Goto_TempFilesDir_AtClient</name>
     <title>
-      <key>ru</key>
-      <value>Каталог временных файлов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Temp</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Temp</value>
+      <key>ru</key>
+      <value>Каталог временных файлов</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -3463,16 +3260,12 @@
   <formCommands>
     <name>Goto_BinDir_AtClient</name>
     <title>
-      <key>ru</key>
-      <value>Каталог программы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Program Files</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Program Dosyaları</value>
+      <key>ru</key>
+      <value>Каталог программы</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -3493,16 +3286,12 @@
   <formCommands>
     <name>Goto_Desktop_AtClient</name>
     <title>
-      <key>ru</key>
-      <value>Рабочий стол</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Desktop</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Masaüstü</value>
+      <key>ru</key>
+      <value>Рабочий стол</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -3530,10 +3319,6 @@
       <key>en</key>
       <value>Copy to server</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sunucuya kopyala</value>
-    </title>
     <id>9</id>
     <toolTip>
       <key>ru</key>
@@ -3558,10 +3343,6 @@
     <title>
       <key>en</key>
       <value>Delete at client</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstemcide sil</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -3592,10 +3373,6 @@
       <key>en</key>
       <value>Delete at server</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sunucuda sil</value>
-    </title>
     <id>11</id>
     <toolTip>
       <key>ru</key>
@@ -3625,10 +3402,6 @@
       <key>en</key>
       <value>Copy to client</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstemciye kopyala</value>
-    </title>
     <id>12</id>
     <toolTip>
       <key>ru</key>
@@ -3653,10 +3426,6 @@
     <title>
       <key>en</key>
       <value>Move from server to client</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sunucudan istemciye taşı</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -3683,10 +3452,6 @@
       <key>en</key>
       <value>Move from client to server</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstemciden sunucuya taşı</value>
-    </title>
     <id>14</id>
     <toolTip>
       <key>ru</key>
@@ -3705,16 +3470,12 @@
   <formCommands>
     <name>RenameAtServer</name>
     <title>
-      <key>ru</key>
-      <value>Переименовать на сервере</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Rename</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yeniden adlandır</value>
+      <key>ru</key>
+      <value>Переименовать на сервере</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -3737,16 +3498,12 @@
   <formCommands>
     <name>RenameAtClient</name>
     <title>
-      <key>ru</key>
-      <value>Переименовать на клиенте</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Rename</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yeniden adlandır</value>
+      <key>ru</key>
+      <value>Переименовать на клиенте</value>
     </title>
     <id>16</id>
     <toolTip>
@@ -3769,16 +3526,12 @@
   <formCommands>
     <name>StepBackAtClient</name>
     <title>
-      <key>ru</key>
-      <value>Назад</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Back</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Geri</value>
+      <key>ru</key>
+      <value>Назад</value>
     </title>
     <id>17</id>
     <toolTip>
@@ -3806,16 +3559,12 @@
   <formCommands>
     <name>StepForwardAtClient</name>
     <title>
-      <key>ru</key>
-      <value>Вперед</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Forward</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İleri</value>
+      <key>ru</key>
+      <value>Вперед</value>
     </title>
     <id>18</id>
     <toolTip>
@@ -3843,16 +3592,12 @@
   <formCommands>
     <name>StepUpAtClient</name>
     <title>
-      <key>ru</key>
-      <value>Вверх</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Up</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yukarı</value>
+      <key>ru</key>
+      <value>Вверх</value>
     </title>
     <id>19</id>
     <toolTip>
@@ -3880,16 +3625,12 @@
   <formCommands>
     <name>StepUpAtServer</name>
     <title>
-      <key>ru</key>
-      <value>Вверх</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Up</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yukarı</value>
+      <key>ru</key>
+      <value>Вверх</value>
     </title>
     <id>20</id>
     <toolTip>
@@ -3917,16 +3658,12 @@
   <formCommands>
     <name>StepForwardAtServer</name>
     <title>
-      <key>ru</key>
-      <value>Вперед</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Forward</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İleri</value>
+      <key>ru</key>
+      <value>Вперед</value>
     </title>
     <id>21</id>
     <toolTip>
@@ -3954,16 +3691,12 @@
   <formCommands>
     <name>StepBackAtServer</name>
     <title>
-      <key>ru</key>
-      <value>Назад</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Back</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Geri</value>
+      <key>ru</key>
+      <value>Назад</value>
     </title>
     <id>22</id>
     <toolTip>
@@ -3991,16 +3724,12 @@
   <formCommands>
     <name>Copy</name>
     <title>
-      <key>ru</key>
-      <value>Копировать</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Copy (F5)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kopyala (F5)</value>
+      <key>ru</key>
+      <value>Копировать</value>
     </title>
     <id>23</id>
     <use>
@@ -4017,16 +3746,12 @@
   <formCommands>
     <name>Move</name>
     <title>
-      <key>ru</key>
-      <value>Переместить (F6)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Move (F6)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Taşı (F6)</value>
+      <key>ru</key>
+      <value>Переместить (F6)</value>
     </title>
     <id>24</id>
     <use>
@@ -4043,16 +3768,12 @@
   <formCommands>
     <name>CreateDirectory</name>
     <title>
-      <key>ru</key>
-      <value>Создать каталог(F7)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Create directory (F7)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dizin oluştur (F7)</value>
+      <key>ru</key>
+      <value>Создать каталог(F7)</value>
     </title>
     <id>25</id>
     <use>
@@ -4069,16 +3790,12 @@
   <formCommands>
     <name>Delete</name>
     <title>
-      <key>ru</key>
-      <value>Удалить(F8)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete (F8)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sil (F8)</value>
+      <key>ru</key>
+      <value>Удалить(F8)</value>
     </title>
     <id>26</id>
     <use>

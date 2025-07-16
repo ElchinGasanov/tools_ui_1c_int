@@ -14,8 +14,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.AlgorithmDebugMode</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.AlgorithmDebugMode</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -55,16 +57,12 @@
           <columnsCount>1</columnsCount>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Без отладки алгоритмов</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>No debugging</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Hata ayıklama yok</value>
+              <key>ru</key>
+              <value>Без отладки алгоритмов</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>0</value>
@@ -72,16 +70,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Вызывать алгоритмы как процедуры</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Call algorithms as procedures</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Algoritmaları prosedür olarak çağır</value>
+              <key>ru</key>
+              <value>Вызывать алгоритмы как процедуры</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>1</value>
@@ -89,16 +83,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Подставлять код алгоритмов по месту вызова</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Substitute algorithm script to the place where it is called from</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Algoritma metnini çağrıldığı yere yerleştir</value>
+              <key>ru</key>
+              <value>Подставлять код алгоритмов по месту вызова</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>2</value>
@@ -122,10 +112,6 @@
             <title>
               <key>ru</key>
               <value>Алгоритмы не выгружаются. Режим удобно использовать, когда производить отладку алгоритмов не требуется. Алгоритмы будут выполняться, но их код недоступен для отладки.</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Algoritmalar dışa aktarılmaz. Bu mod, algoritmaların hata ayıklamasının gerekmediği durumlarda kullanışlıdır. Algoritmalar çalıştırılır ancak kodları hata ayıklama için erişilebilir olmaz.</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -212,10 +198,6 @@
               <key>ru</key>
               <value>Алгоритмы выгружаются как отдельные процедуры. При вызове алгоритма происходит обращение к соответствующей процедуре обработки. Ограничения использования режима см. справку.</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Algoritmalar ayrı prosedürler olarak dışa aktarılır. Algoritma çağrıldığında ilgili işlem prosedürüne yönlendirilir. Modun kullanım kısıtlamaları için yardım dokümantasyonuna bakınız.</value>
-            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -301,10 +283,6 @@
               <key>ru</key>
               <value>Алгоритмы выгружаются как интегрированный код в обработчиках, т.е. взамен строки вызова алгоритма вставляется полный код алгоритма с учетом вложенных алгоритмов. Ограничения использования режима см. справку.</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Algoritmalar, işleyicilere entegre edilmiş kod olarak dışa aktarılır; yani, algoritma çağrısı satırının yerine, iç içe algoritmalar da dahil olmak üzere tam algoritma kodu yerleştirilir. Modun kullanım kısıtlamaları için yardım dokümantasyonuna bakınız.</value>
-            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -382,16 +360,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Подсказка отладка алгоритмов</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Algorithms debug tooltip</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Algoritmalar hata ayıklama araç ipucu</value>
+          <key>ru</key>
+          <value>Подсказка отладка алгоритмов</value>
         </title>
         <extendedTooltip>
           <name>AlgorithmsDebugTooltipExtendedTooltip</name>
@@ -419,16 +393,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Отладки алгоритмов</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Debug group</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Hata ayıklama grubu</value>
+        <key>ru</key>
+        <value>Отладки алгоритмов</value>
       </title>
       <extendedTooltip>
         <name>AlgorithmsDebugGroupExtendedTooltip</name>
@@ -460,16 +430,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>1. Выберите режим отладки кода алгоритмов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>1. Select algorithm debugging mode</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>1. Algoritma hata ayıklama modunu seçin</value>
+      <key>ru</key>
+      <value>1. Выберите режим отладки кода алгоритмов</value>
     </title>
     <extendedTooltip>
       <name>Step_1_GroupExtendedTooltip</name>
@@ -507,16 +473,12 @@
         <name>ExportHandlersScript</name>
         <id>10</id>
         <title>
-          <key>ru</key>
-          <value>Сформировать модуль отладки выгрузки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Generate export debugging module</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Aktarım hata ayıklama modülünü oluştur</value>
+          <key>ru</key>
+          <value>Сформировать модуль отладки выгрузки</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -621,16 +583,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>2. Выгрузите код обработчиков</value>
-    </title>
-    <title>
       <key>en</key>
       <value>2. Export handler code</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>2. İşleyici kodunu dışa aktar</value>
+      <key>ru</key>
+      <value>2. Выгрузите код обработчиков</value>
     </title>
     <extendedTooltip>
       <name>Group_Step_2ExtendedTooltip</name>
@@ -678,12 +636,6 @@
 3. На завершающем четвертом шаге указать вновь созданную обработку как обработку с экспортными процедурами обработчиков.
 </value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>1. Hata ayıklama modülü oluşturulduktan sonra, elde edilen işleyici kodunu panoya kopyalayın.
-2. Konfigüratörü açın ve yeni bir harici işlem oluşturun. İşlem modülüne panodaki içeriği yapıştırın. İşlemi kaydedin.
-3. Son, dördüncü adımda, yeni oluşturulan işlemi işleyici dışa aktarma prosedürlerine sahip işlem olarak belirtin.</value>
-      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -728,16 +680,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>3. Пояснения к созданию файла внешней обработки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>3. How to create an external data processor file</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>3. Harici işlem dosyası oluşturma açıklamaları</value>
+      <key>ru</key>
+      <value>3. Пояснения к созданию файла внешней обработки</value>
     </title>
     <extendedTooltip>
       <name>Group_Step_3ExtendedTooltip</name>
@@ -784,10 +732,6 @@
           <title>
             <key>ru</key>
             <value>Имя файла внешней обработки с модулем отладки на сервере</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Hata ayıklama modülüne sahip harici veri işlemci dosyasının adı (sunucuda)</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -873,10 +817,6 @@
           <title>
             <key>ru</key>
             <value>Имя файла внешней обработки с модулем отладки на сервере</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Hata ayıklama modülüne sahip harici veri işlemci dosyasının sunucudaki dosya adı</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -992,24 +932,22 @@
       <name>EventHandlerExternalDataProcessorFileName</name>
       <id>15</id>
       <title>
-        <key>ru</key>
-        <value>Имя файла внешней обработки с модулем отладки на сервере</value>
-      </title>
-      <title>
         <key>en</key>
         <value>File name of the external data processor with the debugging module (on the server)</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sunucudaki hata ayıklama modüllü harici veri işlemci dosyası adı</value>
+        <key>ru</key>
+        <value>Имя файла внешней обработки с модулем отладки на сервере</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.EventHandlerExternalDataProcessorFileName</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.EventHandlerExternalDataProcessorFileName</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <handlers>
@@ -1065,16 +1003,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>4. Создайте (обновите) файл внешней обработки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>4. Create or update external data processor file</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>5. Harici işlem dosyasını oluşturun (güncelleyin)</value>
+      <key>ru</key>
+      <value>4. Создайте (обновите) файл внешней обработки</value>
     </title>
     <extendedTooltip>
       <name>Group_Step_4ExtendedTooltip</name>
@@ -1216,7 +1150,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -1227,10 +1160,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_UniversalDataExchangeXML</types>
@@ -1245,10 +1174,6 @@
   </attributes>
   <attributes>
     <name>SpecialTextColor</name>
-    <title>
-      <key>tr</key>
-      <value>ÖzelMetinRengi</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>Color</types>
@@ -1263,16 +1188,12 @@
   <formCommands>
     <name>ExportHandlersScript</name>
     <title>
-      <key>ru</key>
-      <value>Выгрузить код обработчиков</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export handlers script</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İşleyici kodunu dışa aktar</value>
+      <key>ru</key>
+      <value>Выгрузить код обработчиков</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1296,16 +1217,12 @@
   <formCommands>
     <name>OpenFile</name>
     <title>
-      <key>ru</key>
-      <value>Открыть файл</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Open file</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dosyayı aç</value>
+      <key>ru</key>
+      <value>Открыть файл</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -1333,16 +1250,12 @@
   <formCommands>
     <name>Finish</name>
     <title>
-      <key>ru</key>
-      <value>Готово</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Finish</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Hazır</value>
+      <key>ru</key>
+      <value>Готово</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -1411,5 +1324,4 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

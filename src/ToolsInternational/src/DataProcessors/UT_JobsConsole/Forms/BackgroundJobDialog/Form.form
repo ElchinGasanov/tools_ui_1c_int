@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Фоновое задание</value>
-  </title>
-  <title>
     <key>en</key>
     <value>BackgroundJob</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Arkaplan görevi</value>
+    <key>ru</key>
+    <value>Фоновое задание</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>DescriptionGroup</name>
@@ -23,8 +19,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>MethodName</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>MethodName</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>MethodNameExtendedTooltip</name>
@@ -74,8 +72,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Description</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Description</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>DescriptionExtendedTooltip</name>
@@ -124,8 +124,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Key</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Key</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>KeyExtendedTooltip</name>
@@ -172,16 +174,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Описание</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Description</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tanım</value>
+      <key>ru</key>
+      <value>Описание</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -295,7 +293,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -309,10 +306,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -329,16 +322,12 @@
   <attributes>
     <name>MethodName</name>
     <title>
-      <key>ru</key>
-      <value>Имя метода</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Method name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metot adı</value>
+      <key>ru</key>
+      <value>Имя метода</value>
     </title>
     <id>2</id>
     <valueType>
@@ -358,10 +347,6 @@
       <key>en</key>
       <value>Description</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tanım</value>
-    </title>
     <id>3</id>
     <valueType>
       <types>String</types>
@@ -377,16 +362,12 @@
   <attributes>
     <name>Key</name>
     <title>
-      <key>ru</key>
-      <value>Ключ</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Key</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Anahtar</value>
+      <key>ru</key>
+      <value>Ключ</value>
     </title>
     <id>4</id>
     <valueType>
@@ -403,15 +384,11 @@
   <formCommands>
     <name>OK</name>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>tr</key>
+      <key>ru</key>
       <value>ОК</value>
     </title>
     <id>1</id>
@@ -437,5 +414,4 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

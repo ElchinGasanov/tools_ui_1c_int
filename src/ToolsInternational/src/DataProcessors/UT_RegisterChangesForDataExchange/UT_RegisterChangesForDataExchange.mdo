@@ -6,57 +6,41 @@
   </producedTypes>
   <name>UT_RegisterChangesForDataExchange</name>
   <synonym>
-    <key>ru</key>
-    <value>Регистрация изменений для обмена данными [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Register changes for data exchange [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Veri alışverişi için değişikliklerin kaydı [UT]</value>
+    <key>ru</key>
+    <value>Регистрация изменений для обмена данными [УИ]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_RegisterChangesForDataExchange.Form.Form</defaultForm>
   <auxiliaryForm>ac4674ba-2e32-11ea-cc81-e86a6452d1f2</auxiliaryForm>
   <extendedPresentation>
-    <key>ru</key>
-    <value>Регистрация изменений для обмена данными</value>
-  </extendedPresentation>
-  <extendedPresentation>
     <key>en</key>
     <value>Register changes for data exchange</value>
   </extendedPresentation>
   <extendedPresentation>
-    <key>tr</key>
-    <value>Veri alışverişi için değişikliklerin kaydı</value>
-  </extendedPresentation>
-  <explanation>
     <key>ru</key>
-    <value>Форк обработки с диска ИТС с адаптациями под подсистему</value>
-  </explanation>
+    <value>Регистрация изменений для обмена данными</value>
+  </extendedPresentation>
   <explanation>
     <key>en</key>
     <value>ITS data processor fork with SSL adaptation</value>
   </explanation>
   <explanation>
-    <key>tr</key>
-    <value>SSL uyarlamalı ITS veri işlemcisi çatallaması</value>
+    <key>ru</key>
+    <value>Форк обработки с диска ИТС с адаптациями под подсистему</value>
   </explanation>
   <attributes uuid="ac435c76-2e32-11ea-cc81-e86a6452d1f2">
     <name>SequenceAutoRecordSetting</name>
-    <synonym>
-      <key>ru</key>
-      <value>Авторегистрация последовательностей</value>
-    </synonym>
     <synonym>
       <key>en</key>
       <value>Auto register sequences</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>İşlem sıralarının otomatik kaydı</value>
+      <key>ru</key>
+      <value>Авторегистрация последовательностей</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -75,16 +59,12 @@
   <attributes uuid="ac436478-2e32-11ea-cc81-e86a6452d1f2">
     <name>RegisterRecordAutoRecordSetting</name>
     <synonym>
-      <key>ru</key>
-      <value>Авторегистрация движений</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Auto register records</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Etkinliklerin otomatik kaydı</value>
+      <key>ru</key>
+      <value>Авторегистрация движений</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -103,16 +83,12 @@
   <attributes uuid="ac436d24-2e32-11ea-cc81-e86a6452d1f2">
     <name>QueryExternalDataProcessorAddressSetting</name>
     <synonym>
-      <key>ru</key>
-      <value>Адрес внешней обработки запросов</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Address of external query data processor</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Harici sorgu veri işlemcisinin adresi</value>
+      <key>ru</key>
+      <value>Адрес внешней обработки запросов</value>
     </synonym>
     <type>
       <types>String</types>
@@ -132,16 +108,12 @@
   <attributes uuid="ac4372b0-2e32-11ea-cc81-e86a6452d1f2">
     <name>MessageNumberOptionSetting</name>
     <synonym>
-      <key>ru</key>
-      <value>Настройка вариант номера сообщения</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Message numbering option</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Mesaj numaralandırma seçeneği</value>
+      <key>ru</key>
+      <value>Настройка вариант номера сообщения</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -155,16 +127,12 @@
   <attributes uuid="ac43779c-2e32-11ea-cc81-e86a6452d1f2">
     <name>ObjectExportControlSetting</name>
     <synonym>
-      <key>ru</key>
-      <value>Конфигурация может контролировать выгрузку объектов</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Configuration can control object export</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Konfigurasyon nesnenin dışa aktarılmasını kontrol edebilir</value>
+      <key>ru</key>
+      <value>Конфигурация может контролировать выгрузку объектов</value>
     </synonym>
     <comment>Configurations with SSL 2.1.2 or later can control object export.</comment>
     <type>
@@ -176,16 +144,12 @@
   <attributes uuid="ac437c88-2e32-11ea-cc81-e86a6452d1f2">
     <name>ConfigurationSupportsSSL</name>
     <synonym>
-      <key>ru</key>
-      <value>Конфигурация поддерживает БСП</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Configuration supports SSL</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Konfigurasyon SSL'yi destekler</value>
+      <key>ru</key>
+      <value>Конфигурация поддерживает БСП</value>
     </synonym>
     <comment>Calculated on settings read to limit settings options</comment>
     <type>
@@ -197,16 +161,12 @@
   <attributes uuid="ac438278-2e32-11ea-cc81-e86a6452d1f2">
     <name>RegisterWithSSLMethodsAvailable</name>
     <synonym>
-      <key>ru</key>
-      <value>Доступна регистрация средствами БСП</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Register with SSLMethods available</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>SSLMethods ile kayıt olun</value>
+      <key>ru</key>
+      <value>Доступна регистрация средствами БСП</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -217,16 +177,12 @@
   <forms uuid="ac4387d2-2e32-11ea-cc81-e86a6452d1f2">
     <name>SelectExchangePlanNode</name>
     <synonym>
-      <key>ru</key>
-      <value>Выбор узла плана обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Select exchange plan node</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Alışveriş planı düğümünü seçilmesi</value>
+      <key>ru</key>
+      <value>Выбор узла плана обмена</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -234,16 +190,12 @@
   <forms uuid="ac43e59c-2e32-11ea-cc81-e86a6452d1f2">
     <name>Form</name>
     <synonym>
-      <key>ru</key>
-      <value>Регистрация изменений для обмена данными</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Register changes for data exchange</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri alışverişi için değişikliklerin kaydı</value>
+      <key>ru</key>
+      <value>Регистрация изменений для обмена данными</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -251,16 +203,12 @@
   <forms uuid="ac46557a-2e32-11ea-cc81-e86a6452d1f2">
     <name>ExchangePlanNodeMessageNumbers</name>
     <synonym>
-      <key>ru</key>
-      <value>Номера сообщений узла плана обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Exchange plan node message numbers</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Alışveriş planı düğüm mesajı numaraları</value>
+      <key>ru</key>
+      <value>Номера сообщений узла плана обмена</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -268,16 +216,12 @@
   <forms uuid="ac469044-2e32-11ea-cc81-e86a6452d1f2">
     <name>SelectConstant</name>
     <synonym>
-      <key>ru</key>
-      <value>Выбор константы</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Select constant</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Sabit seçimi</value>
+      <key>ru</key>
+      <value>Выбор константы</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -285,16 +229,12 @@
   <forms uuid="ac46d0a4-2e32-11ea-cc81-e86a6452d1f2">
     <name>SelectObjectsUsingFilter</name>
     <synonym>
-      <key>ru</key>
-      <value>Выбор объектов отбором</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Select objects using filter</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Filtre kullanarak nesnelerin seçilmesi</value>
+      <key>ru</key>
+      <value>Выбор объектов отбором</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -302,16 +242,12 @@
   <forms uuid="ac47072c-2e32-11ea-cc81-e86a6452d1f2">
     <name>ObjectRegistrationNodes</name>
     <synonym>
-      <key>ru</key>
-      <value>Узлы регистрации объекта</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Object registration nodes</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Nesne kayıt düğümleri</value>
+      <key>ru</key>
+      <value>Узлы регистрации объекта</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -319,16 +255,12 @@
   <forms uuid="ac4758e4-2e32-11ea-cc81-e86a6452d1f2">
     <name>Settings</name>
     <synonym>
-      <key>ru</key>
-      <value>Настройки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Settings</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Ayarlar</value>
+      <key>ru</key>
+      <value>Настройки</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

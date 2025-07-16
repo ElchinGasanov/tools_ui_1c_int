@@ -6,16 +6,12 @@
   </producedTypes>
   <name>UT_ObjectReferencesSearch</name>
   <synonym>
-    <key>ru</key>
-    <value>Поиск ссылок на объект [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Object references search [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Nesneye ilişkin referansların aranması [UT]</value>
+    <key>ru</key>
+    <value>Поиск ссылок на объект [УИ]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_ObjectReferencesSearch.Form.Form</defaultForm>
@@ -25,42 +21,30 @@
     </pages>
   </help>
   <extendedPresentation>
-    <key>ru</key>
-    <value>Поиск ссылок на объект</value>
-  </extendedPresentation>
-  <extendedPresentation>
     <key>en</key>
     <value>Object references search</value>
   </extendedPresentation>
   <extendedPresentation>
-    <key>tr</key>
-    <value>Nesneye ilişkin referansların aranması</value>
-  </extendedPresentation>
-  <explanation>
     <key>ru</key>
-    <value>Аналог стандартной обработки из меню &quot;Все функции&quot;.</value>
-  </explanation>
+    <value>Поиск ссылок на объект</value>
+  </extendedPresentation>
   <explanation>
     <key>en</key>
     <value>An analog of standard data processor from the &quot;Functions for technician&quot; menu item.</value>
   </explanation>
   <explanation>
-    <key>tr</key>
-    <value>&quot;Teknik uzman için Fonksiyonlar&quot; menü öğesindeki standart veri işlemcisinin bir benzeri.</value>
+    <key>ru</key>
+    <value>Аналог стандартной обработки из меню &quot;Все функции&quot;.</value>
   </explanation>
   <attributes uuid="4d56ac76-3eb4-493a-a4da-30d9fa7b68e5">
     <name>SourceObject</name>
-    <synonym>
-      <key>ru</key>
-      <value>Исходный объект</value>
-    </synonym>
     <synonym>
       <key>en</key>
       <value>Source object</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Orijinal nesne</value>
+      <key>ru</key>
+      <value>Исходный объект</value>
     </synonym>
     <type/>
     <minValue xsi:type="core:UndefinedValue"/>
@@ -70,16 +54,12 @@
   <attributes uuid="9cc3d7f2-ab36-4244-93e9-6e9453396090">
     <name>FoundCount</name>
     <synonym>
-      <key>ru</key>
-      <value>Количество найденных</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Found count</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Bulunan sayısı</value>
+      <key>ru</key>
+      <value>Количество найденных</value>
     </synonym>
     <type>
       <types>Number</types>

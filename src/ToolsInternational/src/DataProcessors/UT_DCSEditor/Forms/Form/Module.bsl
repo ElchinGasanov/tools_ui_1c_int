@@ -44,7 +44,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		UT_CodeEditorServer.FormOnCreateAtServer(ThisObject);
 		
 		EditorEvents = UT_CodeEditorServer.NewEditorEventsParameters();
-		EditorEvents.OnChange = "DataSetsQueryOnChange" ;
+		EditorEvents.OnChange = "DataSetsOueryOnChange" ;
 		UT_CodeEditorServer.CreateCodeEditorItems(ThisObject,
 												  "Query" ,
 												  Items.DataSetsQuery,
@@ -302,7 +302,7 @@ Procedure FieldsAvailableValuesStartChoice(Item, ChoiceData, StandardProcessing)
 
 	UT_CommonClient.OpenValueListChoiceItemsForm(CurrentData.AvailableValues,
 		New NotifyDescription("FieldsAvailableValuesStartChoiceEND", ThisObject, AdditionalParameters),
-		NSTR("ru = 'Редактирование списка значений'; en = 'Edit values list'; tr = 'Değerler listesini düzenle'"), CurrentData.ValueType, False, True, True, False,
+		NSTR("ru = 'Редактирование списка значений';en = 'Edit values list'"), CurrentData.ValueType, False, True, True, False,
 		FormWindowOpeningMode.LockOwnerWindow);
 EndProcedure
 
@@ -421,7 +421,7 @@ Procedure FieldsPresentationExpressionOpening(Item, StandardProcessing)
 
 	OpenEditExpressionForm(CurrentData.PresentationExpression,
 		New NotifyDescription("FieldsPresentationExpressionOpeningOnEnd", ThisObject, AdditionalParameters), False,
-		StrTemplate(NSTR("ru = 'Редактирование выражения ресурса для %1'; en = 'Editing resource expression for %1'; tr = '%1 için kaynak ifadesi düzenleniyor'"),CurrentData.DataPath));	 
+		StrTemplate(NSTR("ru = 'Редактирование выражения ресурса для %1';en = 'Editing resource expression for %1'"),CurrentData.DataPath));	 
 EndProcedure
 
 #EndRegion
@@ -487,7 +487,7 @@ Procedure ResourcesExpressionOpening(Item, StandardProcessing)
 
 	OpenEditExpressionForm(CurrentData.Expression,
 		New NotifyDescription("ResourcesExpressionOpeningEND", ThisObject, AdditionalParameters), True,
-		NSTR("ru = 'Редактирование выражения ресурса для'; en = 'Edit resource expression for '; tr = 'Kaynak ifadesini düzenle'") + CurrentData.DataPath);
+		NSTR("ru = 'Редактирование выражения ресурса для';en = 'Edit resource expression for '") + CurrentData.DataPath);
 EndProcedure
 
 &AtClient
@@ -506,7 +506,7 @@ Procedure ResourcesGroupsStartChoice(Item, ChoiceData, StandardProcessing)
 
 	Check= CurrentData.Groups.FindByValue("Overall") <> Undefined;
 
-	AvailableGroupsList.Add("Overall", NSTR("ru = 'Общий итог'; en = 'Overall'; tr = 'Genel toplam'"), Check);
+	AvailableGroupsList.Add("Overall", NSTR("ru = 'Общий итог';en = 'Overall'"), Check);
 
 	AdditionalParameters=New Structure;
 	AdditionalParameters.Insert("RowID", Items.Resources.CurrentRow);
@@ -553,7 +553,7 @@ Procedure CalculatedFieldsExpressionOpening(Item, StandardProcessing)
 
 	OpenEditExpressionForm(CurrentData.Expression,
 		New NotifyDescription("CalculatedFieldsExpressionOpeningEND", ThisObject, AdditionalParameters),False,
-		NSTR("ru = 'Редактирование выражения ресурса для '; en = 'Edit resource expression for '; tr = 'Kaynak ifadesini düzenle'") + CurrentData.DataPath);
+		NSTR("ru = 'Редактирование выражения ресурса для ';en = 'Edit resource expression for '") + CurrentData.DataPath);
 EndProcedure
 &AtClient
 Procedure CalculatedFieldsAvailableValuesStartChoice(Item, ChoiceData, StandardProcessing)
@@ -569,7 +569,7 @@ Procedure CalculatedFieldsAvailableValuesStartChoice(Item, ChoiceData, StandardP
 
 	UT_CommonClient.OpenValueListChoiceItemsForm(CurrentData.AvailableValues,
 		New NotifyDescription("CalculatedFieldsAvailableValuesStartChoiceEND", ThisObject, AdditionalParameters),
-		NSTR("ru = 'Редактирование списка значений'; en = 'Edit values list'; tr = 'Değerler listesini düzenle'"), CurrentData.ValueType, False, True, True, False,
+		NSTR("ru = 'Редактирование списка значений';en = 'Edit values list'"), CurrentData.ValueType, False, True, True, False,
 		FormWindowOpeningMode.LockOwnerWindow);
 EndProcedure
 
@@ -657,7 +657,7 @@ Procedure DCSParametersAvailableValuesStartChoice(Item, ChoiceData, StandardProc
 
 	UT_CommonClient.OpenValueListChoiceItemsForm(CurrentData.AvailableValues,
 		New NotifyDescription("DCSParametersAvailableValuesStartChoiceEND", ThisObject, AdditionalParameters),
-		NSTR("ru = 'Редактирование списка значений'; en = 'Edit values list'; tr = 'Değerler listesini düzenle'"), CurrentData.ValueType, False, True, True, False,
+		NSTR("ru = 'Редактирование списка значений';en = 'Edit values list'"), CurrentData.ValueType, False, True, True, False,
 		FormWindowOpeningMode.LockOwnerWindow);
 EndProcedure
 
@@ -688,7 +688,7 @@ Procedure DCSParametersValueStartChoice(Item, ChoiceData, StandardProcessing)
 
 	UT_CommonClient.OpenValueListChoiceItemsForm(CurrentData.Value,
 		New NotifyDescription("DCSParametersValueStartChoiceEND", ThisObject, AdditionalParameters),
-		NSTR("ru = 'Редактирование списка значений'; en = 'Edit values list'; tr = 'Değerler listesini düzenle'"), CurrentData.ValueType, False, False, True, False,
+		NSTR("ru = 'Редактирование списка значений';en = 'Edit values list'"), CurrentData.ValueType, False, False, True, False,
 		FormWindowOpeningMode.LockOwnerWindow, AvailableValues);
 	
 EndProcedure
@@ -727,7 +727,7 @@ Procedure DCSParametersExpressionOpening(Item, StandardProcessing)
 	
      OpenEditExpressionForm(CurrentData.Expression,
 		New NotifyDescription("DCSParametersExpressionOpeningEND", ThisObject, AdditionalParameters), True,
-		NSTR("ru = 'Редактирование выражения для'; en = 'Edit expression for'; tr = 'İfadeyi düzenle'") + CurrentData.Name);
+		NSTR("ru = 'Редактирование выражения для';en = 'Edit expression for'") + CurrentData.Name);
 EndProcedure
 
 
@@ -1242,7 +1242,7 @@ Procedure ReadSchemaFromFileAtServer(FileAddress)
 	Try
 		DCS=UT_Common.ValueFromXMLString(Text.GetText());
 	Except
-		Message(StrTemplate(NSTR("ru = 'Не удалось прочитать СКД из файла: %1'; en = 'Could not read the DCS from the file: %1'; tr = 'DCS dosyasından okunamadı: %1'"), ErrorDescription()));
+		Message(StrTemplate(NSTR("ru = 'Не удалось прочитать СКД из файла: %1';en = 'Could not read the DCS from the file: %1'"), ErrorDescription()));
 		Return;
 	EndTry;
 

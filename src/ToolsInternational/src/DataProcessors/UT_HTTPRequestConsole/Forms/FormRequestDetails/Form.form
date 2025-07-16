@@ -504,10 +504,6 @@
           <key>en</key>
           <value>Proxy settings</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Proxy ayarları</value>
-        </title>
         <extendedTooltip>
           <name>HeaderAnalysisProxySettingsGroupExtendedTooltip</name>
           <id>12</id>
@@ -1020,10 +1016,6 @@
                   <key>en</key>
                   <value>Save to file</value>
                 </title>
-                <title>
-                  <key>tr</key>
-                  <value>Dosyaya kaydet</value>
-                </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
@@ -1226,10 +1218,6 @@
                   <key>en</key>
                   <value>The request was executed without setting the body</value>
                 </title>
-                <title>
-                  <key>tr</key>
-                  <value>Gövde ayarlanmadan istek yürütüldü</value>
-                </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
@@ -1332,10 +1320,6 @@
             <key>en</key>
             <value>Request body</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>İstek gövdesi</value>
-          </title>
           <extendedTooltip>
             <name>RequestsHistoryRequestBodyGroupExtendedTooltip</name>
             <id>54</id>
@@ -1373,10 +1357,6 @@
         <title>
           <key>en</key>
           <value>Request</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>İstek</value>
         </title>
         <extendedTooltip>
           <name>RequestAnalysGroupExtendedTooltip</name>
@@ -1610,10 +1590,6 @@
                 <key>en</key>
                 <value>String</value>
               </title>
-              <title>
-                <key>tr</key>
-                <value>Dizin</value>
-              </title>
               <extendedTooltip>
                 <name>StringPageRequestHistoryResponseBodyGroupExtendedTooltip</name>
                 <id>106</id>
@@ -1648,10 +1624,6 @@
                 <title>
                   <key>en</key>
                   <value>Save to file</value>
-                </title>
-                <title>
-                  <key>tr</key>
-                  <value>Dosyaya kaydet</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -1745,10 +1717,6 @@
                 <key>en</key>
                 <value>Binary date</value>
               </title>
-              <title>
-                <key>tr</key>
-                <value>İkili veri</value>
-              </title>
               <extendedTooltip>
                 <name>BinaryDataPageRequestHistoryResponseBodyGroupExtendedTooltip</name>
                 <id>108</id>
@@ -1809,10 +1777,6 @@
             <key>en</key>
             <value>Request body</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>İstek gövdesi</value>
-          </title>
           <extendedTooltip>
             <name>RequestHistoryResponseBodyGroupExtendedTooltip</name>
             <id>102</id>
@@ -1850,10 +1814,6 @@
         <title>
           <key>en</key>
           <value>Respose</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Yanıt</value>
         </title>
         <extendedTooltip>
           <name>ResponseAnalysisGroupExtendedTooltip</name>
@@ -1922,10 +1882,6 @@
       <key>en</key>
       <value>Request analysis</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek analizi</value>
-    </title>
     <extendedTooltip>
       <name>RequestAnalysisGroupExtendedTooltip</name>
       <id>4</id>
@@ -1965,10 +1921,6 @@
       <title>
         <key>en</key>
         <value>Close</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Kapat</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -2013,7 +1965,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -2031,10 +1982,6 @@
     <title>
       <key>en</key>
       <value>Request row</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstek satırı</value>
     </title>
     <id>1</id>
     <valueType>
@@ -2060,10 +2007,6 @@
       <key>en</key>
       <value>History row</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Geçmiş satırı</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>Number</types>
@@ -2087,10 +2030,6 @@
     <title>
       <key>en</key>
       <value>Timeout</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Zaman aşımı</value>
     </title>
     <id>3</id>
     <valueType>
@@ -2116,10 +2055,6 @@
       <key>en</key>
       <value>Request body binary data address</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek gövdesi ikili veri adresi</value>
-    </title>
     <id>4</id>
     <valueType>
       <types>String</types>
@@ -2141,10 +2076,6 @@
     <title>
       <key>en</key>
       <value>Request body binary data string</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstek gövdesi ikili veri dizesi</value>
     </title>
     <id>5</id>
     <valueType>
@@ -2168,10 +2099,6 @@
       <key>en</key>
       <value>Request body file name</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek gövdesi dosya adı</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>String</types>
@@ -2193,10 +2120,6 @@
     <title>
       <key>en</key>
       <value>Request body string</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstek gövdesi metni</value>
     </title>
     <id>7</id>
     <valueType>
@@ -2220,10 +2143,6 @@
       <key>en</key>
       <value>Response body binary data address</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesi ikili veri adresi</value>
-    </title>
     <id>8</id>
     <valueType>
       <types>String</types>
@@ -2245,10 +2164,6 @@
     <title>
       <key>en</key>
       <value>Response body binary data string</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesi ikili veri dizesi</value>
     </title>
     <id>9</id>
     <valueType>
@@ -2272,10 +2187,6 @@
       <key>en</key>
       <value>Response body string</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesi metni</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>String</types>
@@ -2296,10 +2207,6 @@
     </title>
     <title>
       <key>en</key>
-      <value>BOM</value>
-    </title>
-    <title>
-      <key>tr</key>
       <value>BOM</value>
     </title>
     <id>11</id>
@@ -2326,10 +2233,6 @@
       <key>en</key>
       <value>Method</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Metod</value>
-    </title>
     <id>12</id>
     <valueType>
       <types>String</types>
@@ -2350,10 +2253,6 @@
     </title>
     <title>
       <key>en</key>
-      <value>URL</value>
-    </title>
-    <title>
-      <key>tr</key>
       <value>URL</value>
     </title>
     <id>13</id>
@@ -2378,10 +2277,6 @@
       <key>en</key>
       <value>Server address</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sunucu adresi</value>
-    </title>
     <id>14</id>
     <valueType>
       <types>String</types>
@@ -2403,10 +2298,6 @@
     <title>
       <key>en</key>
       <value>Response body string address</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesi metin adresi</value>
     </title>
     <id>15</id>
     <valueType>
@@ -2430,10 +2321,6 @@
       <key>en</key>
       <value>Request body type</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek gövdesi türü</value>
-    </title>
     <id>16</id>
     <valueType>
       <types>String</types>
@@ -2456,10 +2343,6 @@
       <key>en</key>
       <value>Date</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tarih</value>
-    </title>
     <id>17</id>
     <valueType>
       <types>Date</types>
@@ -2481,10 +2364,6 @@
     <title>
       <key>en</key>
       <value>Duration of execution</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Çalıştırma süresi</value>
     </title>
     <id>18</id>
     <valueType>
@@ -2510,10 +2389,6 @@
       <key>en</key>
       <value>Request headers</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek başlıkları</value>
-    </title>
     <id>19</id>
     <valueType>
       <types>String</types>
@@ -2535,10 +2410,6 @@
     <title>
       <key>en</key>
       <value>Response headers</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt başlıkları</value>
     </title>
     <id>20</id>
     <valueType>
@@ -2562,10 +2433,6 @@
       <key>en</key>
       <value>Header proxy settings analysis request</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Başlık proxy ayarları analiz isteği</value>
-    </title>
     <id>21</id>
     <valueType>
       <types>String</types>
@@ -2587,10 +2454,6 @@
     <title>
       <key>en</key>
       <value>Request</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstek</value>
     </title>
     <id>22</id>
     <valueType>
@@ -2614,10 +2477,6 @@
       <key>en</key>
       <value>Use proxy</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Proxy kullan</value>
-    </title>
     <id>23</id>
     <valueType>
       <types>Boolean</types>
@@ -2638,10 +2497,6 @@
     <title>
       <key>en</key>
       <value>Status code</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Durum kodu</value>
     </title>
     <id>24</id>
     <valueType>
@@ -2667,10 +2522,6 @@
       <key>en</key>
       <value>Request body encoding</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek gövdesi kodlaması</value>
-    </title>
     <id>25</id>
     <valueType>
       <types>String</types>
@@ -2693,10 +2544,6 @@
       <key>en</key>
       <value>Proxy OS Authentication</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Proxy İşletim Sistemi Kimlik Doğrulaması</value>
-    </title>
     <id>26</id>
     <valueType>
       <types>Boolean</types>
@@ -2717,10 +2564,6 @@
     <title>
       <key>en</key>
       <value>Proxy password</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Proxy parola</value>
     </title>
     <id>27</id>
     <valueType>
@@ -2744,10 +2587,6 @@
       <key>en</key>
       <value>Proxy user</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Proxy kullanıcı</value>
-    </title>
     <id>28</id>
     <valueType>
       <types>String</types>
@@ -2768,10 +2607,6 @@
     </title>
     <title>
       <key>en</key>
-      <value>Proxy port</value>
-    </title>
-    <title>
-      <key>tr</key>
       <value>Proxy port</value>
     </title>
     <id>29</id>
@@ -2798,10 +2633,6 @@
       <key>en</key>
       <value>Proxy server</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Proxy sunucu</value>
-    </title>
     <id>30</id>
     <valueType>
       <types>String</types>
@@ -2824,10 +2655,6 @@
       <key>en</key>
       <value>Protocol</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Protokol</value>
-    </title>
     <id>31</id>
     <valueType>
       <types>String</types>
@@ -2845,14 +2672,6 @@
     <title>
       <key>ru</key>
       <value>Edit request body in JSONEditor analyzed request</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value> </value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>JSON Düzenleyicisinde İstek Gövdesini Düzenle - Analiz Edilmiş İstek</value>
     </title>
     <id>1</id>
     <use>
@@ -2874,14 +2693,6 @@
     <title>
       <key>ru</key>
       <value>Edit response body in JSONEditor analyzed request</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value> </value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>JSON Düzenleyicisinde Yanıt Gövdesini Düzenle - Analiz Edilmiş İstek</value>
     </title>
     <id>2</id>
     <use>
@@ -2908,10 +2719,6 @@
       <key>en</key>
       <value>Save body request binary data from history</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Geçmişten istek gövdesi ikili verisini kaydet</value>
-    </title>
     <id>3</id>
     <use>
       <common>true</common>
@@ -2932,10 +2739,6 @@
     <title>
       <key>en</key>
       <value>Save binary data body response in file</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İkili veri gövdesi yanıtını dosyaya kaydet</value>
     </title>
     <id>4</id>
     <use>

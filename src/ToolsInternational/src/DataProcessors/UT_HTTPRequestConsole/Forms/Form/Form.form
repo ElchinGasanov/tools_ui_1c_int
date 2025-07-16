@@ -134,10 +134,6 @@
             <key>en</key>
             <value>Request tree name group</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>İstek ağacı grup adı</value>
-          </title>
           <enableContentChange>true</enableContentChange>
           <extendedTooltip>
             <name>RequestTreeNameGroupExtendedTooltip</name>
@@ -192,6 +188,7 @@
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>RequestTreeCopy</name>
@@ -222,6 +219,7 @@
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>RequestTreeChange</name>
@@ -252,6 +250,7 @@
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>RequestTreeDelete</name>
@@ -282,6 +281,7 @@
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>RequestTreeMoveToLevelUp</name>
@@ -342,6 +342,7 @@
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>RequestTreeMoveDown</name>
@@ -372,6 +373,7 @@
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -425,7 +427,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>RequestsTree</source>
+          <source>RequestsTreeSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -464,7 +466,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>RequestsTree</source>
+          <source>RequestsTreeViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -503,7 +505,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>RequestsTree</source>
+          <source>RequestsTreeSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -576,10 +578,6 @@
           <toolTip>
             <key>en</key>
             <value>Will save the requests file before executing the request</value>
-          </toolTip>
-          <toolTip>
-            <key>tr</key>
-            <value>İsteği çalıştırmadan önce istek dosyasını kaydedecek</value>
           </toolTip>
           <toolTipRepresentation>Button</toolTipRepresentation>
           <extendedTooltip>
@@ -858,10 +856,6 @@
                 <key>en</key>
                 <value>add.</value>
               </title>
-              <title>
-                <key>tr</key>
-                <value>ek</value>
-              </title>
               <enableContentChange>true</enableContentChange>
               <extendedTooltip>
                 <name>RequestExecuteSubmenulGroupExtendedTooltip</name>
@@ -962,10 +956,6 @@
                 <title>
                   <key>en</key>
                   <value>As</value>
-                </title>
-                <title>
-                  <key>tr</key>
-                  <value>Gibi</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -1071,10 +1061,6 @@
                       <key>en</key>
                       <value>Type</value>
                     </title>
-                    <title>
-                      <key>tr</key>
-                      <value>Tür</value>
-                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -1138,10 +1124,6 @@
                       <key>en</key>
                       <value>BOM</value>
                     </title>
-                    <title>
-                      <key>tr</key>
-                      <value>BOM</value>
-                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -1198,10 +1180,6 @@
                           <key>en</key>
                           <value>Auto</value>
                         </presentation>
-                        <presentation>
-                          <key>tr</key>
-                          <value>Otomatik</value>
-                        </presentation>
                         <value xsi:type="core:NumberValue">
                           <value>0</value>
                         </value>
@@ -1215,10 +1193,6 @@
                           <key>en</key>
                           <value>Use</value>
                         </presentation>
-                        <presentation>
-                          <key>tr</key>
-                          <value>Kullanılıyor</value>
-                        </presentation>
                         <value xsi:type="core:NumberValue">
                           <value>1</value>
                         </value>
@@ -1231,10 +1205,6 @@
                         <presentation>
                           <key>en</key>
                           <value>Don't use</value>
-                        </presentation>
-                        <presentation>
-                          <key>tr</key>
-                          <value>Kullanılmıyor</value>
                         </presentation>
                         <value xsi:type="core:NumberValue">
                           <value>2</value>
@@ -1310,10 +1280,6 @@
                           <key>en</key>
                           <value>Auto</value>
                         </presentation>
-                        <presentation>
-                          <key>tr</key>
-                          <value>Otomatik</value>
-                        </presentation>
                         <value xsi:type="core:StringValue">
                           <value>Auto</value>
                         </value>
@@ -1350,6 +1316,7 @@
                     <height>1</height>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
+                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1471,10 +1438,6 @@
                   <title>
                     <key>en</key>
                     <value>Fill from file</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Dosyadan doldur</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1601,10 +1564,6 @@
                     <key>en</key>
                     <value>File name</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Dosya adı</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -1702,10 +1661,6 @@
                     <key>en</key>
                     <value>The request body will not be set</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>İstek gövdesi ayarlanmayacak</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -1795,10 +1750,6 @@
                     <title>
                       <key>en</key>
                       <value>Use</value>
-                    </title>
-                    <title>
-                      <key>tr</key>
-                      <value>Kullanılıyor</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2043,7 +1994,7 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>MultipartBodyRequestsTree</source>
+                    <source>MultipartBodyRequestsTreeSearchString</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2082,7 +2033,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>MultipartBodyRequestsTree</source>
+                    <source>MultipartBodyRequestsTreeViewStatus</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2121,7 +2072,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>MultipartBodyRequestsTree</source>
+                    <source>MultipartBodyRequestsTreeSearchControl</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -2234,10 +2185,6 @@
               <key>en</key>
               <value>Body</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Gövde</value>
-            </title>
             <extendedTooltip>
               <name>BodyRequestPageGroupExtendedTooltip</name>
               <id>437</id>
@@ -2334,10 +2281,6 @@
                   <key>en</key>
                   <value>Use</value>
                 </title>
-                <title>
-                  <key>tr</key>
-                  <value>Kullanılıyor</value>
-                </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
@@ -2394,10 +2337,6 @@
                     <title>
                       <key>en</key>
                       <value>User</value>
-                    </title>
-                    <title>
-                      <key>tr</key>
-                      <value>Kullanıcı</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2456,10 +2395,6 @@
                     <title>
                       <key>en</key>
                       <value>Password</value>
-                    </title>
-                    <title>
-                      <key>tr</key>
-                      <value>Parola</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -2549,10 +2484,6 @@
                       <key>en</key>
                       <value>Token</value>
                     </title>
-                    <title>
-                      <key>tr</key>
-                      <value>Token</value>
-                    </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
@@ -2612,10 +2543,6 @@
                     </title>
                     <title>
                       <key>en</key>
-                      <value>Prefix</value>
-                    </title>
-                    <title>
-                      <key>tr</key>
                       <value>Prefix</value>
                     </title>
                     <visible>true</visible>
@@ -2829,10 +2756,6 @@
               <key>en</key>
               <value>Authentication</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Kimlik doğrulama</value>
-            </title>
             <extendedTooltip>
               <name>AuthenticationRequestPageGroupExtendedTooltip</name>
               <id>487</id>
@@ -2870,10 +2793,6 @@
                 <title>
                   <key>en</key>
                   <value>Edit</value>
-                </title>
-                <title>
-                  <key>tr</key>
-                  <value>Düzenle</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2927,10 +2846,6 @@
                   <editFormat>
                     <key>en</key>
                     <value>BF=String; BT=Table</value>
-                  </editFormat>
-                  <editFormat>
-                    <key>tr</key>
-                    <value>BF=Satır; BT=Tablo</value>
                   </editFormat>
                 </extInfo>
               </items>
@@ -3077,10 +2992,6 @@
                     <title>
                       <key>en</key>
                       <value>Use</value>
-                    </title>
-                    <title>
-                      <key>tr</key>
-                      <value>Kullanılıyor</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
@@ -3238,12 +3149,12 @@
                     <autoFill>true</autoFill>
                   </autoCommandBar>
                   <handlers>
-                    <event>OnStartEdit</event>
-                    <name>RequestHeadersTableOnStartEdit</name>
-                  </handlers>
-                  <handlers>
                     <event>OnChange</event>
                     <name>RequestHeadersTableOnChange</name>
+                  </handlers>
+                  <handlers>
+                    <event>OnStartEdit</event>
+                    <name>RequestHeadersTableOnStartEdit</name>
                   </handlers>
                   <searchStringAddition>
                     <visible>true</visible>
@@ -3278,7 +3189,7 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>RequestHeadersTable</source>
+                    <source>RequestHeadersTableSearchString</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3317,7 +3228,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>RequestHeadersTable</source>
+                    <source>RequestHeadersTableViewStatus</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -3357,7 +3268,7 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>RequestHeadersTable</source>
+                    <source>RequestHeadersTableSearchControl</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -3471,10 +3382,6 @@
               <key>en</key>
               <value>Headings</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Başlıklar</value>
-            </title>
             <extendedTooltip>
               <name>HeadingsRequestPageGroupExtendedTooltip</name>
               <id>439</id>
@@ -3521,10 +3428,6 @@
                 <title>
                   <key>en</key>
                   <value>Use</value>
-                </title>
-                <title>
-                  <key>tr</key>
-                  <value>Kullanılıyor</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -3728,6 +3631,7 @@
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>RequestParametersDelete</name>
@@ -3758,6 +3662,7 @@
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
+                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>RequestParametersMoveUp</name>
@@ -3867,7 +3772,7 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>URLParameters</source>
+                <source>URLParametersSearchString</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -3906,7 +3811,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>URLParameters</source>
+                <source>URLParametersViewStatus</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -3945,7 +3850,7 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>URLParameters</source>
+                <source>URLParametersSearchControl</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -4060,10 +3965,6 @@
               <key>en</key>
               <value>URL parameters</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>URL parametreleri</value>
-            </title>
             <extendedTooltip>
               <name>URLRequestParametersPageGroupExtendedTooltip</name>
               <id>441</id>
@@ -4098,10 +3999,6 @@
               <title>
                 <key>en</key>
                 <value>Context</value>
-              </title>
-              <title>
-                <key>tr</key>
-                <value>Kontekst</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4150,10 +4047,6 @@
                 <editFormat>
                   <key>en</key>
                   <value>BF='At server'; BT='At client'</value>
-                </editFormat>
-                <editFormat>
-                  <key>tr</key>
-                  <value>BF=Sunucuda; BT=İstemcide</value>
                 </editFormat>
               </extInfo>
             </items>
@@ -4579,10 +4472,6 @@
                 <key>en</key>
                 <value>Proxy settings</value>
               </title>
-              <title>
-                <key>tr</key>
-                <value>Proxy ayarları</value>
-              </title>
               <titleFont xsi:type="core:FontDef">
                 <height>11.0</height>
               </titleFont>
@@ -4624,10 +4513,6 @@
             <title>
               <key>en</key>
               <value>Other</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Diğer</value>
             </title>
             <extendedTooltip>
               <name>OtherRequestPageGroupExtendedTooltip</name>
@@ -4716,10 +4601,6 @@
               <key>en</key>
               <value>Comment</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Yorum</value>
-            </title>
             <extendedTooltip>
               <name>CommentRequestPageGroupExtendedTooltip</name>
               <id>494</id>
@@ -4780,10 +4661,6 @@
           <key>en</key>
           <value>Execute request</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>İstek yürüt</value>
-        </title>
         <extendedTooltip>
           <name>RequestGroupExtendedTooltip</name>
           <id>31</id>
@@ -4821,10 +4698,6 @@
       <title>
         <key>en</key>
         <value>Request execution group</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İstek yürütme grubu</value>
       </title>
       <width>25</width>
       <extendedTooltip>
@@ -4871,10 +4744,6 @@
             <title>
               <key>en</key>
               <value>Response code</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Yanıt kodu</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -4934,10 +4803,6 @@
             <title>
               <key>en</key>
               <value>Duration, ms</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Süre, ms</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -5125,10 +4990,6 @@
                   <key>en</key>
                   <value>String</value>
                 </title>
-                <title>
-                  <key>tr</key>
-                  <value>Dize</value>
-                </title>
                 <extendedTooltip>
                   <name>BodyPageStringExtendedTooltip</name>
                   <id>399</id>
@@ -5215,10 +5076,6 @@
                     <key>en</key>
                     <value>Save to file</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Dosyaya kaydet</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -5259,10 +5116,6 @@
                 <title>
                   <key>en</key>
                   <value>BinaryData</value>
-                </title>
-                <title>
-                  <key>tr</key>
-                  <value>İkili veri</value>
                 </title>
                 <extendedTooltip>
                   <name>BinaryDataPageExtendedTooltip</name>
@@ -5323,10 +5176,6 @@
             <title>
               <key>en</key>
               <value>Body</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Gövde</value>
             </title>
             <extendedTooltip>
               <name>BodyAnswerPageExtendedTooltip</name>
@@ -5466,10 +5315,6 @@
               <key>en</key>
               <value>Headers</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Başlıklar</value>
-            </title>
             <extendedTooltip>
               <name>HeadersAnswerPageExtendedTooltip</name>
               <id>403</id>
@@ -5531,10 +5376,6 @@
           <key>en</key>
           <value>Execution result</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Çalıştırma sonucu</value>
-        </title>
         <extendedTooltip>
           <name>PageResultExecutionExtendedTooltip</name>
           <id>380</id>
@@ -5581,10 +5422,6 @@
             <title>
               <key>en</key>
               <value>Code</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Kod</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -5774,10 +5611,6 @@
               <key>en</key>
               <value>Time, ms</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Zaman, ms</value>
-            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -5840,10 +5673,6 @@
                 <key>en</key>
                 <value>Details</value>
               </title>
-              <title>
-                <key>tr</key>
-                <value>Ayrıntılar</value>
-              </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
@@ -5881,10 +5710,6 @@
               <title>
                 <key>en</key>
                 <value>In request</value>
-              </title>
-              <title>
-                <key>tr</key>
-                <value>İsteğe</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -5953,7 +5778,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>RequestsTreeRequestsHistory</source>
+            <source>RequestsTreeRequestsHistorySearchString</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -5992,7 +5817,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>RequestsTreeRequestsHistory</source>
+            <source>RequestsTreeRequestsHistoryViewStatus</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -6031,7 +5856,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>RequestsTreeRequestsHistory</source>
+            <source>RequestsTreeRequestsHistorySearchControl</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -6064,10 +5889,6 @@
               <title>
                 <key>en</key>
                 <value>Details</value>
-              </title>
-              <title>
-                <key>tr</key>
-                <value>Ayrıntılar</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -6106,10 +5927,6 @@
               <title>
                 <key>en</key>
                 <value>Copy to request</value>
-              </title>
-              <title>
-                <key>tr</key>
-                <value>İsteğe kopyala</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -6176,10 +5993,6 @@
         <title>
           <key>en</key>
           <value>History</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Geçmiş</value>
         </title>
         <extendedTooltip>
           <name>PageHistoryExtendedTooltip</name>
@@ -6399,10 +6212,6 @@
         <key>en</key>
         <value>File</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Dosya</value>
-      </title>
       <extendedTooltip>
         <name>GroupFileExtendedTooltip</name>
         <id>266</id>
@@ -6433,10 +6242,6 @@
       <title>
         <key>en</key>
         <value>Customize form</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Formu özelleştir</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -6580,10 +6385,6 @@
       <key>ru</key>
       <value>Headers string</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Başlıklar dizesi</value>
-    </title>
     <id>9</id>
     <valueType>
       <types>String</types>
@@ -6602,10 +6403,6 @@
     <title>
       <key>ru</key>
       <value>Request headers table</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstek başlıkları tablosu</value>
     </title>
     <id>24</id>
     <valueType>
@@ -6627,10 +6424,6 @@
       <title>
         <key>en</key>
         <value>Key</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Anahtar</value>
       </title>
       <id>25</id>
       <valueType>
@@ -6654,10 +6447,6 @@
         <key>en</key>
         <value>Value</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Değer</value>
-      </title>
       <id>26</id>
       <valueType>
         <types>String</types>
@@ -6680,10 +6469,6 @@
         <key>en</key>
         <value>Using</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kullanılıyor</value>
-      </title>
       <id>107</id>
       <valueType>
         <types>Boolean</types>
@@ -6701,10 +6486,6 @@
     <title>
       <key>ru</key>
       <value>Edit headers with table</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Başlıkları tablo ile düzenle</value>
     </title>
     <id>27</id>
     <valueType>
@@ -6725,10 +6506,6 @@
     <title>
       <key>ru</key>
       <value>List of used headers</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Kullanılan başlıkların listesi</value>
     </title>
     <id>28</id>
     <valueType>
@@ -6753,10 +6530,6 @@
       <key>ru</key>
       <value>Request body binary data string</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek gövdesi ikili veri dizisi</value>
-    </title>
     <id>32</id>
     <valueType>
       <types>String</types>
@@ -6777,10 +6550,6 @@
       <key>ru</key>
       <value>Response body string</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesi metni</value>
-    </title>
     <id>39</id>
     <valueType>
       <types>String</types>
@@ -6798,10 +6567,6 @@
     <title>
       <key>ru</key>
       <value>Requests file name</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstekler dosya adı</value>
     </title>
     <id>57</id>
     <valueType>
@@ -6824,10 +6589,6 @@
       <key>ru</key>
       <value>Initial Header</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İlk Başlık</value>
-    </title>
     <id>58</id>
     <valueType>
       <types>String</types>
@@ -6845,10 +6606,6 @@
     <title>
       <key>ru</key>
       <value>Requests tree</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstekler ağacı</value>
     </title>
     <id>67</id>
     <valueType>
@@ -6870,10 +6627,6 @@
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>68</id>
       <valueType>
@@ -6897,10 +6650,6 @@
         <key>en</key>
         <value>HTTP Request</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>HTTP İsteği</value>
-      </title>
       <id>76</id>
       <valueType>
         <types>String</types>
@@ -6923,10 +6672,6 @@
         <key>en</key>
         <value>URL</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>URL</value>
-      </title>
       <id>80</id>
       <valueType>
         <types>String</types>
@@ -6944,10 +6689,6 @@
       <title>
         <key>ru</key>
         <value>Timeout</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Zaman aşımı</value>
       </title>
       <id>81</id>
       <valueType>
@@ -6969,10 +6710,6 @@
         <key>ru</key>
         <value>Body type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Gövde türü</value>
-      </title>
       <id>82</id>
       <valueType>
         <types>String</types>
@@ -6990,10 +6727,6 @@
       <title>
         <key>ru</key>
         <value>Use BOM</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>BOM kullan</value>
       </title>
       <id>83</id>
       <valueType>
@@ -7015,10 +6748,6 @@
         <key>ru</key>
         <value>Body encoding</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Gövde kodlaması</value>
-      </title>
       <id>84</id>
       <valueType>
         <types>String</types>
@@ -7037,10 +6766,6 @@
         <key>ru</key>
         <value>Headers</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Başlıklar</value>
-      </title>
       <id>85</id>
       <valueType>
         <types>ValueTable</types>
@@ -7058,10 +6783,6 @@
         <key>ru</key>
         <value>URLParameters</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>URL Parametreleri</value>
-      </title>
       <id>86</id>
       <valueType>
         <types>ValueTable</types>
@@ -7078,10 +6799,6 @@
       <title>
         <key>ru</key>
         <value>Body binary data</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Gövde ikili verisi</value>
       </title>
       <id>87</id>
       <valueType/>
@@ -7101,10 +6818,6 @@
       <title>
         <key>en</key>
         <value>Use proxy</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Proxy kullan</value>
       </title>
       <id>88</id>
       <valueType>
@@ -7127,10 +6840,6 @@
         <key>en</key>
         <value>Server</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Sunucu</value>
-      </title>
       <id>89</id>
       <valueType>
         <types>String</types>
@@ -7151,10 +6860,6 @@
       </title>
       <title>
         <key>en</key>
-        <value>Port</value>
-      </title>
-      <title>
-        <key>tr</key>
         <value>Port</value>
       </title>
       <id>90</id>
@@ -7181,10 +6886,6 @@
         <key>en</key>
         <value>User</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kullanıcı</value>
-      </title>
       <id>91</id>
       <valueType>
         <types>String</types>
@@ -7206,10 +6907,6 @@
       <title>
         <key>en</key>
         <value>Password</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Parola</value>
       </title>
       <id>92</id>
       <valueType>
@@ -7233,10 +6930,6 @@
         <key>en</key>
         <value>Proxy OS authentication</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Proxy işletim sistemi kimlik doğrulaması</value>
-      </title>
       <id>93</id>
       <valueType>
         <types>Boolean</types>
@@ -7253,10 +6946,6 @@
       <title>
         <key>ru</key>
         <value>Body string</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Gövde metni</value>
       </title>
       <id>104</id>
       <valueType>
@@ -7276,10 +6965,6 @@
         <key>ru</key>
         <value>Body file name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Gövde dosya adı</value>
-      </title>
       <id>105</id>
       <valueType>
         <types>String</types>
@@ -7298,10 +6983,6 @@
         <key>ru</key>
         <value>Requests history</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>İstek geçmişi</value>
-      </title>
       <id>108</id>
       <valueType>
         <types>ValueTable</types>
@@ -7318,10 +6999,6 @@
       <title>
         <key>ru</key>
         <value>Type of string content</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Dize içeriği türü</value>
       </title>
       <id>140</id>
       <valueType>
@@ -7341,10 +7018,6 @@
         <key>ru</key>
         <value>Comment</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Yorum</value>
-      </title>
       <id>141</id>
       <valueType>
         <types>String</types>
@@ -7362,10 +7035,6 @@
       <title>
         <key>ru</key>
         <value>Authentication type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Kimlik doğrulama türü</value>
       </title>
       <id>142</id>
       <valueType>
@@ -7385,10 +7054,6 @@
         <key>ru</key>
         <value>Use authentication</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kimlik doğrulama kullan</value>
-      </title>
       <id>143</id>
       <valueType>
         <types>Boolean</types>
@@ -7405,10 +7070,6 @@
       <title>
         <key>ru</key>
         <value>Authentication user</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Kimlik doğrulama kullanıcısı</value>
       </title>
       <id>144</id>
       <valueType>
@@ -7428,10 +7089,6 @@
         <key>ru</key>
         <value>Authentication password</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kimlik doğrulama parolası</value>
-      </title>
       <id>145</id>
       <valueType>
         <types>String</types>
@@ -7450,10 +7107,6 @@
         <key>ru</key>
         <value>Authentication token prefix</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kimlik doğrulama belirteci ön eki</value>
-      </title>
       <id>146</id>
       <valueType>
         <types>String</types>
@@ -7471,10 +7124,6 @@
       <title>
         <key>ru</key>
         <value>Authentication header name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Kimlik doğrulama başlık adı</value>
       </title>
       <id>147</id>
       <valueType>
@@ -7498,10 +7147,6 @@
         <key>en</key>
         <value>Multipart body</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Çok parçalı gövde</value>
-      </title>
       <id>148</id>
       <valueType>
         <types>ValueTable</types>
@@ -7522,10 +7167,6 @@
       <title>
         <key>en</key>
         <value>At client</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İstemcide</value>
       </title>
       <id>150</id>
       <valueType>
@@ -7548,10 +7189,6 @@
           <key>ru</key>
           <value>Key</value>
         </title>
-        <title>
-          <key>en</key>
-          <value>Anahtar</value>
-        </title>
         <id>94</id>
         <valueType>
           <types>String</types>
@@ -7570,10 +7207,6 @@
           <key>ru</key>
           <value>Value</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Değer</value>
-        </title>
         <id>95</id>
         <valueType>
           <types>String</types>
@@ -7591,10 +7224,6 @@
         <title>
           <key>ru</key>
           <value>Using</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Kullanılıyor</value>
         </title>
         <id>106</id>
         <valueType>
@@ -7622,10 +7251,6 @@
           <key>en</key>
           <value>Using</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Kullanılıyor</value>
-        </title>
         <id>97</id>
         <valueType>
           <types>Boolean</types>
@@ -7646,10 +7271,6 @@
         <title>
           <key>en</key>
           <value>Value</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Değer</value>
         </title>
         <id>98</id>
         <valueType>
@@ -7673,10 +7294,6 @@
           <key>en</key>
           <value>Name</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Ad</value>
-        </title>
         <id>99</id>
         <valueType>
           <types>String</types>
@@ -7698,10 +7315,6 @@
         <name>BOM</name>
         <title>
           <key>ru</key>
-          <value>BOM</value>
-        </title>
-        <title>
-          <key>tr</key>
           <value>BOM</value>
         </title>
         <id>110</id>
@@ -7728,10 +7341,6 @@
           <key>en</key>
           <value>Method</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Metot</value>
-        </title>
         <id>111</id>
         <valueType>
           <types>String</types>
@@ -7748,10 +7357,6 @@
         <name>RequestURL</name>
         <title>
           <key>ru</key>
-          <value>URL</value>
-        </title>
-        <title>
-          <key>tr</key>
           <value>URL</value>
         </title>
         <id>112</id>
@@ -7772,10 +7377,6 @@
           <key>ru</key>
           <value>Server address</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Sunucu adresi</value>
-        </title>
         <id>113</id>
         <valueType>
           <types>String</types>
@@ -7793,10 +7394,6 @@
         <title>
           <key>ru</key>
           <value>Response body address string</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Yanıt gövdesi adres dizesi</value>
         </title>
         <id>114</id>
         <valueType>
@@ -7816,10 +7413,6 @@
           <key>ru</key>
           <value>Request body type</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>İstek gövde türü</value>
-        </title>
         <id>115</id>
         <valueType>
           <types>String</types>
@@ -7838,10 +7431,6 @@
           <key>ru</key>
           <value>Date</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Tarih</value>
-        </title>
         <id>116</id>
         <valueType>
           <types>Date</types>
@@ -7859,10 +7448,6 @@
         <title>
           <key>ru</key>
           <value>Execution duration</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Çalıştırma süresi</value>
         </title>
         <id>117</id>
         <valueType>
@@ -7884,10 +7469,6 @@
           <key>ru</key>
           <value>Request headers</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>İstek başlıkları</value>
-        </title>
         <id>118</id>
         <valueType>
           <types>String</types>
@@ -7905,10 +7486,6 @@
         <title>
           <key>ru</key>
           <value>Response headers</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Yanıt başlıkları</value>
         </title>
         <id>119</id>
         <valueType>
@@ -7928,10 +7505,6 @@
           <key>ru</key>
           <value>Request</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>İstek</value>
-        </title>
         <id>120</id>
         <valueType>
           <types>String</types>
@@ -7950,10 +7523,6 @@
           <key>ru</key>
           <value>Use proxy</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Proxy kullan</value>
-        </title>
         <id>121</id>
         <valueType>
           <types>Boolean</types>
@@ -7971,10 +7540,6 @@
           <key>ru</key>
           <value>Picture</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Resim</value>
-        </title>
         <id>122</id>
         <valueType>
           <types>Picture</types>
@@ -7991,10 +7556,6 @@
         <title>
           <key>ru</key>
           <value>Status code</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Durum kodu</value>
         </title>
         <id>123</id>
         <valueType>
@@ -8016,10 +7577,6 @@
           <key>ru</key>
           <value>Request body encoding</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>İstek gövdesi kodlaması</value>
-        </title>
         <id>124</id>
         <valueType>
           <types>String</types>
@@ -8038,10 +7595,6 @@
           <key>ru</key>
           <value>Proxy OS Authentication</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Proxy OS Kimlik Doğrulaması</value>
-        </title>
         <id>125</id>
         <valueType>
           <types>Boolean</types>
@@ -8058,10 +7611,6 @@
         <title>
           <key>ru</key>
           <value>Proxy password</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Proxy parola</value>
         </title>
         <id>126</id>
         <valueType>
@@ -8081,10 +7630,6 @@
           <key>ru</key>
           <value>Proxy user</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Proxy kullanıcı</value>
-        </title>
         <id>127</id>
         <valueType>
           <types>String</types>
@@ -8101,10 +7646,6 @@
         <name>ProxyPort</name>
         <title>
           <key>ru</key>
-          <value>Proxy port</value>
-        </title>
-        <title>
-          <key>tr</key>
           <value>Proxy port</value>
         </title>
         <id>128</id>
@@ -8127,10 +7668,6 @@
           <key>ru</key>
           <value>Proxy server</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Proxy sunucu</value>
-        </title>
         <id>129</id>
         <valueType>
           <types>String</types>
@@ -8148,10 +7685,6 @@
         <title>
           <key>ru</key>
           <value>Protocol</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Protokol</value>
         </title>
         <id>130</id>
         <valueType>
@@ -8173,10 +7706,6 @@
           <key>ru</key>
           <value>Timeout</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Zaman aşımı</value>
-        </title>
         <id>131</id>
         <valueType>
           <types>Number</types>
@@ -8197,10 +7726,6 @@
           <key>ru</key>
           <value>Request body binary data address</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>İstek gövdesi ikili veri adresi</value>
-        </title>
         <id>132</id>
         <valueType>
           <types>String</types>
@@ -8218,10 +7743,6 @@
         <title>
           <key>ru</key>
           <value>Request body binary data string</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>İstek gövdesi ikili veri dizesi</value>
         </title>
         <id>133</id>
         <valueType>
@@ -8241,10 +7762,6 @@
           <key>ru</key>
           <value>Request body file name</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>İstek gövdesi dosya adı</value>
-        </title>
         <id>134</id>
         <valueType>
           <types>String</types>
@@ -8262,10 +7779,6 @@
         <title>
           <key>ru</key>
           <value>Request body string</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>İstek gövdesi metni</value>
         </title>
         <id>135</id>
         <valueType>
@@ -8285,10 +7798,6 @@
           <key>ru</key>
           <value>Response body binary data address</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Yanıt gövdesi ikili veri adresi</value>
-        </title>
         <id>136</id>
         <valueType>
           <types>String</types>
@@ -8306,10 +7815,6 @@
         <title>
           <key>ru</key>
           <value>Response body binary data string</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Yanıt gövdesi ikili veri dizesi</value>
         </title>
         <id>137</id>
         <valueType>
@@ -8338,10 +7843,6 @@
           <key>en</key>
           <value>Using</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Kullanılıyor</value>
-        </title>
         <id>148</id>
         <valueType>
           <types>Boolean</types>
@@ -8362,10 +7863,6 @@
         <title>
           <key>en</key>
           <value>Name</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Ad</value>
         </title>
         <id>149</id>
         <valueType>
@@ -8389,10 +7886,6 @@
           <key>en</key>
           <value>Type</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Tür</value>
-        </title>
         <id>150</id>
         <valueType>
           <types>String</types>
@@ -8415,10 +7908,6 @@
           <key>en</key>
           <value>Value</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Değer</value>
-        </title>
         <id>151</id>
         <valueType>
           <types>String</types>
@@ -8438,10 +7927,6 @@
     <title>
       <key>ru</key>
       <value>Duration in milliseconds</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Süre (milisaniye cinsinden)</value>
     </title>
     <id>69</id>
     <valueType>
@@ -8464,10 +7949,6 @@
       <key>ru</key>
       <value>Response headers</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt başlıkları</value>
-    </title>
     <id>70</id>
     <valueType>
       <types>String</types>
@@ -8485,10 +7966,6 @@
     <title>
       <key>ru</key>
       <value>Status code</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Durum kodu</value>
     </title>
     <id>71</id>
     <valueType>
@@ -8511,10 +7988,6 @@
       <key>ru</key>
       <value>Response body binary data string</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesi ikili veri dizesi</value>
-    </title>
     <id>72</id>
     <valueType>
       <types>String</types>
@@ -8532,10 +8005,6 @@
     <title>
       <key>ru</key>
       <value>Response body binary data address</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesi ikili veri adresi</value>
     </title>
     <id>73</id>
     <valueType>
@@ -8555,10 +8024,6 @@
       <key>ru</key>
       <value>Types of request body</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek gövdesi türleri</value>
-    </title>
     <id>101</id>
     <valueType/>
     <view>
@@ -8574,10 +8039,6 @@
       <key>ru</key>
       <value>Types of HTTP Methods</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>HTTP Metot Türleri</value>
-    </title>
     <id>102</id>
     <valueType/>
     <view>
@@ -8592,10 +8053,6 @@
     <title>
       <key>ru</key>
       <value>Multipart body splitter</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Çok parçalı gövde ayırıcı</value>
     </title>
     <id>148</id>
     <valueType>
@@ -8618,10 +8075,6 @@
     <title>
       <key>en</key>
       <value>Save before execution</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Çalıştırmadan önce kaydet</value>
     </title>
     <id>152</id>
     <valueType>
@@ -8647,10 +8100,6 @@
       <key>en</key>
       <value>Preliminary URL </value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Önizleme URL'si</value>
-    </title>
     <id>151</id>
     <valueType>
       <types>String</types>
@@ -8673,10 +8122,6 @@
       <key>en</key>
       <value>Request execute</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstek yürüt</value>
-    </title>
     <id>1</id>
     <use>
       <common>true</common>
@@ -8694,14 +8139,6 @@
   </formCommands>
   <formCommands>
     <name>FillBodyBinaryDataFromFile</name>
-    <title>
-      <key>tr</key>
-      <value>Dosyadan Tam Vücut İkili Veri</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value> </value>
-    </title>
     <id>2</id>
     <use>
       <common>true</common>
@@ -8716,14 +8153,6 @@
   </formCommands>
   <formCommands>
     <name>SaveBodyRequestBinaryDataFromHistory</name>
-    <title>
-      <key>en</key>
-      <value> </value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>GeçmiştenİstekGövdesiİkiliVerisiniKaydet</value>
-    </title>
     <id>3</id>
     <use>
       <common>true</common>
@@ -8737,14 +8166,6 @@
   </formCommands>
   <formCommands>
     <name>SaveBinaryDataBodyAnswerInFile</name>
-    <title>
-      <key>en</key>
-      <value> </value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İkiliVeriGövdesiYanıtınıDosyayaKaydet</value>
-    </title>
     <id>4</id>
     <use>
       <common>true</common>
@@ -8765,10 +8186,6 @@
     <title>
       <key>en</key>
       <value>New</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yeni</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -8798,10 +8215,6 @@
     <title>
       <key>en</key>
       <value>Open...</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Aç..</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -8834,10 +8247,6 @@
     <title>
       <key>en</key>
       <value>Save</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Kaydet</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -8872,10 +8281,6 @@
       <key>en</key>
       <value>Save as...</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Farklı kaydet...</value>
-    </title>
     <id>8</id>
     <toolTip>
       <key>ru</key>
@@ -8905,10 +8310,6 @@
       <key>en</key>
       <value>Edit request body in JSON Editor</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>JSON Editör'de istek gövdesini düzenle</value>
-    </title>
     <id>9</id>
     <use>
       <common>true</common>
@@ -8926,14 +8327,6 @@
   </formCommands>
   <formCommands>
     <name>EditRequestBodyInJSONEditorAnalyzedRequest</name>
-    <title>
-      <key>en</key>
-      <value> </value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İstek Gövdesini JSON Düzenleyicide Düzenle - Analiz Edilmiş İstek</value>
-    </title>
     <id>10</id>
     <use>
       <common>true</common>
@@ -8958,10 +8351,6 @@
     <title>
       <key>en</key>
       <value>Edit response body in JSON Editor analyzed request</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesini JSON Düzenleyicide düzenle - Analiz edilmiş istek</value>
     </title>
     <id>11</id>
     <use>
@@ -8988,10 +8377,6 @@
       <key>en</key>
       <value>Save body response binary data</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yanıt gövdesi ikili verisini kaydet</value>
-    </title>
     <id>12</id>
     <use>
       <common>true</common>
@@ -9017,10 +8402,6 @@
       <key>en</key>
       <value>Level up</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Seviye atla</value>
-    </title>
     <id>15</id>
     <toolTip>
       <key>ru</key>
@@ -9042,14 +8423,6 @@
   </formCommands>
   <formCommands>
     <name>RecordHistoryRequestDetailedInformation</name>
-    <title>
-      <key>en</key>
-      <value> </value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Kayıt Geçmişi Ayrıntılı Bilgi İsteği</value>
-    </title>
     <id>16</id>
     <use>
       <common>true</common>
@@ -9063,10 +8436,6 @@
   </formCommands>
   <formCommands>
     <name>CopyRowDataHistoryToRequest</name>
-    <title>
-      <key>en</key>
-      <value>SatırVeriGeçmişiniİsteğeKopyala</value>
-    </title>
     <id>17</id>
     <use>
       <common>true</common>
@@ -9088,10 +8457,6 @@
       <key>en</key>
       <value>
 Execution code</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yürütme kodu</value>
     </title>
     <id>18</id>
     <use>

@@ -178,7 +178,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>Algorithms</source>
+          <source>AlgorithmsSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -217,7 +217,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>Algorithms</source>
+          <source>AlgorithmsViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -256,7 +256,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>Algorithms</source>
+          <source>AlgorithmsSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -318,10 +318,6 @@
           <key>en</key>
           <value>Context</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Kontekst</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -370,10 +366,6 @@
             <key>en</key>
             <value>BF='At server'; BT='At client'</value>
           </editFormat>
-          <editFormat>
-            <key>tr</key>
-            <value>BF=Sunucuda; BT=İstemcide</value>
-          </editFormat>
         </extInfo>
       </items>
       <items xsi:type="form:Table">
@@ -386,10 +378,6 @@
         <title>
           <key>en</key>
           <value>Variables</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Değişkenler</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -563,7 +551,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>AlgorithmsVariables</source>
+          <source>AlgorithmsVariablesSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -602,7 +590,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>AlgorithmsVariables</source>
+          <source>AlgorithmsVariablesViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -641,7 +629,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>AlgorithmsVariables</source>
+          <source>AlgorithmsVariablesSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -701,10 +689,6 @@
         <title>
           <key>en</key>
           <value>Type of variable</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Değişken tipi</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -767,10 +751,6 @@
             <key>en</key>
             <value>Save before execution</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>Yürütmeden önce kaydet</value>
-          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -829,10 +809,6 @@
           <key>en</key>
           <value>Tools settings</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Araç ayarları</value>
-        </title>
         <extendedTooltip>
           <name>GroupToolsSettingsExtendedTooltip</name>
           <id>187</id>
@@ -869,10 +845,6 @@
       <title>
         <key>en</key>
         <value>Algorithm</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Algoritma</value>
       </title>
       <extendedTooltip>
         <name>GroupAlgorithmExtendedTooltip</name>
@@ -959,16 +931,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Group field algorithm command panel</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Field algorithm command panel</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Alan algoritması komut paneli</value>
+          <key>ru</key>
+          <value>Group field algorithm command panel</value>
         </title>
         <extendedTooltip>
           <name>GroupFieldAlgorithmCommandPanelExtendedTooltip</name>
@@ -1036,10 +1004,6 @@
       <key>en</key>
       <value>Group main</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Grup ana</value>
-    </title>
     <extendedTooltip>
       <name>GroupMainExtendedTooltip</name>
       <id>22</id>
@@ -1077,10 +1041,6 @@
           <key>en</key>
           <value>New algorithm</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Yeni algoritma</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -1114,10 +1074,6 @@
         <title>
           <key>en</key>
           <value>Open fIle</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Dosyayı aç</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1153,10 +1109,6 @@
           <key>en</key>
           <value>Save file</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Dosyayı kaydet</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -1191,10 +1143,6 @@
           <key>en</key>
           <value>Save file as</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Dosyayı farklı kaydet</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -1228,16 +1176,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Файл</value>
-      </title>
-      <title>
         <key>en</key>
         <value>File</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Dosya</value>
+        <key>ru</key>
+        <value>Файл</value>
       </title>
       <extendedTooltip>
         <name>GroupFileExtendedTooltip</name>
@@ -1265,10 +1209,6 @@
       <title>
         <key>en</key>
         <value>Execute</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Yürüt</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -1304,10 +1244,6 @@
       <title>
         <key>en</key>
         <value>Close</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Kapat</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -1348,16 +1284,15 @@
     <name>OnOpen</name>
   </handlers>
   <handlers>
-    <event>BeforeClose</event>
-    <name>BeforeClose</name>
-  </handlers>
-  <handlers>
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <handlers>
+    <event>BeforeClose</event>
+    <name>BeforeClose</name>
+  </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <saveDataInSettings>UseList</saveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -1371,10 +1306,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -1398,10 +1329,6 @@
       <key>en</key>
       <value>Field algorithm client</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Istemci algoritması alanı</value>
-    </title>
     <id>9</id>
     <valueType>
       <types>String</types>
@@ -1423,10 +1350,6 @@
     <title>
       <key>en</key>
       <value>Algorithm file name</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Algoritma dosya adı</value>
     </title>
     <id>11</id>
     <valueType>
@@ -1453,10 +1376,6 @@
       <key>en</key>
       <value>Library adress</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kütüphane adresi</value>
-    </title>
     <id>12</id>
     <valueType>
       <types>String</types>
@@ -1472,16 +1391,12 @@
   <attributes>
     <name>Algorithms</name>
     <title>
-      <key>ru</key>
-      <value>Algorithms</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Algorithm</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Algoritmalar</value>
+      <key>ru</key>
+      <value>Algorithms</value>
     </title>
     <id>13</id>
     <valueType>
@@ -1499,10 +1414,6 @@
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>15</id>
       <valueType>
@@ -1522,10 +1433,6 @@
         <key>en</key>
         <value>Info</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Bilgi</value>
-      </title>
       <id>16</id>
       <valueType>
         <types>String</types>
@@ -1544,10 +1451,6 @@
         <key>en</key>
         <value>Use processor for code execution</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kod yürütme için işlemciyi kullan</value>
-      </title>
       <id>17</id>
       <valueType>
         <types>Boolean</types>
@@ -1565,10 +1468,6 @@
         <key>en</key>
         <value>At client</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Istemcide</value>
-      </title>
       <id>18</id>
       <valueType>
         <types>Boolean</types>
@@ -1585,10 +1484,6 @@
       <title>
         <key>en</key>
         <value>Original text</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Orijinal metin</value>
       </title>
       <id>19</id>
       <valueType>
@@ -1608,10 +1503,6 @@
         <key>ru</key>
         <value>Text</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Metin</value>
-      </title>
       <id>20</id>
       <valueType>
         <types>String</types>
@@ -1629,10 +1520,6 @@
       <title>
         <key>en</key>
         <value>Variables</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Değişkenler</value>
       </title>
       <id>21</id>
       <valueType>
@@ -1659,10 +1546,6 @@
           <key>en</key>
           <value>Value</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Değer</value>
-        </title>
         <id>22</id>
         <valueType/>
         <view>
@@ -1678,10 +1561,6 @@
           <key>en</key>
           <value>Value container</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Değer konteyneri</value>
-        </title>
         <id>23</id>
         <valueType/>
         <view>
@@ -1696,10 +1575,6 @@
         <title>
           <key>en</key>
           <value>Value type of</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Değer türü</value>
         </title>
         <id>24</id>
         <valueType>
@@ -1717,10 +1592,6 @@
         <title>
           <key>en</key>
           <value>Value typeof presentation</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Değer Gösterim türü</value>
         </title>
         <id>25</id>
         <valueType>
@@ -1744,10 +1615,6 @@
           <key>en</key>
           <value>Name</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Ad</value>
-        </title>
         <id>26</id>
         <valueType>
           <types>String</types>
@@ -1767,10 +1634,6 @@
     <title>
       <key>en</key>
       <value>Save before execution</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yürütmeden önce kaydet</value>
     </title>
     <id>27</id>
     <valueType>
@@ -1796,10 +1659,6 @@
       <key>en</key>
       <value>Execute</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yürüt</value>
-    </title>
     <id>1</id>
     <toolTip>
       <key>ru</key>
@@ -1822,16 +1681,12 @@
   <formCommands>
     <name>OpenFIle</name>
     <title>
-      <key>ru</key>
-      <value>Открыть файл</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Open file</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dosyayı aç</value>
+      <key>ru</key>
+      <value>Открыть файл</value>
     </title>
     <id>2</id>
     <use>
@@ -1858,10 +1713,6 @@
       <key>en</key>
       <value>Save file</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Dosyayı kaydet</value>
-    </title>
     <id>3</id>
     <use>
       <common>true</common>
@@ -1880,16 +1731,12 @@
   <formCommands>
     <name>EditVariableValue</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать значение</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit value</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değeri düzenle</value>
+      <key>ru</key>
+      <value>Редактировать значение</value>
     </title>
     <id>4</id>
     <use>
@@ -1912,10 +1759,6 @@
     <title>
       <key>en</key>
       <value>Close</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Kapat</value>
     </title>
     <id>6</id>
     <use>
@@ -1942,10 +1785,6 @@
       <key>en</key>
       <value>Save file as</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Dosyayı farklı kaydet</value>
-    </title>
     <id>7</id>
     <use>
       <common>true</common>
@@ -1969,10 +1808,6 @@
     <title>
       <key>en</key>
       <value>New algorithm</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yeni algoritma</value>
     </title>
     <id>8</id>
     <use>

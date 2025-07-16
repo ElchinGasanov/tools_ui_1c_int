@@ -308,16 +308,12 @@
       <name>ButtonClose</name>
       <id>3</id>
       <title>
-        <key>ru</key>
-        <value>Close</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Close</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kapat</value>
+        <key>ru</key>
+        <value>Close</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -389,7 +385,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -403,24 +398,16 @@
       <key>ru</key>
       <value>Ref</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Ref</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Ref</value>
-    </title>
     <id>1</id>
     <valueType>
-      <types>ExchangePlanRef</types>
-      <types>BusinessProcessRef</types>
+      <types>CatalogRef</types>
       <types>DocumentRef</types>
-      <types>ChartOfCalculationTypesRef</types>
-      <types>TaskRef</types>
       <types>ChartOfCharacteristicTypesRef</types>
       <types>ChartOfAccountsRef</types>
-      <types>CatalogRef</types>
+      <types>ChartOfCalculationTypesRef</types>
+      <types>BusinessProcessRef</types>
+      <types>TaskRef</types>
+      <types>ExchangePlanRef</types>
     </valueType>
     <view>
       <common>true</common>
@@ -433,14 +420,6 @@
     <name>UUIDString</name>
     <title>
       <key>ru</key>
-      <value>UUID</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>UUID</value>
-    </title>
-    <title>
-      <key>tr</key>
       <value>UUID</value>
     </title>
     <id>2</id>
@@ -462,14 +441,6 @@
     <title>
       <key>ru</key>
       <value>Command find</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Command find</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Ara</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -496,14 +467,6 @@
       <key>ru</key>
       <value>Apply</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Apply</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Uygula</value>
-    </title>
     <id>2</id>
     <use>
       <common>true</common>
@@ -520,14 +483,6 @@
     <title>
       <key>ru</key>
       <value>Generate</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Generate</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Oluştur</value>
     </title>
     <id>3</id>
     <use>

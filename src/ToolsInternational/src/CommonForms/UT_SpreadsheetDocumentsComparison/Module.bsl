@@ -305,7 +305,7 @@ Function ReadSpreadsheetDocument(SourceSpreadsheetDocument)
 	
 	SpreadsheetDocument = New SpreadsheetDocument;
 	For ColumnNumber = 1 To ColumnsCount Do
-		SpreadsheetDocument.Area(1, ColumnNumber, 1, ColumnNumber).Text = NStr("ru = 'Номер_'; en = 'Number_'; tr = 'Numara_'") + Format(ColumnNumber,"NG=0");
+		SpreadsheetDocument.Area(1, ColumnNumber, 1, ColumnNumber).Text = NStr("ru = 'Номер_'; en = 'Number_'") + Format(ColumnNumber,"NG=0");
 	EndDo;
 	
 	SpreadsheetDocument.Put(SourceSpreadsheetDocument);

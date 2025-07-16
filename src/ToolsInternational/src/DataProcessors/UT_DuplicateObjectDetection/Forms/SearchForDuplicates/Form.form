@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Поиск и удаление дублей</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Duplicate object detection</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Yinelenen nesne tespiti</value>
+    <key>ru</key>
+    <value>Поиск и удаление дублей</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>Header</name>
@@ -24,8 +20,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>DuplicatesSearchArea</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>DuplicatesSearchArea</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -91,8 +89,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>FilterRulesPresentation</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>FilterRulesPresentation</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>FilterRulesPresentationExtendedTooltip</name>
@@ -150,8 +150,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>SearchRulesPresentation</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>SearchRulesPresentation</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>SearchRulesPresentationExtendedTooltip</name>
@@ -256,24 +258,16 @@
           <segments>ReplaceInTransaction</segments>
         </dataPath>
         <toolTip>
-          <key>ru</key>
-          <value>Определяет размер транзакции.
-//           Истина -Транзакция охватывает все места использования одного дубля. Может быть очень ресурсоемко  в случае большого количества мест использований.
-//           Ложь   - замена каждого места использования выполняется в отдельной транзакции.</value>
-        </toolTip>
-        <toolTip>
           <key>en</key>
           <value>Defines transaction size.
 //		True - Transaction covers all instances for one duplicate. In case of a large number of instances it may take a lot of resources.
 //		False - Every usage instance processed in separate transaction.</value>
         </toolTip>
         <toolTip>
-          <key>tr</key>
-          <value>İşlem boyutunu tanımlar.
-
-Doğru - İşlem, bir kopya için tüm kullanım örneklerini kapsar. Çok sayıda kullanım örneği varsa, bu durum yüksek kaynak kullanımı anlamına gelebilir.
-
-Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
+          <key>ru</key>
+          <value>Определяет размер транзакции.
+//           Истина -Транзакция охватывает все места использования одного дубля. Может быть очень ресурсоемко  в случае большого количества мест использований.
+//           Ложь   - замена каждого места использования выполняется в отдельной транзакции.</value>
         </toolTip>
         <toolTipRepresentation>Button</toolTipRepresentation>
         <extendedTooltip>
@@ -314,16 +308,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Параметры замены</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Replacement parameters</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değiştirme parametreleri</value>
+        <key>ru</key>
+        <value>Параметры замены</value>
       </title>
       <extendedTooltip>
         <name>ReplacementParametersGroupExtendedTooltip</name>
@@ -360,16 +350,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Параметры записи</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Writing parameters</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Yazma parametreleri</value>
+        <key>ru</key>
+        <value>Параметры записи</value>
       </title>
       <extendedTooltip>
         <name>WritingParametersGroupExtendedTooltip</name>
@@ -409,16 +395,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Шапка</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Header</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Başlık</value>
+      <key>ru</key>
+      <value>Шапка</value>
     </title>
     <extendedTooltip>
       <name>HeaderExtendedTooltip</name>
@@ -458,8 +440,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>NoSearchPerformed</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>NoSearchPerformed</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -501,7 +485,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
           <verticalStretch>true</verticalStretch>
           <pointerType>Special</pointerType>
           <selectionShowMode>Always</selectionShowMode>
-          <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
           <showGroups>true</showGroups>
           <enableStartDrag>true</enableStartDrag>
           <enableDrag>true</enableDrag>
@@ -513,16 +496,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Шаг поиск не выполнялся</value>
-      </title>
-      <title>
         <key>en</key>
         <value>No search performed step</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Arama yapılmayan adım</value>
+        <key>ru</key>
+        <value>Шаг поиск не выполнялся</value>
       </title>
       <extendedTooltip>
         <name>NoSearchPerformedStepExtendedTooltip</name>
@@ -556,8 +535,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>NoSearchPerformed</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>NoSearchPerformed</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -599,7 +580,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
           <verticalStretch>true</verticalStretch>
           <pointerType>Special</pointerType>
           <selectionShowMode>Always</selectionShowMode>
-          <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
           <showGroups>true</showGroups>
           <enableStartDrag>true</enableStartDrag>
           <enableDrag>true</enableDrag>
@@ -611,16 +591,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Шаг выполнение поиска</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Perform search step</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Arama yapma adımı</value>
+        <key>ru</key>
+        <value>Шаг выполнение поиска</value>
       </title>
       <extendedTooltip>
         <name>PerformSearchStepExtendedTooltip</name>
@@ -835,16 +811,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Команды работы с основным элементов</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Main item operation commands</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Ana öğe işlem komutları</value>
+          <key>ru</key>
+          <value>Команды работы с основным элементов</value>
         </title>
         <extendedTooltip>
           <name>MainItemOperationCommandsExtendedTooltip</name>
@@ -904,8 +876,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>FoundDuplicates.Description</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>FoundDuplicates.Description</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>FoundDuplicatesDescriptionExtendedTooltip</name>
@@ -956,8 +930,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>FoundDuplicates.Main</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>FoundDuplicates.Main</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <extendedTooltip>
@@ -999,10 +975,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                   <valuesPicture xsi:type="core:PictureRef">
                     <picture>StdPicture.MoveRight</picture>
                   </valuesPicture>
-                  <border xsi:type="core:BorderDef">
-                    <style>Single</style>
-                    <width>1</width>
-                  </border>
                 </extInfo>
               </items>
               <items xsi:type="form:FormField">
@@ -1013,8 +985,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>FoundDuplicates.Check</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>FoundDuplicates.Check</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <handlers>
@@ -1061,16 +1035,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <common>true</common>
               </userVisible>
               <title>
-                <key>ru</key>
-                <value>Использовать наименование</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Use description</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Açıklamayı kullan</value>
+                <key>ru</key>
+                <value>Использовать наименование</value>
               </title>
               <extendedTooltip>
                 <name>UseDescriptionExtendedTooltip</name>
@@ -1099,8 +1069,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible/>
-              <dataPath xsi:type="form:DataPath">
-                <segments>FoundDuplicates.Code</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>FoundDuplicates.Code</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>FoundDuplicatesCodeExtendedTooltip</name>
@@ -1152,8 +1124,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>FoundDuplicates.Count</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>FoundDuplicates.Count</segments>
+                </paths>
               </dataPath>
               <titleLocation>None</titleLocation>
               <toolTip>
@@ -1254,7 +1228,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>FoundDuplicates</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -1293,7 +1266,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>FoundDuplicates</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -1333,7 +1305,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>FoundDuplicates</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -1642,16 +1613,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <name>CandidateUsageInstances</name>
                 <id>137</id>
                 <title>
-                  <key>ru</key>
-                  <value>Места использования кандидата</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Candidate usage instances</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Aday kullanım örnekleri</value>
+                  <key>ru</key>
+                  <value>Места использования кандидата</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -1670,8 +1637,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>CandidateUsageInstances.DataPresentation</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>CandidateUsageInstances.DataPresentation</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>CandidateUsageInstancesDataPresentationExtendedTooltip</name>
@@ -1793,7 +1762,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
-                  <source>CandidateUsageInstances</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -1832,7 +1800,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
-                  <source>CandidateUsageInstances</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -1872,7 +1839,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
-                  <source>CandidateUsageInstances</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -2029,10 +1995,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                   <key>ru</key>
                   <value>Описание текущей группы дублей</value>
                 </title>
-                <title>
-                  <key>tr</key>
-                  <value>Mevcut yinelenenler grup detayları</value>
-                </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
@@ -2116,16 +2078,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Страницы места использования</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Usage instances pages</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Kullanım örnekleri sayfaları</value>
+              <key>ru</key>
+              <value>Страницы места использования</value>
             </title>
             <extendedTooltip>
               <name>UsageInstancesPagesExtendedTooltip</name>
@@ -2153,16 +2111,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Горизонтальная найденные дубли</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Duplicates found horizontal group</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Bulunan yinelenenler yatay grup</value>
+            <key>ru</key>
+            <value>Горизонтальная найденные дубли</value>
           </title>
           <extendedTooltip>
             <name>FoundDuplicatesHorizontalGroupExtendedTooltip</name>
@@ -2199,8 +2153,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>FoundDuplicatesStateDetails</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>FoundDuplicatesStateDetails</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -2248,10 +2204,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
             <title>
               <key>ru</key>
               <value>Все места использования</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Tüm kullanım örnekleri</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -2338,16 +2290,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Вертикальная основного элемента</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Main item vertical group</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Ana öğe dikey grup</value>
+          <key>ru</key>
+          <value>Вертикальная основного элемента</value>
         </title>
         <extendedTooltip>
           <name>MainItemVerticalGroupExtendedTooltip</name>
@@ -2379,16 +2327,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Шаг выбор основного элемента</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Main item selection step</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ana öğe seçimi adımı</value>
+        <key>ru</key>
+        <value>Шаг выбор основного элемента</value>
       </title>
       <extendedTooltip>
         <name>MainItemSelectionStepExtendedTooltip</name>
@@ -2422,8 +2366,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>NoSearchPerformed</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>NoSearchPerformed</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -2465,7 +2411,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
           <verticalStretch>true</verticalStretch>
           <pointerType>Special</pointerType>
           <selectionShowMode>Always</selectionShowMode>
-          <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
           <showGroups>true</showGroups>
           <enableStartDrag>true</enableStartDrag>
           <enableDrag>true</enableDrag>
@@ -2477,16 +2422,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Шаг выполнение удаления</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Deletion step</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Silme adımı</value>
+        <key>ru</key>
+        <value>Шаг выполнение удаления</value>
       </title>
       <extendedTooltip>
         <name>DeletionStepExtendedTooltip</name>
@@ -2560,8 +2501,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>FoundDuplicatesStateDetails</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>FoundDuplicatesStateDetails</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -2610,16 +2553,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Шаг успешное удаление</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Successful deletion step</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Başarılı silme adımı</value>
+        <key>ru</key>
+        <value>Шаг успешное удаление</value>
       </title>
       <extendedTooltip>
         <name>SuccessfulDeletionStepExtendedTooltip</name>
@@ -2658,10 +2597,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
           <title>
             <key>ru</key>
             <value>Не удалось заменить дубли на оригиналы в некоторых местах использования:</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Bazı kullanım yerlerinde yinelenenler değiştirilemedi:</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -2741,8 +2676,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>UnprocessedDuplicates.Main</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>UnprocessedDuplicates.Main</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <extendedTooltip>
@@ -2784,10 +2721,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                   <valuesPicture xsi:type="core:PictureRef">
                     <picture>StdPicture.MoveRight</picture>
                   </valuesPicture>
-                  <border xsi:type="core:BorderDef">
-                    <style>Single</style>
-                    <width>1</width>
-                  </border>
                 </extInfo>
               </items>
               <items xsi:type="form:FormField">
@@ -2798,8 +2731,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>UnprocessedDuplicates.Description</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>UnprocessedDuplicates.Description</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>UnprocessedDuplicatesDescriptionExtendedTooltip</name>
@@ -2886,8 +2821,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible/>
-              <dataPath xsi:type="form:DataPath">
-                <segments>UnprocessedDuplicates.Code</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>UnprocessedDuplicates.Code</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>UnprocessedDuplicatesCodeExtendedTooltip</name>
@@ -2939,8 +2876,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>UnprocessedDuplicates.Count</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>UnprocessedDuplicates.Count</segments>
+                </paths>
               </dataPath>
               <titleLocation>None</titleLocation>
               <toolTip>
@@ -3070,7 +3009,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>UnprocessedDuplicates</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3109,7 +3047,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>UnprocessedDuplicates</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -3149,7 +3086,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>UnprocessedDuplicates</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3452,8 +3388,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>UnprocessedDuplicatesUsageInstances.Icon</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>UnprocessedDuplicatesUsageInstances.Icon</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>UnprocessedDuplicatesUsageInstancesIconExtendedTooltip</name>
@@ -3490,10 +3428,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <verticalStretch>true</verticalStretch>
-                    <border xsi:type="core:BorderDef">
-                      <style>Single</style>
-                      <width>1</width>
-                    </border>
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormField">
@@ -3504,8 +3438,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>UnprocessedDuplicatesUsageInstances.ErrorObjectPresentation</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>UnprocessedDuplicatesUsageInstances.ErrorObjectPresentation</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>UnprocessedDuplicatesUsageInstancesDataPresentationExtendedTooltip</name>
@@ -3628,7 +3564,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
-                  <source>UnprocessedDuplicatesUsageInstances</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -3667,7 +3602,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
-                  <source>UnprocessedDuplicatesUsageInstances</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -3707,7 +3641,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
-                  <source>UnprocessedDuplicatesUsageInstances</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -3825,8 +3758,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>UnprocessedDuplicatesErrorDescription</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>UnprocessedDuplicatesErrorDescription</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <extendedTooltip>
@@ -3923,10 +3858,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
                   <key>ru</key>
                   <value>Описание текущей группы дублей</value>
                 </title>
-                <title>
-                  <key>tr</key>
-                  <value>Mevcut yinelenenler grup detayları</value>
-                </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
@@ -4014,16 +3945,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Страницы места использования необработанных</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Unprocessed items usage instances pages</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>İşlenmemiş öğelerin kullanım örnekleri sayfaları</value>
+              <key>ru</key>
+              <value>Страницы места использования необработанных</value>
             </title>
             <width>24</width>
             <extendedTooltip>
@@ -4101,10 +4028,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
               <key>ru</key>
               <value>Удаление групп(ы) дублей было отменено до выяснения и устранения причин.</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Sorunlar giderilene kadar yinelenen grup(lar) silme işlemi askıya alındı.</value>
-            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -4153,10 +4076,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
             <title>
               <key>ru</key>
               <value>Все места использования</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Tüm kullanım yerleri</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -4284,16 +4203,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Шаг неудачные замены</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Unsuccessful replacements step</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Başarısız değiştirme adımı</value>
+        <key>ru</key>
+        <value>Шаг неудачные замены</value>
       </title>
       <extendedTooltip>
         <name>UnsuccessfulReplacementsStepExtendedTooltip</name>
@@ -4327,8 +4242,10 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>NoSearchPerformed</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>NoSearchPerformed</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -4370,7 +4287,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
           <verticalStretch>true</verticalStretch>
           <pointerType>Special</pointerType>
           <selectionShowMode>Always</selectionShowMode>
-          <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
           <showGroups>true</showGroups>
           <enableStartDrag>true</enableStartDrag>
           <enableDrag>true</enableDrag>
@@ -4382,16 +4298,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Шаг дублей не найдено</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Duplicates not found step</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Yinelenen bulunamadı adımı</value>
+        <key>ru</key>
+        <value>Шаг дублей не найдено</value>
       </title>
       <extendedTooltip>
         <name>DuplicatesNotFoundStepExtendedTooltip</name>
@@ -4527,10 +4439,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
           <key>ru</key>
           <value>Подробнее</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Detaylar</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -4580,16 +4488,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Возникла ошибка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Error occurred</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Hata oluştu</value>
+        <key>ru</key>
+        <value>Возникла ошибка</value>
       </title>
       <extendedTooltip>
         <name>ErrorOccurredStepExtendedTooltip</name>
@@ -4618,16 +4522,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Шаги мастера</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Wizard steps</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sihirbaz adımları</value>
+      <key>ru</key>
+      <value>Шаги мастера</value>
     </title>
     <enableContentChange>true</enableContentChange>
     <extendedTooltip>
@@ -4692,16 +4592,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Назад</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Back</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Geri</value>
+        <key>ru</key>
+        <value>Назад</value>
       </title>
       <extendedTooltip>
         <name>BackGroupExtendedTooltip</name>
@@ -4730,16 +4626,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
         <name>WizardStepNext</name>
         <id>175</id>
         <title>
-          <key>ru</key>
-          <value>Удалить дубли</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Delete duplicates</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Yinelenenleri sil</value>
+          <key>ru</key>
+          <value>Удалить дубли</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -5232,7 +5124,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -5243,10 +5134,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_DuplicateObjectDetection</types>
@@ -5261,10 +5148,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   </attributes>
   <attributes>
     <name>CompositionSchemaAddress</name>
-    <title>
-      <key>tr</key>
-      <value>Kompozisyon Şeması Adresi</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -5280,16 +5163,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>DuplicatesSearchArea</name>
     <title>
-      <key>ru</key>
-      <value>Искать в</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Search into</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İçinde ara</value>
+      <key>ru</key>
+      <value>Искать в</value>
     </title>
     <id>5</id>
     <valueType>
@@ -5318,10 +5197,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   </attributes>
   <attributes>
     <name>AppliedRulesDetails</name>
-    <title>
-      <key>tr</key>
-      <value>Uygulanan Kuralların Ayrıntıları</value>
-    </title>
     <id>7</id>
     <valueType/>
     <view>
@@ -5402,16 +5277,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>ConsiderAppliedRules</name>
     <title>
-      <key>ru</key>
-      <value>Учитывать прикладные правила</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Consider applied rules</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Uygulanan kuralları dikkate al</value>
+      <key>ru</key>
+      <value>Учитывать прикладные правила</value>
     </title>
     <id>9</id>
     <valueType>
@@ -5426,10 +5297,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   </attributes>
   <attributes>
     <name>AllComparisonOptions</name>
-    <title>
-      <key>tr</key>
-      <value>Tüm Karşılaştırma Seçenekleri</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>ValueList</types>
@@ -5447,16 +5314,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>NoSearchPerformed</name>
     <title>
-      <key>ru</key>
-      <value>Поиск не выполнялся</value>
-    </title>
-    <title>
       <key>en</key>
       <value>No search performed</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Arama yapılmadı</value>
+      <key>ru</key>
+      <value>Поиск не выполнялся</value>
     </title>
     <id>12</id>
     <valueType>
@@ -5473,16 +5336,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>FoundDuplicates</name>
     <title>
-      <key>ru</key>
-      <value>Найденные дубли</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Found duplicates</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Bulunan yinelenenler</value>
+      <key>ru</key>
+      <value>Найденные дубли</value>
     </title>
     <id>11</id>
     <valueType>
@@ -5496,10 +5355,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     </edit>
     <columns>
       <name>Ref</name>
-      <title>
-        <key>tr</key>
-        <value>Ref</value>
-      </title>
       <id>1</id>
       <valueType/>
       <view>
@@ -5512,16 +5367,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Code</name>
       <title>
-        <key>ru</key>
-        <value>Код</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod</value>
+        <key>ru</key>
+        <value>Код</value>
       </title>
       <id>2</id>
       <valueType/>
@@ -5535,16 +5386,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Description</name>
       <title>
-        <key>ru</key>
-        <value>Наименование</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Description</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Açıklama</value>
+        <key>ru</key>
+        <value>Наименование</value>
       </title>
       <id>3</id>
       <valueType>
@@ -5561,16 +5408,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Count</name>
       <title>
-        <key>ru</key>
-        <value>Мест использования</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Usage instances count</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kullanım örnekleri sayısı</value>
+        <key>ru</key>
+        <value>Мест использования</value>
       </title>
       <id>4</id>
       <valueType>
@@ -5589,16 +5432,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Check</name>
       <title>
-        <key>ru</key>
-        <value>Пометка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Check</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İşaret</value>
+        <key>ru</key>
+        <value>Пометка</value>
       </title>
       <id>6</id>
       <valueType>
@@ -5617,16 +5456,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Main</name>
       <title>
-        <key>ru</key>
-        <value>Основной</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Main</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Temel</value>
+        <key>ru</key>
+        <value>Основной</value>
       </title>
       <id>7</id>
       <valueType>
@@ -5657,16 +5492,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>CandidateUsageInstances</name>
     <title>
-      <key>ru</key>
-      <value>Места использования кандидата</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Candidate usage instances</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Aday kullanım örnekleri</value>
+      <key>ru</key>
+      <value>Места использования кандидата</value>
     </title>
     <id>14</id>
     <valueType>
@@ -5680,10 +5511,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     </edit>
     <columns>
       <name>Data</name>
-      <title>
-        <key>tr</key>
-        <value>Veri</value>
-      </title>
       <id>1</id>
       <valueType/>
       <view>
@@ -5696,16 +5523,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>DataPresentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление данных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Data presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Veri gösterimi</value>
+        <key>ru</key>
+        <value>Представление данных</value>
       </title>
       <id>2</id>
       <valueType>
@@ -5723,16 +5546,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>FoundDuplicatesStateDetails</name>
     <title>
-      <key>ru</key>
-      <value>Описание состояния найденных дублей</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Found duplicates state details</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Bulunan yinelenenlerin durum ayrıntıları</value>
+      <key>ru</key>
+      <value>Описание состояния найденных дублей</value>
     </title>
     <id>15</id>
     <valueType>
@@ -5836,16 +5655,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>UnprocessedDuplicates</name>
     <title>
-      <key>ru</key>
-      <value>Необработанные дубли</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unprocessed duplicates</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İşlenmemiş yinelenenler</value>
+      <key>ru</key>
+      <value>Необработанные дубли</value>
     </title>
     <id>23</id>
     <valueType>
@@ -5859,10 +5674,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     </edit>
     <columns>
       <name>Ref</name>
-      <title>
-        <key>tr</key>
-        <value>Ref</value>
-      </title>
       <id>1</id>
       <valueType/>
       <view>
@@ -5875,16 +5686,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Code</name>
       <title>
-        <key>ru</key>
-        <value>Код</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod</value>
+        <key>ru</key>
+        <value>Код</value>
       </title>
       <id>2</id>
       <valueType/>
@@ -5898,16 +5705,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Description</name>
       <title>
-        <key>ru</key>
-        <value>Наименование</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Description</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Açıklama</value>
+        <key>ru</key>
+        <value>Наименование</value>
       </title>
       <id>3</id>
       <valueType>
@@ -5924,16 +5727,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Count</name>
       <title>
-        <key>ru</key>
-        <value>Мест использования</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Usage instances count</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kullanım örnekleri sayısı</value>
+        <key>ru</key>
+        <value>Мест использования</value>
       </title>
       <id>4</id>
       <valueType>
@@ -5951,10 +5750,6 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     </columns>
     <columns>
       <name>Check</name>
-      <title>
-        <key>tr</key>
-        <value>İşaret</value>
-      </title>
       <id>6</id>
       <valueType>
         <types>Number</types>
@@ -5972,16 +5767,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Main</name>
       <title>
-        <key>ru</key>
-        <value>Основной</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Main</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Temel</value>
+        <key>ru</key>
+        <value>Основной</value>
       </title>
       <id>7</id>
       <valueType>
@@ -5998,16 +5789,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>UnprocessedDuplicatesUsageInstances</name>
     <title>
-      <key>ru</key>
-      <value>Места использования</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Usage instances</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kullanım örnekleri</value>
+      <key>ru</key>
+      <value>Места использования</value>
     </title>
     <id>24</id>
     <valueType>
@@ -6033,16 +5820,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>ErrorObjectPresentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление объекта ошибки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Error object presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Hata nesnesi sunumu</value>
+        <key>ru</key>
+        <value>Представление объекта ошибки</value>
       </title>
       <id>2</id>
       <valueType>
@@ -6059,16 +5842,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
     <columns>
       <name>Icon</name>
       <title>
-        <key>ru</key>
-        <value>Пиктограмма</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Icon</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Piktogram</value>
+        <key>ru</key>
+        <value>Пиктограмма</value>
       </title>
       <id>3</id>
       <valueType>
@@ -6099,16 +5878,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>UnprocessedDuplicatesErrorDescription</name>
     <title>
-      <key>ru</key>
-      <value>Описание ошибки необработанных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unprocessed duplicates error description</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İşlenmemiş yinelenenler hata açıklaması</value>
+      <key>ru</key>
+      <value>Описание ошибки необработанных</value>
     </title>
     <id>25</id>
     <valueType>
@@ -6136,16 +5911,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>SearchRulesPresentation</name>
     <title>
-      <key>ru</key>
-      <value>Сравнивать</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Compare</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Karşılaştır</value>
+      <key>ru</key>
+      <value>Сравнивать</value>
     </title>
     <id>18</id>
     <valueType>
@@ -6162,16 +5933,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <attributes>
     <name>FilterRulesPresentation</name>
     <title>
-      <key>ru</key>
-      <value>Отбирать</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Filter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtrele</value>
+      <key>ru</key>
+      <value>Отбирать</value>
     </title>
     <id>28</id>
     <valueType>
@@ -6289,16 +6056,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>SelectMainItem</name>
     <title>
-      <key>ru</key>
-      <value>Отметить как оригинал</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Mark as original</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Orijinal olarak işaretle</value>
+      <key>ru</key>
+      <value>Отметить как оригинал</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -6326,16 +6089,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>OpenCandidate</name>
     <title>
-      <key>ru</key>
-      <value>Открыть</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Open</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Aç</value>
+      <key>ru</key>
+      <value>Открыть</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -6359,16 +6118,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>ExpandDuplicatesGroups</name>
     <title>
-      <key>ru</key>
-      <value>Развернуть</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Expand</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Genişlet</value>
+      <key>ru</key>
+      <value>Развернуть</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -6395,16 +6150,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>CollapseDuplicatesGroups</name>
     <title>
-      <key>ru</key>
-      <value>Свернуть</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Collapse</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Gizle</value>
+      <key>ru</key>
+      <value>Свернуть</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -6431,16 +6182,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>WizardStepNext</name>
     <title>
-      <key>ru</key>
-      <value>Далее ></value>
-    </title>
-    <title>
       <key>en</key>
       <value>Next ></value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İleri ></value>
+      <key>ru</key>
+      <value>Далее ></value>
     </title>
     <id>10</id>
     <toolTip>
@@ -6464,16 +6211,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>WizardStepBack</name>
     <title>
-      <key>ru</key>
-      <value>&lt; Назад</value>
-    </title>
-    <title>
       <key>en</key>
       <value>&lt; Back</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>&lt; Geri</value>
+      <key>ru</key>
+      <value>&lt; Назад</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -6497,16 +6240,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>WizardStepCancel</name>
     <title>
-      <key>ru</key>
-      <value>Отмена</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Cancel</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İptal</value>
+      <key>ru</key>
+      <value>Отмена</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -6530,16 +6269,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>RetrySearch</name>
     <title>
-      <key>ru</key>
-      <value>Повторить поиск</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Retry search</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Aramayı tekrar dene</value>
+      <key>ru</key>
+      <value>Повторить поиск</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -6563,16 +6298,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>OpenUnprocessedDuplicate</name>
     <title>
-      <key>ru</key>
-      <value>Открыть</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Open</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Aç</value>
+      <key>ru</key>
+      <value>Открыть</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -6596,16 +6327,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>EditFoundDuplicate</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать Объект</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi düzenle</value>
+      <key>ru</key>
+      <value>Редактировать Объект</value>
     </title>
     <id>14</id>
     <use>
@@ -6625,16 +6352,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>EditCandidateUsageInstance</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать объект</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi düzenle</value>
+      <key>ru</key>
+      <value>Редактировать объект</value>
     </title>
     <id>15</id>
     <use>
@@ -6653,16 +6376,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>EditUnprocessedDuplicate</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать объект</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi düzenle</value>
+      <key>ru</key>
+      <value>Редактировать объект</value>
     </title>
     <id>16</id>
     <use>
@@ -6682,16 +6401,12 @@ Yanlış - Her kullanım örneği ayrı bir işlemde işlenir.</value>
   <formCommands>
     <name>EditUnprocessedDuplicatesUsageInstance</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать объект</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi düzenle</value>
+      <key>ru</key>
+      <value>Редактировать объект</value>
     </title>
     <id>17</id>
     <use>

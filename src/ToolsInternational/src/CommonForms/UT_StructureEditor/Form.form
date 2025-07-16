@@ -109,12 +109,12 @@
       <showInFooter>true</showInFooter>
       <extInfo xsi:type="form:InputFieldExtInfo">
         <handlers>
-          <event>StartChoice</event>
-          <name>StructureTableValueStartSelection</name>
-        </handlers>
-        <handlers>
           <event>Clearing</event>
           <name>StructureTableValueCleaning</name>
+        </handlers>
+        <handlers>
+          <event>StartChoice</event>
+          <name>StructureTableValueStartSelection</name>
         </handlers>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -130,14 +130,6 @@
       <title>
         <key>ru</key>
         <value>Type</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tip</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -235,7 +227,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>StructureTable</source>
+      <source>StructureTableSearchString</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -274,7 +266,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>StructureTable</source>
+      <source>StructureTableViewStatus</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -313,7 +305,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>StructureTable</source>
+      <source>StructureTableSearchControl</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -401,16 +393,12 @@
       <name>FormClose</name>
       <id>3</id>
       <title>
-        <key>ru</key>
-        <value>Close</value>
-      </title>
-      <title>
         <key>en</key>
         <value>FormClose</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kapat</value>
+        <key>ru</key>
+        <value>Close</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -450,7 +438,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -464,14 +451,6 @@
     <title>
       <key>ru</key>
       <value>Structure table</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Structure table</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yapı tablosu</value>
     </title>
     <id>1</id>
     <valueType>
@@ -572,14 +551,6 @@
     <title>
       <key>ru</key>
       <value>Apply</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Apply</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Uygula</value>
     </title>
     <id>1</id>
     <use>

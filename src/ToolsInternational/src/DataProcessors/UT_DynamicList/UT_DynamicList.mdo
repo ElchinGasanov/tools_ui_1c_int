@@ -6,16 +6,12 @@
   </producedTypes>
   <name>UT_DynamicList</name>
   <synonym>
-    <key>ru</key>
-    <value>Динамический список [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Dynamic list</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Dinamik liste [UT]</value>
+    <key>ru</key>
+    <value>Динамический список [УИ]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_DynamicList.Form.Form</defaultForm>
@@ -31,10 +27,6 @@
     <name>Form</name>
     <synonym>
       <key>ru</key>
-      <value>Form</value>
-    </synonym>
-    <synonym>
-      <key>tr</key>
       <value>Form</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>

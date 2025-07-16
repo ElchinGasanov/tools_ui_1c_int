@@ -3,13 +3,13 @@
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 
-	FilterBySettingsStorages.Add("FormDataSettingsStorage", NStr("ru = 'Хранилище настроек данных форм'; en = 'Form data settings storage'; tr = 'Form verileri ayarları deposu'"));
-	FilterBySettingsStorages.Add("CommonSettingsStorage", NStr("ru = 'Хранилище общих настроек'; en = 'Common settings storage'; tr = 'Genel ayarlar deposu'"));
+	FilterBySettingsStorages.Add("FormDataSettingsStorage", NStr("ru = 'Хранилище настроек данных форм';en = 'Form data settings storage'"));
+	FilterBySettingsStorages.Add("CommonSettingsStorage", NStr("ru = 'Хранилище общих настроек';en = 'Common settings storage'"));
 	FilterBySettingsStorages.Add("DynamicListsUserSettingsStorage", NStr(
-		"ru = 'Хранилище пользовательских настроек динамических списков'; en = 'Dynamic lists user settings storage'; tr = 'Kullanıcı dinamik listeleri ayarları deposu'"));
+		"ru = 'Хранилище пользовательских настроек динамических списков';en = 'Dynamic lists user settings storage'"));
 	FilterBySettingsStorages.Add("ReportsUserSettingsStorage", NStr(
-		"ru = 'Хранилище пользовательских настроек отчетов'; en = 'Reports user settings storage'; tr = 'Kullanıcı rapor ayarları deposu'"));
-	FilterBySettingsStorages.Add("SystemSettingsStorage", NStr("ru = 'Хранилище системных настроек'; en = 'System settings storage'; tr = 'Sistem ayarları deposu'"));
+		"ru = 'Хранилище пользовательских настроек отчетов';en = 'Reports user settings storage'"));
+	FilterBySettingsStorages.Add("SystemSettingsStorage", NStr("ru = 'Хранилище системных настроек';en = 'System settings storage'"));
 
 	UpdateUsersTable();
 	
@@ -176,7 +176,7 @@ Procedure DeleteSelectedSettings(Command)
 	Filter = New Structure("Check", True);
 	FoundedRows = SettingsTable.FindRows(Filter);
 	If FoundedRows.Count() = 0 Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбраны настройки для удаления'; en = 'Not selected settings to delete'; tr = 'Silinmek üzere hiçbir ayar seçilmedi'"), , , ,
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбраны настройки для удаления';en = 'Not selected settings to delete'"), , , ,
 			HaveError);
 	EndIf;
 
@@ -186,8 +186,8 @@ Procedure DeleteSelectedSettings(Command)
 
 	ShowQueryBox(
 		New NotifyDescription("QueryDeleteSettingsEnd", ThisForm), StrTemplate(NStr(
-		"ru = 'Удалить выбранные настройки у пользователя %1?'; en = 'Delete selected settings for user %1?'; tr = '%1 kullanıcısı için seçili ayarlar silinsin mi?'"), SettingsOwner), QuestionDialogMode.YesNo, ,
-		DialogReturnCode.None, NStr("ru = 'Внимание!'; en = 'Attention!'; tr = 'Dikkat!'"));
+		"ru = 'Удалить выбранные настройки у пользователя %1?';en = 'Delete selected settings for user %1?'"), SettingsOwner), QuestionDialogMode.YesNo, ,
+		DialogReturnCode.None, NStr("ru = 'Внимание!';en = 'Attention!'"));
 
 EndProcedure
 
@@ -199,12 +199,12 @@ Procedure CopySelectedSettings(Command)
 	Filter = New Structure("Check", True);
 	FoundedRows = SettingsTable.FindRows(Filter);
 	If FoundedRows.Count() = 0 Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбраны настройки для копирования'; en = 'Settings for copying not selected'; tr = 'Kopyalama için hiçbir ayar seçilmedi'"), , , ,
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не выбраны настройки для копирования';en = 'Settings for copying not selected'"), , , ,
 			HaveError);
 	EndIf;
 	FoundedRows = Users.FindRows(Filter);
 	If FoundedRows.Count() = 0 Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не указаны пользователи (кому копировать)'; en = 'Users are not specified (to whom to copy)'; tr = 'Kullanıcılar belirtilmemiş (kime kopyalanacak)'"),
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Не указаны пользователи (кому копировать)';en = 'Users are not specified (to whom to copy)'"),
 			, , , HaveError);
 	EndIf;
 
@@ -214,8 +214,8 @@ Procedure CopySelectedSettings(Command)
 
 	ShowQueryBox(
 		New NotifyDescription("QueryCopySettingsEnd", ThisForm), NStr(
-		"ru = 'Копировать выбранные настройки выбранным пользователям?'; en = 'Copy selected settings to selected users?'; tr = 'Seçili ayarlar seçili kullanıcılara kopyalansın mı?'"), QuestionDialogMode.YesNo, ,
-		DialogReturnCode.None, NStr("ru = 'Внимание!'; en = 'Attention!'; tr = 'Dikkat!'"));
+		"ru = 'Копировать выбранные настройки выбранным пользователям?';en = 'Copy selected settings to selected users?'"), QuestionDialogMode.YesNo, ,
+		DialogReturnCode.None, NStr("ru = 'Внимание!';en = 'Attention!'"));
 
 EndProcedure
 
@@ -270,7 +270,7 @@ Procedure QueryCopySettingsEnd(QuestionResult, AdditionalParameters) Export
 
 	CopySelectedSettingsAtServer();
 
-	ShowMessageBox( , NStr("ru = 'Копирование настроек выполнено'; en = 'Copying settings is done'; tr = 'Ayarların kopyalanması tamamlandı'"));
+	ShowMessageBox( , NStr("ru = 'Копирование настроек выполнено';en = 'Copying settings is done'"));
 
 EndProcedure
 
@@ -334,15 +334,15 @@ Procedure UpdateItemsPresentation(FormItems = Undefined)
 	If FormItemsArray.Count() = 0 Or FormItemsArray.Find("ShowSelectedSettings") <> Undefined Then
 		Items.GroupSelectedSettings.Visible = Items.ConfigurationTreeShowSelectedSettings.Check;
 		Items.ConfigurationTreeShowSelectedSettings.Title = ?(Items.GroupSelectedSettings.Visible,
-			NStr("ru = 'Скрыть выбранные настройки'; en = 'Hide selected settings'; tr = 'Seçili ayarları gizle'"), NStr("ru = 'Показать выбранные настройки'; en = 'Show selected settings'; tr = 'Seçili ayarları göster'"));
+			NStr("ru = 'Скрыть выбранные настройки';en = 'Hide selected settings'"), NStr("ru = 'Показать выбранные настройки';en = 'Show selected settings'"));
 	EndIf;
 
 	If FormItemsArray.Count() = 0 Or FormItemsArray.Find("ShowSelectedUsers") <> Undefined Then
 		Items.Users.RowFilter = ?(Items.CancelSearchShowSelectedUsers.Check,
 			New FixedStructure("Check", True), Undefined);
 		Items.CancelSearchShowSelectedUsers.Title = ?(
-			Items.Users.RowFilter <> Undefined, NStr("ru = 'Показать всех'; en = 'Show all'; tr = 'Tümünü göster'"), NStr(
-			"ru = 'Показать выбранных'; en = 'Show selected'; tr = 'Seçileni göster'"));
+			Items.Users.RowFilter <> Undefined, NStr("ru = 'Показать всех';en = 'Show all'"), NStr(
+			"ru = 'Показать выбранных';en = 'Show selected'"));
 	EndIf;	
 	
 	//If FormItemsArray.Count() = 0 Then
@@ -364,12 +364,12 @@ Procedure UpdateOwnerSettingsAtServer()
 	
 	// Create row for configuration tree
 	ConfigurationTreeRow = ValuesTree.Rows.Add();
-	ConfigurationTreeRow.PresentationName = Metadata.Name + NStr("ru = ' (Все настройки)'; en = ' (All settings)'; tr = 'Tüm ayarlar'");
-	ConfigurationTreeRow.PresentationSynonym = Metadata.Synonym + NStr("ru = ' (Все настройки)'; en = ' (All settings)'; tr = ' (Tüm ayarlar)'");
+	ConfigurationTreeRow.PresentationName = Metadata.Name + NStr("ru = ' (Все настройки)';en = ' (All settings)'");
+	ConfigurationTreeRow.PresentationSynonym = Metadata.Synonym + NStr("ru = ' (Все настройки)';en = ' (All settings)'");
 	ConfigurationTreeRow.Order = 0;
 	//ConfigurationTreeRow.Picture = 0;
 	TreeRowOther = ConfigurationTreeRow.Rows.Add();
-	TreeRowOther.PresentationName = NStr("ru = 'Прочее'; en = 'Other'; tr = 'Diğer'");
+	TreeRowOther.PresentationName = NStr("ru = 'Прочее';en = 'Other'");
 	TreeRowOther.PresentationSynonym = TreeRowOther.PresentationName;
 	TreeRowOther.Order = 900;
 	TreeRowOther.Path = "Other";

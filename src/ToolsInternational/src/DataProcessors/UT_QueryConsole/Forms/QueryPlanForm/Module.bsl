@@ -93,7 +93,7 @@ Function GetQueryPlanFromLog()
 		ElsIf Event.DBMS = "DBPOSTGRS" Then
 			AddQueryPlan_DBPOSTGRS(TermsData);
 		Else
-			ErrorString = StrTemplate(NStr("ru = 'Получение плана запроса для СУБД ""%1"" не поддерживается.'; en = 'Getting query plan for ""%1"" DBMS is not available.'; tr = '""%1"" için sorgu planı alınamıyor, DBMS mevcut değil.'"), Event.DBMS);
+			ErrorString = StrTemplate(NStr("ru = 'Получение плана запроса для СУБД ""%1"" не поддерживается.'; en = 'Getting query plan for ""%1"" DBMS is not available.'"), Event.DBMS);
 			PlanAsText.SetText(ErrorString);
 			Plan1CText.SetText(ErrorString);
 		EndIf;
@@ -634,7 +634,7 @@ Procedure DeferredLogRead()
 	
 	If Not PlanRead Then
 		Notification = New NotifyDescription("CloseAfterMessage", ThisForm);
-		ShowMessageBox(Notification, NStr("ru = 'Не удалось получить информацию о запросе'; en = 'Cannot get query information'; tr = 'Sorgu bilgisi alınamıyor'"), , Object.Title);
+		ShowMessageBox(Notification, NStr("ru = 'Не удалось получить информацию о запросе'; en = 'Cannot get query information'"), , Object.Title);
 	EndIf;
 	
 EndProcedure
@@ -668,7 +668,7 @@ Procedure Refresh_Command(Command)
 	RefreshPlan();
 	
 	If Not PlanRead Then
-		ShowMessageBox(, NStr("ru = 'Не удалось получить информацию о запросе'; en = 'Cannot get query information'; tr = 'Sorgu bilgisi alınamıyor'"), , Object.Title);
+		ShowMessageBox(, NStr("ru = 'Не удалось получить информацию о запросе'; en = 'Cannot get query information'"), , Object.Title);
 	Else
 		ExpandTreeByState(mapState);
 	EndIf;

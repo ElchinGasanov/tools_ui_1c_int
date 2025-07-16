@@ -277,7 +277,7 @@ Procedure RaiseIfNoAdministrationRights() Export
 
 	If UT_Common.DataSeparationEnabled() And UT_Common.SeparatedDataUsageAvailable() Then
 		If Not UT_Users.IsFullUser() Then
-			Raise NStr("ru = 'Нарушение прав доступа.'; en = 'Access rights violation.'; tr = 'Erişim hakkı ihlali.'");
+			Raise NStr("ru = 'Нарушение прав доступа.'; en = 'Access rights violation.'");
 		EndIf;
 	Else
 		If NOT PrivilegedMode() Then
@@ -482,7 +482,7 @@ EndFunction
 // Returns the text "<not defined>".
 Function TextUndefined() Export
 	
-	Return NStr("ru = '<не определено>'; en = '<not defined>'; tr = '<tanımlanmamış>'");
+	Return NStr("ru = '<не определено>'; en = '<not defined>'");
 	
 EndFunction
 
@@ -503,11 +503,11 @@ Procedure CancelBackgroundJob(ID) Export
 	If BackgroundJobsArray.Count() = 1 Then
 		BackgroundJob = BackgroundJobsArray[0];
 	Else
-		Raise NStr("ru = 'Фоновое задание не найдено на сервере.'; en = 'The background job is not found on the server.'; tr = 'Sunucuda arka plan işi bulunamadı.'");
+		Raise NStr("ru = 'Фоновое задание не найдено на сервере.'; en = 'The background job is not found on the server.'");
 	EndIf;
 
 	If BackgroundJob.State <> BackgroundJobState.Active Then
-		Raise NStr("ru = 'Задание не выполняется, его нельзя отменить.'; en = 'The job is not being executed, it cannot be canceled.'; tr = 'İş yürütülmüyor, iptal edilemez.'");
+		Raise NStr("ru = 'Задание не выполняется, его нельзя отменить.'; en = 'The job is not being executed, it cannot be canceled.'");
 	EndIf;
 	
 	BackgroundJob.Cancel();
@@ -554,7 +554,7 @@ Function ExecuteScheduledJobManually(Val Job) Export
 			ExecutionParameters.BackgroundJobPresentation = ScheduledJobPresentation(Job);
 		EndIf;
 	Else
-		BackgroundJobDescription = StrTemplate(NStr("ru = 'Запуск вручную: %1'; en = 'Manual start: %1'; tr = 'Manuel başlatma: %1'"), 
+		BackgroundJobDescription = StrTemplate(NStr("ru = 'Запуск вручную: %1'; en = 'Manual start: %1'"), 
 			ScheduledJobPresentation(Job));
 		// Time-consuming operations are not used, because the method of the scheduled job is called.
 		BackgroundJob = BackgroundJobs.Execute(Job.Metadata.MethodName, Job.Parameters, String(Job.UUID), 

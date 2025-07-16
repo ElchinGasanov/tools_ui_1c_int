@@ -11,25 +11,19 @@ Var UT_CodeEditorClientData Export;
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	ExpressionTextLabel =
 	NStr("ru = 'В тексте выражения можно использовать следующие предопределенные параметры:
-												   |	Результат		- результат вычисления (на входе - значение по умолчанию)
-												   |	ТекстЯчейки		- текст текущей ячейки
-												   |	ТекстыЯчеек		- массив текстов ячеек строки
-												   |	ТекущиеДанные	- структура загруженных значений
-												   |	ОписаниеОшибки	- описание ошибки, выводимое в примечание ячейки и в окно сообщений
-												   |Встроенные функции, функции общих модулей.'; en = 'The following predefined parameters are available in the expression text:
-												   |	Result			- An evaluation result. Default value on start of the procedure.
-												   |	CellText			- A current cell text.
-												   |	CellsTexts		- An array of row cells texts.
-												   |	CurrentData		- A structure with an imported values.
-												   |	ErrorDescription	- A description of an error which can be put out to cell tootlip and to message window.
-												   |Embedded functions, common module functions.'; tr = 'İfade metninde aşağıdaki önceden tanımlı parametreler kullanılabilir:
-												   |    Result – Değerlendirme sonucu. Prosedür başında varsayılan değerdir.
-												   |    CellText – Geçerli hücre metni.
-												   |    CellsTexts – Satırdaki hücre metinlerinden oluşan dizi.
-												   |    CurrentData – Aktarılan değerleri içeren bir yapı.
-												   |    ErrorDescription – Hücre araç ipucunda ve mesaj penceresinde gösterilebilecek hata açıklaması.
-												   |
-												   |Dahili fonksiyonlar ve genel modül fonksiyonları kullanılabilir.'");
+	|	Результат		- результат вычисления (на входе - значение по умолчанию)
+	|	ТекстЯчейки		- текст текущей ячейки
+	|	ТекстыЯчеек		- массив текстов ячеек строки
+	|	ТекущиеДанные	- структура загруженных значений
+	|	ОписаниеОшибки	- описание ошибки, выводимое в примечание ячейки и в окно сообщений
+	|Встроенные функции, функции общих модулей.';
+	|en = 'The following predefined parameters are available in the expression text:
+	|	Result			- An evaluation result. Default value on start of the procedure.
+	|	CellText			- A current cell text.
+	|	CellsTexts		- An array of row cells texts.
+	|	CurrentData		- A structure with an imported values.
+	|	ErrorDescription	- A description of an error which can be put out to cell tootlip and to message window.
+	|Embedded functions, common module functions.'");
 
 	ExpressionText = Parameters.Expression;
 	ResultType = Parameters.ResultType;

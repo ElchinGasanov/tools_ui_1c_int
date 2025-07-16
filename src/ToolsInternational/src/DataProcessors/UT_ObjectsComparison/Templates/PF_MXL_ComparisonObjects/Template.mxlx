@@ -6,12 +6,10 @@
 		<languageInfo>
 			<id>ru</id>
 			<code>Russian</code>
-			<description/>
 		</languageInfo>
 		<languageInfo>
 			<id>en</id>
 			<code>English</code>
-			<description/>
 		</languageInfo>
 	</languageSettings>
 	<columns>
@@ -36,19 +34,18 @@
 		</columnsItem>
 	</columns>
 	<rowsItem>
-		<index>0</index>
-		<row>
-			<empty>true</empty>
-		</row>
-	</rowsItem>
-	<rowsItem>
 		<index>1</index>
 		<row>
 			<c>
 				<i>1</i>
 				<c>
 					<f>0</f>
-					<tl/>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content></v8:content>
+						</v8:item>
+					</tl>
 				</c>
 			</c>
 		</row>
@@ -104,16 +101,6 @@
 		</area>
 	</namedItem>
 	<namedItem xsi:type="NamedItemCells">
-		<name>Object</name>
-		<area>
-			<type>Rectangle</type>
-			<beginRow>0</beginRow>
-			<endRow>1</endRow>
-			<beginColumn>1</beginColumn>
-			<endColumn>1</endColumn>
-		</area>
-	</namedItem>
-	<namedItem xsi:type="NamedItemCells">
 		<name>Value</name>
 		<area>
 			<type>Rectangle</type>
@@ -121,6 +108,16 @@
 			<endRow>2</endRow>
 			<beginColumn>2</beginColumn>
 			<endColumn>2</endColumn>
+		</area>
+	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
+		<name>Object</name>
+		<area>
+			<type>Rectangle</type>
+			<beginRow>0</beginRow>
+			<endRow>1</endRow>
+			<beginColumn>1</beginColumn>
+			<endColumn>1</endColumn>
 		</area>
 	</namedItem>
 	<line width="1" gap="false">

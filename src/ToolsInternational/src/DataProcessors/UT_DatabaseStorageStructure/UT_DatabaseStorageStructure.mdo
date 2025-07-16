@@ -6,16 +6,12 @@
   </producedTypes>
   <name>UT_DatabaseStorageStructure</name>
   <synonym>
-    <key>ru</key>
-    <value>Структура хранения базы данных [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>DB storage structure info [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Veritabanı saklama yapısı [UT]</value>
+    <key>ru</key>
+    <value>Структура хранения базы данных [УИ]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_DatabaseStorageStructure.Form.ManagedForm</defaultForm>
@@ -26,16 +22,12 @@
     </pages>
   </help>
   <extendedPresentation>
-    <key>ru</key>
-    <value>Структура хранения базы данных</value>
-  </extendedPresentation>
-  <extendedPresentation>
     <key>en</key>
     <value>Database storage structure</value>
   </extendedPresentation>
   <extendedPresentation>
-    <key>tr</key>
-    <value>Veritabanı saklama yapısı</value>
+    <key>ru</key>
+    <value>Структура хранения базы данных</value>
   </extendedPresentation>
   <explanation>
     <key>en</key>
@@ -48,16 +40,12 @@
   <forms uuid="c03fac5c-9407-401d-94ff-8d87ab574a84">
     <name>ManagedForm</name>
     <synonym>
-      <key>ru</key>
-      <value>Управляемая форма</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Managed form</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Yönetilen form</value>
+      <key>ru</key>
+      <value>Управляемая форма</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

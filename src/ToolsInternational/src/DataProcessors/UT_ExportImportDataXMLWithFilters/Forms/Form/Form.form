@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Выгрузка и загрузка данных XML</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Export and import data via XML</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Verileri XML aracılığıyla dışa ve içe aktarma</value>
+    <key>ru</key>
+    <value>Выгрузка и загрузка данных XML</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>ModeGroup</name>
@@ -61,8 +57,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ExportPeriod</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ExportPeriod</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ExportPeriodExtendedTooltip</name>
@@ -108,24 +106,22 @@
           <name>UseFilterByDateForAllObjects</name>
           <id>36</id>
           <title>
-            <key>ru</key>
-            <value>Отбор по периоду для всех объектов</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Filter by date for all objects</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Tüm nesneler için tarihe göre filtrele</value>
+            <key>ru</key>
+            <value>Отбор по периоду для всех объектов</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.UseFilterByDateForAllObjects</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.UseFilterByDateForAllObjects</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -192,24 +188,22 @@
         <name>PeriodicRegistersExportType</name>
         <id>22</id>
         <title>
-          <key>ru</key>
-          <value>Отбор для периодических регистров</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Periodic registers filter</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Periyodik kayıt tabloları filtresi</value>
+          <key>ru</key>
+          <value>Отбор для периодических регистров</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.PeriodicRegistersExportType</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.PeriodicRegistersExportType</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>PeriodicRegistersExportTypeExtendedTooltip</name>
@@ -292,24 +286,22 @@
         <name>ExportDocumentWithItsRecords</name>
         <id>25</id>
         <title>
-          <key>ru</key>
-          <value>Вместе с документами выгружать их движения</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Export documents with its records</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Kayıtlarıyla birlikte etkinliklerini dışa aktar</value>
+          <key>ru</key>
+          <value>Вместе с документами выгружать их движения</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.ExportDocumentWithItsRecords</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.ExportDocumentWithItsRecords</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -376,8 +368,10 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Object.MetadataTree.ExportData</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Object.MetadataTree.ExportData</segments>
+                    </paths>
                   </dataPath>
                   <handlers>
                     <event>OnChange</event>
@@ -424,8 +418,10 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Object.MetadataTree.MetadataFullName</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Object.MetadataTree.MetadataFullName</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>MetadataTreeMetadataFullNameExtendedTooltip</name>
@@ -510,17 +506,15 @@
               <items xsi:type="form:FormField">
                 <name>MetadataTreeExportIfNecessary</name>
                 <id>56</id>
-                <title>
-                  <key>tr</key>
-                  <value>Gerekirse dışa aktar</value>
-                </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>Object.MetadataTree.ExportIfNecessary</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>Object.MetadataTree.ExportIfNecessary</segments>
+                  </paths>
                 </dataPath>
                 <handlers>
                   <event>OnChange</event>
@@ -567,16 +561,12 @@
                   <name>MetadataTreeRecalculateDataToExportByRef</name>
                   <id>61</id>
                   <title>
-                    <key>ru</key>
-                    <value>Определить данные, выгружаемые по ссылке</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Find data to export by ref</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Referansa göre dışa aktarılacak verileri bul</value>
+                    <key>ru</key>
+                    <value>Определить данные, выгружаемые по ссылке</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -713,7 +703,6 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>MetadataTree</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -752,7 +741,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>MetadataTree</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -792,7 +780,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>MetadataTree</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -859,16 +846,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Группа метаданные настройка</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Metadata settings group</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Metaveri ayarlar grubu</value>
+              <key>ru</key>
+              <value>Группа метаданные настройка</value>
             </title>
             <toolTip>
               <key>en</key>
@@ -924,16 +907,12 @@
                   <name>FilterAddFilterItem</name>
                   <id>178</id>
                   <title>
-                    <key>ru</key>
-                    <value>Добавить</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Add</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Ekle</value>
+                    <key>ru</key>
+                    <value>Добавить</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -991,6 +970,7 @@
                   </extendedTooltip>
                   <commandName>Form.Item.Filter.StandardCommand.Delete</commandName>
                   <representation>PictureAndText</representation>
+                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
@@ -998,22 +978,17 @@
                     <picture>StdPicture.Delete</picture>
                   </picture>
                   <representationInContextMenu>Auto</representationInContextMenu>
-                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>FilterCopy</name>
                   <id>180</id>
                   <title>
-                    <key>ru</key>
-                    <value>Скопировать</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Copy</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Kopyala</value>
+                    <key>ru</key>
+                    <value>Скопировать</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -1068,6 +1043,7 @@
                   </extendedTooltip>
                   <commandName>Form.Command.CopyFilter</commandName>
                   <representation>PictureAndText</representation>
+                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
@@ -1075,7 +1051,6 @@
                     <picture>StdPicture.Next</picture>
                   </picture>
                   <representationInContextMenu>Auto</representationInContextMenu>
-                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>FilterDeleteFilter</name>
@@ -1218,7 +1193,6 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>Filter</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -1257,7 +1231,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>Filter</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -1297,7 +1270,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>Filter</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -1407,16 +1379,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Настройки выгрузки</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Export settings</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Dışa aktarma ayarları</value>
+            <key>ru</key>
+            <value>Настройки выгрузки</value>
           </title>
           <extendedTooltip>
             <name>ExportSettingsGroupExtendedTooltip</name>
@@ -1445,24 +1413,22 @@
             <name>ObjectsTypeToExport</name>
             <id>84</id>
             <title>
-              <key>ru</key>
-              <value>Данные</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Data</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Veri</value>
+              <key>ru</key>
+              <value>Данные</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ObjectsTypeToExport</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ObjectsTypeToExport</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ObjectsTypeToExportExtendedTooltip</name>
@@ -1529,8 +1495,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.AdditionalObjectsToExport.Object</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.AdditionalObjectsToExport.Object</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>AdditionalObjectsToExportObjectExtendedTooltip</name>
@@ -1608,16 +1576,12 @@
                 <name>AdditionalObjectsToExportAddFromQuery</name>
                 <id>87</id>
                 <title>
-                  <key>ru</key>
-                  <value>Добавить запросом...</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Add form query...</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Sorgudan ekle...</value>
+                  <key>ru</key>
+                  <value>Добавить запросом...</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -1674,6 +1638,7 @@
                 </extendedTooltip>
                 <commandName>Form.Command.QueryConsoleSettings</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>true</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
@@ -1681,7 +1646,6 @@
                   <picture>StdPicture.ReportSettings</picture>
                 </picture>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:FormGroup">
                 <name>AdditionalObjectsToExportGroup1</name>
@@ -1718,16 +1682,12 @@
                 <name>AdditionalObjectsToExportClearAdditionalObjectsToExport</name>
                 <id>73</id>
                 <title>
-                  <key>ru</key>
-                  <value>Удалить все</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Delete all</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Hepsini sil</value>
+                  <key>ru</key>
+                  <value>Удалить все</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -1807,7 +1767,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>AdditionalObjectsToExport</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -1846,7 +1805,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>AdditionalObjectsToExport</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -1886,7 +1844,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>AdditionalObjectsToExport</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -1948,16 +1905,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Дополнительные объекты для выгрузки</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Additional objects to export</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Dışa aktarılacak ek nesneler</value>
+            <key>ru</key>
+            <value>Дополнительные объекты для выгрузки</value>
           </title>
           <extendedTooltip>
             <name>AdditionalObjectsGroupExtendedTooltip</name>
@@ -2065,8 +2018,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>OperatingModeAtClientOrAtServer</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>OperatingModeAtClientOrAtServer</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <handlers>
@@ -2106,16 +2061,12 @@
                 <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
                   <choiceList>
                     <presentation>
-                      <key>ru</key>
-                      <value>На клиентский компьютер</value>
-                    </presentation>
-                    <presentation>
                       <key>en</key>
                       <value>To client computer</value>
                     </presentation>
                     <presentation>
-                      <key>tr</key>
-                      <value>İstemci bilgisayarına</value>
+                      <key>ru</key>
+                      <value>На клиентский компьютер</value>
                     </presentation>
                     <value xsi:type="core:NumberValue">
                       <value>0</value>
@@ -2123,16 +2074,12 @@
                   </choiceList>
                   <choiceList>
                     <presentation>
-                      <key>ru</key>
-                      <value>В файл на сервере:</value>
-                    </presentation>
-                    <presentation>
                       <key>en</key>
                       <value>To file at server</value>
                     </presentation>
                     <presentation>
-                      <key>tr</key>
-                      <value>Sunucuda dosyaya</value>
+                      <key>ru</key>
+                      <value>В файл на сервере:</value>
                     </presentation>
                     <value xsi:type="core:NumberValue">
                       <value>1</value>
@@ -2148,8 +2095,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>ExportFileName</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>ExportFileName</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <handlers>
@@ -2237,24 +2186,22 @@
               <name>UseFastInfoSetFormat</name>
               <id>16</id>
               <title>
-                <key>ru</key>
-                <value>В формате FastInfoSet</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Use FastInfoSet format</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>FastInfoSet formatını kullan</value>
+                <key>ru</key>
+                <value>В формате FastInfoSet</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.UseFastInfoSetFormat</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.UseFastInfoSetFormat</segments>
+                </paths>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -2386,16 +2333,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Выгрузка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Export</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Dışa aktarma</value>
+        <key>ru</key>
+        <value>Выгрузка</value>
       </title>
       <extendedTooltip>
         <name>ExportGroupExtendedTooltip</name>
@@ -2425,24 +2368,22 @@
         <name>UseDataExchangeModeOnImport</name>
         <id>75</id>
         <title>
-          <key>ru</key>
-          <value>Загружать данные в режиме обмена (ОбменДанными.Загрузка = Истина)</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Import data in exchange mode (DataExchange.Loading = True)</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Verileri değişim modunda içe aktar (DataExchange.Loading = True)</value>
+          <key>ru</key>
+          <value>Загружать данные в режиме обмена (ОбменДанными.Загрузка = Истина)</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.UseDataExchangeModeOnImport</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.UseDataExchangeModeOnImport</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -2481,24 +2422,22 @@
         <name>ContinueImportOnError</name>
         <id>78</id>
         <title>
-          <key>ru</key>
-          <value>Продолжить загрузку объектов в случае возникновения ошибки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Continue import on error</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Hata durumunda içe aktarmaya devam et</value>
+          <key>ru</key>
+          <value>Продолжить загрузку объектов в случае возникновения ошибки</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.ContinueImportOnError</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.ContinueImportOnError</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -2549,8 +2488,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.PredefinedItemsImportMode</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.PredefinedItemsImportMode</segments>
+          </paths>
         </dataPath>
         <titleLocation>Left</titleLocation>
         <extendedTooltip>
@@ -2586,16 +2527,12 @@
         <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>1. Подменяем ссылки на преодопределенные элементы теми которые уже существуют в базе  </value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>1. Replace references to predefined elements that are already in use in the database.</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>1. Veritabanında halihazırda kullanımda olan önceden tanımlanmış öğelere yapılan başvuruları değiştir.</value>
+              <key>ru</key>
+              <value>1. Подменяем ссылки на преодопределенные элементы теми которые уже существуют в базе  </value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>0</value>
@@ -2603,16 +2540,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>2. Удаление предопределенных  и загрузка новых из файла источника.  </value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>2. Delete predefined items and loading new ones from the source file.</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>2. Önceden tanımlanmış öğeleri sil ve kaynak dosyadan yenilerini yükle.</value>
+              <key>ru</key>
+              <value>2. Удаление предопределенных  и загрузка новых из файла источника.  </value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>1</value>
@@ -2620,16 +2553,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>3. Быстрая загрузка без удаления предопределенных. (Возможно возникновение дублирования предопределенных)</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>3. Fast loading without deleting predefined items. (Possible duplication of predefined items)</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>3. Önceden tanımlanmış öğeleri silmeden hızlı yükleme. (Önceden tanımlanmış olanların çoğaltılması meydana gelebilir)</value>
+              <key>ru</key>
+              <value>3. Быстрая загрузка без удаления предопределенных. (Возможно возникновение дублирования предопределенных)</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>2</value>
@@ -2775,16 +2704,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Загрузка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Import</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İçe aktarma</value>
+        <key>ru</key>
+        <value>Загрузка</value>
       </title>
       <extendedTooltip>
         <name>InportGroupExtendedTooltip</name>
@@ -2894,7 +2819,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <allowFormCustomize>true</allowFormCustomize>
@@ -2921,16 +2845,12 @@
       <columns>
         <name>MetadataFullName</name>
         <title>
-          <key>ru</key>
-          <value>Данные для выгрузки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Data to export</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Dışa aktarılacak veriler</value>
+          <key>ru</key>
+          <value>Данные для выгрузки</value>
         </title>
         <id>1</id>
         <valueType>
@@ -2947,16 +2867,12 @@
       <columns>
         <name>ExportData</name>
         <title>
-          <key>ru</key>
-          <value>Выгружать</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Export data</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Dışa aktar</value>
+          <key>ru</key>
+          <value>Выгружать</value>
         </title>
         <id>2</id>
         <valueType>
@@ -2976,16 +2892,12 @@
       <columns>
         <name>ExportIfNecessary</name>
         <title>
-          <key>ru</key>
-          <value>Выгружать при необходимости</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Export if necessary</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Gerekirse dışa aktar</value>
+          <key>ru</key>
+          <value>Выгружать при необходимости</value>
         </title>
         <id>3</id>
         <valueType>
@@ -3005,16 +2917,12 @@
       <columns>
         <name>PictureIndex</name>
         <title>
-          <key>ru</key>
-          <value>Индекс картинки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Picture index</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Resim indexi</value>
+          <key>ru</key>
+          <value>Индекс картинки</value>
         </title>
         <id>4</id>
         <valueType>
@@ -3034,16 +2942,12 @@
       <columns>
         <name>Expanded</name>
         <title>
-          <key>ru</key>
-          <value>Развернут</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Expanded</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Genişlet</value>
+          <key>ru</key>
+          <value>Развернут</value>
         </title>
         <id>5</id>
         <valueType>
@@ -3059,16 +2963,12 @@
       <columns>
         <name>Select</name>
         <title>
-          <key>ru</key>
-          <value>Выделить</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Select</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Seç</value>
+          <key>ru</key>
+          <value>Выделить</value>
         </title>
         <id>6</id>
         <valueType>
@@ -3084,16 +2984,12 @@
       <columns>
         <name>MetadataObjectName</name>
         <title>
-          <key>ru</key>
-          <value>Имя объекта метаданных</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Metadata object name</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Meta veri nesnesi adı</value>
+          <key>ru</key>
+          <value>Имя объекта метаданных</value>
         </title>
         <id>7</id>
         <valueType>
@@ -3112,16 +3008,12 @@
   <attributes>
     <name>ExportFileName</name>
     <title>
-      <key>ru</key>
-      <value>Имя файла выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarılan dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла выгрузки</value>
     </title>
     <id>2</id>
     <valueType>
@@ -3141,16 +3033,12 @@
   <attributes>
     <name>ExportPeriod</name>
     <title>
-      <key>ru</key>
-      <value>Период выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export period</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarma dönemi</value>
+      <key>ru</key>
+      <value>Период выгрузки</value>
     </title>
     <id>3</id>
     <valueType>
@@ -3169,16 +3057,12 @@
   <attributes>
     <name>ExportMode</name>
     <title>
-      <key>ru</key>
-      <value>Режим выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export mode</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarma modu</value>
+      <key>ru</key>
+      <value>Режим выгрузки</value>
     </title>
     <id>4</id>
     <valueType>
@@ -3197,16 +3081,12 @@
   <attributes>
     <name>ObjectsTypeToExport</name>
     <title>
-      <key>ru</key>
-      <value>Тип объектов для выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Objects type to export</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarılacak nesne türü</value>
+      <key>ru</key>
+      <value>Тип объектов для выгрузки</value>
     </title>
     <id>6</id>
     <valueType>
@@ -3222,16 +3102,12 @@
   <attributes>
     <name>ImportFileName</name>
     <title>
-      <key>ru</key>
-      <value>Имя файла загрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Import file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İçe aktarılan dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла загрузки</value>
     </title>
     <id>7</id>
     <valueType>
@@ -3251,16 +3127,12 @@
   <attributes>
     <name>QueryConsoleUsageOption</name>
     <title>
-      <key>ru</key>
-      <value>Вариант использования консоли запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query console usage option</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu konsolu kullanım seçeneği</value>
+      <key>ru</key>
+      <value>Вариант использования консоли запросов</value>
     </title>
     <id>8</id>
     <valueType>
@@ -3283,16 +3155,12 @@
   <attributes>
     <name>PathToExternalQueryConsole</name>
     <title>
-      <key>ru</key>
-      <value>Путь к внешней консоли запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Path to external query console</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Harici sorgu konsoluna giden yol</value>
+      <key>ru</key>
+      <value>Путь к внешней консоли запросов</value>
     </title>
     <id>9</id>
     <valueType>
@@ -3312,16 +3180,12 @@
   <attributes>
     <name>OperatingModeAtClientOrAtServer</name>
     <title>
-      <key>ru</key>
-      <value>Режим работы на клиенте или на сервере</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Operating mode at client or at server</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İstemcide veya sunucuda çalışma modu</value>
+      <key>ru</key>
+      <value>Режим работы на клиенте или на сервере</value>
     </title>
     <id>10</id>
     <valueType>
@@ -3341,16 +3205,12 @@
   <attributes>
     <name>OperatingModeAtClient</name>
     <title>
-      <key>ru</key>
-      <value>Режим работы на клиенте</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Operating mode at client</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İstemcideki çalışma modu</value>
+      <key>ru</key>
+      <value>Режим работы на клиенте</value>
     </title>
     <id>5</id>
     <valueType>
@@ -3366,16 +3226,12 @@
   <attributes>
     <name>VisibleColumnsCache</name>
     <title>
-      <key>ru</key>
-      <value>Кэш видимых колонок</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Visible columns cache</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Görünür sütun önbelleği</value>
+      <key>ru</key>
+      <value>Кэш видимых колонок</value>
     </title>
     <id>11</id>
     <valueType>
@@ -3394,16 +3250,12 @@
   <attributes>
     <name>ChoiceResult</name>
     <title>
-      <key>ru</key>
-      <value>Результат выбора</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Choice result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçim sonucu</value>
+      <key>ru</key>
+      <value>Результат выбора</value>
     </title>
     <id>13</id>
     <valueType>
@@ -3422,16 +3274,12 @@
   <attributes>
     <name>ObjectTypesTable</name>
     <title>
-      <key>ru</key>
-      <value>Таблица виды объектов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Object types table</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne türleri tablosu</value>
+      <key>ru</key>
+      <value>Таблица виды объектов</value>
     </title>
     <id>14</id>
     <valueType>
@@ -3446,16 +3294,12 @@
     <columns>
       <name>TablePresentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление таблицы</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Table presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Tablo Gösterimi</value>
+        <key>ru</key>
+        <value>Представление таблицы</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3472,16 +3316,12 @@
     <columns>
       <name>TableName</name>
       <title>
-        <key>ru</key>
-        <value>Имя таблицы</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Table name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Tablo adı</value>
+        <key>ru</key>
+        <value>Имя таблицы</value>
       </title>
       <id>2</id>
       <valueType>
@@ -3498,16 +3338,12 @@
     <columns>
       <name>TSName</name>
       <title>
-        <key>ru</key>
-        <value>Имя ТЧ</value>
-      </title>
-      <title>
         <key>en</key>
         <value>TS name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>TS ismi</value>
+        <key>ru</key>
+        <value>Имя ТЧ</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3524,16 +3360,12 @@
     <columns>
       <name>Picture</name>
       <title>
-        <key>ru</key>
-        <value>Картинка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Picture</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Resim</value>
+        <key>ru</key>
+        <value>Картинка</value>
       </title>
       <id>4</id>
       <valueType>
@@ -3550,16 +3382,12 @@
   <attributes>
     <name>ObjectType</name>
     <title>
-      <key>ru</key>
-      <value>Тип объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Object type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne tipi</value>
+      <key>ru</key>
+      <value>Тип объекта</value>
     </title>
     <id>15</id>
     <valueType>
@@ -3576,16 +3404,12 @@
   <attributes>
     <name>MetadataTable</name>
     <title>
-      <key>ru</key>
-      <value>Таблица метаданных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Metadata table</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metaveri tablosu</value>
+      <key>ru</key>
+      <value>Таблица метаданных</value>
     </title>
     <id>12</id>
     <valueType>
@@ -3600,16 +3424,12 @@
     <columns>
       <name>AttributeName</name>
       <title>
-        <key>ru</key>
-        <value>Имя реквизита</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Attribute name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Öznitelik adı</value>
+        <key>ru</key>
+        <value>Имя реквизита</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3626,16 +3446,12 @@
     <columns>
       <name>AttributeSynonym</name>
       <title>
-        <key>ru</key>
-        <value>Синоним реквизита</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Attribute synonym</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Nitelik eşanlamlısı</value>
+        <key>ru</key>
+        <value>Синоним реквизита</value>
       </title>
       <id>2</id>
       <valueType>
@@ -3652,16 +3468,12 @@
     <columns>
       <name>TypeDescription</name>
       <title>
-        <key>ru</key>
-        <value>Описание типов</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Type description</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Tür açıklaması</value>
+        <key>ru</key>
+        <value>Описание типов</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3677,16 +3489,12 @@
     <columns>
       <name>MetadataObject</name>
       <title>
-        <key>ru</key>
-        <value>Объект метаданных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Metadata object</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Meta veri nesnesi</value>
+        <key>ru</key>
+        <value>Объект метаданных</value>
       </title>
       <id>4</id>
       <valueType>
@@ -3703,16 +3511,12 @@
     <columns>
       <name>Picture</name>
       <title>
-        <key>ru</key>
-        <value>Картинка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Picture</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Resim</value>
+        <key>ru</key>
+        <value>Картинка</value>
       </title>
       <id>5</id>
       <valueType>
@@ -3728,16 +3532,12 @@
     <columns>
       <name>Header</name>
       <title>
-        <key>ru</key>
-        <value>Шапка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Header</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Başlık</value>
+        <key>ru</key>
+        <value>Шапка</value>
       </title>
       <id>6</id>
       <valueType>
@@ -3754,16 +3554,12 @@
   <attributes>
     <name>FilterTable</name>
     <title>
-      <key>ru</key>
-      <value>Таблица отбора</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Filter table</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtre tablosu</value>
+      <key>ru</key>
+      <value>Таблица отбора</value>
     </title>
     <id>16</id>
     <valueType>
@@ -3778,16 +3574,12 @@
     <columns>
       <name>AttributeName</name>
       <title>
-        <key>ru</key>
-        <value>Имя реквизита</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Attribute name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Öznitelik adı</value>
+        <key>ru</key>
+        <value>Имя реквизита</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3804,16 +3596,12 @@
     <columns>
       <name>Filter</name>
       <title>
-        <key>ru</key>
-        <value>Отбор</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Filter</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Filtre</value>
+        <key>ru</key>
+        <value>Отбор</value>
       </title>
       <id>8</id>
       <valueType>
@@ -3829,16 +3617,12 @@
     <columns>
       <name>MetadataObjectName</name>
       <title>
-        <key>ru</key>
-        <value>Имя объекта метаданных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Metadata object name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Metaveri nesnesi adı</value>
+        <key>ru</key>
+        <value>Имя объекта метаданных</value>
       </title>
       <id>2</id>
       <valueType>
@@ -3856,16 +3640,12 @@
   <formCommands>
     <name>ExportData</name>
     <title>
-      <key>ru</key>
-      <value>Выгрузить данные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export data</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Verileri dışa aktar</value>
+      <key>ru</key>
+      <value>Выгрузить данные</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -3889,16 +3669,12 @@
   <formCommands>
     <name>ImportData</name>
     <title>
-      <key>ru</key>
-      <value>Загрузить данные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Import data</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Verileri içe aktar</value>
+      <key>ru</key>
+      <value>Загрузить данные</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -3922,16 +3698,12 @@
   <formCommands>
     <name>RecalculateDataToExportByRef</name>
     <title>
-      <key>ru</key>
-      <value>Пересчитать выгружаемые по ссылке</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Recalculate data to export by ref</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Referansa göre dışa aktarılacak verileri yeniden hesapla</value>
+      <key>ru</key>
+      <value>Пересчитать выгружаемые по ссылке</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -3959,16 +3731,12 @@
   <formCommands>
     <name>ClearAdditionalObjectsToExport</name>
     <title>
-      <key>ru</key>
-      <value>Очистить дополнительные объекты выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Clear additional objects to export</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarılacak ek nesneleri temizle</value>
+      <key>ru</key>
+      <value>Очистить дополнительные объекты выгрузки</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -3993,16 +3761,12 @@
   <formCommands>
     <name>AddFromQuery</name>
     <title>
-      <key>ru</key>
-      <value>Добавить из запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add from query</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgudan ekle</value>
+      <key>ru</key>
+      <value>Добавить из запроса</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -4026,16 +3790,12 @@
   <formCommands>
     <name>QueryConsoleSettings</name>
     <title>
-      <key>ru</key>
-      <value>Настройки консоли запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query console settings</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu konsolu ayarları</value>
+      <key>ru</key>
+      <value>Настройки консоли запросов</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -4059,16 +3819,12 @@
   <formCommands>
     <name>CopyFilter</name>
     <title>
-      <key>ru</key>
-      <value>Скопировать отбор</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Copy filter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtreyi kopyala</value>
+      <key>ru</key>
+      <value>Скопировать отбор</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -4092,16 +3848,12 @@
   <formCommands>
     <name>DeleteFilter</name>
     <title>
-      <key>ru</key>
-      <value>Удалить отбор</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete filter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtreyi sil</value>
+      <key>ru</key>
+      <value>Удалить отбор</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -4125,16 +3877,12 @@
   <formCommands>
     <name>DeletePredefinedItems</name>
     <title>
-      <key>ru</key>
-      <value>Удалить предопределенные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete predefined items</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Önceden tanımlanmış öğeleri sil</value>
+      <key>ru</key>
+      <value>Удалить предопределенные</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -4158,16 +3906,12 @@
   <formCommands>
     <name>CheckSelected</name>
     <title>
-      <key>ru</key>
-      <value>Отметить выделенные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Check selected</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçileni işaretle</value>
+      <key>ru</key>
+      <value>Отметить выделенные</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -4195,16 +3939,12 @@
   <formCommands>
     <name>UncheckSelected</name>
     <title>
-      <key>ru</key>
-      <value>Снять выделенные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Uncheck selected</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçilenlerin işaretini kaldır</value>
+      <key>ru</key>
+      <value>Снять выделенные</value>
     </title>
     <id>11</id>
     <toolTip>

@@ -5,12 +5,4 @@
     <key>ru</key>
     <value>Copy to clipboard</value>
   </synonym>
-  <synonym>
-    <key>en</key>
-    <value>Copy to clipboard</value>
-  </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Panoya kopyala</value>
-  </synonym>
 </mdclass:CommonPicture>

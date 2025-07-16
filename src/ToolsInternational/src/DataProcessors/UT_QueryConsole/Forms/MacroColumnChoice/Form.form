@@ -251,14 +251,13 @@
     <horizontalAlign>Right</horizontalAlign>
   </autoCommandBar>
   <handlers>
-    <event>OnOpen</event>
-    <name>OnOpen</name>
-  </handlers>
-  <handlers>
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
+  <handlers>
+    <event>OnOpen</event>
+    <name>OnOpen</name>
+  </handlers>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -270,16 +269,12 @@
   <attributes>
     <name>ColumnType</name>
     <title>
-      <key>ru</key>
-      <value>Вид колонки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Column type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sütun türü</value>
+      <key>ru</key>
+      <value>Вид колонки</value>
     </title>
     <id>1</id>
     <valueType>
@@ -296,16 +291,12 @@
   <attributes>
     <name>QueryColumn</name>
     <title>
-      <key>ru</key>
-      <value>Колонка запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query column</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sütunu</value>
+      <key>ru</key>
+      <value>Колонка запроса</value>
     </title>
     <id>2</id>
     <valueType>
@@ -322,16 +313,12 @@
   <attributes>
     <name>TextToInsert</name>
     <title>
-      <key>ru</key>
-      <value>Текст вставки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Text to insert</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Eklenecek metin</value>
+      <key>ru</key>
+      <value>Текст вставки</value>
     </title>
     <id>3</id>
     <valueType>
@@ -348,16 +335,12 @@
   <formCommands>
     <name>Insert</name>
     <title>
-      <key>ru</key>
-      <value>Вставить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Insert</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ekle</value>
+      <key>ru</key>
+      <value>Вставить</value>
     </title>
     <id>1</id>
     <use>

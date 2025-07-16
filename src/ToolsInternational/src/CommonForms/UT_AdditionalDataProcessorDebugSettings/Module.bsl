@@ -1,8 +1,8 @@
 &AtServer
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	NewAttributesArray=New Array;
-	NewAttributesArray.Add(New FormAttribute("User", New TypeDescription("CatalogRef.Users"), "", NStr("ru = 'Пользователь'; en = 'User'; tr = 'Kullanıcı'"), True));
-	NewAttributesArray.Add(New FormAttribute("AdditionalDataProcessor", New TypeDescription("CatalogRef.AdditionalReportsAndDataProcessors"), "", Nstr("ru = 'Дополнительная обработка'; en = 'Additional dataprocessor'; tr = 'Ek veri işlemcisi'"), True));
+	NewAttributesArray.Add(New FormAttribute("User", New TypeDescription("CatalogRef.Users"), "", NStr("ru = 'Пользователь';en = 'User'"), True));
+	NewAttributesArray.Add(New FormAttribute("AdditionalDataProcessor", New TypeDescription("CatalogRef.AdditionalReportsAndDataProcessors"), "", Nstr("ru = 'Дополнительная обработка';en = 'Additional dataprocessor'"), True));
 	
 	ChangeAttributes(NewAttributesArray,);
 

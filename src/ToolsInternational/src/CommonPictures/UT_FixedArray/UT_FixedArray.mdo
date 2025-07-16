@@ -5,12 +5,4 @@
     <key>ru</key>
     <value>Fixed array</value>
   </synonym>
-  <synonym>
-    <key>en</key>
-    <value>Fixed array</value>
-  </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Sabit dizi</value>
-  </synonym>
 </mdclass:CommonPicture>

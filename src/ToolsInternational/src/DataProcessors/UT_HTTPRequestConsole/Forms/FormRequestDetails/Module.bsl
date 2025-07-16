@@ -104,13 +104,13 @@ Function HeaderProxySettingsByParameters()
 		EndIf;
 
 		If ProxyOSAuthentication Then
-			ProxyHeaderGroup = ProxyHeaderGroup + NStr("ru = '; Аутентификация ОС'; en = 'OS authentication'; tr = 'İşletim sistemi kimlik doğrulaması'");
+			ProxyHeaderGroup = ProxyHeaderGroup + NStr("ru = '; Аутентификация ОС'; en = 'OS authentication'");
 		ElsIf ValueIsFilled(ProxyUser) Then
 			ProxyHeaderGroup = ProxyHeaderGroup + ";" + ProxyUser;
 		EndIf;
 
 	Else
-		ProxyHeaderGroup = HeaderPrefix + NStr("ru = 'Не используется'; en = 'Not used'; tr = 'Kullanılmıyor'");
+		ProxyHeaderGroup = HeaderPrefix + NStr("ru = 'Не используется'; en = 'Not used'");
 	EndIf;
 
 	Return ProxyHeaderGroup;

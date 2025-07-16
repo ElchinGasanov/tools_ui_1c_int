@@ -21,7 +21,7 @@
         <common>true</common>
       </userVisible>
       <dataPath xsi:type="form:DataPath">
-        <segments>ValueList.Check</segments>
+        <segments>ValueList.Пометка</segments>
       </dataPath>
       <extendedTooltip>
         <name>ValueListCheckExtendedTooltip</name>
@@ -63,8 +63,14 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ValueList.Value</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <activeLanguage>1</activeLanguage>
+        <paths xsi:type="form:DataPath">
+          <segments>ValueList.Value</segments>
+        </paths>
+        <paths xsi:type="form:DataPath">
+          <segments>ValueList.Значение</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>ValueListValueExtendedTooltip</name>
@@ -114,7 +120,7 @@
         <common>true</common>
       </userVisible>
       <dataPath xsi:type="form:DataPath">
-        <segments>ValueList.Presentation</segments>
+        <segments>ValueList.Представление</segments>
       </dataPath>
       <extendedTooltip>
         <name>ValueListPresentationExtendedTooltip</name>
@@ -199,7 +205,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>ValueList</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -238,7 +243,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>ValueList</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -277,7 +281,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>ValueList</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -399,7 +402,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -416,10 +418,6 @@
     <title>
       <key>en</key>
       <value>Value list</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Değer listesi</value>
     </title>
     <id>1</id>
     <valueType>
@@ -446,10 +444,6 @@
       <key>en</key>
       <value>Return only selected values</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yalnızca seçili değerleri döndür</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>Boolean</types>
@@ -470,10 +464,6 @@
     <title>
       <key>en</key>
       <value>Apply</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Uygula</value>
     </title>
     <id>1</id>
     <use>

@@ -59,12 +59,12 @@
       <showInFooter>true</showInFooter>
       <extInfo xsi:type="form:InputFieldExtInfo">
         <handlers>
-          <event>StartChoice</event>
-          <name>MapTableKeyStartСhoice</name>
-        </handlers>
-        <handlers>
           <event>Clearing</event>
           <name>MapTableKeyСlearing</name>
+        </handlers>
+        <handlers>
+          <event>StartChoice</event>
+          <name>MapTableKeyStartСhoice</name>
         </handlers>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -121,12 +121,12 @@
       <showInFooter>true</showInFooter>
       <extInfo xsi:type="form:InputFieldExtInfo">
         <handlers>
-          <event>StartChoice</event>
-          <name>MapTableValueStartСhoice</name>
-        </handlers>
-        <handlers>
           <event>Clearing</event>
           <name>MapTableValueСlearing</name>
+        </handlers>
+        <handlers>
+          <event>StartChoice</event>
+          <name>MapTableValueStartСhoice</name>
         </handlers>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -142,14 +142,6 @@
       <title>
         <key>ru</key>
         <value>Type(Key)</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Type(Key)</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tip(Anahtar)</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -205,14 +197,6 @@
       <title>
         <key>ru</key>
         <value>Type(Value)</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Type(Value)</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tip(Değer)</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -306,7 +290,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>MapTable</source>
+      <source>MapTableSearchString</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -345,7 +329,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>MapTable</source>
+      <source>MapTableViewStatus</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -384,7 +368,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>MapTable</source>
+      <source>MapTableSearchControl</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -472,16 +456,12 @@
       <name>FormClose</name>
       <id>3</id>
       <title>
-        <key>ru</key>
-        <value>Close</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Close</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kapat</value>
+        <key>ru</key>
+        <value>Close</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -521,7 +501,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -535,14 +514,6 @@
     <title>
       <key>ru</key>
       <value>Map table</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Map table</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Harita tablosu</value>
     </title>
     <id>2</id>
     <valueType>
@@ -686,14 +657,6 @@
     <title>
       <key>ru</key>
       <value>Apply</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Apply</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Uygula</value>
     </title>
     <id>1</id>
     <use>

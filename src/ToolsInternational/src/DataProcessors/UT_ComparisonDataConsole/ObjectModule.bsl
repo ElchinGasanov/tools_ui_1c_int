@@ -599,10 +599,10 @@ Procedure CompareDataOnServer(ErrorsText = "") Export
 	EndIf;
 	
 	If MessageHaveMultipleRowsOneKey Then
-		Message(StrTemplate(Nstr("ru = '%1: Обнаружены дубликаты (подсвечены красным цветом), настройки отбора на них не распространяются. Просмотреть дублирующиеся строки можно на форме предварительного просмотра.'; en = '%1: Duplicates were found (highlighted in red), filtering settings do not apply to them. You can view duplicate lines on the preview form.'; tr = '%1: Обнаружены дубликаты (подсвечены красным цветом), настройки отбора на них не распространяются. Просмотреть дублирующиеся строки можно на форме предварительного просмотра.'"), Format(CurrentDate(),"DLF=DT")));
+		Message(StrTemplate(Nstr("ru = '%1: Обнаружены дубликаты (подсвечены красным цветом), настройки отбора на них не распространяются. Просмотреть дублирующиеся строки можно на форме предварительного просмотра.';en = '%1: Duplicates were found (highlighted in red), filtering settings do not apply to them. You can view duplicate lines on the preview form.'"), Format(CurrentDate(),"DLF=DT")));
 	EndIf;
 	
-	MessageText = StrTemplate("ru = 'Число записей, удаленных из таблицы расхождений в соответствии с условиями вывода и запрета вывода: %1'; en = 'The number of records deleted from the discrepancy table in accordance with output and not output conditions '; tr = 'Çıktı ve çıktı yasaklama koşullarına göre uyumsuzluk tablosundan kaldırılan kayıt sayısı: %1'", DiscrepanciesTableDeletedRowsCount);
+	MessageText = StrTemplate("ru = 'Число записей, удаленных из таблицы расхождений в соответствии с условиями вывода и запрета вывода: %1';en = 'The number of records deleted from the discrepancy table in accordance with output and not output conditions '", DiscrepanciesTableDeletedRowsCount);
 	Message(Format(CurrentDate(),"DLF=DT") + ": " + MessageText);
 	
 EndProcedure
@@ -628,7 +628,7 @@ Function ReadDataAndGetValueTable(BaseID, ErrorText = "", Connection = Undefined
 	ElsIf ThisObject["BaseType" + BaseID] = 6 Then		
 		ValueTable = ReadDataFromJSONAndGetValueTable(BaseID, ErrorText);
 	Else
-		ErrorText = StrTemplate(Nstr("ru = 'Тип базы %1 ''%2'' не предусмотрен'; en = 'Base type %1 ''%2'' is not provided'; tr = 'Temel tür %1 ''%2'' sağlanmadı'"), BaseID, ThisObject["BaseType" + BaseID]);
+		ErrorText = StrTemplate(Nstr("ru = 'Тип базы %1 ''%2'' не предусмотрен';en = 'Base type %1 ''%2'' is not provided'"), BaseID, ThisObject["BaseType" + BaseID]);
 		Message(Format(CurrentDate(),"DLF=DT") + ": " + ErrorText);
 		ValueTable = Undefined;
 	EndIf;
@@ -705,7 +705,7 @@ Function ExecuteQuery1C8AndGetValueTable(BaseID, ErrorsText = "", Connection = U
 				
 		NumberOfcolumnsInValueTable = ValueTable.Columns.Count();
 		If NumberColumnsInKey > NumberOfcolumnsInValueTable Then
-			ErrorText = StrTemplate(Nstr("ru = 'Выборка из источника %1 содержит %2 колонок, проверьте корректность заданного числа столбцов в ключе'; en = 'The selection from the source %1 contains %2 columns, check the correctness of the specified number of columns in the key'; tr = 'Kaynak %1''den gelen seçim %2 sütun içeriyor, anahtarda belirtilen sütun sayısının doğruluğunu kontrol edin'")
+			ErrorText = StrTemplate(Nstr("ru = 'Выборка из источника %1 содержит %2 колонок, проверьте корректность заданного числа столбцов в ключе';en = 'The selection from the source %1 contains %2 columns, check the correctness of the specified number of columns in the key'")
 				, BaseID, NumberOfcolumnsInValueTable);
 			UserMessage = New UserMessage;
 			UserMessage.Text = ErrorText;
@@ -852,7 +852,7 @@ Function ExecuteQuery1C8AndGetValueTable(BaseID, ErrorsText = "", Connection = U
 					
 				Except
 					
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing key in row %1 of selection from base %2: %3'; tr = '%2 tabanından seçimin %1. satırındaki anahtar işlenirken hata oluştu: %3'")
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3';en = 'Error processing key in row %1 of selection from base %2: %3'")
 						, RowsCounter, BaseID, ErrorDescription());
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
 				EndTry;
@@ -888,7 +888,7 @@ Function ExecuteQuery1C8AndGetValueTable(BaseID, ErrorsText = "", Connection = U
 						
 					Except
 						
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 2 ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing column 2 of key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1 satırındaki anahtarın 2. sütunu işlenirken hata oluştu: %3'")
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 2 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 2 of key in row %1 of fetch from base %2: %3'")
 							, RowsCounter, BaseID, ErrorDescription());
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 					EndTry;
@@ -925,7 +925,7 @@ Function ExecuteQuery1C8AndGetValueTable(BaseID, ErrorsText = "", Connection = U
 						
 					Except
 						
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 3 ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing column 3 of key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1 satırındaki anahtarın 3. sütunu işlenirken hata oluştu: %3'")
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 3 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 3 of key in row %1 of fetch from base %2: %3'")
 							, RowsCounter,  BaseID, ErrorDescription());
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 					EndTry;
@@ -939,7 +939,7 @@ Function ExecuteQuery1C8AndGetValueTable(BaseID, ErrorsText = "", Connection = U
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), KeyCurrent, BaseID, ErrorDescription());
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), KeyCurrent, BaseID, ErrorDescription());
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -951,7 +951,7 @@ Function ExecuteQuery1C8AndGetValueTable(BaseID, ErrorsText = "", Connection = U
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), KeyCurrent, BaseID, ErrorDescription());							
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), KeyCurrent, BaseID, ErrorDescription());							
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -964,7 +964,7 @@ Function ExecuteQuery1C8AndGetValueTable(BaseID, ErrorsText = "", Connection = U
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), KeyCurrent, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), KeyCurrent, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -1034,12 +1034,12 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
         If ConnectionInstalled Then
             YesConnection = True;
         Else
-            ErrorText = Nstr("ru = 'Ошибка при подключении к внешней базе'; en = 'Error connecting to external database'; tr = 'Harici veritabanına bağlanırken hata oluştu'");
+            ErrorText = Nstr("ru = 'Ошибка при подключении к внешней базе';en = 'Error connecting to external database'");
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Return Undefined;
         EndIf;    
     Except
-        ErrorText = StrTemplate(Nstr("ru = 'Ошибка при подключении к внешней базе: %1'; en = 'Error connecting to external database: %1'; tr = 'Harici veritabanına bağlanırken hata oluştu: %1'"), ErrorDescription());
+        ErrorText = StrTemplate(Nstr("ru = 'Ошибка при подключении к внешней базе: %1';en = 'Error connecting to external database: %1'"), ErrorDescription());
 		ErrorsText = ErrorsText + Chars.LF + ErrorText;
 		Return Undefined;
 	EndTry;
@@ -1103,7 +1103,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 			
 		Except
 			
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1. satırındaki anahtar işlenirken hata oluştu: %3'")
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3';en = 'Error processing key in row %1 of fetch from base %2: %3'")
 				, RowsCounter, BaseID, ErrorDescription());
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 		EndTry;
@@ -1126,7 +1126,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 			
 			Except
 				
-				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 2 ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing column 2 of key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1 satırındaki anahtarın 2. sütunu işlenirken hata oluştu: %3'")
+				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 2 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 2 of key in row %1 of fetch from base %2: %3'")
 					, RowsCounter, BaseID, ErrorDescription());
 				ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			EndTry;
@@ -1151,7 +1151,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 			
 			Except
 				
-				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 3 ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing column 3 of key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1 satırındaki anahtarın 3. sütunu işlenirken hata oluştu: %3'")
+				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 3 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 3 of key in row %1 of fetch from base %2: %3'")
 					, RowsCounter, BaseID, ErrorDescription());				
 				ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			EndTry;
@@ -1164,7 +1164,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 				Try
 				    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 				Except
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'") 
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
 							, Key1, BaseID, ErrorDescription());					
 					Message(ErrorText);
 				EndTry;
@@ -1177,7 +1177,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 					Try
 					    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());						
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -1190,7 +1190,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 					Try
 					    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());						
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -1344,7 +1344,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 					
 				Except
 					
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1. satırındaki anahtar işlenirken hata oluştu: %3'"), RowsCounter, BaseID, ErrorDescription());
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3';en = 'Error processing key in row %1 of fetch from base %2: %3'"), RowsCounter, BaseID, ErrorDescription());
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
 				
 				EndTry;
@@ -1410,7 +1410,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'") 
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'") 
 							, KeyCurrent, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
@@ -1422,7 +1422,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'") 
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'") 
 							, KeyCurrent, BaseID, ErrorDescription());							
 							Message(ErrorText);
 						EndTry;
@@ -1435,7 +1435,7 @@ Function ExecuteQuery1C77AndGetValueTable(BaseID, ErrorsText = "", Connection = 
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'") 
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'") 
 							, KeyCurrent, BaseID, ErrorDescription());							
 							Message(ErrorText);
 						EndTry;
@@ -1522,7 +1522,7 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 		Connection.Open(ConnectString); 
 	Except
 		ErrorText = ErrorDescription();
-		Message(StrTemplate(Nstr("ru = 'Не удалось подключиться к : %1'; en = 'Failed to connect to : %1'; tr = 'Bağlantı kurulamadı: %1'"), ErrorText));
+		Message(StrTemplate(Nstr("ru = 'Не удалось подключиться к : %1';en = 'Failed to connect to : %1'"), ErrorText));
 		Return Undefined;
 	EndTry;
 	
@@ -1561,7 +1561,7 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 		NumberOfcolumnsInValueTable = RecordSet.Fields.Count;
 		If NumberColumnsInKey > NumberOfcolumnsInValueTable Then
 			
-			ErrorText = StrTemplate(Nstr("ru = 'Выборка из источника %1 содержит %2 колонок, проверьте корректность заданного числа столбцов в ключе'; en = 'The selection from the source %1 contains %2 columns, check the correctness of the specified number of columns in the key'; tr = 'Kaynak %1''den gelen seçim %2 sütun içeriyor, anahtarda belirtilen sütun sayısının doğruluğunu kontrol edin'")
+			ErrorText = StrTemplate(Nstr("ru = 'Выборка из источника %1 содержит %2 колонок, проверьте корректность заданного числа столбцов в ключе';en = 'The selection from the source %1 contains %2 columns, check the correctness of the specified number of columns in the key'")
 				, BaseID, NumberOfcolumnsInValueTable);
 			UserMessage = New UserMessage;
 			UserMessage.Text = ErrorText;
@@ -1628,7 +1628,7 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 				
 			Except
 				
-				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1. satırındaki anahtar işlenirken hata oluştu: %3'"), RowsCounter, BaseID, ErrorDescription());
+				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке ключа в строке %1 выборки из базы %2: %3';en = 'Error processing key in row %1 of fetch from base %2: %3'"), RowsCounter, BaseID, ErrorDescription());
 				ErrorsText = ErrorsText + Chars.LF + ErrorText;
 				
 			EndTry;
@@ -1651,7 +1651,7 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 				
 				Except
 					
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 2 ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing column 2 of key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1 satırındaki anahtarın 2. sütunu işlenirken hata oluştu: %3'"), RowsCounter, BaseID, ErrorDescription());					
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 2 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 2 of key in row %1 of fetch from base %2: %3'"), RowsCounter, BaseID, ErrorDescription());					
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
 				
 				EndTry;
@@ -1676,7 +1676,7 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 				
 				Except
 					
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 3 ключа в строке %1 выборки из базы %2: %3'; en = 'Error processing column 3 of key in row %1 of fetch from base %2: %3'; tr = '%2 tabanından getirme işleminin %1 satırındaki anahtarın 3. sütunu işlenirken hata oluştu: %3'"), RowsCounter, BaseID, ErrorDescription());					
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обработке столбца 3 ключа в строке %1 выборки из базы %2: %3';en = 'Error processing column 3 of key in row %1 of fetch from base %2: %3'"), RowsCounter, BaseID, ErrorDescription());					
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
 					
 				EndTry;
@@ -1690,7 +1690,7 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 				Try
 				    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 				Except
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription());					
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());					
 					Message(ErrorText);
 				EndTry;
 			EndIf;
@@ -1702,7 +1702,7 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());						
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -1715,7 +1715,7 @@ Function ExecuteQuerySQLAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());						
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());						
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -1804,7 +1804,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 			Book = Excel.WorkBooks.Open(PathToFile);
 			File = Book.WorkSheets(NumberTable);
 		Except
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии XLS-файла %1: %2'; en = 'Error opening .XLS file %1: %2'; tr = '.XLS dosyası %1 açılırken hata oluştu: %2'"), PathToFile, ErrorDescription());
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии XLS-файла %1: %2';en = 'Error opening .XLS file %1: %2'"), PathToFile, ErrorDescription());
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Return Undefined;
 		EndTry;
@@ -1814,7 +1814,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 		Try
 			NumberLastRow = File.Cells.SpecialCells(xlCellTypeLastCell).Row;			
 		Except
-			Message(Nstr("ru = 'Ошибка при определении номера последней строки в файле. Номер последней строки установлен в 1000'; en = 'An error occurred while determining the number of the last line in the file. Last row number set to 1000'; tr = 'Dosyadaki son satırın numarası belirlenirken bir hata oluştu. Son satır numarası 1000 olarak ayarlandı'")); 
+			Message(Nstr("ru = 'Ошибка при определении номера последней строки в файле. Номер последней строки установлен в 1000';en = 'An error occurred while determining the number of the last line in the file. Last row number set to 1000'")); 
 			NumberLastRow = 1000;
 		EndTry;
 		
@@ -1835,7 +1835,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 			Document = Word.ActiveDocument();
 			
 		Except
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии DOC-файла %1: %2'; en = 'Error opening .DOC file %1: %2'; tr = '.DOC dosyası %1 açılırken hata oluştu: %2'"), PathToFile, ErrorDescription());			
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии DOC-файла %1: %2';en = 'Error opening .DOC file %1: %2'"), PathToFile, ErrorDescription());			
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Word = Undefined;
 			Return Undefined;
@@ -1844,7 +1844,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 		Try 
 			File = Document.Tables(NumberTable);
 		Except			
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обращении к таблице %1 DOC-файла %2: %3'; en = 'Error accessing table %1 of DOC file %2: %3'; tr = 'DOC dosyası %2''nin %1 tablosuna erişim hatası: %3'"), NumberTable, PathToFile, ErrorDescription());
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при обращении к таблице %1 DOC-файла %2: %3';en = 'Error accessing table %1 of DOC file %2: %3'"), NumberTable, PathToFile, ErrorDescription());
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Document.Close(0);
 			Word.Quit();
@@ -1854,7 +1854,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 		Try
 			NumberLastRow = File.Rows.count;
 		Except
-			Message(Nstr("ru = 'Ошибка при определении номера последней строки в файле. Номер последней строки установлен в 1000'; en = 'An error occurred while determining the number of the last line in the file. Last row number set to 1000'; tr = 'Dosyadaki son satırın numarası belirlenirken bir hata oluştu. Son satır numarası 1000 olarak ayarlandı'"));
+			Message(Nstr("ru = 'Ошибка при определении номера последней строки в файле. Номер последней строки установлен в 1000';en = 'An error occurred while determining the number of the last line in the file. Last row number set to 1000'"));
 			NumberLastRow = 1000;
 		EndTry;
 		
@@ -1865,7 +1865,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 			File.Read(PathToFile);
 			NumberLastRow = File.LineCount(); 
 		Except
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии %1-файла %2: %3'; en = 'Error opening .%1 file %2: %3'; tr = '.%1 dosyası açılırken hata oluştu %2: %3'"), FileFormat, PathToFile, ErrorDescription());			
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии %1-файла %2: %3';en = 'Error opening .%1 file %2: %3'"), FileFormat, PathToFile, ErrorDescription());			
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Return Undefined;
 		EndTry;
@@ -1878,7 +1878,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 			NumberLastRow = FileDBF.RecCount();
 			FileDBF.First();
 		Except
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии DBF-файла %1: %2'; en = 'Error opening .DBF file %1: %2'; tr = '.DBF dosyası %1 açılırken hata oluştu: %2'"), PathToFile, ErrorDescription());
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии DBF-файла %1: %2';en = 'Error opening .DBF file %1: %2'"), PathToFile, ErrorDescription());
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Return Undefined;
 		EndTry;
@@ -1891,14 +1891,14 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 		    DOMBuilder = New DOMBuilder;	 
 		    FileXML = DOMBuilder.Read(XMLReader);
 		Except
-			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии XML-файла %1: %2'; en = 'Error opening .XML file %1: %2'; tr = '.XML dosyası %1 açılırken hata oluştu: %2'"), PathToFile, ErrorDescription());
+			ErrorText = StrTemplate(Nstr("ru = 'Ошибка при открытии XML-файла %1: %2';en = 'Error opening .XML file %1: %2'"), PathToFile, ErrorDescription());
 			ErrorsText = ErrorsText + Chars.LF + ErrorText;
 			Return Undefined
 		EndTry;
 		
 	Else
 		
-		ErrorText = StrTemplate(Nstr("ru = 'Формат файла ''%1'' не предусмотрен'; en = 'File format ''%1'' is not supported'; tr = 'Dosya biçimi ''%1'' desteklenmiyor'"), FileFormat);
+		ErrorText = StrTemplate(Nstr("ru = 'Формат файла ''%1'' не предусмотрен';en = 'File format ''%1'' is not supported'"), FileFormat);
 		ErrorsText = ErrorsText + Chars.LF + ErrorText;
 		Return Undefined;
 		
@@ -1935,7 +1935,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						
 						Item = CurrentItem.Attributes.GetNamedItem(ColumnNameWithKey);
 						If Item = Undefined Then							
-							Raise StrTemplate(Nstr("ru = 'Реквизит с именем %1 не найден'; en = 'Attribute named %1 not found'; tr = '%1 adlı öznitelik bulunamadı'"), ColumnNameWithKey);
+							Raise StrTemplate(Nstr("ru = 'Реквизит с именем %1 не найден';en = 'Attribute named %1 not found'"), ColumnNameWithKey);
 						EndIf;
 						
 						Key1 = Item.Value;
@@ -1950,7 +1950,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						
 							Item = CurrentItem.Attributes.GetNamedItem(ColumnNameWithKey2);
 							If Item = Undefined Then
-								Raise StrTemplate(Nstr("ru = 'Реквизит с именем %1 не найден'; en = 'Attribute named %1 not found'; tr = '%1 adlı öznitelik bulunamadı'"), ColumnNameWithKey2);								
+								Raise StrTemplate(Nstr("ru = 'Реквизит с именем %1 не найден';en = 'Attribute named %1 not found'"), ColumnNameWithKey2);								
 							EndIf;
 							
 							Key2 = Item.Value;
@@ -1973,7 +1973,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						
 							Item = CurrentItem.Attributes.GetNamedItem(ColumnNameWithKey3);
 							If Item = Undefined Then
-								Raise StrTemplate(Nstr("ru = 'Реквизит с именем %1 не найден'; en = 'Attribute named %1 not found'; tr = '%1 adlı öznitelik bulunamadı'"), ColumnNameWithKey3);								
+								Raise StrTemplate(Nstr("ru = 'Реквизит с именем %1 не найден';en = 'Attribute named %1 not found'"), ColumnNameWithKey3);								
 							EndIf;
 							
 							Key3 = Item.Value;
@@ -1999,7 +1999,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 							Try
 							    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 							Except
-								ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription());								
+								ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 								Message(ErrorText);
 							EndTry;
 						EndIf;
@@ -2013,7 +2013,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 								Try
 								    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 								Except
-									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());									
+									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());									
 									Message(ErrorText);
 								EndTry;
 							EndIf;
@@ -2028,7 +2028,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 								Try
 								    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 								Except
-									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());
+									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 									Message(ErrorText);
 								EndTry;
 							EndIf;
@@ -2049,7 +2049,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 							AttributeName = "Attribute" + RowSettingsFile.LineNumber;
 							Item = CurrentItem.Attributes.GetNamedItem(RowSettingsFile.ColumnName);
 							If Item = Undefined Then
-								Raise StrTemplate(Nstr("ru = 'Реквизит с именем %1 не найден'; en = 'Attribute named %1 not found'; tr = '%1 adlı öznitelik bulunamadı'"), RowSettingsFile.ColumnName);								
+								Raise StrTemplate(Nstr("ru = 'Реквизит с именем %1 не найден';en = 'Attribute named %1 not found'"), RowSettingsFile.ColumnName);								
 							EndIf;
 							RowReceiver[AttributeName] = Item.Value;
 							
@@ -2148,7 +2148,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 							Try
 							    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 							Except
-								ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription());								
+								ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 								Message(ErrorText);
 							EndTry;
 						EndIf;
@@ -2161,7 +2161,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 								Try
 								    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 								Except
-									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());
+									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 									Message(ErrorText);
 								EndTry;
 							EndIf;
@@ -2175,7 +2175,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 								Try
 								    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 								Except
-									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());
+									ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 									Message(ErrorText);
 								EndTry;
 							EndIf;
@@ -2208,7 +2208,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						EndDo;
 																		
 					Else 
-						Raise StrTemplate(Nstr("ru = 'Не задан способ хранения данных в XML-файле базы %1'; en = 'No way to store data in database XML file %1'; tr = '%1 veritabanı XML dosyasında veri depolamanın bir yolu yok'"), BaseID);				
+						Raise StrTemplate(Nstr("ru = 'Не задан способ хранения данных в XML-файле базы %1';en = 'No way to store data in database XML file %1'"), BaseID);				
 					EndIf;
 					
 					For Each RowSettingsFile In SettingsFile Do
@@ -2220,7 +2220,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 							Execute RowSettingsFile.ArbitraryCode;
 						Except
 							ErrorText = ErrorDescription();
-							Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2'; en = 'Error executing arbitrary code (attribute %1):%2'; tr = 'Rastgele kodun yürütülmesinde hata oluştu (öznitelik %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
+							Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
 						EndTry;
 						
 						If ThisObject["CollapseTable" + BaseID] Then
@@ -2260,7 +2260,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 				NumberOfColumnsInFileLessThanRequired = False;
 				
 				If ColumnNumberWithKey > NumberLastColumn Then					
-					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбцов ключа'; en = 'File %1 contains %2 columns, check key column settings'; tr = 'Dosya %1 %2 sütun içeriyor, anahtar sütun ayarlarını kontrol edin'"), BaseID, NumberLastColumn);					
+					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбцов ключа';en = 'File %1 contains %2 columns, check key column settings'"), BaseID, NumberLastColumn);					
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNumberKeyFromFile " + BaseID;
@@ -2270,7 +2270,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 				EndIf;
 				
 				If NumberColumnsInKey > 1 And ColumnNumberWithKey2 > NumberLastColumn Then					
-					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбца 2 ключа'; en = 'File %1 contains %2 columns, check column 2 key settings'; tr = 'Dosya %1 %2 sütun içeriyor, sütun 2 anahtar ayarlarını kontrol edin'"), BaseID, NumberLastColumn);					
+					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбца 2 ключа';en = 'File %1 contains %2 columns, check column 2 key settings'"), BaseID, NumberLastColumn);					
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNumberKey2FromFile " + BaseID;
@@ -2280,7 +2280,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 				EndIf;
 				
 				If NumberColumnsInKey > 2 And ColumnNumberWithKey3 > NumberLastColumn Then					
-					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбца 3 ключа'; en = 'File %1 contains %2 columns, check column 3 key settings'; tr = 'Dosya %1 %2 sütun içeriyor, sütun 3 anahtar ayarlarını kontrol edin'"), BaseID, NumberLastColumn);
+					ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки столбца 3 ключа';en = 'File %1 contains %2 columns, check column 3 key settings'"), BaseID, NumberLastColumn);
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNumberKey3FromFile " + BaseID;
@@ -2355,7 +2355,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription());								
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -2368,7 +2368,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -2383,7 +2383,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -2402,7 +2402,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					AttributeName = "Attribute" + RowSettingsFile.LineNumber;
 					
 					If RowSettingsFile.NumberColumn > NumberLastColumn Then						
-						ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки колонок реквизитов'; en = 'File %1 contains %2 columns, check attribute column settings'; tr = 'Dosya %1 %2 sütun içeriyor, öznitelik sütun ayarlarını kontrol edin'"), BaseID, NumberLastColumn);						
+						ErrorText = StrTemplate(Nstr("ru = 'Файл %1 содержит %2 колонок, проверьте настройки колонок реквизитов';en = 'File %1 contains %2 columns, check attribute column settings'"), BaseID, NumberLastColumn);						
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.SettingsFile" + BaseID;
@@ -2509,7 +2509,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription());								
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -2522,7 +2522,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -2537,7 +2537,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -2652,7 +2652,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription());								
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -2665,7 +2665,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -2680,7 +2680,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -2784,7 +2784,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription());								
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());								
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -2797,7 +2797,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -2812,7 +2812,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -2865,7 +2865,7 @@ Function ReadDataFromFileAndGetValueTable(BaseID, ErrorsText = "")
 					Execute RowSettingsFile.ArbitraryCode;
 				Except
 					ErrorText = ErrorDescription();
-					Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2'; en = 'Error executing arbitrary code (attribute %1):%2'; tr = 'Rastgele kodun yürütülmesinde hata oluştu (öznitelik %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
+					Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
 				EndTry;
 				
 				If ThisObject["CollapseTable" + BaseID] Then
@@ -2984,10 +2984,10 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 				
 				Try				
 					If Not CurrentValueJSON.Property(ColumnNameWithKey) Then
-						Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден'; en = 'JSON attribute named %1 not found'; tr = '%1 adlı JSON niteliği bulunamadı'"), ColumnNameWithKey);
+						Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey);
 					EndIf;
 				Except
-					ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден'; en = 'JSON attribute named %1 not found'; tr = '%1 adlı JSON niteliği bulunamadı'"), ColumnNameWithKey);
+					ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey);
 					ErrorsText = ErrorsText + Chars.LF + ErrorText;
 					Return Undefined;
 				EndTry; 
@@ -3005,10 +3005,10 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 				
 					Try				
 						If Not CurrentValueJSON.Property(ColumnNameWithKey2) Then
-							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден'; en = 'JSON attribute named %1 not found'; tr = '%1 adlı JSON niteliği bulunamadı'"), ColumnNameWithKey2);							
+							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey2);							
 						EndIf;
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден'; en = 'JSON attribute named %1 not found'; tr = '%1 adlı JSON niteliği bulunamadı'"), ColumnNameWithKey2);
+						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey2);
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 						Return Undefined;
 					EndTry;
@@ -3033,10 +3033,10 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 				
 					Try				
 						If Not CurrentValueJSON.Property(ColumnNameWithKey3) Then
-							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден'; en = 'JSON attribute named %1 not found'; tr = '%1 adlı JSON niteliği bulunamadı'"), ColumnNameWithKey3);
+							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey3);
 						EndIf;
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден'; en = 'JSON attribute named %1 not found'; tr = '%1 adlı JSON niteliği bulunamadı'"), ColumnNameWithKey3);
+						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), ColumnNameWithKey3);
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 						Return Undefined;
 					EndTry; 
@@ -3064,7 +3064,7 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 					Try
 					    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription());							
+						ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription());							
 						Message(ErrorText);
 					EndTry;
 				EndIf;
@@ -3078,7 +3078,7 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -3093,7 +3093,7 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 						Try
 						    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 						Except
-							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());
+							ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 							Message(ErrorText);
 						EndTry;
 					EndIf;
@@ -3114,10 +3114,10 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 					AttributeName = "Attribute" + RowSettingsFile.LineNumber;
 					Try				
 						If Not CurrentValueJSON.Property(RowSettingsFile.ColumnName) Then
-							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден'; en = 'JSON attribute named %1 not found'; tr = '%1 adlı JSON niteliği bulunamadı'"), RowSettingsFile.ColumnName);
+							Raise StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), RowSettingsFile.ColumnName);
 						EndIf;
 					Except
-						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден'; en = 'JSON attribute named %1 not found'; tr = '%1 adlı JSON niteliği bulunamadı'"), RowSettingsFile.ColumnName);								
+						ErrorText = StrTemplate(Nstr("ru = 'Реквизит JSON с именем %1 не найден';en = 'JSON attribute named %1 not found'"), RowSettingsFile.ColumnName);								
 						ErrorsText = ErrorsText + Chars.LF + ErrorText;
 						Return Undefined;
 					EndTry;
@@ -3152,7 +3152,7 @@ Function ReadDataFromJSONAndGetValueTable(BaseID, ErrorsText = "")
 						Execute RowSettingsFile.ArbitraryCode;
 					Except
 						ErrorText = ErrorDescription();
-						Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2'; en = 'Error executing arbitrary code (attribute %1):%2'; tr = 'Rastgele kodun yürütülmesinde hata oluştu (öznitelik %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
+						Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'"), RowSettingsFile.LineNumber, ErrorText));
 					EndTry;
 					
 					If ThisObject["CollapseTable" + BaseID] Then
@@ -3315,7 +3315,7 @@ Function GetDataFromSpreadsheetDocument(BaseID, ErrorsText = "")
 			Try
 			    Execute ThisObject["ArbitraryKeyCode1" + BaseID];
 			Except
-				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 1: ""%1"")'"), Key1, BaseID, ErrorDescription()); 				
+				ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 1: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 1: ""%1"") on source %2: %3'"), Key1, BaseID, ErrorDescription()); 				
 				Message(ErrorText);
 			EndTry;
 		EndIf;
@@ -3328,7 +3328,7 @@ Function GetDataFromSpreadsheetDocument(BaseID, ErrorsText = "")
 				Try
 				    Execute ThisObject["ArbitraryKeyCode2" + BaseID];
 				Except
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 2: ""%1"")'"), Key2, BaseID, ErrorDescription());
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 2: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 2: ""%1"") on source %2: %3'"), Key2, BaseID, ErrorDescription());
 					Message(ErrorText);
 				EndTry;
 			EndIf;
@@ -3343,7 +3343,7 @@ Function GetDataFromSpreadsheetDocument(BaseID, ErrorsText = "")
 				Try
 				    Execute ThisObject["ArbitraryKeyCode3" + BaseID];
 				Except
-					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3'; en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'; tr = 'Kaynak %2: %3 üzerinde Rastgele kod yürütme hatası (anahtar 3: ""%1"")'"), Key3, BaseID, ErrorDescription());
+					ErrorText = StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (ключ 3: ""%1"") источника %2: %3';en = 'Arbitrary code execution error (key 3: ""%1"") on source %2: %3'"), Key3, BaseID, ErrorDescription());
 					Message(ErrorText);
 				EndTry;
 			EndIf;
@@ -3383,7 +3383,7 @@ Function GetDataFromSpreadsheetDocument(BaseID, ErrorsText = "")
 				Execute RowSettingsFile.ArbitraryCode;
 			Except
 				ErrorText = ErrorDescription();
-				Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2'; en = 'Error executing arbitrary code (attribute %1):%2'; tr = 'Rastgele kodun yürütülmesinde hata oluştu (öznitelik %1):%2'"), RowSettingsFile.LineNumber, ErrorText));	
+				Message(StrTemplate(Nstr("ru = 'Ошибка при выполнении произвольного кода (реквизит %1):%2';en = 'Error executing arbitrary code (attribute %1):%2'"), RowSettingsFile.LineNumber, ErrorText));	
 			EndTry;
 			
 			If ThisObject["CollapseTable" + BaseID] Then
@@ -3448,7 +3448,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 	
 	If NumberColumnsInKey = 0 Then
 		AttributesFilledOutCorrectly = False;
-		ErrorText = Nstr("ru = 'Не заполнено число столбцов в ключе'; en = 'The number of columns in the key is not filled'; tr = 'Anahtardaki sütun sayısı doldurulmadı'");
+		ErrorText = Nstr("ru = 'Не заполнено число столбцов в ключе';en = 'The number of columns in the key is not filled'");
 		UserMessage = New UserMessage;
 		UserMessage.Text = ErrorText;
 		UserMessage.Field = "Object.NumberColumnsInKey";
@@ -3458,7 +3458,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 		
 	If NumberOfRowsWithEmptyKeysToBreakReading = 0 Then
 		AttributesFilledOutCorrectly = False;
-		ErrorText = Nstr("ru = 'Не заполнено число строк с пустыми ключами для прерывания чтения'; en = 'The number of rows with empty keys to abort reading is not filled'; tr = 'Okuma işlemini iptal etmek için boş anahtarlara sahip satır sayısı doldurulmadı'");
+		ErrorText = Nstr("ru = 'Не заполнено число строк с пустыми ключами для прерывания чтения';en = 'The number of rows with empty keys to abort reading is not filled'");
 		UserMessage = New UserMessage;
 		UserMessage.Text = ErrorText;
 		UserMessage.Field = "Object.NumberOfRowsWithEmptyKeysToBreakReading";
@@ -3474,7 +3474,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 			
 			If IsBlankString(QueryTextA) Then
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнен текст запроса к базе А'; en = 'The text of the request to the base A is not filled'; tr = 'A tabanına yapılan sorgunun metni doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнен текст запроса к базе А';en = 'The text of the request to the base A is not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.QueryTextA";
@@ -3492,7 +3492,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 		
 			If IsBlankString(QueryTextB) Then
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнен текст запроса к базе Б'; en = 'The text of the request to the base B is not filled'; tr = 'B tabanına yapılan sorgunun metni doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнен текст запроса к базе Б';en = 'The text of the request to the base B is not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.QueryTextB";
@@ -3516,7 +3516,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 			If BaseTypeA = 3 And IsBlankString(ConnectionToExternalBaseAFileFormat) Then
 				
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнен формат файла А'; en = 'File format A is not filled'; tr = 'Dosya biçimi A doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнен формат файла А';en = 'File format A is not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.ConnectionToExternalBaseAFileFormat";
@@ -3528,7 +3528,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If IsBlankString(ColumnNameKeyFromFileA) Then
 				
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом файла А'; en = 'The name of the column with the key of file A is not filled'; tr = 'A dosyasının anahtarına sahip sütunun adı doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом файла А';en = 'The name of the column with the key of file A is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNameKeyFromFileA";
@@ -3542,7 +3542,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 					If ColumnNameKey2FromFileA = 0 Then
 						
 						AttributesFilledOutCorrectly = False;
-						ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 2 файла А'; en = 'The name of the column with the key 2 of file A is not filled'; tr = 'A dosyasının 2 anahtarlı sütununun adı doldurulmadı'");
+						ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 2 файла А';en = 'The name of the column with the key 2 of file A is not filled'");
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ColumnNameKey2FromFileA";
@@ -3558,7 +3558,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 					If ColumnNameKey3FromFileA = 0 Then
 						
 						AttributesFilledOutCorrectly = False;
-						ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 3 файла А'; en = 'The name of the column with the key 3 of file A is not filled'; tr = 'A dosyasının 3 anahtarlı sütununun adı doldurulmadı'");
+						ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 3 файла А';en = 'The name of the column with the key 3 of file A is not filled'");
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ColumnNameKey3FromFileA";
@@ -3572,7 +3572,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If IsBlankString(DataStorageMethodInXMLFileA) Then
 				
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнен способ хранения данных в файле А'; en = 'The method of storing data in file A is not filled'; tr = 'A dosyasında veri saklama yöntemi doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнен способ хранения данных в файле А';en = 'The method of storing data in file A is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.DataStorageMethodInXMLFileA";
@@ -3588,7 +3588,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 					
 					If ConnectionToExternalBaseANumberTableInFile = 0 Then
 						AttributesFilledOutCorrectly = False;						
-						ErrorText = StrTemplate(Nstr("ru = 'Не заполнен номер %1 файла А'; en = 'The %1 number of file A is not filled'; tr = 'A dosyasının %1 numarası doldurulmadı'"), ?(ConnectionToExternalBaseAFileFormat = "XLS", Nstr("ru = 'книги'; en = 'book'; tr = 'kitaplar'"), Nstr("ru = 'таблицы'; en = 'table'; tr = 'tablolar'")));
+						ErrorText = StrTemplate(Nstr("ru = 'Не заполнен номер %1 файла А';en = 'The %1 number of file A is not filled'"), ?(ConnectionToExternalBaseAFileFormat = "XLS", Nstr("ru = 'книги';en = 'book'"), Nstr("ru = 'таблицы';en = 'table'")));
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ConnectionToExternalBaseANumberTableInFile";
@@ -3600,7 +3600,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If NumberFirstRowFileA = 0 Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнен номер первой строки файла/таблицы А'; en = 'The number of the first line of file/table A is not filled'; tr = 'Dosya/Tablo A''nın ilk satırının numarası doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнен номер первой строки файла/таблицы А';en = 'The number of the first line of file/table A is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.NumberFirstRowFileA";
@@ -3610,7 +3610,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If ColumnNumberKeyFromFileA = 0 Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом файла/таблицы А'; en = 'The column number with the file/table A key is not filled'; tr = 'Dosya/tablo A anahtarına sahip sütun numarası doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом файла/таблицы А';en = 'The column number with the file/table A key is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNumberKeyFromFileA";
@@ -3621,7 +3621,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If NumberColumnsInKey > 1 Then			
 					If ColumnNumberKey2FromFileA = 0 Then
 						AttributesFilledOutCorrectly = False;
-						ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом 2 файла/таблицы А'; en = 'Column number with key 2 of file/table A is not filled'; tr = 'Dosya/Tablo A''nın anahtar 2''li sütun numarası doldurulmadı'");
+						ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом 2 файла/таблицы А';en = 'Column number with key 2 of file/table A is not filled'");
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ColumnNumberKey2FromFileA";
@@ -3633,7 +3633,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If NumberColumnsInKey > 2 Then			
 					If ColumnNumberKey3FromFileA = 0 Then
 						AttributesFilledOutCorrectly = False;
-						ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом 3 файла/таблицы А'; en = 'Column number with key 3 of file/table A is not filled'; tr = 'Dosya/Tablo A''nın 3 anahtarlı sütun numarası doldurulmadı'");
+						ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом 3 файла/таблицы А';en = 'Column number with key 3 of file/table A is not filled'");
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ColumnNumberKey3FromFileA";
@@ -3645,7 +3645,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				For Each RowTP_SettingsFileA In SettingsFileA Do
 					If IsBlankString(RowTP_SettingsFileA.ArbitraryCode) And RowTP_SettingsFileA.NumberColumn = 0 Then
 						AttributesFilledOutCorrectly = False;
-						ErrorText = StrTemplate(Nstr("ru = 'Не заполнен номер колонки файла/таблицы А, соответствующий реквизиту А%1'; en = 'File/table A column number corresponding to attribute A%1 is not filled'; tr = 'Dosya/tablo A%1 özniteliğine karşılık gelen sütun numarası doldurulmadı'")
+						ErrorText = StrTemplate(Nstr("ru = 'Не заполнен номер колонки файла/таблицы А, соответствующий реквизиту А%1';en = 'File/table A column number corresponding to attribute A%1 is not filled'")
 							, RowTP_SettingsFileA.LineNumber);
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
@@ -3666,7 +3666,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 			If BaseTypeB = 3 And IsBlankString(ConnectionToExternalBaseBFileFormat) Then
 				
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнен формат файла Б'; en = 'File format B is not filled'; tr = 'Dosya biçimi B doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнен формат файла Б';en = 'File format B is not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.ConnectionToExternalBaseBFileFormat";
@@ -3678,7 +3678,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If IsBlankString(ColumnNameKeyFromFileB) Then
 				
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом файла Б'; en = 'The name of the column with the key of file B is not filled'; tr = 'B dosyasının anahtarına sahip sütunun adı doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом файла Б';en = 'The name of the column with the key of file B is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNameKeyFromFileB";
@@ -3690,7 +3690,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If NumberColumnsInKey > 1 Then			
 					If ColumnNameKey2FromFileB = 0 Then					
 						AttributesFilledOutCorrectly = False;
-						ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 2 файла Б'; en = 'The name of the column with the key 2 of file B is not filled'; tr = 'B dosyasının 2 anahtarlı sütununun adı doldurulmadı'");
+						ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 2 файла Б';en = 'The name of the column with the key 2 of file B is not filled'");
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ColumnNameKey2FromFileB";
@@ -3702,7 +3702,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If NumberColumnsInKey > 2 Then			
 					If ColumnNameKey3FromFileB = 0 Then					
 						AttributesFilledOutCorrectly = False;
-						ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 3 файла Б'; en = 'The name of the column with the key 3 of file B is not filled'; tr = 'B dosyasının 3 anahtarlı sütununun adı doldurulmadı'");
+						ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 3 файла Б';en = 'The name of the column with the key 3 of file B is not filled'");
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ColumnNameKey3FromFileB";
@@ -3714,7 +3714,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If IsBlankString(DataStorageMethodInXMLFileB) Then
 				
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнен способ хранения данных в файле Б'; en = 'The method of storing data in file B is not filled'; tr = 'B dosyasında veri depolama yöntemi doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнен способ хранения данных в файле Б';en = 'The method of storing data in file B is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.DataStorageMethodInXMLFileB";
@@ -3730,7 +3730,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 					//For files xls and doc should be specified number of book/table
 					If ConnectionToExternalBaseBNumberTableInFile = 0 Then
 						AttributesFilledOutCorrectly = False;
-						ErrorText = StrTemplate(Nstr("ru = 'Не заполнен номер %1 файла А'; en = 'The %1 number of file A is not filled'; tr = 'A dosyasının %1 numarası doldurulmadı'"), ?(ConnectionToExternalBaseAFileFormat = "XLS", Nstr("ru = 'книги'; en = 'book'; tr = 'kitaplar'"), Nstr("ru = 'таблицы'; en = 'table'; tr = 'tablolar'")));
+						ErrorText = StrTemplate(Nstr("ru = 'Не заполнен номер %1 файла А';en = 'The %1 number of file A is not filled'"), ?(ConnectionToExternalBaseAFileFormat = "XLS", Nstr("ru = 'книги';en = 'book'"), Nstr("ru = 'таблицы';en = 'table'")));
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ConnectionToExternalDatabaseBNumberTableInFile";
@@ -3741,7 +3741,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If NumberFirstRowFileB = 0 Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнен номер первой строки файла/таблицы Б'; en = 'The number of the first line of file/table B is not filled'; tr = 'B dosyası/tablosunun ilk satırının numarası doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнен номер первой строки файла/таблицы Б';en = 'The number of the first line of file/table B is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.NumberFirstRowFileB";
@@ -3751,7 +3751,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If ColumnNumberKeyFromFileB = 0 Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом файла/таблицы Б'; en = 'The column number with the file/table B key is not filled'; tr = 'Dosya/tablo B anahtarına sahip sütun numarası doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом файла/таблицы Б';en = 'The column number with the file/table B key is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNumberKeyFromFileB";
@@ -3764,7 +3764,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 					If ColumnNumberKey2FromFileB = 0 Then
 						
 						AttributesFilledOutCorrectly = False;
-						ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом 2 файла/таблицы B'; en = 'Column number with key 2 of file/table Б is not filled'; tr = 'Dosya/tablo B''nin anahtar 2''li sütun numarası doldurulmadı'");
+						ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом 2 файла/таблицы B';en = 'Column number with key 2 of file/table Б is not filled'");
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ColumnNumberKey2FromFileB";
@@ -3780,7 +3780,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 					If ColumnNumberKey3FromFileB = 0 Then
 						
 						AttributesFilledOutCorrectly = False;
-						ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом 3 файла/таблицы Б'; en = 'Column number with key 3 of file/table B is not filled'; tr = 'B dosyası/tablosunun 3 anahtarlı sütun numarası doldurulmadı'");
+						ErrorText = Nstr("ru = 'Не заполнен номер столбца с ключом 3 файла/таблицы Б';en = 'Column number with key 3 of file/table B is not filled'");
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ColumnNumberKey3FromFileB";
@@ -3794,7 +3794,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				For Each RowTP_SettingsFileB In SettingsFileB Do
 					If IsBlankString(RowTP_SettingsFileB.ArbitraryCode) And RowTP_SettingsFileB.NumberColumn = 0 Then
 						AttributesFilledOutCorrectly = False;
-						ErrorText = StrTemplate(Nstr("ru = 'Не заполнен номер колонки файла/таблицы Б, соответствующий реквизиту Б%1'; en = 'File/table B column number corresponding to attribute B%1 is not filled'; tr = 'B%1 niteliğine karşılık gelen dosya/tablo B sütun numarası doldurulmamış'"), RowTP_SettingsFileB.LineNumber);							
+						ErrorText = StrTemplate(Nstr("ru = 'Не заполнен номер колонки файла/таблицы Б, соответствующий реквизиту Б%1';en = 'File/table B column number corresponding to attribute B%1 is not filled'"), RowTP_SettingsFileB.LineNumber);							
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.SettingsFileB[" + (RowTP_SettingsFileB.LineNumber - 1) + "].NumberColumn";
@@ -3820,7 +3820,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 		 
 			If IsBlankString(QueryTextA) Then
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнена строка JSON'; en = 'JSON string not filled'; tr = 'JSON dizesi doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнена строка JSON';en = 'JSON string not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.QueryTextA";
@@ -3831,7 +3831,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 			If IsBlankString(ColumnNameKeyFromFileA) Then
 					
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом файла А'; en = 'The name of the column with the key of file A is not filled'; tr = 'A dosyasının anahtarına sahip sütunun adı doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом файла А';en = 'The name of the column with the key of file A is not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.ColumnNameKeyFromFileA";
@@ -3845,7 +3845,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If ColumnNameKey2FromFileA = 0 Then
 					
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 2 файла А'; en = 'The name of the column with the key 2 of file A is not filled'; tr = 'A dosyasının 2 anahtarlı sütununun adı doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 2 файла А';en = 'The name of the column with the key 2 of file A is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNameKey2FromFileA";
@@ -3861,7 +3861,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If ColumnNameKey3FromFileA = 0 Then
 					
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 3 файла А'; en = 'The name of the column with the key 3 of file A is not filled'; tr = 'A dosyasının 3 anahtarlı sütununun adı doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 3 файла А';en = 'The name of the column with the key 3 of file A is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNameKey3FromFileA";
@@ -3883,7 +3883,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 		 
 			If IsBlankString(QueryTextB) Then
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнена строка JSON'; en = 'JSON string not filled'; tr = 'JSON dizesi doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнена строка JSON';en = 'JSON string not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.QueryTextB";
@@ -3894,7 +3894,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 			If IsBlankString(ColumnNameKeyFromFileB) Then
 					
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом файла Б'; en = 'The name of the column with the key of file B is not filled'; tr = 'B dosyasının anahtarına sahip sütunun adı doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом файла Б';en = 'The name of the column with the key of file B is not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.ColumnNameKeyFromFileB";
@@ -3908,7 +3908,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If ColumnNameKey2FromFileB = 0 Then
 					
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 2 файла Б'; en = 'The name of the column with the key 2 of file B is not filled'; tr = 'B dosyasının 2 anahtarlı sütununun adı doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 2 файла Б';en = 'The name of the column with the key 2 of file B is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNameKey2FromFileB";
@@ -3924,7 +3924,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				If ColumnNameKey3FromFileB = 0 Then
 					
 					AttributesFilledOutCorrectly = False;
-					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 3 файла Б'; en = 'The name of the column with the key 3 of file B is not filled'; tr = 'B dosyasının 3 anahtarlı sütununun adı doldurulmadı'");
+					ErrorText = Nstr("ru = 'Не заполнено имя столбца с ключом 3 файла Б';en = 'The name of the column with the key 3 of file B is not filled'");
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ColumnNameKey3FromFileB";
@@ -3947,7 +3947,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 			
 			If ConditionsOutputRows.Count() > 1 And Not ValueIsFilled(BooleanOperatorForConditionsOutputRows) Then
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнен логический оператор для объединения условий вывода строк'; en = 'The logical operator for combining string output conditions is not filled'; tr = 'Dize çıktı koşullarını birleştirmeye yönelik mantıksal operatör doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнен логический оператор для объединения условий вывода строк';en = 'The logical operator for combining string output conditions is not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.BooleanOperatorForConditionsOutputRows";
@@ -3959,7 +3959,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If Not ValueIsFilled(RowTP_ConditionsOutputRows.NameComparedAttribute) Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = StrTemplate(Nstr("ru = 'Не заполнено имя реквизита в строке условий вывода №%1'; en = 'The attribute name is not filled in the line of output conditions No.%1'; tr = 'Öznitelik adı, çıkış koşulları satırında doldurulmamış No.%1'"),RowTP_ConditionsOutputRows.LineNumber);
+					ErrorText = StrTemplate(Nstr("ru = 'Не заполнено имя реквизита в строке условий вывода №%1';en = 'The attribute name is not filled in the line of output conditions No.%1'"),RowTP_ConditionsOutputRows.LineNumber);
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ConditionsOutputRows[" + (RowTP_ConditionsOutputRows.LineNumber - 1) + "].NameComparedAttribute";
@@ -3969,7 +3969,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If Not ValueIsFilled(RowTP_ConditionsOutputRows.Condition) Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = StrTemplate(Nstr("ru = 'Не заполнено условие в строке условий вывода №%1'; en = 'The condition in the line of output conditions No.%1 is not filled'; tr = 'Çıkış koşulları satırındaki koşul No.%1 doldurulmadı'"), RowTP_ConditionsOutputRows.LineNumber);
+					ErrorText = StrTemplate(Nstr("ru = 'Не заполнено условие в строке условий вывода №%1';en = 'The condition in the line of output conditions No.%1 is not filled'"), RowTP_ConditionsOutputRows.LineNumber);
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ConditionsOutputRows[" + (RowTP_ConditionsOutputRows.LineNumber - 1) + "].Condition";
@@ -3979,7 +3979,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If Not ValueIsFilled(RowTP_ConditionsOutputRows.ComparisonType) Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = StrTemplate(Nstr("ru = 'Не заполнен тип сравнения в строке условий вывода №%1'; en = 'The comparison type is not filled in the line of output conditions No. %1'; tr = 'Çıktı koşulları satırında karşılaştırma türü doldurulmamış No. %1'"), RowTP_ConditionsOutputRows.LineNumber);
+					ErrorText = StrTemplate(Nstr("ru = 'Не заполнен тип сравнения в строке условий вывода №%1';en = 'The comparison type is not filled in the line of output conditions No. %1'"), RowTP_ConditionsOutputRows.LineNumber);
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ConditionsOutputRows[" + (RowTP_ConditionsOutputRows.LineNumber - 1) + "].ComparisonType";
@@ -3991,7 +3991,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 					If RowTP_ConditionsOutputRows.ComparisonType = "Attribute" And Not ValueIsFilled(RowTP_ConditionsOutputRows.NameComparedAttribute2) Then
 						AttributesFilledOutCorrectly = False;
-						ErrorText = StrTemplate(Nstr("ru = 'Не заполнено имя реквизита в строке условий вывода №%1'; en = 'The attribute name is not filled in the line of output conditions No.%1'; tr = 'Öznitelik adı, çıkış koşulları satırında doldurulmamış No.%1'"),RowTP_ConditionsOutputRows.LineNumber);						
+						ErrorText = StrTemplate(Nstr("ru = 'Не заполнено имя реквизита в строке условий вывода №%1';en = 'The attribute name is not filled in the line of output conditions No.%1'"),RowTP_ConditionsOutputRows.LineNumber);						
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ConditionsOutputRows[" + (RowTP_ConditionsOutputRows.LineNumber - 1) + "].NameComparedAttribute2";
@@ -4009,7 +4009,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 			
 			If ConditionsProhibitOutputRows.Count() > 1 And Not ValueIsFilled(BooleanOperatorForProhibitingConditionsOutputRows) Then
 				AttributesFilledOutCorrectly = False;
-				ErrorText = Nstr("ru = 'Не заполнен логический оператор для объединения условий запрета вывода строк'; en = 'The logical operator for combining the conditions for prohibiting the output of rows is not filled'; tr = 'Satırların çıktısını yasaklayan koşulları birleştiren mantıksal operatör doldurulmadı'");
+				ErrorText = Nstr("ru = 'Не заполнен логический оператор для объединения условий запрета вывода строк';en = 'The logical operator for combining the conditions for prohibiting the output of rows is not filled'");
 				UserMessage = New UserMessage;
 				UserMessage.Text = ErrorText;
 				UserMessage.Field = "Object.BooleanOperatorForProhibitingConditionsOutputRows";
@@ -4021,7 +4021,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If Not ValueIsFilled(RowTP_ConditionsProhibitOutputRows.NameComparedAttribute) Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = StrTemplate(Nstr("ru = 'Не заполнено имя реквизита в строке условий запрета вывода №%1'; en = 'The attribute name is not filled in the line of conditions for the prohibition of output No. %1'; tr = 'Öznitelik adı, %1 numaralı çıktının yasaklanması için koşullar satırına doldurulmamış'"), RowTP_ConditionsProhibitOutputRows.LineNumber);
+					ErrorText = StrTemplate(Nstr("ru = 'Не заполнено имя реквизита в строке условий запрета вывода №%1';en = 'The attribute name is not filled in the line of conditions for the prohibition of output No. %1'"), RowTP_ConditionsProhibitOutputRows.LineNumber);
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ConditionsProhibitOutputRows[" + (RowTP_ConditionsProhibitOutputRows.LineNumber - 1) + "].NameComparedAttribute";
@@ -4031,7 +4031,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If Not ValueIsFilled(RowTP_ConditionsProhibitOutputRows.Condition) Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = StrTemplate(Nstr("ru = 'Не заполнено условие в строке условий запрета вывода №%1'; en = 'The condition in the line of conditions of the prohibition of output No. %1 is not filled'; tr = 'Çıkış yasağının şartları satırındaki koşul %1 yerine getirilmemiştir'"), RowTP_ConditionsProhibitOutputRows.LineNumber);
+					ErrorText = StrTemplate(Nstr("ru = 'Не заполнено условие в строке условий запрета вывода №%1';en = 'The condition in the line of conditions of the prohibition of output No. %1 is not filled'"), RowTP_ConditionsProhibitOutputRows.LineNumber);
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ConditionsProhibitOutputRows[" + (RowTP_ConditionsProhibitOutputRows.LineNumber - 1) + "].Condition";
@@ -4041,7 +4041,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 				
 				If Not ValueIsFilled(RowTP_ConditionsProhibitOutputRows.ComparisonType) Then
 					AttributesFilledOutCorrectly = False;
-					ErrorText = StrTemplate(Nstr("ru = 'Не заполнен тип сравнения в строке условий запрета вывода №%1'; en = 'The comparison type is not filled in the line of conditions for prohibiting output No. %1'; tr = 'Karşılaştırma türü, %1 No''lu çıktıyı yasaklama koşulları satırında doldurulmamış'"), RowTP_ConditionsProhibitOutputRows.LineNumber);
+					ErrorText = StrTemplate(Nstr("ru = 'Не заполнен тип сравнения в строке условий запрета вывода №%1';en = 'The comparison type is not filled in the line of conditions for prohibiting output No. %1'"), RowTP_ConditionsProhibitOutputRows.LineNumber);
 					UserMessage = New UserMessage;
 					UserMessage.Text = ErrorText;
 					UserMessage.Field = "Object.ConditionsProhibitOutputRows[" + (RowTP_ConditionsProhibitOutputRows.LineNumber - 1) + "].ComparisonType";
@@ -4053,7 +4053,7 @@ Function CheckFillingAttributes(SourceForPreview = "", ErrorsText = "") Export
 					
 					If RowTP_ConditionsProhibitOutputRows.ComparisonType = "Attribute" And Not ValueIsFilled(RowTP_ConditionsProhibitOutputRows.NameComparedAttribute2) Then
 						AttributesFilledOutCorrectly = False;
-						ErrorText = StrTemplate(Nstr("ru = 'Не заполнено имя реквизита в строке условий запрета вывода №%1'; en = 'The attribute name is not filled in the line of conditions for the prohibition of output No. %1'; tr = 'Öznitelik adı, %1 numaralı çıktının yasaklanması için koşullar satırına doldurulmamış'"), RowTP_ConditionsProhibitOutputRows.LineNumber);						
+						ErrorText = StrTemplate(Nstr("ru = 'Не заполнено имя реквизита в строке условий запрета вывода №%1';en = 'The attribute name is not filled in the line of conditions for the prohibition of output No. %1'"), RowTP_ConditionsProhibitOutputRows.LineNumber);						
 						UserMessage = New UserMessage;
 						UserMessage.Text = ErrorText;
 						UserMessage.Field = "Object.ConditionsProhibitOutputRows[" + (RowTP_ConditionsProhibitOutputRows.LineNumber - 1) + "].NameComparedAttribute2";
@@ -4083,11 +4083,11 @@ Function SaveSettingsToBaseAtServer(SettingRef, SaveSpreadsheetDocuments) Export
 		StorageExternal = New ValueStorage(Data);
 		SettingObject.Операция = StorageExternal;
 		SettingObject.Write();
-		Message(StrTemplate(Nstr("ru = 'Данные успешно записаны в операцию %1'; en = 'Data was successfully written to the operation %1'; tr = 'Veriler %1 işlemine başarıyla yazıldı'"), SettingObject.Title));
+		Message(StrTemplate(Nstr("ru = 'Данные успешно записаны в операцию %1';en = 'Data was successfully written to the operation %1'"), SettingObject.Title));
 		RelatedDataComparisonOperation = SettingRef;
 		Title = SettingObject.Title;
 	Except
-		ErrorText = StrTemplate(Nstr("ru = 'Ошибка при записи данных в операцию  %1 : %2'; en = 'Error writing data to operation %1 : %2'; tr = '%1 işlemine veri yazma hatası: %2'"), SettingRef.Titl, ErrorDescription());
+		ErrorText = StrTemplate(Nstr("ru = 'Ошибка при записи данных в операцию  %1 : %2';en = 'Error writing data to operation %1 : %2'"), SettingRef.Titl, ErrorDescription());
 		Message(ErrorText);
 		OperationCompletedSuccessfully = False;
 	EndTry;
@@ -4417,7 +4417,7 @@ Function UploadResultToFileAtServer(ForClient = False) Export
 	UploadFileFormat = Upper(UploadFileFormat);
 	
 	If IsBlankString(UploadFileFormat) Then
-		ErrorText = Nstr("ru = 'Не указан формат файла выгрузки'; en = 'Upload file format not specified'; tr = 'Yükleme dosyası biçimi belirtilmedi'");
+		ErrorText = Nstr("ru = 'Не указан формат файла выгрузки';en = 'Upload file format not specified'");
 		UserMessage = New UserMessage;
 		UserMessage.Text = ErrorText;
 		UserMessage.Field = "Object.UploadFileFormat";
@@ -4429,7 +4429,7 @@ Function UploadResultToFileAtServer(ForClient = False) Export
 		PathToTemporaryFile = GetTempFileName(UploadFileFormat);
 	Else
 		If IsBlankString(PathToDownloadFile) Then
-			ErrorText = Nstr("ru = 'Не заполнен путь к файлу выгрузки (на сервере)'; en = 'The path to the upload file is not filled (at server)'; tr = 'Yükleme dosyasının yolu doldurulmamış (sunucuda)'");
+			ErrorText = Nstr("ru = 'Не заполнен путь к файлу выгрузки (на сервере)';en = 'The path to the upload file is not filled (at server)'");
 			UserMessage = New UserMessage;
 			UserMessage.Text = ErrorText;
 			UserMessage.Field = "Object.PathToDownloadFile";
@@ -4441,7 +4441,7 @@ Function UploadResultToFileAtServer(ForClient = False) Export
 	EndIf;
 	
 	If Result.Count() = 0 Then
-		ErrorText = Nstr("ru = 'Нет данных для выгрузки'; en = 'No data to upload'; tr = 'Yüklenecek veri yok'");
+		ErrorText = Nstr("ru = 'Нет данных для выгрузки';en = 'No data to upload'");
 		UserMessage = New UserMessage;
 		UserMessage.Text = ErrorText;
 		UserMessage.Field = "Object.Result";
@@ -4453,7 +4453,7 @@ Function UploadResultToFileAtServer(ForClient = False) Export
 		DeleteFiles(PathToTemporaryFile);	
 	Except EndTry;
 	
-	Message(StrTemplate(NStr("ru = '%1 Выгрузка в файл ""%2"" формата ""%3"" начата'; en = '%1 Upload to file ""%2"" of format ""%3"" started'; tr = '%1 ""%2"" dosyasına ""%3"" biçiminde yükleme başladı'"), Format(CurrentDate(), "DLF=DT"), PathToTemporaryFile, UploadFileFormat));
+	Message(StrTemplate(NStr("ru = '%1 Выгрузка в файл ""%2"" формата ""%3"" начата';en = '%1 Upload to file ""%2"" of format ""%3"" started'"), Format(CurrentDate(), "DLF=DT"), PathToTemporaryFile, UploadFileFormat));
 	
 	If UploadFileFormat = "CSV" Then
 		
@@ -4641,7 +4641,7 @@ Function UploadResultToFileAtServer(ForClient = False) Export
 		
 	Else
 		
-		ErrorText = StrTemplate(Nstr("ru = 'Формат файла выгрузки ""%1"" не предусмотрен'; en = 'Upload file format ''%1'' is not supported'; tr = 'Yükleme dosyası formatı ''%1'' desteklenmiyor'"), UploadFileFormat);
+		ErrorText = StrTemplate(Nstr("ru = 'Формат файла выгрузки ""%1"" не предусмотрен';en = 'Upload file format ''%1'' is not supported'"), UploadFileFormat);
 		UserMessage = New UserMessage;
 		UserMessage.Text = ErrorText;
 		UserMessage.Field = "Object.UploadFileFormat";
@@ -4663,7 +4663,7 @@ Function UploadResultToFileAtServer(ForClient = False) Export
 		
 	Else
 		
-		Message(StrTemplate(NStr("ru = 'Выгрузка в файл ""%1"" формата ""%2"" завершена (число строк: %3)'; en = 'Upload to file ""%1"" of format ""%2"" completed (number of rows: %3)'; tr = '""%2"" biçimindeki ""%1"" dosyasına yükleme tamamlandı (satır sayısı: %3)'"), Format(CurrentDate(), "DLF=DT"), PathToTemporaryFile, UploadFileFormat, RowsCounter));
+		Message(StrTemplate(NStr("ru = 'Выгрузка в файл ""%1"" формата ""%2"" завершена (число строк: %3)';en = 'Upload to file ""%1"" of format ""%2"" completed (number of rows: %3)'"), Format(CurrentDate(), "DLF=DT"), PathToTemporaryFile, UploadFileFormat, RowsCounter));
 		Return Undefined;
 		
 	EndIf;

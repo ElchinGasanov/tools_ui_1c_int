@@ -20,8 +20,8 @@ EndProcedure
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	ImportMode = Parameters.ImportMode;
 	If ImportMode = 2 Then
-		Items.BeforeWriteObjectGroup.Title 	= NStr("ru = 'Перед записью'; en = 'Before write'; tr = 'Yazmadan önce'");
-		Items.OnWriteObjectGroup.Title 		= NStr("ru = 'При записи'; en = 'On write'; tr = 'Yazarken'");
+		Items.BeforeWriteObjectGroup.Title 	= NStr("ru = 'Перед записью'; en = 'Before write'");
+		Items.OnWriteObjectGroup.Title 		= NStr("ru = 'При записи'; en = 'On write'");
 	EndIf;
 
 	Items.AfterAddRowGroup.Visible = ImportMode = 1;
@@ -82,33 +82,26 @@ Procedure SetExpressionTextLabel()
 
 			ExpressionTextLabel =
 			NStr("ru = 'В тексте выражения можно использовать следующие предопределенные параметры:
-														   |	Object			- Записываемый Object
-														   |	ТекущиеДанные	- Содержит данные загружаемой строки табличной части.
-														   |	CellsTexts		- Array текстов ячеек строки
-														   |Встроенные функции, функции общих модулей.'; en = 'The following predefined parameters are available in the expression text:
-														   |	Object			- Written object.
-														   |	CurrentData		- Imported table row data.
-														   |	CellsTexts		- An array of row cells texts.
-														   |Embedded functions, common module functions.'; tr = 'İfade metninde aşağıdaki önceden tanımlı parametreler kullanılabilir:
-														   |  Object      – Kaydedilen nesne
-														   |  CurrentData – Tablo bölümünün yüklenen satırına ait verileri içerir
-														   |  CellsTexts – Satırın hücre metinlerinden oluşan dizi
-														   |
-														   |Dahili fonksiyonlar, genel modül fonksiyonları da kullanılabilir.'");
+			|	Object			- Записываемый Object
+			|	ТекущиеДанные	- Содержит данные загружаемой строки табличной части.
+			|	CellsTexts		- Array текстов ячеек строки
+			|Встроенные функции, функции общих модулей.';
+			|en = 'The following predefined parameters are available in the expression text:
+			|	Object			- Written object.
+			|	CurrentData		- Imported table row data.
+			|	CellsTexts		- An array of row cells texts.
+			|Embedded functions, common module functions.'");
 		Else
 
 			ExpressionTextLabel =
 			NStr("ru = 'В тексте выражения можно использовать следующие предопределенные параметры:
-														   |	Object			- Записываемый Object
-														   |	Cancel			- Признак Cancelа от записи Objectа
-														   |Встроенные функции, функции общих модулей.'; en = 'The following predefined parameters are available in the expression text:
-														   |	Object			- Written object.
-														   |	Cancel			- Write cancel flag.
-														   |Embedded functions, common module functions.'; tr = 'İfade metninde aşağıdaki önceden tanımlı parametreler kullanılabilir:
-														   |  Object    – Kaydedilen nesne
-														   |  Cancel    – Nesnenin kaydının iptal edilip edilmeyeceğini belirten işaret
-														   |
-														   |Dahili fonksiyonlar ve genel modül fonksiyonları kullanılabilir.'");
+			|	Object			- Записываемый Object
+			|	Cancel			- Признак Cancelа от записи Objectа
+			|Встроенные функции, функции общих модулей.';
+			|en = 'The following predefined parameters are available in the expression text:
+			|	Object			- Written object.
+			|	Cancel			- Write cancel flag.
+			|Embedded functions, common module functions.'");
 
 		EndIf;
 
@@ -116,38 +109,28 @@ Procedure SetExpressionTextLabel()
 
 		ExpressionTextLabel =
 		NStr("ru = 'В тексте выражения можно использовать следующие предопределенные параметры:
-													   |	Object			- Записываемый Object
-													   |	Cancel			- Признак Cancelа от записи Objectа
-													   |	CellsTexts		- Array текстов ячеек строки
-													   |Встроенные функции, функции общих модулей.'; en = 'The following predefined parameters are available in the expression text:
-													   |	Object			- Written object.
-													   |	Cancel			- Write cancel flag.
-													   |	CellsTexts		- An array of row cells texts.
-													   |Embedded functions, common module functions.'; tr = 'İfade metninde aşağıdaki önceden tanımlı parametreler kullanılabilir:
-													   |
-													   |   Object – Kaydedilen nesne
-													   |   Cancel – Nesnenin kaydının iptal edilip edilmeyeceğini belirten işaret
-													   |   CellsTexts – Satırın hücre metinlerinden oluşan dizi
-													   |
-													   |Dahili fonksiyonlar ve genel modül fonksiyonları kullanılabilir.'");
+		|	Object			- Записываемый Object
+		|	Cancel			- Признак Cancelа от записи Objectа
+		|	CellsTexts		- Array текстов ячеек строки
+		|Встроенные функции, функции общих модулей.';
+		|en = 'The following predefined parameters are available in the expression text:
+		|	Object			- Written object.
+		|	Cancel			- Write cancel flag.
+		|	CellsTexts		- An array of row cells texts.
+		|Embedded functions, common module functions.'");
 
 	ElsIf ImportMode = 2 Then
 		ExpressionTextLabel =
 		NStr("ru = 'В тексте выражения можно использовать следующие предопределенные параметры:
-													   |	Object			- Менеджер записи регистра сведений
-													   |	Cancel			- Признак Cancelа от записи Objectа
-													   |	CellsTexts		- Array текстов ячеек строки
-													   |Встроенные функции, функции общих модулей.'; en = 'The following predefined parameters are available in the expression text:
-													   |	Object			- Information register record manager.
-													   |	Cancel			- Write cancel flag.
-													   |	CellsTexts		- An array of row cells texts.
-													   |Embedded functions, common module functions.'; tr = 'İfade metninde aşağıdaki önceden tanımlı parametreler kullanılabilir:
-													   |
-													   |   Object – Bilgi kaydının kayıt yöneticisi
-													   |   Cancel – Nesnenin kaydının iptal edilip edilmeyeceğini belirten işaret
-													   |   CellsTexts – Satırın hücre metinlerinden oluşan dizi
-													   |
-													   |Dahili fonksiyonlar ve genel modül fonksiyonları kullanılabilir.'");
+		|	Object			- Менеджер записи регистра сведений
+		|	Cancel			- Признак Cancelа от записи Objectа
+		|	CellsTexts		- Array текстов ячеек строки
+		|Встроенные функции, функции общих модулей.';
+		|en = 'The following predefined parameters are available in the expression text:
+		|	Object			- Information register record manager.
+		|	Cancel			- Write cancel flag.
+		|	CellsTexts		- An array of row cells texts.
+		|Embedded functions, common module functions.;");
 	EndIf;
 
 EndProcedure // ()

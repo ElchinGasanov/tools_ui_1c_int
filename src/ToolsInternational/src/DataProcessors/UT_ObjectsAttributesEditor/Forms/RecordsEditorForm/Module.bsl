@@ -38,13 +38,13 @@ Procedure BeforeCloseAtClient(Cancel, Exit, WarningText, StandardProcessing)
 		If Exit = Undefined Then
 			// For the old platform versions.
 			Cancel = True;
-			vShowQueryBox("vCloseForm", NSTR("ru = 'Редактор движений будет закрыт. Продолжить?'; en = 'Records editor will be closed. Do you want to continue?'; tr = 'Kayıtlar düzenleyicisi kapatılacak. Devam etmek istiyor musunuz?'"));
+			vShowQueryBox("vCloseForm", NSTR("ru = 'Редактор движений будет закрыт. Продолжить?';en = 'Records editor will be closed. Do you want to continue?'"));
 			Return;
 		EndIf;
 
 		If Exit = False Then
 			Cancel = True;
-			vShowQueryBox("vCloseForm", NSTR("ru = 'Редактор движений будет закрыт. Продолжить?'; en = 'Records editor will be closed. Do you want to continue?'; tr = 'Kayıtlar düzenleyicisi kapatılacak. Devam etmek istiyor musunuz?'"));
+			vShowQueryBox("vCloseForm", NSTR("ru = 'Редактор движений будет закрыт. Продолжить?';en = 'Records editor will be closed. Do you want to continue?'"));
 		EndIf;
 	EndIf;
 EndProcedure
@@ -219,7 +219,7 @@ Procedure _Refresh(Command)
 
 	vRefresh();
 
-	Items.RegistersGroup.Title = NSTR("ru = 'Движения документа ('; en = 'Document records ('; tr = 'Belgenin etkinlikleri ('") + _TabRegisters.Count() + ")";
+	Items.RegistersGroup.Title = NSTR("ru = 'Движения документа (';en = 'Document records ('") + _TabRegisters.Count() + ")";
 EndProcedure
 
 &AtClient
@@ -230,11 +230,11 @@ Procedure _Write(Command)
 
 	Value = _TabRegisters.FindRows(New Structure("Write", True)).Count();
 	If Value = 0 Then
-		vShowMessageBox(NSTR("ru = 'Не отмечены регистры для записи.'; en = 'Registers for writting not set.'; tr = 'Yazma için kayıtlar ayarlanmadı.'"));
+		vShowMessageBox(NSTR("ru = 'Не отмечены регистры для записи.';en = 'Registers for writting not set.'"));
 		Return;
 	EndIf;
 
-	vShowQueryBox("_WriteNext", StrTemplate(NSTR("ru = 'Отмеченные регистры (%1 шт) будут записаны в базу. Продолжить?'; en = 'Selected registers  (%1 pcs) will be written to database. Do you want to continue?'; tr = 'Seçili kayıtlar (%1 adet) veritabanına yazılacak. Devam edilsin mi?'"),
+	vShowQueryBox("_WriteNext", StrTemplate(NSTR("ru = 'Отмеченные регистры (%1 шт) будут записаны в базу. Продолжить?';en = 'Selected registers  (%1 pcs) will be written to database. Do you want to continue?'"),
 		Value));
 EndProcedure
 
@@ -272,11 +272,11 @@ Procedure _ClearRecords(Command)
 
 	Value = Items._TabRegisters.SelectedRows;
 	If Value.Count() = 0 Then
-		vShowMessageBox(NSTR("ru = 'Не отмечены регистры для очистки.'; en = 'Registers for clear not set.'; tr = 'Silmek için kayıtlar ayarlanmadı.'"));
+		vShowMessageBox(NSTR("ru = 'Не отмечены регистры для очистки.';en = 'Registers for clear not set.'"));
 		Return;
 	EndIf;
 
-	vShowQueryBox("_ClearRecordsNext", StrTemplate(NStr("ru = 'Выбранные регистры (%1 шт) будут очищены. Продолжить?'; en = 'Selected registers  (%1 pcs) will be cleared. Do you want to continue?'; tr = 'Seçilen kayıtlar (%1 adet) silinecek. Devam edilsin mi?'"),
+	vShowQueryBox("_ClearRecordsNext", StrTemplate(NStr("ru = 'Выбранные регистры (%1 шт) будут очищены. Продолжить?';en = 'Selected registers  (%1 pcs) will be cleared. Do you want to continue?'"),
 		Value.Count()));
 EndProcedure
 
@@ -314,10 +314,10 @@ Procedure _WriteSet(Command)
 
 	CurrData = Items._TabRegisters.CurrentData;
 	If CurrData = Undefined Then
-		vShowMessageBox(NStr("ru = 'Не задан набор записей для сохранения'; en = 'Recordset for saving is not set.'; tr = 'Kaydetmek için kayıt seti ayarlanmadı.'"));
+		vShowMessageBox(NStr("ru = 'Не задан набор записей для сохранения';en = 'Recordset for saving is not set.'"));
 		Return;
 	EndIf;
-	vShowQueryBox("_WriteSetNext", NSTR("ru = 'Набор записей будет записан в базу. Продолжить?'; en = 'Recordset will be saved to database. Do you want to continue?'; tr = 'Kayıt seti veritabanına kaydedilecek. Devam etmek istiyor musunuz?'"));
+	vShowQueryBox("_WriteSetNext", NSTR("ru = 'Набор записей будет записан в базу. Продолжить?';en = 'Recordset will be saved to database. Do you want to continue?'"));
 EndProcedure
 
 &AtClient
@@ -446,7 +446,7 @@ Procedure _InsertUUID(Command)
 	If CurrTable.Name = "_ValueToFill" Then
 		pStruct = New Structure("Table", CurrTable.Name);
 		ShowInputString(New NotifyDescription("vProcessInput_UUID", ThisForm, pStruct), mLastUUID,
-			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'; tr = 'Benzersiz bir tanımlayıcı (UUID) girin'"), , False);
+			NStr("ru = 'Введите уникальный идентификатор';en = 'Enter a unique identifier (UUID)'"), , False);
 		Return;
 	ElsIf TypeOf(CurrTable) <> Тип("FormTable") Then
 		Return;
@@ -472,7 +472,7 @@ Procedure _InsertUUID(Command)
 		pStruct.Insert("Field", Mid(CurrColumn.Name, StrLen(CurrTable.Name) + 2));
 
 		ShowInputString(New NotifyDescription("vProcessInput_UUID", ThisForm, pStruct), mLastUUID,
-			NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'; tr = 'Benzersiz bir tanımlayıcı (UUID) girin'"), , False);
+			NStr("ru = 'Введите уникальный идентификатор';en = 'Enter a unique identifier (UUID)'"), , False);
 	EndIf;
 EndProcedure
 
@@ -517,7 +517,7 @@ EndProcedure
 &AtClient
 Function vCheckRecorder()
 	If Not ValueIsFilled(mObjectRef) Then
-		vShowMessageBox(NSTR("ru = 'Не задан объект для записи движений!'; en = 'Object for write records is not set.'; tr = 'Kayıtları kaydetmek için  nesne ayarlanmadı!'"));
+		vShowMessageBox(NSTR("ru = 'Не задан объект для записи движений!';en = 'Object for write records is not set.'"));
 		Return False;
 	EndIf;
 
@@ -970,14 +970,14 @@ EndFunction
 &AtClient
 Procedure ChoiceProcessingAtClient(SelectedValue, ChoiceSource)
 	ShowInputValue(New NotifyDescription("vHandleDocumentSelectionForLoadingRecords", ThisForm),
-		SelectedValue, NStr("ru = 'Документ для загрузки движений'; en = 'Document for loading records.'; tr = 'Kayıtları yüklemek için belge'"));
+		SelectedValue, NStr("ru = 'Документ для загрузки движений';en = 'Document for loading records.'"));
 EndProcedure
 
 &AtClient
 Procedure vHandleDocumentSelectionForLoadingRecords(Value, AdditionalParameters = Undefined) Export
 	If Value <> Undefined Then
 		vShowQueryBox("vLoadRecordsFromDocument",
-			NStr("ru = 'Будут загружены движения из выбранного документа. Продолжить?'; en = 'Records from the selected document will be loaded. Do you want to continue?'; tr = 'Seçilen belgedeki kayıtlar yüklenecektir. Devam edilsin mi?'"), Value);
+			NStr("ru = 'Будут загружены движения из выбранного документа. Продолжить?';en = 'Records from the selected document will be loaded. Do you want to continue?'"), Value);
 	EndIf;
 EndProcedure
 
@@ -1036,7 +1036,7 @@ Procedure vProcessInput_UUID(String, pStruct = Undefined) Export
 			pValue = New UUID(String);
 			mLastUUID = String;
 		Except
-			ShowMessageBox( , NSTR("ru = 'Значение не может быть преобразовано в Уникальный идентификатор!'; en = 'The value cannot be converted to a Unique identifier (UUID).'; tr = 'Değer Benzersiz Tanımlayıcıya (UUID) dönüştürülemedi!'"), 20);
+			ShowMessageBox( , NSTR("ru = 'Значение не может быть преобразовано в Уникальный идентификатор!';en = 'The value cannot be converted to a Unique identifier (UUID).'"), 20);
 			Return;
 		EndTry;
 

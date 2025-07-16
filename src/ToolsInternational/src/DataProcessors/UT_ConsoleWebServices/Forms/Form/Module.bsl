@@ -134,7 +134,7 @@ Procedure ExecuteOperation(Command)
 			ThisForm.Items.TreeResult.Expand(1, True);
 		EndIf;
 	Else
-		Message(NStr("ru = 'Не все параметры выбраны!'; en = 'Not all options are selected!'; tr = 'Tüm parametreler seçilmedi!'"));
+		Message(NStr("ru = 'Не все параметры выбраны!';en = 'Not all options are selected!'"));
 	EndIf;
 EndProcedure
 
@@ -208,14 +208,14 @@ Function ExecuteOperationAtServer(LocationWSDL, UserName, Password, WebServiceNa
 		ValueTree = FormAttributeToValue("TreeResult");
 		ValueTree.Rows.Clear();
 		NewLine = ValueTree.Rows.Add();
-		NewLine.Property 	= Nstr("ru = 'Результат операции'; en = 'Operation result'; tr = 'İşlem sonucu'");
+		NewLine.Property 	= Nstr("ru = 'Результат операции';en = 'Operation result'");
 		NewLine.Value 	= Result;
 		NewLine.Type 		= TypeOf(Result);
 		ValueToFormAttribute(ValueTree, "TreeResult");
 
 		Return Result;
 	Else
-		Return Nstr("ru = 'Неопределенный тип результата операции'; en = 'Undefined operation result type'; tr = 'Tanımsız işlem sonucu türü'");
+		Return Nstr("ru = 'Неопределенный тип результата операции';en = 'Undefined operation result type'");
 	EndIf
 	;
 
@@ -277,7 +277,7 @@ Procedure Save(Command)
 
 	OpenFileDialog = New FileDialog(FileDialogMode.Save);
 	OpenFileDialog.Multiselect = False;
-	OpenFileDialog.Title = Nstr("ru = 'Выберите файл'; en = 'Select a file'; tr = 'Dosya seçin'");
+	OpenFileDialog.Title = Nstr("ru = 'Выберите файл';en = 'Select a file'");
 	OpenFileDialog.Show(New NotifyDescription("SaveEnd", ThisForm,
 		New Structure("OpenFileDialog", OpenFileDialog)));
 
@@ -310,9 +310,9 @@ EndFunction
 &AtClient
 Procedure Read(Command)
 
-	OpenFileDialog = New FileDialog(FileDialogMode.Open);
+	OpenFileDialog = New FileDialog(FileDialogMode.Opening);
 	OpenFileDialog.Multiselect = False;
-	OpenFileDialog.Title = Nstr("ru = 'Выберите файл'; en = 'Select a file'; tr = 'Dosya seçin'");
+	OpenFileDialog.Title = Nstr("ru = 'Выберите файл';en = 'Select a file'");
 	OpenFileDialog.Show(New NotifyDescription("ReadEnd", ThisForm,
 		New Structure("OpenFileDialog", OpenFileDialog)));
 

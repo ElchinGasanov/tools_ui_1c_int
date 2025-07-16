@@ -8,8 +8,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>CompositeDataType</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>CompositeDataType</segments>
+      </paths>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -55,8 +57,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>SearchString</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>SearchString</segments>
+      </paths>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -124,8 +128,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TypesTree.Selected</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TypesTree.Selected</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -168,8 +174,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TypesTree.Picture</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TypesTree.Picture</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>TypesTreePictureExtendedTooltip</name>
@@ -205,10 +213,6 @@
           <autoMaxHeight>true</autoMaxHeight>
           <horizontalStretch>true</horizontalStretch>
           <verticalStretch>true</verticalStretch>
-          <border xsi:type="core:BorderDef">
-            <style>Single</style>
-            <width>1</width>
-          </border>
         </extInfo>
       </items>
       <items xsi:type="form:FormField">
@@ -219,8 +223,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TypesTree.Presentation</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TypesTree.Presentation</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>TypesTreePresentationExtendedTooltip</name>
@@ -308,12 +314,12 @@
       <horizontalAlign>Left</horizontalAlign>
     </autoCommandBar>
     <handlers>
-      <event>Selection</event>
-      <name>TypesTreeSelection</name>
-    </handlers>
-    <handlers>
       <event>OnActivateRow</event>
       <name>TypesTreeOnActivateRow</name>
+    </handlers>
+    <handlers>
+      <event>Selection</event>
+      <name>TypesTreeSelection</name>
     </handlers>
     <searchStringAddition>
       <title>
@@ -352,7 +358,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>TypesTree</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -391,7 +396,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>TypesTree</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -430,7 +434,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>TypesTree</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -491,8 +494,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>StringLength</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>StringLength</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -549,8 +554,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>AcceptableFixedStringLength</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>AcceptableFixedStringLength</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -608,8 +615,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>UnlimitedStringLength</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>UnlimitedStringLength</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -706,8 +715,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>NumberLength</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>NumberLength</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>NumberLengthExtendedTooltip</name>
@@ -760,8 +771,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>NumberPrecision</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>NumberPrecision</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>NumberPrecisionExtendedTooltip</name>
@@ -811,8 +824,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>NonnegativeNumber</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>NonnegativeNumber</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <extendedTooltip>
@@ -906,8 +921,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>DateFormat</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>DateFormat</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>DateFormatExtendedTooltip</name>
@@ -1039,16 +1056,12 @@
       <name>UseDynamicListForRefValueSelection</name>
       <id>64</id>
       <title>
-        <key>ru</key>
-        <value>Форма выбора ссылочного значения</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Referential value choice form</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Referans değeri seçim formu</value>
+        <key>ru</key>
+        <value>Форма выбора ссылочного значения</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -1091,16 +1104,12 @@
       <extInfo xsi:type="form:CheckBoxFieldExtInfo">
         <checkBoxType>Tumbler</checkBoxType>
         <editFormat>
-          <key>ru</key>
-          <value>BF='Стандартная форма'; BT='Динамический список'</value>
-        </editFormat>
-        <editFormat>
           <key>en</key>
           <value>BF='Standard form'; BT='Dynamic list'</value>
         </editFormat>
         <editFormat>
-          <key>tr</key>
-          <value>BF='Standard form'; BT='Dinamik liste'</value>
+          <key>ru</key>
+          <value>BF='Стандартная форма'; BT='Динамический список'</value>
         </editFormat>
       </extInfo>
     </items>
@@ -1217,7 +1226,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -1235,10 +1243,6 @@
     <title>
       <key>en</key>
       <value>Composite data type</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Bileşik veri türü</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1260,10 +1264,6 @@
     <title>
       <key>en</key>
       <value>Search string</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Aranan satır</value>
     </title>
     <id>3</id>
     <valueType>
@@ -1287,10 +1287,6 @@
       <key>en</key>
       <value>Types tree</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Türler ağacı</value>
-    </title>
     <id>4</id>
     <valueType>
       <types>ValueTree</types>
@@ -1310,10 +1306,6 @@
       <title>
         <key>en</key>
         <value>Selected</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Seçilmiş</value>
       </title>
       <id>5</id>
       <valueType>
@@ -1335,10 +1327,6 @@
       <title>
         <key>en</key>
         <value>Presentation</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Gösterim</value>
       </title>
       <id>6</id>
       <valueType>
@@ -1362,10 +1350,6 @@
         <key>en</key>
         <value>Name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
-      </title>
       <id>7</id>
       <valueType>
         <types>String</types>
@@ -1388,10 +1372,6 @@
         <key>en</key>
         <value>Is group</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Grup mu</value>
-      </title>
       <id>10</id>
       <valueType>
         <types>Boolean</types>
@@ -1412,10 +1392,6 @@
       <title>
         <key>en</key>
         <value>Picture</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim</value>
       </title>
       <id>11</id>
       <valueType>
@@ -1438,10 +1414,6 @@
         <key>en</key>
         <value>Unavailable for composite type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Bileşik tür için kullanılamaz</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>Boolean</types>
@@ -1456,16 +1428,12 @@
     <columns>
       <name>Group</name>
       <title>
-        <key>ru</key>
-        <value>Групповой</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Group</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Grup</value>
+        <key>ru</key>
+        <value>Групповой</value>
       </title>
       <id>17</id>
       <valueType>
@@ -1488,10 +1456,6 @@
     <title>
       <key>en</key>
       <value>Number length</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sayı uzunluğu</value>
     </title>
     <id>5</id>
     <valueType>
@@ -1518,10 +1482,6 @@
       <key>en</key>
       <value>Number precision</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sayı basamakları</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>Number</types>
@@ -1546,10 +1506,6 @@
       <key>en</key>
       <value>Nonnegative number</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Negatif olmayan sayı</value>
-    </title>
     <id>7</id>
     <valueType>
       <types>Boolean</types>
@@ -1570,10 +1526,6 @@
     <title>
       <key>en</key>
       <value>String length</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Satır uzunluğu</value>
     </title>
     <id>8</id>
     <valueType>
@@ -1600,10 +1552,6 @@
       <key>en</key>
       <value>Unlimited string length</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sınırsız satır uzunluğu</value>
-    </title>
     <id>9</id>
     <valueType>
       <types>Boolean</types>
@@ -1625,10 +1573,6 @@
       <key>en</key>
       <value>Acceptable fixed string length</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kabul edilebilir sabit satır uzunluğu</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>Boolean</types>
@@ -1649,10 +1593,6 @@
     <title>
       <key>en</key>
       <value>Date format</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Tarih formatı</value>
     </title>
     <id>11</id>
     <valueType>
@@ -1677,10 +1617,6 @@
     <title>
       <key>en</key>
       <value>Selected types</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Seçili tipler</value>
     </title>
     <id>12</id>
     <valueType>
@@ -1720,16 +1656,12 @@
   <attributes>
     <name>UseDynamicListForRefValueSelection</name>
     <title>
-      <key>ru</key>
-      <value>Использовать динамический список для выбора ссылочного значения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Use dynamic list for referential value selection</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Referans değeri seçimi için dinamik listeyi kullanın</value>
+      <key>ru</key>
+      <value>Использовать динамический список для выбора ссылочного значения</value>
     </title>
     <id>15</id>
     <valueType>
@@ -1745,16 +1677,12 @@
   <attributes>
     <name>TypesSet</name>
     <title>
-      <key>ru</key>
-      <value>Набор типов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Type set</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tip seti</value>
+      <key>ru</key>
+      <value>Набор типов</value>
     </title>
     <id>16</id>
     <valueType>
@@ -1779,10 +1707,6 @@
       <key>en</key>
       <value>Choice mode</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Seçim modu</value>
-    </title>
     <id>18</id>
     <valueType>
       <types>Boolean</types>
@@ -1799,14 +1723,6 @@
     <title>
       <key>ru</key>
       <value>Type restrictions</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Type restrictions</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Tür kısıtlamaları</value>
     </title>
     <id>19</id>
     <valueType>
@@ -1826,14 +1742,6 @@
       <key>ru</key>
       <value>Value container type</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Value container type</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Değer konteyner türü</value>
-    </title>
     <id>20</id>
     <valueType>
       <types>String</types>
@@ -1852,14 +1760,6 @@
       <key>ru</key>
       <value>Available types sets</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Available types sets</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut tip setleri</value>
-    </title>
     <id>21</id>
     <valueType/>
     <view>
@@ -1874,10 +1774,6 @@
     <title>
       <key>ru</key>
       <value>Return storage for value container</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Değer konteyneri için depoyu döndür</value>
     </title>
     <id>22</id>
     <valueType>
@@ -1899,10 +1795,6 @@
     <title>
       <key>en</key>
       <value>Apply</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Uygula</value>
     </title>
     <id>1</id>
     <toolTip>

@@ -34,7 +34,7 @@ EndProcedure
 Procedure DeleteMarkedObjects(ExecutionParameters)
 	
 	If NOT UT_Users.IsFullUser() Then
-		Raise NStr("ru = 'Недостаточно прав для выполнения операции.'; en = 'Insufficient rights to perform the operation.'; tr = 'İşlemi gerçekleştirmek için yeterli yetki yok.'");
+		Raise NStr("ru = 'Недостаточно прав для выполнения операции.'; en = 'Insufficient rights to perform the operation.'");
 	EndIf;
 	
 	InitializeParameters(ExecutionParameters);
@@ -161,7 +161,7 @@ Procedure TryToDeleteReference(ExecutionParameters, Ref, Information, Result)
 	EndIf;
 	If Object.DeletionMark <> True Then
 		Result.Success = False;
-		Result.ErrorInfo = NStr("ru = 'Объект не помечен на удаление.'; en = 'The Object is not marked for deletion.'; tr = 'Nesne silinmek üzere işaretlenmemiş.'");
+		Result.ErrorInfo = NStr("ru = 'Объект не помечен на удаление.'; en = 'The Object is not marked for deletion.'");
 		Return;
 	EndIf;
 
@@ -175,7 +175,7 @@ Procedure TryToDeleteReference(ExecutionParameters, Ref, Information, Result)
 		Result.Success = True;
 	Else
 		Result.Success = False;
-		Result.ErrorInfo = NStr("ru = 'Объект используется в других объектах программы.'; en = 'Object is in use by other application objects.'; tr = 'Nesne, diğer uygulama nesneleri tarafından kullanılıyor.'");
+		Result.ErrorInfo = NStr("ru = 'Объект используется в других объектах программы.'; en = 'Object is in use by other application objects.'");
 	EndIf;
 EndProcedure
 
@@ -524,7 +524,7 @@ Procedure DeleteMarkedObjectsExclusively(ExecutionParameters)
 		SetPrivilegedMode(False);
 		
 		If ItemsPreventingDeletion.Columns.Count() < 3 Then
-			Raise NStr("ru = 'Не удалось выполнить удаление объектов.'; en = 'Cannot delete objects.'; tr = 'Nesneler silinemiyor.'");
+			Raise NStr("ru = 'Не удалось выполнить удаление объектов.'; en = 'Cannot delete objects.'");
 		EndIf;
 		
 		// Assign column names to the table of conflicts occurred upon deletion.
@@ -926,7 +926,7 @@ Procedure WriteWarning(Ref, ErrorInformation)
 	EndIf;
 
 	WriteLogEvent(
-		NStr("ru = 'Удаление помеченных'; en = 'Deletion of marked objects'; tr = 'İşaretli nesnelerin silinmesi'", UT_CommonClientServer.DefaultLanguageCode()),
+		NStr("ru = 'Удаление помеченных'; en = 'Deletion of marked objects'", UT_CommonClientServer.DefaultLanguageCode()),
 		EventLogLevel.Warning, , Ref, TextForLog);
 EndProcedure
 
@@ -953,7 +953,7 @@ Procedure WriteReasonToResult(ExecutionParameters, TableRow)
 			Reason.FoundType = Type("ConstantValueManager." + TableRow.FoundMetadata.Name);
 		Else
 			Reason.FoundItemReference = StrTemplate(
-				NStr("ru = 'Обнаружены неразрешимые ссылки (%1)'; en = 'Incorrect references are detected (%1)'; tr = 'Hatalı referanslar tespit edildi (%1)'"),
+				NStr("ru = 'Обнаружены неразрешимые ссылки (%1)';en = 'Incorrect references are detected (%1)'"),
 				TableRow.FoundItemReference.Presentation());
 			Reason.FoundType = Type("String");
 			Return;
@@ -1084,23 +1084,23 @@ Procedure MarkCollectionTraversalProgress(ExecutionParameters, CollectionName)
 	// Prepare parameters to be passed.
 	If CollectionName = "BeforeSearchForItemsMarkedForDeletion" Then
 		
-		Text = NStr("ru = 'Подготовка к поиску объектов, помеченных на удаление.'; en = 'Preparing to search for objects marked for deletion.'; tr = 'Silinmek üzere işaretlenmiş nesneleri aramaya hazırlanılıyor.'");
+		Text = NStr("ru = 'Подготовка к поиску объектов, помеченных на удаление.'; en = 'Preparing to search for objects marked for deletion.'");
 		
 	ElsIf CollectionName = "FindMarkedForDeletion" Then
 		
-		Text = NStr("ru = 'Поиск объектов, помеченных на удаление.'; en = 'Search for objects marked for deletion.'; tr = 'Silinmek üzere işaretlenmiş nesneleri ara'");
+		Text = NStr("ru = 'Поиск объектов, помеченных на удаление.'; en = 'Search for objects marked for deletion.'");
 		
 	ElsIf CollectionName = "AllObjectsMarkedForDeletion" Then
 		
-		Text = NStr("ru = 'Анализ помеченных на удаление.'; en = 'Analysis of objects marked for deletion.'; tr = 'Silinmek üzere işaretlenmiş nesnelerin analizi.'");
+		Text = NStr("ru = 'Анализ помеченных на удаление.'; en = 'Analysis of objects marked for deletion.'");
 		
 	ElsIf CollectionName = "TechnologicalObjects" Then
 		
-		Text = NStr("ru = 'Подготовка к удалению.'; en = 'Prepare for deletion.'; tr = 'Silme işlemine hazırlanılıyor.'");
+		Text = NStr("ru = 'Подготовка к удалению.'; en = 'Prepare for deletion.'");
 		
 	ElsIf CollectionName = "ExclusiveDeletion" Then
 		
-		Text = NStr("ru = 'Выполняется удаление объектов.'; en = 'Deleting objects.'; tr = 'Nesneler siliniyor.'");
+		Text = NStr("ru = 'Выполняется удаление объектов.'; en = 'Deleting objects.'");
 		
 	ElsIf CollectionName = "UserObjects" Then
 		
@@ -1109,24 +1109,24 @@ Procedure MarkCollectionTraversalProgress(ExecutionParameters, CollectionName)
 		PresentationTotal     = Format(ExecutionParameters.Total, "NZ=0; NG=");
 		PresentationNotDeleted = Format(NotDeleted, "NZ=0; NG=");
 		If NotDeleted = 0 Then // Cannot go to the StrTemplate.
-			Text = NStr("ru = 'Удалено: %1 из %2 объектов.'; en = 'Deleted: %1 of %2 objects.'; tr = 'Silindi: %2 nesneden %1''i.'");
+			Text = NStr("ru = 'Удалено: %1 из %2 объектов.'; en = 'Deleted: %1 of %2 objects.'");
 			Text = StrTemplate(Text, PresentationNumber, PresentationTotal);
 		Else
-			Text = NStr("ru = 'Обработано: %1 из %2 объектов, из них не удалено: %3.'; en = 'Processed: %1 out of %2 objects; not deleted: %3.'; tr = 'İşlendi: %2 nesneden %1''i; silinmedi: %3.'");
+			Text = NStr("ru = 'Обработано: %1 из %2 объектов, из них не удалено: %3.'; en = 'Processed: %1 out of %2 objects; not deleted: %3.'");
 			Text = StrTemplate(Text, PresentationNumber, PresentationTotal, PresentationNotDeleted);
 		EndIf;
 		
 	ElsIf CollectionName = "ToRedelete" Then
 		
 		Text = StrTemplate(
-			NStr("ru = 'Повторная проверка не удаленных объектов: %1 из %2.'; en = 'Recheck not deleted objects: %1 out of %2.'; tr = 'Silinmeyen nesneler tekrar kontrol ediliyor: %2 nesneden %1''i.'"),
+			NStr("ru = 'Повторная проверка не удаленных объектов: %1 из %2.'; en = 'Recheck not deleted objects: %1 out of %2.'"),
 			Format(ExecutionParameters.Number, "NZ=0; NG="),
 			Format(ExecutionParameters.Total, "NZ=0; NG="));
 		
 	ElsIf CollectionName = "ItemsPreventingDeletion" Then
 		
 		Text = StrTemplate(
-			NStr("ru = 'Анализ объектов, препятствующих удалению: %1 из %2.'; en = 'Analysis of objects that prevent from deletion: %1 out of %2.'; tr = 'Silinmeyi engelleyen nesnelerin analizi: %2 nesneden %1''i.'"),
+			NStr("ru = 'Анализ объектов, препятствующих удалению: %1 из %2.'; en = 'Analysis of objects that prevent from deletion: %1 out of %2.'"),
 			Format(ExecutionParameters.Number, "NZ=0; NG="),
 			Format(ExecutionParameters.Total, "NZ=0; NG="));
 		

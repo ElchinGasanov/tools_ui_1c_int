@@ -23,8 +23,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Objects.Value</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Objects.Value</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>ObjectsValueExtendedTooltip</name>
@@ -58,12 +60,12 @@
         <showInFooter>true</showInFooter>
         <extInfo xsi:type="form:InputFieldExtInfo">
           <handlers>
-            <event>StartChoice</event>
-            <name>ObjectsValueStartChoice</name>
-          </handlers>
-          <handlers>
             <event>Clearing</event>
             <name>ObjectsValueClearing</name>
+          </handlers>
+          <handlers>
+            <event>StartChoice</event>
+            <name>ObjectsValueStartChoice</name>
           </handlers>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -327,7 +329,6 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
-        <source>Objects</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -366,7 +367,6 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
-        <source>Objects</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -405,7 +405,6 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
-        <source>Objects</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -499,8 +498,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>SpreadsheetDocument</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>SpreadsheetDocument</segments>
+      </paths>
     </dataPath>
     <titleLocation>None</titleLocation>
     <extendedTooltip>
@@ -544,7 +545,6 @@
       <verticalScrollBar>ScrollAuto</verticalScrollBar>
       <horizontalScrollBar>ScrollAuto</horizontalScrollBar>
       <selectionShowMode>Always</selectionShowMode>
-      <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
       <showGroups>true</showGroups>
       <enableStartDrag>true</enableStartDrag>
       <enableDrag>true</enableDrag>
@@ -699,16 +699,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Объекты добавленные к сравнению</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Objects added to comparison</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Karşılaştırmaya eklenen nesneler</value>
+        <key>ru</key>
+        <value>Объекты добавленные к сравнению</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -747,7 +743,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -761,10 +756,6 @@
     <title>
       <key>ru</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -783,10 +774,6 @@
     <title>
       <key>ru</key>
       <value>Objects</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesneler</value>
     </title>
     <id>3</id>
     <valueType>
@@ -808,10 +795,6 @@
       <key>ru</key>
       <value>Spreadsheet document</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>E-tablo belgesi</value>
-    </title>
     <id>5</id>
     <valueType>
       <types>SpreadsheetDocument</types>
@@ -829,14 +812,6 @@
     <title>
       <key>ru</key>
       <value>Generate</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>  Generate</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Oluştur</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -859,14 +834,6 @@
       <key>ru</key>
       <value>Parameters</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Parameters</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Parametreler</value>
-    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -887,14 +854,6 @@
     <title>
       <key>ru</key>
       <value>Add objects added to comparison early</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>  Add objects added to comparison early</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Daha önce karşılaştırmaya eklenen nesneleri ekle</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -920,14 +879,6 @@
     <title>
       <key>ru</key>
       <value>Clear objects aded to comparision early</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>  Clear objects aded to comparision early</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Daha önce karşılaştırmaya eklenen nesneleri temizle</value>
     </title>
     <id>4</id>
     <toolTip>

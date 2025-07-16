@@ -5,10 +5,6 @@
     <key>ru</key>
     <value>Форма хранилища значения</value>
   </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Değer Biriktirme Formu</value>
-  </synonym>
   <usePurposes>PersonalComputer</usePurposes>
   <usePurposes>MobileDevice</usePurposes>
 </mdclass:CommonForm>

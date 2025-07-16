@@ -8,10 +8,10 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	ContainerType = Parameters.ContainerType;
 	
 	If ContainerType = 2 Then
-		Title = Parameters.Title + NStr("ru = ' (массив)'; en = ' (array)'; tr = ' (dizi)'");
+		Title = Parameters.Title + NStr("ru = ' (массив)'; en = ' (array)'");
 		ItemList.LoadValues(ItemListReceived);
 	Else
-		Title = Parameters.Title + NStr("ru = ' (список значений)'; en = ' (value list)'; tr = ' (değer listesi)'");
+		Title = Parameters.Title + NStr("ru = ' (список значений)'; en = ' (value list)'");
 		ItemList = ItemListReceived;
 	EndIf;
 	
@@ -85,7 +85,7 @@ Procedure CommandFillFromFile(Command)
 	Filter = НСтр("ru = 'Текст'; en = 'Text'") + "(*.txt)|*.txt";
 	OpenFileDialog.Filter = Filter;
 	OpenFileDialog.Multiselect = True;
-	OpenFileDialog.Title = NStr("ru = 'Выберите файлы'; en = 'Choose files'; tr = 'Dosyaları seçin'");
+	OpenFileDialog.Title = NStr("ru = 'Выберите файлы'; en = 'Choose files'");
 
 	CallbackDescription = New CallbackDescription("ChooseFileFinish", ThisObject);
 
@@ -99,7 +99,7 @@ Procedure CommandTransferToStringInternal(Command)
 	Mode = FileDialogMode.Save;
 	OpenFileDialog = New FileDialog(Mode);
 	OpenFileDialog.FullFileName = ""; Filter = НСтр("ru = 'Текст'; en = 'Text'") + "(*.txt)|*.txt"; OpenFileDialog.Filter = Filter; // bugfix 31.05.2024
-	OpenFileDialog.Title = NStr("ru = 'Сохранить файл'; en = 'Save file'; tr = 'Dosyayı kaydet'");
+	OpenFileDialog.Title = NStr("ru = 'Сохранить файл'; en = 'Save file'");
 	AdditionalParameters = Новый Структура("FileAddress", GetFileListValuesInRowInternal());
 	CallbackDescription = New CallbackDescription("SavingFileFinish", 
 												  ThisObject,
@@ -126,7 +126,7 @@ Procedure CommandFillFromStringInternal(Command)
 	OpenFileDialog = New FileDialog(Mode);
 	OpenFileDialog.FullFileName = "";
 	OpenFileDialog.Multiselect = Ложь;
-	OpenFileDialog.Title = NStr("ru = 'Выберите файлы'; en = 'Choose files'; tr = 'Dosyaları seçin'");
+	OpenFileDialog.Title = NStr("ru = 'Выберите файлы'; en = 'Choose files'");
 
 
 	CallbackDescription = New CallbackDescription("CommandFillFromLineIntFinish", 
@@ -216,7 +216,7 @@ EndFunction
 &AtClient
 Procedure CommandTransferToClipboardFinish(Result, CallOptions, AdditionalParameters) Export
 	If Result = True Then
-		Status(NStr("ru = 'Скопировано в буфер обмена'; en = 'Copied to clipboard'; tr = 'Panoya kopyalandı'"));
+		Status(NStr("ru = 'Скопировано в буфер обмена'; en = 'Copied to clipboard'"));
 	EndIf;
 EndProcedure
 

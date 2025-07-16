@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Редактирование типа</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Edit type</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Türü düzenleme</value>
+    <key>ru</key>
+    <value>Редактирование типа</value>
   </title>
   <items xsi:type="form:FormField">
     <name>Container</name>
@@ -20,8 +16,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>ContainerType</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>ContainerType</segments>
+      </paths>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -129,8 +127,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>CompositeType</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>CompositeType</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <handlers>
@@ -177,8 +177,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>SearchString</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>SearchString</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -248,8 +250,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TypeContent.Selected</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TypeContent.Selected</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -294,8 +298,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TypeContent.Picture</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TypeContent.Picture</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>TypeContentPictureExtendedTooltip</name>
@@ -334,10 +340,6 @@
           <autoMaxHeight>true</autoMaxHeight>
           <horizontalStretch>true</horizontalStretch>
           <verticalStretch>true</verticalStretch>
-          <border xsi:type="core:BorderDef">
-            <style>Single</style>
-            <width>1</width>
-          </border>
         </extInfo>
       </items>
       <items xsi:type="form:FormField">
@@ -348,8 +350,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TypeContent.Presentation</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TypeContent.Presentation</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>TypeContentPresentationExtendedTooltip</name>
@@ -442,7 +446,6 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
-        <source>TypeContent</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -481,7 +484,6 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
-        <source>TypeContent</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -520,7 +522,6 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
-        <source>TypeContent</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -581,8 +582,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>NumberQualifiersNonnegative</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>NumberQualifiersNonnegative</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -625,8 +628,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>NumberQualifiersLength</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>NumberQualifiersLength</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>NumberQualifiersLengthExtendedTooltip</name>
@@ -676,8 +681,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>NumberQualifiersPrecision</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>NumberQualifiersPrecision</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>NumberQualifiersPrecisionExtendedTooltip</name>
@@ -775,8 +782,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>DateQualifiersContent</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>DateQualifiersContent</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>DateQualifiersContentExtendedTooltip</name>
@@ -887,8 +896,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>StringQualifiersLength</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>StringQualifiersLength</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -942,8 +953,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>StringQualifiersFixed</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>StringQualifiersFixed</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -986,8 +999,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>StringQualifiersComment</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>StringQualifiersComment</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -1133,24 +1148,22 @@
         <name>TableStructureName</name>
         <id>76</id>
         <title>
-          <key>ru</key>
-          <value>Имя колонки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Column name</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Sütun adı</value>
+          <key>ru</key>
+          <value>Имя колонки</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TableStructure.Name</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TableStructure.Name</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>TableStructureNameExtendedTooltip</name>
@@ -1198,8 +1211,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TableStructure.ValueType</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TableStructure.ValueType</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>TableStructureValueTypeExtendedTooltip</name>
@@ -1252,8 +1267,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>TableStructure.Qualifiers</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>TableStructure.Qualifiers</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>TableStructureModifiersExtendedTooltip</name>
@@ -1327,6 +1344,7 @@
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>СтруктураТаблицыКнопкаСкопировать</name>
@@ -1357,6 +1375,7 @@
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>СтруктураТаблицыКнопкаУдалить</name>
@@ -1387,6 +1406,7 @@
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>СтруктураТаблицыКнопкаПереместитьВверх</name>
@@ -1417,6 +1437,7 @@
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <items xsi:type="form:Button">
           <name>СтруктураТаблицыКнопкаПереместитьВниз</name>
@@ -1447,6 +1468,7 @@
           <autoMaxHeight>true</autoMaxHeight>
           <placementArea>UserCmds</placementArea>
           <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1493,7 +1515,6 @@
           </userVisible>
           <autoFill>true</autoFill>
         </contextMenu>
-        <source>TableStructure</source>
         <extInfo xsi:type="form:SearchStringAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -1532,7 +1553,6 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
-        <source>TableStructure</source>
         <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -1571,7 +1591,6 @@
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
-        <source>TableStructure</source>
         <extInfo xsi:type="form:SearchControlAdditionExtInfo">
           <autoMaxWidth>true</autoMaxWidth>
         </extInfo>
@@ -1628,16 +1647,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Структура таблицы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Table structure</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tablo yapısı</value>
+      <key>ru</key>
+      <value>Структура таблицы</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -1825,7 +1840,6 @@
   </handlers>
   <width>65</width>
   <height>30</height>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -1835,10 +1849,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_QueryConsole</types>
@@ -1854,16 +1864,12 @@
   <attributes>
     <name>TypeContent</name>
     <title>
-      <key>ru</key>
-      <value>Состав типа</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Type content</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tip içeriği</value>
+      <key>ru</key>
+      <value>Состав типа</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1878,16 +1884,12 @@
     <columns>
       <name>Selected</name>
       <title>
-        <key>ru</key>
-        <value>Выбран</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Selected</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Seçilmiş</value>
+        <key>ru</key>
+        <value>Выбран</value>
       </title>
       <id>1</id>
       <valueType>
@@ -1903,16 +1905,12 @@
     <columns>
       <name>Presentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Gösterim</value>
+        <key>ru</key>
+        <value>Представление</value>
       </title>
       <id>2</id>
       <valueType>
@@ -1929,16 +1927,12 @@
     <columns>
       <name>Name</name>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Имя</value>
       </title>
       <id>3</id>
       <valueType>
@@ -1955,16 +1949,12 @@
     <columns>
       <name>SelectedChild</name>
       <title>
-        <key>ru</key>
-        <value>Выбран подч</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Selected child</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Seçilmiş alt öğe</value>
+        <key>ru</key>
+        <value>Выбран подч</value>
       </title>
       <id>4</id>
       <valueType>
@@ -1980,16 +1970,12 @@
     <columns>
       <name>IsFolder</name>
       <title>
-        <key>ru</key>
-        <value>Это группа</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Is folder</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Klasördür</value>
+        <key>ru</key>
+        <value>Это группа</value>
       </title>
       <id>5</id>
       <valueType>
@@ -2005,16 +1991,12 @@
     <columns>
       <name>Picture</name>
       <title>
-        <key>ru</key>
-        <value>Картинка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Picture</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Resim</value>
+        <key>ru</key>
+        <value>Картинка</value>
       </title>
       <id>6</id>
       <valueType>
@@ -2031,16 +2013,12 @@
   <attributes>
     <name>CompositeType</name>
     <title>
-      <key>ru</key>
-      <value>Составной тип</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Composite type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Bileşik tip</value>
+      <key>ru</key>
+      <value>Составной тип</value>
     </title>
     <id>3</id>
     <valueType>
@@ -2056,16 +2034,12 @@
   <attributes>
     <name>NumberQualifiersNonnegative</name>
     <title>
-      <key>ru</key>
-      <value>Не отрицательное</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Not negative</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Olumsuz değil</value>
+      <key>ru</key>
+      <value>Не отрицательное</value>
     </title>
     <id>4</id>
     <valueType>
@@ -2081,16 +2055,12 @@
   <attributes>
     <name>NumberQualifiersLength</name>
     <title>
-      <key>ru</key>
-      <value>Длина</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Length</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Uzunluk</value>
+      <key>ru</key>
+      <value>Длина</value>
     </title>
     <id>5</id>
     <valueType>
@@ -2110,16 +2080,12 @@
   <attributes>
     <name>NumberQualifiersPrecision</name>
     <title>
-      <key>ru</key>
-      <value>Точность</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Precision</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kesinlik</value>
+      <key>ru</key>
+      <value>Точность</value>
     </title>
     <id>6</id>
     <valueType>
@@ -2139,16 +2105,12 @@
   <attributes>
     <name>StringQualifiersLength</name>
     <title>
-      <key>ru</key>
-      <value>Длина</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Length</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Uzunluk</value>
+      <key>ru</key>
+      <value>Длина</value>
     </title>
     <id>7</id>
     <valueType>
@@ -2167,16 +2129,12 @@
   <attributes>
     <name>StringQualifiersComment</name>
     <title>
-      <key>ru</key>
-      <value>Квалификаторы строки комментарий</value>
-    </title>
-    <title>
       <key>en</key>
       <value>String qualifiers comment</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dize niteleyicileri yorumu</value>
+      <key>ru</key>
+      <value>Квалификаторы строки комментарий</value>
     </title>
     <id>8</id>
     <valueType>
@@ -2193,16 +2151,12 @@
   <attributes>
     <name>DateQualifiersContent</name>
     <title>
-      <key>ru</key>
-      <value>Состав даты</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Date content</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tarih içeriği</value>
+      <key>ru</key>
+      <value>Состав даты</value>
     </title>
     <id>9</id>
     <valueType>
@@ -2219,16 +2173,12 @@
   <attributes>
     <name>StringQualifiersFixed</name>
     <title>
-      <key>ru</key>
-      <value>Фиксированная</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Fixed</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sabit</value>
+      <key>ru</key>
+      <value>Фиксированная</value>
     </title>
     <id>10</id>
     <valueType>
@@ -2244,16 +2194,12 @@
   <attributes>
     <name>ContainerType</name>
     <title>
-      <key>ru</key>
-      <value>Тип контейнера</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Container type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Konteyner tipi</value>
+      <key>ru</key>
+      <value>Тип контейнера</value>
     </title>
     <id>11</id>
     <valueType>
@@ -2272,16 +2218,12 @@
   <attributes>
     <name>fPointInTimeBoundary</name>
     <title>
-      <key>ru</key>
-      <value>Момент граница используются</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Point In Time and Boundary types are already in use</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nokta Zamanı ve Sınır türleri zaten kullanımda</value>
+      <key>ru</key>
+      <value>Момент граница используются</value>
     </title>
     <id>12</id>
     <valueType>
@@ -2297,16 +2239,12 @@
   <attributes>
     <name>TableStructure</name>
     <title>
-      <key>ru</key>
-      <value>Структура таблицы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Table structure</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tablo yapısı</value>
+      <key>ru</key>
+      <value>Структура таблицы</value>
     </title>
     <id>13</id>
     <valueType>
@@ -2321,16 +2259,12 @@
     <columns>
       <name>Name</name>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Имя</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2347,16 +2281,12 @@
     <columns>
       <name>ValueType</name>
       <title>
-        <key>ru</key>
-        <value>Тип значения</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Value type</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değer türü</value>
+        <key>ru</key>
+        <value>Тип значения</value>
       </title>
       <id>2</id>
       <valueType>
@@ -2372,16 +2302,12 @@
     <columns>
       <name>Qualifiers</name>
       <title>
-        <key>ru</key>
-        <value>Квалификаторы</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Qualifiers</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Niteleyiciler</value>
+        <key>ru</key>
+        <value>Квалификаторы</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2398,16 +2324,12 @@
     <columns>
       <name>OldName</name>
       <title>
-        <key>ru</key>
-        <value>Имя старое</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Old name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Eski ad</value>
+        <key>ru</key>
+        <value>Имя старое</value>
       </title>
       <id>4</id>
       <valueType>
@@ -2425,16 +2347,12 @@
   <attributes>
     <name>fSimpleMode</name>
     <title>
-      <key>ru</key>
-      <value>Форма открыта в простом виде</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Form opened in simple mode</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Form basit modda açıldı</value>
+      <key>ru</key>
+      <value>Форма открыта в простом виде</value>
     </title>
     <id>14</id>
     <valueType>
@@ -2450,16 +2368,12 @@
   <attributes>
     <name>fEditType</name>
     <title>
-      <key>ru</key>
-      <value>ф Редактирование типа</value>
-    </title>
-    <title>
       <key>en</key>
       <value>F edit type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>f Düzenleme türü</value>
+      <key>ru</key>
+      <value>ф Редактирование типа</value>
     </title>
     <id>16</id>
     <valueType>
@@ -2475,16 +2389,12 @@
   <attributes>
     <name>TableAddress</name>
     <title>
-      <key>ru</key>
-      <value>Адрес таблицы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Table address</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tablo adresi</value>
+      <key>ru</key>
+      <value>Адрес таблицы</value>
     </title>
     <id>17</id>
     <valueType>
@@ -2501,16 +2411,12 @@
   <attributes>
     <name>TypeTree</name>
     <title>
-      <key>ru</key>
-      <value>Дерево типов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Type tree</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tür ağacı</value>
+      <key>ru</key>
+      <value>Дерево типов</value>
     </title>
     <id>19</id>
     <valueType>
@@ -2527,16 +2433,12 @@
   <attributes>
     <name>SearchString</name>
     <title>
-      <key>ru</key>
-      <value>Строка поиска</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Search string</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Arama çubuğu</value>
+      <key>ru</key>
+      <value>Строка поиска</value>
     </title>
     <id>20</id>
     <valueType>
@@ -2553,16 +2455,12 @@
   <attributes>
     <name>ResetAll</name>
     <title>
-      <key>ru</key>
-      <value>Флаг сброшены все</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Reset all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Işaretler kaldırılmış</value>
+      <key>ru</key>
+      <value>Флаг сброшены все</value>
     </title>
     <id>21</id>
     <valueType>
@@ -2578,16 +2476,12 @@
   <attributes>
     <name>AllowedList</name>
     <title>
-      <key>ru</key>
-      <value>Список разрешенных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Allowed list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İzin verilenler listesi</value>
+      <key>ru</key>
+      <value>Список разрешенных</value>
     </title>
     <id>15</id>
     <valueType/>
@@ -2601,16 +2495,12 @@
   <attributes>
     <name>EnabledInQuery</name>
     <title>
-      <key>ru</key>
-      <value>В запрос разрешено</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Enabled in query</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorguda etkinleştirildi</value>
+      <key>ru</key>
+      <value>В запрос разрешено</value>
     </title>
     <id>22</id>
     <valueType>
@@ -2626,16 +2516,12 @@
   <attributes>
     <name>ParameterName</name>
     <title>
-      <key>ru</key>
-      <value>Имя параметра</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Parameter name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Parametre adı</value>
+      <key>ru</key>
+      <value>Имя параметра</value>
     </title>
     <id>23</id>
     <valueType>
@@ -2652,16 +2538,12 @@
   <attributes>
     <name>ToParameterMode</name>
     <title>
-      <key>ru</key>
-      <value>Режим в параметр</value>
-    </title>
-    <title>
       <key>en</key>
       <value>To parameter mode</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Parametre moduna</value>
+      <key>ru</key>
+      <value>Режим в параметр</value>
     </title>
     <id>18</id>
     <valueType>
@@ -2677,16 +2559,12 @@
   <formCommands>
     <name>OKCommand</name>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>ОК</value>
     </title>
     <id>1</id>
     <use>
@@ -2702,16 +2580,12 @@
   <formCommands>
     <name>ToQueryCommand</name>
     <title>
-      <key>ru</key>
-      <value>В запрос</value>
-    </title>
-    <title>
       <key>en</key>
       <value>To query</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorguya</value>
+      <key>ru</key>
+      <value>В запрос</value>
     </title>
     <id>2</id>
     <toolTip>

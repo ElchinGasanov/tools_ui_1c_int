@@ -6,7 +6,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	
 	DataProcessor = FormAttributeToValue("Object");
 	
-	Title = Parameters.Title + NStr("ru = ' (таблица значений)'; en = ' (value table)'; tr = '(değerler tablosu)'");
+	Title = Parameters.Title + NStr("ru = ' (таблица значений)'; en = ' (value table)'");
 	
 	If Parameters.Value = Undefined Then
 		Table = New ValueTable;

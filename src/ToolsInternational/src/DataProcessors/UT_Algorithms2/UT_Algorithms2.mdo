@@ -9,10 +9,6 @@
     <key>en</key>
     <value>Алгоритмыбез расширения таблиц базы данных (УИ)</value>
   </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Veritabanı Tablo Uzantısı Olmayan Algoritmalar (UT)</value>
-  </synonym>
   <comment>// not adapted</comment>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_Algorithms2.Form.ListForm</defaultForm>

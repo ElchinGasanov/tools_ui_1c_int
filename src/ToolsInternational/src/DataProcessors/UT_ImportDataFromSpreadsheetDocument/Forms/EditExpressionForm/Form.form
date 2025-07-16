@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Форма редактирования выражения</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Edit expression</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>İfadeyi düzenle</value>
+    <key>ru</key>
+    <value>Форма редактирования выражения</value>
   </title>
   <items xsi:type="form:FormField">
     <name>ExpressionTextLabel</name>
@@ -20,8 +16,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>ExpressionTextLabel</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>ExpressionTextLabel</segments>
+      </paths>
     </dataPath>
     <titleLocation>None</titleLocation>
     <extendedTooltip>
@@ -73,8 +71,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>TextDocumentField</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>TextDocumentField</segments>
+      </paths>
     </dataPath>
     <titleLocation>None</titleLocation>
     <extendedTooltip>
@@ -239,15 +239,14 @@
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <handlers>
-    <event>OnOpen</event>
-    <name>OnOpen</name>
-  </handlers>
-  <handlers>
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
+  <handlers>
+    <event>OnOpen</event>
+    <name>OnOpen</name>
+  </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -259,10 +258,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_ImportDataFromSpreadsheetDocument</types>
@@ -278,16 +273,12 @@
   <attributes>
     <name>ExpressionTextLabel</name>
     <title>
-      <key>ru</key>
-      <value>Надпись текст выражения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Expression text label</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ifade metni label</value>
+      <key>ru</key>
+      <value>Надпись текст выражения</value>
     </title>
     <id>2</id>
     <valueType>
@@ -304,16 +295,12 @@
   <attributes>
     <name>TextDocumentField</name>
     <title>
-      <key>ru</key>
-      <value>Поле текстового документа</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Text document field</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metin belge alanı</value>
+      <key>ru</key>
+      <value>Поле текстового документа</value>
     </title>
     <id>3</id>
     <valueType>
@@ -337,10 +324,6 @@
       <key>en</key>
       <value>ColumnsRows</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sütunlar satırlar</value>
-    </title>
     <id>4</id>
     <valueType/>
     <view>
@@ -360,10 +343,6 @@
       <key>en</key>
       <value>Expression text</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Ifade metni</value>
-    </title>
     <id>5</id>
     <valueType>
       <types>String</types>
@@ -382,10 +361,6 @@
       <key>ru</key>
       <value>Result type</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Çıktı türü</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>TypeDescription</types>
@@ -400,16 +375,12 @@
   <formCommands>
     <name>ОК</name>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>ОК</value>
     </title>
     <id>1</id>
     <toolTip>

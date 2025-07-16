@@ -44,9 +44,9 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		EndIf;
 	EndIf;
 	If IsTree Then
-		Title = NStr("ru = 'Редактор дерева значения'; en = 'Value tree editor'; tr = 'Değer ağacı düzenleyicisi'");
+		Title = NStr("ru = 'Редактор дерева значения'; en = 'Value tree editor'");
 	Else
-		Title = NStr("ru = 'Редактор таблицы значения'; en = 'Value table editor'; tr = 'Değer tablosu düzenleyicisi'")
+		Title = NStr("ru = 'Редактор таблицы значения'; en = 'Value table editor'")
 	EndIf;
 	AddRootItemAndAttributeTables();	
 
@@ -90,7 +90,7 @@ Procedure TableColumnsBeforeEditEnd(Item, NewRow, CancelEdit, Cancel)
 
 	NameRows = TableColumns.НайтиСтроки(New Structure("Name", ColumnName));
 	If NameRows.Count() > 1 Then
-		ShowMessageBox( , NStr("ru = 'Колонка с таким именем уже есть! Введите другое имя.'; en = 'There is already a column with that name! Enter a different name.'; tr = 'Bu isimde bir sütun zaten var! Farklı bir isim girin.'"), , Title);
+		ShowMessageBox( , NStr("ru = 'Колонка с таким именем уже есть! Введите другое имя.'; en = 'There is already a column with that name! Enter a different name.'"), , Title);
 		Cancel = True;
 		Return;
 	EndIf;
@@ -490,7 +490,7 @@ Function ResultValueTreeInStorage()
 		Else
 			ResultStructure.Insert("Value", ValueToStringInternal(ResultTree));
 		EndIf;
-		ResultStructure.Insert("Presentation", StrTemplate(NStr("ru = 'Строк: %1 Колонок: %2'; en = 'Rows: %1 Columns: %2'; tr = 'Satırlar: %1 Sütunlar: %2'"),
+		ResultStructure.Insert("Presentation", StrTemplate(NStr("ru = 'Строк: %1 Колонок: %2'; en = 'Rows: %1 Columns: %2'"),
 			ResultTree.Rows.Count(),
 			ResultTree.Columns.Count()));
 		ResultStructure.Insert("RowsCount", ResultTree.Rows.Count());
@@ -557,7 +557,7 @@ Function ResultValueTableToString()
 		Else
 			ResultStructure.Insert("Value", ValueToStringInternal(ValueTable));
 		EndIf;
-		ResultStructure.Insert("Presentation", StrTemplate(NSTR("ru = 'Строк: %1 Колонок: %2'; en = 'Rows: %1 Columns: %2'; tr = 'Satırlar: %1 Sütunlar: %2'"), 
+		ResultStructure.Insert("Presentation", StrTemplate(NSTR("ru = 'Строк: %1 Колонок: %2';en = 'Rows: %1 Columns: %2'"), 
 			ValueTable.Count(), 
 			ValueTable.Columns.Count()));
 		ResultStructure.Insert("RowCount", ValueTable.Count());

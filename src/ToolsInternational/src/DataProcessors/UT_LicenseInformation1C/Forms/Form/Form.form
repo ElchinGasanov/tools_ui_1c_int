@@ -23,8 +23,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.LineNumber</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.LineNumber</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListLineNumberExtendedTooltip</name>
@@ -69,8 +71,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.LicenseNumber</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.LicenseNumber</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListLicenseNumberExtendedTooltip</name>
@@ -119,8 +123,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.Description</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.Description</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListDescriptionExtendedTooltip</name>
@@ -169,8 +175,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.LicenseCount</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.LicenseCount</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListLicenseCountExtendedTooltip</name>
@@ -219,8 +227,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.PinCode</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.PinCode</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListPinCodeExtendedTooltip</name>
@@ -269,8 +279,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.Active</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.Active</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListActiveExtendedTooltip</name>
@@ -312,8 +324,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.ActivationDate</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.ActivationDate</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListActivationDateExtendedTooltip</name>
@@ -362,8 +376,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.RegistrationNumber</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.RegistrationNumber</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListRegistrationNumberExtendedTooltip</name>
@@ -412,8 +428,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.ProductCode</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.ProductCode</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListProductCodeExtendedTooltip</name>
@@ -462,8 +480,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.LicensesList.LicenseFileName</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.LicensesList.LicenseFileName</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>LicensesListLicenseFileNameExtendedTooltip</name>
@@ -616,7 +636,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>LicensesList</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -655,7 +674,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>LicensesList</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -695,7 +713,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>LicensesList</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -764,8 +781,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Description</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Description</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListDescription1ExtendedTooltip</name>
@@ -814,8 +833,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.LicenseCount</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.LicenseCount</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListLicenseCount1ExtendedTooltip</name>
@@ -864,8 +885,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.LicenseNumber</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.LicenseNumber</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListLicenseNumber1ExtendedTooltip</name>
@@ -914,8 +937,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.PinCode</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.PinCode</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListPinCode1ExtendedTooltip</name>
@@ -964,8 +989,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.ProductCode</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.ProductCode</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListProductCode1ExtendedTooltip</name>
@@ -1014,8 +1041,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Active</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Active</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListActive1ExtendedTooltip</name>
@@ -1057,8 +1086,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.RegistrationNumber</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.RegistrationNumber</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListRegistrationNumber1ExtendedTooltip</name>
@@ -1107,8 +1138,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.LicenseFileName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.LicenseFileName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListLicenseFileName1ExtendedTooltip</name>
@@ -1155,16 +1188,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Информация</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Information</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Bilgi</value>
+          <key>ru</key>
+          <value>Информация</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -1206,17 +1235,15 @@
             <key>en</key>
             <value>Last name</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>Soy isim</value>
-          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.LastName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.LastName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListLastNameExtendedTooltip</name>
@@ -1265,8 +1292,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Name</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Name</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListNameExtendedTooltip</name>
@@ -1315,8 +1344,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.MiddleName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.MiddleName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListMiddleNameExtendedTooltip</name>
@@ -1365,8 +1396,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.EMail</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.EMail</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListEMailExtendedTooltip</name>
@@ -1415,8 +1448,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Organization</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Organization</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListOrganizationExtendedTooltip</name>
@@ -1465,8 +1500,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Country</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Country</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListCountryExtendedTooltip</name>
@@ -1515,8 +1552,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Region</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Region</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListRegionExtendedTooltip</name>
@@ -1565,8 +1604,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.ZIP</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.ZIP</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListZIPExtendedTooltip</name>
@@ -1615,8 +1656,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.District</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.District</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListDistrictExtendedTooltip</name>
@@ -1665,8 +1708,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Town</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Town</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListTownExtendedTooltip</name>
@@ -1715,8 +1760,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Street</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Street</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListStreetExtendedTooltip</name>
@@ -1765,8 +1812,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.House</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.House</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListHouseExtendedTooltip</name>
@@ -1815,8 +1864,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Building</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Building</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListBuildingExtendedTooltip</name>
@@ -1865,8 +1916,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.Apartment</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.Apartment</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListApartmentExtendedTooltip</name>
@@ -1915,8 +1968,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.ActivationDate</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.ActivationDate</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListActivationDate1ExtendedTooltip</name>
@@ -1963,16 +2018,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Данные активации</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Activation data</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Etkinleştirme verileri</value>
+          <key>ru</key>
+          <value>Данные активации</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -2011,8 +2062,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Items.LicensesList.CurrentData.TextInformation</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Items.LicensesList.CurrentData.TextInformation</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LicensesListTextInformationExtendedTooltip</name>
@@ -2061,16 +2114,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Другое</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Other</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Diğer</value>
+          <key>ru</key>
+          <value>Другое</value>
         </title>
         <toolTip>
           <key>ru</key>
@@ -2317,7 +2366,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>AlwaysHorizontal</group>
@@ -2331,10 +2379,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -2351,16 +2395,12 @@
   <formCommands>
     <name>GetLicensesList</name>
     <title>
-      <key>ru</key>
-      <value>Получить список лицензий</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Get licenses list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Lisans listesini al</value>
+      <key>ru</key>
+      <value>Получить список лицензий</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -2387,10 +2427,6 @@
       <key>en</key>
       <value>Get license full information</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Lisansın tam bilgilerini al</value>
-    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -2409,16 +2445,12 @@
   <formCommands>
     <name>LicenseValidationCheck</name>
     <title>
-      <key>ru</key>
-      <value>Проверка валидности лицензий</value>
-    </title>
-    <title>
       <key>en</key>
       <value>License validation check</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Lisans doğrulama kontrolü</value>
+      <key>ru</key>
+      <value>Проверка валидности лицензий</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -2445,10 +2477,6 @@
       <key>en</key>
       <value>License reactivation</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Lisans yeniden etkinleştirme</value>
-    </title>
     <id>4</id>
     <toolTip>
       <key>ru</key>
@@ -2467,16 +2495,12 @@
   <formCommands>
     <name>DeleteLicense</name>
     <title>
-      <key>ru</key>
-      <value>Удалить лицензию</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete license</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Lisansı sil</value>
+      <key>ru</key>
+      <value>Удалить лицензию</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -2496,16 +2520,12 @@
   <formCommands>
     <name>ActivateLicense</name>
     <title>
-      <key>ru</key>
-      <value>Активировать лицензию</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Activate license</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Lisansı etkinleştir</value>
+      <key>ru</key>
+      <value>Активировать лицензию</value>
     </title>
     <id>6</id>
     <toolTip>

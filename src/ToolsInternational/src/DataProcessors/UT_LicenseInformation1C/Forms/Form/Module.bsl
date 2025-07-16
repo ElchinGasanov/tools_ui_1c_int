@@ -240,8 +240,8 @@ Procedure GetLicenseFullInformation()
 	Counter = 1;
 	For Each Line In Object.LicensesList Do
 		
-		MessageText = StrTemplate(NSTR("ru = 'Получение информации о лицензиях (%1) шт.)'; en = 'Getting information about licenses ( %1) pcs'; tr = 'Lisanslar hakkında bilgi edinme (%1) adet)'"),String(LicensesCount));
-		Explanation = StrTemplate(NSTR("ru = 'Запрос информации о лицензии %1 .Всего: %2'; en = 'Request for license information %1 .Total: %2'; tr = 'Lisans bilgisi talebi %1 .Toplam: %2'"),Line.LicenseNumber,LicensesCount);
+		MessageText = StrTemplate("ru = 'Получение информации о лицензиях (%1) шт.)';en = 'Getting information about licenses ( %1) pcs'",String(LicensesCount));
+		Explanation = StrTemplate(NSTR("ru = 'Запрос информации о лицензии %1 .Всего: %2';en = 'Request for license information %1 .Total: %2'"),Line.LicenseNumber,LicensesCount);
 		Picture = PictureLib.Post;
 		IndicatorValue = 100 / (LicensesCount / Counter);
 		Status(MessageText, IndicatorValue, Explanation, Picture);
@@ -259,8 +259,8 @@ Procedure LicenseValidationCheck()
 	IndicatorValue = 0;
 	Counter = 1;
 	For Each Line In Object.LicensesList Do
-		MessageText = StrTemplate(NSTR("ru = 'Получение информации о лицензиях (%1) шт.)'; en = 'Getting information about licenses ( %1) pcs'; tr = 'Lisanslar hakkında bilgi edinme (%1) adet)'"),String(LicensesCount));
-		Explanation = StrTemplate(NSTR("ru = 'Запрос информации о лицензии %1 .Всего: %2'; en = 'Request for license information %1 .Total: %2'; tr = 'Lisans hakkında bilgi isteyi %1 .Toplam: %2'"),Line.LicenseNumber,LicensesCount);
+		MessageText = StrTemplate("ru = 'Получение информации о лицензиях (%1) шт.)';en = 'Getting information about licenses ( %1) pcs'",String(LicensesCount));
+		Explanation = StrTemplate(NSTR("ru = 'Запрос информации о лицензии %1 .Всего: %2';en = 'Request for license information %1 .Total: %2'"),Line.LicenseNumber,LicensesCount);
 		Picture = PictureLib.Post;
 		IndicatorValue = 100 / (LicensesCount / Counter);
 		Status(MessageText, IndicatorValue, Explanation, Picture);
@@ -331,7 +331,7 @@ Procedure LicenseReactivation(Command)
 	ShowInputString(
         Notify, , // skip the initial value
 
-		NSTR("ru = 'Введите пин-код для лицензии '; en = 'Enter PIN code license'; tr = 'Lisans için PIN kodunu girin'") + CurrentLine["LicenseNumber"], 0, //  length
+		NSTR("ru = 'Введите пин-код для лицензии ';en = 'Enter PIN code license'") + CurrentLine["LicenseNumber"], 0, //  length
 
 		False // Multiline
 	);

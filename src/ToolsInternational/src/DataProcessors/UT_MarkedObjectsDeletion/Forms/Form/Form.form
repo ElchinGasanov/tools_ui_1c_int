@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Удаление помеченных объектов</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Marked objects deletion</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>İşaretli nesnelerin silinmesi</value>
+    <key>ru</key>
+    <value>Удаление помеченных объектов</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>RecordParams</name>
@@ -27,10 +23,6 @@
     <title>
       <key>en</key>
       <value>Record params</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Kayıt seçenekleri</value>
     </title>
     <extendedTooltip>
       <name>RecordParamsExtendedTooltip</name>
@@ -74,16 +66,12 @@
         <name>DeleteMode</name>
         <id>15</id>
         <title>
-          <key>ru</key>
-          <value>Выберите режим удаления</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Choose deletion mode</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Silme modunu seçin</value>
+          <key>ru</key>
+          <value>Выберите режим удаления</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -132,16 +120,12 @@
           <columnsCount>1</columnsCount>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Автоматическое удаление всех отмеченных объектов</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Automatic deletion of all marked objects</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>İşaretlenen tüm nesnelerin otomatik olarak silinmesi</value>
+              <key>ru</key>
+              <value>Автоматическое удаление всех отмеченных объектов</value>
             </presentation>
             <value xsi:type="core:StringValue">
               <value>Full</value>
@@ -149,16 +133,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Выборочное удаление объектов</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Selective deletion of objects</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Nesnelerin seçici olarak silinmesi</value>
+              <key>ru</key>
+              <value>Выборочное удаление объектов</value>
             </presentation>
             <value xsi:type="core:StringValue">
               <value>Selective</value>
@@ -178,10 +158,6 @@
       <title>
         <key>en</key>
         <value>Select delete mode</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Silme modunu seçin</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -662,7 +638,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>MarkedForDeletionItemsTree</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -701,7 +676,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>MarkedForDeletionItemsTree</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -741,7 +715,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>MarkedForDeletionItemsTree</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1014,10 +987,6 @@
         <key>en</key>
         <value>Marked for delete</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Silinmek üzere işaretlenenler</value>
-      </title>
       <toolTip>
         <key>ru</key>
         <value>Помеченные на удаление</value>
@@ -1270,7 +1239,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>NotDeletedItemsTree</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1309,7 +1277,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>NotDeletedItemsTree</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -1349,7 +1316,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>NotDeletedItemsTree</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1565,10 +1531,6 @@
         <key>en</key>
         <value>Deletion failure reasons page</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Silinmenin imkansızlığının nedenleri</value>
-      </title>
       <toolTip>
         <key>ru</key>
         <value>Причины невозможности удаления</value>
@@ -1611,10 +1573,6 @@
           <title>
             <key>en</key>
             <value>Time consuming operation picture</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Zaman alıcı operasyon resmi</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1661,10 +1619,6 @@
           <title>
             <key>ru</key>
             <value>Удаление помеченных объектов</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>İşaretli nesnelerin silinmesi</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1827,16 +1781,12 @@
       <name>CommandBack</name>
       <id>52</id>
       <title>
-        <key>ru</key>
-        <value>&lt;&lt; Назад</value>
-      </title>
-      <title>
         <key>en</key>
         <value>&lt;&lt; Back</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>&lt;&lt; Geri</value>
+        <key>ru</key>
+        <value>&lt;&lt; Назад</value>
       </title>
       <visible>true</visible>
       <userVisible>
@@ -1869,16 +1819,12 @@
       <name>CommandNext</name>
       <id>3</id>
       <title>
-        <key>ru</key>
-        <value>Далее >></value>
-      </title>
-      <title>
         <key>en</key>
         <value>Next >></value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İleri >></value>
+        <key>ru</key>
+        <value>Далее >></value>
       </title>
       <visible>true</visible>
       <userVisible>
@@ -1920,16 +1866,12 @@
       <name>CommandDelete</name>
       <id>45</id>
       <title>
-        <key>ru</key>
-        <value>Удалить</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Delete</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sil</value>
+        <key>ru</key>
+        <value>Удалить</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -2119,7 +2061,6 @@
   <excludedCommands>SaveValues</excludedCommands>
   <excludedCommands>Yes</excludedCommands>
   <width>60</width>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <enabled>true</enabled>
@@ -2131,10 +2072,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -2158,10 +2095,6 @@
       <key>en</key>
       <value>Deletion mode</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Silme modu</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>String</types>
@@ -2183,10 +2116,6 @@
     <title>
       <key>en</key>
       <value>Empty string</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Boş dize</value>
     </title>
     <id>5</id>
     <valueType>
@@ -2210,10 +2139,6 @@
       <key>en</key>
       <value>Marked for deletion items tree</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Silinmek üzere işaretlenen öğeler ağacı</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>ValueTree</types>
@@ -2227,16 +2152,12 @@
     <columns>
       <name>Check</name>
       <title>
-        <key>ru</key>
-        <value>Пометка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Check</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İşaret</value>
+        <key>ru</key>
+        <value>Пометка</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2252,16 +2173,12 @@
     <columns>
       <name>Value</name>
       <title>
-        <key>ru</key>
-        <value>Значение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Value</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değer</value>
+        <key>ru</key>
+        <value>Значение</value>
       </title>
       <id>2</id>
       <valueType/>
@@ -2275,16 +2192,12 @@
     <columns>
       <name>Presentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Gösterim</value>
+        <key>ru</key>
+        <value>Представление</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2309,10 +2222,6 @@
       <key>en</key>
       <value>Not deleted items tree</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Silinmemiş öğeler ağacı</value>
-    </title>
     <id>8</id>
     <valueType>
       <types>ValueTree</types>
@@ -2332,10 +2241,6 @@
       <title>
         <key>en</key>
         <value>Picture number</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim numarası</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2362,10 +2267,6 @@
         <key>en</key>
         <value>Value</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Değer</value>
-      </title>
       <id>2</id>
       <valueType/>
       <view>
@@ -2384,10 +2285,6 @@
       <title>
         <key>en</key>
         <value>Presentation</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Gösterim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2412,10 +2309,6 @@
       <key>en</key>
       <value>Label</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Label</value>
-    </title>
     <id>9</id>
     <valueType>
       <types>String</types>
@@ -2438,10 +2331,6 @@
       <key>en</key>
       <value>Number not deleted objects</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kalan (silinememiş) nesnelerin sayısı</value>
-    </title>
     <id>3</id>
     <valueType>
       <types>Number</types>
@@ -2461,10 +2350,6 @@
     <title>
       <key>ru</key>
       <value>Строка результатов</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sonuç satırı</value>
     </title>
     <id>4</id>
     <valueType>
@@ -2487,10 +2372,6 @@
     <title>
       <key>en</key>
       <value>Number deleted objects</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>silinen nesneler Sayısı</value>
     </title>
     <id>7</id>
     <valueType>
@@ -2516,10 +2397,6 @@
       <key>en</key>
       <value>Number of levels marked for deletion</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Silinmek üzere işaretlenen düzey sayısı</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>Number</types>
@@ -2544,10 +2421,6 @@
       <key>en</key>
       <value>Idle handler parameters</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bekleme işleyici parametreleri</value>
-    </title>
     <id>11</id>
     <valueType/>
     <view>
@@ -2567,10 +2440,6 @@
       <key>en</key>
       <value>Scheduled job ID</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Görev ID</value>
-    </title>
     <id>12</id>
     <valueType/>
     <view>
@@ -2589,10 +2458,6 @@
     <title>
       <key>en</key>
       <value>Storage address</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Depolama adresi</value>
     </title>
     <id>13</id>
     <valueType>
@@ -2616,10 +2481,6 @@
       <key>en</key>
       <value>Page name</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sayfa adı</value>
-    </title>
     <id>14</id>
     <valueType>
       <types>String</types>
@@ -2642,10 +2503,6 @@
       <key>en</key>
       <value>Command next</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Ileri</value>
-    </title>
     <id>1</id>
     <use>
       <common>true</common>
@@ -2666,10 +2523,6 @@
     <title>
       <key>en</key>
       <value>Command selected list set all</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Tüm nesneleri silinmek üzere işaretle</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -2699,10 +2552,6 @@
       <key>en</key>
       <value>Command selected list clear all</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tüm silinme işaretleri kaldır</value>
-    </title>
     <id>3</id>
     <toolTip>
       <key>ru</key>
@@ -2731,10 +2580,6 @@
       <key>en</key>
       <value>Command delete</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sil</value>
-    </title>
     <id>4</id>
     <toolTip>
       <key>ru</key>
@@ -2760,10 +2605,6 @@
       <key>en</key>
       <value>Command back</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Geri</value>
-    </title>
     <id>5</id>
     <toolTip>
       <key>ru</key>
@@ -2788,10 +2629,6 @@
     <title>
       <key>en</key>
       <value>Change object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesneyi değiştir</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -2823,10 +2660,6 @@
       <key>en</key>
       <value>Update delete marked list</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yenile</value>
-    </title>
     <id>7</id>
     <toolTip>
       <key>ru</key>
@@ -2856,10 +2689,6 @@
     <title>
       <key>en</key>
       <value>Edit object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesneyi düzenle</value>
     </title>
     <id>8</id>
     <use>

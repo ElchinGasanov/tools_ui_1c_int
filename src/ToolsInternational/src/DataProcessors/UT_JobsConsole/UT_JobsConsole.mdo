@@ -6,16 +6,12 @@
   </producedTypes>
   <name>UT_JobsConsole</name>
   <synonym>
-    <key>ru</key>
-    <value>Консоль заданий [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Jobs console [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Görev konsolu [UT]</value>
+    <key>ru</key>
+    <value>Консоль заданий [УИ]</value>
   </synonym>
   <comment>https://github.com/kuzyara/JobsConsole2019.epf (c)Душелов'2009 - Translated by Universal Tools 1C Word Edition Team</comment>
   <useStandardCommands>true</useStandardCommands>
@@ -26,42 +22,30 @@
     </pages>
   </help>
   <extendedPresentation>
-    <key>ru</key>
-    <value>Консоль заданий</value>
-  </extendedPresentation>
-  <extendedPresentation>
     <key>en</key>
     <value>Jobs console</value>
   </extendedPresentation>
   <extendedPresentation>
-    <key>tr</key>
-    <value>Görev konsolu</value>
-  </extendedPresentation>
-  <explanation>
     <key>ru</key>
-    <value>просмотр и настройка регламентных и фоновых заданий</value>
-  </explanation>
+    <value>Консоль заданий</value>
+  </extendedPresentation>
   <explanation>
     <key>en</key>
     <value>Scheduled and background jobs viewing and configuring</value>
   </explanation>
   <explanation>
-    <key>tr</key>
-    <value>Zamanlanmış ve arka plan görevlerini görüntüleme ve yapılandırma</value>
+    <key>ru</key>
+    <value>просмотр и настройка регламентных и фоновых заданий</value>
   </explanation>
   <forms uuid="666d4981-6ccb-43bd-b0c1-072a2dec6d2f">
     <name>Form</name>
-    <synonym>
-      <key>ru</key>
-      <value>Форма</value>
-    </synonym>
     <synonym>
       <key>en</key>
       <value>Form</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Form</value>
+      <key>ru</key>
+      <value>Форма</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -69,16 +53,12 @@
   <forms uuid="199fbba9-3359-40b5-b3d5-243624d29bfe">
     <name>ScheduledJobDialog</name>
     <synonym>
-      <key>ru</key>
-      <value>Диалог регламентного задания</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Scheduled job dialog</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Zamanlanmış görev iletişim penceresi</value>
+      <key>ru</key>
+      <value>Диалог регламентного задания</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -86,16 +66,12 @@
   <forms uuid="2d080fc3-1a07-4c39-bc1e-98f41c8b2a29">
     <name>BackgroundJobDialog</name>
     <synonym>
-      <key>ru</key>
-      <value>Диалог фонового задания</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Background job dialog</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Arka plan görevi iletişim penceresi</value>
+      <key>ru</key>
+      <value>Диалог фонового задания</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -103,16 +79,12 @@
   <forms uuid="df48c491-412d-4d8d-b902-f68bcf1fc4e4">
     <name>ScheduledJobFilterDialog</name>
     <synonym>
-      <key>ru</key>
-      <value>Диалог отбора регламентного задания</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Scheduled job filter dialog</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Zamanlanmış görev filtre iletişim penceresi</value>
+      <key>ru</key>
+      <value>Диалог отбора регламентного задания</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -120,16 +92,12 @@
   <forms uuid="f0fbdb48-9687-4440-95c8-bb9707cb3d44">
     <name>BackgroundJobFilterDialog</name>
     <synonym>
-      <key>ru</key>
-      <value>Диалог отбора фонового задания</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Background job filter dialog</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Arka plan görevi filtre iletişim penceresi</value>
+      <key>ru</key>
+      <value>Диалог отбора фонового задания</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -137,16 +105,12 @@
   <forms uuid="93b0e3b2-4ec5-4cb3-bac4-b4e3fc71a4e2">
     <name>ListSettingsDialog</name>
     <synonym>
-      <key>ru</key>
-      <value>Диалог настроек списка</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>List settings dialog</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Liste ayarları iletişim penceresi</value>
+      <key>ru</key>
+      <value>Диалог настроек списка</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

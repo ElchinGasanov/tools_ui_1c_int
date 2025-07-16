@@ -5,12 +5,4 @@
     <key>ru</key>
     <value>Description of types</value>
   </synonym>
-  <synonym>
-    <key>en</key>
-    <value>Description of types</value>
-  </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Türlerin tanımı</value>
-  </synonym>
 </mdclass:CommonPicture>

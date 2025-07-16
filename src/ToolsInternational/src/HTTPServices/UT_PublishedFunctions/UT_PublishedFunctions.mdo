@@ -5,14 +5,6 @@
     <key>ru</key>
     <value>Публикуемые функции</value>
   </synonym>
-  <synonym>
-    <key>en</key>
-    <value>Published functions</value>
-  </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Yayımlanmış fonksiyonlar</value>
-  </synonym>
   <rootURL>tools-ui-1c-international</rootURL>
   <reuseSessions>AutoUse</reuseSessions>
   <sessionMaxAge>20</sessionMaxAge>
@@ -21,14 +13,6 @@
     <synonym>
       <key>ru</key>
       <value>Algoritms execution</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Algoritms execution</value>
-    </synonym>
-    <synonym>
-      <key>tr</key>
-      <value>Algoritma yürütme</value>
     </synonym>
     <template>/execute/{AlgWebID}</template>
     <methods uuid="a2b6345e-8170-11e9-f783-002522f8f390">
@@ -55,14 +39,6 @@
       <key>ru</key>
       <value>Data transfer</value>
     </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Data transfer</value>
-    </synonym>
-    <synonym>
-      <key>tr</key>
-      <value>Veri aktarımı</value>
-    </synonym>
     <template>/exchange</template>
     <methods uuid="5336b6b4-e985-4288-b1a4-c25e6d16e190">
       <name>SendFileAndUpload</name>
@@ -78,14 +54,6 @@
     <name>Ping</name>
     <synonym>
       <key>ru</key>
-      <value>Ping</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Ping</value>
-    </synonym>
-    <synonym>
-      <key>tr</key>
       <value>Ping</value>
     </synonym>
     <template>/ping</template>

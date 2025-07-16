@@ -58,11 +58,11 @@ Procedure ShowDetailedInfo(Handler, Text, Title = Undefined) Export
 	DialogSettings.Insert("Title", Title);
 	
 	If Not ValueIsFilled(DialogSettings.Title) Then
-		DialogSettings.Title = NStr("ru = 'Подробнее'; en = 'Details'; tr = 'Detaylar'");
+		DialogSettings.Title = NStr("ru = 'Подробнее'; en = 'Details'");
 	EndIf;
 	
 	Buttons = New ValueList;
-	Buttons.Add(0, NStr("ru = 'Закрыть'; en = 'Close'; tr = 'Kapat'"));
+	Buttons.Add(0, NStr("ru = 'Закрыть'; en = 'Close'"));
 	
 	ShowQuestionToUser(Handler, Text, Buttons, DialogSettings);
 EndProcedure
@@ -519,7 +519,7 @@ Function OpenInformationForSupportService() Export
 	
 	OutputString = InformationForSupportServiceAsString(Info);
 	
-    OpenTextEditingForm(OutputString,Undefined ,NStr("ru = 'Информация для тех поддержки'; en = 'Information for Support Service'; tr = 'Destek Hizmeti için Bilgiler'", ));
+    OpenTextEditingForm(OutputString,Undefined ,NStr("ru = 'Информация для тех поддержки';en = 'Information for Support Service'", ));
 EndFunction
 
 #Region ToolsAttachableCommandMethods
@@ -1387,7 +1387,7 @@ Procedure FormFieldValueStartChoiceProcessorTypeChoiceEnding(Result, AdditionalP
 	StoringInContainer = UT_CommonClientServer.TypeStoringInContainer(ValueType);
 	
 	If StoringInContainer And Not AdditionalParameters.AvailableContainer Then
-		UT_CommonClientServer.MessageToUser(NStr("ru = 'Данное поле не поддерживает данный тип'; en = 'Field does not support this type'; tr = 'Alan bu türü desteklemiyor'"));
+		UT_CommonClientServer.MessageToUser(NStr("ru = 'Данное поле не поддерживает данный тип'; en = 'Field does not support this type'"));
 		Return;
 	EndIf;
 	
@@ -2350,7 +2350,8 @@ Procedure OpenURL(URL, Val Notification = Undefined) Export
 	Context.Insert("Notification", Notification);
 	
 	ErrorDescription = StringFunctionsClientServer.SubstituteParametersToString(
-		NStr("ru = 'Не удалось перейти по ссылке ""%1"" по причине: Неверно задана навигационная ссылка.'; en = 'Cannot follow link %1. The URL is invalid.'; tr = '%1 linki açılmıyor. URL geçersiz.'"),
+		NStr("ru = 'Не удалось перейти по ссылке ""%1"" по причине: Неверно задана навигационная ссылка.'; 
+		           |en = 'Cannot follow link %1. The URL is invalid.'"),
 		URL);
 	
 	If Not IsAllowedRef(URL) Then 

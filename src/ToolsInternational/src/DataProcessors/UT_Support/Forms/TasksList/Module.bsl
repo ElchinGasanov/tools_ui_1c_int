@@ -105,10 +105,10 @@ Procedure CreateNewIssue(Command)
 
 	АдресЗадачи=CreateNewIssueAtServer();
 	If АдресЗадачи <> Undefined Then
-		UT_CommonClientServer.MessageToUser(NSTR("ru = 'Задача успешно создана'; en = 'Ussue created successfully'; tr = 'Görev başarıyla oluşturuldu'"));
+		UT_CommonClientServer.MessageToUser(NSTR("ru = 'Задача успешно создана';en = 'Ussue created successfully'"));
 		BeginRunningApplication(UT_CommonClient.ApplicationRunEmptyNotifyDescription(), АдресЗадачи);
 	Else
-		UT_CommonClientServer.MessageToUser(NSTR("ru = 'Создание задачи не удалось'; en = 'Issue creation failed'; tr = 'Görev oluşturma başarısız oldu'"));
+		UT_CommonClientServer.MessageToUser(NSTR("ru = 'Создание задачи не удалось';en = 'Issue creation failed'"));
 	EndIf;
 
 EndProcedure

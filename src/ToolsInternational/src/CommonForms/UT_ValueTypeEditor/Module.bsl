@@ -106,7 +106,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 				ArrayOfTypesForDescription.Add(ContainerDataType);
 				InitialDataType = New TypeDescription(ArrayOfTypesForDescription);
 			Except
-				UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось прочитать тип из контейнера.'; en = 'Failed to read type from container.'; tr = 'Konteynerden tür okunamadı.'"));
+				UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось прочитать тип из контейнера.'; en = 'Failed to read type from container.'"));
 			EndTry;
 		EndIf;
 	ElsIf Parameters.Property("ValueDescriptionsTypeStorageContainer") Then 
@@ -120,7 +120,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 				InitialDataType = UT_Common.ValueFromXMLString(StorageContainer.Value,
 																			 Type("TypeDescription"));
 			Except
-				UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось прочитать описание типов из контейнера.'; en = 'Failed to read type description from container.'; tr = 'Konteynerden tür açıklaması okunamadı.'"));
+				UT_CommonClientServer.MessageToUser(NStr("ru = 'Не удалось прочитать описание типов из контейнера.'; en = 'Failed to read type description from container.'"));
 			EndTry;
 		EndIf;
 		
@@ -156,7 +156,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	EndIf;
 	
 	If ChoiceMode Then
-		Title = NStr("ru = 'Выбор типа'; en = 'Type selection'; tr = 'Tür seçimi'");
+		Title = NStr("ru = 'Выбор типа'; en = 'Type selection'");
 	EndIf;
 	
 	If Not CompositeDataTypeAvailable Then
@@ -256,9 +256,9 @@ Procedure TypesTreeOnActivateRow(Item)
 		Return;
 	EndIf;
 	
-	Items.GroupNumberQualifier.Visible=CurrentData.Name = NStr("ru = 'Число'; en = 'Number'; tr = 'Sayı'");
-	Items.GroupStringQualifier.Visible=CurrentData.Name = NStr("ru = 'Строка'; en = 'String'; tr = 'Satır'");
-	Items.GroupDateQualifier.Visible=CurrentData.Name = NStr("ru = 'Дата'; en = 'Date'; tr = 'Tarih'");
+	Items.GroupNumberQualifier.Visible=CurrentData.Name = NStr("ru = 'Число'; en = 'Number'");
+	Items.GroupStringQualifier.Visible=CurrentData.Name = NStr("ru = 'Строка'; en = 'String'");
+	Items.GroupDateQualifier.Visible=CurrentData.Name = NStr("ru = 'Дата'; en = 'Date'");
 	
 EndProcedure
 
@@ -431,9 +431,9 @@ EndProcedure
 		ElsIf СurrentRow.UnavailableForCompositeType Then
 			If SelectedTypes.Count() > 0 Then
 				ShowQueryBox(New CallbackDescription("TypesTreeSelectedOnChangeEnd", ThisObject,
-					New Structure("СurrentRow", СurrentRow)), NStr("ru = 'Выбран тип, который не может быть включен в составной тип данных.'; en = 'A type was selected that cannot be included in a composite data type.'; tr = 'Bileşik veri türüne dahil edilemeyen bir tür seçildi.'") + Chars.LF 
-					+ NStr("ru = 'Будут исключены остальные типы данных.'; en = 'Other data types will be excluded.'; tr = 'Diğer veri tipleri hariç tutulacaktır.'") + Chars.LF
-					+ NStr("ru = 'Продолжить?'; en = 'Continue?'; tr = 'Devam edelim mi?'"), QuestionDialogMode.YesNo);
+					New Structure("СurrentRow", СurrentRow)), NStr("ru = 'Выбран тип, который не может быть включен в составной тип данных.'; en = 'A type was selected that cannot be included in a composite data type.'") + Chars.LF 
+					+ NStr("ru = 'Будут исключены остальные типы данных.'; en = 'Other data types will be excluded.'") + Chars.LF
+					+ NStr("ru = 'Продолжить?'; en = 'Continue?'"), QuestionDialogMode.YesNo);
 				Return;
 			EndIf;
 		Else
@@ -447,9 +447,9 @@ EndProcedure
 			
 			If IsUnAvailableForCompositeType Then
 				ShowQueryBox(New CallbackDescription("TypesTreeSelectedOnChangeEndWasNotAllowedForCompositeType", ThisObject,
-					New Structure("СurrentRow", СurrentRow)), NStr("ru = 'Ранее был выбран тип, который не может быть'; en = 'A type was previously selected that cannot be'; tr = 'Daha önce seçilemeyen bir tür seçildi'") + Chars.LF  																	  
+					New Structure("СurrentRow", СurrentRow)), NStr("ru = 'Ранее был выбран тип, который не может быть'; en = 'A type was previously selected that cannot be'") + Chars.LF  																	  
 					+ NStr("ru = 'включен в составной тип данных и будет исключен.'; en = 'included in a composite data type and will be excluded.'") + Chars.LF 
-					+ NStr("ru = 'Продолжить?'; en = 'Continue?'; tr = 'Devam edelim mi?'"), QuestionDialogMode.YesNo);
+					+ NStr("ru = 'Продолжить?'; en = 'Continue?'"), QuestionDialogMode.YesNo);
 				Return;
 			EndIf;
 		EndIf;

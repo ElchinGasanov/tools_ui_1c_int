@@ -6,16 +6,12 @@
   </producedTypes>
   <name>UT_UniversalDataExchangeXML</name>
   <synonym>
-    <key>ru</key>
-    <value>Универсальный обмен данными в формате XML(с фильтрами и выгрузкой на HTTP сервис) [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Universal data exchange XML (with filters and export to HTTP service) [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>XML formatında Universal Veri Alışverişi (Filtreler ve HTTP servisine aktarma ile) [UT]</value>
+    <key>ru</key>
+    <value>Универсальный обмен данными в формате XML(с фильтрами и выгрузкой на HTTP сервис) [УИ]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_UniversalDataExchangeXML.Form.ManagedForm</defaultForm>
@@ -25,42 +21,30 @@
     </pages>
   </help>
   <extendedPresentation>
-    <key>ru</key>
-    <value>Универсальный обмен данными в формате XML(с фильтрами и выгрузкой на HTTP сервис)</value>
-  </extendedPresentation>
-  <extendedPresentation>
     <key>en</key>
     <value>Universal data exchange XML (with filters and export to HTTP service)</value>
   </extendedPresentation>
   <extendedPresentation>
-    <key>tr</key>
-    <value>Universal veri değişimi XML (filtrelerle ve HTTP servisine aktarım ile)</value>
-  </extendedPresentation>
-  <explanation>
     <key>ru</key>
-    <value>Выгрузка и загрузка по правилам обмена.  Добавлена возможность накладывать фильтры на выгружаемые объеты, и прямая выгрузка в базу через http сервис универсальных инструментов.</value>
-  </explanation>
+    <value>Универсальный обмен данными в формате XML(с фильтрами и выгрузкой на HTTP сервис)</value>
+  </extendedPresentation>
   <explanation>
     <key>en</key>
     <value>Export and import by exchange rules. Added the capability to apply filters to exported objects and direct export to the database through the http service of universal tools.</value>
   </explanation>
   <explanation>
-    <key>tr</key>
-    <value>Değişim kurallarına göre dışa ve içe aktarma. İhraç edilen nesnelere filtre uygulama ve universal araçların HTTP servisi aracılığıyla doğrudan veritabanına aktarma yeteneği eklendi.</value>
+    <key>ru</key>
+    <value>Выгрузка и загрузка по правилам обмена.  Добавлена возможность накладывать фильтры на выгружаемые объеты, и прямая выгрузка в базу через http сервис универсальных инструментов.</value>
   </explanation>
   <attributes uuid="61922d92-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ArchiveFile</name>
-    <synonym>
-      <key>ru</key>
-      <value>Архивировать файл</value>
-    </synonym>
     <synonym>
       <key>en</key>
       <value>Compress file</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Dosyayı sıkıştır</value>
+      <key>ru</key>
+      <value>Архивировать файл</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -79,16 +63,12 @@
   <attributes uuid="61922f0e-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>InfobaseConnectionWindowsAuthentication</name>
     <synonym>
-      <key>ru</key>
-      <value>Аутентификация windows информационной базы для подключения</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Windows authentication for infobase connection</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Infobase bağlantısı için Windows kimlik doğrulaması</value>
+      <key>ru</key>
+      <value>Аутентификация windows информационной базы для подключения</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -107,16 +87,12 @@
   <attributes uuid="61923012-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>SafeImport</name>
     <synonym>
-      <key>ru</key>
-      <value>Безопасная загрузка данных</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Safe data import</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Güvenli veri yükleme</value>
+      <key>ru</key>
+      <value>Безопасная загрузка данных</value>
     </synonym>
     <comment>Data import by rules provided separately from data.</comment>
     <type>
@@ -136,16 +112,12 @@
   <attributes uuid="619230bc-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>SafeMode</name>
     <synonym>
-      <key>ru</key>
-      <value>Безопасный режим</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Safe mode</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Güvenli mod</value>
+      <key>ru</key>
+      <value>Безопасный режим</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -167,10 +139,6 @@
       <key>ru</key>
       <value>Версия платформы информационной базы для подключения</value>
     </synonym>
-    <synonym>
-      <key>tr</key>
-      <value>Bağlantı için bilgi tabanı platformunun versiyonu</value>
-    </synonym>
     <type>
       <types>String</types>
       <stringQualifiers>
@@ -191,16 +159,12 @@
   <attributes uuid="619231f2-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeRulesVersion</name>
     <synonym>
-      <key>ru</key>
-      <value>Версия правил обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Exchange rules version</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Değişim kuralları sürümü</value>
+      <key>ru</key>
+      <value>Версия правил обмена</value>
     </synonym>
     <type>
       <types>Date</types>
@@ -220,16 +184,12 @@
   <attributes uuid="619232b0-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>XMLWriterAdvancedMonitoring</name>
     <synonym>
-      <key>ru</key>
-      <value>Вести дополнительный контроль записи в XML</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Validate data written to XML files</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>XML kaydı üzerinde ek kontrol sağla</value>
+      <key>ru</key>
+      <value>Вести дополнительный контроль записи в XML</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -248,16 +208,12 @@
   <attributes uuid="6192333c-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>DisplayInfoMessagesIntoMessageWindow</name>
     <synonym>
-      <key>ru</key>
-      <value>Вывод в окно сообщений информационных сообщений</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Display informational messages in the message window</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Mesaj penceresinde bilgilendirici mesajları görüntüle</value>
+      <key>ru</key>
+      <value>Вывод в окно сообщений информационных сообщений</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -276,16 +232,12 @@
   <attributes uuid="619233d2-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>WriteInfoMessagesToLog</name>
     <synonym>
-      <key>ru</key>
-      <value>Вывод в протокол информационных сообщений</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Write informational messages to the log</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Günlüğe bilgi mesajları yaz</value>
+      <key>ru</key>
+      <value>Вывод в протокол информационных сообщений</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -304,16 +256,12 @@
   <attributes uuid="6192349a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>WriteErrorMessagesToLog</name>
     <synonym>
-      <key>ru</key>
-      <value>Вывод в протокол сообщений об ошибках</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Write error messages to the log</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Hata mesajlarını günlüğe yaz</value>
+      <key>ru</key>
+      <value>Вывод в протокол сообщений об ошибках</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -332,16 +280,12 @@
   <attributes uuid="6192353a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExportAllowedObjectsOnly</name>
     <synonym>
-      <key>ru</key>
-      <value>Выгружать только разрешенные</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Export only allowed items</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Yalnızca izin verilen öğeleri dışa aktar</value>
+      <key>ru</key>
+      <value>Выгружать только разрешенные</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -360,16 +304,12 @@
   <attributes uuid="6192360c-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExecuteDataExchangeInOptimizedFormat</name>
     <synonym>
-      <key>ru</key>
-      <value>Выполнить обмен данными в оптимизированном формате</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Run data exchange in optimized format</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri değişimini optimize edilmiş biçimde çalıştır</value>
+      <key>ru</key>
+      <value>Выполнить обмен данными в оптимизированном формате</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -388,16 +328,12 @@
   <attributes uuid="619236ac-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>Data</name>
     <synonym>
-      <key>ru</key>
-      <value>Данные</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Data</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri</value>
+      <key>ru</key>
+      <value>Данные</value>
     </synonym>
     <type/>
     <toolTip>
@@ -414,16 +350,12 @@
   <attributes uuid="61923788-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>DataExportDate</name>
     <synonym>
-      <key>ru</key>
-      <value>Дата выгрузки данных</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Data exported on</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri yükleme tarihi</value>
+      <key>ru</key>
+      <value>Дата выгрузки данных</value>
     </synonym>
     <type>
       <types>Date</types>
@@ -443,16 +375,12 @@
   <attributes uuid="61923828-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>StartDate</name>
     <synonym>
-      <key>ru</key>
-      <value>Дата начала</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Start date</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Başlangıç tarihi</value>
+      <key>ru</key>
+      <value>Дата начала</value>
     </synonym>
     <type>
       <types>Date</types>
@@ -472,16 +400,12 @@
   <attributes uuid="619238dc-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>EndDate</name>
     <synonym>
-      <key>ru</key>
-      <value>Дата окончания</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>End date</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Bitiş tarihi</value>
+      <key>ru</key>
+      <value>Дата окончания</value>
     </synonym>
     <type>
       <types>Date</types>
@@ -501,16 +425,12 @@
   <attributes uuid="619239c2-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>AppendDataToExchangeLog</name>
     <synonym>
-      <key>ru</key>
-      <value>Дописывать данные в протокол обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Append data to the exchange log</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Değişim günlüğüne veri ekle</value>
+      <key>ru</key>
+      <value>Дописывать данные в протокол обмена</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -529,16 +449,12 @@
   <attributes uuid="61923a80-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ImportDataInExchangeMode</name>
     <synonym>
-      <key>ru</key>
-      <value>Загружать данные в режиме обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Import data in exchange mode</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Verileri değişim modunda indir</value>
+      <key>ru</key>
+      <value>Загружать данные в режиме обмена</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -557,16 +473,12 @@
   <attributes uuid="61923b66-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>RequestDataImportConfirmationOnOpenDataProcessor</name>
     <synonym>
-      <key>ru</key>
-      <value>Задавать вопрос при загрузке данных при открытии обработки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Ask for confirmation when importing data on opening the data processor</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri işlemcisini açarken veri içe aktarırken onay iste</value>
+      <key>ru</key>
+      <value>Задавать вопрос при загрузке данных при открытии обработки</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -585,16 +497,12 @@
   <attributes uuid="61923c24-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>WriteToInfobaseOnlyChangedObjects</name>
     <synonym>
-      <key>ru</key>
-      <value>Записывать в информационную базу только измененные объекты</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Write only changed objects to the infobase</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Yalnızca değiştirilen nesneleri bilgi tabanına yaz</value>
+      <key>ru</key>
+      <value>Записывать в информационную базу только измененные объекты</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -613,16 +521,12 @@
   <attributes uuid="61923d0a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>WriteRegistersAsRecordSets</name>
     <synonym>
-      <key>ru</key>
-      <value>Записывать регистры наборами записей</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Write registers as record sets</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Kayıtları kayıt setleri olarak yaz</value>
+      <key>ru</key>
+      <value>Записывать регистры наборами записей</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -641,16 +545,12 @@
   <attributes uuid="61923dd2-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>EventHandlersTempFileName</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя временного файла обработчиков событий</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Name of temporary event handlers file</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Geçici olay işleyicileri dosyasının adı</value>
+      <key>ru</key>
+      <value>Имя временного файла обработчиков событий</value>
     </synonym>
     <type>
       <types>String</types>
@@ -670,16 +570,12 @@
   <attributes uuid="61923e9a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeLogTempFileName</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя временного файла протокола обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Name of temporary exchange log file</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Geçici değişim günlük dosyasının adı</value>
+      <key>ru</key>
+      <value>Имя временного файла протокола обмена</value>
     </synonym>
     <type>
       <types>String</types>
@@ -699,16 +595,12 @@
   <attributes uuid="61923f8a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>InfobaseConnectionNameAtServer</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя информационной базы на сервере для подключения</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Infobase name at server (for connection)</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Sunucudaki infobase adı (bağlantı için)</value>
+      <key>ru</key>
+      <value>Имя информационной базы на сервере для подключения</value>
     </synonym>
     <type>
       <types>String</types>
@@ -728,16 +620,12 @@
   <attributes uuid="6192407a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>InfobaseConnectionServerName</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя сервера информационной базы для подключения</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Infobase server name (for connection)</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Infobase sunucu adı (bağlantı için)</value>
+      <key>ru</key>
+      <value>Имя сервера информационной базы для подключения</value>
     </synonym>
     <type>
       <types>String</types>
@@ -757,16 +645,12 @@
   <attributes uuid="61924188-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>EventHandlerExternalDataProcessorFileName</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя файла внешней обработки обработчиков событий</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>File name of external data processor with event handlers</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Olay işleyicileri olan harici veri işlemcisinin dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла внешней обработки обработчиков событий</value>
     </synonym>
     <type>
       <types>String</types>
@@ -786,16 +670,12 @@
   <attributes uuid="61924264-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeFileName</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя файла обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Exchange file name</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Değişim dosyası adı</value>
+      <key>ru</key>
+      <value>Имя файла обмена</value>
     </synonym>
     <type>
       <types>String</types>
@@ -818,10 +698,6 @@
       <key>ru</key>
       <value>Имя файла обработчиков событий</value>
     </synonym>
-    <synonym>
-      <key>tr</key>
-      <value>Olay işleyicileri dosya adı</value>
-    </synonym>
     <type>
       <types>String</types>
       <stringQualifiers/>
@@ -840,16 +716,12 @@
   <attributes uuid="61924458-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeRulesFileName</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя файла правил обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Exchange rules file name</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Değişim kuralları dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла правил обмена</value>
     </synonym>
     <type>
       <types>String</types>
@@ -869,16 +741,12 @@
   <attributes uuid="6192453e-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeLogFileName</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя файла протокола обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Exchange log file name</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Değişim günlüğü dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла протокола обмена</value>
     </synonym>
     <type>
       <types>String</types>
@@ -900,16 +768,12 @@
   <attributes uuid="61924656-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ImportExchangeLogFileName</name>
     <synonym>
-      <key>ru</key>
-      <value>Имя файла протокола обмена загрузка</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Exchange log file name (import)</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Değişim günlüğü dosya adı (içe aktarma)</value>
+      <key>ru</key>
+      <value>Имя файла протокола обмена загрузка</value>
     </synonym>
     <type>
       <types>String</types>
@@ -931,16 +795,12 @@
   <attributes uuid="61924746-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>UseFilterByDateForAllObjects</name>
     <synonym>
-      <key>ru</key>
-      <value>Использовать отбор по дате для всех объектов</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Use filter by date for all objects</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Tüm nesneler için tarihe göre filtrelemeyi kullan</value>
+      <key>ru</key>
+      <value>Использовать отбор по дате для всех объектов</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -959,16 +819,12 @@
   <attributes uuid="61924868-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>UseTransactions</name>
     <synonym>
-      <key>ru</key>
-      <value>Использовать транзакции</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Use transactions</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>İşlemleri kullan</value>
+      <key>ru</key>
+      <value>Использовать транзакции</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -987,16 +843,12 @@
   <attributes uuid="61924962-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>UseTransactionsOnExportForExchangePlans</name>
     <synonym>
-      <key>ru</key>
-      <value>Использовать транзакции при выгрузке для планов обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Use transactions during export at exchange plan nodes</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Exchange plan düğümlerinde dışa aktarma sırasında işlemleri kullan</value>
+      <key>ru</key>
+      <value>Использовать транзакции при выгрузке для планов обмена</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1015,16 +867,12 @@
   <attributes uuid="61924a8e-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>InfobaseConnectionDirectory</name>
     <synonym>
-      <key>ru</key>
-      <value>Каталог информационной базы для подключения</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Infobase directory</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Bilgi tabanı dizini</value>
+      <key>ru</key>
+      <value>Каталог информационной базы для подключения</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1044,16 +892,12 @@
   <attributes uuid="61924b88-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ProcessedObjectsCountToUpdateStatus</name>
     <synonym>
-      <key>ru</key>
-      <value>Количество обработанных объектов для обновления статуса</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Number of objects processed before status update</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Durum güncellemesinden önce işlenen nesne sayısı</value>
+      <key>ru</key>
+      <value>Количество обработанных объектов для обновления статуса</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1076,16 +920,12 @@
   <attributes uuid="61924ca0-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ObjectsPerTransaction</name>
     <synonym>
-      <key>ru</key>
-      <value>Количество объектов на транзакцию</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Number of objects in a transaction</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>İşlemdeki nesne sayısı</value>
+      <key>ru</key>
+      <value>Количество объектов на транзакцию</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1108,16 +948,12 @@
   <attributes uuid="61924de0-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>TransactionItemsCountOnExportForExchangePlans</name>
     <synonym>
-      <key>ru</key>
-      <value>Количество элементов в транзакции при выгрузке для планов обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Number of items in a transaction during export at exchange plan nodes</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Exchange plan düğümlerinde dışa aktarma sırasında işlemdeki öğelerin sayısı</value>
+      <key>ru</key>
+      <value>Количество элементов в транзакции при выгрузке для планов обмена</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1140,16 +976,12 @@
   <attributes uuid="61924ee4-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>Comment</name>
     <synonym>
-      <key>ru</key>
-      <value>Комментарий</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Comment</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Yorum</value>
+      <key>ru</key>
+      <value>Комментарий</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1169,16 +1001,12 @@
   <attributes uuid="6192502e-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>CommentOnDataExport</name>
     <synonym>
-      <key>ru</key>
-      <value>Комментарий при выгрузке данных</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Comment for data export</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri dışa aktarımı için yorum</value>
+      <key>ru</key>
+      <value>Комментарий при выгрузке данных</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1198,16 +1026,12 @@
   <attributes uuid="61925146-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>CommentOnDataImport</name>
     <synonym>
-      <key>ru</key>
-      <value>Комментарий при загрузке данных</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Comment for data import</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri içe aktarımı için yorum</value>
+      <key>ru</key>
+      <value>Комментарий при загрузке данных</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1227,16 +1051,12 @@
   <attributes uuid="61925290-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>AutomaticDataImportSettings</name>
     <synonym>
-      <key>ru</key>
-      <value>Настройка автоматической загрузки данных</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Configure automatic data import</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Otomatik veri aktarımını yapılandır</value>
+      <key>ru</key>
+      <value>Настройка автоматической загрузки данных</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1259,16 +1079,12 @@
   <attributes uuid="619253bc-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>DoNotShowInfoMessagesToUser</name>
     <synonym>
-      <key>ru</key>
-      <value>Не выводить никаких информационных сообщений пользователю</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Do not show any informational messages to users</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Kullanıcılara herhangi bir bilgi mesajı gösterme</value>
+      <key>ru</key>
+      <value>Не выводить никаких информационных сообщений пользователю</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1287,16 +1103,12 @@
   <attributes uuid="619254f2-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>DoNotRequestDataImportConfirmationOnOpenDataProcessor</name>
     <synonym>
-      <key>ru</key>
-      <value>Не задавать вопрос при загрузке данных при открытии обработки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Do not ask for confirmation when importing data on opening the data processor</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri işlemcisini açarken veri içe aktarırken onay isteme</value>
+      <key>ru</key>
+      <value>Не задавать вопрос при загрузке данных при открытии обработки</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1315,16 +1127,12 @@
   <attributes uuid="61925664-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>DirectReadFromDestinationIB</name>
     <synonym>
-      <key>ru</key>
-      <value>Непосредственное чтение в ИБ приемнике</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Direct read form destination infobase</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Hedef bilgi tabanından doğrudan okuma</value>
+      <key>ru</key>
+      <value>Непосредственное чтение в ИБ приемнике</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1343,16 +1151,12 @@
   <attributes uuid="6192579a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExportSettingsDataProcessors</name>
     <synonym>
-      <key>ru</key>
-      <value>Обработки настройки выгрузки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Export settings data processors</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Dışa aktarma ayarları veri işlemcileri</value>
+      <key>ru</key>
+      <value>Обработки настройки выгрузки</value>
     </synonym>
     <type>
       <types>ValueList</types>
@@ -1371,16 +1175,12 @@
   <attributes uuid="61925902-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ImportSettingsDataProcessors</name>
     <synonym>
-      <key>ru</key>
-      <value>Обработки настройки загрузки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Import settings data processors</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>İçe aktarma ayarları veri işlemcileri</value>
+      <key>ru</key>
+      <value>Обработки настройки загрузки</value>
     </synonym>
     <type>
       <types>ValueList</types>
@@ -1399,16 +1199,12 @@
   <attributes uuid="61925a38-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ReadEventHandlersFromExchangeRulesFile</name>
     <synonym>
-      <key>ru</key>
-      <value>Обработчики событий читаем из файла правил обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Read event handlers from exchange rules file</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Olay işleyicilerini değişim kuralları dosyasından oku</value>
+      <key>ru</key>
+      <value>Обработчики событий читаем из файла правил обмена</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1427,16 +1223,12 @@
   <attributes uuid="61925bb4-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>RemoveTrailingSpaces</name>
     <synonym>
-      <key>ru</key>
-      <value>Обрезать строки справа</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Truncate lines from the right</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Satırları sağdan kes</value>
+      <key>ru</key>
+      <value>Обрезать строки справа</value>
     </synonym>
     <comment>On string import, remove trailing spaces.</comment>
     <type>
@@ -1456,16 +1248,12 @@
   <attributes uuid="61925cfe-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ImportReferencedObjectsWithoutDeletionMark</name>
     <synonym>
-      <key>ru</key>
-      <value>Объекты по ссылке загружать без пометки удаления</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Remove deletion mark when importing objects by reference</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Nesneleri referansa göre içe aktarırken silme işaretini kaldır</value>
+      <key>ru</key>
+      <value>Объекты по ссылке загружать без пометки удаления</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1484,16 +1272,12 @@
   <attributes uuid="61925e48-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>OptimizedObjectsWriting</name>
     <synonym>
-      <key>ru</key>
-      <value>Оптимизированная запись объектов</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Optimize object writing</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Nesne yazımını optimize et</value>
+      <key>ru</key>
+      <value>Оптимизированная запись объектов</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1512,16 +1296,12 @@
   <attributes uuid="61925fba-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>OpenExchangeLogAfterExecutingOperations</name>
     <synonym>
-      <key>ru</key>
-      <value>Открывать протоколы обмена после выполнения операций</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Open data exchange log after performing actions</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>İşlemleri gerçekleştirdikten sonra veri değişim günlüğünü aç</value>
+      <key>ru</key>
+      <value>Открывать протоколы обмена после выполнения операций</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1540,16 +1320,12 @@
   <attributes uuid="61926104-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>Parameters</name>
     <synonym>
-      <key>ru</key>
-      <value>Параметры</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Parameters</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Parametreler</value>
+      <key>ru</key>
+      <value>Параметры</value>
     </synonym>
     <type/>
     <toolTip>
@@ -1566,16 +1342,12 @@
   <attributes uuid="6192628a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeFileUnpackPassword</name>
     <synonym>
-      <key>ru</key>
-      <value>Пароль для распаковки файла обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Password for data exchange file archive</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri değişim dosyası arşivi için şifre</value>
+      <key>ru</key>
+      <value>Пароль для распаковки файла обмена</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1597,16 +1369,12 @@
   <attributes uuid="6192642e-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeFileCompressionPassword</name>
     <synonym>
-      <key>ru</key>
-      <value>Пароль для сжатия файла обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Password for data exchange file archive</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Veri değişim dosyası arşivi için şifre</value>
+      <key>ru</key>
+      <value>Пароль для сжатия файла обмена</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1628,16 +1396,12 @@
   <attributes uuid="619265d2-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>InfobaseConnectionPassword</name>
     <synonym>
-      <key>ru</key>
-      <value>Пароль информационной базы для подключения</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Infobase connection password</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Infobase bağlantı şifresi</value>
+      <key>ru</key>
+      <value>Пароль информационной базы для подключения</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1657,16 +1421,12 @@
   <attributes uuid="61926744-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>InfobaseConnectionUsername</name>
     <synonym>
-      <key>ru</key>
-      <value>Пользователь информационной базы для подключения</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Infobase username (for connection)</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Infobase kullanıcı adı (bağlantı için)</value>
+      <key>ru</key>
+      <value>Пользователь информационной базы для подключения</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1686,16 +1446,12 @@
   <attributes uuid="619268ac-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ReportBuilder</name>
     <synonym>
-      <key>ru</key>
-      <value>Построитель отчета</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Report builder</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Rapor oluşturucu</value>
+      <key>ru</key>
+      <value>Построитель отчета</value>
     </synonym>
     <type>
       <types>ReportBuilder</types>
@@ -1714,16 +1470,12 @@
   <attributes uuid="61926a46-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeMode</name>
     <synonym>
-      <key>ru</key>
-      <value>Режим обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Exchange mode</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Değişim modu</value>
+      <key>ru</key>
+      <value>Режим обмена</value>
     </synonym>
     <type>
       <types>String</types>
@@ -1745,16 +1497,12 @@
   <attributes uuid="61926bae-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>AlgorithmDebugMode</name>
     <synonym>
-      <key>ru</key>
-      <value>Режим отладки алгоритмов</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Algorithm debugging mode</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Algoritma hata ayıklama modu</value>
+      <key>ru</key>
+      <value>Режим отладки алгоритмов</value>
     </synonym>
     <comment>0 - no debugging, 1 - standard procedure call, 2 - procedure call with handler parameters, 3 - insert code directly to the handler</comment>
     <type>
@@ -1778,16 +1526,12 @@
   <attributes uuid="61926d48-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>SavedSettings</name>
     <synonym>
-      <key>ru</key>
-      <value>Сохраненные настройки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Saved settings</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Kaydedilen ayarlar</value>
+      <key>ru</key>
+      <value>Сохраненные настройки</value>
     </synonym>
     <type/>
     <toolTip>
@@ -1804,16 +1548,12 @@
   <attributes uuid="61926ec4-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ParametersSettingsTable</name>
     <synonym>
-      <key>ru</key>
-      <value>Таблица настройки параметров</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Parameters settings table</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Parametre ayarları tablosu</value>
+      <key>ru</key>
+      <value>Таблица настройки параметров</value>
     </synonym>
     <type>
       <types>ValueTable</types>
@@ -1832,16 +1572,12 @@
   <attributes uuid="61927072-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExportRulesTable</name>
     <synonym>
-      <key>ru</key>
-      <value>Таблица правил выгрузки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Export rules table</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Boşaltma kuralları tablosu</value>
+      <key>ru</key>
+      <value>Таблица правил выгрузки</value>
     </synonym>
     <type>
       <types>ValueTree</types>
@@ -1860,16 +1596,12 @@
   <attributes uuid="619271f8-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ConversionRulesTable</name>
     <synonym>
-      <key>ru</key>
-      <value>Таблица правил конвертации</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Conversion rules table</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Dönüşüm Kuralları Tablosu</value>
+      <key>ru</key>
+      <value>Таблица правил конвертации</value>
     </synonym>
     <type>
       <types>ValueTable</types>
@@ -1888,16 +1620,12 @@
   <attributes uuid="6192737e-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>CleanupRulesTable</name>
     <synonym>
-      <key>ru</key>
-      <value>Таблица правил очистки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Cleaning rules table</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Temizlik Kuralları Tablosu</value>
+      <key>ru</key>
+      <value>Таблица правил очистки</value>
     </synonym>
     <type>
       <types>ValueTree</types>
@@ -1916,16 +1644,12 @@
   <attributes uuid="61927536-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ConnectedInfobaseType</name>
     <synonym>
-      <key>ru</key>
-      <value>Тип информационной базы для подключения</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Infobase type (for connection)</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Infobase türü (bağlantı için)</value>
+      <key>ru</key>
+      <value>Тип информационной базы для подключения</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -1944,16 +1668,12 @@
   <attributes uuid="619276b2-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ChangesRegistrationDeletionTypeForExportedExchangeNodes</name>
     <synonym>
-      <key>ru</key>
-      <value>Тип удаления регистрации изменений для узлов обмена после выгрузки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Type of registration changes deletion for exchange nodes after export</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Dışa aktarma sonrasında değişim düğümleri için kayıt değişikliği silme türü</value>
+      <key>ru</key>
+      <value>Тип удаления регистрации изменений для узлов обмена после выгрузки</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -1975,16 +1695,12 @@
   <attributes uuid="61927874-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ErrorFlag</name>
     <synonym>
-      <key>ru</key>
-      <value>Флаг ошибки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Error flag</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Hata işareti</value>
+      <key>ru</key>
+      <value>Флаг ошибки</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2003,16 +1719,12 @@
   <attributes uuid="61927a0e-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>DebugModeFlag</name>
     <synonym>
-      <key>ru</key>
-      <value>Флаг режим отладки</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Debugging mode</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Hata ayıklama modu</value>
+      <key>ru</key>
+      <value>Флаг режим отладки</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2031,16 +1743,12 @@
   <attributes uuid="61927bda-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>HandlersDebugModeFlag</name>
     <synonym>
-      <key>ru</key>
-      <value>Флаг режим отладки обработчиков</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Handler debugging mode flag</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>İşleyici hata ayıklama modu işareti</value>
+      <key>ru</key>
+      <value>Флаг режим отладки обработчиков</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2059,16 +1767,12 @@
   <attributes uuid="61927d6a-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>IsInteractiveMode</name>
     <synonym>
-      <key>ru</key>
-      <value>Это интерактивный режим</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Interactive mode</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Etkileşimli mod</value>
+      <key>ru</key>
+      <value>Это интерактивный режим</value>
     </synonym>
     <type>
       <types>Boolean</types>
@@ -2087,16 +1791,12 @@
   <attributes uuid="61927f04-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ExchangeLogFileEncoding</name>
     <synonym>
-      <key>ru</key>
-      <value>Кодировка файла протокола обмена</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Exchange log file encoding</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Değişim günlük dosyası kodlaması</value>
+      <key>ru</key>
+      <value>Кодировка файла протокола обмена</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2110,16 +1810,12 @@
   <attributes uuid="619280e4-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>FilesTempDirectory</name>
     <synonym>
-      <key>ru</key>
-      <value>Временный каталог работы с файлами</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Files temporary directory</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Dosyalar geçici dizini</value>
+      <key>ru</key>
+      <value>Временный каталог работы с файлами</value>
     </synonym>
     <type>
       <types>String</types>
@@ -2131,57 +1827,41 @@
   <attributes uuid="20d6db13-9df6-41c1-9342-6f8724e4d7ae">
     <name>UT_DestinationPublicationAddress</name>
     <synonym>
-      <key>ru</key>
-      <value>Адрес публикации приемника</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Destination publication address</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Hedef yayın adresi</value>
+      <key>ru</key>
+      <value>Адрес публикации приемника</value>
     </synonym>
     <type>
       <types>String</types>
       <stringQualifiers/>
     </type>
-    <minValue xsi:type="core:UndefinedValue"/>
-    <maxValue xsi:type="core:UndefinedValue"/>
   </attributes>
   <attributes uuid="4ffcfb35-70c9-4264-b7d0-efa02700eaf4">
     <name>UT_ExportViaWebService</name>
-    <synonym>
-      <key>ru</key>
-      <value>Выгрузка через веб сервис</value>
-    </synonym>
     <synonym>
       <key>en</key>
       <value>Export via web-service</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Web servisi üzerinden dışa aktar</value>
+      <key>ru</key>
+      <value>Выгрузка через веб сервис</value>
     </synonym>
     <type>
       <types>Boolean</types>
     </type>
-    <minValue xsi:type="core:UndefinedValue"/>
-    <maxValue xsi:type="core:UndefinedValue"/>
   </attributes>
   <forms uuid="6192831e-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>ManagedForm</name>
-    <synonym>
-      <key>ru</key>
-      <value>Управляемая форма</value>
-    </synonym>
     <synonym>
       <key>en</key>
       <value>Managed form</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Yönetilen uygulama</value>
+      <key>ru</key>
+      <value>Управляемая форма</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -2189,16 +1869,12 @@
   <forms uuid="619283f0-8f8a-11ea-4a9c-e86a6452d1f2">
     <name>HandlerDebugSetupManagedForm</name>
     <synonym>
-      <key>ru</key>
-      <value>Управляемая форма настройки отладки обработчиков</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Configure handlers debugging (managed form)</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>İşleyicilerin hata ayıklamasını yapılandırma  (yönetilen uygulama)</value>
+      <key>ru</key>
+      <value>Управляемая форма настройки отладки обработчиков</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

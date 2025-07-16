@@ -11,8 +11,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>mObjectRef</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>mObjectRef</segments>
+        </paths>
       </dataPath>
       <titleLocation>Left</titleLocation>
       <handlers>
@@ -109,8 +111,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>_ObjectType</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>_ObjectType</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <toolTip>
@@ -244,8 +248,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>_UseNonStandardFormToSelect</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>_UseNonStandardFormToSelect</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <extendedTooltip>
@@ -286,16 +292,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Параметры записи</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Write parameters</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt seçenekleri</value>
+      <key>ru</key>
+      <value>Параметры записи</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -353,8 +355,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>_UUID</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>_UUID</segments>
+          </paths>
         </dataPath>
         <toolTip>
           <key>en</key>
@@ -417,8 +421,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>_URL</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>_URL</segments>
+          </paths>
         </dataPath>
         <toolTip>
           <key>en</key>
@@ -548,6 +554,7 @@
               </extendedTooltip>
               <commandName>Form.Command.FindObjectByType_UUID</commandName>
               <representation>PictureAndText</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
@@ -555,7 +562,6 @@
                 <picture>StdPicture.SyncContents</picture>
               </picture>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:Button">
               <name>FormFindObjectByUUID</name>
@@ -582,6 +588,7 @@
               </extendedTooltip>
               <commandName>Form.Command.FindObjectByUUID</commandName>
               <representation>PictureAndText</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
@@ -589,7 +596,6 @@
                 <picture>StdPicture.ScheduledJob</picture>
               </picture>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -597,16 +603,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Найти объект по UUID</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Find object by UUID</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>UUID'ye göre nesneyi bul</value>
+              <key>ru</key>
+              <value>Найти объект по UUID</value>
             </title>
             <titleTextColor xsi:type="core:ColorRef">
               <color>Style.FieldSelectionBackColor</color>
@@ -890,16 +892,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Поиск объекта по UUID и URL</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Object search by UUID and URL</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>UUID ve URL ile nesne arama</value>
+      <key>ru</key>
+      <value>Поиск объекта по UUID и URL</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -947,8 +945,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>_CurrentFieldValueType</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>_CurrentFieldValueType</segments>
+        </paths>
       </dataPath>
       <toolTip>
         <key>en</key>
@@ -1065,16 +1065,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Тип данных для значения в текущем поле</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Data type for value in current field</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Geçerli alandaki değer için veri türü</value>
+      <key>ru</key>
+      <value>Тип данных для значения в текущем поле</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -1128,10 +1124,6 @@
         <title>
           <key>ru</key>
           <value>Для задания уникального идентификатора используйте правую кнопку мыши</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Benzersiz tanımlayıcı atamak için farenin sağ tuşunu kullanın</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1229,8 +1221,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>_ValueToFill</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>_ValueToFill</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>_ValueToFillExtendedTooltip</name>
@@ -1376,8 +1370,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>_ProcessOnlySelectedRows</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>_ProcessOnlySelectedRows</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -1464,16 +1460,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Заполнение колонок таблиц данных (табличных частей и движений)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Filling in columns of data tables (tabular sections and records)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Veri tablolarının sütunlarını doldurma (tablo bölümleri ve kayıtlar)</value>
+      <key>ru</key>
+      <value>Заполнение колонок таблиц данных (табличных частей и движений)</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -1538,10 +1530,6 @@
           <title>
             <key>ru</key>
             <value>Редактирование реквизитов объекта</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Nesne nitelikleri düzenleme</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1610,8 +1598,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ObjectAttributes.Name</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ObjectAttributes.Name</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ObjectAttributesNameExtendedTooltip</name>
@@ -1664,8 +1654,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ObjectAttributes.Presentation</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ObjectAttributes.Presentation</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ObjectAttributesPresentationExtendedTooltip</name>
@@ -1715,8 +1707,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ObjectAttributes.Value</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ObjectAttributes.Value</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ObjectAttributesValueExtendedTooltip</name>
@@ -1783,8 +1777,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ObjectAttributes.TypeString</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ObjectAttributes.TypeString</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ObjectAttributesTypeStringExtendedTooltip</name>
@@ -1837,8 +1833,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ObjectAttributes.ValueType</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>ObjectAttributes.ValueType</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ObjectAttributesValueTypeExtendedTooltip</name>
@@ -1923,7 +1921,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>ObjectAttributes</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1962,7 +1959,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>ObjectAttributes</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -2002,7 +1998,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>ObjectAttributes</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2238,16 +2233,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Реквизиты</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Attributes</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Öznitelikler</value>
+          <key>ru</key>
+          <value>Реквизиты</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -2291,10 +2282,6 @@
           <title>
             <key>ru</key>
             <value>Перечень свойств, которые будут установлены в Объект.ДополнительныеСвойства перед записью или проведением объекта</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Nesne yazılmadan veya kaydedilmeden önce Object.AdditionalProperties içinde ayarlanacak özelliklerin listesi</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -2344,16 +2331,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Действия &quot;ПередЗаписью&quot;</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Actions &quot;BeforeWrite&quot;</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>&quot;BeforeWrite&quot; Eylemleri</value>
+          <key>ru</key>
+          <value>Действия &quot;ПередЗаписью&quot;</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -2685,8 +2668,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>_RecordSetName</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>_RecordSetName</segments>
+              </paths>
             </dataPath>
             <handlers>
               <event>OnChange</event>
@@ -2741,8 +2726,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>_RecordSetName</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>_RecordSetName</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -2793,16 +2780,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Редактирование движений документа</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Document records editing</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Belge etkinliklerinin düzenlenmesi</value>
+            <key>ru</key>
+            <value>Редактирование движений документа</value>
           </title>
           <titleTextColor xsi:type="core:ColorRef">
             <color>Style.FieldSelectionBackColor</color>
@@ -2886,11 +2869,11 @@
               </extendedTooltip>
               <commandName>Form.Item._RecordSet.StandardCommand.Find</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:Button">
               <name>_RecordSetCancelSearch</name>
@@ -2917,11 +2900,11 @@
               </extendedTooltip>
               <commandName>Form.Item._RecordSet.StandardCommand.CancelSearch</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:FormGroup">
               <name>_RecordSetGroup1</name>
@@ -3113,7 +3096,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>_RecordSet</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3152,7 +3134,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>_RecordSet</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -3192,7 +3173,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>_RecordSet</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3281,16 +3261,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Движения</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Records</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Etkinlikler</value>
+          <key>ru</key>
+          <value>Движения</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -3476,6 +3452,7 @@
         </extendedTooltip>
         <commandName>Form.Command.OpenObject</commandName>
         <representation>Auto</representation>
+        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
@@ -3483,7 +3460,6 @@
           <picture>CommonPicture.UT_DatabaseObjectEditor</picture>
         </picture>
         <representationInContextMenu>Auto</representationInContextMenu>
-        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -3625,16 +3601,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Записать как новый</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Write as new</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Yeni olarak yaz</value>
+          <key>ru</key>
+          <value>Записать как новый</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -3850,16 +3822,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Выгрузка XML</value>
-        </title>
-        <title>
           <key>en</key>
           <value>XML unloading</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>XML boşaltma</value>
+          <key>ru</key>
+          <value>Выгрузка XML</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -3954,7 +3922,6 @@
     <name>BeforeLoadDataFromSettingsAtServer</name>
   </handlers>
   <saveDataInSettings>UseList</saveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -3966,10 +3933,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_ObjectsAttributesEditor</types>
@@ -3985,19 +3948,17 @@
   <attributes>
     <name>mObjectRef</name>
     <title>
-      <key>ru</key>
-      <value>Объект ИБ</value>
-    </title>
-    <title>
       <key>en</key>
       <value>DB object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>DB nesnesi</value>
+      <key>ru</key>
+      <value>Объект ИБ</value>
     </title>
     <id>2</id>
-    <valueType/>
+    <valueType>
+      <types>Arbitrary</types>
+    </valueType>
     <view>
       <common>true</common>
     </view>
@@ -4008,16 +3969,12 @@
   <attributes>
     <name>FormsPath</name>
     <title>
-      <key>ru</key>
-      <value>Путь к формам</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Path to forms</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Formlara giden yol</value>
+      <key>ru</key>
+      <value>Путь к формам</value>
     </title>
     <id>4</id>
     <valueType>
@@ -4034,16 +3991,12 @@
   <attributes>
     <name>ObjectAttributes</name>
     <title>
-      <key>ru</key>
-      <value>Реквизиты объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Object attributes</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne öznitelikleri</value>
+      <key>ru</key>
+      <value>Реквизиты объекта</value>
     </title>
     <id>5</id>
     <valueType>
@@ -4058,16 +4011,12 @@
     <columns>
       <name>Name</name>
       <title>
-        <key>ru</key>
-        <value>Имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Имя</value>
       </title>
       <id>1</id>
       <valueType>
@@ -4084,16 +4033,12 @@
     <columns>
       <name>Presentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Gösterim</value>
+        <key>ru</key>
+        <value>Представление</value>
       </title>
       <id>2</id>
       <valueType>
@@ -4110,16 +4055,12 @@
     <columns>
       <name>Value</name>
       <title>
-        <key>ru</key>
-        <value>Значение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Value</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değer</value>
+        <key>ru</key>
+        <value>Значение</value>
       </title>
       <id>3</id>
       <valueType/>
@@ -4133,16 +4074,12 @@
     <columns>
       <name>ValueType</name>
       <title>
-        <key>ru</key>
-        <value>Тип ( представление )</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Type ( presentation )</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Tür (gösterim)</value>
+        <key>ru</key>
+        <value>Тип ( представление )</value>
       </title>
       <id>4</id>
       <valueType>
@@ -4158,16 +4095,12 @@
     <columns>
       <name>Category</name>
       <title>
-        <key>ru</key>
-        <value>Категория</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Category</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kategori</value>
+        <key>ru</key>
+        <value>Категория</value>
       </title>
       <id>5</id>
       <valueType>
@@ -4186,16 +4119,12 @@
     <columns>
       <name>ForGroupOrItem</name>
       <title>
-        <key>ru</key>
-        <value>Для группы или элемента</value>
-      </title>
-      <title>
         <key>en</key>
         <value>For group or item</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Bir grup veya unsur için</value>
+        <key>ru</key>
+        <value>Для группы или элемента</value>
       </title>
       <id>6</id>
       <valueType>
@@ -4214,16 +4143,12 @@
     <columns>
       <name>TypeString</name>
       <title>
-        <key>ru</key>
-        <value>Тип</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Type</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Tür</value>
+        <key>ru</key>
+        <value>Тип</value>
       </title>
       <id>7</id>
       <valueType>
@@ -4241,16 +4166,12 @@
   <attributes>
     <name>_PrefixForNewItems</name>
     <title>
-      <key>ru</key>
-      <value>Префикс для новых элементов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Prefix for new items</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yeni öğeler için önek</value>
+      <key>ru</key>
+      <value>Префикс для новых элементов</value>
     </title>
     <id>6</id>
     <valueType>
@@ -4267,16 +4188,12 @@
   <attributes>
     <name>mPreviousObjectRef</name>
     <title>
-      <key>ru</key>
-      <value>Предыдущий объект</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Previous object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Önceki nesne</value>
+      <key>ru</key>
+      <value>Предыдущий объект</value>
     </title>
     <id>7</id>
     <valueType/>
@@ -4290,16 +4207,12 @@
   <attributes>
     <name>_ObjectType</name>
     <title>
-      <key>ru</key>
-      <value>Тип объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Object type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne türü</value>
+      <key>ru</key>
+      <value>Тип объекта</value>
     </title>
     <id>8</id>
     <valueType>
@@ -4316,15 +4229,11 @@
   <attributes>
     <name>_UUID</name>
     <title>
-      <key>ru</key>
-      <value>UUID</value>
-    </title>
-    <title>
       <key>en</key>
       <value>UUID</value>
     </title>
     <title>
-      <key>tr</key>
+      <key>ru</key>
       <value>UUID</value>
     </title>
     <id>9</id>
@@ -4344,16 +4253,12 @@
   <attributes>
     <name>_RecordSetName</name>
     <title>
-      <key>ru</key>
-      <value>Набор записей</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Record set</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt seti</value>
+      <key>ru</key>
+      <value>Набор записей</value>
     </title>
     <id>11</id>
     <valueType>
@@ -4370,16 +4275,12 @@
   <attributes>
     <name>_RecordSet</name>
     <title>
-      <key>ru</key>
-      <value>Набор записей</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Record set</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt seti</value>
+      <key>ru</key>
+      <value>Набор записей</value>
     </title>
     <id>12</id>
     <valueType>
@@ -4395,16 +4296,12 @@
   <attributes>
     <name>_RecordSetNamePrevious</name>
     <title>
-      <key>ru</key>
-      <value>Набор записей</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Record set</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt seti</value>
+      <key>ru</key>
+      <value>Набор записей</value>
     </title>
     <id>13</id>
     <valueType>
@@ -4421,15 +4318,11 @@
   <attributes>
     <name>_URL</name>
     <title>
-      <key>ru</key>
-      <value>URL</value>
-    </title>
-    <title>
       <key>en</key>
       <value>URL</value>
     </title>
     <title>
-      <key>tr</key>
+      <key>ru</key>
       <value>URL</value>
     </title>
     <id>14</id>
@@ -4447,16 +4340,12 @@
   <attributes>
     <name>_ValueToFill</name>
     <title>
-      <key>ru</key>
-      <value>Значение для заполнения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Value to fill</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Doldurulması gereken değer</value>
+      <key>ru</key>
+      <value>Значение для заполнения</value>
     </title>
     <id>17</id>
     <valueType>
@@ -4482,16 +4371,12 @@
   <attributes>
     <name>_ProcessOnlySelectedRows</name>
     <title>
-      <key>ru</key>
-      <value>Обрабатывать только выделенные строки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Process only selected rows</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yalnızca seçili satırları işle</value>
+      <key>ru</key>
+      <value>Обрабатывать только выделенные строки</value>
     </title>
     <id>18</id>
     <valueType>
@@ -4507,16 +4392,12 @@
   <attributes>
     <name>_PostingIsAllowed</name>
     <title>
-      <key>ru</key>
-      <value>Проведение разрешено</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Posting is allowed</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kaydetme izin ver</value>
+      <key>ru</key>
+      <value>Проведение разрешено</value>
     </title>
     <id>19</id>
     <valueType>
@@ -4532,16 +4413,12 @@
   <attributes>
     <name>_UseNonStandardFormToSelect</name>
     <title>
-      <key>ru</key>
-      <value>Использовать нестандартную форму для выбора объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Use non-standard form to select object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi seçmek için özel bir formu kullan</value>
+      <key>ru</key>
+      <value>Использовать нестандартную форму для выбора объекта</value>
     </title>
     <id>22</id>
     <valueType>
@@ -4557,16 +4434,12 @@
   <attributes>
     <name>_ConfigurationAllowsAdditionalRecords</name>
     <title>
-      <key>ru</key>
-      <value>Конфигурация допускает доп движения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Configuration allows additional register records</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Konfigurasyon ek kaydetmelere izin veriyor</value>
+      <key>ru</key>
+      <value>Конфигурация допускает доп движения</value>
     </title>
     <id>23</id>
     <valueType>
@@ -4582,16 +4455,12 @@
   <attributes>
     <name>_CurrentFieldValueType</name>
     <title>
-      <key>ru</key>
-      <value>Тип данных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Data type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Veri türü</value>
+      <key>ru</key>
+      <value>Тип данных</value>
     </title>
     <id>24</id>
     <valueType>
@@ -4608,16 +4477,12 @@
   <attributes>
     <name>UT_CreationDate</name>
     <title>
-      <key>ru</key>
-      <value>Дата создания</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Creation date</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Oluşturulma tarihi</value>
+      <key>ru</key>
+      <value>Дата создания</value>
     </title>
     <id>25</id>
     <valueType>
@@ -4634,16 +4499,12 @@
   <formCommands>
     <name>RefreshObjectData</name>
     <title>
-      <key>ru</key>
-      <value>Обновить данные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Refresh data</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Verileri yenile</value>
+      <key>ru</key>
+      <value>Обновить данные</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -4671,16 +4532,12 @@
   <formCommands>
     <name>WriteObject</name>
     <title>
-      <key>ru</key>
-      <value>Записать...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Write...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yaz...</value>
+      <key>ru</key>
+      <value>Записать...</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -4708,16 +4565,12 @@
   <formCommands>
     <name>FindObjectByUUID</name>
     <title>
-      <key>ru</key>
-      <value>Найти объект по UUID ( это может быть долго! )</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Find object by UUID (it could take a long time)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>UUID'ye göre nesneyi bul (uzun zaman alabilir!)</value>
+      <key>ru</key>
+      <value>Найти объект по UUID ( это может быть долго! )</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -4741,16 +4594,12 @@
   <formCommands>
     <name>FindObjectByType_UUID</name>
     <title>
-      <key>ru</key>
-      <value>Найти объект по Типу и UUID</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Find object by Type and UUID</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi Tür ve UUID'ye göre bulun</value>
+      <key>ru</key>
+      <value>Найти объект по Типу и UUID</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -4774,16 +4623,12 @@
   <formCommands>
     <name>OpenObject</name>
     <title>
-      <key>ru</key>
-      <value>Открыть объект...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Open object...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi aç...</value>
+      <key>ru</key>
+      <value>Открыть объект...</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -4811,16 +4656,12 @@
   <formCommands>
     <name>_RefreshRecordSet</name>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Refresh</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yenile</value>
+      <key>ru</key>
+      <value>Обновить</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -4848,16 +4689,12 @@
   <formCommands>
     <name>_WriteRecordSet</name>
     <title>
-      <key>ru</key>
-      <value>Записать...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Write...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yaz...</value>
+      <key>ru</key>
+      <value>Записать...</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -4885,16 +4722,12 @@
   <formCommands>
     <name>_SwitchRecordsActivity</name>
     <title>
-      <key>ru</key>
-      <value>Переключить активность записей</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Switch records activity</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt Etkinliğini Değiştir</value>
+      <key>ru</key>
+      <value>Переключить активность записей</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -4921,16 +4754,12 @@
   <formCommands>
     <name>_ShowAllRecords</name>
     <title>
-      <key>ru</key>
-      <value>Показать все движения...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Show all records...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tüm Etkinlikleri göster...</value>
+      <key>ru</key>
+      <value>Показать все движения...</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -4958,16 +4787,12 @@
   <formCommands>
     <name>FindObjectByURL</name>
     <title>
-      <key>ru</key>
-      <value>Найти объект по URL</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Find object by URL</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>URL ile nesneyi bul</value>
+      <key>ru</key>
+      <value>Найти объект по URL</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -4995,16 +4820,12 @@
   <formCommands>
     <name>_FillCurrentColumnData</name>
     <title>
-      <key>ru</key>
-      <value>Заполнить данные текущей колонки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Fill current column data</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Mevcut sütunun verilerini doldur</value>
+      <key>ru</key>
+      <value>Заполнить данные текущей колонки</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -5032,16 +4853,12 @@
   <formCommands>
     <name>_OpenRecordsEditor</name>
     <title>
-      <key>ru</key>
-      <value>Редактор движений...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Records editor...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt editörü...</value>
+      <key>ru</key>
+      <value>Редактор движений...</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -5069,16 +4886,12 @@
   <formCommands>
     <name>_OpenListForm</name>
     <title>
-      <key>ru</key>
-      <value>Спец. форма списка...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Special list form...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Special list form...</value>
+      <key>ru</key>
+      <value>Спец. форма списка...</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -5106,16 +4919,12 @@
   <formCommands>
     <name>_UndoPosting</name>
     <title>
-      <key>ru</key>
-      <value>Отменить проведение...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Undo posting...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kaydetmeyi iptal et</value>
+      <key>ru</key>
+      <value>Отменить проведение...</value>
     </title>
     <id>16</id>
     <toolTip>
@@ -5143,16 +4952,12 @@
   <formCommands>
     <name>_PostDocument</name>
     <title>
-      <key>ru</key>
-      <value>Провести документ...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Post document...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Belgeyi kaydet...</value>
+      <key>ru</key>
+      <value>Провести документ...</value>
     </title>
     <id>17</id>
     <toolTip>
@@ -5180,16 +4985,12 @@
   <formCommands>
     <name>_UnloadObject</name>
     <title>
-      <key>ru</key>
-      <value>Выгрузить объект...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unload object...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi boşalt...</value>
+      <key>ru</key>
+      <value>Выгрузить объект...</value>
     </title>
     <id>18</id>
     <toolTip>
@@ -5213,16 +5014,12 @@
   <formCommands>
     <name>_UnloadObjectWithRecords</name>
     <title>
-      <key>ru</key>
-      <value>Выгрузить объект с движениями...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unload object with records...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesneyi Etkinliklerle boşalt...</value>
+      <key>ru</key>
+      <value>Выгрузить объект с движениями...</value>
     </title>
     <id>19</id>
     <toolTip>
@@ -5246,16 +5043,12 @@
   <formCommands>
     <name>_UnloadObjectRecords</name>
     <title>
-      <key>ru</key>
-      <value>Выгрузить движения объекта...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unload object records...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne Etkinliklerini boşalt...</value>
+      <key>ru</key>
+      <value>Выгрузить движения объекта...</value>
     </title>
     <id>20</id>
     <toolTip>
@@ -5279,16 +5072,12 @@
   <formCommands>
     <name>_LoadXMLData</name>
     <title>
-      <key>ru</key>
-      <value>Загрузить данные XML...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Load XML data...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>XML verilerini yükle...</value>
+      <key>ru</key>
+      <value>Загрузить данные XML...</value>
     </title>
     <id>21</id>
     <toolTip>
@@ -5316,16 +5105,12 @@
   <formCommands>
     <name>_UnloadRecordSet</name>
     <title>
-      <key>ru</key>
-      <value>Выгрузить XML...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unload XML...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>XML'i boşalt...</value>
+      <key>ru</key>
+      <value>Выгрузить XML...</value>
     </title>
     <id>22</id>
     <toolTip>
@@ -5353,16 +5138,12 @@
   <formCommands>
     <name>_OpenAdditionalRecordsEditor</name>
     <title>
-      <key>ru</key>
-      <value>Редактор движений (доп)...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Records editor (additional)...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt editörü (ek)...</value>
+      <key>ru</key>
+      <value>Редактор движений (доп)...</value>
     </title>
     <id>23</id>
     <toolTip>
@@ -5390,16 +5171,12 @@
   <formCommands>
     <name>_DeleteObject</name>
     <title>
-      <key>ru</key>
-      <value>Удалить...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sil...</value>
+      <key>ru</key>
+      <value>Удалить...</value>
     </title>
     <id>24</id>
     <toolTip>
@@ -5427,16 +5204,12 @@
   <formCommands>
     <name>_ShowValueType</name>
     <title>
-      <key>ru</key>
-      <value>Показать</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Show</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Göster</value>
+      <key>ru</key>
+      <value>Показать</value>
     </title>
     <id>25</id>
     <toolTip>
@@ -5465,16 +5238,12 @@
   <formCommands>
     <name>_SelectDeletedObject</name>
     <title>
-      <key>ru</key>
-      <value>Выбрать битую ссылку ( &lt;Объект не найден> ... )</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Select broken reference (&lt;Object not found>... )</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Bozuk referansı seç (&lt;Nesne bulunamadı>...)</value>
+      <key>ru</key>
+      <value>Выбрать битую ссылку ( &lt;Объект не найден> ... )</value>
     </title>
     <id>26</id>
     <toolTip>
@@ -5502,16 +5271,12 @@
   <formCommands>
     <name>_WriteObjectAsNew</name>
     <title>
-      <key>ru</key>
-      <value>Записать как новый...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Write as new...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yeni olarak yaz...</value>
+      <key>ru</key>
+      <value>Записать как новый...</value>
     </title>
     <id>27</id>
     <toolTip>
@@ -5536,16 +5301,12 @@
   <formCommands>
     <name>_WriteObjectAsNewWithSpecifiedUUID</name>
     <title>
-      <key>ru</key>
-      <value>Записать как новый с заданным UUID...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Write as new with specified UUID...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Belirtilen UUID ile yeni olarak yaz...</value>
+      <key>ru</key>
+      <value>Записать как новый с заданным UUID...</value>
     </title>
     <id>28</id>
     <toolTip>
@@ -5570,16 +5331,12 @@
   <formCommands>
     <name>_FillBySample</name>
     <title>
-      <key>ru</key>
-      <value>Заполнить по образцу...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Fill by sample...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Örneğe göre doldur...</value>
+      <key>ru</key>
+      <value>Заполнить по образцу...</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -5607,16 +5364,12 @@
   <formCommands>
     <name>_InsertUUID</name>
     <title>
-      <key>ru</key>
-      <value>Вставить уникальный идентификатор...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Insert UUID...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>UUID'yi ekle...</value>
+      <key>ru</key>
+      <value>Вставить уникальный идентификатор...</value>
     </title>
     <id>29</id>
     <toolTip>

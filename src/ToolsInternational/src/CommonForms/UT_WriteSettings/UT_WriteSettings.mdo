@@ -5,10 +5,6 @@
     <key>ru</key>
     <value>Параметры записи</value>
   </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Yazı ayarları</value>
-  </synonym>
   <usePurposes>PersonalComputer</usePurposes>
   <usePurposes>MobileDevice</usePurposes>
 </mdclass:CommonForm>

@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Регламентное задание</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Scheduled job</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Zamanlanmış görev</value>
+    <key>ru</key>
+    <value>Регламентное задание</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>ColumnsGroup</name>
@@ -26,8 +22,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Description</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Description</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>DescriptionExtendedTooltip</name>
@@ -80,8 +78,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>MetadataChioce</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>MetadataChioce</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>MetadataChoiceExtendedTooltip</name>
@@ -138,8 +138,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Method</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Method</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>MethodExtendedTooltip</name>
@@ -188,8 +190,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>UsersChoice</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>UsersChoice</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>UsersChoiceExtendedTooltip</name>
@@ -242,8 +246,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Key</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Key</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>KeyExtendedTooltip</name>
@@ -295,8 +301,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Use</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Use</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -341,10 +349,6 @@
           <title>
             <key>ru</key>
             <value>Изменить расписание</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Zamanlamayı değiştir</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -428,10 +432,6 @@
           <key>ru</key>
           <value>Надпись расписание</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Zamanlama label</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -490,8 +490,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>RestartCountOnFailure</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>RestartCountOnFailure</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>RestartCountOnFailureExtendedTooltip</name>
@@ -540,8 +542,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>RestartIntervalOnFailure</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>RestartIntervalOnFailure</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>RestartIntervalOnFailureExtendedTooltip</name>
@@ -588,16 +592,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Перезапуск</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Restart</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Tekrar başlaması</value>
+          <key>ru</key>
+          <value>Перезапуск</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -702,8 +702,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>JobParameters.LineNumber</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>JobParameters.LineNumber</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>JobParametersLineNumberExtendedTooltip</name>
@@ -753,8 +755,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>JobParameters.Value</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>JobParameters.Value</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -806,8 +810,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>JobParameters.Type</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>JobParameters.Type</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>JobParametersTypeExtendedTooltip</name>
@@ -893,7 +899,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>JobParameters</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -932,7 +937,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>JobParameters</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -972,7 +976,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>JobParameters</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1195,7 +1198,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -1207,16 +1209,12 @@
   <attributes>
     <name>Description</name>
     <title>
-      <key>ru</key>
-      <value>Наименование</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Description</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tanım</value>
+      <key>ru</key>
+      <value>Наименование</value>
     </title>
     <id>1</id>
     <valueType>
@@ -1233,16 +1231,12 @@
   <attributes>
     <name>MetadataChioce</name>
     <title>
-      <key>ru</key>
-      <value>Метаданные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Metadata</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metaveri</value>
+      <key>ru</key>
+      <value>Метаданные</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1259,16 +1253,12 @@
   <attributes>
     <name>UsersChoice</name>
     <title>
-      <key>ru</key>
-      <value>Пользователь</value>
-    </title>
-    <title>
       <key>en</key>
       <value>User</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kullanıcı</value>
+      <key>ru</key>
+      <value>Пользователь</value>
     </title>
     <id>3</id>
     <valueType>
@@ -1285,16 +1275,12 @@
   <attributes>
     <name>Key</name>
     <title>
-      <key>ru</key>
-      <value>Ключ</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Key</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Anahtar</value>
+      <key>ru</key>
+      <value>Ключ</value>
     </title>
     <id>4</id>
     <valueType>
@@ -1311,16 +1297,12 @@
   <attributes>
     <name>Use</name>
     <title>
-      <key>ru</key>
-      <value>Использование</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Use</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kullanım</value>
+      <key>ru</key>
+      <value>Использование</value>
     </title>
     <id>5</id>
     <valueType>
@@ -1336,16 +1318,12 @@
   <attributes>
     <name>RestartCountOnFailure</name>
     <title>
-      <key>ru</key>
-      <value>Количество повторов при аварийном завершении</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Restart count on failure</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ani sonlanma sürecinde tekrar sayısı</value>
+      <key>ru</key>
+      <value>Количество повторов при аварийном завершении</value>
     </title>
     <id>6</id>
     <valueType>
@@ -1364,16 +1342,12 @@
   <attributes>
     <name>RestartIntervalOnFailure</name>
     <title>
-      <key>ru</key>
-      <value>Интервал повтора при аварийном завершении (сек.)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Restart interval on failure (sec)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Arızalı sonlandırma sırasında tekrarlama aralığı</value>
+      <key>ru</key>
+      <value>Интервал повтора при аварийном завершении (сек.)</value>
     </title>
     <id>7</id>
     <valueType>
@@ -1392,16 +1366,12 @@
   <attributes>
     <name>ScheduledJobID</name>
     <title>
-      <key>ru</key>
-      <value>Регламентное задание ИД</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Scheduled job ID</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Zamanlanmış görev ID</value>
+      <key>ru</key>
+      <value>Регламентное задание ИД</value>
     </title>
     <id>8</id>
     <valueType>
@@ -1421,10 +1391,6 @@
       <key>en</key>
       <value>Data processor object</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Veri işlemcisi nesnesi</value>
-    </title>
     <id>9</id>
     <valueType>
       <types>DataProcessorObject.UT_JobsConsole</types>
@@ -1440,16 +1406,12 @@
   <attributes>
     <name>JobParameters</name>
     <title>
-      <key>ru</key>
-      <value>Параметры задания</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Job parameters</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Görev parametreleri</value>
+      <key>ru</key>
+      <value>Параметры задания</value>
     </title>
     <id>11</id>
     <valueType>
@@ -1464,16 +1426,12 @@
     <columns>
       <name>LineNumber</name>
       <title>
-        <key>ru</key>
-        <value>Line number</value>
-      </title>
-      <title>
         <key>en</key>
         <value>№</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>№</value>
+        <key>ru</key>
+        <value>Line number</value>
       </title>
       <id>1</id>
       <valueType>
@@ -1492,16 +1450,12 @@
     <columns>
       <name>Value</name>
       <title>
-        <key>ru</key>
-        <value>Value</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Value</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değer</value>
+        <key>ru</key>
+        <value>Value</value>
       </title>
       <id>2</id>
       <valueType/>
@@ -1517,10 +1471,6 @@
       <title>
         <key>en</key>
         <value>Type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tür</value>
       </title>
       <id>3</id>
       <valueType>
@@ -1539,10 +1489,6 @@
         <key>en</key>
         <value>Add</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ek</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -1559,16 +1505,12 @@
   <attributes>
     <name>Method</name>
     <title>
-      <key>ru</key>
-      <value>Метод</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Method</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metod</value>
+      <key>ru</key>
+      <value>Метод</value>
     </title>
     <id>12</id>
     <valueType>
@@ -1585,16 +1527,12 @@
   <attributes>
     <name>MetadataTable</name>
     <title>
-      <key>ru</key>
-      <value>Таблица метаданных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Metadata table</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metaveri tablosu</value>
+      <key>ru</key>
+      <value>Таблица метаданных</value>
     </title>
     <id>13</id>
     <valueType>
@@ -1611,10 +1549,6 @@
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -1634,10 +1568,6 @@
         <key>en</key>
         <value>Presentation</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Gösterim</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -1656,10 +1586,6 @@
         <key>en</key>
         <value>Method</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Metot adı</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -1676,16 +1602,12 @@
   <formCommands>
     <name>OK</name>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>ОК</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1710,5 +1632,4 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

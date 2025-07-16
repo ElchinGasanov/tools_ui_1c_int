@@ -2,16 +2,12 @@
 <mdclass:Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1d9908ed-acf0-479e-861c-588fae795dbf">
   <name>UT_Support</name>
   <synonym>
-    <key>ru</key>
-    <value>Поддержка</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Support</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Destek</value>
+    <key>ru</key>
+    <value>Поддержка</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
   <includeInCommandInterface>true</includeInCommandInterface>

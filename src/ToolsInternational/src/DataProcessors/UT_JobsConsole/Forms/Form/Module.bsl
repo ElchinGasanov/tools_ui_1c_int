@@ -27,7 +27,7 @@ Procedure OnOpen(Cancel)
 		Items.ScheduledJobsListEventLog1.Visible = False;
 	#EndIf
 	#If ThickClientOrdinaryApplication OR ThickClientManagedApplication Then
-		Items.ScheduledJobsListExecuteManually.Title = NStr("ru = 'На клиенте (толстый клиент)'; en = 'At client (thick client)'; tr = 'İstemcide (kalın istemci)'");
+		Items.ScheduledJobsListExecuteManually.Title = NStr("ru = 'На клиенте (толстый клиент)'; en = 'At client (thick client)'");
 	#EndIf
 	Items.BackgroundJobsListSettings.Check = BackgroundJobsListAutoUpdate;
 	Items.ScheduledJobsListSettings.Check = ScheduledJobsListAutoUpdate;
@@ -53,7 +53,7 @@ Procedure UpdateOnCreate()
 	EndTry;
 	
 	DataProcessorVersion = FormAttributeToValue("Object").DataProcessorVersion();
-	ThisForm.Title = StrTemplate(NStr("ru = 'Регламентные и фоновые задания v%1'; en = 'Scheduled and background jobs v%1'; tr = 'Zamanlanmış ve arka plan görevleri v%1'"), DataProcessorVersion);
+	ThisForm.Title = StrTemplate(NStr("ru = 'Регламентные и фоновые задания v%1'; en = 'Scheduled and background jobs v%1'"), DataProcessorVersion);
 	
 EndProcedure
 
@@ -160,7 +160,7 @@ Procedure DeleteScheduledJob()
 		
 		ScheduledJob = ScheduledJobs.FindByUUID(ScheduledJobRow.ID);
 		If ScheduledJob.Predefined Then
-			Raise(NStr("ru = 'Нельзя удалить предопределенное задание: '; en = 'Unable to delete predefined job: '; tr = 'Önceden tanımlanmış iş silinemiyor:'") + ScheduledJob.Description);
+			Raise(NStr("ru = 'Нельзя удалить предопределенное задание: '; en = 'Unable to delete predefined job: '") + ScheduledJob.Description);
 		EndIf;
 	EndDo;
 	
@@ -330,7 +330,7 @@ Function GetScheduledJobsFilter()
 			FilterRow = " (" + FilterRow + ")";
 		EndIf;
 	EndIf;
-	Items.ScheduledJobs.Title = NStr("ru = 'Регламентные задания'; en = 'Scheduled jobs'; tr = 'Zamanlanmış görevler'") + FilterRow;
+	Items.ScheduledJobs.Title = NStr("ru = 'Регламентные задания'; en = 'Scheduled jobs'") + FilterRow;
 	Return Filter;
 EndFunction
 	
@@ -385,9 +385,9 @@ Procedure PutScheduledJobs(GetAllStates = False)
 	
 	ScheduledJobsFillingTime = CurrentUniversalDateInMilliseconds() - MeteringStart;
 	
-	OptimizationExplanationText = StrTemplate(NStr("ru = 'За %1 мсек. получено состояние %2 из %3 регламентных заданий,'; en = 'In %1 msec, the states %2 of %3 scheduled jobs were received,'; tr = '%1 ms içinde, %3 zamanlanmış görevden %2 durumu alındı,'")
-		+ NStr("ru = ' но обновление происходит и при активации строки.'; en = ' but refreshing also occurs when the row is activated.'; tr = 'ancak satır etkinleştirildiğinde de yenileme gerçekleşir.'"), ScheduledJobsFillingTime, Counter, Count)
-		+ NStr("ru = ' Для отображения состояния сразу всех воспользуйтесь командой обновления списка регламентных заданий.'; en = ' To display the states of all jobs, use Refresh scheduled jobs command.'; tr = 'Tüm görevlerin durumlarını görüntülemek için Zamanlanmış görevleri yenile komutunu kullanın.'");
+	OptimizationExplanationText = StrTemplate(NStr("ru = 'За %1 мсек. получено состояние %2 из %3 регламентных заданий,'; en = 'In %1 msec, the states %2 of %3 scheduled jobs were received,'")
+		+ NStr("ru = ' но обновление происходит и при активации строки.'; en = ' but refreshing also occurs when the row is activated.'"), ScheduledJobsFillingTime, Counter, Count)
+		+ NStr("ru = ' Для отображения состояния сразу всех воспользуйтесь командой обновления списка регламентных заданий.'; en = ' To display the states of all jobs, use Refresh scheduled jobs command.'");
 		
 	Items.ScheduledJobsListExecuted.ToolTip = OptimizationExplanationText;
 	Items.ScheduledJobsListExecuted.Title = "Executed" + ?(Counter = Count, "", "*");
@@ -449,7 +449,7 @@ Function SetScheduledJobSchedule(ID, Description, Schedule, JobName)
 		EditedJobObject.Write();
 	Except
 		Raise NStr("ru = 'Произошла ошибка при сохранении расписания выполнения обменов. Возможно данные расписания были изменены. Закройте форму настройки и повторите попытку изменения расписания еще раз.
-																																													 |Подробное описание ошибки: '; en = 'Schedule saving error. Perhaps the schedule data has been changed. Close the settings form and try again.Detailed error description : '; tr = 'Zamanlama kaydetme hatası. Muhtemelen zamanlama verileri değiştirildi. Ayarlar formunu kapatıp tekrar deneyin. Detaylı hata açıklaması:'") + ErrorDescription();
+		|Подробное описание ошибки: '; en = 'Schedule saving error. Perhaps the schedule data has been changed. Close the settings form and try again.Detailed error description : '") + ErrorDescription();
 	EndTry;
 	
 	Return True;
@@ -533,11 +533,11 @@ Procedure RunAtServer(UUID)
 	NewJobID = Undefined;
 	
 	If JobsArray.Count() = 0 Then 
-		BackgroundJobDescription = NStr("ru = 'Запуск вручную: '; en = 'Run manually: '; tr = 'Manuel başlatma:'") + Job.Metadata.Synonym;
+		BackgroundJobDescription = NStr("ru = 'Запуск вручную: '; en = 'Run manually: '") + Job.Metadata.Synonym;
 		BackgroundJob = BackgroundJobs.Execute(Job.Metadata.MethodName, Job.Parameters, String(Job.UUID), BackgroundJobDescription);
 		NewJobID = BackgroundJob.UUID;
 	Else
-		NotifyUser(NStr("ru = 'Задание уже запущено'; en = 'The job has already started'; tr = 'Görev çoktan başladı'"));
+		NotifyUser(NStr("ru = 'Задание уже запущено'; en = 'The job has already started'"));
 	EndIf;
 		
 	RefreshScheduledJobsList();
@@ -850,7 +850,7 @@ Function GetBackgroundJobsFilter()
 			FilterRow = " (" + FilterRow + ")";
 		EndIf;
 	EndIf;
-	Items.BackgroundJobs.Title = NSTr("ru = 'Фоновые задания'; en = 'Background jobs'; tr = 'Arkaplan görevleri'") + FilterRow;
+	Items.BackgroundJobs.Title = "Background jobs" + FilterRow;
 	Return Filter;
 EndFunction
 

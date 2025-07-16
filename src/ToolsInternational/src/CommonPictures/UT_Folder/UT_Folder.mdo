@@ -5,12 +5,4 @@
     <key>ru</key>
     <value>Folder</value>
   </synonym>
-  <synonym>
-    <key>en</key>
-    <value>Folder</value>
-  </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Dosya</value>
-  </synonym>
 </mdclass:CommonPicture>

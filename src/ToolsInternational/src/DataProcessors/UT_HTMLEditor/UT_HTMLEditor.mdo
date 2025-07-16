@@ -6,16 +6,12 @@
   </producedTypes>
   <name>UT_HTMLEditor</name>
   <synonym>
-    <key>ru</key>
-    <value>Редактор HTML [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>HTML Editor [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>HTML Düzenleyici [UT]</value>
+    <key>ru</key>
+    <value>Редактор HTML [УИ]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_HTMLEditor.Form.Form</defaultForm>
@@ -31,10 +27,6 @@
     <name>Form</name>
     <synonym>
       <key>ru</key>
-      <value>Form</value>
-    </synonym>
-    <synonym>
-      <key>tr</key>
       <value>Form</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>

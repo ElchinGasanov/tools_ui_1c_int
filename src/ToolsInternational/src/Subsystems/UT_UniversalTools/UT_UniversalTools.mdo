@@ -2,16 +2,12 @@
 <mdclass:Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="420d125a-5388-46d1-a2c2-ba1347e3e5fd">
   <name>UT_UniversalTools</name>
   <synonym>
-    <key>ru</key>
-    <value>Инструменты</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Universal Tools</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Universal araçlar</value>
+    <key>ru</key>
+    <value>Инструменты</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
   <includeInCommandInterface>true</includeInCommandInterface>

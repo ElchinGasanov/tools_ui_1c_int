@@ -2,15 +2,11 @@
 <mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c48b8964-04af-412a-a8e7-d79752ececc8">
   <name>UT_DataSetDCSQuery</name>
   <synonym>
-    <key>ru</key>
-    <value>Набор данных СКДЗапрос</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Data set DCS Query</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Veri seti DCS Sorgusu</value>
+    <key>ru</key>
+    <value>Набор данных СКДЗапрос</value>
   </synonym>
 </mdclass:CommonPicture>

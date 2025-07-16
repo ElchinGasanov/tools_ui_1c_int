@@ -168,7 +168,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -237,14 +236,6 @@
       <key>ru</key>
       <value>Share</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Share</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Paylaş</value>
-    </title>
     <id>1</id>
     <use>
       <common>true</common>
@@ -265,14 +256,6 @@
     <title>
       <key>ru</key>
       <value>Copy to clipboard</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Copy to clipboard</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Panoya kopyala</value>
     </title>
     <id>2</id>
     <use>

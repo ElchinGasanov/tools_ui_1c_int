@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Выбор масштаба отображения форм</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Forms scale variant selection</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Formlar ölçek varyantı seçimi</value>
+    <key>ru</key>
+    <value>Выбор масштаба отображения форм</value>
   </title>
   <items xsi:type="form:FormField">
     <name>UserName</name>
@@ -20,8 +16,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>UserName</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>UserName</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>UserNameExtendedTooltip</name>
@@ -71,8 +69,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>ScaleVariant</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>ScaleVariant</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>ScaleVariantExtendedTooltip</name>
@@ -198,7 +198,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -212,10 +211,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -232,16 +227,12 @@
   <attributes>
     <name>ScaleVariant</name>
     <title>
-      <key>ru</key>
-      <value>Вариант отображения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Scale variant</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ölçek değişkeni</value>
+      <key>ru</key>
+      <value>Вариант отображения</value>
     </title>
     <id>2</id>
     <valueType>
@@ -258,16 +249,12 @@
   <attributes>
     <name>UserName</name>
     <title>
-      <key>ru</key>
-      <value>Имя пользователя</value>
-    </title>
-    <title>
       <key>en</key>
       <value>User name	</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kullanıcı ismi</value>
+      <key>ru</key>
+      <value>Имя пользователя</value>
     </title>
     <id>3</id>
     <valueType>
@@ -290,10 +277,6 @@
     <title>
       <key>en</key>
       <value>Set scale variant</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Ölçek değişkenini ayarla</value>
     </title>
     <id>1</id>
     <toolTip>

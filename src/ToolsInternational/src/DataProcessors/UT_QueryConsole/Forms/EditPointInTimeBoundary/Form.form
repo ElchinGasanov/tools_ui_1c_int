@@ -11,8 +11,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>PointInTimeDate</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>PointInTimeDate</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>PointInTimeDateExtendedTooltip</name>
@@ -61,8 +63,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>PointInTimeRef</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>PointInTimeRef</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -163,8 +167,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>BoundaryType</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>BoundaryType</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>BoundaryTypeExtendedTooltip</name>
@@ -223,8 +229,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>BoundaryValue</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>BoundaryValue</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>BoundaryValueExtendedTooltip</name>
@@ -440,7 +448,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <width>50</width>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -450,10 +457,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_QueryConsole</types>
@@ -469,16 +472,12 @@
   <attributes>
     <name>BoundaryType</name>
     <title>
-      <key>ru</key>
-      <value>Тип границы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Boundary type</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sınır türü</value>
+      <key>ru</key>
+      <value>Тип границы</value>
     </title>
     <id>2</id>
     <valueType>
@@ -495,16 +494,12 @@
   <attributes>
     <name>BoundaryValue</name>
     <title>
-      <key>ru</key>
-      <value>Значение</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Value</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değer</value>
+      <key>ru</key>
+      <value>Значение</value>
     </title>
     <id>3</id>
     <valueType>
@@ -521,16 +516,12 @@
   <attributes>
     <name>PointInTimeDate</name>
     <title>
-      <key>ru</key>
-      <value>Дата</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Date</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tarih</value>
+      <key>ru</key>
+      <value>Дата</value>
     </title>
     <id>4</id>
     <valueType>
@@ -547,16 +538,12 @@
   <attributes>
     <name>PointInTimeRef</name>
     <title>
-      <key>ru</key>
-      <value>Ссылка</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Ref</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Referans</value>
+      <key>ru</key>
+      <value>Ссылка</value>
     </title>
     <id>5</id>
     <valueType>
@@ -572,16 +559,12 @@
   <attributes>
     <name>Value</name>
     <title>
-      <key>ru</key>
-      <value>Значение</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Value</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değer</value>
+      <key>ru</key>
+      <value>Значение</value>
     </title>
     <id>6</id>
     <valueType/>
@@ -595,16 +578,12 @@
   <formCommands>
     <name>OKCommand</name>
     <title>
-      <key>ru</key>
-      <value>Команда ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK command</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>Команда ОК</value>
     </title>
     <id>1</id>
     <toolTip>

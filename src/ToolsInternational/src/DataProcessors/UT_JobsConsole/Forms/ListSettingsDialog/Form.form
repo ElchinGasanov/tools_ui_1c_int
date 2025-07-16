@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Настройка списка</value>
-  </title>
-  <title>
     <key>en</key>
     <value>List settings</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Liste ayarları</value>
+    <key>ru</key>
+    <value>Настройка списка</value>
   </title>
   <items xsi:type="form:FormField">
     <name>AutoUpdate</name>
@@ -20,8 +16,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>AutoUpdate</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>AutoUpdate</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>AutoUpdateExtendedTooltip</name>
@@ -63,8 +61,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>AutoUpdatePeriod</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>AutoUpdatePeriod</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>AutoUpdatePeriodExtendedTooltip</name>
@@ -184,7 +184,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -198,10 +197,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -218,16 +213,12 @@
   <attributes>
     <name>AutoUpdate</name>
     <title>
-      <key>ru</key>
-      <value>Автообновление</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Auto update</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Otomatik yenilenme</value>
+      <key>ru</key>
+      <value>Автообновление</value>
     </title>
     <id>2</id>
     <valueType>
@@ -243,16 +234,12 @@
   <attributes>
     <name>AutoUpdatePeriod</name>
     <title>
-      <key>ru</key>
-      <value>Период автообновления (сек.)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Auto update period (sec)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Otomatik yenilenme süresi (sn)</value>
+      <key>ru</key>
+      <value>Период автообновления (сек.)</value>
     </title>
     <id>3</id>
     <valueType>
@@ -286,16 +273,12 @@
   <formCommands>
     <name>OK</name>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>ОК</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -324,5 +307,4 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

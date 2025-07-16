@@ -80,9 +80,9 @@ EndProcedure
 &AtClient
 Procedure CopyToClipboardFinish(Result, CallOptions, ExtraParameters) Export
 	If Result = True Then
-		Title = NStr("ru = 'Код скопирован в буфер обмена'; en = 'The code has been copied to the clipboard'; tr = 'Kod panoya kopyalandı'");
+		Title = NStr("ru = 'Код скопирован в буфер обмена'; en = 'The code has been copied to the clipboard'");
 	Иначе
-		Title = NStr("ru = 'Не удалось скопировать в буфер обмена'; en = 'Failed to copy to clipboard'; tr = 'Panoya kopyalanamadı'");
+		Title = NStr("ru = 'Не удалось скопировать в буфер обмена'; en = 'Failed to copy to clipboard'");
 	EndIf;
 EndProcedure
 

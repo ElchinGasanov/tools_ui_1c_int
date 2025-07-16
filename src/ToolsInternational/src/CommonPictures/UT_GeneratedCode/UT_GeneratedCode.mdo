@@ -5,12 +5,4 @@
     <key>ru</key>
     <value>Generated code</value>
   </synonym>
-  <synonym>
-    <key>en</key>
-    <value>Generated code</value>
-  </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Oluşturulan kod</value>
-  </synonym>
 </mdclass:CommonPicture>

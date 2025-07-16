@@ -45,7 +45,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	If CurrentObject.IsFileInfobase() Then
 		CurItem = ChoiceList.FindByValue(2);
 		If CurItem <> Undefined Then
-			CurItem.Presentation = NStr("ru = 'В каталоге:'; en = 'In directory:'; tr = 'Katalogda:'");
+			CurItem.Presentation = NStr("ru = 'В каталоге:'; en = 'In directory:'");
 		EndIf;
 	EndIf;
 
@@ -68,7 +68,7 @@ Procedure QueryDataProcessorPathStartChoice(Item, ChioceData, StandardProcessing
 	StandardProcessing = False;
 	Dialog = New FileDialog(FileDialogMode.Open);
 	Dialog.CheckFileExistence = True;
-	Dialog.Filter = NStr("ru = 'Внешние обработки (*.epf)|*.epf'; en = 'External data processor (*.epf)|*.epf'; tr = 'Harici veri işlemcisi (*.epf)|*.epf'");
+	Dialog.Filter = NStr("ru='Внешние обработки (*.epf)|*.epf'; en='External data processor (*.epf)|*.epf'");
 	Dialog.Show(New NotifyDescription("QueryDataProcessorPathStartChoiceCompletion", ThisForm,
 		New Structure("Dialog", Dialog)));
 EndProcedure
@@ -113,7 +113,7 @@ EndProcedure
 Procedure ReportError(Text, AttributeName = Undefined)
 	
 	If AttributeName = Undefined Then
-		ErrorTitle = NStr("ru = 'Ошибка'; en = 'Error'; tr = 'Hata'");
+		ErrorTitle = NStr("ru = 'Ошибка'; en = 'Error'");
 		ShowMessageBox(, Text, , ErrorTitle);
 		Return;
 	EndIf;

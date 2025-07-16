@@ -36,8 +36,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>DataSets.Picture</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>DataSets.Picture</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>DataSetsPictureExtendedTooltip</name>
@@ -74,10 +76,6 @@
                   <autoMaxHeight>true</autoMaxHeight>
                   <horizontalStretch>true</horizontalStretch>
                   <verticalStretch>true</verticalStretch>
-                  <border xsi:type="core:BorderDef">
-                    <style>Single</style>
-                    <width>1</width>
-                  </border>
                 </extInfo>
               </items>
               <items xsi:type="form:FormField">
@@ -88,8 +86,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>DataSets.Name</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>DataSets.Name</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>DataSetsNameExtendedTooltip</name>
@@ -273,10 +273,6 @@
                   <key>en</key>
                   <value>Data sets group data sets submenu add</value>
                 </title>
-                <title>
-                  <key>tr</key>
-                  <value>Veri setleri grubu alt menüsü veri seti ekle</value>
-                </title>
                 <extendedTooltip>
                   <name>DataSetsGroupDataSetsSubmenuAddExtendedTooltip</name>
                   <id>44</id>
@@ -398,32 +394,32 @@
               <horizontalAlign>Left</horizontalAlign>
             </autoCommandBar>
             <handlers>
-              <event>DragCheck</event>
-              <name>DataSetsDragCheck</name>
-            </handlers>
-            <handlers>
               <event>Selection</event>
               <name>DataSetsSelection</name>
-            </handlers>
-            <handlers>
-              <event>BeforeAddRow</event>
-              <name>DataSetsBeforeAddRow</name>
-            </handlers>
-            <handlers>
-              <event>BeforeDeleteRow</event>
-              <name>DataSetsBeforeDeleteRow</name>
             </handlers>
             <handlers>
               <event>OnActivateRow</event>
               <name>DataSetsOnActivateRow</name>
             </handlers>
             <handlers>
-              <event>Drag</event>
-              <name>DataSetsDrag</name>
+              <event>BeforeAddRow</event>
+              <name>DataSetsBeforeAddRow</name>
             </handlers>
             <handlers>
               <event>BeforeRowChange</event>
               <name>DataSetsBeforeRowChange</name>
+            </handlers>
+            <handlers>
+              <event>BeforeDeleteRow</event>
+              <name>DataSetsBeforeDeleteRow</name>
+            </handlers>
+            <handlers>
+              <event>DragCheck</event>
+              <name>DataSetsDragCheck</name>
+            </handlers>
+            <handlers>
+              <event>Drag</event>
+              <name>DataSetsDrag</name>
             </handlers>
             <searchStringAddition>
               <visible>true</visible>
@@ -458,7 +454,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>DataSets</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -497,7 +492,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>DataSets</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -537,7 +531,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>DataSets</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -927,8 +920,10 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Items.DataSets.CurrentData.Fields.Picture</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Items.DataSets.CurrentData.Fields.Picture</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>DataSetsFieldsPictureExtendedTooltip</name>
@@ -963,10 +958,6 @@
                     <autoMaxHeight>true</autoMaxHeight>
                     <horizontalStretch>true</horizontalStretch>
                     <verticalStretch>true</verticalStretch>
-                    <border xsi:type="core:BorderDef">
-                      <style>Single</style>
-                      <width>1</width>
-                    </border>
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormField">
@@ -977,8 +968,10 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Items.DataSets.CurrentData.Fields.Field</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Items.DataSets.CurrentData.Fields.Field</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>DataSetsFieldsFieldExtendedTooltip</name>
@@ -1030,8 +1023,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.DataPath</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.DataPath</segments>
+                      </paths>
                     </dataPath>
                     <handlers>
                       <event>OnChange</event>
@@ -1084,8 +1079,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.Title</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.Title</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>FieldsTitleExtendedTooltip</name>
@@ -1170,24 +1167,22 @@
                       <name>FieldsUseRestrictionField</name>
                       <id>151</id>
                       <title>
-                        <key>ru</key>
-                        <value>Поле</value>
-                      </title>
-                      <title>
                         <key>en</key>
                         <value>Field</value>
                       </title>
                       <title>
-                        <key>tr</key>
-                        <value>Alan</value>
+                        <key>ru</key>
+                        <value>Поле</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.Fields.UseRestrictionField</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.Fields.UseRestrictionField</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>FieldsUseRestrictionFieldExtendedTooltip</name>
@@ -1225,24 +1220,22 @@
                       <name>FieldsUseRestrictionCondition</name>
                       <id>157</id>
                       <title>
-                        <key>ru</key>
-                        <value>Условие</value>
-                      </title>
-                      <title>
                         <key>en</key>
                         <value>Condition</value>
                       </title>
                       <title>
-                        <key>tr</key>
-                        <value>Koşul</value>
+                        <key>ru</key>
+                        <value>Условие</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.Fields.UseRestrictionCondition</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.Fields.UseRestrictionCondition</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>FieldsUseRestrictionConditionExtendedTooltip</name>
@@ -1280,24 +1273,22 @@
                       <name>FieldsUseRestrictionGroup</name>
                       <id>148</id>
                       <title>
-                        <key>ru</key>
-                        <value>Группа</value>
-                      </title>
-                      <title>
                         <key>en</key>
                         <value>Group</value>
                       </title>
                       <title>
-                        <key>tr</key>
-                        <value>Grup</value>
+                        <key>ru</key>
+                        <value>Группа</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.Fields.UseRestrictionGroup</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.Fields.UseRestrictionGroup</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>FieldsUseRestrictionGroupExtendedTooltip</name>
@@ -1335,24 +1326,22 @@
                       <name>FieldsUseRestrictionOrder</name>
                       <id>154</id>
                       <title>
-                        <key>ru</key>
-                        <value>Упорядочивание</value>
-                      </title>
-                      <title>
                         <key>en</key>
                         <value>Order</value>
                       </title>
                       <title>
-                        <key>tr</key>
-                        <value>Sıralama</value>
+                        <key>ru</key>
+                        <value>Упорядочивание</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.Fields.UseRestrictionOrder</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.Fields.UseRestrictionOrder</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>FieldsUseRestrictionOrderExtendedTooltip</name>
@@ -1392,16 +1381,12 @@
                       <common>true</common>
                     </userVisible>
                     <title>
-                      <key>ru</key>
-                      <value>Ограничения поля</value>
-                    </title>
-                    <title>
                       <key>en</key>
                       <value>Field restrictions </value>
                     </title>
                     <title>
-                      <key>tr</key>
-                      <value>Alan kısıtlamaları</value>
+                      <key>ru</key>
+                      <value>Ограничения поля</value>
                     </title>
                     <width>1</width>
                     <horizontalStretch>false</horizontalStretch>
@@ -1433,24 +1418,22 @@
                       <name>FieldsUseRestrictionsAttributesField</name>
                       <id>162</id>
                       <title>
-                        <key>ru</key>
-                        <value>Поле</value>
-                      </title>
-                      <title>
                         <key>en</key>
                         <value>Field</value>
                       </title>
                       <title>
-                        <key>tr</key>
-                        <value>Alan</value>
+                        <key>ru</key>
+                        <value>Поле</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.Fields.AttributeUseRestrictionField</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.Fields.AttributeUseRestrictionField</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>FieldsUseRestrictionsAttributesFieldExtendedTooltip</name>
@@ -1488,24 +1471,22 @@
                       <name>FieldsUseRestrictionsAttributesCondition</name>
                       <id>165</id>
                       <title>
-                        <key>ru</key>
-                        <value>Условие</value>
-                      </title>
-                      <title>
                         <key>en</key>
                         <value>Condition</value>
                       </title>
                       <title>
-                        <key>tr</key>
-                        <value>Koşul</value>
+                        <key>ru</key>
+                        <value>Условие</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.Fields.AttributeUseRestrictionCondition</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.Fields.AttributeUseRestrictionCondition</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>FieldsUseRestrictionsAttributesConditionExtendedTooltip</name>
@@ -1543,24 +1524,22 @@
                       <name>FieldsUseRestrictionsAttributesGroup</name>
                       <id>168</id>
                       <title>
-                        <key>ru</key>
-                        <value>Группа</value>
-                      </title>
-                      <title>
                         <key>en</key>
                         <value>Group</value>
                       </title>
                       <title>
-                        <key>tr</key>
-                        <value>Grup</value>
+                        <key>ru</key>
+                        <value>Группа</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.Fields.AttributeUseRestrictionGroup</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.Fields.AttributeUseRestrictionGroup</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>FieldsUseRestrictionsAttributesGroupExtendedTooltip</name>
@@ -1598,24 +1577,22 @@
                       <name>FieldsUseRestrictionsAttributesOrder</name>
                       <id>171</id>
                       <title>
-                        <key>ru</key>
-                        <value>Упорядочивание</value>
-                      </title>
-                      <title>
                         <key>en</key>
                         <value>Order</value>
                       </title>
                       <title>
-                        <key>tr</key>
-                        <value>Sıralama</value>
+                        <key>ru</key>
+                        <value>Упорядочивание</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.Fields.AttributeUseRestrictionOrder</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.Fields.AttributeUseRestrictionOrder</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>FieldsUseRestrictionsAttributesOrderExtendedTooltip</name>
@@ -1655,16 +1632,12 @@
                       <common>true</common>
                     </userVisible>
                     <title>
-                      <key>ru</key>
-                      <value>Ограничения реквизитов</value>
-                    </title>
-                    <title>
                       <key>en</key>
                       <value>Attributes restrictions</value>
                     </title>
                     <title>
-                      <key>tr</key>
-                      <value>Esas bilgi kısıtlaması</value>
+                      <key>ru</key>
+                      <value>Ограничения реквизитов</value>
                     </title>
                     <width>1</width>
                     <horizontalStretch>false</horizontalStretch>
@@ -1728,24 +1701,22 @@
                   <name>DataSetsFieldsRolePresentation</name>
                   <id>141</id>
                   <title>
-                    <key>ru</key>
-                    <value>Роль</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Role</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Rol</value>
+                    <key>ru</key>
+                    <value>Роль</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Items.DataSets.CurrentData.Fields.RolePresentation</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Items.DataSets.CurrentData.Fields.RolePresentation</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>DataSetsFieldsRolePresentationExtendedTooltip</name>
@@ -1801,8 +1772,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.PresentationExpression</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.PresentationExpression</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>FieldsPresentationExpressionExtendedTooltip</name>
@@ -1889,24 +1862,22 @@
                     <name>FieldsHierarchyCheckDataSet</name>
                     <id>181</id>
                     <title>
-                      <key>ru</key>
-                      <value>НаборДанных</value>
-                    </title>
-                    <title>
                       <key>en</key>
                       <value>DataSet</value>
                     </title>
                     <title>
-                      <key>tr</key>
-                      <value>Veri seti</value>
+                      <key>ru</key>
+                      <value>НаборДанных</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.HierarchyCheckDataSet</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.HierarchyCheckDataSet</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>FieldsHierarchyCheckDataSetExtendedTooltip</name>
@@ -1952,24 +1923,22 @@
                     <name>FieldsHierarchyCheckDataSetParameter</name>
                     <id>184</id>
                     <title>
-                      <key>ru</key>
-                      <value>Параметр</value>
-                    </title>
-                    <title>
                       <key>en</key>
                       <value>Parameter</value>
                     </title>
                     <title>
-                      <key>tr</key>
-                      <value>Parametre</value>
+                      <key>ru</key>
+                      <value>Параметр</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.HierarchyCheckDataSetParameter</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.HierarchyCheckDataSetParameter</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>FieldsHierarchyCheckDataSetParameterExtendedTooltip</name>
@@ -2016,16 +1985,12 @@
                     <common>true</common>
                   </userVisible>
                   <title>
-                    <key>ru</key>
-                    <value>Проверка иерархии</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Hierarchy check</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Hiyerarşi kontrolü</value>
+                    <key>ru</key>
+                    <value>Проверка иерархии</value>
                   </title>
                   <extendedTooltip>
                     <name>DataSetsFieldsGroupHierarchyCheckExtendedTooltip</name>
@@ -2060,8 +2025,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.ValueType</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.ValueType</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>FieldsValueTypeExtendedTooltip</name>
@@ -2114,8 +2081,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.AvailableValues</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.AvailableValues</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>FieldsAvailableValuesExtendedTooltip</name>
@@ -2205,8 +2174,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.Appearance</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.Appearance</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>FieldsAppearanceExtendedTooltip</name>
@@ -2255,8 +2226,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.Fields.EditParameters</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.Fields.EditParameters</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>FieldsEditParametersExtendedTooltip</name>
@@ -2389,11 +2362,11 @@
                     </extendedTooltip>
                     <commandName>Form.Item.DataSetsFields.StandardCommand.Copy</commandName>
                     <representation>Picture</representation>
+                    <onlyInAllActions>false</onlyInAllActions>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
-                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <items xsi:type="form:Button">
                     <name>DataSetsFieldsAddDataSetFieldFolder</name>
@@ -2480,11 +2453,11 @@
                     </extendedTooltip>
                     <commandName>Form.Item.DataSetsFields.StandardCommand.MoveUp</commandName>
                     <representation>Picture</representation>
+                    <onlyInAllActions>false</onlyInAllActions>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
-                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <items xsi:type="form:Button">
                     <name>DataSetsFieldsMoveDown</name>
@@ -2511,11 +2484,11 @@
                     </extendedTooltip>
                     <commandName>Form.Item.DataSetsFields.StandardCommand.MoveDown</commandName>
                     <representation>Picture</representation>
+                    <onlyInAllActions>false</onlyInAllActions>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
-                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <items xsi:type="form:Button">
                     <name>DataSetsFieldsDelete</name>
@@ -2542,11 +2515,11 @@
                     </extendedTooltip>
                     <commandName>Form.Item.DataSetsFields.StandardCommand.Delete</commandName>
                     <representation>Picture</representation>
+                    <onlyInAllActions>false</onlyInAllActions>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
-                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2556,8 +2529,8 @@
                   <horizontalAlign>Right</horizontalAlign>
                 </autoCommandBar>
                 <handlers>
-                  <event>OnEditEnd</event>
-                  <name>DataSetsFieldsOnEditEnd</name>
+                  <event>OnActivateRow</event>
+                  <name>DataSetsFieldsOnActivateRow</name>
                 </handlers>
                 <handlers>
                   <event>BeforeAddRow</event>
@@ -2568,12 +2541,12 @@
                   <name>DataSetsFieldsBeforeDeleteRow</name>
                 </handlers>
                 <handlers>
-                  <event>OnActivateRow</event>
-                  <name>DataSetsFieldsOnActivateRow</name>
-                </handlers>
-                <handlers>
                   <event>OnStartEdit</event>
                   <name>DataSetsFieldsOnStartEdit</name>
+                </handlers>
+                <handlers>
+                  <event>OnEditEnd</event>
+                  <name>DataSetsFieldsOnEditEnd</name>
                 </handlers>
                 <searchStringAddition>
                   <visible>true</visible>
@@ -2608,7 +2581,6 @@
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
-                  <source>DataSetsFields</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -2647,7 +2619,6 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
-                  <source>DataSetsFields</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -2687,7 +2658,6 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
-                  <source>DataSetsFields</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -2765,11 +2735,11 @@
                     </extendedTooltip>
                     <commandName>Form.Item.DataSetsFields.StandardCommand.Copy</commandName>
                     <representation>Picture</representation>
+                    <onlyInAllActions>false</onlyInAllActions>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
-                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <items xsi:type="form:Button">
                     <name>DataSetsFieldsAddDataSetFieldFolder1</name>
@@ -2856,11 +2826,11 @@
                     </extendedTooltip>
                     <commandName>Form.Item.DataSetsFields.StandardCommand.MoveUp</commandName>
                     <representation>Picture</representation>
+                    <onlyInAllActions>false</onlyInAllActions>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
-                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <items xsi:type="form:Button">
                     <name>DataSetsFieldsContextMenuMoveDown</name>
@@ -2887,11 +2857,11 @@
                     </extendedTooltip>
                     <commandName>Form.Item.DataSetsFields.StandardCommand.MoveDown</commandName>
                     <representation>Picture</representation>
+                    <onlyInAllActions>false</onlyInAllActions>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
-                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <items xsi:type="form:Button">
                     <name>DataSetsFieldsDelete1</name>
@@ -2918,11 +2888,11 @@
                     </extendedTooltip>
                     <commandName>Form.Item.DataSetsFields.StandardCommand.Delete</commandName>
                     <representation>Picture</representation>
+                    <onlyInAllActions>false</onlyInAllActions>
                     <autoMaxWidth>true</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <placementArea>UserCmds</placementArea>
                     <representationInContextMenu>Auto</representationInContextMenu>
-                    <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                   </items>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2968,10 +2938,6 @@
                       <title>
                         <key>ru</key>
                         <value>Запрос</value>
-                      </title>
-                      <title>
-                        <key>tr</key>
-                        <value>Sorgu</value>
                       </title>
                       <visible>true</visible>
                       <enabled>true</enabled>
@@ -3168,8 +3134,10 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.AutoFillAvailableFields</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.AutoFillAvailableFields</segments>
+                        </paths>
                       </dataPath>
                       <handlers>
                         <event>OnChange</event>
@@ -3215,8 +3183,10 @@
                       <userVisible>
                         <common>true</common>
                       </userVisible>
-                      <dataPath xsi:type="form:DataPath">
-                        <segments>Items.DataSets.CurrentData.UseQueryGroupIfPossible</segments>
+                      <dataPath xsi:type="form:MultiLanguageDataPath">
+                        <paths xsi:type="form:DataPath">
+                          <segments>Items.DataSets.CurrentData.UseQueryGroupIfPossible</segments>
+                        </paths>
                       </dataPath>
                       <extendedTooltip>
                         <name>DataSetsUseQueryGroupIfPossibleExtendedTooltip</name>
@@ -3328,8 +3298,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Items.DataSets.CurrentData.ObjectName</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Items.DataSets.CurrentData.ObjectName</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>DataSetsObjectNameExtendedTooltip</name>
@@ -3444,8 +3416,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>Items.DataSets.CurrentData.DataSource</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>Items.DataSets.CurrentData.DataSource</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>DataSetsDataSourceExtendedTooltip</name>
@@ -3544,8 +3518,10 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>DataSources.Name</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>DataSources.Name</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>DataSourcesNameExtendedTooltip</name>
@@ -3594,8 +3570,10 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>DataSources.ConnectionString</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>DataSources.ConnectionString</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>DataSourcesConnectionStringExtendedTooltip</name>
@@ -3644,8 +3622,10 @@
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>DataSources.DataSourceType</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>DataSources.DataSourceType</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>DataSourcesDataSourceTypeExtendedTooltip</name>
@@ -3730,7 +3710,6 @@
                     </userVisible>
                     <autoFill>true</autoFill>
                   </contextMenu>
-                  <source>DataSources</source>
                   <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -3769,7 +3748,6 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>ViewStatusAddition</type>
-                  <source>DataSources</source>
                   <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                     <horizontalLocation>Left</horizontalLocation>
@@ -3809,7 +3787,6 @@
                     <autoFill>true</autoFill>
                   </contextMenu>
                   <type>SearchControlAddition</type>
-                  <source>DataSources</source>
                   <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                     <autoMaxWidth>true</autoMaxWidth>
                   </extInfo>
@@ -4001,16 +3978,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Наборы данных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Data sets</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Veri setleri</value>
+        <key>ru</key>
+        <value>Наборы данных</value>
       </title>
       <extendedTooltip>
         <name>GroupPageDataSetsExtendedTooltip</name>
@@ -4060,8 +4033,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.SourceDataSet</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.SourceDataSet</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -4119,8 +4094,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.DestinationDataSet</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.DestinationDataSet</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -4174,8 +4151,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.SourceExpression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.SourceExpression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DataSetLinksSourceExpressionExtendedTooltip</name>
@@ -4225,8 +4204,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.DestinationExpression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.DestinationExpression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DataSetLinksDestinationExpressionExtendedTooltip</name>
@@ -4276,8 +4257,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.Parameter</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.Parameter</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DataSetLinksParameterExtendedTooltip</name>
@@ -4334,8 +4317,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.ParameterListAllowed</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.ParameterListAllowed</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DataSetLinksParameterListAllowedExtendedTooltip</name>
@@ -4377,8 +4362,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.LinkConditionExpression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.LinkConditionExpression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DataSetLinksLinkConditionExpressionExtendedTooltip</name>
@@ -4427,8 +4414,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.StartExpression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.StartExpression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DataSetLinksStartExpressionExtendedTooltip</name>
@@ -4477,8 +4466,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DataSetLinks.Required</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DataSetLinks.Required</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DataSetLinksRequiredExtendedTooltip</name>
@@ -4540,11 +4531,11 @@
             </extendedTooltip>
             <commandName>Form.Item.DataSetLinks.StandardCommand.Copy</commandName>
             <representation>Picture</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>DataSetLinksDelete</name>
@@ -4571,11 +4562,11 @@
             </extendedTooltip>
             <commandName>Form.Item.DataSetLinks.StandardCommand.Delete</commandName>
             <representation>Picture</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -4622,7 +4613,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>DataSetLinks</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -4661,7 +4651,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>DataSetLinks</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -4701,7 +4690,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>DataSetLinks</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -4756,16 +4744,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Связи наборов данных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Data set links</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Veri seti iletişimleri</value>
+        <key>ru</key>
+        <value>Связи наборов данных</value>
       </title>
       <extendedTooltip>
         <name>GroupPageDataSetLinksExtendedTooltip</name>
@@ -4811,8 +4795,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CalculatedFields.DataPath</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CalculatedFields.DataPath</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -4865,8 +4851,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CalculatedFields.Expression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CalculatedFields.Expression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>CalculatedFieldsExpressionExtendedTooltip</name>
@@ -4920,8 +4908,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CalculatedFields.Title</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CalculatedFields.Title</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>CalculatedFieldsTitleExtendedTooltip</name>
@@ -4969,24 +4959,22 @@
             <name>CalculatedFieldsUseRestrictionField</name>
             <id>290</id>
             <title>
-              <key>ru</key>
-              <value>Поле</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Field</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Alan</value>
+              <key>ru</key>
+              <value>Поле</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>CalculatedFields.UseRestrictionField</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>CalculatedFields.UseRestrictionField</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>CalculatedFieldsUseRestrictionFieldExtendedTooltip</name>
@@ -5024,24 +5012,22 @@
             <name>CalculatedFieldsUseRestrictionCondition</name>
             <id>293</id>
             <title>
-              <key>ru</key>
-              <value>Условие</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Condition</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Koşul</value>
+              <key>ru</key>
+              <value>Условие</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>CalculatedFields.UseRestrictionCondition</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>CalculatedFields.UseRestrictionCondition</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>CalculatedFieldsUseRestrictionConditionExtendedTooltip</name>
@@ -5079,24 +5065,22 @@
             <name>CalculatedFieldsUseRestrictionGroup</name>
             <id>287</id>
             <title>
-              <key>ru</key>
-              <value>Группа</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Group</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Grup</value>
+              <key>ru</key>
+              <value>Группа</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>CalculatedFields.UseRestrictionGroup</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>CalculatedFields.UseRestrictionGroup</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>CalculatedFieldsUseRestrictionGroupExtendedTooltip</name>
@@ -5134,24 +5118,22 @@
             <name>CalculatedFieldsUseRestrictionOrder</name>
             <id>296</id>
             <title>
-              <key>ru</key>
-              <value>Упорядочивание</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Order</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Sıralama</value>
+              <key>ru</key>
+              <value>Упорядочивание</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>CalculatedFields.UseRestrictionOrder</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>CalculatedFields.UseRestrictionOrder</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>CalculatedFieldsUseRestrictionOrderExtendedTooltip</name>
@@ -5191,16 +5173,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Ограничения доступа</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Use restrictions</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Erişebilirlik kısıtlaması</value>
+            <key>ru</key>
+            <value>Ограничения доступа</value>
           </title>
           <extendedTooltip>
             <name>CalculatedFieldsGroupUseRestrictionsExtendedTooltip</name>
@@ -5231,8 +5209,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CalculatedFields.PresentationExpression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CalculatedFields.PresentationExpression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>CalculatedFieldsPresentationExpressionExtendedTooltip</name>
@@ -5281,8 +5261,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CalculatedFields.OrderExpressionPresentation</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CalculatedFields.OrderExpressionPresentation</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>CalculatedFieldsOrderExpressionPresentationExtendedTooltip</name>
@@ -5331,8 +5313,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CalculatedFields.ValueType</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CalculatedFields.ValueType</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>CalculatedFieldsValueTypeExtendedTooltip</name>
@@ -5385,8 +5369,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>CalculatedFields.AvailableValues</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>CalculatedFields.AvailableValues</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>CalculatedFieldsAvailableValuesExtendedTooltip</name>
@@ -5442,8 +5428,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>CalculatedFields.Appearance</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>CalculatedFields.Appearance</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>CalculatedFieldsAppearanceExtendedTooltip</name>
@@ -5492,8 +5480,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>CalculatedFields.EditParameters</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>CalculatedFields.EditParameters</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>CalculatedFieldsEditParametersExtendedTooltip</name>
@@ -5596,11 +5586,11 @@
             </extendedTooltip>
             <commandName>Form.Item.CalculatedFields.StandardCommand.Copy</commandName>
             <representation>Picture</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>CalculatedFieldsDelete</name>
@@ -5627,11 +5617,11 @@
             </extendedTooltip>
             <commandName>Form.Item.CalculatedFields.StandardCommand.Delete</commandName>
             <representation>Picture</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -5642,12 +5632,12 @@
           <autoFill>true</autoFill>
         </autoCommandBar>
         <handlers>
-          <event>OnEditEnd</event>
-          <name>CalculatedFieldsOnEditEnd</name>
-        </handlers>
-        <handlers>
           <event>OnStartEdit</event>
           <name>CalculatedFieldsOnStartEdit</name>
+        </handlers>
+        <handlers>
+          <event>OnEditEnd</event>
+          <name>CalculatedFieldsOnEditEnd</name>
         </handlers>
         <handlers>
           <event>AfterDeleteRow</event>
@@ -5686,7 +5676,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>CalculatedFields</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -5725,7 +5714,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>CalculatedFields</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -5765,7 +5753,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>CalculatedFields</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -5820,16 +5807,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Вычисляемые поля</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Calculated fields</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Hesaplanan alanlar</value>
+        <key>ru</key>
+        <value>Вычисляемые поля</value>
       </title>
       <extendedTooltip>
         <name>GroupPageCalculatedFieldsExtendedTooltip</name>
@@ -5875,8 +5858,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ResourceAvailableFields.Picture</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ResourceAvailableFields.Picture</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ResourceAvailableFieldPictureExtendedTooltip</name>
@@ -5911,10 +5896,6 @@
             <autoMaxHeight>true</autoMaxHeight>
             <horizontalStretch>true</horizontalStretch>
             <verticalStretch>true</verticalStretch>
-            <border xsi:type="core:BorderDef">
-              <style>Single</style>
-              <width>1</width>
-            </border>
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
@@ -5925,8 +5906,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ResourceAvailableFields.DataPath</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ResourceAvailableFields.DataPath</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ResourceAvailableFieldDataPathExtendedTooltip</name>
@@ -6016,7 +5999,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>ResourceAvailableField</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -6055,7 +6037,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>ResourceAvailableField</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -6095,7 +6076,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>ResourceAvailableField</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -6327,8 +6307,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Resources.DataPath</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Resources.DataPath</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ResourcesDataPathExtendedTooltip</name>
@@ -6378,8 +6360,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Resources.Expression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Resources.Expression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ResourcesExpressionExtendedTooltip</name>
@@ -6438,8 +6422,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Resources.Groups</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Resources.Groups</segments>
+            </paths>
           </dataPath>
           <shortcut>Ctrl+S</shortcut>
           <extendedTooltip>
@@ -6534,7 +6520,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>Resources</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -6573,7 +6558,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>Resources</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -6613,7 +6597,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>Resources</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -6876,16 +6859,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Ресурсы</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Resources</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kaynaklar</value>
+        <key>ru</key>
+        <value>Ресурсы</value>
       </title>
       <extendedTooltip>
         <name>GroupPageResourcesExtendedTooltip</name>
@@ -6931,8 +6910,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.Name</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.Name</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -6985,8 +6966,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.Title</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.Title</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersTitleExtendedTooltip</name>
@@ -7039,8 +7022,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.ValueType</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.ValueType</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -7101,8 +7086,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.AvailableValues</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.AvailableValues</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersAvailableValuesExtendedTooltip</name>
@@ -7155,8 +7142,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.ValueListAllowed</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.ValueListAllowed</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -7202,8 +7191,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.Value</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.Value</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersValueExtendedTooltip</name>
@@ -7258,8 +7249,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.Expression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.Expression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersExpressionExtendedTooltip</name>
@@ -7313,8 +7306,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.FunctionalOptionsParameter</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.FunctionalOptionsParameter</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersFunctionalOptionsParameterExtendedTooltip</name>
@@ -7363,8 +7358,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.IncludeInAvailableFields</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.IncludeInAvailableFields</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersIncludeInAvailableFieldsExtendedTooltip</name>
@@ -7406,8 +7403,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.UseRestriction</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.UseRestriction</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersUseRestrictionExtendedTooltip</name>
@@ -7449,8 +7448,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.DenyIncompleteValues</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.DenyIncompleteValues</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersDenyIncompleteValuesExtendedTooltip</name>
@@ -7488,24 +7489,22 @@
           <name>DCSParametersUseAlways</name>
           <id>384</id>
           <title>
-            <key>ru</key>
-            <value>Использование</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Use</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Kullanılıyor</value>
+            <key>ru</key>
+            <value>Использование</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.UseAlways</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.UseAlways</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersUseAlwaysExtendedTooltip</name>
@@ -7570,8 +7569,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>DCSParameters.EditParameters</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>DCSParameters.EditParameters</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DCSParametersEditParametersExtendedTooltip</name>
@@ -7670,11 +7671,11 @@
             </extendedTooltip>
             <commandName>Form.Item.DCSParameters.StandardCommand.Copy</commandName>
             <representation>Picture</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>DCSParametersDelete</name>
@@ -7701,11 +7702,11 @@
             </extendedTooltip>
             <commandName>Form.Item.DCSParameters.StandardCommand.Delete</commandName>
             <representation>Picture</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>DCSParametersMoveUp</name>
@@ -7815,7 +7816,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>DCSParameters</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7854,7 +7854,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>DCSParameters</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -7894,7 +7893,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>DCSParameters</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7949,16 +7947,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Параметры</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Parameters</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Parametreler</value>
+        <key>ru</key>
+        <value>Параметры</value>
       </title>
       <extendedTooltip>
         <name>GroupPageParametersExtendedTooltip</name>
@@ -8004,8 +7998,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>SettingVariants.Name</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>SettingVariants.Name</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>SettingVariantsNameExtendedTooltip</name>
@@ -8054,8 +8050,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>SettingVariants.Presentation</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>SettingVariants.Presentation</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>SettingVariantsPresentationExtendedTooltip</name>
@@ -8124,11 +8122,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SettingVariants.StandardCommand.Copy</commandName>
             <representation>Picture</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SettingVariantsDelete</name>
@@ -8155,11 +8153,11 @@
             </extendedTooltip>
             <commandName>Form.Item.SettingVariants.StandardCommand.Delete</commandName>
             <representation>Picture</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -8170,12 +8168,12 @@
           <autoFill>true</autoFill>
         </autoCommandBar>
         <handlers>
-          <event>BeforeDeleteRow</event>
-          <name>SettingVariantsBeforeDeleteRow</name>
-        </handlers>
-        <handlers>
           <event>OnActivateRow</event>
           <name>SettingVariantsOnActivateRow</name>
+        </handlers>
+        <handlers>
+          <event>BeforeDeleteRow</event>
+          <name>SettingVariantsBeforeDeleteRow</name>
         </handlers>
         <handlers>
           <event>OnStartEdit</event>
@@ -8214,7 +8212,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>SettingVariants</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -8253,7 +8250,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>SettingVariants</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -8293,7 +8289,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>SettingVariants</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -8413,7 +8408,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>Settings</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -8452,7 +8446,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>Settings</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -8492,7 +8485,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>Settings</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -8611,7 +8603,6 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>DataParameters</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -8650,7 +8641,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>DataParameters</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -8690,7 +8680,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>DataParameters</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -8747,16 +8736,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Параметры</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Parameters</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Parametreler</value>
+              <key>ru</key>
+              <value>Параметры</value>
             </title>
             <extendedTooltip>
               <name>DataParametersPageExtendedTooltip</name>
@@ -8845,7 +8830,6 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>UserFields</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -8884,7 +8868,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>UserFields</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -8924,7 +8907,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>UserFields</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -8981,16 +8963,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Пользовательские поля</value>
-            </title>
-            <title>
               <key>en</key>
               <value>User fields</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Kullanıcı alanları</value>
+              <key>ru</key>
+              <value>Пользовательские поля</value>
             </title>
             <extendedTooltip>
               <name>UserFieldsPageExtendedTooltip</name>
@@ -9085,7 +9063,6 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>GroupFieldsAvailableFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -9124,7 +9101,6 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>GroupFieldsAvailableFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -9164,7 +9140,6 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>GroupFieldsAvailableFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -9276,7 +9251,6 @@
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>GroupFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -9315,7 +9289,6 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>GroupFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -9355,7 +9328,6 @@
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>GroupFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -9457,10 +9429,6 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                     <key>ru</key>
                     <value>Текущий элемент не может содержать поля группировки.
 Выберите в дереве структуры группировку, для которой требуется просмотреть или изменить состав полей группировки.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğe gruplama alanları içeremez. Gruplama alanı yapısını görüntülemek veya düzenlemek için yapı ağacında bir gruplama seçin.</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -9574,16 +9542,12 @@ Browse the structure tree and select a grouping to view or edit grouping field s
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Группируемые поля</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Group fields</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Gruplama alanları</value>
+              <key>ru</key>
+              <value>Группируемые поля</value>
             </title>
             <extendedTooltip>
               <name>GroupFieldsPageExtendedTooltip</name>
@@ -9616,24 +9580,22 @@ Browse the structure tree and select a grouping to view or edit grouping field s
               <name>LocalSelectedFields</name>
               <id>545</id>
               <title>
-                <key>ru</key>
-                <value>Текущий элемент имеет собственные настройки выбранных полей (для детальной настройки элемента)</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Assign the item with personal field settings</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Öğe için kişisel alan ayarlarını ata.</value>
+                <key>ru</key>
+                <value>Текущий элемент имеет собственные настройки выбранных полей (для детальной настройки элемента)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>LocalSelectedFields</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>LocalSelectedFields</segments>
+                </paths>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -9738,7 +9700,6 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>SelectionAvailableFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -9777,7 +9738,6 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>SelectionAvailableFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -9817,7 +9777,6 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>SelectionAvailableFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -9929,7 +9888,6 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>Selection</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -9968,7 +9926,6 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>Selection</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -10008,7 +9965,6 @@ Browse the structure tree and select a grouping to view or edit grouping field s
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>Selection</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -10115,12 +10071,6 @@ To add custom fields, select the check box above.</value>
 Выберите в дереве структуры элемент - отчет для редактирования его выбранных полей.
 Если необходимо, чтобы текущий элемент имел выбранные поля, отличные от выбранных полей отчета, установите флажок, расположенный над этим текстом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğe, seçili alanları rapordan devralır.
-Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.
-Özel alanlar eklemek için yukarıdaki onay kutusunu işaretleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -10170,10 +10120,6 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к выбранным полям отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Seçili rapor alanlarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -10266,11 +10212,6 @@ In the report structure tree, select the item and then select required fields.</
                     <value>У текущего элемента не могут быть установлены выбранные поля.
 Выберите в дереве структуры элемент - отчет для редактирования его выбранных полей.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Seçili alanlar öğeye eklenemiyor.
-Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -10320,10 +10261,6 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к выбранным полям отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Seçili rapor alanlarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -10439,16 +10376,12 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Поля</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Selection fields </value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Seçilmiş alanlar</value>
+              <key>ru</key>
+              <value>Поля</value>
             </title>
             <extendedTooltip>
               <name>SelectionFieldsPageExtendedTooltip</name>
@@ -10481,24 +10414,22 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
               <name>LocalFilter</name>
               <id>596</id>
               <title>
-                <key>ru</key>
-                <value>Текущий элемент имеет собственный отбор (для фильтрации записей, выводимых в элементе)</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Assign the item with personal filters to filter item records</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Öğeye, öğe kayıtlarını filtrelemek için kişisel filtreler ata.</value>
+                <key>ru</key>
+                <value>Текущий элемент имеет собственный отбор (для фильтрации записей, выводимых в элементе)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>LocalFilter</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>LocalFilter</segments>
+                </paths>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -10603,7 +10534,6 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>AvailableFilterFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -10642,7 +10572,6 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>AvailableFilterFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -10682,7 +10611,6 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>AvailableFilterFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -10794,7 +10722,6 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>Filter</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -10833,7 +10760,6 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>Filter</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -10873,7 +10799,6 @@ Rapor yapı ağacında öğeyi seçin ve ardından gerekli alanları seçin.</va
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>Filter</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -10982,12 +10907,6 @@ To assign the item with a personal filter, select the check box above.</value>
 Выберите в дереве структуры отчет для редактирования отбора отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственный отбор, установите флажок, расположенный над этим текстом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğe için herhangi bir filtre atanmadı.
-Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.
-Öğe için kişisel filtre atamak istiyorsanız, yukarıdaki onay kutusunu işaretleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -11037,10 +10956,6 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к отбору отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Rapor filtrelerini görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -11133,11 +11048,6 @@ In the structure tree, select the report and edit report filters.</value>
                     <value>У текущего элемента не может быть установлен отбор.
 Выберите в дереве структуры отчет для редактирования отбора отчета в целом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğeye filtre atanamıyor.
-Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -11187,10 +11097,6 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к отбору отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Rapor filtrelerini görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -11306,16 +11212,12 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Отбор</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Filter</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Filtre</value>
+              <key>ru</key>
+              <value>Отбор</value>
             </title>
             <extendedTooltip>
               <name>FilterPageExtendedTooltip</name>
@@ -11348,24 +11250,22 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
               <name>LocalOrder</name>
               <id>647</id>
               <title>
-                <key>ru</key>
-                <value>Текущий элемент имеет собственную сортировку (для  упорядочивания записей, выводимых в элементе)</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Assign the item with personal sorts to sort item records</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Öğe kayıtlarını sıralamak için öğeye kişisel sıralamalar atayın.</value>
+                <key>ru</key>
+                <value>Текущий элемент имеет собственную сортировку (для  упорядочивания записей, выводимых в элементе)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>LocalOrder</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>LocalOrder</segments>
+                </paths>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -11470,7 +11370,6 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>AvailableOrderFields</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -11509,7 +11408,6 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>AvailableOrderFields</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -11549,7 +11447,6 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>AvailableOrderFields</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -11661,7 +11558,6 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>Order</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -11700,7 +11596,6 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>Order</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -11740,7 +11635,6 @@ Yapı ağacında raporu seçin ve rapor filtrelerini düzenleyin.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>Order</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -11845,12 +11739,6 @@ To assign the item with a personal sort, select the check box above.</value>
 Выберите в дереве структуры отчет для редактирования сортировки отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственную сортировку, установите флажок, расположенный над этим текстом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğe için sıralama atanmadı.
-Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.
-Öğe için kişisel sıralama atamak istiyorsanız, yukarıdaki onay kutusunu işaretleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -11900,10 +11788,6 @@ Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к сортировке отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Rapor sıralamalarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -11996,11 +11880,6 @@ In the structure tree, select the report and edit report sorts.</value>
                     <value>У текущего элемента не может быть установлена сортировка.
 Выберите в дереве структуры отчет для редактирования сортировки отчета в целом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğeye sıralama atanamıyor.
-Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -12050,10 +11929,6 @@ Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.</value>
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к сортировке отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Rapor sıralamalarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -12169,16 +12044,12 @@ Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.</value>
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Сортировка</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Sort</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Ayrıştırma</value>
+              <key>ru</key>
+              <value>Сортировка</value>
             </title>
             <extendedTooltip>
               <name>OrderPageExtendedTooltip</name>
@@ -12211,24 +12082,22 @@ Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.</value>
               <name>LocalConditionalAppearance</name>
               <id>698</id>
               <title>
-                <key>ru</key>
-                <value>Текущий элемент имеет собственное условное оформление (для оформления записей, выводимых в элементе)</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Assign the item with personal conditional appearance to format item records</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Öğe kayıtlarını biçimlendirmek için öğeye kişisel koşullu görünüm atayın.</value>
+                <key>ru</key>
+                <value>Текущий элемент имеет собственное условное оформление (для оформления записей, выводимых в элементе)</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>LocalConditionalAppearance</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>LocalConditionalAppearance</segments>
+                </paths>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -12333,7 +12202,6 @@ Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.</value>
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>ConditionalAppearance</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -12372,7 +12240,6 @@ Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>ConditionalAppearance</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -12412,7 +12279,6 @@ Yapı ağacında raporu seçin ve rapor sıralamalarını düzenleyin.</value>
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>ConditionalAppearance</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -12516,12 +12382,6 @@ To assign the item with a personal conditional appearance, select the check box 
 Выберите в дереве структуры отчет для редактирования условного оформления отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственное условное оформление, установите флажок, расположенный над этим текстом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğe için koşullu görünüm atanmadı.
-Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.
-Öğe için kişisel koşullu görünüm atamak istiyorsanız, yukarıdaki onay kutusunu işaretleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -12571,10 +12431,6 @@ Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к условному оформлению отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Rapor koşullu tasarımını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -12667,11 +12523,6 @@ In the structure tree, select the report and edit report conditional appearance.
                     <value>У текущего элемента не может быть установлено условное оформление.
 Выберите в дереве структуры отчет для редактирования условного оформления отчета в целом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğeye koşullu görünüm atanamıyor.
-Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -12721,10 +12572,6 @@ Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.</v
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к условному оформлению отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Rapor koşullu tasarımını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -12841,16 +12688,12 @@ Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.</v
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Условное оформление</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Conditional appearance</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Koşullu tasarım</value>
+              <key>ru</key>
+              <value>Условное оформление</value>
             </title>
             <extendedTooltip>
               <name>ConditionalAppearancePageExtendedTooltip</name>
@@ -12883,24 +12726,22 @@ Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.</v
               <name>LocalOutputParameters</name>
               <id>736</id>
               <title>
-                <key>ru</key>
-                <value>Текущий элемент имеет собственные дополнительные настройки</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Assign the item with personal additional settings</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Öğeye kişisel ek ayarlar atayın</value>
+                <key>ru</key>
+                <value>Текущий элемент имеет собственные дополнительные настройки</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>LocalOutputParameters</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>LocalOutputParameters</segments>
+                </paths>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -13005,7 +12846,6 @@ Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.</v
                       </userVisible>
                       <autoFill>true</autoFill>
                     </contextMenu>
-                    <source>OutputParameters</source>
                     <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -13044,7 +12884,6 @@ Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.</v
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>ViewStatusAddition</type>
-                    <source>OutputParameters</source>
                     <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                       <horizontalLocation>Left</horizontalLocation>
@@ -13084,7 +12923,6 @@ Yapı ağacında raporu seçin ve rapor koşullu görünümünü düzenleyin.</v
                       <autoFill>true</autoFill>
                     </contextMenu>
                     <type>SearchControlAddition</type>
-                    <source>OutputParameters</source>
                     <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                       <autoMaxWidth>true</autoMaxWidth>
                     </extInfo>
@@ -13188,12 +13026,6 @@ To assign the item with personal additional settings, select the check box above
 Выберите в дереве структуры отчет для редактирования дополнительных настроек отчета в целом.
 Если необходимо, чтобы текущий элемент имел собственные дополнительные настройки, установите флажок, расположенный над этим текстом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğe için ek ayarlar atanmadı.
-Yapı ağacında raporu seçin ve rapor ek ayarlarını düzenleyin.
-Öğe için kişisel ek ayarlar atamak istiyorsanız, yukarıdaki onay kutusunu işaretleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -13243,10 +13075,6 @@ Yapı ağacında raporu seçin ve rapor ek ayarlarını düzenleyin.
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к дополнительным настройкам отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Ek rapor ayarlarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -13340,11 +13168,6 @@ In the structure tree, select the report and edit additional report settings.</v
                     <value>У текущего элемента не могут быть установлены дополнительные настройки.
 Выберите в дереве структуры отчет для редактирования дополнительных настроек отчета в целом.</value>
                   </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Öğeye ek ayar atanamıyor.
-Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
-                  </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
@@ -13394,10 +13217,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
                   <title>
                     <key>ru</key>
                     <value>Нажмите здесь для перехода к дополнительным настройкам отчета.</value>
-                  </title>
-                  <title>
-                    <key>tr</key>
-                    <value>Ek rapor ayarlarını görüntüle</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -13514,16 +13333,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Дополнительные настройки</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Output parameters</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Ek ayarlar</value>
+              <key>ru</key>
+              <value>Дополнительные настройки</value>
             </title>
             <extendedTooltip>
               <name>OutputParametersPageExtendedTooltip</name>
@@ -13561,10 +13376,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <title>
             <key>en</key>
             <value>Settings pages</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Ayarlar grubu</value>
           </title>
           <extendedTooltip>
             <name>SettingsPagesExtendedTooltip</name>
@@ -13622,16 +13433,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Настройки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Settings</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ayarlar</value>
+        <key>ru</key>
+        <value>Настройки</value>
       </title>
       <extendedTooltip>
         <name>GroupPageSettingsExtendedTooltip</name>
@@ -13772,7 +13579,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -13786,10 +13592,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -13813,10 +13615,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Data sets</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Veri setleri</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>ValueTree</types>
@@ -13836,10 +13634,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>3</id>
       <valueType>
@@ -13863,10 +13657,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Picture</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Resim</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>Picture</types>
@@ -13887,10 +13677,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tür</value>
       </title>
       <id>5</id>
       <valueType>
@@ -13914,10 +13700,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Auto fill available fields</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Otodoldurma</value>
-      </title>
       <id>6</id>
       <valueType>
         <types>Boolean</types>
@@ -13938,10 +13720,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Query</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Sorgu</value>
       </title>
       <id>7</id>
       <valueType>
@@ -13965,10 +13743,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Data source</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Veri kaynağı</value>
-      </title>
       <id>8</id>
       <valueType>
         <types>String</types>
@@ -13991,10 +13765,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Use query group if possible</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Mümkünse sorgu gruplamasını kullan</value>
-      </title>
       <id>9</id>
       <valueType>
         <types>Boolean</types>
@@ -14015,10 +13785,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Object name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Nesne adı</value>
       </title>
       <id>10</id>
       <valueType>
@@ -14042,10 +13808,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Fields</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Alanlar</value>
-      </title>
       <id>13</id>
       <valueType>
         <types>ValueTable</types>
@@ -14062,10 +13824,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Query original</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Orijinal sorgu</value>
       </title>
       <id>117</id>
       <valueType>
@@ -14093,10 +13851,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Type</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Tür</value>
-        </title>
         <id>14</id>
         <valueType>
           <types>String</types>
@@ -14121,10 +13875,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Title</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Başlık</value>
-        </title>
         <id>15</id>
         <valueType>
           <types>String</types>
@@ -14146,10 +13896,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Data path</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Yol</value>
         </title>
         <id>16</id>
         <valueType>
@@ -14173,10 +13919,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Presentation expression</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Gösterim ifadesi</value>
-        </title>
         <id>17</id>
         <valueType>
           <types>String</types>
@@ -14199,10 +13941,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Data composition order expressions</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Veri oluşturma sıralama ifadesi</value>
-        </title>
         <id>18</id>
         <valueType>
           <types>ValueTable</types>
@@ -14223,10 +13961,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Hierarchy check data set</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Veri seti hiyerarşi kontrolü</value>
         </title>
         <id>22</id>
         <valueType>
@@ -14250,10 +13984,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Field</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Alan</value>
-        </title>
         <id>23</id>
         <valueType>
           <types>String</types>
@@ -14276,10 +14006,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Value type</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Değer türü</value>
-        </title>
         <id>24</id>
         <valueType>
           <types>TypeDescription</types>
@@ -14301,10 +14027,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Appearance</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Biçimleme</value>
-        </title>
         <id>25</id>
         <valueType>
           <types>DataCompositionAppearance</types>
@@ -14325,10 +14047,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Hierarchy check data set parameter</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Veri seti parametri hiyerarşi kontrolü</value>
         </title>
         <id>26</id>
         <valueType>
@@ -14352,10 +14070,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Edit parameters</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Düzenleme parametreleri</value>
-        </title>
         <id>27</id>
         <valueType>
           <types>DataCompositionEditParameters</types>
@@ -14377,10 +14091,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Role</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Rol</value>
-        </title>
         <id>28</id>
         <valueType/>
         <view>
@@ -14399,10 +14109,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Use restriction group</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Gruplama kullanımının kısıtlaması</value>
         </title>
         <id>29</id>
         <valueType>
@@ -14425,10 +14131,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Use restriction field</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Alan kullanımının kısıtlaması</value>
-        </title>
         <id>30</id>
         <valueType>
           <types>Boolean</types>
@@ -14449,10 +14151,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Use restriction order</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Sıralama kullanımının kısıtlaması</value>
         </title>
         <id>31</id>
         <valueType>
@@ -14475,10 +14173,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Use restriction condition</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Koşul kullanımının kısıtlaması</value>
-        </title>
         <id>32</id>
         <valueType>
           <types>Boolean</types>
@@ -14499,10 +14193,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Attribute use restriction group</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Gruplama alanlarının kullanımının kısıtlaması</value>
         </title>
         <id>33</id>
         <valueType>
@@ -14525,10 +14215,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Attribute use restriction field</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Alan ayrıntılarının kullanımının kısıtlaması</value>
-        </title>
         <id>34</id>
         <valueType>
           <types>Boolean</types>
@@ -14549,10 +14235,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Attribute use restriction order</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Sıralama alanlarının kullanımının kısıtlaması</value>
         </title>
         <id>35</id>
         <valueType>
@@ -14575,10 +14257,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Attribute use restriction condition</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Koşul alanlarının kullanımının kısıtlaması</value>
-        </title>
         <id>36</id>
         <valueType>
           <types>Boolean</types>
@@ -14599,10 +14277,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Role presentation</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Rol gösterimi</value>
         </title>
         <id>44</id>
         <valueType>
@@ -14626,10 +14300,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Available values</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Geçerli değerler</value>
-        </title>
         <id>45</id>
         <valueType>
           <types>ValueList</types>
@@ -14651,10 +14321,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Picture</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Resim</value>
-        </title>
         <id>46</id>
         <valueType>
           <types>Picture</types>
@@ -14675,10 +14341,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Query value type</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Sorgu değer türü</value>
         </title>
         <id>98</id>
         <valueType>
@@ -14772,10 +14434,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Zeroth data set URL</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Boş veri seti URL si</value>
-    </title>
     <id>11</id>
     <valueType>
       <types>Number</types>
@@ -14800,10 +14458,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Data sources</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Veri kaynakları</value>
-    </title>
     <id>38</id>
     <valueType>
       <types>ValueTable</types>
@@ -14824,10 +14478,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>39</id>
       <valueType>
@@ -14851,10 +14501,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Connection string</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Bağlantı dizesi</value>
-      </title>
       <id>40</id>
       <valueType>
         <types>String</types>
@@ -14876,10 +14522,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Data source type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Veri kaynağı türü</value>
       </title>
       <id>41</id>
       <valueType>
@@ -14904,10 +14546,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Data composition schema URL</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Veri oluşturma şeması URL'si</value>
-    </title>
     <id>42</id>
     <valueType>
       <types>String</types>
@@ -14930,10 +14568,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Data set links</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Veri seti bağlantıları</value>
-    </title>
     <id>47</id>
     <valueType>
       <types>ValueTable</types>
@@ -14953,10 +14587,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Source expression</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Kaynak ifadesi</value>
       </title>
       <id>49</id>
       <valueType>
@@ -14980,10 +14610,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Destination expression</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Alıcı ifadesi</value>
-      </title>
       <id>50</id>
       <valueType>
         <types>String</types>
@@ -15005,10 +14631,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Source data set</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Kaynak veri seti</value>
       </title>
       <id>51</id>
       <valueType>
@@ -15032,10 +14654,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Destination data set</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Alıcı veri seti</value>
-      </title>
       <id>52</id>
       <valueType>
         <types>String</types>
@@ -15057,10 +14675,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Start expression</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İlk ifade</value>
       </title>
       <id>53</id>
       <valueType>
@@ -15084,10 +14698,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Required</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Zorunlu</value>
-      </title>
       <id>54</id>
       <valueType>
         <types>Boolean</types>
@@ -15108,10 +14718,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Parameter</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Parametre</value>
       </title>
       <id>55</id>
       <valueType>
@@ -15135,10 +14741,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Parameter list allowed</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Parametre listesine izin verildi</value>
-      </title>
       <id>56</id>
       <valueType>
         <types>Boolean</types>
@@ -15159,10 +14761,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Link condition expression</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İletişim koşulu</value>
       </title>
       <id>57</id>
       <valueType>
@@ -15187,10 +14785,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Calculated fields</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Hesaplanan alanlar</value>
-    </title>
     <id>58</id>
     <valueType>
       <types>ValueTable</types>
@@ -15210,10 +14804,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Expression</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İfade</value>
       </title>
       <id>59</id>
       <valueType>
@@ -15237,10 +14827,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Presentation expression</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Gösterim ifadesi</value>
-      </title>
       <id>60</id>
       <valueType>
         <types>String</types>
@@ -15262,10 +14848,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Title</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Başlık</value>
       </title>
       <id>61</id>
       <valueType>
@@ -15289,10 +14871,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Appearance</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tasarım</value>
-      </title>
       <id>62</id>
       <valueType>
         <types>DataCompositionAppearance</types>
@@ -15313,10 +14891,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Data path</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Verilere yol</value>
       </title>
       <id>63</id>
       <valueType>
@@ -15340,10 +14914,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Value type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Değer türü</value>
-      </title>
       <id>64</id>
       <valueType>
         <types>TypeDescription</types>
@@ -15364,10 +14934,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Use restriction group</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Grup erişebilirlik kısıtlaması</value>
       </title>
       <id>65</id>
       <valueType>
@@ -15390,10 +14956,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Use restriction field</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Alan erişebilirlik kısıtlaması</value>
-      </title>
       <id>66</id>
       <valueType>
         <types>Boolean</types>
@@ -15414,10 +14976,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Use restriction condition</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Koşul erişebilirlik kısıtlaması</value>
       </title>
       <id>67</id>
       <valueType>
@@ -15440,10 +14998,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Use restriction order</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Sıralama erişebilirlik kısıtlaması</value>
-      </title>
       <id>68</id>
       <valueType>
         <types>Boolean</types>
@@ -15464,10 +15018,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Order expressions</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Sıralama ifadesi</value>
       </title>
       <id>69</id>
       <valueType>
@@ -15490,10 +15040,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Available values</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Geçerli değerler</value>
-      </title>
       <id>73</id>
       <valueType>
         <types>ValueList</types>
@@ -15515,10 +15061,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Edit parameters</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Düzenleme parametreleri</value>
-      </title>
       <id>74</id>
       <valueType>
         <types>DataCompositionEditParameters</types>
@@ -15539,10 +15081,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Order expression presentation</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Sıralama ifadesi gösterim</value>
       </title>
       <id>76</id>
       <valueType>
@@ -15570,10 +15108,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
           <key>en</key>
           <value>Auto order</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Oto sıralama</value>
-        </title>
         <id>70</id>
         <valueType>
           <types>Boolean</types>
@@ -15594,10 +15128,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Expression</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>İfade</value>
         </title>
         <id>71</id>
         <valueType>
@@ -15620,10 +15150,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <title>
           <key>en</key>
           <value>Order type by desc</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Azalan sıraya göre</value>
         </title>
         <id>72</id>
         <valueType>
@@ -15648,10 +15174,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Resources</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kaynaklar</value>
-    </title>
     <id>77</id>
     <valueType>
       <types>ValueTable</types>
@@ -15671,10 +15193,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Expression</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İfade</value>
       </title>
       <id>80</id>
       <valueType>
@@ -15698,10 +15216,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Data path</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Yol</value>
-      </title>
       <id>81</id>
       <valueType>
         <types>String</types>
@@ -15723,10 +15237,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Groups</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Gruplar</value>
       </title>
       <id>82</id>
       <valueType>
@@ -15750,10 +15260,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Resource available fields</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut kaynak alanları</value>
-    </title>
     <id>78</id>
     <valueType>
       <types>ValueTable</types>
@@ -15773,10 +15279,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Data path</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Yol</value>
       </title>
       <id>79</id>
       <valueType>
@@ -15800,10 +15302,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Calculated field</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Hesaplanan alan</value>
-      </title>
       <id>96</id>
       <valueType>
         <types>Boolean</types>
@@ -15825,10 +15323,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Numeric</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Sayısal</value>
-      </title>
       <id>97</id>
       <valueType>
         <types>Boolean</types>
@@ -15849,10 +15343,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Picture</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim</value>
       </title>
       <id>99</id>
       <valueType>
@@ -15876,10 +15366,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>DCSParameters</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>DCS parametreleri</value>
-    </title>
     <id>83</id>
     <valueType>
       <types>ValueTable</types>
@@ -15899,10 +15385,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Include in available fields</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Geçerli alanlara dahil et</value>
       </title>
       <id>84</id>
       <valueType>
@@ -15924,10 +15406,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Expression</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İfade</value>
       </title>
       <id>85</id>
       <valueType>
@@ -15951,10 +15429,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Value list allowed</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Değer listesi mevcuttur</value>
-      </title>
       <id>86</id>
       <valueType>
         <types>Boolean</types>
@@ -15975,10 +15449,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Title</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Başlık</value>
       </title>
       <id>87</id>
       <valueType>
@@ -16002,10 +15472,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Deny incomplete values</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Boş değerlere izin verme</value>
-      </title>
       <id>88</id>
       <valueType>
         <types>Boolean</types>
@@ -16027,10 +15493,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Value</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Değer</value>
-      </title>
       <id>89</id>
       <valueType/>
       <view>
@@ -16049,10 +15511,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>90</id>
       <valueType>
@@ -16076,10 +15534,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Use always</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Her zaman kullanma</value>
-      </title>
       <id>91</id>
       <valueType>
         <types>Boolean</types>
@@ -16101,10 +15555,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Use restriction</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Kısıtlama kullanma</value>
-      </title>
       <id>92</id>
       <valueType>
         <types>Boolean</types>
@@ -16125,10 +15575,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Functional options parameter</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>İşlevsel seçenek parametresi</value>
       </title>
       <id>93</id>
       <valueType>
@@ -16152,10 +15598,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Edit parameters</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Düzenleme parametreleri</value>
-      </title>
       <id>94</id>
       <valueType>
         <types>DataCompositionEditParameters</types>
@@ -16176,10 +15618,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Value type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Değer türü</value>
       </title>
       <id>95</id>
       <valueType>
@@ -16202,10 +15640,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Available values</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Geçerli değerler</value>
-      </title>
       <id>112</id>
       <valueType>
         <types>ValueList</types>
@@ -16226,10 +15660,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Added automatically</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Otomatik olarak eklendi</value>
       </title>
       <id>114</id>
       <valueType>
@@ -16252,10 +15682,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Setting variants</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Ayarlar seçenekleri</value>
     </title>
     <id>100</id>
     <valueType>
@@ -16299,10 +15725,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>en</key>
         <value>Settings</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ayarlar</value>
-      </title>
       <id>102</id>
       <valueType>
         <types>String</types>
@@ -16324,10 +15746,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>en</key>
         <value>Presentation</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Gösterim</value>
       </title>
       <id>103</id>
       <valueType>
@@ -16352,10 +15770,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Current settings composer</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut ayarlar oluşturucusu</value>
-    </title>
     <id>104</id>
     <valueType>
       <types>DataCompositionSettingsComposer</types>
@@ -16376,10 +15790,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Local conditional appearance</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yerel koşullu tasarım</value>
     </title>
     <id>105</id>
     <valueType>
@@ -16402,10 +15812,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Local selected fields</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yerel seçili alanlar</value>
-    </title>
     <id>106</id>
     <valueType>
       <types>Boolean</types>
@@ -16426,10 +15832,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Local output parameters</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yerel çıktı parametreleri</value>
     </title>
     <id>107</id>
     <valueType>
@@ -16452,10 +15854,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Local filter</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yerel filtre</value>
-    </title>
     <id>108</id>
     <valueType>
       <types>Boolean</types>
@@ -16477,10 +15875,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Local order</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Yerel sıralama</value>
-    </title>
     <id>109</id>
     <valueType>
       <types>Boolean</types>
@@ -16501,10 +15895,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Current settings variant ID</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut ayarlar varyant İD</value>
     </title>
     <id>110</id>
     <valueType>
@@ -16530,10 +15920,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Initial data composition schema URL</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İlk veri oluşturma şeması URL'si</value>
-    </title>
     <id>111</id>
     <valueType>
       <types>String</types>
@@ -16556,10 +15942,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Choice mode</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Seçim modu</value>
-    </title>
     <id>113</id>
     <valueType>
       <types>Boolean</types>
@@ -16580,10 +15962,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Field query text</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sorgu metin alanı</value>
     </title>
     <id>115</id>
     <valueType>
@@ -16607,10 +15985,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Current data set row ID</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut veri seti satır İD</value>
-    </title>
     <id>116</id>
     <valueType>
       <types>Number</types>
@@ -16631,10 +16005,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>ru</key>
       <value>Queries parameters</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sorgular parametreleri</value>
-    </title>
     <id>118</id>
     <valueType>
       <types>ValueTable</types>
@@ -16650,10 +16020,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <title>
         <key>ru</key>
         <value>Query ID</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Sorgu İD</value>
       </title>
       <id>119</id>
       <valueType>
@@ -16675,10 +16041,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>ru</key>
         <value>Name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
-      </title>
       <id>120</id>
       <valueType>
         <types>String</types>
@@ -16697,10 +16059,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
         <key>ru</key>
         <value>Value type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Değer türü</value>
-      </title>
       <id>121</id>
       <valueType>
         <types>TypeDescription</types>
@@ -16716,16 +16074,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
   <formCommands>
     <name>AddDataSetQuery</name>
     <title>
-      <key>ru</key>
-      <value>Добавить набор данных - запрос</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add data set - query</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Veri seti ekle - sorgu</value>
+      <key>ru</key>
+      <value>Добавить набор данных - запрос</value>
     </title>
     <id>1</id>
     <use>
@@ -16744,16 +16098,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
   <formCommands>
     <name>AddDataSetObject</name>
     <title>
-      <key>ru</key>
-      <value>Добавить набор данных - объект</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add data set  - object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Veri seti ekle - nesne</value>
+      <key>ru</key>
+      <value>Добавить набор данных - объект</value>
     </title>
     <id>2</id>
     <use>
@@ -16772,16 +16122,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
   <formCommands>
     <name>AddDataSetUnion</name>
     <title>
-      <key>ru</key>
-      <value>Добавить набор данных - объединение</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add data set - union</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Veri seti ekle - bütünleşme</value>
+      <key>ru</key>
+      <value>Добавить набор данных - объединение</value>
     </title>
     <id>3</id>
     <use>
@@ -16807,10 +16153,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Delete data set</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Veri seti sil</value>
-    </title>
     <id>4</id>
     <use>
       <common>true</common>
@@ -16834,10 +16176,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Open query wizard</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sorgu sihirbazını aç</value>
     </title>
     <id>5</id>
     <use>
@@ -16864,10 +16202,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Add resource from available</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Geçerlilerden kaynak ekle</value>
-    </title>
     <id>6</id>
     <use>
       <common>true</common>
@@ -16892,10 +16226,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Add numeric resources from available</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Geçerlilerden sayısal kaynaklar ekle</value>
     </title>
     <id>7</id>
     <use>
@@ -16922,10 +16252,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Delete resource</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kaynağı sil</value>
-    </title>
     <id>8</id>
     <use>
       <common>true</common>
@@ -16950,10 +16276,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
     <title>
       <key>en</key>
       <value>Delete all resources</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Tüm kaynakları sil</value>
     </title>
     <id>9</id>
     <use>
@@ -16980,10 +16302,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Save schema to file</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Şemayı dosyaya kaydet</value>
-    </title>
     <id>10</id>
     <use>
       <common>true</common>
@@ -17009,10 +16327,6 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
       <key>en</key>
       <value>Read schema from file</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Dosyadan şemayı oku</value>
-    </title>
     <id>11</id>
     <use>
       <common>true</common>
@@ -17031,16 +16345,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
   <formCommands>
     <name>FinishEdit</name>
     <title>
-      <key>ru</key>
-      <value>Применить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Apply</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Uygula</value>
+      <key>ru</key>
+      <value>Применить</value>
     </title>
     <id>12</id>
     <use>
@@ -17056,16 +16366,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
   <formCommands>
     <name>AddDataSetFieldFolder</name>
     <title>
-      <key>ru</key>
-      <value>Добавить группу полей</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add group of fields</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Alalnlar grubunu ekle</value>
+      <key>ru</key>
+      <value>Добавить группу полей</value>
     </title>
     <id>13</id>
     <use>
@@ -17085,16 +16391,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
   <formCommands>
     <name>AddDataSetFieldField</name>
     <title>
-      <key>ru</key>
-      <value>Добавить поле</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add field</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Alan ekle</value>
+      <key>ru</key>
+      <value>Добавить поле</value>
     </title>
     <id>14</id>
     <use>
@@ -17114,16 +16416,12 @@ Yapı ağacında raporu seçin ve ek rapor ayarlarını düzenleyin.</value>
   <formCommands>
     <name>AddDataSetFieldSet</name>
     <title>
-      <key>ru</key>
-      <value>Добавить поле - вложенный набор данных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add field - nested data set</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Alan ekle - iç içe veri seti</value>
+      <key>ru</key>
+      <value>Добавить поле - вложенный набор данных</value>
     </title>
     <id>15</id>
     <use>

@@ -121,8 +121,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>TableOfScheduledJobs.Number</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>TableOfScheduledJobs.Number</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>TableOfScheduledJobsNumberExtendedTooltip</name>
@@ -173,8 +175,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>TableOfScheduledJobs.ToPerform</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>TableOfScheduledJobs.ToPerform</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <toolTip>
@@ -225,8 +229,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>TableOfScheduledJobs.ScheduledJob</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>TableOfScheduledJobs.ScheduledJob</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>TableOfScheduledJobsScheduledJobExtendedTooltip</name>
@@ -276,8 +282,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>TableOfScheduledJobs.Status</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>TableOfScheduledJobs.Status</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>TableOfScheduledJobsStatusExtendedTooltip</name>
@@ -331,8 +339,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>TableOfScheduledJobs.Done</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>TableOfScheduledJobs.Done</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>TableOfScheduledJobsDoneExtendedTooltip</name>
@@ -419,7 +429,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>TableOfScheduledJobs</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -458,7 +467,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>TableOfScheduledJobs</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -498,7 +506,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>TableOfScheduledJobs</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -595,8 +602,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ExecutionCheckTimeInterval</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ExecutionCheckTimeInterval</segments>
+        </paths>
       </dataPath>
       <defaultItem>true</defaultItem>
       <toolTip>
@@ -799,11 +808,11 @@
         </extendedTooltip>
         <commandName>Form.Item.TableOfScheduledJobs.StandardCommand.Find</commandName>
         <representation>Auto</representation>
+        <onlyInAllActions>true</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
-        <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>FormCancelSearch</name>
@@ -830,11 +839,11 @@
         </extendedTooltip>
         <commandName>Form.Item.TableOfScheduledJobs.StandardCommand.CancelSearch</commandName>
         <representation>Auto</representation>
+        <onlyInAllActions>true</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
-        <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>FormOutputList</name>
@@ -872,16 +881,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Список команд</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Commands list</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Komutlar listesi</value>
+        <key>ru</key>
+        <value>Список команд</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -929,11 +934,11 @@
       </extendedTooltip>
       <commandName>Form.Command.ClearNumberOfRuns</commandName>
       <representation>Auto</representation>
+      <onlyInAllActions>true</onlyInAllActions>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
-      <locationInCommandBar>InAdditionalSubmenu</locationInCommandBar>
     </items>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -963,7 +968,6 @@
   <excludedCommands>Yes</excludedCommands>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -974,16 +978,12 @@
   <attributes>
     <name>ExecutionCheckTimeInterval</name>
     <title>
-      <key>ru</key>
-      <value>Интервал времени проверки выполнения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Execution check time interval</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yürütme kontrolü zaman aralığı</value>
+      <key>ru</key>
+      <value>Интервал времени проверки выполнения</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1006,16 +1006,12 @@
   <attributes>
     <name>TableOfScheduledJobs</name>
     <title>
-      <key>ru</key>
-      <value>Таблица регламентных заданий</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Table of scheduled jobs</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Zamanlanmış görevler tablosu</value>
+      <key>ru</key>
+      <value>Таблица регламентных заданий</value>
     </title>
     <id>1</id>
     <valueType>
@@ -1036,10 +1032,6 @@
       <title>
         <key>en</key>
         <value>Scheduled job</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Zamanlanmış görev</value>
       </title>
       <id>1</id>
       <valueType>
@@ -1063,10 +1055,6 @@
         <key>en</key>
         <value>Done</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tamamlandı</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>Date</types>
@@ -1088,10 +1076,6 @@
       <title>
         <key>en</key>
         <value>Number</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Numara</value>
       </title>
       <id>3</id>
       <valueType>
@@ -1118,10 +1102,6 @@
         <key>en</key>
         <value>Changed</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Değişti</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>Boolean</types>
@@ -1141,10 +1121,6 @@
       </title>
       <title>
         <key>en</key>
-        <value>ID</value>
-      </title>
-      <title>
-        <key>tr</key>
         <value>ID</value>
       </title>
       <id>5</id>
@@ -1168,10 +1144,6 @@
         <key>en</key>
         <value>Status</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Durum</value>
-      </title>
       <id>6</id>
       <valueType>
         <types>String</types>
@@ -1194,10 +1166,6 @@
         <key>en</key>
         <value>To perform</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Çalıştır</value>
-      </title>
       <id>7</id>
       <valueType>
         <types>Boolean</types>
@@ -1213,17 +1181,13 @@
   <attributes>
     <name>RemainingBeforeExecutionStarts</name>
     <title>
-      <key>ru</key>
-      <value>Интервал времени в секундах до следующей проверки выполнения
-				регламентных заданий.</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Time interval in seconds until the next check of scheduled tasks.</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Zamanlanmış görevlerin bir sonraki kontrolüne kadar saniye cinsinden zaman aralığı.</value>
+      <key>ru</key>
+      <value>Интервал времени в секундах до следующей проверки выполнения
+				регламентных заданий.</value>
     </title>
     <id>3</id>
     <valueType>
@@ -1242,16 +1206,12 @@
   <attributes>
     <name>Object</name>
     <title>
-      <key>ru</key>
-      <value>Объект</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne</value>
+      <key>ru</key>
+      <value>Объект</value>
     </title>
     <id>4</id>
     <valueType>
@@ -1268,16 +1228,12 @@
   <formCommands>
     <name>StopExecution</name>
     <title>
-      <key>ru</key>
-      <value>Прекратить выполнение и закрыть</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Stop running and close</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Çalışmayı durdur ve kapat</value>
+      <key>ru</key>
+      <value>Прекратить выполнение и закрыть</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1298,16 +1254,12 @@
   <formCommands>
     <name>ClearNumberOfRuns</name>
     <title>
-      <key>ru</key>
-      <value>Очистить количество запусков задания</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Clear number of job runs</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Görev çalışma sayısını sıfırla</value>
+      <key>ru</key>
+      <value>Очистить количество запусков задания</value>
     </title>
     <id>2</id>
     <use>

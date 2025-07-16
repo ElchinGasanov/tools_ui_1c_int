@@ -4,10 +4,6 @@
     <key>ru</key>
     <value>Блокировка сеансов пользователей</value>
   </title>
-  <title>
-    <key>tr</key>
-    <value>Kullanıcı oturumlarını engelleme</value>
-  </title>
   <items xsi:type="form:FormGroup">
     <name>SessionsLockParameters</name>
     <id>15</id>
@@ -26,8 +22,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Use</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Use</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>UseExtendedTooltip</name>
@@ -69,8 +67,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>KeyCode</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>KeyCode</segments>
+        </paths>
       </dataPath>
       <toolTip>
         <key>ru</key>
@@ -123,8 +123,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Begin</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Begin</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>BeginExtendedTooltip</name>
@@ -178,8 +180,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>End</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>End</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>EndExtendedTooltip</name>
@@ -233,8 +237,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Message</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Message</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>MessageExtendedTooltip</name>
@@ -289,10 +295,6 @@
       <key>en</key>
       <value>Sessions lock parameters</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Oturum kilitleme parametreleri</value>
-    </title>
     <toolTip>
       <key>ru</key>
       <value>Параметры блокировки</value>
@@ -328,16 +330,12 @@
     <name>kSetSessionsLock</name>
     <id>13</id>
     <title>
-      <key>ru</key>
-      <value>Установить блокировку сеансов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Set sessions lock</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Oturum kilidi ayarla</value>
+      <key>ru</key>
+      <value>Установить блокировку сеансов</value>
     </title>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -381,7 +379,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -395,10 +392,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -415,16 +408,12 @@
   <attributes>
     <name>KeyCode</name>
     <title>
-      <key>ru</key>
-      <value>Код разрешения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Key сode</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Anahtar kodu</value>
+      <key>ru</key>
+      <value>Код разрешения</value>
     </title>
     <id>2</id>
     <valueType>
@@ -448,10 +437,6 @@
       <key>en</key>
       <value>Begin</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Başlangıç</value>
-    </title>
     <id>3</id>
     <valueType>
       <types>Date</types>
@@ -473,10 +458,6 @@
     <title>
       <key>en</key>
       <value>End</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Son</value>
     </title>
     <id>4</id>
     <valueType>
@@ -500,10 +481,6 @@
       <key>en</key>
       <value>Message</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mesaj</value>
-    </title>
     <id>5</id>
     <valueType>
       <types>String</types>
@@ -526,10 +503,6 @@
       <key>en</key>
       <value>Use</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kurulu</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>Boolean</types>
@@ -545,15 +518,11 @@
     <name>kSetSessionsLock</name>
     <title>
       <key>ru</key>
-      <value>Oturum kilidi ayarla</value>
+      <value>Установить блокировку сеансов</value>
     </title>
     <title>
       <key>en</key>
       <value>K set sessions lock</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Oturum kilidi ayarla</value>
     </title>
     <id>1</id>
     <toolTip>

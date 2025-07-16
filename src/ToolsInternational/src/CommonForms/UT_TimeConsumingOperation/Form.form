@@ -14,10 +14,6 @@
         <key>ru</key>
         <value>Длительная операция</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Zaman alıcı operasyon</value>
-      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -67,10 +63,6 @@
         <key>ru</key>
         <value>Пожалуйста, подождите...</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Lütfen bekleyin...</value>
-      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -116,16 +108,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Картинка и надпись</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Picture and label</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Resim ve label</value>
+      <key>ru</key>
+      <value>Картинка и надпись</value>
     </title>
     <extendedTooltip>
       <name>PictureAndLabelExtendedTooltip</name>
@@ -197,12 +185,12 @@
     <name>OnOpen</name>
   </handlers>
   <handlers>
-    <event>BeforeClose</event>
-    <name>BeforeClose</name>
-  </handlers>
-  <handlers>
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
+  </handlers>
+  <handlers>
+    <event>BeforeClose</event>
+    <name>BeforeClose</name>
   </handlers>
   <handlers>
     <event>OnClose</event>
@@ -219,7 +207,6 @@
   <excludedCommands>SaveValues</excludedCommands>
   <excludedCommands>Yes</excludedCommands>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <enabled>true</enabled>
   <showTitle>true</showTitle>
   <showCloseButton>true</showCloseButton>
@@ -228,10 +215,6 @@
     <title>
       <key>ru</key>
       <value>Текст сообщения</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Mesaj metni</value>
     </title>
     <id>7</id>
     <valueType>
@@ -255,10 +238,6 @@
       <key>en</key>
       <value>Status</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Durum</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>String</types>
@@ -276,10 +255,6 @@
     <title>
       <key>ru</key>
       <value>Идентификатор задания</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Görev İD</value>
     </title>
     <id>8</id>
     <valueType>
@@ -301,10 +276,6 @@
     <title>
       <key>en</key>
       <value>Cancel</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İptal</value>
     </title>
     <id>1</id>
     <toolTip>

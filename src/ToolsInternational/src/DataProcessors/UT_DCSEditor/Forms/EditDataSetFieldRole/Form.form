@@ -8,8 +8,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>WithoutRole</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>WithoutRole</segments>
+      </paths>
     </dataPath>
     <titleLocation>Right</titleLocation>
     <handlers>
@@ -59,8 +61,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Period</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Period</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <handlers>
@@ -110,8 +114,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>PeriodNumber</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>PeriodNumber</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -161,24 +167,22 @@
         <name>PeriodAdditional</name>
         <id>19</id>
         <title>
-          <key>ru</key>
-          <value>Дополнительный</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Additional</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Ek olarak</value>
+          <key>ru</key>
+          <value>Дополнительный</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>PeriodAdditional</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>PeriodAdditional</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -290,8 +294,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Dimension</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Dimension</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <handlers>
@@ -334,24 +340,22 @@
       <name>ParentDimension</name>
       <id>24</id>
       <title>
-        <key>ru</key>
-        <value>Родитель</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Parent</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Üst öğe</value>
+        <key>ru</key>
+        <value>Родитель</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ParentDimension</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ParentDimension</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>ParentDimensionExtendedTooltip</name>
@@ -436,17 +440,15 @@
         <key>en</key>
         <value>Account</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Hesap planı kodu</value>
-      </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Account</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Account</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <handlers>
@@ -489,24 +491,22 @@
       <name>AccountTypeExpression</name>
       <id>35</id>
       <title>
-        <key>ru</key>
-        <value>Вид</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Type</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Türü</value>
+        <key>ru</key>
+        <value>Вид</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>AccountTypeExpression</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>AccountTypeExpression</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>AccountTypeExpressionExtendedTooltip</name>
@@ -591,8 +591,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Balance</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Balance</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <handlers>
@@ -638,24 +640,22 @@
         <name>BalanceGroup</name>
         <id>62</id>
         <title>
-          <key>ru</key>
-          <value>Имя</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Name</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Ad</value>
+          <key>ru</key>
+          <value>Имя</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>BalanceGroup</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>BalanceGroup</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>BalanceGroupExtendedTooltip</name>
@@ -700,24 +700,22 @@
         <name>BalanceType</name>
         <id>59</id>
         <title>
-          <key>ru</key>
-          <value>Тип</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Type</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Tür</value>
+          <key>ru</key>
+          <value>Тип</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>BalanceType</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>BalanceType</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>BalanceTypeExtendedTooltip</name>
@@ -757,26 +755,18 @@
           <chooseType>true</chooseType>
           <typeDomainEnabled>true</typeDomainEnabled>
           <choiceList>
-            <presentation>
-              <key>tr</key>
-              <value>Hayır</value>
-            </presentation>
             <value xsi:type="core:StringValue">
               <value>None</value>
             </value>
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Начальный остаток</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Opening balance</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Devreden</value>
+              <key>ru</key>
+              <value>Начальный остаток</value>
             </presentation>
             <value xsi:type="core:StringValue">
               <value>openingbalance</value>
@@ -784,16 +774,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Конечный остаток</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Closing balance</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Bakiye</value>
+              <key>ru</key>
+              <value>Конечный остаток</value>
             </presentation>
             <value xsi:type="core:StringValue">
               <value>сlosingbalance</value>
@@ -805,24 +791,22 @@
         <name>AccountingBalanceType</name>
         <id>56</id>
         <title>
-          <key>ru</key>
-          <value>Бух. тип</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Account type</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Müh. türü</value>
+          <key>ru</key>
+          <value>Бух. тип</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>AccountingBalanceType</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>AccountingBalanceType</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>AccountingBalanceTypeExtendedTooltip</name>
@@ -863,28 +847,16 @@
           <chooseType>true</chooseType>
           <typeDomainEnabled>true</typeDomainEnabled>
           <choiceList>
-            <presentation>
-              <key>tr</key>
-              <value>Hayır</value>
-            </presentation>
             <value xsi:type="core:StringValue">
               <value>None</value>
             </value>
           </choiceList>
           <choiceList>
-            <presentation>
-              <key>tr</key>
-              <value>Borç</value>
-            </presentation>
             <value xsi:type="core:StringValue">
               <value>Debit</value>
             </value>
           </choiceList>
           <choiceList>
-            <presentation>
-              <key>tr</key>
-              <value>Alacak</value>
-            </presentation>
             <value xsi:type="core:StringValue">
               <value>Credit</value>
             </value>
@@ -899,8 +871,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>AccountField</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>AccountField</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>AccountFieldExtendedTooltip</name>
@@ -1015,8 +989,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>IgnoreNULLValues</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>IgnoreNULLValues</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>IgnoreNULLValuesExtendedTooltip</name>
@@ -1058,8 +1034,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>Required</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>Required</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>RequiredExtendedTooltip</name>
@@ -1173,7 +1151,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -1191,10 +1168,6 @@
       <key>en</key>
       <value>Without role</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Rolsuz</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>Boolean</types>
@@ -1209,16 +1182,12 @@
   <attributes>
     <name>Period</name>
     <title>
-      <key>ru</key>
-      <value>Период</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Period</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dönem</value>
+      <key>ru</key>
+      <value>Период</value>
     </title>
     <id>3</id>
     <valueType>
@@ -1265,10 +1234,6 @@
       <key>en</key>
       <value>Period additional</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Ek olarak</value>
-    </title>
     <id>5</id>
     <valueType>
       <types>Boolean</types>
@@ -1289,10 +1254,6 @@
     <title>
       <key>en</key>
       <value>Parent dimension</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Üst öğe</value>
     </title>
     <id>6</id>
     <valueType>
@@ -1316,10 +1277,6 @@
       <key>en</key>
       <value>Dimension</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Boyut</value>
-    </title>
     <id>7</id>
     <valueType>
       <types>Boolean</types>
@@ -1340,10 +1297,6 @@
     <title>
       <key>en</key>
       <value>Account</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Hesap planı kodu</value>
     </title>
     <id>8</id>
     <valueType>
@@ -1388,10 +1341,6 @@
       <key>en</key>
       <value>Balance</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bakiyeler</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>Boolean</types>
@@ -1406,16 +1355,12 @@
   <attributes>
     <name>IgnoreNULLValues</name>
     <title>
-      <key>ru</key>
-      <value>Игнорировать значения NULL</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Ignore NULL Values</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>NULL değeri aldırmamak</value>
+      <key>ru</key>
+      <value>Игнорировать значения NULL</value>
     </title>
     <id>11</id>
     <valueType>
@@ -1438,10 +1383,6 @@
       <key>en</key>
       <value>Required</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Zorunlu</value>
-    </title>
     <id>12</id>
     <valueType>
       <types>Boolean</types>
@@ -1462,10 +1403,6 @@
     <title>
       <key>en</key>
       <value>Account field</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Hesap alanı</value>
     </title>
     <id>13</id>
     <valueType>
@@ -1489,10 +1426,6 @@
       <key>en</key>
       <value>Accounting balance type</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Müh. türü</value>
-    </title>
     <id>14</id>
     <valueType>
       <types>String</types>
@@ -1514,10 +1447,6 @@
     <title>
       <key>en</key>
       <value>Balance type</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Bakiye türü</value>
     </title>
     <id>15</id>
     <valueType>
@@ -1541,10 +1470,6 @@
       <key>en</key>
       <value>Balance group</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bakiye grubu</value>
-    </title>
     <id>16</id>
     <valueType>
       <types>String</types>
@@ -1566,10 +1491,6 @@
     <title>
       <key>en</key>
       <value>Apply</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Uygula</value>
     </title>
     <id>1</id>
     <use>

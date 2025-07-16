@@ -5,12 +5,4 @@
     <key>ru</key>
     <value>Decrease Font</value>
   </synonym>
-  <synonym>
-    <key>en</key>
-    <value>Decrease Font</value>
-  </synonym>
-  <synonym>
-    <key>tr</key>
-    <value>Yazı Tipini Azalt</value>
-  </synonym>
 </mdclass:CommonPicture>

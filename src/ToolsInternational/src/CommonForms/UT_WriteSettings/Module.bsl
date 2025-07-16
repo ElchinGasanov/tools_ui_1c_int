@@ -56,7 +56,7 @@ Procedure InsertUUID(Command)
 	NotificationAdditionalParameters.Insert("CurrentRow", Items.AdditionalProperties.CurrentRow);
 
 	ShowInputString(New NotifyDescription("ProcessUUIDInput", ThisForm,
-		NotificationAdditionalParameters), mLastUUID,NStr("ru = 'Введите уникальный идентификатор'; en = 'Enter a unique identifier (UUID)'; tr = 'Benzersiz bir tanımlayıcı (UUID) girin'"), , False);
+		NotificationAdditionalParameters), mLastUUID,NStr("ru = 'Введите уникальный идентификатор';en = 'Enter a unique identifier (UUID)'"), , False);
 EndProcedure
 
 #EndRegion
@@ -77,7 +77,8 @@ Procedure ProcessUUIDInput(Result, AdditionalParameters) Export
 		pValue = New UUID(Result);
 		mLastUUID = Result;
 	Except
-		ShowMessageBox( ,NStr("ru = 'Значение не может быть преобразовано в Уникальный идентификатор!'; en = 'The value cannot be converted to a Unique identifier (UUID)!'; tr = 'Değer Benzersiz tanımlayıcıya (UUID) dönüştürülemez!'"), 20);
+		ShowMessageBox( ,NStr("ru = 'Значение не может быть преобразовано в Уникальный идентификатор!';
+		|en = 'The value cannot be converted to a Unique identifier (UUID)!'"), 20);
 		Return;
 	EndTry;
 	CurrentData = AdditionalParameters.FindByID(AdditionalParameters.CurrentRow);

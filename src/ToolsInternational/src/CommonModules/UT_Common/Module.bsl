@@ -828,7 +828,7 @@ Procedure ExecuteObjectMethod(Val Object, Val MethodName, Val Parameters = Undef
 		Test = New Structure(MethodName, MethodName);
 	Except
 		Raise StrTemplate(
-			NStr("ru = 'Некорректное значение параметра MethodName (%1) в Common.ExecuteObjectMethod'; en = 'Invalid parameter value MethodName (%1) In Common.ExecuteObjectMethod'; tr = 'Common.ExecuteObjectMethod''da MethodName (%1) için geçersiz parametre değeri '"),
+			NStr("ru = 'Некорректное значение параметра MethodName (%1) в Common.ExecuteObjectMethod'; en = 'Invalid parameter value MethodName (%1) In Common.ExecuteObjectMethod'"),
 			MethodName);
 	EndTry;
 	
@@ -991,16 +991,16 @@ Procedure CheckConfigurationProcedureName(Val ProcedureName)
 	NameParts = StrSplit(ProcedureName, ".");
 	If NameParts.Count() <> 2 AND NameParts.Count() <> 3 Then
 		Raise StrTemplate(
-			NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.'; tr = 'Common.ExecuteConfigurationMethod''da ProcedureName parametresinin geçersiz formatı (geçirilen değer: ""%1"").'"),
+			NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod'; 
+				|en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.'"),
 				ProcedureName);
 	EndIf;
 
 	ObjectName = NameParts[0];
 	If NameParts.Count() = 2 AND Metadata.CommonModules.Find(ObjectName) = Undefined Then
 		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
-													 |Не найден общий модуль ""%2"".'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.
-													 |Common module ""%2"" is not found.'; tr = 'Common.ExecuteConfigurationMethod''da Geçersiz ProcedureName parametresinin formatı (geçirilen değer: ""%1"").
-													 |Common modül ""%2"" bulunamadı.'"), ProcedureName, ObjectName);
+				|Не найден общий модуль ""%2"".'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.
+				|Common module ""%2"" is not found.'"), ProcedureName, ObjectName);
 	КонецЕсли;
 
 	If NameParts.Count() = 3 Then
@@ -1012,9 +1012,8 @@ Procedure CheckConfigurationProcedureName(Val ProcedureName)
 		EndTry;
 		If Manager = Undefined Then
 			Raise StrTemplate(NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
-																	|Не найден менеджер объекта ""%2"".'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod:
-																	|Manager of ""%2"" object is not found.'; tr = 'Common.ExecuteConfigurationMethod''da Geçersiz ProcedureName parametresinin formatı (geçirilen değer: ""%1""):
-																	|""%2"" nesnesinin yöneticisi bulunamadı.'"), ProcedureName,FullObjectName);
+				           |Не найден менеджер объекта ""%2"".'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod:
+				           |Manager of ""%2"" object is not found.'"), ProcedureName,FullObjectName);
 	   EndIf;
 	EndIf;
 
@@ -1025,13 +1024,12 @@ Procedure CheckConfigurationProcedureName(Val ProcedureName)
 		// For example: MyProcedure.
 		TempStructure.Insert(ObjectMethodName);
 	Except
-		WriteLogEvent(NStr("ru = 'Безопасное выполнение метода'; en = 'Executing method in safe mode'; tr = 'Güvenli modda yürütme'",UT_CommonClientServer.DefaultLanguageCode()),
+		WriteLogEvent(NStr("ru = 'Безопасное выполнение метода'; en = 'Executing method in safe mode'",UT_CommonClientServer.DefaultLanguageCode()),
 			EventLogLevel.Error, , , 
 			DetailErrorDescription(ErrorInfo()));
 		Raise StrTemplate(NStr("ru = 'Неправильный формат параметра ProcedureName (передано значение: ""%1"") в Common.ExecuteConfigurationMethod:
-																										   |Имя метода ""%2"" не соответствует требованиям образования имен процедур и функций.'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.
-																										   |Method name %2 does not comply with the procedure and function naming convention.'; tr = 'Common.ExecuteConfigurationMethod''da Geçersiz ProcedureName parametresinin formatı (geçirilen değer: ""%1"").
-																										   |Method''un ismi  %2, prosedür ve function adlandırma kuralına uymuyor.'"),
+			           |Имя метода ""%2"" не соответствует требованиям образования имен процедур и функций.'; en = 'Invalid format of ProcedureName parameter (passed value: ""%1"") in Common.ExecuteConfigurationMethod.
+			           |Method name %2 does not comply with the procedure and function naming convention.'"),
 			ProcedureName, ObjectMethodName);
 	EndTry;
 	
@@ -1148,7 +1146,7 @@ Function ObjectManagerByName(Name)
 		EndIf;
 	EndIf;
 
-	Raise StrTemplate(NStr("ru = 'Не удалось получить менеджер для объекта ""%1""'; en = 'Cannot get a manager for object %1.'; tr = '%1 nesnesi için bir yönetici alınamıyor.'"), Name);
+	Raise StrTemplate(NStr("ru = 'Не удалось получить менеджер для объекта ""%1""'; en = 'Cannot get a manager for object %1.'"), Name);
 
 EndFunction
 
@@ -1225,7 +1223,8 @@ EndFunction
 //
 Function TrimStringUsingChecksum(String, MaxLength) Export
 	UT_CommonClientServer.Validate(MaxLength >= 32, 
-		NStr("ru = 'Параметр МаксимальнаяДлина не может быть меньше 32'; en = 'The MaxLength parameter cannot be less than 32.'; tr = 'MaxLength parametresi 32''den az olamaz'"),"Common.TrimStringUsingChecksum");
+		NStr("ru = 'Параметр МаксимальнаяДлина не может быть меньше 32'; 
+		|en = 'The MaxLength parameter cannot be less than 32.'"),"Common.TrimStringUsingChecksum");
 
 	Result = String;
 	If StrLen(String) > MaxLength Then
@@ -1349,9 +1348,8 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 			Ref = UT_CommonClientServer.PredefinedItem(FullNameOfPredefinedItem);
 		Except
 			ErrorText = StrTemplate(NStr("ru = 'Неверный первый параметр Ref в функции Common.ObjectAttributesValues:
-							 |%1'; en = 'Invalid value of the Ref parameter, function Common.ObjectAttributesValues:
-							 |%1.'; tr = 'Ref parametresinin yanlış değeri, Common.ObjectAttributesValues fonksiyonu:
-							 |%1.'"), BriefErrorDescription(ErrorInfo()));
+			           |%1'; en = 'Invalid value of the Ref parameter, function Common.ObjectAttributesValues:
+			           |%1.'"), BriefErrorDescription(ErrorInfo()));
 			Raise ErrorText;
 		EndTry;
 		
@@ -1367,7 +1365,7 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 
 			If Not AccessRight("Read", ObjectMetadata) Then
 				Raise StrTemplate(
-					NStr("ru = 'Недостаточно прав для работы с таблицей ""%1""'; en = 'Insufficient rights to access table %1.'; tr = '%1 tablosuna erişim için yeterli yetki yok.'"), FullMetadataObjectName);
+					NStr("ru = 'Недостаточно прав для работы с таблицей ""%1""'; en = 'Insufficient rights to access table %1.'"), FullMetadataObjectName);
 			EndIf;
 			
 		EndIf;
@@ -1377,7 +1375,8 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 		Try
 			FullMetadataObjectName = Ref.Metadata().FullName(); 
 		Except
-			Raise NStr("ru = 'Неверный первый параметр Ref в функции Common.ObjectAttributesValues: Значение должно быть ссылкой или именем предопределенного элемента'; en = 'Invalid value of the Ref parameter, function Common.ObjectAttributesValues: The value must contain predefined item name or reference.'; tr = 'Ref parametresinin geçersiz değeri, Common.ObjectAttributesValues fonksiyonu: Değer, predefined değer veya referans içermelidir.'");
+			Raise NStr("ru = 'Неверный первый параметр Ref в функции Common.ObjectAttributesValues: Значение должно быть ссылкой или именем предопределенного элемента'; 
+				|en = 'Invalid value of the Ref parameter, function Common.ObjectAttributesValues: The value must contain predefined item name or reference.'");
 		EndTry;
 		
 	EndIf;
@@ -1413,7 +1412,8 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 				// Searching for field availability error.
 				Result = FindObjectAttirbuteAvailabilityError(FullMetadataObjectName, Attributes);
 				If Result.Error Then 
-					Raise СтрШаблон(NStr("ru = 'Неверный второй параметр Attributes в функции Common.ObjectAttributesValues: %1'; en = 'Invalid value of the Attributes parameter, function Common.ObjectAttributesValues: %1.'; tr = 'Attributes parametresinin geçersiz değeri, Common.ObjectAttributesValues fonksiyonu: %1.'"), Result.ErrorDescription);
+					Raise СтрШаблон(NStr("ru = 'Неверный второй параметр Attributes в функции Common.ObjectAttributesValues: %1'; 
+							 |en = 'Invalid value of the Attributes parameter, function Common.ObjectAttributesValues: %1.'"), Result.ErrorDescription);
 				EndIf;
 				
 				// Cannot identify the error. Forwarding the original error.
@@ -1422,7 +1422,8 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 			EndTry;
 		EndDo;
 	Else
-		Raise СтрШаблон(NStr("ru = 'Неверный тип второго параметра Attributes в функции Common.ObjectAttributesValues: %1'; en = 'Invalid value type for the Attributes parameter, function Common.ObjectAttributesValues: %1.'; tr = 'Attributes parametresi için geçersiz değer türü, Common.ObjectAttributesValues fonksiyonu: %1.'"), String(TypeOf(Attributes)));
+		Raise СтрШаблон(NStr("ru = 'Неверный тип второго параметра Attributes в функции Common.ObjectAttributesValues: %1';
+				| en = 'Invalid value type for the Attributes parameter, function Common.ObjectAttributesValues: %1.'"), String(TypeOf(Attributes)));
 	EndIf;
 	
 	// Preparing the result (will be redefined after the query).
@@ -1484,7 +1485,8 @@ Function ObjectAttributesValues(Ref, Val Attributes, SelectAllowedItems = False)
 		// Searching for field availability error.
 		Result = FindObjectAttirbuteAvailabilityError(FullMetadataObjectName, Attributes);
 		If Result.Error Then 
-			Raise СтрШаблон(NStr("ru = 'Неверный второй параметр Attributes в функции Common.ObjectAttributesValues: %1'; en = 'Invalid value of the Attributes parameter, function Common.ObjectAttributesValues: %1.'; tr = 'Attributes parametresinin geçersiz değeri, Common.ObjectAttributesValues fonksiyonu: %1.'"), Result.ErrorDescription);
+			Raise СтрШаблон(NStr("ru = 'Неверный второй параметр Attributes в функции Common.ObjectAttributesValues: %1'; 
+					 |en = 'Invalid value of the Attributes parameter, function Common.ObjectAttributesValues: %1.'"), Result.ErrorDescription);
 		EndIf;
 		
 		// Cannot identify the error. Forwarding the original error.
@@ -1525,7 +1527,8 @@ EndFunction
 Function ObjectAttributeValue(Ref, AttributeName, SelectAllowedItems = False) Export
 	
 	If IsBlankString(AttributeName) Then 
-		Raise NStr("ru = 'Неверный второй параметр AttributeName в функции Common.ObjectAttributeValue: Имя реквизита должно быть заполнено'; en = 'Invalid value of the AttributeName parameter, function Common.ObjectAttributeValue: The parameter cannot be empty.'; tr = 'AttributeName parametresinin Common.ObjectAttributeValue fonksiyonundaki değeri geçersiz: Parametre boş olamaz.'");
+		Raise NStr("ru = 'Неверный второй параметр AttributeName в функции Common.ObjectAttributeValue: Имя реквизита должно быть заполнено'; 
+			           |en = 'Invalid value of the AttributeName parameter, function Common.ObjectAttributeValue: The parameter cannot be empty.'");
 	EndIf;
 	
 	Result = ObjectAttributesValues(Ref, AttributeName, SelectAllowedItems);
@@ -1562,7 +1565,7 @@ Function FindObjectAttirbuteAvailabilityError(FullMetadataObjectName, Expression
 	
 	If ObjectMetadata = Undefined Then 
 		Return New Structure("Error, ErrorDescription", True, 
-			StrTemplate(NStr("ru = 'Ошибка получения метаданных ""%1""'; en = 'Cannot get metadata ""%1""'; tr = '""%1"" metadata alınamıyor'"), FullMetadataObjectName));
+			StrTemplate(NStr("ru = 'Ошибка получения метаданных ""%1""'; en = 'Cannot get metadata ""%1""'"), FullMetadataObjectName));
 	EndIf;
 
 	// Allowing calls from an external data processor or extension in safe mode.
@@ -1581,7 +1584,7 @@ Function FindObjectAttirbuteAvailabilityError(FullMetadataObjectName, Expression
 		
 		If Not QuerySchemaSourceFieldAvailable(Source, CurrentExpression) Then 
 			ErrorText = ErrorText + Chars.LF + StrTemplate(
-				NStr("ru = '- Поле объекта ""%1"" не найдено'; en = '- The ""%1"" object field not found.'; tr = '- ""%1"" nesne alanı bulunamadı.'"), CurrentExpression);
+				NStr("ru = '- Поле объекта ""%1"" не найдено'; en = '- The ""%1"" object field not found.'"), CurrentExpression);
 		EndIf;
 		
 	EndDo;
@@ -1693,8 +1696,7 @@ Function AccessRightsSettingResultForBSP_3_1_6_AndHigher() Export
 		Return True;
 	Except
 		UT_CommonClientServer.MessageToUser(NStr("en = 'Failed to apply access rights for Chat Center. 
-																					   |They will be applied automatically later and a message will be displayed'; tr = 'Sohbet Merkezi için erişim hakları uygulanamadı.
-																					   |Daha sonra otomatik olarak uygulanacak ve bir mesaj görüntülenecek'"));
+			|They will be applied automatically later and a message will be displayed'"));
 		Return False;
 	EndTry;
 
@@ -1764,8 +1766,8 @@ Procedure AddToCommonCommandsCommandBar(Form, FormMainCommandBar)
 	CommandDescription.ItemParent=CommandBar;
 	CommandDescription.Picture = PictureLib.NewWindow;
 	CommandDescription.Representation = ButtonRepresentation.Picture;
-	CommandDescription.ToolTip = NStr("ru = 'Открывает еще одну пустую форму текущего инструмента'; en = 'Open one more empty form of current tool'; tr = 'Mevcut aracın bir boş formunu daha açıyor'");
-	CommandDescription.Title = NStr("ru = 'Открыть новую форму'; en = 'Open new form'; tr = 'Yeni form aç'");
+	CommandDescription.ToolTip = NStr("ru = 'Открывает еще одну пустую форму текущего инструмента'; en = 'Open one more empty form of current tool'");
+	CommandDescription.Title = NStr("ru = 'Открыть новую форму';en = 'Open new form'");
 	UT_Forms.CreateCommandByDescription(Form, CommandDescription);
 	UT_Forms.CreateButtonByDescription(Form, CommandDescription);
 EndProcedure
@@ -1933,12 +1935,9 @@ Function AttachAddInFromTemplate(ID, FullTemplateName) Export
 	If Not TemplateExists(FullTemplateName) Then 
 		Raise StrTemplate(
 			NStr("en = 'Cannot attach add-in ""%1"" on the server
-																					 |from %2.
-																					 |Reason:
-																					 |On the server, add-ins can only be attached from templates.'; tr = '%2'' den ""%1"" componenti sunucuya eklenemiyor
-																					 |.
-																					 |Neden:
-																					 |Sunucuda componentler yalnızca şablonlardan eklenebilir.'"), ID, FullTemplateName);
+			           |from %2.
+			           |Reason:
+			           |On the server, add-ins can only be attached from templates.'"), ID, FullTemplateName);
 	EndIf;
 
 	Location = FullTemplateName;
@@ -1949,7 +1948,7 @@ Function AttachAddInFromTemplate(ID, FullTemplateName) Export
 		Try
 			AttachableModule = New("AddIn." + SymbolicName + "." + ID);
 			If AttachableModule = Undefined Then 
-				Raise NStr("ru = 'Оператор Новый вернул Неопределено'; en = 'The New operator returned Undefined.'; tr = 'New operatörü Tanımsız değeri döndürdü.'");
+				Raise NStr("ru = 'Оператор Новый вернул Неопределено'; en = 'The New operator returned Undefined.'");
 			EndIf;
 		Except
 			AttachableModule = Undefined;
@@ -1960,14 +1959,12 @@ Function AttachAddInFromTemplate(ID, FullTemplateName) Export
 
 			ErrorText = StrTemplate(
 					NStr("en = 'Cannot create an object for add-in ""%1"" that was attached on the server
-							  |from template ""%2.""
-							  |Reason:
-							  |%3'; tr = '""%2"" şablonundan sunucuya eklenen ""%1"" componenti için bir nesne oluşturulamıyor.
-							  |Neden:
-							  |%3'"), ID, Location, ErrorText);
+				         |from template ""%2.""
+				         |Reason:
+				         |%3'"), ID, Location, ErrorText);
 
 			WriteLogEvent(
-				NStr("ru = 'Подключение внешней компоненты на сервере'; en = 'Attaching add-in on the server'; tr = 'Sunucuya component ekleme'",					
+				NStr("ru = 'Подключение внешней компоненты на сервере'; en = 'Attaching add-in on the server'",					
 				UT_CommonClientServer.DefaultLanguageCode()),EventLogLevel.Error,,,ErrorText);
 
 		EndIf;
@@ -1976,14 +1973,12 @@ Function AttachAddInFromTemplate(ID, FullTemplateName) Export
 
 		ErrorText = StrTemplate(
 			NStr("en = 'Cannot attach add-in ""%1"" on the server
-														  |from template ""%2.""
-														  |Reason:
-														  |Method AttachAddInSSL returned False.'; tr = '""%2"" şablonundan ""%1"" componenti sunucuya eklenemiyor.
-														  |Neden:
-														  |AttachAddInSSL method u  False döndürdü.'"), ID, Location);
+			      |from template ""%2.""
+			      |Reason:
+			      |Method AttachAddInSSL returned False.'"), ID, Location);
 
 		WriteLogEvent(
-			NStr("ru = 'Подключение внешней компоненты на сервере'; en = 'Attaching add-in on the server'; tr = 'Sunucuya componenti ekleme'",
+			NStr("ru = 'Подключение внешней компоненты на сервере'; en = 'Attaching add-in on the server'",
 			UT_CommonClientServer.DefaultLanguageCode()), EventLogLevel.Error,,, ErrorText);
 
 	EndIf;
@@ -2007,7 +2002,7 @@ Function SubjectString(ReferenceToSubject) Export
 	
 	//@skip-warning
 	If ReferenceToSubject = Undefined Or ReferenceToSubject.IsEmpty() Then
-		Result = NStr("ru = 'не задан'; en = 'not specified'; tr = 'belirtilmemiş'");
+		Result = NStr("ru = 'не задан'; en = 'not specified'");
 	ElsIf Metadata.Documents.Contains(ReferenceToSubject.Metadata()) Or Metadata.Enums.Contains(
 		ReferenceToSubject.Metadata()) Then
 		Result = String(ReferenceToSubject);
@@ -2472,10 +2467,10 @@ Function UsageInstances(Val RefSet, Val ResultAddress = "") Export
 			Presentation = String(UsageInstance.Data);
 
 		ElsIf ConstantMetadata.Contains(UsageInstance.Metadata) Then
-			Presentation = UsageInstance.Metadata.Presentation() + " (" + NStr("ru = 'константа'; en = 'constant'; tr = 'konstant'") + ")";
+			Presentation = UsageInstance.Metadata.Presentation() + " (" + NStr("ru = 'константа'; en = 'constant'") + ")";
 			
 		ElsIf SequenceMetadata.Contains(UsageInstance.Metadata) Then
-			Presentation = UsageInstance.Metadata.Presentation() + " (" + NStr("ru = 'последовательность'; en = 'sequence'; tr = 'sıra'") 
+			Presentation = UsageInstance.Metadata.Presentation() + " (" + NStr("ru = 'последовательность'; en = 'sequence'") 
 			+ ")";
 			
 		ElsIf DataType = Undefined Then
@@ -2609,46 +2604,46 @@ Function RecordSetDimensionsDetails(Val RegisterMetadata, RegisterDimensionCache
 		
 		If MetaPeriod = Periodicity.RecorderPosition Then
 			DimensionData.Type           = Documents.AllRefsType();
-			DimensionData.Presentation = NStr("ru = 'Регистратор'; en = 'Recorder'; tr = 'Recorder'");
+			DimensionData.Presentation = NStr("ru='Регистратор'; en = 'Recorder'");
 			DimensionData.Master       = True;
 			DimensionsDetails.Insert("Recorder", DimensionData);
 
 		ElsIf MetaPeriod = Periodicity.Year Then
 			DimensionData.Type           = New TypeDescription("Date");
-			DimensionData.Presentation = NStr("ru = 'Период'; en = 'Period'; tr = 'Period'");
-			DimensionData.Format        = NStr("ru = 'ДФ=''yyyy ""г.""''; ДП=''Дата не задана'''; en = 'DF=''yyyy''; DE=''No date set'''; tr = 'DF=''yyyy''; DE=''Tarih ayarlanmadı'''");
+			DimensionData.Presentation = NStr("ru='Период'; en = 'Period'");
+			DimensionData.Format        = NStr("ru = 'ДФ=''yyyy ""г.""''; ДП=''Дата не задана'''; en = 'DF=''yyyy''; DE=''No date set'''");
 			DimensionsDetails.Insert("Period", DimensionData);
 			
 		ElsIf MetaPeriod = Periodicity.Day Then
 			DimensionData.Type           = New TypeDescription("Date");
 			DimensionData.Presentation = NStr("ru='Период'; en = 'Period'");
-			DimensionData.Format        = NStr("ru = 'ДЛФ=D; ДП=''Дата не задана'''; en = 'DLF=D; DE=''No date set'''; tr = 'DLF=D; DE=''Tarih ayarlanmadı'''");
+			DimensionData.Format        = NStr("ru = 'ДЛФ=D; ДП=''Дата не задана'''; en = 'DLF=D; DE=''No date set'''");
 			DimensionsDetails.Insert("Period", DimensionData);
 			
 		ElsIf MetaPeriod = Periodicity.Quarter Then
 			DimensionData.Type           = New TypeDescription("Date");
-			DimensionData.Presentation = NStr("ru = 'Период'; en = 'Period'; tr = 'Period'");
+			DimensionData.Presentation = NStr("ru='Период'; en = 'Period'");
 			DimensionData.Format        =  NStr(
-				"ru = 'ДФ=''к """"квартал """"yyyy """"г.""""''; ДП=''Дата не задана'''; en = 'DF=''""""Q""""q yyyy''; DE=''No date set'''; tr = 'DF=''""""Q""""q yyyy''; DE=''Tarih ayarlanmadı'''");
+				"ru = 'ДФ=''к """"квартал """"yyyy """"г.""""''; ДП=''Дата не задана'''; en = 'DF=''""""Q""""q yyyy''; DE=''No date set'''");
 			DimensionsDetails.Insert("Period", DimensionData);
 			
 		ElsIf MetaPeriod = Periodicity.Month Then
 			DimensionData.Type           = New TypeDescription("Date");
-			DimensionData.Presentation = NStr("ru = 'Период'; en = 'Period'; tr = 'Period'");
-			DimensionData.Format        = NStr("ru = 'ДФ=''ММММ yyyy """"г.""""''; ДП=''Дата не задана'''; en = 'DF=''MMMM yyyy''; DE=''No date set'''; tr = 'DF=''MMMM yyyy''; DE=''Tarih ayarlanmadı'''");
+			DimensionData.Presentation = NStr("ru='Период'; en = 'Period'");
+			DimensionData.Format        = NStr("ru = 'ДФ=''ММММ yyyy """"г.""""''; ДП=''Дата не задана'''; en = 'DF=''MMMM yyyy''; DE=''No date set'''");
 			DimensionsDetails.Insert("Period", DimensionData);
 			
 		ElsIf MetaPeriod = Periodicity.Second Then
 			DimensionData.Type           = New TypeDescription("Date");
-			DimensionData.Presentation = NStr("ru = 'Период'; en = 'Period'; tr = 'Period'");
-			DimensionData.Format        = NStr("ru = 'ДЛФ=DT; ДП=''Дата не задана'''; en = 'DLF=DT; DE=''No date set'''; tr = 'DLF=DT; DE=''Tarih ayarlanmadı'''");
+			DimensionData.Presentation = NStr("ru='Период'; en = 'Period'");
+			DimensionData.Format        = NStr("ru = 'ДЛФ=DT; ДП=''Дата не задана'''; en = 'DLF=DT; DE=''No date set'''");
 			DimensionsDetails.Insert("Period", DimensionData);
 			
 		EndIf;
 
 	Else
 		DimensionData.Type           = Documents.AllRefsType();
-		DimensionData.Presentation = NStr("ru = 'Регистратор'; en = 'Recorder'; tr = 'Recorder'");
+		DimensionData.Presentation = NStr("ru='Регистратор'; en = 'Recorder'");
 		DimensionData.Master       = True;
 		DimensionsDetails.Insert("Recorder", DimensionData);
 		
@@ -2711,7 +2706,7 @@ Function MarkUsageInstances(Val ExecutionParameters, Val Ref, Val DestinationRef
 		Else
 			// Unknown object for reference replacement.
 			Result.Success = False;
-			Text = StrTemplate(NStr("ru = 'Замена ссылок в ""%1"" не поддерживается.'; en = 'Replacement of references in ""%1"" is not supported.'; tr = '""%1"" içindeki referansların değiştirilmesi desteklenmiyor.'"), Information.FullName);
+			Text = StrTemplate(NStr("ru = 'Замена ссылок в ""%1"" не поддерживается.'; en = 'Replacement of references in ""%1"" is not supported.'"), Information.FullName);
 			ErrorDescription = New Structure("Object, Text", UsageInstance.Data, Text);
 			Result.MarkupErrors.Add(ErrorDescription);
 		EndIf;
@@ -2851,7 +2846,8 @@ Procedure ReplaceRefUsingSingleTransaction(Result, Val Duplicate, Val ExecutionP
 		RollbackTransaction();
 		If ActionState = "LockError" Then
 			ErrorPresentation = DetailErrorDescription(ErrorInfo());
-			Error = StrTemplate(NStr("ru = 'Не удалось заблокировать все места использования %1:'; en = 'Cannot lock all usage instances of %1:'; tr = '%1''in tüm kullanım durumları kilitlenemiyor:'") + Chars.LF + ErrorPresentation, Duplicate);
+			Error = StrTemplate(NStr("ru = 'Не удалось заблокировать все места использования %1:';
+			| en = 'Cannot lock all usage instances of %1:'") + Chars.LF + ErrorPresentation, Duplicate);
 			RegisterReplacementError(Result, Duplicate, 
 				ReplacementErrorDescription("LockError", Undefined, Undefined, Error));
 		Else
@@ -2892,7 +2888,7 @@ Procedure ReplaceInConstant(Result, Val UsageInstance, Val WriteParameters,
 			Try
 				Lock.Lock();
 			Except
-				Error = StrTemplate(NStr("ru = 'Не удалось заблокировать константу %1'; en = 'Cannot lock the constant %1.'; tr = '%1 konstantı kilitlenemiyor.'"), DataPresentation);
+				Error = StrTemplate(NStr("ru = 'Не удалось заблокировать константу %1'; en = 'Cannot lock the constant %1.'"), DataPresentation);
 				ActionState = "LockError";
 				Raise;
 			EndTry;
@@ -2925,7 +2921,7 @@ Procedure ReplaceInConstant(Result, Val UsageInstance, Val WriteParameters,
 			WriteObjectOnRefsReplace(Manager, WriteParameters);
 		Except
 			ErrorDescription = BriefErrorDescription(ErrorInfo());
-			Error = StrTemplate(NStr("ru = 'Не удалось записать %1 по причине: %2'; en = 'Cannot save %1. Reason: %2'; tr = '%1 kaydedilemiyor. Neden: %2'"), 
+			Error = StrTemplate(NStr("ru = 'Не удалось записать %1 по причине: %2'; en = 'Cannot save %1. Reason: %2'"), 
 				DataPresentation, ErrorDescription);
 			ActionState = "WritingError";
 			Raise;
@@ -2985,7 +2981,8 @@ Procedure ReplaceInObject(Result, Val UsageInstance, Val ExecutionParameters,
 			Except
 				ActionState = "LockError";
 				ErrorText = StrTemplate(
-					NStr("ru = 'Не удалось заблокировать объект ""%1"": %2'; en = 'Cannot lock object %1: %2'; tr = '%1 nesnesi kilitlenemiyor: %2'"), DataPresentation, BriefErrorDescription(ErrorInfo()));
+					NStr("ru = 'Не удалось заблокировать объект ""%1"": %2'; 
+					|en = 'Cannot lock object %1: %2'"), DataPresentation, BriefErrorDescription(ErrorInfo()));
 				Raise;
 			EndTry;
 		EndIf;
@@ -3020,7 +3017,7 @@ Procedure ReplaceInObject(Result, Val UsageInstance, Val ExecutionParameters,
 		Except
 			ActionState = "WritingError";
 			ErrorDescription = BriefErrorDescription(ErrorInfo());
-			ErrorText = StrTemplate(NStr("ru = 'Не удалось записать %1 по причине: %2'; en = 'Cannot save %1. Reason: %2'; tr = '%1 kaydedilemiyor. Neden: %2'"), 
+			ErrorText = StrTemplate(NStr("ru = 'Не удалось записать %1 по причине: %2'; en = 'Cannot save %1. Reason: %2'"), 
 				DataPresentation, ErrorDescription);
 			Raise;
 		EndTry;
@@ -3110,7 +3107,7 @@ Procedure ReplaceInSet(Result, Val UsageInstance, Val ExecutionParameters,
 			Try
 				Lock.Lock();
 			Except
-				Error = StrTemplate(NStr("ru = 'Не удалось заблокировать набор %1'; en = 'Cannot lock record set %1.'; tr = '%1 kayıt seti kilitlenemiyor.'"), DataPresentation);
+				Error = StrTemplate(NStr("ru = 'Не удалось заблокировать набор %1'; en = 'Cannot lock record set %1.'"), DataPresentation);
 				ActionState = "LockError";
 				Raise;
 			EndTry;
@@ -3136,7 +3133,7 @@ Procedure ReplaceInSet(Result, Val UsageInstance, Val ExecutionParameters,
 			WriteObjectOnRefsReplace(RecordSet, ExecutionParameters);
 		Except
 			ErrorDescription = BriefErrorDescription(ErrorInfo());
-			Error = StrTemplate(NStr("ru = 'Не удалось записать %1 по причине: %2'; en = 'Cannot save %1. Reason: %2'; tr = '%1 kaydedilemiyor. Neden: %2'"), 
+			Error = StrTemplate(NStr("ru = 'Не удалось записать %1 по причине: %2'; en = 'Cannot save %1. Reason: %2'"), 
 				DataPresentation, ErrorDescription);
 			ActionState = "WritingError";
 			Raise;
@@ -3551,7 +3548,7 @@ Procedure DeleteRefsNotExclusive(Result, Val RefsList, Val ExecutionParameters, 
 					ExecutionParameters);
 				EndIf;
 			Except
-				ErrorText = NStr("ru = 'Ошибка удаления'; en = 'Deletion error.'; tr = 'Silme hatası.'") + Chars.LF + TrimAll(
+				ErrorText = NStr("ru = 'Ошибка удаления'; en = 'Deletion error.'") + Chars.LF + TrimAll(
 					BriefErrorDescription(ErrorInfo()));
 				ErrorDescription = ReplacementErrorDescription("DeletionError", Ref, RefPresentation, ErrorText);
 				RegisterReplacementError(Result, Ref, ErrorDescription);
@@ -3594,7 +3591,8 @@ Procedure AddModifiedObjectReplacementResults(Result, RepeatSearchTable)
 			Continue; // Error on this issue has already been recorded.
 		EndIf;
 		RegisterReplacementError(Result, Ref, ReplacementErrorDescription("DataChanged", Data, DataPresentation,
-			NStr("ru = 'Заменены не все места использования. Возможно места использования были добавлены или изменены другим пользователем.'; en = 'Some of the instances were not replaced. Probably these instances were added or edited by other users.'; tr = 'Bazı durumlar değiştirilmedi. Muhtemelen bu durumlar diğer kullanıcılar tarafından eklendi veya düzenlendi.'")));
+			NStr("ru = 'Заменены не все места использования. Возможно места использования были добавлены или изменены другим пользователем.';
+			|en = 'Some of the instances were not replaced. Probably these instances were added or edited by other users.'")));
 	EndDo;
 	
 EndProcedure
@@ -3990,14 +3988,16 @@ Procedure WriteObjectOnRefsReplace (Val Object, Val WriteParameters)
 	If ObjectProperties.Hierarchical Or ObjectProperties.ExtDimensionTypes <> Undefined Then 
 		
 		If Object.Parent = Object.Ref Then
-			Raise StrTemplate(NStr("ru = 'При записи ""%1"" возникает циклическая ссылка в иерархии.'; en = 'Writing ""%1"" causes an infinite loop in the hierarchy.'; tr = '""%1"" yazılması hiyerarşide sonsuz bir döngüye neden oluyor'"), String(Object));
+			Raise StrTemplate(NStr("ru = 'При записи ""%1"" возникает циклическая ссылка в иерархии.'; 
+				|en = 'Writing ""%1"" causes an infinite loop in the hierarchy.'"), String(Object));
 			EndIf;
 			
 	EndIf;
 	
 	// Checking the owner.
 	If ObjectProperties.Owners.Count() > 1 AND Object.Owner = Object.Ref Then
-		Raise StrTemplate(NStr("ru = 'При записи ""%1"" возникает циклическая ссылка в подчинении.'; en = 'Writing ""%1"" causes an infinite loop in the subordination.'; tr = '""%1"" yazılması, alt dizilimde sonsuz bir döngüye neden oluyor.'"), String(Object));
+		Raise StrTemplate(NStr("ru = 'При записи ""%1"" возникает циклическая ссылка в подчинении.'; 
+			|en = 'Writing ""%1"" causes an infinite loop in the subordination.'"), String(Object));
 	EndIf;
 	
 	// For sequences, the Update right can be absent even in the FullAdministrator role.
@@ -4013,7 +4013,7 @@ EndProcedure
 
 Function RefReplacementEventLogMessageText()
 	
-	Return NStr("ru = 'Поиск и удаление ссылок'; en = 'Searching for references and deleting them'; tr = 'Referansları arama ve silme'",UT_CommonClientServer.DefaultLanguageCode());
+	Return NStr("ru='Поиск и удаление ссылок'; en = 'Searching for references and deleting them'",UT_CommonClientServer.DefaultLanguageCode());
 	
 EndFunction
 
@@ -4032,23 +4032,23 @@ Procedure RegisterErrorInTable(Result, Duplicate, Original, Data, Information, E
 	Error.ErrorObjectPresentation = FullDataPresentation;
 	
 	If ErrorType = "LockForRegister" Then
-		NewTemplate = NStr("ru = 'Не удалось начать редактирование %1: %2'; en = 'Cannot start editing %1: %2'; tr = '%1 düzenlemeye başlanamıyor: %2'");
+		NewTemplate = NStr("ru = 'Не удалось начать редактирование %1: %2'; en = 'Cannot start editing %1: %2'");
 		Error.ErrorType = "LockError";
 	ElsIf ErrorType = "DataLockForDuplicateDeletion" Then
-		NewTemplate = NStr("ru = 'Не удалось начать удаление: %2'; en = 'Cannot start deletion: %2'; tr = 'Silme işlemi başlatılamıyor: %2'");
+		NewTemplate = NStr("ru = 'Не удалось начать удаление: %2'; en = 'Cannot start deletion: %2'");
 		Error.ErrorType = "LockError";
 	ElsIf ErrorType = "DeleteDuplicateSet" Then
-		NewTemplate = NStr("ru = 'Не удалось очистить сведения о дубле в %1: %2'; en = 'Cannot clear duplicate''s details in %1: %2'; tr = '%1''deki tekrarların ayrıntıları temizlenemiyor: %2'");
+		NewTemplate = NStr("ru = 'Не удалось очистить сведения о дубле в %1: %2'; en = 'Cannot clear duplicate''s details in %1: %2'");
 		Error.ErrorType = "WritingError";
 	ElsIf ErrorType = "WriteOriginalSet" Then
-		NewTemplate = NStr("ru = 'Не удалось обновить сведения в %1: %2'; en = 'Cannot update additional data in %1: %2'; tr = '%1''deki ek veriler güncellenemiyor: %2'");
+		NewTemplate = NStr("ru = 'Не удалось обновить сведения в %1: %2'; en = 'Cannot update additional data in %1: %2'");
 		Error.ErrorType = "WritingError";
 	Else
 		NewTemplate = ErrorType + " (%1): %2";
 		Error.ErrorType = ErrorType;
 	EndIf;
 	
-	NewTemplate = NewTemplate + Chars.LF + Chars.LF + NStr("ru = 'Подробности в журнале регистрации.'; en = 'See the event log for details.'; tr = 'Ayrıntılar için event loga bakınız.'");
+	NewTemplate = NewTemplate + Chars.LF + Chars.LF + NStr("ru = 'Подробности в журнале регистрации.'; en = 'See the event log for details.'");
 	
 	BriefPresentation = BriefErrorDescription(ErrorInformation);
 	Error.ErrorText = StrTemplate(NewTemplate, FullDataPresentation, BriefPresentation);
@@ -4821,7 +4821,7 @@ Function ObjectManagerByFullName(FullName) Export
 		EndTry;
 	EndIf;
 
-	Raise StrTemplate(NStr("ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Invalid metadata object type: %1.'; tr = 'Geçersiz metadata nesnesinin türü: %1.'"), FullName);
+	Raise StrTemplate(NStr("ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Invalid metadata object type: %1.'"), FullName);
 	
 EndFunction
 
@@ -4994,7 +4994,7 @@ Function ObjectKindByType(ObjectType) Export
 		Return "Enum";
 	
 	Else
-    	Raise StrTemplate(NStr("ru = 'Неверный тип значения параметра (%1)'; en = 'Invalid parameter value type: %1.'; tr = 'Geçersiz parametre değeri türü: %1.'"), String(ObjectType));
+    	Raise StrTemplate(NStr("ru='Неверный тип значения параметра (%1)'; en = 'Invalid parameter value type: %1.'"), String(ObjectType));
 	
 	EndIf;
 	
@@ -5610,7 +5610,8 @@ Function ExecuteObjectBeforeWriteProcedure(Object, _BeforeWriteProcedureText)
 	Try
 		Execute (_BeforeWriteProcedureText);
 	Except
-		UT_CommonClientServer.MessageToUser(StrTemplate(NSTR("ru = 'Объект: %1. Ошибка при выполнении процедуры ПередЗаписью: %2'; en = 'Object: %1. Error when executing procedure BeforeWrite: %2'; tr = 'Nesne: %1. BeforeWrite prosedürü yürütülürken hata oluştu: %2'"), 
+		UT_CommonClientServer.MessageToUser(StrTemplate(NSTR("ru = 'Объект: %1. Ошибка при выполнении процедуры ПередЗаписью: %2';
+			|en = 'Object: %1. Error when executing procedure BeforeWrite: %2'"), 
 			Object, BriefErrorDescription(ErrorInfo())));
 		Result=False;
 		
@@ -5839,7 +5840,8 @@ Function ServerManagerModule(Name)
 	
 	If Not ObjectFound Then
 		Raise StrTemplate(
-			NStr("ru = 'Объект метаданных ""%1"" не найден, либо для него не поддерживается получение модуля менеджера.'; en = 'Metadata object ""%1"" is not found or it does not support getting manager modules.'; tr = '""%1"" metadata nesnesi bulunamadı veya yönetici modüllerinin alınmasını desteklemiyor.'"), Name);
+			NStr("ru = 'Объект метаданных ""%1"" не найден, либо для него не поддерживается получение модуля менеджера.'; 
+			           |en = 'Metadata object ""%1"" is not found or it does not support getting manager modules.'"), Name);
 	EndIf;
 
 	//@skip-check server-execution-safe-mode

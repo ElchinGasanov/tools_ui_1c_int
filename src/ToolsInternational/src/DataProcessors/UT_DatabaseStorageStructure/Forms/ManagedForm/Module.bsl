@@ -137,7 +137,7 @@ Procedure SQLUtilityPathСhoiceStart(Item, ChosenData, StandardProcessing)
 
 	If UT_CommonClientServer.IsWindows() Then
 		UT_CommonClient.AddFormatToSavingFileDescription(FileDescription,
-								NStr("ru = 'Исполняемый файл утилиты (*.exe)'; en = 'Executable utility file (*.exe)'; tr = 'Yürütülebilir yardımcı program dosyası (*.exe)'"),
+								NStr("ru = 'Исполняемый файл утилиты (*.exe)'; en = 'Executable utility file (*.exe)'"),
 								"exe",
 								"*.exe");
 	EndIf;
@@ -222,7 +222,7 @@ Procedure FillTableSizesOfDatabaseTablesPlatformMethod()
 	BaseStructure = GetFromTempStorage(DataBaseStructureAddress);
 
 	For Each StructureRow In BaseStructure Do
-		If Lower(StructureRow.Purpose) <> NStr("ru = 'основная'; en = 'main'; tr = 'temel'") Then
+		If Lower(StructureRow.Purpose) <> NStr("ru = 'основная'; en = 'main'") Then
 			Continue;
 		EndIf;
 		If Not ValueIsFilled(StructureRow.Metadata) Then
@@ -237,7 +237,7 @@ Procedure FillTableSizesOfDatabaseTablesPlatformMethod()
 
 		Try
 			// Appeared only at 8.3.15. On older platforms it won't even launch without such a call
-			DataSize = UT_Common.CalculateInSafeMode(NStr("ru = 'ПолучитьРазмерДанныхБазыДанных(,Параметры)'; en = 'GetDatabaseDataSize(,Parameters)'; tr = 'GetDatabaseDataSize(,Parameters)'"),
+			DataSize = UT_Common.CalculateInSafeMode(NStr("ru = 'ПолучитьРазмерДанныхБазыДанных(,Параметры)'; en = 'GetDatabaseDataSize(,Parameters)'"),
 																		  NameArray);
 		Except
 			DataSize = 0;
@@ -494,7 +494,7 @@ EndFunction
 &AtClient
 Procedure FillSizeTableViaConsoleUtilityAfterRecordingRequestFile(Result, AdditionalParameters) Export
 	If Result <> True Then
-		UT_CommonClientServer.MesageToUser(NStr("ru = 'Не удалось записать файл с текстом запроса'; en = 'Failed to write file with request text'; tr = 'Sorgu metniyle dosya yazılamadı'"));
+		UT_CommonClientServer.MesageToUser(NStr("ru = 'Не удалось записать файл с текстом запроса'; en = 'Failed to write file with request text'"));
 		Return;
 	EndIf;
 
@@ -898,14 +898,14 @@ EndProcedure
 &AtServerNoContext
 Function MethodsForObtainingDatabaseTablesSize()
 	Methods = New Structure;
-	Methods.Insert("None", NewMethodOfObtainingBaseTablesSize("None", NStr("ru = 'Не получать размеры таблиц'; en = 'Do not get table sizes'; tr = 'Tablo boyutlarını alma'")));
+	Methods.Insert("None", NewMethodOfObtainingBaseTablesSize("None", NStr("ru = 'Не получать размеры таблиц'; en = 'Do not get table sizes'")));
 	Methods.Insert("Platform", NewMethodOfObtainingBaseTablesSize("Platform",
-																		NStr("ru = 'Платформенный метод ""ПолучитьРазмерДанныхБазыДанных""'; en = 'Platform method ""GetDatabaseDataSize""'; tr = 'Platform yöntemi ""GetDatabaseDataSize""'")));
+																		NStr("ru = 'Платформенный метод ""ПолучитьРазмерДанныхБазыДанных""'; en = 'Platform method ""GetDatabaseDataSize""'")));
 	
-	Methods.Insert("tool1cd", NewMethodOfObtainingBaseTablesSize("tool1cd", NStr("ru = 'Утилита ""tool1cd"". Для файловых баз'; en = 'Utility ""tool1cd"". For file databases'; tr = 'Yardımcı program ""tool1cd"". Dosya veritabanları için'")));
+	Methods.Insert("tool1cd", NewMethodOfObtainingBaseTablesSize("tool1cd", NStr("ru = 'Утилита ""tool1cd"". Для файловых баз'; en = 'Utility ""tool1cd"". For file databases'")));
 
-	Methods.Insert("psql", NewMethodOfObtainingBaseTablesSize("psql", NStr("ru = 'Утилита ""psql"". PostgreSQL'; en = 'Utility ""psql"". PostgreSQL'; tr = 'Yardımcı program ""psql"". PostgreSQL'")));
-	Methods.Insert("sqlcmd", NewMethodOfObtainingBaseTablesSize("sqlcmd", NStr("ru = 'Утилита ""sqlcmd"". MSSQL'; en = 'Utility ""sqlcmd"". MSSQL'; tr = 'Yardımcı program ""sqlcmd"". MSSQL'")));
+	Methods.Insert("psql", NewMethodOfObtainingBaseTablesSize("psql", NStr("ru = 'Утилита ""psql"". PostgreSQL'; en = 'Utility ""psql"". PostgreSQL'")));
+	Methods.Insert("sqlcmd", NewMethodOfObtainingBaseTablesSize("sqlcmd", NStr("ru = 'Утилита ""sqlcmd"". MSSQL'; en = 'Utility ""sqlcmd"". MSSQL'")));
 
 	Return Methods;
 EndFunction
@@ -973,14 +973,14 @@ Procedure OnChangeMethodOfDefiningSizeOfTablesAtServer()
 	Items.PageSettingsReceiptDimensions.CurrentPage = Items["PageSettingsReceiptDimensions"
 																					   + MethodForDeterminingTableSize];
 
-	Items.TableSizesGroup.CollapsedRepresentationTitle = NStr("ru = 'Размеры таблиц базы данных:'; en = 'Database table sizes:'; tr = 'Veritabanı tablo boyutları:'")
+	Items.TableSizesGroup.CollapsedRepresentationTitle = NStr("ru = 'Размеры таблиц базы данных:'; en = 'Database table sizes:'")
 																  + " " + MethodsForObtainingDatabaseTablesSize[MethodForDeterminingTableSize].Presentation;
 EndProcedure
 &AtServer
 Procedure SetColumnHeadersSizeTables()
-	Items.ResultDataSize.Title = NStr("ru = 'Данные ('; en = 'Data ('; tr = 'Veri ('") + TableSizeUnit + ")";
-	Items.ResultIndexSize.Title = NStr("ru = 'Индексы ('; en = 'Indexes ('; tr = 'Dizinler ('") + TableSizeUnit + ")";
-	Items.ResultReserved.Title = NStr("ru = 'Зарезервировано всего ('; en = 'Total reserved ('; tr = 'Toplam rezerv ('") + TableSizeUnit + ")";
-	Items.ResultFreeSize.Title = NStr("ru = 'Свободно ('; en = 'Free ('; tr = 'Boş ('") + TableSizeUnit + ")";
+	Items.ResultDataSize.Title = NStr("ru = 'Данные ('; en = 'Data ('") + TableSizeUnit + ")";
+	Items.ResultIndexSize.Title = NStr("ru = 'Индексы ('; en = 'Indexes ('") + TableSizeUnit + ")";
+	Items.ResultReserved.Title = NStr("ru = 'Зарезервировано всего ('; en = 'Total reserved ('") + TableSizeUnit + ")";
+	Items.ResultFreeSize.Title = NStr("ru = 'Свободно ('; en = 'Free ('") + TableSizeUnit + ")";
 EndProcedure
 #EndRegion

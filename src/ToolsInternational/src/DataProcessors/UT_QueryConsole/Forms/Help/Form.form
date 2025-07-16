@@ -3,17 +3,15 @@
   <items xsi:type="form:FormField">
     <name>Text</name>
     <id>1</id>
-    <title>
-      <key>tr</key>
-      <value>Metin</value>
-    </title>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>Text</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>Text</segments>
+      </paths>
     </dataPath>
     <titleLocation>None</titleLocation>
     <extendedTooltip>
@@ -145,7 +143,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -171,16 +168,12 @@
   <attributes>
     <name>Text</name>
     <title>
-      <key>ru</key>
-      <value>Текст</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Text</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metin</value>
+      <key>ru</key>
+      <value>Текст</value>
     </title>
     <id>2</id>
     <valueType>

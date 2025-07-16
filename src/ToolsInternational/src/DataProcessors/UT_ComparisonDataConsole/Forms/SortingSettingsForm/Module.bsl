@@ -43,7 +43,7 @@ Procedure CommandSetupComplete(Command)
 	
 		If IsBlankString(RowVT.ColumnName) Then
 			Message = New UserMessage;
-			Message.Text = Nstr("ru = 'Не задан столбец'; en = 'Column not set'; tr = 'Sütun belirtilmedi'");
+			Message.Text = Nstr("ru = 'Не задан столбец';en = 'Column not set'");
 			Message.Field = "VT_SortingOrderOfTheDifferenceTable[" + (VT_SortingOrderOfTheDifferenceTable.IndexOf(RowVT) + 1) + "].ColumnName";
 			Message.Message(); 
 			ThereAreFillingErrors = True;
@@ -51,7 +51,7 @@ Procedure CommandSetupComplete(Command)
 		
 		If IsBlankString(RowVT.OrderSort) Then
 			Message = New UserMessage;
-			Message.Text = Nstr("ru = 'Не задан порядок сортировки столбца'; en = 'Column sort order not set'; tr = 'Sütunun sıralama düzeni belirtilmedi'");
+			Message.Text = Nstr("ru = 'Не задан порядок сортировки столбца';en = 'Column sort order not set'");
 			Message.Field = "VT_SortingOrderOfTheDifferenceTable[" + (VT_SortingOrderOfTheDifferenceTable.IndexOf(RowVT)) + "].OrderSort";
 			Message.Message(); 
 			ThereAreFillingErrors = True;

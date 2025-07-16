@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Регистрация изменений для обмена данными</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Register changes for data exchange</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Veri alışverişi için değişikliklerin kaydı</value>
+    <key>ru</key>
+    <value>Регистрация изменений для обмена данными</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>Group2</name>
@@ -23,8 +19,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ExchangeNodeRef</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ExchangeNodeRef</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -87,16 +85,12 @@
       <name>FormEditMessageNumbers</name>
       <id>85</id>
       <title>
-        <key>ru</key>
-        <value>№ сообщений: отпр. &lt;нет>, прин. &lt;нет></value>
-      </title>
-      <title>
         <key>en</key>
         <value>Messages #: sent &lt;blank>, received &lt;blank></value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Mesajlar #: gönderildi &lt;boş>, alındı &lt;boş></value>
+        <key>ru</key>
+        <value>№ сообщений: отпр. &lt;нет>, прин. &lt;нет></value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -138,8 +132,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>FilterByMessageNumberOption</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>FilterByMessageNumberOption</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -273,16 +269,12 @@
           <name>MetadataTreeAddRegistrationForAllObjects</name>
           <id>40</id>
           <title>
-            <key>ru</key>
-            <value>Всех объектов выбранных типов</value>
-          </title>
-          <title>
             <key>en</key>
             <value>All objects of selected types</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Seçilen türlerin tüm nesneleri</value>
+            <key>ru</key>
+            <value>Всех объектов выбранных типов</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -315,16 +307,12 @@
           <name>MetadataTreeAddRegistrationForAutoObjects</name>
           <id>41</id>
           <title>
-            <key>ru</key>
-            <value>Объектов выбранных типов с авторегистрацией</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Objects of selected types with auto registration</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Otomatik kayıtlı seçilen türlerin nesneleri</value>
+            <key>ru</key>
+            <value>Объектов выбранных типов с авторегистрацией</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -360,16 +348,12 @@
             <name>FormAddRegistrationForSingleObject</name>
             <id>184</id>
             <title>
-              <key>ru</key>
-              <value>Одиночного объекта</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Single object</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Tek bir nesne</value>
+              <key>ru</key>
+              <value>Одиночного объекта</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -405,16 +389,12 @@
             <name>FormAddRegistrationFilter</name>
             <id>185</id>
             <title>
-              <key>ru</key>
-              <value>Объектов при помощи отбора</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Objects that match a filter</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Filtreye göre nesneler</value>
+              <key>ru</key>
+              <value>Объектов при помощи отбора</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -449,16 +429,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Регистрация</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Register</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Kayıt</value>
+            <key>ru</key>
+            <value>Регистрация</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -492,16 +468,12 @@
             <name>MetadataTreeAddQueryResultRegistration</name>
             <id>59</id>
             <title>
-              <key>ru</key>
-              <value>Результатов запроса</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Query result</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Sorgu sonucu</value>
+              <key>ru</key>
+              <value>Результатов запроса</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -539,16 +511,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Регистрация результатов запроса</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Register query result</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sorgu sonuçlarının kaydı</value>
+            <key>ru</key>
+            <value>Регистрация результатов запроса</value>
           </title>
           <extendedTooltip>
             <name>MetadataTreeGroup3ExtendedTooltip</name>
@@ -573,16 +541,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Зарегистрировать изменения</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Register changes</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Değişiklikleri kaydet</value>
+          <key>ru</key>
+          <value>Зарегистрировать изменения</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -622,16 +586,12 @@
           <name>MetadataTreeDeleteRegistrationForAllObjects</name>
           <id>43</id>
           <title>
-            <key>ru</key>
-            <value>Всех объектов выбранных типов</value>
-          </title>
-          <title>
             <key>en</key>
             <value>All objects of selected types</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Seçilen türlerin tüm nesneleri</value>
+            <key>ru</key>
+            <value>Всех объектов выбранных типов</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -664,16 +624,12 @@
           <name>MetadataTreeDeleteRegistrationForAutoObjects</name>
           <id>44</id>
           <title>
-            <key>ru</key>
-            <value>Объектов выбранных типов с авторегистрацией</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Objects of selected types with auto registration</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Otomatik kayıtla seçilen türlerin nesneleri</value>
+            <key>ru</key>
+            <value>Объектов выбранных типов с авторегистрацией</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -709,16 +665,12 @@
             <name>FormDeleteRegistrationForSingleObject</name>
             <id>187</id>
             <title>
-              <key>ru</key>
-              <value>Одиночного объекта</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Single object</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Tek bir nesne</value>
+              <key>ru</key>
+              <value>Одиночного объекта</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -754,16 +706,12 @@
             <name>FormDeleteRegistrationFilter</name>
             <id>188</id>
             <title>
-              <key>ru</key>
-              <value>Объектов при помощи отбора</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Objects that match a filter</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Filtreye göre nesneler</value>
+              <key>ru</key>
+              <value>Объектов при помощи отбора</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -798,16 +746,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Отмена регистрации</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Unregister</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sil</value>
+            <key>ru</key>
+            <value>Отмена регистрации</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -841,16 +785,12 @@
             <name>MetadataTreeDeleteQueryResultRegistration</name>
             <id>62</id>
             <title>
-              <key>ru</key>
-              <value>Результатов запроса</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Query result</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Sorgu sonucu</value>
+              <key>ru</key>
+              <value>Результатов запроса</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -888,16 +828,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Отмена регистрации результатов запроса</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Unregister query result</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sorgu sonuçlarının kaydını sil</value>
+            <key>ru</key>
+            <value>Отмена регистрации результатов запроса</value>
           </title>
           <extendedTooltip>
             <name>MetadataTreeGroup4ExtendedTooltip</name>
@@ -922,16 +858,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Отменить регистрацию изменений</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Unregister changes</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Değişikliklerin kaydını sil</value>
+          <key>ru</key>
+          <value>Отменить регистрацию изменений</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -968,16 +900,12 @@
         <name>RefreshAllData</name>
         <id>97</id>
         <title>
-          <key>ru</key>
-          <value>Обновить</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Refresh</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Yenile</value>
+          <key>ru</key>
+          <value>Обновить</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1010,16 +938,12 @@
         <name>FormOpenSettingsForm</name>
         <id>145</id>
         <title>
-          <key>ru</key>
-          <value>Настройки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Settings</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Ayarlar</value>
+          <key>ru</key>
+          <value>Настройки</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1085,16 +1009,12 @@
         <name>FormOpenNodeRegistrationForm</name>
         <id>182</id>
         <title>
-          <key>ru</key>
-          <value>Регистрация объекта на всех узлах</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Register object at all nodes</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Bir nesneyi tüm düğümlere kaydet</value>
+          <key>ru</key>
+          <value>Регистрация объекта на всех узлах</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1214,8 +1134,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>MetadataTree.Check</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>MetadataTree.Check</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <handlers>
@@ -1259,24 +1181,22 @@
             <name>MetadataTreeDescription</name>
             <id>10</id>
             <title>
-              <key>ru</key>
-              <value>Объект конфигурации</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Configuration object</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Konfigurasyon nesnesi</value>
+              <key>ru</key>
+              <value>Объект конфигурации</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>MetadataTree.Description</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>MetadataTree.Description</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>MetadataTreeDescriptionExtendedTooltip</name>
@@ -1321,16 +1241,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Объекты регистрации</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Objects</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Nesneler</value>
+            <key>ru</key>
+            <value>Объекты регистрации</value>
           </title>
           <enableContentChange>true</enableContentChange>
           <horizontalStretch>true</horizontalStretch>
@@ -1363,22 +1279,20 @@
             <name>MetadataTreeAutoRegistration</name>
             <id>27</id>
             <title>
-              <key>ru</key>
-              <value>Авторегистрация</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Auto registration</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Otomatik kayıt</value>
+              <key>ru</key>
+              <value>Авторегистрация</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible/>
-            <dataPath xsi:type="form:DataPath">
-              <segments>MetadataTree.AutoRegistration</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>MetadataTree.AutoRegistration</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -1420,34 +1334,28 @@
               <valuesPicture xsi:type="core:PictureRef">
                 <picture>CommonPicture.UT_AutoRegistrationStatus</picture>
               </valuesPicture>
-              <border xsi:type="core:BorderDef">
-                <style>Single</style>
-                <width>1</width>
-              </border>
             </extInfo>
           </items>
           <items xsi:type="form:FormField">
             <name>MetadataTreeChangeCountString</name>
             <id>29</id>
             <title>
-              <key>ru</key>
-              <value>Зарегистрировано/не выгружено</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Registered/not exported</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Kayıtlı/dışa aktarılmamış</value>
+              <key>ru</key>
+              <value>Зарегистрировано/не выгружено</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>MetadataTree.ChangeCountString</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>MetadataTree.ChangeCountString</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>MetadataTreeChangeCountStringExtendedTooltip</name>
@@ -1493,16 +1401,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Информация о регистрации</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Registration info</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Kayıt bilgisi</value>
+            <key>ru</key>
+            <value>Информация о регистрации</value>
           </title>
           <readOnly>true</readOnly>
           <horizontalStretch>true</horizontalStretch>
@@ -1575,7 +1479,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>MetadataTree</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1614,7 +1517,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>MetadataTree</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -1654,7 +1556,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>MetadataTree</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1684,16 +1585,12 @@
               <name>MetadataTreeContextMenuAddRegistrationForAllObjects</name>
               <id>115</id>
               <title>
-                <key>ru</key>
-                <value>Зарегистрировать изменения всех объектов выбранных типов</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Register changes for all objects of selected types</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Seçilen türdeki tüm nesnelerdeki değişiklikleri kaydet</value>
+                <key>ru</key>
+                <value>Зарегистрировать изменения всех объектов выбранных типов</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1729,17 +1626,13 @@
               <name>MetadataTreeContextMenuAddRegistrationForAutoObjects</name>
               <id>116</id>
               <title>
-                <key>ru</key>
-                <value>Зарегистрировать изменения объектов выбранных типов с
-									авторегистрацией</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Register changes for objects of selected types with auto registration</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Otomatik kayıt ile seçili türdeki nesneler için değişiklikleri kaydet</value>
+                <key>ru</key>
+                <value>Зарегистрировать изменения объектов выбранных типов с
+									авторегистрацией</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1774,16 +1667,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Добавление по виду объектов</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Register by object type</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Nesne türüne göre ekleme</value>
+              <key>ru</key>
+              <value>Добавление по виду объектов</value>
             </title>
             <extendedTooltip>
               <name>MetadataTreeContextMenuGroup1ExtendedTooltip</name>
@@ -1809,16 +1698,12 @@
               <name>MetadataTreeContextMenuAddRegistrationForSingleObject</name>
               <id>191</id>
               <title>
-                <key>ru</key>
-                <value>Зарегистрировать изменения одиночного объекта</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Register changes for a single object</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Değişiklikleri tek bir nesneye kaydet</value>
+                <key>ru</key>
+                <value>Зарегистрировать изменения одиночного объекта</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1854,16 +1739,12 @@
               <name>MetadataTreeContextMenuAddRegistrationFilter</name>
               <id>192</id>
               <title>
-                <key>ru</key>
-                <value>Зарегистрировать изменения объектов при помощи отбора</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Register changes for objects that match a filter</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Filtreyi kullanarak nesnelerdeki değişiklikleri kaydet</value>
+                <key>ru</key>
+                <value>Зарегистрировать изменения объектов при помощи отбора</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1898,16 +1779,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Добавление объектов</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Add objects</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Tüm nesneler</value>
+              <key>ru</key>
+              <value>Добавление объектов</value>
             </title>
             <toolTip>
               <key>en</key>
@@ -1941,17 +1818,13 @@
               <name>MetadataTreeContextMenuDeleteRegistrationForAllObjects</name>
               <id>143</id>
               <title>
-                <key>ru</key>
-                <value>Отменить регистрацию изменений всех объектов выбранных
-									типов</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Unregister changes for all objects of selected types</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Seçili türlerdeki tüm nesneler için değişiklikleri kayıttan çıkar</value>
+                <key>ru</key>
+                <value>Отменить регистрацию изменений всех объектов выбранных
+									типов</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -1987,17 +1860,13 @@
               <name>MetadataTreeContextMenuDeleteRegistrationForAutoObjects</name>
               <id>144</id>
               <title>
-                <key>ru</key>
-                <value>Отменить регистрацию изменений объектов выбранных типов с
-									авторегистрацией</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Unregister changes for objects of selected types with auto registration</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Otomatik kayıtla seçili türlerdeki nesneler için değişiklikleri kayıttan çıkarın</value>
+                <key>ru</key>
+                <value>Отменить регистрацию изменений объектов выбранных типов с
+									авторегистрацией</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2032,16 +1901,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Отмена регистрации по виду объектов</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Unregister by object type</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Nesne türüne göre kaydı iptal et</value>
+              <key>ru</key>
+              <value>Отмена регистрации по виду объектов</value>
             </title>
             <extendedTooltip>
               <name>MetadataTreeContextMenuGroup2ExtendedTooltip</name>
@@ -2067,16 +1932,12 @@
               <name>MetadataTreeContextMenuDeleteRegistrationForSingleObject</name>
               <id>194</id>
               <title>
-                <key>ru</key>
-                <value>Отменить регистрацию изменений одиночного объекта</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Unregister changes for a single object</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Tek bir nesne için değişiklikleri kayıttan çıkar</value>
+                <key>ru</key>
+                <value>Отменить регистрацию изменений одиночного объекта</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2112,16 +1973,12 @@
               <name>MetadataTreeContextMenuDeleteRegistrationFilter</name>
               <id>195</id>
               <title>
-                <key>ru</key>
-                <value>Отменить регистрацию изменений объектов при помощи отбора</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Unregister changes for objects that match a filter</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Bir filtreyle eşleşen nesneler için değişiklikleri kayıttan çıkar</value>
+                <key>ru</key>
+                <value>Отменить регистрацию изменений объектов при помощи отбора</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2156,16 +2013,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Отмена регистрации</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Unregister</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Sil</value>
+              <key>ru</key>
+              <value>Отмена регистрации</value>
             </title>
             <toolTip>
               <key>en</key>
@@ -2261,16 +2114,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Системное меню</value>
-            </title>
-            <title>
               <key>en</key>
               <value>System menu</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Sistem menüsü</value>
+              <key>ru</key>
+              <value>Системное меню</value>
             </title>
             <extendedTooltip>
               <name>MetadataTreeContextMenuGroup3ExtendedTooltip</name>
@@ -2350,16 +2199,12 @@
               <name>ConstantsListDescription</name>
               <id>66</id>
               <title>
-                <key>ru</key>
-                <value>Константа</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Constant</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Sabit</value>
+                <key>ru</key>
+                <value>Константа</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2412,16 +2257,12 @@
                 <name>ConstantsListAutoRecord</name>
                 <id>146</id>
                 <title>
-                  <key>ru</key>
-                  <value>Авторегистрация</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Auto record</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Otomatik kayıt</value>
+                  <key>ru</key>
+                  <value>Авторегистрация</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2468,26 +2309,18 @@
                   <valuesPicture xsi:type="core:PictureRef">
                     <picture>CommonPicture.UT_AutoRegistrationStatus</picture>
                   </valuesPicture>
-                  <border xsi:type="core:BorderDef">
-                    <style>Single</style>
-                    <width>1</width>
-                  </border>
                 </extInfo>
               </items>
               <items xsi:type="form:FormField">
                 <name>ConstantsListMessageNo</name>
                 <id>68</id>
                 <title>
-                  <key>ru</key>
-                  <value>Номер отправленного</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Sent message number</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Gönderilen mesaj numarası</value>
+                  <key>ru</key>
+                  <value>Номер отправленного</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -2539,16 +2372,12 @@
                 <common>true</common>
               </userVisible>
               <title>
-                <key>ru</key>
-                <value>Информация о регистрации</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Registration info</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Kayıt bilgisi</value>
+                <key>ru</key>
+                <value>Информация о регистрации</value>
               </title>
               <extendedTooltip>
                 <name>ConstantsListGroup1ExtendedTooltip</name>
@@ -2618,7 +2447,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>ConstantsList</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2657,7 +2485,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>ConstantsList</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -2697,7 +2524,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>ConstantsList</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2727,16 +2553,12 @@
                   <name>ConstantsListContextMenuAddConstantRegistration</name>
                   <id>98</id>
                   <title>
-                    <key>ru</key>
-                    <value>Зарегистрировать изменение константы</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Register constant change</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Sabit değişikliğini kaydet</value>
+                    <key>ru</key>
+                    <value>Зарегистрировать изменение константы</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2772,16 +2594,12 @@
                   <name>ConstantsListContextMenuDeleteConstantRegistration</name>
                   <id>99</id>
                   <title>
-                    <key>ru</key>
-                    <value>Отменить регистрацию изменений константы</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Unregister constant change</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Sabit değişikliği kaydını iptal et</value>
+                    <key>ru</key>
+                    <value>Отменить регистрацию изменений константы</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -2843,16 +2661,12 @@
                   <name>ConstantsListContextMenuShowExportResult</name>
                   <id>100</id>
                   <title>
-                    <key>ru</key>
-                    <value>Результат стандартной выгрузки (РИБ)</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Standard export result (DIB)</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Standart dışa aktarma sonucu (DIB)</value>
+                    <key>ru</key>
+                    <value>Результат стандартной выгрузки (РИБ)</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3189,16 +3003,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Константы</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Constants</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sabitler</value>
+            <key>ru</key>
+            <value>Константы</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -3236,16 +3046,12 @@
             <name>RefsList</name>
             <id>18</id>
             <title>
-              <key>ru</key>
-              <value>Список ссылок</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Refs list</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Referanslar listesi</value>
+              <key>ru</key>
+              <value>Список ссылок</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -3306,16 +3112,12 @@
               <name>RefsListMessageNo</name>
               <id>52</id>
               <title>
-                <key>ru</key>
-                <value>Номер отправленного</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Sent message number</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Gönderilen mesaj numarası</value>
+                <key>ru</key>
+                <value>Номер отправленного</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3438,7 +3240,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>RefsList</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3477,7 +3278,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>RefsList</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -3517,7 +3317,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>RefsList</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3547,16 +3346,12 @@
                   <name>RefsListContextMenuAddRefRegistrationPickup</name>
                   <id>134</id>
                   <title>
-                    <key>ru</key>
-                    <value>Зарегистрировать изменение объекта</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Register changes for selected objects</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Nesne değişikliğini kaydet</value>
+                    <key>ru</key>
+                    <value>Зарегистрировать изменение объекта</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3592,16 +3387,12 @@
                   <name>RefsListContextMenuAddRefRegistrationFilter</name>
                   <id>135</id>
                   <title>
-                    <key>ru</key>
-                    <value>Зарегистрировать изменения объектов при помощи отбора</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Register changes for objects that match a filter</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Filtreyi kullanarak nesnelerdeki değişiklikleri kaydet</value>
+                    <key>ru</key>
+                    <value>Зарегистрировать изменения объектов при помощи отбора</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3634,16 +3425,12 @@
                   <name>RefsListContextMenuAddObjectDeletionRegistration</name>
                   <id>196</id>
                   <title>
-                    <key>ru</key>
-                    <value>Зарегистрировать удаление объекта</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Register object deletion</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Nesne silinmesini kaydet</value>
+                    <key>ru</key>
+                    <value>Зарегистрировать удаление объекта</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3702,16 +3489,12 @@
                   <name>RefsListContextMenuDeleteRefRegistration</name>
                   <id>105</id>
                   <title>
-                    <key>ru</key>
-                    <value>Отменить регистрацию изменений объекта</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Unregister changes for a single object</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Nesnedeki değişiklikleri kayıttan çıkar</value>
+                    <key>ru</key>
+                    <value>Отменить регистрацию изменений объекта</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3747,17 +3530,13 @@
                   <name>RefsListContextMenuDeleteRefRegistrationFilter</name>
                   <id>189</id>
                   <title>
-                    <key>ru</key>
-                    <value>Отменить регистрацию изменения объектов при помощи
-											отбора</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Unregister changes for objects that match a filter</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Filtreyle eşleşen nesneler için değişiklikleri kayıttan çıkar</value>
+                    <key>ru</key>
+                    <value>Отменить регистрацию изменения объектов при помощи
+											отбора</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3815,16 +3594,12 @@
                   <name>RefsListContextMenuShowExportResult</name>
                   <id>106</id>
                   <title>
-                    <key>ru</key>
-                    <value>Показать результат выгрузки</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Show export result</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Dışa aktarma sonucunu göster</value>
+                    <key>ru</key>
+                    <value>Показать результат выгрузки</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -3860,16 +3635,12 @@
                   <name>RefsListContextMenuOpenNodeRegistrationForm</name>
                   <id>137</id>
                   <title>
-                    <key>ru</key>
-                    <value>Регистрация на других узлах</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Register object at other nodes</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Diğer düğümlerde kayıt</value>
+                    <key>ru</key>
+                    <value>Регистрация на других узлах</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4172,16 +3943,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Ссылки</value>
-          </title>
-          <title>
             <key>en</key>
             <value>References</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Referanslar</value>
+            <key>ru</key>
+            <value>Ссылки</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -4244,16 +4011,12 @@
                 <common>true</common>
               </userVisible>
               <title>
-                <key>ru</key>
-                <value>Измерения</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Dimensions</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Boyutlar</value>
+                <key>ru</key>
+                <value>Измерения</value>
               </title>
               <toolTip>
                 <key>en</key>
@@ -4288,16 +4051,12 @@
               <name>RecordSetsListMessageNo</name>
               <id>83</id>
               <title>
-                <key>ru</key>
-                <value>Номер отправленного</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Sent message number</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Gönderilen mesaj numarası</value>
+                <key>ru</key>
+                <value>Номер отправленного</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -4393,7 +4152,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>RecordSetsList</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -4432,7 +4190,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>RecordSetsList</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -4472,7 +4229,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>RecordSetsList</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -4502,16 +4258,12 @@
                   <name>RecordSetsListContextMenuAddRecordSetRegistrationFilter</name>
                   <id>138</id>
                   <title>
-                    <key>ru</key>
-                    <value>Зарегистрировать изменения набора записей</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Register record set changes</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Kayıt setlerindeki değişiklikleri kaydet</value>
+                    <key>ru</key>
+                    <value>Зарегистрировать изменения набора записей</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4572,16 +4324,12 @@
                   <name>RecordSetsListContextMenuDeleteRecordSetRegistration</name>
                   <id>139</id>
                   <title>
-                    <key>ru</key>
-                    <value>Отменить регистрацию изменений текущей строки</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Unregister current line changes</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Mevcut satırdaki değişiklikleri kayıttan çıkar</value>
+                    <key>ru</key>
+                    <value>Отменить регистрацию изменений текущей строки</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -4676,16 +4424,12 @@
                   <name>RecordSetsListContextMenuShowExportResult</name>
                   <id>141</id>
                   <title>
-                    <key>ru</key>
-                    <value>Показать результат выгрузки</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Show export result</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Dışa aktarma sonucunu göster</value>
+                    <key>ru</key>
+                    <value>Показать результат выгрузки</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
@@ -5022,16 +4766,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Наборы записей</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Record sets</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Kayıt setleri</value>
+            <key>ru</key>
+            <value>Наборы записей</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -5117,16 +4857,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Описание</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Details</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Detaylar</value>
+              <key>ru</key>
+              <value>Описание</value>
             </title>
             <enableContentChange>true</enableContentChange>
             <extendedTooltip>
@@ -5161,16 +4897,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Итоги по виду объекта</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Object type totals</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Nesne türü toplamları</value>
+            <key>ru</key>
+            <value>Итоги по виду объекта</value>
           </title>
           <toolTip>
             <key>en</key>
@@ -5208,16 +4940,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Регистрация объектов</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Register objects</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Nesneler kaydı</value>
+          <key>ru</key>
+          <value>Регистрация объектов</value>
         </title>
         <toolTip>
           <key>en</key>
@@ -5382,16 +5110,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Группа скрытых данных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Hidden data group</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Gizli Veri Grubu</value>
+      <key>ru</key>
+      <value>Группа скрытых данных</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -5448,10 +5172,6 @@
     <name>ChoiceProcessing</name>
   </handlers>
   <handlers>
-    <event>NotificationProcessing</event>
-    <name>NotificationProcessing</name>
-  </handlers>
-  <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
@@ -5467,9 +5187,12 @@
     <event>OnClose</event>
     <name>OnClose</name>
   </handlers>
+  <handlers>
+    <event>NotificationProcessing</event>
+    <name>NotificationProcessing</name>
+  </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <saveDataInSettings>UseList</saveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -5495,16 +5218,12 @@
   <attributes>
     <name>ExchangeNodeRef</name>
     <title>
-      <key>ru</key>
-      <value>Узел обмена</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Exchange node</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Alışveriş düğümü</value>
+      <key>ru</key>
+      <value>Узел обмена</value>
     </title>
     <id>2</id>
     <valueType>
@@ -5523,16 +5242,12 @@
   <attributes>
     <name>MetadataTree</name>
     <title>
-      <key>ru</key>
-      <value>Метаданные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Metadata</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metaveriler</value>
+      <key>ru</key>
+      <value>Метаданные</value>
     </title>
     <id>3</id>
     <valueType>
@@ -5547,16 +5262,12 @@
     <columns>
       <name>Description</name>
       <title>
-        <key>ru</key>
-        <value>Наименование</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Description</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ad</value>
+        <key>ru</key>
+        <value>Наименование</value>
       </title>
       <id>1</id>
       <valueType>
@@ -5573,16 +5284,12 @@
     <columns>
       <name>MetaFullName</name>
       <title>
-        <key>ru</key>
-        <value>Мета полное имя</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Meta full name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Meta tam adı</value>
+        <key>ru</key>
+        <value>Мета полное имя</value>
       </title>
       <id>2</id>
       <valueType>
@@ -5599,16 +5306,12 @@
     <columns>
       <name>PictureIndex</name>
       <title>
-        <key>ru</key>
-        <value>Индекс картинки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Picture index</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Resim dizini</value>
+        <key>ru</key>
+        <value>Индекс картинки</value>
       </title>
       <id>3</id>
       <valueType>
@@ -5627,16 +5330,12 @@
     <columns>
       <name>Check</name>
       <title>
-        <key>ru</key>
-        <value>Пометка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Check</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İşaret</value>
+        <key>ru</key>
+        <value>Пометка</value>
       </title>
       <id>4</id>
       <valueType>
@@ -5655,16 +5354,12 @@
     <columns>
       <name>AutoRegistration</name>
       <title>
-        <key>ru</key>
-        <value>Авторегистрация</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Auto registration</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Otomatik kayıt</value>
+        <key>ru</key>
+        <value>Авторегистрация</value>
       </title>
       <id>5</id>
       <valueType>
@@ -5683,16 +5378,12 @@
     <columns>
       <name>ChangeCount</name>
       <title>
-        <key>ru</key>
-        <value>Количество изменений</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Change count</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değişiklik sayısı</value>
+        <key>ru</key>
+        <value>Количество изменений</value>
       </title>
       <id>6</id>
       <valueType>
@@ -5711,16 +5402,12 @@
     <columns>
       <name>ExportedCount</name>
       <title>
-        <key>ru</key>
-        <value>Количество выгруженных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Exported count</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Dışa aktarılanların sayısı</value>
+        <key>ru</key>
+        <value>Количество выгруженных</value>
       </title>
       <id>7</id>
       <valueType>
@@ -5739,16 +5426,12 @@
     <columns>
       <name>NotExportedCount</name>
       <title>
-        <key>ru</key>
-        <value>Коичество невыгруженных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Not exported count</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Dışa aktarılmayan sayısı</value>
+        <key>ru</key>
+        <value>Коичество невыгруженных</value>
       </title>
       <id>8</id>
       <valueType>
@@ -5767,16 +5450,12 @@
     <columns>
       <name>ChangeCountString</name>
       <title>
-        <key>ru</key>
-        <value>Количество изменений строкой</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Change count string</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Satır başına değişiklik sayısı</value>
+        <key>ru</key>
+        <value>Количество изменений строкой</value>
       </title>
       <id>9</id>
       <valueType>
@@ -5794,16 +5473,12 @@
   <attributes>
     <name>RefsList</name>
     <title>
-      <key>ru</key>
-      <value>Список ссылок</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Refs list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Referanslar listesi</value>
+      <key>ru</key>
+      <value>Список ссылок</value>
     </title>
     <id>4</id>
     <valueType>
@@ -5815,17 +5490,20 @@
     <edit>
       <common>true</common>
     </edit>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>RefsList.MessageNo</segments>
+    <notDefaultUseAlwaysAttributes xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>RefsList.ИндексКартинки</segments>
+      </paths>
     </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>RefsList.NotExported</segments>
+    <notDefaultUseAlwaysAttributes xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>RefsList.СсылкаПредставление</segments>
+      </paths>
     </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>RefsList.Ref</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>RefsList.ИндексКартинки</segments>
+    <notDefaultUseAlwaysAttributes xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>RefsList.Узел</segments>
+      </paths>
     </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
       <segments>RefsList.НеВыгружалось</segments>
@@ -5837,10 +5515,13 @@
       <segments>RefsList.Ссылка</segments>
     </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>RefsList.СсылкаПредставление</segments>
+      <segments>RefsList.MessageNo</segments>
     </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>RefsList.Узел</segments>
+      <segments>RefsList.NotExported</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>RefsList.Ref</segments>
     </notDefaultUseAlwaysAttributes>
     <extInfo xsi:type="form:DynamicListExtInfo">
       <queryText>SELECT
@@ -5856,16 +5537,12 @@
   <attributes>
     <name>ConstantsList</name>
     <title>
-      <key>ru</key>
-      <value>Список констант</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Constants list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sabitler listesi</value>
+      <key>ru</key>
+      <value>Список констант</value>
     </title>
     <id>5</id>
     <valueType>
@@ -5877,24 +5554,6 @@
     <edit>
       <common>true</common>
     </edit>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>ConstantsList.AutoRecordPictureIndex</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>ConstantsList.MessageNo</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>ConstantsList.MetaFullName</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>ConstantsList.NotExported</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>ConstantsList.PictureIndex</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>ConstantsList.Registered</segments>
-    </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
       <segments>ConstantsList.Зарегистрировано</segments>
     </notDefaultUseAlwaysAttributes>
@@ -5912,6 +5571,24 @@
     </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
       <segments>ConstantsList.НомерСообщения</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>ConstantsList.Registered</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>ConstantsList.PictureIndex</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>ConstantsList.AutoRecordPictureIndex</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>ConstantsList.MetaFullName</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>ConstantsList.MessageNo</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>ConstantsList.NotExported</segments>
     </notDefaultUseAlwaysAttributes>
     <extInfo xsi:type="form:DynamicListExtInfo">
       <queryText>SELECT
@@ -5931,16 +5608,12 @@
   <attributes>
     <name>MetadataNamesStructure</name>
     <title>
-      <key>ru</key>
-      <value>Структура имен метаданных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Metadata names structure</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Meta Veri Adı Yapısı</value>
+      <key>ru</key>
+      <value>Структура имен метаданных</value>
     </title>
     <id>6</id>
     <valueType/>
@@ -5954,16 +5627,12 @@
   <attributes>
     <name>MetadataPresentationsStructure</name>
     <title>
-      <key>ru</key>
-      <value>Структура представлений метаданных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Metadata presentations structure</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Meta veri gösterimlerinin yapısı</value>
+      <key>ru</key>
+      <value>Структура представлений метаданных</value>
     </title>
     <id>7</id>
     <valueType/>
@@ -5977,16 +5646,12 @@
   <attributes>
     <name>RecordSetsList</name>
     <title>
-      <key>ru</key>
-      <value>Список наборов записей</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Record sets list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt setleri listesi</value>
+      <key>ru</key>
+      <value>Список наборов записей</value>
     </title>
     <id>8</id>
     <valueType>
@@ -5999,16 +5664,16 @@
       <common>true</common>
     </edit>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>RecordSetsList.MessageNo</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>RecordSetsList.NotExported</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
       <segments>RecordSetsList.НеВыгружалось</segments>
     </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
       <segments>RecordSetsList.НомерСообщения</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>RecordSetsList.MessageNo</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>RecordSetsList.NotExported</segments>
     </notDefaultUseAlwaysAttributes>
     <extInfo xsi:type="form:DynamicListExtInfo">
       <queryText>SELECT
@@ -6023,16 +5688,12 @@
   <attributes>
     <name>RecordSetsListTableName</name>
     <title>
-      <key>ru</key>
-      <value>Список наборов записей имя таблицы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Record sets list table name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt setleri listesi tablo adı</value>
+      <key>ru</key>
+      <value>Список наборов записей имя таблицы</value>
     </title>
     <id>9</id>
     <valueType>
@@ -6049,16 +5710,12 @@
   <attributes>
     <name>MetadataAutoRecordStructure</name>
     <title>
-      <key>ru</key>
-      <value>Структура авторегистрации метаданных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Metadata auto record structure</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metaverilerin Otomatik Kaydının Yapısı</value>
+      <key>ru</key>
+      <value>Структура авторегистрации метаданных</value>
     </title>
     <id>11</id>
     <valueType/>
@@ -6072,16 +5729,12 @@
   <attributes>
     <name>FilterByMessageNumberOption</name>
     <title>
-      <key>ru</key>
-      <value>Вариант отбора по номеру сообщения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Filter by message number option</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Mesaj numarasına göre filtre seçeneği</value>
+      <key>ru</key>
+      <value>Вариант отбора по номеру сообщения</value>
     </title>
     <id>12</id>
     <valueType>
@@ -6103,16 +5756,12 @@
   <attributes>
     <name>RegistrationObjectParameter</name>
     <title>
-      <key>ru</key>
-      <value>Параметр объект регистрации</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Registration object parameter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt nesnesi parametresi</value>
+      <key>ru</key>
+      <value>Параметр объект регистрации</value>
     </title>
     <id>10</id>
     <valueType/>
@@ -6126,16 +5775,12 @@
   <attributes>
     <name>RegistrationTableParameter</name>
     <title>
-      <key>ru</key>
-      <value>Параметр таблица регистрации</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Registration table parameter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Parametre kayıt tablosu</value>
+      <key>ru</key>
+      <value>Параметр таблица регистрации</value>
     </title>
     <id>13</id>
     <valueType/>
@@ -6149,16 +5794,12 @@
   <attributes>
     <name>SelectExchangeNodeProhibited</name>
     <title>
-      <key>ru</key>
-      <value>Запрещено выбирать узел обмена</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Select exchange node prohibited</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Alışveriş düğümü seçmek yasaktır</value>
+      <key>ru</key>
+      <value>Запрещено выбирать узел обмена</value>
     </title>
     <id>14</id>
     <valueType>
@@ -6174,16 +5815,12 @@
   <attributes>
     <name>NamesOfMetadataToHide</name>
     <title>
-      <key>ru</key>
-      <value>Имена скрываемых метаданных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Names of metadata to hide</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Gizli Meta Veri Adları</value>
+      <key>ru</key>
+      <value>Имена скрываемых метаданных</value>
     </title>
     <id>15</id>
     <valueType>
@@ -6202,16 +5839,12 @@
   <formCommands>
     <name>AddRefRegistration</name>
     <title>
-      <key>ru</key>
-      <value>Добавить регистрацию</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Register reference</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kaydı ekle</value>
+      <key>ru</key>
+      <value>Добавить регистрацию</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -6238,16 +5871,12 @@
   <formCommands>
     <name>DeleteRefRegistration</name>
     <title>
-      <key>ru</key>
-      <value>Удалить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unregister</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sil</value>
+      <key>ru</key>
+      <value>Удалить</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -6271,16 +5900,12 @@
   <formCommands>
     <name>RefreshAllData</name>
     <title>
-      <key>ru</key>
-      <value>Обновить все данные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Refresh all data</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tüm verileri yenile</value>
+      <key>ru</key>
+      <value>Обновить все данные</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -6307,16 +5932,12 @@
   <formCommands>
     <name>AddRegistrationForAllObjects</name>
     <title>
-      <key>ru</key>
-      <value>Зарегистрировать все объекты выбранных типов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Register all objects of selected types</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçilen türlerin tüm nesnelerini kaydet</value>
+      <key>ru</key>
+      <value>Зарегистрировать все объекты выбранных типов</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -6340,17 +5961,13 @@
   <formCommands>
     <name>AddRegistrationForAutoObjects</name>
     <title>
-      <key>ru</key>
-      <value>Зарегистрировать только авторегистрируемые объекты выбранных
-				типов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Register objects of selected types with auto registration</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçilen türlerin nesnelerini otomatik kayıtla kaydet</value>
+      <key>ru</key>
+      <value>Зарегистрировать только авторегистрируемые объекты выбранных
+				типов</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -6375,16 +5992,12 @@
   <formCommands>
     <name>DeleteRegistrationForAllObjects</name>
     <title>
-      <key>ru</key>
-      <value>Удалить регистрацию всех объектов выбранных типов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unregister all objects of selected types</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçilen türlerin tüm nesnelerinin kaydını sil</value>
+      <key>ru</key>
+      <value>Удалить регистрацию всех объектов выбранных типов</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -6408,17 +6021,13 @@
   <formCommands>
     <name>DeleteRegistrationForAutoObjects</name>
     <title>
-      <key>ru</key>
-      <value>Удалить регистрацию только авторегиструемых объектов выбранных
-				типов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unregister objects of selected types with auto registration</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Otomatik kayıt ile seçilen türlerin nesnelerinin kaydını kaldır</value>
+      <key>ru</key>
+      <value>Удалить регистрацию только авторегиструемых объектов выбранных
+				типов</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -6442,16 +6051,12 @@
   <formCommands>
     <name>AddRefRegistrationPickup</name>
     <title>
-      <key>ru</key>
-      <value>Добавить регистрацию результата подбора</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Register selection result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Seçim sonucunun kaydını ekle</value>
+      <key>ru</key>
+      <value>Добавить регистрацию результата подбора</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -6475,16 +6080,12 @@
   <formCommands>
     <name>AddQueryResultRegistration</name>
     <title>
-      <key>ru</key>
-      <value>Добавить по результату запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Register query result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sonucundan ekle</value>
+      <key>ru</key>
+      <value>Добавить по результату запроса</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -6508,16 +6109,12 @@
   <formCommands>
     <name>DeleteQueryResultRegistration</name>
     <title>
-      <key>ru</key>
-      <value>Удалить по результату запроса</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unregister query result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu sonucunun kaydını sil</value>
+      <key>ru</key>
+      <value>Удалить по результату запроса</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -6541,16 +6138,12 @@
   <formCommands>
     <name>AddConstantRegistration</name>
     <title>
-      <key>ru</key>
-      <value>Добавить регистрацию константы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add constant registration</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sabit kaydını ekle</value>
+      <key>ru</key>
+      <value>Добавить регистрацию константы</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -6574,16 +6167,12 @@
   <formCommands>
     <name>DeleteConstantRegistration</name>
     <title>
-      <key>ru</key>
-      <value>Удалить регистрацию константы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete constant registration</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sabitin kaydını sil</value>
+      <key>ru</key>
+      <value>Удалить регистрацию константы</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -6607,16 +6196,12 @@
   <formCommands>
     <name>EditMessageNumbers</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать номера сообщений</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit message numbers</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Mesaj numaralarını düzenle</value>
+      <key>ru</key>
+      <value>Редактировать номера сообщений</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -6640,16 +6225,12 @@
   <formCommands>
     <name>ShowExportResult</name>
     <title>
-      <key>ru</key>
-      <value>Результат стандартной выгрузки (РИБ)</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Standard export result (DIB)</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Standart dışa aktarma sonucu (DIB)</value>
+      <key>ru</key>
+      <value>Результат стандартной выгрузки (РИБ)</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -6673,16 +6254,12 @@
   <formCommands>
     <name>AddRefRegistrationFilter</name>
     <title>
-      <key>ru</key>
-      <value>Добавить регистрацию результата отбора</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Register filter result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtre sonucu kaydı ekle</value>
+      <key>ru</key>
+      <value>Добавить регистрацию результата отбора</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -6706,16 +6283,12 @@
   <formCommands>
     <name>DeleteRefRegistrationFilter</name>
     <title>
-      <key>ru</key>
-      <value>Удалить регистрацию результата отбора</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unregister filter result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtre sonucu kaydını sil</value>
+      <key>ru</key>
+      <value>Удалить регистрацию результата отбора</value>
     </title>
     <id>16</id>
     <toolTip>
@@ -6739,16 +6312,12 @@
   <formCommands>
     <name>AddRecordSetRegistrationFilter</name>
     <title>
-      <key>ru</key>
-      <value>Добавить регистрацию результата отбора</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Register filter result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtre sonucu kaydını ekle</value>
+      <key>ru</key>
+      <value>Добавить регистрацию результата отбора</value>
     </title>
     <id>17</id>
     <toolTip>
@@ -6772,16 +6341,12 @@
   <formCommands>
     <name>DeleteRecordSetRegistrationFilter</name>
     <title>
-      <key>ru</key>
-      <value>Удалить регистрацию по отбору</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Unregister filter result</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtre sonucu kaydını sil</value>
+      <key>ru</key>
+      <value>Удалить регистрацию по отбору</value>
     </title>
     <id>18</id>
     <toolTip>
@@ -6805,16 +6370,12 @@
   <formCommands>
     <name>DeleteRecordSetRegistration</name>
     <title>
-      <key>ru</key>
-      <value>Удалить регистрацию набора записей</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete record set registration</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt seti kaydını sil</value>
+      <key>ru</key>
+      <value>Удалить регистрацию набора записей</value>
     </title>
     <id>19</id>
     <toolTip>
@@ -6838,16 +6399,12 @@
   <formCommands>
     <name>OpenNodeRegistrationForm</name>
     <title>
-      <key>ru</key>
-      <value>Открыть форму регистрации на узлах</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Open node registration form</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Düğümlerde kayıt formunu aç</value>
+      <key>ru</key>
+      <value>Открыть форму регистрации на узлах</value>
     </title>
     <id>20</id>
     <toolTip>
@@ -6871,16 +6428,12 @@
   <formCommands>
     <name>OpenSettingsForm</name>
     <title>
-      <key>ru</key>
-      <value>Настройки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Settings</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ayarlar</value>
+      <key>ru</key>
+      <value>Настройки</value>
     </title>
     <id>21</id>
     <toolTip>
@@ -6907,16 +6460,12 @@
   <formCommands>
     <name>AddRegistrationForSingleObject</name>
     <title>
-      <key>ru</key>
-      <value>Добавить регистрацию одного объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add registration for single object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tek bir nesnenin kaydını ekle</value>
+      <key>ru</key>
+      <value>Добавить регистрацию одного объекта</value>
     </title>
     <id>22</id>
     <toolTip>
@@ -6940,16 +6489,12 @@
   <formCommands>
     <name>AddRegistrationFilter</name>
     <title>
-      <key>ru</key>
-      <value>Добавить регистрацию отбор</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Add registration filter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtre kaydını ekle</value>
+      <key>ru</key>
+      <value>Добавить регистрацию отбор</value>
     </title>
     <id>23</id>
     <toolTip>
@@ -6973,16 +6518,12 @@
   <formCommands>
     <name>DeleteRegistrationForSingleObject</name>
     <title>
-      <key>ru</key>
-      <value>Удалить регистрацию одного объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete registration for single object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tek bir nesnenin kaydını sil</value>
+      <key>ru</key>
+      <value>Удалить регистрацию одного объекта</value>
     </title>
     <id>24</id>
     <toolTip>
@@ -7002,16 +6543,12 @@
   <formCommands>
     <name>DeleteRegistrationFilter</name>
     <title>
-      <key>ru</key>
-      <value>Удалить регистрацию отбор</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete registration filter</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Filtre kaydını sil</value>
+      <key>ru</key>
+      <value>Удалить регистрацию отбор</value>
     </title>
     <id>25</id>
     <toolTip>
@@ -7064,16 +6601,12 @@
   <formCommands>
     <name>EditObjectMessageNumber</name>
     <title>
-      <key>ru</key>
-      <value>Редактировать номер сообщения объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit object message number</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne mesaj numarasını düzenle</value>
+      <key>ru</key>
+      <value>Редактировать номер сообщения объекта</value>
     </title>
     <id>27</id>
     <toolTip>
@@ -7102,14 +6635,6 @@
     <title>
       <key>ru</key>
       <value>Edit reference</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Edit reference</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Referansı düzenle</value>
     </title>
     <id>28</id>
     <use>

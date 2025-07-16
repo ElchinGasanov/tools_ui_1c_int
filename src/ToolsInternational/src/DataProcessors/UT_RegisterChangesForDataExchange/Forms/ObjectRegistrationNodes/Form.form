@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Узлы регистрации объекта</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Object registration nodes</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Nesne kayıt düğümleri</value>
+    <key>ru</key>
+    <value>Узлы регистрации объекта</value>
   </title>
   <items xsi:type="form:Table">
     <name>ExchangeNodesTree</name>
@@ -56,8 +52,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>ExchangeNodesTree.Check</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>ExchangeNodesTree.Check</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <handlers>
@@ -102,24 +100,22 @@
         <name>ExchangeNodesTreeDescription</name>
         <id>4</id>
         <title>
-          <key>ru</key>
-          <value>Узел</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Node</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Düğüm</value>
+          <key>ru</key>
+          <value>Узел</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>ExchangeNodesTree.Description</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>ExchangeNodesTree.Description</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>ExchangeNodesTreeDescriptionExtendedTooltip</name>
@@ -161,16 +157,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Описание узла</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Node description</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Düğümün tanımı</value>
+        <key>ru</key>
+        <value>Описание узла</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -213,8 +205,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>ExchangeNodesTree.Code</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>ExchangeNodesTree.Code</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>ExchangeNodesTreeCodeExtendedTooltip</name>
@@ -258,22 +252,20 @@
         <name>ExchangeNodesTreeAutoRecord</name>
         <id>34</id>
         <title>
-          <key>ru</key>
-          <value>Авторегистрация</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Register changes automatically</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Otomatik kayıt</value>
+          <key>ru</key>
+          <value>Авторегистрация</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible/>
-        <dataPath xsi:type="form:DataPath">
-          <segments>ExchangeNodesTree.AutoRecordPictureIndex</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>ExchangeNodesTree.AutoRecordPictureIndex</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -311,34 +303,28 @@
           <autoMaxHeight>true</autoMaxHeight>
           <horizontalStretch>true</horizontalStretch>
           <verticalStretch>true</verticalStretch>
-          <border xsi:type="core:BorderDef">
-            <style>Single</style>
-            <width>1</width>
-          </border>
         </extInfo>
       </items>
       <items xsi:type="form:FormField">
         <name>ExchangeNodesTreeMessageNumber</name>
         <id>54</id>
         <title>
-          <key>ru</key>
-          <value>Номер сообщения</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Message number</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Mesaj numarası</value>
+          <key>ru</key>
+          <value>Номер сообщения</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>ExchangeNodesTree.MessageNo</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>ExchangeNodesTree.MessageNo</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>ExchangeNodesTreeMessageNumberExtendedTooltip</name>
@@ -385,16 +371,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Описание регистрации</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Registration details</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kayıt detayları</value>
+        <key>ru</key>
+        <value>Описание регистрации</value>
       </title>
       <extendedTooltip>
         <name>ExchangeNodesTreeGroup1ExtendedTooltip</name>
@@ -465,7 +447,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>ExchangeNodesTree</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -504,7 +485,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>ExchangeNodesTree</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -544,7 +524,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>ExchangeNodesTree</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -696,16 +675,12 @@
         <name>ExchangeNodesTreeContextMenuOpenEditFormFromNode</name>
         <id>47</id>
         <title>
-          <key>ru</key>
-          <value>Регистрация других объектов узла</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Register other node objects</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Diğer düğüm nesnelerini kaydetme</value>
+          <key>ru</key>
+          <value>Регистрация других объектов узла</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1082,16 +1057,12 @@
         <name>FormRereadNodeTree</name>
         <id>49</id>
         <title>
-          <key>ru</key>
-          <value>Обновить</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Refresh</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Yenile</value>
+          <key>ru</key>
+          <value>Обновить</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1203,7 +1174,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -1214,10 +1184,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_RegisterChangesForDataExchange</types>
@@ -1233,16 +1199,12 @@
   <attributes>
     <name>ExchangeNodesTree</name>
     <title>
-      <key>ru</key>
-      <value>Дерево узлов обмена</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Exchange nodes tree</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değişim düğümleri ağacı</value>
+      <key>ru</key>
+      <value>Дерево узлов обмена</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1257,16 +1219,12 @@
     <columns>
       <name>Description</name>
       <title>
-        <key>ru</key>
-        <value>Узел обмена</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Exchange node</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değişim düğümü</value>
+        <key>ru</key>
+        <value>Узел обмена</value>
       </title>
       <id>1</id>
       <valueType>
@@ -1283,16 +1241,12 @@
     <columns>
       <name>PictureIndex</name>
       <title>
-        <key>ru</key>
-        <value>Индекс картинки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Picture index</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Picture index</value>
+        <key>ru</key>
+        <value>Индекс картинки</value>
       </title>
       <id>8</id>
       <valueType>
@@ -1308,10 +1262,6 @@
     </columns>
     <columns>
       <name>Check</name>
-      <title>
-        <key>tr</key>
-        <value>İşaret</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>Number</types>
@@ -1329,16 +1279,12 @@
     <columns>
       <name>Ref</name>
       <title>
-        <key>ru</key>
-        <value>Ссылка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Ref</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Referans</value>
+        <key>ru</key>
+        <value>Ссылка</value>
       </title>
       <id>4</id>
       <valueType>
@@ -1354,16 +1300,12 @@
     <columns>
       <name>Code</name>
       <title>
-        <key>ru</key>
-        <value>Код</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Code</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kod</value>
+        <key>ru</key>
+        <value>Код</value>
       </title>
       <id>2</id>
       <valueType>
@@ -1380,16 +1322,12 @@
     <columns>
       <name>AutoRecordPictureIndex</name>
       <title>
-        <key>ru</key>
-        <value>Индекс картинки авторегистрация</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Register changes automatically picture index</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Otokayıt Resim dizini</value>
+        <key>ru</key>
+        <value>Индекс картинки авторегистрация</value>
       </title>
       <id>5</id>
       <valueType>
@@ -1408,16 +1346,12 @@
     <columns>
       <name>InitialMark</name>
       <title>
-        <key>ru</key>
-        <value>Исходная пометка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Initial mark</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Özgün işaretleme</value>
+        <key>ru</key>
+        <value>Исходная пометка</value>
       </title>
       <id>6</id>
       <valueType>
@@ -1436,16 +1370,12 @@
     <columns>
       <name>MessageNo</name>
       <title>
-        <key>ru</key>
-        <value>Номер сообщения</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Message number</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Mesaj numarası</value>
+        <key>ru</key>
+        <value>Номер сообщения</value>
       </title>
       <id>7</id>
       <valueType>
@@ -1464,16 +1394,12 @@
     <columns>
       <name>NotExported</name>
       <title>
-        <key>ru</key>
-        <value>Не выгружалось</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Not exported</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Dışa aktarılmamış</value>
+        <key>ru</key>
+        <value>Не выгружалось</value>
       </title>
       <id>9</id>
       <valueType>
@@ -1490,16 +1416,12 @@
   <attributes>
     <name>RegistrationObject</name>
     <title>
-      <key>ru</key>
-      <value>Объект регистрации</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Registration object</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt nesnesi</value>
+      <key>ru</key>
+      <value>Объект регистрации</value>
     </title>
     <id>3</id>
     <valueType/>
@@ -1513,16 +1435,12 @@
   <attributes>
     <name>RegistrationTable</name>
     <title>
-      <key>ru</key>
-      <value>Таблица регистрации</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Registration table</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıt tablosu</value>
+      <key>ru</key>
+      <value>Таблица регистрации</value>
     </title>
     <id>4</id>
     <valueType>
@@ -1539,16 +1457,12 @@
   <formCommands>
     <name>EditRegistration</name>
     <title>
-      <key>ru</key>
-      <value>Изменить регистрацию</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Edit registration</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kaydı düzenle</value>
+      <key>ru</key>
+      <value>Изменить регистрацию</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1575,16 +1489,12 @@
   <formCommands>
     <name>MarkAllNodes</name>
     <title>
-      <key>ru</key>
-      <value>Пометить все узлы</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Select all nodes</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tüm düğümleri seç</value>
+      <key>ru</key>
+      <value>Пометить все узлы</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -1611,16 +1521,12 @@
   <formCommands>
     <name>UnmarkAllNodes</name>
     <title>
-      <key>ru</key>
-      <value>Снять пометку у всех узлов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Clear all nodes</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tüm düğümlerin işaretini kaldır</value>
+      <key>ru</key>
+      <value>Снять пометку у всех узлов</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -1647,16 +1553,12 @@
   <formCommands>
     <name>InvertAllNodesMarks</name>
     <title>
-      <key>ru</key>
-      <value>Изменить пометку всех узлов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Invert selection</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tüm düğümlerin işaretlerini değiştir</value>
+      <key>ru</key>
+      <value>Изменить пометку всех узлов</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -1680,16 +1582,12 @@
   <formCommands>
     <name>OpenEditFormFromNode</name>
     <title>
-      <key>ru</key>
-      <value>Открыть форму редактирования от узла</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Open editing form for selected node</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Düzenleme formunu düğümden aç</value>
+      <key>ru</key>
+      <value>Открыть форму редактирования от узла</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -1713,16 +1611,12 @@
   <formCommands>
     <name>RereadNodeTree</name>
     <title>
-      <key>ru</key>
-      <value>Перечитать дерево узлов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Refresh node tree</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Düğüm ağacını yenile</value>
+      <key>ru</key>
+      <value>Перечитать дерево узлов</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -1749,16 +1643,12 @@
   <formCommands>
     <name>OpenSettingsForm</name>
     <title>
-      <key>ru</key>
-      <value>Настройки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Settings</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ayarlar</value>
+      <key>ru</key>
+      <value>Настройки</value>
     </title>
     <id>7</id>
     <toolTip>

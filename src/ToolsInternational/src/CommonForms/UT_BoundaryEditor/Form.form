@@ -139,16 +139,12 @@
       <name>FormClose</name>
       <id>3</id>
       <title>
-        <key>ru</key>
-        <value>Close</value>
-      </title>
-      <title>
         <key>en</key>
         <value>FormClose</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kapat</value>
+        <key>ru</key>
+        <value>Close</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -188,7 +184,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -202,14 +197,6 @@
     <title>
       <key>ru</key>
       <value>Type</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Type</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Tip</value>
     </title>
     <id>1</id>
     <valueType>
@@ -229,14 +216,6 @@
       <key>ru</key>
       <value>Date</value>
     </title>
-    <title>
-      <key>en</key>
-      <value>Date</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Tarih</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>Date</types>
@@ -254,14 +233,6 @@
     <title>
       <key>ru</key>
       <value>Apply</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Apply</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Uygula</value>
     </title>
     <id>1</id>
     <use>

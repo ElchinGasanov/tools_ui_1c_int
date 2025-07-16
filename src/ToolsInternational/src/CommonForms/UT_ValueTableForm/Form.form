@@ -12,8 +12,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>_RecordsCount</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>_RecordsCount</segments>
+      </paths>
     </dataPath>
     <extendedTooltip>
       <name>_RecordsCountExtendedTooltip</name>
@@ -73,10 +75,6 @@
       <items xsi:type="form:Button">
         <name>DataTableFind</name>
         <id>22</id>
-        <title>
-          <key>tr</key>
-          <value>Ara</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -99,19 +97,15 @@
         </extendedTooltip>
         <commandName>Form.Item.DataTable.StandardCommand.Find</commandName>
         <representation>Auto</representation>
+        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
-        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>DataTableCancelSearch</name>
         <id>24</id>
-        <title>
-          <key>tr</key>
-          <value>Aramayı iptal et</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -134,19 +128,15 @@
         </extendedTooltip>
         <commandName>Form.Item.DataTable.StandardCommand.CancelSearch</commandName>
         <representation>Auto</representation>
+        <onlyInAllActions>false</onlyInAllActions>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
-        <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
       </items>
       <items xsi:type="form:Button">
         <name>DataTableCommandClearTable</name>
         <id>7</id>
-        <title>
-          <key>tr</key>
-          <value>Tabloyu temizle</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -215,7 +205,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>DataTable</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -254,7 +243,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>DataTable</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -294,7 +282,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>DataTable</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -425,7 +412,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -443,10 +429,6 @@
     <title>
       <key>en</key>
       <value>Data table</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Veri tablosu</value>
     </title>
     <id>2</id>
     <valueType>
@@ -468,10 +450,6 @@
     <title>
       <key>en</key>
       <value>Records count</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Kayıt sayısı</value>
     </title>
     <id>3</id>
     <valueType>
@@ -496,10 +474,6 @@
     <title>
       <key>en</key>
       <value>Command OK</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>OK</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -526,10 +500,6 @@
       <key>en</key>
       <value>Command close</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kapat</value>
-    </title>
     <id>3</id>
     <toolTip>
       <key>ru</key>
@@ -554,10 +524,6 @@
     <title>
       <key>en</key>
       <value>Command clear table</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Temizle</value>
     </title>
     <id>4</id>
     <toolTip>

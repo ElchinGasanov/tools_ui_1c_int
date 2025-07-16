@@ -6,16 +6,12 @@
   </producedTypes>
   <name>UT_ConstantsEditor</name>
   <synonym>
-    <key>ru</key>
-    <value>Редактор констант [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Constants Editor [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Sabitler Düzenleyicisi [UT]</value>
+    <key>ru</key>
+    <value>Редактор констант [УИ]</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.UT_ConstantsEditor.Form.ConstanstList</defaultForm>
@@ -30,16 +26,12 @@
   <forms uuid="487d5719-f93b-49ff-a911-6c6d0b6676f5">
     <name>ConstanstList</name>
     <synonym>
-      <key>ru</key>
-      <value>Константы</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Constants List</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Sabitler Listesi</value>
+      <key>ru</key>
+      <value>Константы</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

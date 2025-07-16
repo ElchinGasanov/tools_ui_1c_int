@@ -7,24 +7,22 @@
       <name>ImportMode</name>
       <id>3</id>
       <title>
-        <key>ru</key>
-        <value>Загрузка в</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Import to</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İçe aktar</value>
+        <key>ru</key>
+        <value>Загрузка в</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.ImportMode</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.ImportMode</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -63,16 +61,12 @@
       <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
         <choiceList>
           <presentation>
-            <key>ru</key>
-            <value>Справочник</value>
-          </presentation>
-          <presentation>
             <key>en</key>
             <value>Catalog</value>
           </presentation>
           <presentation>
-            <key>tr</key>
-            <value>Katalog</value>
+            <key>ru</key>
+            <value>Справочник</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>0</value>
@@ -80,16 +74,12 @@
         </choiceList>
         <choiceList>
           <presentation>
-            <key>ru</key>
-            <value>Табличную часть</value>
-          </presentation>
-          <presentation>
             <key>en</key>
             <value>Tabular section</value>
           </presentation>
           <presentation>
-            <key>tr</key>
-            <value>Tablo bölümü</value>
+            <key>ru</key>
+            <value>Табличную часть</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>1</value>
@@ -97,16 +87,12 @@
         </choiceList>
         <choiceList>
           <presentation>
-            <key>ru</key>
-            <value>Регистр сведений</value>
-          </presentation>
-          <presentation>
             <key>en</key>
             <value>Information register</value>
           </presentation>
           <presentation>
-            <key>tr</key>
-            <value>Bilgi kayıt tablosu</value>
+            <key>ru</key>
+            <value>Регистр сведений</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>2</value>
@@ -210,24 +196,22 @@
         <name>ObjectType</name>
         <id>8</id>
         <title>
-          <key>ru</key>
-          <value>Вид справочника</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Catalog type</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Katalog türü</value>
+          <key>ru</key>
+          <value>Вид справочника</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.CatalogObjectType</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.CatalogObjectType</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -327,24 +311,22 @@
         <name>SourceRef</name>
         <id>11</id>
         <title>
-          <key>ru</key>
-          <value>Ссылка</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Reference</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Referans</value>
+          <key>ru</key>
+          <value>Ссылка</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.SourceRef</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.SourceRef</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -395,24 +377,22 @@
         <name>SourceTabularSection</name>
         <id>13</id>
         <title>
-          <key>ru</key>
-          <value>Табличная часть</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Tabular section</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Tablo bölümü</value>
+          <key>ru</key>
+          <value>Табличная часть</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.SourceTabularSection</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.SourceTabularSection</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -506,24 +486,22 @@
         <name>RegisterTypeName</name>
         <id>16</id>
         <title>
-          <key>ru</key>
-          <value>Вид регистра</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Register type</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Kayıt tablosu türü</value>
+          <key>ru</key>
+          <value>Вид регистра</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.RegisterTypeName</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.RegisterTypeName</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -895,8 +873,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>SpreadsheetDocument</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>SpreadsheetDocument</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -941,7 +921,6 @@
           <verticalScrollBar>ScrollAlways</verticalScrollBar>
           <horizontalScrollBar>ScrollAlways</horizontalScrollBar>
           <selectionShowMode>Always</selectionShowMode>
-          <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
           <edit>true</edit>
           <showGroups>true</showGroups>
           <enableStartDrag>true</enableStartDrag>
@@ -954,16 +933,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Табличный документ</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Spreadsheet document</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>E-tablo belgesi</value>
+        <key>ru</key>
+        <value>Табличный документ</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -1008,8 +983,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.SpreadsheetDocumentFirstDataRow</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.SpreadsheetDocumentFirstDataRow</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>SpreadsheetDocumentFirstDataRowExtendedTooltip</name>
@@ -1058,8 +1035,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.DontCreateNewItems</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.DontCreateNewItems</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DontCreateNewItemsExtendedTooltip</name>
@@ -1101,8 +1080,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.ReplaceExistingRecords</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.ReplaceExistingRecords</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ReplaceExistingRecordsExtendedTooltip</name>
@@ -1439,11 +1420,11 @@
             </extendedTooltip>
             <commandName>Form.Item.ImportedAttributesTable.StandardCommand.Change</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>EndEdit</name>
@@ -1470,11 +1451,11 @@
             </extendedTooltip>
             <commandName>Form.Item.ImportedAttributesTable.StandardCommand.EndEdit</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1542,11 +1523,11 @@
             </extendedTooltip>
             <commandName>Form.Item.ImportedAttributesTable.StandardCommand.MoveUp</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>MoveDown</name>
@@ -1573,11 +1554,11 @@
             </extendedTooltip>
             <commandName>Form.Item.ImportedAttributesTable.StandardCommand.MoveDown</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1645,11 +1626,11 @@
             </extendedTooltip>
             <commandName>Form.Item.ImportedAttributesTable.StandardCommand.SortListAsc</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>SortListDesc</name>
@@ -1676,11 +1657,11 @@
             </extendedTooltip>
             <commandName>Form.Item.ImportedAttributesTable.StandardCommand.SortListDesc</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -2065,8 +2046,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.Check</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.Check</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableCheckExtendedTooltip</name>
@@ -2108,8 +2091,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.AttributePresentation</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.AttributePresentation</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableAttributePresentationExtendedTooltip</name>
@@ -2157,8 +2142,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.AttributeName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.AttributeName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableAttributeNameExtendedTooltip</name>
@@ -2206,8 +2193,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.PossibleSearchField</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.PossibleSearchField</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTablePossibleSearchFieldExtendedTooltip</name>
@@ -2249,8 +2238,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.SearchField</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.SearchField</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableSearchFieldExtendedTooltip</name>
@@ -2292,8 +2283,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.TypeDescription</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.TypeDescription</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableTypeDescriptionExtendedTooltip</name>
@@ -2345,8 +2338,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.AvailableTypes</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.AvailableTypes</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableAvailableTypesExtendedTooltip</name>
@@ -2395,8 +2390,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.ImportMode</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.ImportMode</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -2489,8 +2486,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.ColumnNumber</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.ColumnNumber</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableColumnNumberExtendedTooltip</name>
@@ -2539,8 +2538,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.DefaultValue</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.DefaultValue</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableDefaultValueExtendedTooltip</name>
@@ -2593,8 +2594,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.SearchBy</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.SearchBy</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableSearchByExtendedTooltip</name>
@@ -2642,8 +2645,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.LinkByOwner</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.LinkByOwner</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableLinkByOwnerExtendedTooltip</name>
@@ -2691,8 +2696,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.LinkByType</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.LinkByType</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableLinkByTypeExtendedTooltip</name>
@@ -2740,8 +2747,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.LinkByTypeItem</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.LinkByTypeItem</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableLinkByTypeItemExtendedTooltip</name>
@@ -2789,8 +2798,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.ColumnWidth</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.ColumnWidth</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableColumnWidthExtendedTooltip</name>
@@ -2838,8 +2849,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.Expression</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.Expression</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableExpressionExtendedTooltip</name>
@@ -2896,8 +2909,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportedAttributesTable.AdditionalConditionsPresentation</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportedAttributesTable.AdditionalConditionsPresentation</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportedAttributesTableAdditionalConditionsPresentationExtendedTooltip</name>
@@ -2992,7 +3007,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>ImportedAttributesTable</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -3031,7 +3045,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>ImportedAttributesTable</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -3071,7 +3084,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>ImportedAttributesTable</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -3132,16 +3144,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Настройка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Settings</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ayarlar</value>
+        <key>ru</key>
+        <value>Настройка</value>
       </title>
       <toolTip>
         <key>en</key>
@@ -3221,16 +3229,12 @@
       <name>Import</name>
       <id>5</id>
       <title>
-        <key>ru</key>
-        <value>Загрузить данные</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Import data</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Verileri yükle</value>
+        <key>ru</key>
+        <value>Загрузить данные</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -3283,7 +3287,6 @@
     <event>OnClose</event>
     <name>OnClose</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -3295,10 +3298,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_ImportDataFromSpreadsheetDocument</types>
@@ -3314,16 +3313,12 @@
   <attributes>
     <name>ImportedAttributesTable</name>
     <title>
-      <key>ru</key>
-      <value>Таблица загружаемых реквизитов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Imported attributes table</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yüklenen öznitelikler tablosu</value>
+      <key>ru</key>
+      <value>Таблица загружаемых реквизитов</value>
     </title>
     <id>2</id>
     <valueType>
@@ -3338,16 +3333,12 @@
     <columns>
       <name>AttributePresentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление реквизита</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Attribute presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Öznitelik gösterimi</value>
+        <key>ru</key>
+        <value>Представление реквизита</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3364,16 +3355,12 @@
     <columns>
       <name>AttributeName</name>
       <title>
-        <key>ru</key>
-        <value>Имя реквизита</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Attribute name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Öznitelik adı</value>
+        <key>ru</key>
+        <value>Имя реквизита</value>
       </title>
       <id>2</id>
       <valueType>
@@ -3390,16 +3377,12 @@
     <columns>
       <name>PossibleSearchField</name>
       <title>
-        <key>ru</key>
-        <value>Может быть полем поиска</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Possible search field</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Bir arama alanı olabilir</value>
+        <key>ru</key>
+        <value>Может быть полем поиска</value>
       </title>
       <id>3</id>
       <valueType>
@@ -3415,16 +3398,12 @@
     <columns>
       <name>SearchField</name>
       <title>
-        <key>ru</key>
-        <value>Поле поиска</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Search field</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Arama alanı</value>
+        <key>ru</key>
+        <value>Поле поиска</value>
       </title>
       <id>4</id>
       <valueType>
@@ -3440,16 +3419,12 @@
     <columns>
       <name>TypeDescription</name>
       <title>
-        <key>ru</key>
-        <value>Описание типов</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Type description</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Türlerin tanımı</value>
+        <key>ru</key>
+        <value>Описание типов</value>
       </title>
       <id>5</id>
       <valueType>
@@ -3465,16 +3440,12 @@
     <columns>
       <name>ImportMode</name>
       <title>
-        <key>ru</key>
-        <value>Режим загрузки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Import mode</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İçe aktarma modu</value>
+        <key>ru</key>
+        <value>Режим загрузки</value>
       </title>
       <id>6</id>
       <valueType>
@@ -3493,16 +3464,12 @@
     <columns>
       <name>ColumnNumber</name>
       <title>
-        <key>ru</key>
-        <value>Номер колонки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Column number</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sütun numarası</value>
+        <key>ru</key>
+        <value>Номер колонки</value>
       </title>
       <id>7</id>
       <valueType>
@@ -3522,16 +3489,12 @@
     <columns>
       <name>DefaultValue</name>
       <title>
-        <key>ru</key>
-        <value>Значение по умолчанию</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Default value</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Varsayılan değer</value>
+        <key>ru</key>
+        <value>Значение по умолчанию</value>
       </title>
       <id>8</id>
       <valueType>
@@ -3558,16 +3521,12 @@
     <columns>
       <name>SearchBy</name>
       <title>
-        <key>ru</key>
-        <value>Искать по</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Search by</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Şuna göre ara</value>
+        <key>ru</key>
+        <value>Искать по</value>
       </title>
       <id>9</id>
       <valueType>
@@ -3584,16 +3543,12 @@
     <columns>
       <name>LinkByOwner</name>
       <title>
-        <key>ru</key>
-        <value>Связь по владельцу</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Link by owner</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sahibine göre bağlantı</value>
+        <key>ru</key>
+        <value>Связь по владельцу</value>
       </title>
       <id>10</id>
       <valueType>
@@ -3611,16 +3566,12 @@
     <columns>
       <name>LinkByType</name>
       <title>
-        <key>ru</key>
-        <value>Связь по типу</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Link by type</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Türüne göre bağlantı</value>
+        <key>ru</key>
+        <value>Связь по типу</value>
       </title>
       <id>11</id>
       <valueType>
@@ -3637,16 +3588,12 @@
     <columns>
       <name>LinkByTypeItem</name>
       <title>
-        <key>ru</key>
-        <value>Элемент связи по типу</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Link by type item</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Türe göre bağlantı öğesi</value>
+        <key>ru</key>
+        <value>Элемент связи по типу</value>
       </title>
       <id>12</id>
       <valueType>
@@ -3666,16 +3613,12 @@
     <columns>
       <name>ColumnWidth</name>
       <title>
-        <key>ru</key>
-        <value>Ширина колонки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Column width</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sütun genişliği</value>
+        <key>ru</key>
+        <value>Ширина колонки</value>
       </title>
       <id>13</id>
       <valueType>
@@ -3694,16 +3637,12 @@
     <columns>
       <name>Check</name>
       <title>
-        <key>ru</key>
-        <value>Check</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Check</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İşaret</value>
+        <key>ru</key>
+        <value>Check</value>
       </title>
       <id>14</id>
       <valueType>
@@ -3719,16 +3658,12 @@
     <columns>
       <name>Expression</name>
       <title>
-        <key>ru</key>
-        <value>Выражение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Expression</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İfade</value>
+        <key>ru</key>
+        <value>Выражение</value>
       </title>
       <id>15</id>
       <valueType>
@@ -3745,16 +3680,12 @@
     <columns>
       <name>AdditionalConditionsPresentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление доп условий</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Additional conditions presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ek koşulların gösterimi</value>
+        <key>ru</key>
+        <value>Представление доп условий</value>
       </title>
       <id>16</id>
       <valueType>
@@ -3771,16 +3702,12 @@
     <columns>
       <name>AvailableTypes</name>
       <title>
-        <key>ru</key>
-        <value>Доступные типы реквизита</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Available attribute types</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Kullanılabilir öznitelik türleri</value>
+        <key>ru</key>
+        <value>Доступные типы реквизита</value>
       </title>
       <id>17</id>
       <valueType>
@@ -3797,16 +3724,12 @@
   <attributes>
     <name>SpreadsheetDocument</name>
     <title>
-      <key>ru</key>
-      <value>Табличный документ</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Spreadsheet document</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>E-tablo belgesi</value>
+      <key>ru</key>
+      <value>Табличный документ</value>
     </title>
     <id>3</id>
     <valueType>
@@ -3823,16 +3746,12 @@
   <attributes>
     <name>LinkByOwnerChoiceLists</name>
     <title>
-      <key>ru</key>
-      <value>Списки выбора связи по владельцу</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Link by owner choice lists</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sahibe göre bağlantı seçim listeleri</value>
+      <key>ru</key>
+      <value>Списки выбора связи по владельцу</value>
     </title>
     <id>4</id>
     <valueType>
@@ -3847,16 +3766,12 @@
     <columns>
       <name>AttributeName</name>
       <title>
-        <key>ru</key>
-        <value>Имя реквизита</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Attribute name</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Öznitelik adı</value>
+        <key>ru</key>
+        <value>Имя реквизита</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3873,16 +3788,12 @@
     <columns>
       <name>ChoiceList</name>
       <title>
-        <key>ru</key>
-        <value>Список выбора</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Choice list</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Seçim listesi</value>
+        <key>ru</key>
+        <value>Список выбора</value>
       </title>
       <id>2</id>
       <valueType>
@@ -3899,16 +3810,12 @@
   <attributes>
     <name>SavedSettingsList</name>
     <title>
-      <key>ru</key>
-      <value>Список сохраненных настроек</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Saved settings list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kayıtlı ayarlar listesi</value>
+      <key>ru</key>
+      <value>Список сохраненных настроек</value>
     </title>
     <id>5</id>
     <valueType>
@@ -3923,16 +3830,12 @@
     <columns>
       <name>Check</name>
       <title>
-        <key>ru</key>
-        <value>Пометка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Check</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İşaret</value>
+        <key>ru</key>
+        <value>Пометка</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3948,16 +3851,12 @@
     <columns>
       <name>Presentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Gösterim</value>
+        <key>ru</key>
+        <value>Представление</value>
       </title>
       <id>2</id>
       <valueType>
@@ -3974,16 +3873,12 @@
     <columns>
       <name>Value</name>
       <title>
-        <key>ru</key>
-        <value>Значение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Value</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değer</value>
+        <key>ru</key>
+        <value>Значение</value>
       </title>
       <id>3</id>
       <valueType>
@@ -4000,16 +3895,12 @@
   <attributes>
     <name>IntermediaryAttribute</name>
     <title>
-      <key>ru</key>
-      <value>Промежуточный реквизит</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Intermediary attribute</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ara öznitelik</value>
+      <key>ru</key>
+      <value>Промежуточный реквизит</value>
     </title>
     <id>6</id>
     <valueType>
@@ -4028,16 +3919,12 @@
   <formCommands>
     <name>Import</name>
     <title>
-      <key>ru</key>
-      <value>Загрузить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Import</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İçe aktar</value>
+      <key>ru</key>
+      <value>Загрузить</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -4065,16 +3952,12 @@
   <formCommands>
     <name>RestoreValues</name>
     <title>
-      <key>ru</key>
-      <value>Восстановить значения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Restore values</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değerleri geri yükle</value>
+      <key>ru</key>
+      <value>Восстановить значения</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -4101,16 +3984,12 @@
   <formCommands>
     <name>RestoreValuesFromFile</name>
     <title>
-      <key>ru</key>
-      <value>Восстановить значения из файла</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Restore values from file</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dosyadan değerleri geri yükle</value>
+      <key>ru</key>
+      <value>Восстановить значения из файла</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -4137,16 +4016,12 @@
   <formCommands>
     <name>FillControl</name>
     <title>
-      <key>ru</key>
-      <value>Контроль заполнения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Fill control</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dolum kontrolü</value>
+      <key>ru</key>
+      <value>Контроль заполнения</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -4170,16 +4045,12 @@
   <formCommands>
     <name>Refresh</name>
     <title>
-      <key>ru</key>
-      <value>Обновить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Refresh</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Güncelle</value>
+      <key>ru</key>
+      <value>Обновить</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -4206,16 +4077,12 @@
   <formCommands>
     <name>Open</name>
     <title>
-      <key>ru</key>
-      <value>Открыть</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Open</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Aç</value>
+      <key>ru</key>
+      <value>Открыть</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -4242,16 +4109,12 @@
   <formCommands>
     <name>RenumberColumns</name>
     <title>
-      <key>ru</key>
-      <value>Перенумеровать колонки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Renumber columns</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sütunları yeniden numaralandır</value>
+      <key>ru</key>
+      <value>Перенумеровать колонки</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -4275,16 +4138,12 @@
   <formCommands>
     <name>Reread</name>
     <title>
-      <key>ru</key>
-      <value>Перечитать</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Reread</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Yeniden oku</value>
+      <key>ru</key>
+      <value>Перечитать</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -4311,16 +4170,12 @@
   <formCommands>
     <name>PreviousNote</name>
     <title>
-      <key>ru</key>
-      <value>Предыдущее примечание</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Previous note</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Önceki not</value>
+      <key>ru</key>
+      <value>Предыдущее примечание</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -4347,16 +4202,12 @@
   <formCommands>
     <name>ManualSpreadsheetDocumentColumnsNumeration</name>
     <title>
-      <key>ru</key>
-      <value>Ручная нумерация колонок табличного документа</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Manual spreadsheet document columns numeration</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Manuel e- tablo belge sütun numaralandırması</value>
+      <key>ru</key>
+      <value>Ручная нумерация колонок табличного документа</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -4376,16 +4227,12 @@
   <formCommands>
     <name>NextNote</name>
     <title>
-      <key>ru</key>
-      <value>Следующее примечание</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Next note</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sonraki not</value>
+      <key>ru</key>
+      <value>Следующее примечание</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -4412,16 +4259,12 @@
   <formCommands>
     <name>UncheckAll</name>
     <title>
-      <key>ru</key>
-      <value>Снять флажки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Uncheck all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İşaretleri kaldır</value>
+      <key>ru</key>
+      <value>Снять флажки</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -4448,16 +4291,12 @@
   <formCommands>
     <name>Events</name>
     <title>
-      <key>ru</key>
-      <value>События</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Events</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Etkinlikler</value>
+      <key>ru</key>
+      <value>События</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -4481,16 +4320,12 @@
   <formCommands>
     <name>Save</name>
     <title>
-      <key>ru</key>
-      <value>Сохранить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Save</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kaydet</value>
+      <key>ru</key>
+      <value>Сохранить</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -4517,16 +4352,12 @@
   <formCommands>
     <name>SaveValues</name>
     <title>
-      <key>ru</key>
-      <value>Сохранить значения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Save values</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değerleri kaydet</value>
+      <key>ru</key>
+      <value>Сохранить значения</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -4553,16 +4384,12 @@
   <formCommands>
     <name>SaveValuesToFile</name>
     <title>
-      <key>ru</key>
-      <value>Сохранить значения в файл</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Save values to file</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değerleri dosyaya kaydet</value>
+      <key>ru</key>
+      <value>Сохранить значения в файл</value>
     </title>
     <id>16</id>
     <toolTip>
@@ -4589,16 +4416,12 @@
   <formCommands>
     <name>CheckAll</name>
     <title>
-      <key>ru</key>
-      <value>Установить флажки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Check all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İşaretle</value>
+      <key>ru</key>
+      <value>Установить флажки</value>
     </title>
     <id>17</id>
     <toolTip>

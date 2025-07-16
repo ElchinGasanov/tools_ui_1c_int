@@ -23,7 +23,8 @@ Procedure FillCheckProcessingAtServer(Cancel, CheckedAttributes)
 	For Each Row In ConfigurationSourceFilesDirectories Do
 		If Not ValueIsFilled(Row.Source) 
 			And ValueIsFilled(Row.Directory) Then
-			UT_CommonClientServer.MessageToUser(StrTemplate(NStr("ru = 'В строке %1 не заполнен источник исходного кода'; en = 'Source code source is not filled in row %1'; tr = 'Kaynak kodu kaynağı %1 satırda doldurulmamış'"),RowNumber),,,, Cancel);
+			UT_CommonClientServer.MessageToUser(StrTemplate(NStr("ru = 'В строке %1 не заполнен источник исходного кода';
+			|en = 'Source code source is not filled in row %1'"),RowNumber),,,, Cancel);
 		EndIf;
 		
 		RowNumber = RowNumber +1;
@@ -39,7 +40,8 @@ Procedure FillCheckProcessingAtServer(Cancel, CheckedAttributes)
 		FoundedRows = ConfigurationSourceFilesDirectories.FindRows(SearchStructure);
 
 		If FoundedRows.Count() > 1 Then			
-			UT_CommonClientServer.MessageToUser(StrTemplate(NStr("ru = 'С источником исходного кода %1 обнаружено более одной строки. Запись невозможна'; en = 'More than one line was detected with the source code source %1. Recording is not possible'; tr = 'Kaynak kodu kaynağı %1 ile birden fazla satır algılandı. Kayıt mümkün değil'"),Row.Source),,,, Cancel)
+			UT_CommonClientServer.MessageToUser(StrTemplate(NStr("ru = 'С источником исходного кода %1 обнаружено более одной строки. Запись невозможна';
+			|en = 'More than one line was detected with the source code source %1. Recording is not possible'"),Row.Source),,,, Cancel)
 		EndIf;
 	EndDo;
 EndProcedure
@@ -81,7 +83,7 @@ Procedure CodeTemplatesFileNameStartChoice(Item, ChoiceData, StandardProcessing)
 	
 	FileDetails = UT_CommonClient.EmptyDescriptionStructureOfSelectedFile();
 	FileDetails.FileName = CurrData.FileName;
-	UT_CommonClient.AddFormatToSavingFileDescription(FileDetails, NStr("ru = 'Файл шаблона кода(*.st)'; en = 'Script template file(*.st)'; tr = 'Script şablon dosyası(*.st)'"));
+	UT_CommonClient.AddFormatToSavingFileDescription(FileDetails, NStr("ru = 'Файл шаблона кода(*.st)'; en = 'Script template file(*.st)'"), "st");
 	
 	NotifyAddlParameters = New Structure;
 	NotifyAddlParameters.Inser("CurrentRow", Items.CodeTemplates.CurrentRow);

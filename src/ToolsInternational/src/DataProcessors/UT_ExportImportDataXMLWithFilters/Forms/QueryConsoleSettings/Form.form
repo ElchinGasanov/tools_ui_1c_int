@@ -15,24 +15,22 @@
       <name>QueryConsoleUsageOption</name>
       <id>1</id>
       <title>
-        <key>ru</key>
-        <value>Консоль запросов</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Query console</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sorgu konsolu</value>
+        <key>ru</key>
+        <value>Консоль запросов</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>QueryConsoleUsageOption</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>QueryConsoleUsageOption</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <handlers>
@@ -73,16 +71,12 @@
         <columnsCount>1</columnsCount>
         <choiceList>
           <presentation>
-            <key>ru</key>
-            <value>В составе обработки</value>
-          </presentation>
-          <presentation>
             <key>en</key>
             <value>In the data processor</value>
           </presentation>
           <presentation>
-            <key>tr</key>
-            <value>Veri işleyicide</value>
+            <key>ru</key>
+            <value>В составе обработки</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>0</value>
@@ -90,16 +84,12 @@
         </choiceList>
         <choiceList>
           <presentation>
-            <key>ru</key>
-            <value>В составе конфигурации</value>
-          </presentation>
-          <presentation>
             <key>en</key>
             <value>In the configuration</value>
           </presentation>
           <presentation>
-            <key>tr</key>
-            <value>Konfigürasyonda</value>
+            <key>ru</key>
+            <value>В составе конфигурации</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>1</value>
@@ -107,16 +97,12 @@
         </choiceList>
         <choiceList>
           <presentation>
-            <key>ru</key>
-            <value>В каталоге</value>
-          </presentation>
-          <presentation>
             <key>en</key>
             <value>In the directory</value>
           </presentation>
           <presentation>
-            <key>tr</key>
-            <value>Katalogda</value>
+            <key>ru</key>
+            <value>В каталоге</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>2</value>
@@ -176,8 +162,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>PathToExternalQueryConsole</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>PathToExternalQueryConsole</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -385,7 +373,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -410,16 +397,12 @@
   <attributes>
     <name>QueryConsoleUsageOption</name>
     <title>
-      <key>ru</key>
-      <value>Вариант использования консоли запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query console usage option</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu konsolu kullanım seçeneği</value>
+      <key>ru</key>
+      <value>Вариант использования консоли запросов</value>
     </title>
     <id>2</id>
     <valueType>
@@ -439,16 +422,12 @@
   <attributes>
     <name>PathToExternalQueryConsole</name>
     <title>
-      <key>ru</key>
-      <value>Путь к внешней консоли запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Path to external query console</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Harici sorgu konsoluna giden yol</value>
+      <key>ru</key>
+      <value>Путь к внешней консоли запросов</value>
     </title>
     <id>3</id>
     <valueType>
@@ -465,16 +444,12 @@
   <formCommands>
     <name>Confirm</name>
     <title>
-      <key>ru</key>
-      <value>Ок</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Ok</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Ok</value>
+      <key>ru</key>
+      <value>Ок</value>
     </title>
     <id>1</id>
     <toolTip>

@@ -6,16 +6,12 @@
   </producedTypes>
   <name>UT_ObjectsAttributesEditor</name>
   <synonym>
-    <key>ru</key>
-    <value>Редактор реквизитов объекта базы данных [УИ]</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Objects attributes editor [UT]</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Nesne öznitelikleri düzenleyicisi [UT]</value>
+    <key>ru</key>
+    <value>Редактор реквизитов объекта базы данных [УИ]</value>
   </synonym>
   <comment>УИ_РедакторРеквизитовОбъекта</comment>
   <useStandardCommands>true</useStandardCommands>
@@ -34,26 +30,18 @@
       <key>ru</key>
       <value>Object form</value>
     </synonym>
-    <synonym>
-      <key>tr</key>
-      <value>Nesne formu</value>
-    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
   <forms uuid="c2ffffbe-3bb9-4265-84c1-9e0f2582f9c4">
     <name>RecordsEditorForm</name>
     <synonym>
-      <key>ru</key>
-      <value>Форма редактор движений</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Records editor form</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Kayıt düzenleyicisi formu</value>
+      <key>ru</key>
+      <value>Форма редактор движений</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -61,16 +49,12 @@
   <forms uuid="eb722fa3-3e31-43f4-b5f9-234695bb00ba">
     <name>RecordsEditorAdditionalForm</name>
     <synonym>
-      <key>ru</key>
-      <value>Форма редактор движений дополнительная</value>
-    </synonym>
-    <synonym>
       <key>en</key>
       <value>Records editor additional form</value>
     </synonym>
     <synonym>
-      <key>tr</key>
-      <value>Kayıt düzenleyicisi (ek form)</value>
+      <key>ru</key>
+      <value>Форма редактор движений дополнительная</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>

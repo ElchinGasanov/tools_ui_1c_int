@@ -273,28 +273,28 @@ Function GenerateMetadataStructure(ExchangePlanName = Undefined) Export
 		CurParameters.NamesStructure, CurParameters.PresentationsStructure, CurParameters.AutoRecordStructure);
 
 	CurRowNumber = 1;
-	GenerateMetadataLevel(CurRowNumber, CurParameters, 1, 2, False, "Constants", NStr("ru = 'Константы'; en = 'Constants'; tr = 'Sabitler'"));
-	GenerateMetadataLevel(CurRowNumber, CurParameters, 3, 4, True, "Catalogs", NStr("ru = 'Справочники'; en = 'Catalogs'; tr = 'Kataloglar'"));
+	GenerateMetadataLevel(CurRowNumber, CurParameters, 1, 2, False, "Constants", NStr("ru='Константы'; en = 'Constants'"));
+	GenerateMetadataLevel(CurRowNumber, CurParameters, 3, 4, True, "Catalogs", NStr("ru='Справочники'; en = 'Catalogs'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 5, 6, True, "Sequences", NStr(
-		"ru = 'Последовательности'; en = 'Sequences'; tr = 'İşlem sıraları'"));
-	GenerateMetadataLevel(CurRowNumber, CurParameters, 7, 8, True, "Документы", NStr("ru = 'Документы'; en = 'Documents'; tr = 'Belgeler'"));
+		"ru='Последовательности'; en = 'Sequences'"));
+	GenerateMetadataLevel(CurRowNumber, CurParameters, 7, 8, True, "Документы", NStr("ru='Документы'; en = 'Documents'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 9, 10, True, "ChartsOfCharacteristicTypes", NStr(
-		"ru = 'Планы видов характеристик'; en = 'Charts of characteristic types'; tr = 'Özellik türü listeleri'"));
+		"ru='Планы видов характеристик'; en = 'Charts of characteristic types'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 11, 12, True, "ChartsOfAccounts", NStr(
-		"ru = 'Планы счетов'; en = 'Charts of accounts'; tr = 'Muhasebe hesap planları'"));
+		"ru='Планы счетов'; en = 'Charts of accounts'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 13, 14, True, "ChartsOfCalculationTypes", NStr(
-		"ru = 'Планы видов расчета'; en = 'Charts of calculation types'; tr = 'Hesaplama türü listeleri'"));
+		"ru='Планы видов расчета'; en = 'Charts of calculation types'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 15, 16, True, "InformationRegisters", NStr(
-		"ru = 'Регистры сведений'; en = 'Information registers'; tr = 'Bilgi kayıt tabloları'"));
+		"ru='Регистры сведений'; en = 'Information registers'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 17, 18, True, "AccumulationRegisters", NStr(
-		"ru = 'Регистры накопления'; en = 'Accumulation registers'; tr = 'Birikim kayıt tabloları'"));
+		"ru='Регистры накопления'; en = 'Accumulation registers'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 19, 20, True, "AccountingRegisters", NStr(
-		"ru = 'Регистры бухгалтерии'; en = 'Accounting registers'; tr = 'Muhasebe kayıt tabloları'"));
+		"ru='Регистры бухгалтерии'; en = 'Accounting registers'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 21, 22, True, "CalculationRegisters", NStr(
-		"ru = 'Регистры расчета'; en = 'Calculation registers'; tr = 'Hesaplama kayıt tabloları'"));
+		"ru='Регистры расчета'; en = 'Calculation registers'"));
 	GenerateMetadataLevel(CurRowNumber, CurParameters, 23, 24, True, "BusinessProcesses", NStr(
-		"ru = 'Бизнес-процессы'; en = 'Business processes'; tr = 'İş süreçleri'"));
-	GenerateMetadataLevel(CurRowNumber, CurParameters, 25, 26, True, "Tasks", NStr("ru = 'Задачи'; en = 'Tasks'; tr = 'Görevler'"));
+		"ru='Бизнес-процессы'; en = 'Business processes'"));
+	GenerateMetadataLevel(CurRowNumber, CurParameters, 25, 26, True, "Tasks", NStr("ru='Задачи'; en = 'Tasks'"));
 
 	Return Result;
 EndFunction
@@ -966,7 +966,7 @@ Function RecordSetDimensions(TableName, AllDimensions = False) Export
 		Row = Dimensions.Add();
 		Row.Name         = "Recorder";
 		Row.ValueType = Documents.AllRefsType();
-		Row.Title   = NStr("ru = 'Регистратор'; en = 'Recorder'; tr = 'Kayıt yapanlar'");
+		Row.Title   = NStr("ru = 'Регистратор'; en = 'Recorder'");
 	EndIf;
 	
 	// Period
@@ -974,7 +974,7 @@ Function RecordSetDimensions(TableName, AllDimensions = False) Export
 		Row = Dimensions.Add();
 		Row.Name         = "Period";
 		Row.ValueType = New TypeDescription("Date");
-		Row.Title   = NStr("ru = 'Период'; en = 'Period'; tr = 'Periyod'");
+		Row.Title   = NStr("ru = 'Период'; en = 'Period'");
 	EndIf;
 	
 	// Dimensions
@@ -992,7 +992,7 @@ Function RecordSetDimensions(TableName, AllDimensions = False) Export
 		Row = Dimensions.Add();
 		Row.Name         = "RecalculationObject";
 		Row.ValueType = Documents.AllRefsType();
-		Row.Title   = NStr("ru = 'Объект перерасчета'; en = 'Recalculation object'; tr = 'Tekrar hesaplanan nesne'");
+		Row.Title   = NStr("ru = 'Объект перерасчета'; en = 'Recalculation object'");
 	EndIf;
 	
 	Return Dimensions;
@@ -1123,7 +1123,7 @@ Function RefPresentation(ObjectToGetPresentation) Export
 	EndIf;
 	
 	If IsBlankString(Result) Then
-		Result = NStr("ru = 'не задано'; en = 'not specified'; tr = 'belirtilmemiş'");
+		Result = NStr("ru = 'не задано'; en = 'not specified'");
 	EndIf;
 	
 	Return Result;
@@ -1281,13 +1281,13 @@ Function CheckSettingsCorrectness(SettingKey = "") Export
 		// External data processor file.
 		File = New File(QueryExternalDataProcessorAddressSetting);
 		If Not File.Exist() Then
-			Text = NStr("ru = 'Файл ""%1"" не доступен %2'; en = 'File %1 is not available %2'; tr = 'Dosya %1 mevcut değil %2'");
+			Text = NStr("ru = 'Файл ""%1"" не доступен %2'; en = 'File %1 is not available %2'");
 
 			Text = StrReplace(Text, "%1", QueryExternalDataProcessorAddressSetting);
 			If IsFileInfobase() Then
 				FileLocatiion = "";
 			Else
-				FileLocatiion = NStr("ru = 'на сервере'; en = 'at server'; tr = 'sunucuda'");
+				FileLocatiion = NStr("ru='на сервере'; en = 'at server'");
 			EndIf;
 
 			Text = StrReplace(Text, "%2", FileLocatiion);
@@ -1299,7 +1299,7 @@ Function CheckSettingsCorrectness(SettingKey = "") Export
 	Else
 		// Data processor is a part of the configuration
 		If Metadata.DataProcessors.Find(QueryExternalDataProcessorAddressSetting) = Undefined Then
-			Text = NStr("ru = 'Обработка ""%1"" не найдена в составе конфигурации'; en = 'Data processor %1 is not found in the configuration'; tr = 'Veri işlemcisi %1 konfigurasyonda bulunamadı'");
+			Text = NStr("ru = 'Обработка ""%1"" не найдена в составе конфигурации'; en = 'Data processor %1 is not found in the configuration'");
 			Result.QueryExternalDataProcessorAddressSetting = StrReplace(Text, "%1", QueryExternalDataProcessorAddressSetting);
 			
 			Result.HasErrors = True;
@@ -1320,7 +1320,7 @@ Function ExternalDataProcessorInfo() Export
 	Info = New Structure("Kind, Commands, SafeMode, Purpose, Description, Version, Information, SSLVersion",
 		"RelatedObjectsCreation", New ValueTable, True, New Array);
 
-	Info.Description = NStr("ru = 'Регистрация изменений для обмена данными'; en = 'Register changes for data exchange'; tr = 'Veri alışverişi için değişiklikleri kaydediyor'");
+	Info.Description = NStr("ru = 'Регистрация изменений для обмена данными'; en = 'Register changes for data exchange'");
 	Info.Version       = "0.1";
 	Info.SSLVersion    = "1.2.1.4";
 	Info.Information   = NStr("ru='"
@@ -1328,9 +1328,7 @@ Function ExternalDataProcessorInfo() Export
 		+ "При работе в составе конфигурации с БСП версии 2.1.2.0 и старше производит контроль "
 		+ "ограничений миграции данных для узлов обмена." + "'; "
 		+ "en = 'The data processor is intended for managing registration of objects at exchange nodes before exporting data. "
-		+ "When used in configurations with SSL version 2.1.2.0 or later, it manages data migration restrictions.'"
-		+ StrTemplate("; tr = '%1'", "Bu veri işlemcisi, veriler dışa aktarılmadan önce alışveriş düğümlerinde nesnelerin kaydını yönetmek için tasarlanmıştır. SSL sürüm 2.1.2.0 veya daha yenisiyle kullanılan konfigürasyonlarda, veri taşıma kısıtlamalarını da yönetir.")
-        );
+		+ "When used in configurations with SSL version 2.1.2.0 or later, it manages data migration restrictions.'");
 
 	Info.Purpose.Add("ExchangePlans.*");
 	Info.Purpose.Add("Constants.*");
@@ -1357,7 +1355,7 @@ Function ExternalDataProcessorInfo() Export
 	
 	// The only command. Determine what to do by type of the passed item.
 	Command = Info.Commands.Add();
-	Command.Presentation = NStr("ru = 'Редактирование регистрации изменений объекта'; en = 'Edit object changes registration'; tr = 'Nesne değişiklikleri kaydının düzenlenmesi'");
+	Command.Presentation = NStr("ru = 'Редактирование регистрации изменений объекта'; en = 'Edit object changes registration'");
 	Command.ID = "OpenRegistrationEditingForm";
 	Command.Use = "FormOpening";
 

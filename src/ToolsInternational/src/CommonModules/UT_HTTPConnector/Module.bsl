@@ -655,7 +655,7 @@ Function AsJson(Response, JSONConversionParameters = Undefined) Export
 	Try
 		Return JsonToObject(UnpackResponse(Response), Response.Encoding, JSONConversionParameters);
 	Except
-		Raise AsException(Response, NStr("en = 'Error when deserializing JSON.'; tr = 'JSON deserializing işleminde hata'"));
+		Raise AsException(Response, NStr("en = 'Error when deserializing JSON.'"));
 	EndTry;
 
 EndFunction
@@ -737,7 +737,7 @@ Function AsXDTO(Response,
 
 		XDTOObject = XDTOFactory.ReadXML(XMLReader);
 	Except	
-		Raise AsException(Response, NStr("en = 'Error when deserializing JSON.'; tr = 'JSON deserializing işleminde hata'"));
+		Raise AsException(Response, NStr("en = 'Error when deserializing JSON.'"));
 	EndTry;
 		
 	Return XDTOObject;
@@ -757,8 +757,7 @@ Function AsException(Response, Val TextForUser = Undefined) Export
 	
 	ExceptionText = StrTemplate(
 		NStr("en = 'HTTP %1 %2
-						|%3'; tr = 'HTTP %1 %2
-						|%3'"),
+		           |%3'"),
 		Response.Method,
 		Response.URL,
 		HTTPStatusCodePresentation(Response.StatusCode)
@@ -769,8 +768,7 @@ Function AsException(Response, Val TextForUser = Undefined) Export
 	If Not IsBlankString(ResponseBody) Then
 		ExceptionText = ExceptionText + Chars.LF + StrTemplate(
 			NStr("en = 'Response body:
-							|%1'; tr = 'Yanıt gövdesi:
-							|%1'"),
+			           |%1'"),
 			ResponseBody);
 	EndIf;
 	
@@ -1131,7 +1129,7 @@ Function HTTPStatusCodePresentation(StatusCode) Export
 	EndDo;
 
 	If StatusCodeDescription = Undefined Then
-		Return StrTemplate(Nstr("ru = 'Неизвестный код состояния HTTP: %1'; en = 'Unknown status code HTTP: %1'; tr = 'Bilinmeyen HTTP durum kodu: %1'"), StatusCode);
+		Return StrTemplate(Nstr("ru = 'Неизвестный код состояния HTTP: %1'; en = 'Unknown status code HTTP: %1'"), StatusCode);
 	Else
 		Return StrTemplate("%1: %2", StatusCodeDescription.Code, StatusCodeDescription.Description);
 	EndIf;
@@ -1574,10 +1572,8 @@ Function SendRequest(Session, PreparedRequest, Settings)
 			
 			ErrorText = StrTemplate(
 				NStr("en = 'HTTP %1 %2
-								|Network error:
-								|%3'; tr = 'HTTP %1 %2
-								|Ağ hatası:
-								|%3'"),
+				           |Network error:
+				           |%3'"),
 				PreparedRequest.Method,
 				PreparedRequest.URL,
 				DetailErrorDescription(ErrorInfo())
@@ -2907,7 +2903,7 @@ EndFunction
 Function ReadZip(CompressedData, ErrorText = Undefined)
 
 #If MobileAppServer Then
-	Raise(НСтр("ru = 'Работа с Zip-файлами в мобильной платформе не поддерживается'; en = 'Работа с Zip-файлами в мобильной платформе не поддерживается'; tr = 'Mobil platformda Zip dosyalarıyla çalışma desteklenmiyor'"));
+	Raise(НСтр("ru = 'Работа с Zip-файлами в мобильной платформе не поддерживается'; en = 'Работа с Zip-файлами в мобильной платформе не поддерживается'"));
 #Else
 	FolderName = GetTempFileName();
 	ZipReader = New ZipFileReader(CompressedData);
@@ -2931,7 +2927,7 @@ EndFunction
 Function WriteZip(Data)
 
 #If MobileAppServer Then
-	Raise(НСтр("ru = 'Работа с Zip-файлами в мобильной платформе не поддерживается'; en = 'Working with Zip-files is not supported on the mobile platform'; tr = 'Mobil platformda Zip dosyalarıyla çalışma desteklenmiyor'"));
+	Raise(НСтр("ru = 'Работа с Zip-файлами в мобильной платформе не поддерживается'; en = 'Working with Zip-files is not supported on the mobile platform'"));
 #Else
 	TemporaryFile = GetTempFileName(".bin");
 	Data.Write(TemporaryFile);
@@ -3178,7 +3174,7 @@ Procedure Pause(StopDurationInSeconds)
 		EndTry;
 		MinimalTimeoutInMilliseconds = 1000;
 		If RealTimeout < MinimalTimeoutInMilliseconds Then
-			Raise(НСтр("ru = 'Процедура Pause не работает должным образом'; en = 'Процедура Pause не работает должным образом'; tr = 'Duraklatma prosedürü düzgün çalışmıyor'"));
+			Raise(НСтр("ru = 'Процедура Pause не работает должным образом'; en = 'Процедура Pause не работает должным образом'"));
 		EndIf;
 		CurrentDate = CurrentUniversalDate();
 	EndDo;
@@ -3364,7 +3360,7 @@ EndFunction
 Function CutOutText(Text, TextMaximumLength = 1000)
 	
 	If FindDisallowedXMLCharacters(Text) Then
-		Return NStr("en = '<Data>'; tr = '<Data>'");
+		Return NStr("en ='<Data>'");
 	EndIf;
 	
 	If StrLen(Text) <= TextMaximumLength Тогда

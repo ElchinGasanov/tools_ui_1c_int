@@ -16,8 +16,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>CurrentSettingRepresentation</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>CurrentSettingRepresentation</segments>
+      </paths>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -100,8 +102,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Attributes.Choose</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Attributes.Choose</segments>
+        </paths>
       </dataPath>
       <titleLocation>None</titleLocation>
       <extendedTooltip>
@@ -148,8 +152,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Attributes.AttributeTP</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Attributes.AttributeTP</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>AttributesAttributeTPExtendedTooltip</name>
@@ -192,8 +198,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Attributes.Attribute</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Attributes.Attribute</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>AttributesAttributeExtendedTooltip</name>
@@ -243,8 +251,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Attributes.Value</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Attributes.Value</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -398,7 +408,6 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
-      <source>Attributes</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -437,7 +446,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
-      <source>Attributes</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
         <horizontalLocation>Left</horizontalLocation>
@@ -477,7 +485,6 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
-      <source>Attributes</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -684,7 +691,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -702,10 +708,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -727,11 +729,7 @@
     </title>
     <title>
       <key>en</key>
-      <value>Mevcut ayar</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut ayar</value>
+      <value>Current setting</value>
     </title>
     <id>3</id>
     <valueType/>
@@ -751,10 +749,6 @@
     <title>
       <key>en</key>
       <value>Found objects</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Bulunan nesneler</value>
     </title>
     <id>5</id>
     <valueType>
@@ -776,10 +770,6 @@
         <key>en</key>
         <value>Object</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Nesne</value>
-      </title>
       <id>1</id>
       <valueType/>
       <view>
@@ -798,10 +788,6 @@
       <title>
         <key>en</key>
         <value>T TP</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>T TB</value>
       </title>
       <id>2</id>
       <valueType>
@@ -824,10 +810,6 @@
       <title>
         <key>en</key>
         <value>T line number</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>T satır numarası</value>
       </title>
       <id>3</id>
       <valueType>
@@ -853,10 +835,6 @@
         <key>en</key>
         <value>Choose</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Seç</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>Boolean</types>
@@ -879,10 +857,6 @@
       <key>en</key>
       <value>Current setting representation</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut görünüm ayarı</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>String</types>
@@ -904,10 +878,6 @@
     <title>
       <key>en</key>
       <value>Current line</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut satır</value>
     </title>
     <id>4</id>
     <valueType>
@@ -933,10 +903,6 @@
       <key>en</key>
       <value>Attributes</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Nitelikler</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>ValueTable</types>
@@ -956,10 +922,6 @@
       <title>
         <key>en</key>
         <value>Attribute</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Nitelik</value>
       </title>
       <id>1</id>
       <valueType>
@@ -981,10 +943,6 @@
       </title>
       <title>
         <key>en</key>
-        <value>ID</value>
-      </title>
-      <title>
-        <key>tr</key>
         <value>ID</value>
       </title>
       <id>2</id>
@@ -1009,10 +967,6 @@
         <key>en</key>
         <value>Type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tür</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>TypeDescription</types>
@@ -1034,12 +988,10 @@
         <key>en</key>
         <value>Value</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Değer</value>
-      </title>
       <id>4</id>
-      <valueType/>
+      <valueType>
+        <types>Arbitrary</types>
+      </valueType>
       <view>
         <common>true</common>
       </view>
@@ -1056,10 +1008,6 @@
       <title>
         <key>en</key>
         <value>Choose</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Seç</value>
       </title>
       <id>5</id>
       <valueType>
@@ -1082,10 +1030,6 @@
         <key>en</key>
         <value>Attribute TP</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>TB niteliği</value>
-      </title>
       <id>6</id>
       <valueType>
         <types>Boolean</types>
@@ -1107,10 +1051,6 @@
     <title>
       <key>en</key>
       <value>Parent</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Üst öğe</value>
     </title>
     <id>7</id>
     <valueType>
@@ -1137,10 +1077,6 @@
       <key>en</key>
       <value>Search object</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Arama nesnesi</value>
-    </title>
     <id>8</id>
     <valueType/>
     <view>
@@ -1159,10 +1095,6 @@
     <title>
       <key>en</key>
       <value>Process tabular parts</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Tablo bölümlerini işle</value>
     </title>
     <id>9</id>
     <valueType>
@@ -1184,10 +1116,6 @@
     <title>
       <key>en</key>
       <value>Execute command</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Komutu yürüt</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -1219,10 +1147,6 @@
       <key>en</key>
       <value>Save settings</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Ayarları kaydet</value>
-    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -1252,10 +1176,6 @@
       <key>en</key>
       <value>Coose all</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tümünü seç</value>
-    </title>
     <id>3</id>
     <toolTip>
       <key>ru</key>
@@ -1283,10 +1203,6 @@
     <title>
       <key>en</key>
       <value>Cancel choice</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Seçimi iptal et</value>
     </title>
     <id>4</id>
     <toolTip>

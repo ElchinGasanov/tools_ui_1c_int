@@ -120,7 +120,7 @@ Procedure HTMLEditorFieldOnClick(Form, Item, EventData, StandardProcessing) Expo
 
 	If EditorType = EditorTypes.Monaco Then
 		Event = HTMLEditorFieldOnClickMonaco(Form, Item, EventData, StandardProcessing);
-	ElsIf EditorType = EditorTypes.Ace Then 
+	ElsIf EditorType = EditorType.Ace Then 
 		Event = EventToHandleWhenClickedAce(Form, Item, EventData)		
 	EndIf;
 
@@ -315,7 +315,7 @@ Procedure InitializeFormEditorsAfterFieldsGeneration(Form, FormEditors, EditorTy
 					AddMenuItem(DocumentView,
 									  ThereAreAddedCommandsForEditorContextMenuMonaco,
 									  "INSERT_MACRO_COLUMN",
-									  NStr("ru = 'Вставить макроколонку'; en = 'Insert macrocolumn'; tr = 'Makrosütun ekle'"));
+									  NStr("ru = 'Вставить макроколонку'; en = 'Insert macrocolumn'"));
 				EndIf;
 			EndIf;
 			DocumentView.hideScrollX();
@@ -1808,7 +1808,7 @@ Procedure OpenFormatStringWizard(FormatString, CompletionNotifyDescription) Expo
 		Wizard.Text = FormatString;
 	Except
 		Info = ErrorInfo();
-		ShowMessageBox( , NStr("ru = 'Ошибка в тексте форматной строки:'; en = 'Error in the text of the format string:'; tr = 'Formatlı metinde hata'") + Chars.LF + Info.Reason.Description);
+		ShowMessageBox( , NStr("ru = 'Ошибка в тексте форматной строки:';|en = 'Error in the text of the format string:'") + Chars.LF + Info.Reason.Description);
 		Return;
 	EndTry;
 	Wizard.Show(CompletionNotifyDescription);
@@ -2504,7 +2504,8 @@ EndProcedure
 
 Procedure SaveConfigurationModulesToFilesSaveMetadataListWithModulesEnd(Result, SaveOptions) Export
 	If Result <> True Then
-		Message(Nstr("ru = 'Не удалось сохранить список метаданных с модулями в файл для источника'; en = 'The list of metadata with modules could not be saved to a file for the source'; tr = 'Modüller içeren metadata listesi kaynak için bir dosyaya kaydedilemedi'")
+		Message(Nstr("ru = 'Не удалось сохранить список метаданных с модулями в файл для источника';
+					 |en = 'The list of metadata with modules could not be saved to a file for the source'")
 			+ SaveOptions.SourceDirectoryDescription.Source);
 		SaveOptions.DirectoryIndex = SaveOptions.DirectoryIndex + 1;
 		SaveConfigurationModulesToFilesBeginProcessingSourceDirectory(SaveOptions);
@@ -2584,7 +2585,8 @@ EndProcedure
 Procedure SaveConfigurationModulesToFilesOnEndMetadataDumpToDirectoryEndLogReading(AdditionalParameters) Export
 	SaveOptions = AdditionalParameters.SaveOptions;
 	TextDocument = AdditionalParameters.TextDocument;
-	Message(Nstr("ru = 'Не удалось сохранить исходные файлы для источника'; en = 'Could not save the source files for the source'; tr = 'Kaynak için kaynak dosyaları kaydedilemedi'")
+	Message(Nstr("ru = 'Не удалось сохранить исходные файлы для источника';
+				 |en = 'Could not save the source files for the source'")
 		+ SaveOptions.SourceDirectoryDescription.Source + ":" + Chars.LF + TextDocument.GetText());
 	SaveOptions.DirectoryIndex = SaveOptions.DirectoryIndex + 1;
 	SaveConfigurationModulesToFilesBeginProcessingSourceDirectory(SaveOptions);
@@ -2996,7 +2998,9 @@ Procedure OpenMonacoFormatStringWizard(EventParameters, AdditionalParameters)
 	If EventParameters = Undefined Then
 		UT_CommonClient.ShowQuestionToUser(
 			New NotifyDescription("OpenMonacoFormatStringWizardQuestionCompletion", ThisObject, AdditionalParameters),
-			Nstr("ru = 'Форматная строка не найдена.'; en = 'Format string was not found.'; tr = 'Formatlı metin bulunmadı'") + Chars.LF + NSTR("ru = 'Создать новую форматную строку?'; en = 'Create a new format string?'; tr = 'Yeni bir formatlı metin oluşturulsun mu?'"),QuestionDialogMode.YesNo);
+			Nstr("ru = 'Форматная строка не найдена.';
+				 |en = 'Format string was not found.'") + Chars.LF + NSTR("ru = 'Создать новую форматную строку?';
+																		  |en = 'Create a new format string?'"),QuestionDialogMode.YesNo);
 	Else
 		FormatString = StrReplace(StrReplace(EventParameters.text, "|", ""), """", "");
 		NotificationParameters = AdditionalParameters;
@@ -3019,7 +3023,7 @@ Procedure OpenMonacoQueryWizard(EventParameters, AdditionalParameters)
 	If EventParameters = Undefined Then
 		UT_CommonClient.ShowQuestionToUser(
 			New NotifyDescription("OpenMonacoQueryWizardQuestionCompletion", ThisObject, 
-			AdditionalParameters), NSTR("ru = 'Не найден текст запроса'; en = 'Query text not found'; tr = 'Sorgu metni bulunamadı'") + Chars.LF + NSTR("ru = 'Создать новый запрос?'; en = 'Create a new query?'; tr = 'Yeni bir sorgu oluşturulsun mu?'"), 
+			AdditionalParameters), NSTR("ru = 'Не найден текст запроса';en = 'Query text not found'") + Chars.LF + NSTR("ru = 'Создать новый запрос?';en = 'Create a new query?'"), 
 			QuestionDialogMode.YesNo);
 	Else
 		If EventParameters.isQueryMode Then

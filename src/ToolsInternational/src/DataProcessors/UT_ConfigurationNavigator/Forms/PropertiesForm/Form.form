@@ -28,8 +28,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>PropertyTree.Name</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>PropertyTree.Name</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>PropertyTreeNameExtendedTooltip</name>
@@ -80,8 +82,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>PropertyTree.Indexing</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>PropertyTree.Indexing</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>PropertyTreeIndexingExtendedTooltip</name>
@@ -131,8 +135,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>PropertyTree.Synonym</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>PropertyTree.Synonym</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>PropertyTreeSynonymExtendedTooltip</name>
@@ -183,8 +189,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>PropertyTree.StringType</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>PropertyTree.StringType</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>PropertyTreeStringTypeExtendedTooltip</name>
@@ -235,8 +243,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>PropertyTree.Comment</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>PropertyTree.Comment</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>PropertyTreeCommentExtendedTooltip</name>
@@ -310,11 +320,11 @@
               </extendedTooltip>
               <commandName>Form.Command._CollapseAllNodes</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:Button">
               <name>PropertyTreeGroup_ExpandAllNodes</name>
@@ -341,11 +351,11 @@
               </extendedTooltip>
               <commandName>Form.Command._ExpandAllNodes</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -518,11 +528,11 @@
             </extendedTooltip>
             <commandName>Form.Command._OpenObject</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:FormGroup">
             <name>PropertyTreeGroup2</name>
@@ -628,7 +638,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>PropertyTree</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -667,7 +676,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>PropertyTree</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -707,7 +715,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>PropertyTree</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -883,16 +890,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Свойства объекта</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Object property</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Nesne özelliği</value>
+        <key>ru</key>
+        <value>Свойства объекта</value>
       </title>
       <extendedTooltip>
         <name>ObjectPageExtendedTooltip</name>
@@ -1029,10 +1032,6 @@
           <key>en</key>
           <value>Constant decoration</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Sabit dekorasyon</value>
-        </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
@@ -1090,8 +1089,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_ConstantValue</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_ConstantValue</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>_ConstantValueExtendedTooltip</name>
@@ -1142,8 +1143,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_TypeOfConstantValue</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_TypeOfConstantValue</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -1236,8 +1239,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>_UseTextWhenWritingConstants</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>_UseTextWhenWritingConstants</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -1280,8 +1285,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>_TextConstantValue</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>_TextConstantValue</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>_TextConstantValueExtendedTooltip</name>
@@ -1328,16 +1335,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Значение</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Values</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Değerler</value>
+        <key>ru</key>
+        <value>Значение</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -1381,8 +1384,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_AccessRightToObject</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_AccessRightToObject</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -1530,8 +1535,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>RolesWithAccessTable.RestrictionByCondition</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>RolesWithAccessTable.RestrictionByCondition</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>RolesWithAccessTableRestrictionByConditionExtendedTooltip</name>
@@ -1574,8 +1581,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>RolesWithAccessTable.Name</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>RolesWithAccessTable.Name</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>RolesWithAccessTableNameExtendedTooltip</name>
@@ -1625,8 +1634,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>RolesWithAccessTable.Synonym</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>RolesWithAccessTable.Synonym</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>RolesWithAccessTableSynonymExtendedTooltip</name>
@@ -1696,11 +1707,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.RolesWithAccessTable.StandardCommand.SortListAsc</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>RolesWithAccessTableSortListDesc</name>
@@ -1727,11 +1738,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.RolesWithAccessTable.StandardCommand.SortListDesc</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>RolesWithAccessTableFind</name>
@@ -1758,11 +1769,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.RolesWithAccessTable.StandardCommand.Find</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>RolesWithAccessTableCancelSearch</name>
@@ -1789,11 +1800,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.RolesWithAccessTable.StandardCommand.CancelSearch</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>RolesWithAccessTableOutputList</name>
@@ -1820,11 +1831,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.RolesWithAccessTable.StandardCommand.OutputList</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>RolesWithAccessTable_OpenAccessRightsObject</name>
@@ -1900,7 +1911,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>RolesWithAccessTable</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -1939,7 +1949,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>RolesWithAccessTable</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -1979,7 +1988,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>RolesWithAccessTable</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2073,10 +2081,6 @@
             <key>en</key>
             <value>Access right to object role</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>Roller</value>
-          </title>
           <toolTip>
             <key>ru</key>
             <value>Роли</value>
@@ -2132,8 +2136,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>_AvailableObjects.RestrictionByCondition</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>_AvailableObjects.RestrictionByCondition</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>_AvailableObjectsRestrictionByConditionExtendedTooltip</name>
@@ -2176,8 +2182,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>_AvailableObjects.Kind</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>_AvailableObjects.Kind</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>_AvailableObjectsKindExtendedTooltip</name>
@@ -2228,8 +2236,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>_AvailableObjects.Name</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>_AvailableObjects.Name</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>_AvailableObjectsNameExtendedTooltip</name>
@@ -2280,8 +2290,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>_AvailableObjects.Presentation</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>_AvailableObjects.Presentation</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>_AvailableObjectsPresentationExtendedTooltip</name>
@@ -2332,8 +2344,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>_AvailableObjects.FullName</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>_AvailableObjects.FullName</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>_AvailableObjectsFullNameExtendedTooltip</name>
@@ -2404,11 +2418,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item._AvailableObjects.StandardCommand.SortListAsc</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>_AvailableObjectsSortListDesc</name>
@@ -2435,11 +2449,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item._AvailableObjects.StandardCommand.SortListDesc</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>_AvailableObjectsFind</name>
@@ -2466,11 +2480,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item._AvailableObjects.StandardCommand.Find</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>_AvailableObjectsCancelSearch</name>
@@ -2497,11 +2511,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item._AvailableObjects.StandardCommand.CancelSearch</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>_AvailableObjects_OpenAccessRightsObject</name>
@@ -2578,7 +2592,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>_AvailableObjects</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2617,7 +2630,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>_AvailableObjects</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -2657,7 +2669,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>_AvailableObjects</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2751,10 +2762,6 @@
             <key>en</key>
             <value>Access right for role</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>Rol için erişim hakkı</value>
-          </title>
           <toolTip>
             <key>ru</key>
             <value>Доступные объекты</value>
@@ -2811,8 +2818,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>UsersWithAccessTable.Name</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>UsersWithAccessTable.Name</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>UsersWithAccessTableNameExtendedTooltip</name>
@@ -2862,8 +2871,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>UsersWithAccessTable.FullName</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>UsersWithAccessTable.FullName</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>UsersWithAccessTableFullNameExtendedTooltip</name>
@@ -2933,11 +2944,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.UsersWithAccessTable.StandardCommand.SortListAsc</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>UsersWithAccessTableSortListDesc</name>
@@ -2964,11 +2975,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.UsersWithAccessTable.StandardCommand.SortListDesc</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>UsersWithAccessTableFind</name>
@@ -2995,11 +3006,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.UsersWithAccessTable.StandardCommand.Find</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>UsersWithAccessTableCancelSearch</name>
@@ -3026,11 +3037,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.UsersWithAccessTable.StandardCommand.CancelSearch</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>UsersWithAccessTableOutputList</name>
@@ -3057,11 +3068,11 @@
                 </extendedTooltip>
                 <commandName>Form.Item.UsersWithAccessTable.StandardCommand.OutputList</commandName>
                 <representation>Auto</representation>
+                <onlyInAllActions>false</onlyInAllActions>
                 <autoMaxWidth>true</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <placementArea>UserCmds</placementArea>
                 <representationInContextMenu>Auto</representationInContextMenu>
-                <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
               </items>
               <items xsi:type="form:Button">
                 <name>UsersWithAccessTable_OpenAccessRightsObject</name>
@@ -3137,7 +3148,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>UsersWithAccessTable</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3176,7 +3186,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>UsersWithAccessTable</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -3216,7 +3225,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>UsersWithAccessTable</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3310,10 +3318,6 @@
             <key>en</key>
             <value>Access right to object users</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>Nesne kullanıcılarına erişim hakkı</value>
-          </title>
           <toolTip>
             <key>ru</key>
             <value>Пользователи</value>
@@ -3352,10 +3356,6 @@
           <key>en</key>
           <value>Access right to object</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Nesneye erişim hakları</value>
-        </title>
         <toolTip>
           <key>ru</key>
           <value>Права доступа к объеткту</value>
@@ -3393,10 +3393,6 @@
       <title>
         <key>en</key>
         <value>Access right page</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Erişim hakları</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -3449,8 +3445,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>_SXTable.TableName</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>_SXTable.TableName</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>_SXTableTableNameExtendedTooltip</name>
@@ -3500,8 +3498,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>_SXTable.Purpose</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>_SXTable.Purpose</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>_SXTablePurposeExtendedTooltip</name>
@@ -3571,11 +3571,11 @@
               </extendedTooltip>
               <commandName>Form.Item._SXTable.StandardCommand.SortListAsc</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:Button">
               <name>_SXTableSortListDesc</name>
@@ -3602,11 +3602,11 @@
               </extendedTooltip>
               <commandName>Form.Item._SXTable.StandardCommand.SortListDesc</commandName>
               <representation>Auto</representation>
+              <onlyInAllActions>false</onlyInAllActions>
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
               <placementArea>UserCmds</placementArea>
               <representationInContextMenu>Auto</representationInContextMenu>
-              <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
             </items>
             <items xsi:type="form:Button">
               <name>_SXTableFind</name>
@@ -3742,7 +3742,6 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
-            <source>_SXTable</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3781,7 +3780,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
-            <source>_SXTable</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <horizontalLocation>Left</horizontalLocation>
@@ -3821,7 +3819,6 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
-            <source>_SXTable</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -3927,8 +3924,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Items._SXTable.CurrentData.StorageTableName</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>Items._SXTable.CurrentData.StorageTableName</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>__DBTableExtendedTooltip</name>
@@ -3978,8 +3977,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Items._SXTable.CurrentData.Purpose</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>Items._SXTable.CurrentData.Purpose</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -4063,8 +4064,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_ShowStorageStructureIn1CTerms</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_ShowStorageStructureIn1CTerms</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <handlers>
@@ -4129,8 +4132,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>_SXFielsd.FieldName</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>_SXFielsd.FieldName</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>_SXFielsdFieldNameExtendedTooltip</name>
@@ -4180,8 +4185,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>_SXFielsd.StorageFieldName</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>_SXFielsd.StorageFieldName</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>_SXFielsdStorageFieldNameExtendedTooltip</name>
@@ -4251,11 +4258,11 @@
                   </extendedTooltip>
                   <commandName>Form.Item._SXFielsd.StandardCommand.SortListAsc</commandName>
                   <representation>Auto</representation>
+                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
-                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>_SXFielsdSortListDesc</name>
@@ -4282,11 +4289,11 @@
                   </extendedTooltip>
                   <commandName>Form.Item._SXFielsd.StandardCommand.SortListDesc</commandName>
                   <representation>Auto</representation>
+                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
-                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>_SXFielsdFind</name>
@@ -4418,7 +4425,6 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>_SXFielsd</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -4457,7 +4463,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>_SXFielsd</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -4497,7 +4502,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>_SXFielsd</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -4561,10 +4565,6 @@
               <key>en</key>
               <value>SXPage fields</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Alanlar</value>
-            </title>
             <toolTip>
               <key>ru</key>
               <value>Поля</value>
@@ -4613,8 +4613,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>_SXIndexes.StorageIndexName</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>_SXIndexes.StorageIndexName</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>_SXIndexesStorageIndexNameExtendedTooltip</name>
@@ -4684,11 +4686,11 @@
                   </extendedTooltip>
                   <commandName>Form.Item._SXIndexes.StandardCommand.SortListAsc</commandName>
                   <representation>Auto</representation>
+                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
-                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>_SXIndexesSortListDesc</name>
@@ -4715,11 +4717,11 @@
                   </extendedTooltip>
                   <commandName>Form.Item._SXIndexes.StandardCommand.SortListDesc</commandName>
                   <representation>Auto</representation>
+                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
-                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>_SXIndexesFind</name>
@@ -4855,7 +4857,6 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>_SXIndexes</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -4894,7 +4895,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>_SXIndexes</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -4934,7 +4934,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>_SXIndexes</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -5005,8 +5004,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>_SXIndexFields.FieldName</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>_SXIndexFields.FieldName</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>_SXIndexFieldsFieldNameExtendedTooltip</name>
@@ -5056,8 +5057,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>_SXIndexFields.StorageFieldName</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>_SXIndexFields.StorageFieldName</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>_SXIndexFieldsStorageFieldNameExtendedTooltip</name>
@@ -5127,11 +5130,11 @@
                   </extendedTooltip>
                   <commandName>Form.Item._SXIndexFields.StandardCommand.SortListAsc</commandName>
                   <representation>Auto</representation>
+                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
-                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>_SXIndexFieldsSortListDesc</name>
@@ -5158,11 +5161,11 @@
                   </extendedTooltip>
                   <commandName>Form.Item._SXIndexFields.StandardCommand.SortListDesc</commandName>
                   <representation>Auto</representation>
+                  <onlyInAllActions>false</onlyInAllActions>
                   <autoMaxWidth>true</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
                   <placementArea>UserCmds</placementArea>
                   <representationInContextMenu>Auto</representationInContextMenu>
-                  <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
                 </items>
                 <items xsi:type="form:Button">
                   <name>_SXIndexFieldsFind</name>
@@ -5294,7 +5297,6 @@
                   </userVisible>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <source>_SXIndexFields</source>
                 <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -5333,7 +5335,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>ViewStatusAddition</type>
-                <source>_SXIndexFields</source>
                 <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                   <horizontalLocation>Left</horizontalLocation>
@@ -5373,7 +5374,6 @@
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>SearchControlAddition</type>
-                <source>_SXIndexFields</source>
                 <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                   <autoMaxWidth>true</autoMaxWidth>
                 </extInfo>
@@ -5436,10 +5436,6 @@
             <title>
               <key>en</key>
               <value>SXIndexes pages</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Endeksler</value>
             </title>
             <toolTip>
               <key>ru</key>
@@ -5558,10 +5554,6 @@
         <key>en</key>
         <value>Storage structure page</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Depolama yapısı sayfası</value>
-      </title>
       <extendedTooltip>
         <name>StorageStructurePageExtendedTooltip</name>
         <id>62</id>
@@ -5596,10 +5588,6 @@
         <title>
           <key>en</key>
           <value>Managing totals label</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Toplam etiketini yönetme</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -5788,8 +5776,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_AggregateMode</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_AggregateMode</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <handlers>
@@ -5836,8 +5826,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_UseAggregates</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_UseAggregates</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <handlers>
@@ -5884,8 +5876,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_UseCurrentTotals</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_UseCurrentTotals</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <handlers>
@@ -5932,8 +5926,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_UseTotals</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_UseTotals</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <handlers>
@@ -5980,8 +5976,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_DividingTotalsMode</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_DividingTotalsMode</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <handlers>
@@ -6033,10 +6031,6 @@
           <key>en</key>
           <value>Using totals group</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Toplamlar grubunu kullanma</value>
-        </title>
         <extendedTooltip>
           <name>UsingTotalsGroupExtendedTooltip</name>
           <id>216</id>
@@ -6074,8 +6068,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_PeriodRecalculationTotals</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_PeriodRecalculationTotals</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>_PeriodRecalculationTotalsExtendedTooltip</name>
@@ -6160,10 +6156,6 @@
           <key>en</key>
           <value>Recalculate totals for period group</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Dönem grubu için toplamları yeniden hesaplama</value>
-        </title>
         <toolTip>
           <key>ru</key>
           <value>Группа пересчет итогов за период</value>
@@ -6208,8 +6200,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>_MinimumPeriodOfCalculatedTotals</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>_MinimumPeriodOfCalculatedTotals</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>_MinimumPeriodOfCalculatedTotalsExtendedTooltip</name>
@@ -6258,8 +6252,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>_MaximumPeriodOfCalculatedTotals</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>_MaximumPeriodOfCalculatedTotals</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>_MaximumPeriodOfCalculatedTotalsExtendedTooltip</name>
@@ -6446,10 +6442,6 @@
           <key>en</key>
           <value>Calculated totals group</value>
         </title>
-        <title>
-          <key>tr</key>
-          <value>Hesaplanan sonuçların dönemi</value>
-        </title>
         <toolTip>
           <key>ru</key>
           <value>Группа период рассчитанных итогов</value>
@@ -6492,10 +6484,6 @@
       <title>
         <key>en</key>
         <value>Managing totals page</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Sonuç yönetimi</value>
       </title>
       <extendedTooltip>
         <name>ManagingTotalsPageExtendedTooltip</name>
@@ -6549,8 +6537,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_DependentObjects.Name</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_DependentObjects.Name</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>_DependentObjectsNameExtendedTooltip</name>
@@ -6600,8 +6590,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_DependentObjects.Presentation</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_DependentObjects.Presentation</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>_DependentObjectsPresentationExtendedTooltip</name>
@@ -6651,8 +6643,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_DependentObjects.FullName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_DependentObjects.FullName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>_DependentObjectsFullNameExtendedTooltip</name>
@@ -6702,8 +6696,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>_DependentObjects.WhereFound</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>_DependentObjects.WhereFound</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>_DependentObjectsWhereFoundExtendedTooltip</name>
@@ -6773,11 +6769,11 @@
             </extendedTooltip>
             <commandName>Form.Item._DependentObjects.StandardCommand.SortListAsc</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:Button">
             <name>_DependentObjectsSortListDesc</name>
@@ -6804,11 +6800,11 @@
             </extendedTooltip>
             <commandName>Form.Item._DependentObjects.StandardCommand.SortListDesc</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:FormGroup">
             <name>DependentObjectsGroup2</name>
@@ -6924,11 +6920,11 @@
             </extendedTooltip>
             <commandName>Form.Item._DependentObjects.StandardCommand.OutputList</commandName>
             <representation>Auto</representation>
+            <onlyInAllActions>false</onlyInAllActions>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
-            <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
           </items>
           <items xsi:type="form:FormGroup">
             <name>DependentObjectsGroup1</name>
@@ -7067,7 +7063,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>_DependentObjects</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7106,7 +7101,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>_DependentObjects</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -7146,7 +7140,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>_DependentObjects</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7204,8 +7197,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>_WhereFound</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>_WhereFound</segments>
+          </paths>
         </dataPath>
         <titleLocation>Top</titleLocation>
         <extendedTooltip>
@@ -7261,10 +7256,6 @@
         <key>en</key>
         <value>Dependent objects page</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Nesne bağlantıları</value>
-      </title>
       <toolTip>
         <key>ru</key>
         <value>Ссылки на объект (зависимые объекты)</value>
@@ -7302,10 +7293,6 @@
     <title>
       <key>en</key>
       <value>Pages group</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sayfalar grubu</value>
     </title>
     <toolTip>
       <key>ru</key>
@@ -7350,7 +7337,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -7383,10 +7369,6 @@
       <key>en</key>
       <value>Property tree</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Özellikler ağacı</value>
-    </title>
     <id>2</id>
     <valueType>
       <types>ValueTree</types>
@@ -7406,10 +7388,6 @@
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -7435,10 +7413,6 @@
         <key>en</key>
         <value>Synonym</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Eş anlamlısı</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -7462,10 +7436,6 @@
       <title>
         <key>en</key>
         <value>Comment</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Yorum</value>
       </title>
       <id>3</id>
       <valueType>
@@ -7491,10 +7461,6 @@
         <key>en</key>
         <value>String type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tip</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -7517,10 +7483,6 @@
         <key>en</key>
         <value>Ref</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ref</value>
-      </title>
       <id>5</id>
       <valueType>
         <types>AnyRef</types>
@@ -7541,10 +7503,6 @@
       <title>
         <key>en</key>
         <value>Node type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Düğüm türü</value>
       </title>
       <id>6</id>
       <valueType>
@@ -7570,10 +7528,6 @@
         <key>en</key>
         <value>Indexing</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Dizinleme</value>
-      </title>
       <id>7</id>
       <valueType>
         <types>String</types>
@@ -7597,10 +7551,6 @@
       <key>en</key>
       <value>List form name</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Liste formu adı</value>
-    </title>
     <id>3</id>
     <valueType>
       <types>String</types>
@@ -7622,10 +7572,6 @@
     <title>
       <key>en</key>
       <value>Path to forms</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Formlara giden yol</value>
     </title>
     <id>4</id>
     <valueType>
@@ -7649,10 +7595,6 @@
       <key>en</key>
       <value>Storage addresses</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Depolama adresleri</value>
-    </title>
     <id>6</id>
     <valueType/>
     <view>
@@ -7671,10 +7613,6 @@
     <title>
       <key>en</key>
       <value>Show event subscriptions</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Etkinlik aboneliklerini göster</value>
     </title>
     <id>7</id>
     <valueType>
@@ -7700,10 +7638,6 @@
       <key>en</key>
       <value>Show objects subsytems</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne alt sistemlerini göster</value>
-    </title>
     <id>8</id>
     <valueType>
       <types>Boolean</types>
@@ -7727,10 +7661,6 @@
     <title>
       <key>en</key>
       <value>Show external object commands</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Harici nesne komutlarını göster</value>
     </title>
     <id>9</id>
     <valueType>
@@ -7756,10 +7686,6 @@
       <key>en</key>
       <value>Show common object commands</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Ortak nesne komutlarını göster</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>Boolean</types>
@@ -7784,10 +7710,6 @@
       <key>en</key>
       <value>Full name</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tam adı</value>
-    </title>
     <id>11</id>
     <valueType>
       <types>String</types>
@@ -7810,10 +7732,6 @@
       <key>en</key>
       <value>Empty ref</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Boş ref</value>
-    </title>
     <id>12</id>
     <valueType>
       <types>AnyRef</types>
@@ -7835,10 +7753,6 @@
       <key>en</key>
       <value>SXTable</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>SXTablolar</value>
-    </title>
     <id>13</id>
     <valueType>
       <types>ValueTable</types>
@@ -7858,10 +7772,6 @@
       <title>
         <key>en</key>
         <value>Table name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tablo adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -7885,10 +7795,6 @@
         <key>en</key>
         <value>Storage table name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Depolama tablosu adı</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -7910,10 +7816,6 @@
       <title>
         <key>en</key>
         <value>Purpose</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Amaç</value>
       </title>
       <id>3</id>
       <valueType>
@@ -7937,10 +7839,6 @@
         <key>en</key>
         <value>Metadata</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Metaveri</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -7962,10 +7860,6 @@
       <title>
         <key>en</key>
         <value>Table number</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tablo numarası</value>
       </title>
       <id>5</id>
       <valueType>
@@ -7990,10 +7884,6 @@
       <key>en</key>
       <value>SXFielsd</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>SXAlanları</value>
-    </title>
     <id>14</id>
     <valueType>
       <types>ValueTable</types>
@@ -8013,10 +7903,6 @@
       <title>
         <key>en</key>
         <value>Storage table name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Depolama tablosu adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -8040,10 +7926,6 @@
         <key>en</key>
         <value>Field name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Alan adı</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -8066,10 +7948,6 @@
         <key>en</key>
         <value>Storage field name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Depolama alanı adı</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -8091,10 +7969,6 @@
       <title>
         <key>en</key>
         <value>Table number</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tablo numarası</value>
       </title>
       <id>2</id>
       <valueType>
@@ -8119,10 +7993,6 @@
       <key>en</key>
       <value>SXIndexes</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>SXIndeksleri</value>
-    </title>
     <id>15</id>
     <valueType>
       <types>ValueTable</types>
@@ -8142,10 +8012,6 @@
       <title>
         <key>en</key>
         <value>Storage table name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Depolama tablosu adı</value>
       </title>
       <id>2</id>
       <valueType>
@@ -8169,10 +8035,6 @@
         <key>en</key>
         <value>Storage index name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Depolama dizin adı</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>String</types>
@@ -8195,10 +8057,6 @@
         <key>en</key>
         <value>Table number</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tablo numarası</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>String</types>
@@ -8220,10 +8078,6 @@
       <title>
         <key>en</key>
         <value>Index number</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Dizin numarası</value>
       </title>
       <id>4</id>
       <valueType>
@@ -8248,10 +8102,6 @@
       <key>en</key>
       <value>SXIndex fields</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>SXIndex alanları</value>
-    </title>
     <id>16</id>
     <valueType>
       <types>ValueTable</types>
@@ -8271,10 +8121,6 @@
       <title>
         <key>en</key>
         <value>Storage index name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Depolama dizin adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -8298,10 +8144,6 @@
         <key>en</key>
         <value>Field name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Alan adı</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -8323,10 +8165,6 @@
       <title>
         <key>en</key>
         <value>Storage field name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Depolama alanı adı</value>
       </title>
       <id>3</id>
       <valueType>
@@ -8350,10 +8188,6 @@
         <key>en</key>
         <value>Index number</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Endeks numarası</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -8376,10 +8210,6 @@
     <title>
       <key>en</key>
       <value>Show storage structure in1 c terms</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Depolama yapısını 1C terimleriyle göster</value>
     </title>
     <id>17</id>
     <valueType>
@@ -8405,10 +8235,6 @@
       <key>en</key>
       <value>Use totals</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Toplamları kullan</value>
-    </title>
     <id>18</id>
     <valueType>
       <types>Boolean</types>
@@ -8429,10 +8255,6 @@
     <title>
       <key>en</key>
       <value>Use current totals</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut toplamları kullan</value>
     </title>
     <id>19</id>
     <valueType>
@@ -8455,10 +8277,6 @@
       <key>en</key>
       <value>Dividing totals mode</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Toplamları bölme modu</value>
-    </title>
     <id>20</id>
     <valueType>
       <types>Boolean</types>
@@ -8479,10 +8297,6 @@
     <title>
       <key>en</key>
       <value>Aggregate mode</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Toplama modu</value>
     </title>
     <id>21</id>
     <valueType>
@@ -8505,10 +8319,6 @@
       <key>en</key>
       <value>Use aggregates</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Agregaları kullanın</value>
-    </title>
     <id>22</id>
     <valueType>
       <types>Boolean</types>
@@ -8530,10 +8340,6 @@
       <key>en</key>
       <value>Period recalculation totals</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Dönem yeniden hesaplama toplamları</value>
-    </title>
     <id>23</id>
     <valueType>
       <types>StandardPeriod</types>
@@ -8554,10 +8360,6 @@
     <title>
       <key>en</key>
       <value>Minimum period of calculated totals</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Hesaplanan toplamların asgari süresi</value>
     </title>
     <id>24</id>
     <valueType>
@@ -8581,10 +8383,6 @@
       <key>en</key>
       <value>Maximum period of calculated totals</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Hesaplanan toplamların maksimum süresi</value>
-    </title>
     <id>25</id>
     <valueType>
       <types>Date</types>
@@ -8607,10 +8405,6 @@
       <key>en</key>
       <value>Available objects</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut nesneler</value>
-    </title>
     <id>27</id>
     <valueType>
       <types>ValueTable</types>
@@ -8630,10 +8424,6 @@
       <title>
         <key>en</key>
         <value>Kind</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tür</value>
       </title>
       <id>1</id>
       <valueType>
@@ -8657,10 +8447,6 @@
         <key>en</key>
         <value>Name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -8682,10 +8468,6 @@
       <title>
         <key>en</key>
         <value>Presentation</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Gösterim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -8709,10 +8491,6 @@
         <key>en</key>
         <value>Full name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tam adı</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -8734,10 +8512,6 @@
       <title>
         <key>en</key>
         <value>Restriction by condition</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Koşula bağlı kısıtlama</value>
       </title>
       <id>5</id>
       <valueType>
@@ -8761,10 +8535,6 @@
       <key>en</key>
       <value>Additional vars</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Ek değişkenler</value>
-    </title>
     <id>28</id>
     <valueType/>
     <view>
@@ -8783,10 +8553,6 @@
     <title>
       <key>en</key>
       <value>Users with access table</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Erişim tablosu olan kullanıcılar</value>
     </title>
     <id>29</id>
     <valueType>
@@ -8807,10 +8573,6 @@
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -8835,10 +8597,6 @@
       <title>
         <key>en</key>
         <value>Full name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tam adı</value>
       </title>
       <id>2</id>
       <valueType>
@@ -8865,10 +8623,6 @@
       <key>en</key>
       <value>Roles with access table</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Erişim tablosu olan roller</value>
-    </title>
     <id>30</id>
     <valueType>
       <types>ValueTable</types>
@@ -8888,10 +8642,6 @@
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -8917,10 +8667,6 @@
         <key>en</key>
         <value>Synonym</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Eş anlamlısı</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -8945,10 +8691,6 @@
         <key>en</key>
         <value>Restriction by condition</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Koşula bağlı kısıtlama</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>Boolean</types>
@@ -8970,10 +8712,6 @@
     <title>
       <key>en</key>
       <value>Access right to object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Kontrol edilen erişim hakları</value>
     </title>
     <id>32</id>
     <valueType>
@@ -8997,10 +8735,6 @@
       <key>en</key>
       <value>Dependent objects</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bağımlı nesneler</value>
-    </title>
     <id>33</id>
     <valueType>
       <types>ValueTree</types>
@@ -9020,10 +8754,6 @@
       <title>
         <key>en</key>
         <value>Node type</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Düğüm türü</value>
       </title>
       <id>1</id>
       <valueType>
@@ -9047,10 +8777,6 @@
         <key>en</key>
         <value>Name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -9072,10 +8798,6 @@
       <title>
         <key>en</key>
         <value>Presentation</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Gösterim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -9099,10 +8821,6 @@
         <key>en</key>
         <value>Full name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tam adı</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>String</types>
@@ -9124,10 +8842,6 @@
       <title>
         <key>en</key>
         <value>Where found</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Nerede bulundu</value>
       </title>
       <id>5</id>
       <valueType>
@@ -9152,10 +8866,6 @@
       <key>en</key>
       <value>Where found</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Nerede bulundu</value>
-    </title>
     <id>34</id>
     <valueType>
       <types>String</types>
@@ -9177,10 +8887,6 @@
     <title>
       <key>en</key>
       <value>Constant value</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sabit değer</value>
     </title>
     <id>35</id>
     <valueType>
@@ -9218,10 +8924,6 @@
       <key>en</key>
       <value>Type of constant value</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sabit değer türü</value>
-    </title>
     <id>36</id>
     <valueType>
       <types>String</types>
@@ -9243,10 +8945,6 @@
     <title>
       <key>en</key>
       <value>Text constant value</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Metin sabit değeri</value>
     </title>
     <id>37</id>
     <valueType>
@@ -9270,10 +8968,6 @@
       <key>en</key>
       <value>Use text when writing constants</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sabitleri yazarken metin kullanın</value>
-    </title>
     <id>38</id>
     <valueType>
       <types>Boolean</types>
@@ -9288,16 +8982,12 @@
   <formCommands>
     <name>kOpemListForm</name>
     <title>
-      <key>ru</key>
-      <value>Стандартная форма...</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Standart form ...</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Standart form ...</value>
+      <key>ru</key>
+      <value>Стандартная форма...</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -9321,16 +9011,12 @@
   <formCommands>
     <name>kShowObjectProperties</name>
     <title>
-      <key>ru</key>
-      <value>Свойства объекта</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Object properties</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Nesne özellikleri</value>
+      <key>ru</key>
+      <value>Свойства объекта</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -9354,16 +9040,12 @@
   <formCommands>
     <name>kOpemListFormAdditional</name>
     <title>
-      <key>ru</key>
-      <value>Динамический список</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Dynamic list</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dinamik liste</value>
+      <key>ru</key>
+      <value>Динамический список</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -9394,10 +9076,6 @@
       <key>en</key>
       <value>Expand all nodes</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tüm grupları genişlet</value>
-    </title>
     <id>4</id>
     <toolTip>
       <key>ru</key>
@@ -9426,10 +9104,6 @@
       <key>en</key>
       <value>Collapse all nodes</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tüm grupları daralt</value>
-    </title>
     <id>5</id>
     <toolTip>
       <key>ru</key>
@@ -9457,10 +9131,6 @@
     <title>
       <key>en</key>
       <value>Open object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne düzenleyici...</value>
     </title>
     <id>6</id>
     <toolTip>
@@ -9491,10 +9161,6 @@
       <key>en</key>
       <value>Update number of objects</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne sayısını güncelle</value>
-    </title>
     <id>7</id>
     <toolTip>
       <key>ru</key>
@@ -9523,10 +9189,6 @@
     <title>
       <key>en</key>
       <value>Update totals management</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Toplam yönetimini güncelle</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -9557,10 +9219,6 @@
       <key>en</key>
       <value>Recalculate totals</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Toplamları yeniden hesapla</value>
-    </title>
     <id>9</id>
     <toolTip>
       <key>ru</key>
@@ -9585,10 +9243,6 @@
     <title>
       <key>en</key>
       <value>Recalculate current totals</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Mevcut toplamları yeniden hesapla</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -9615,10 +9269,6 @@
       <key>en</key>
       <value>Recalculate totals for the period</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Dönem için toplamları yeniden hesapla</value>
-    </title>
     <id>11</id>
     <toolTip>
       <key>ru</key>
@@ -9644,10 +9294,6 @@
       <key>en</key>
       <value>Install priod of calculated totals</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Düzenleme...</value>
-    </title>
     <id>12</id>
     <toolTip>
       <key>ru</key>
@@ -9672,10 +9318,6 @@
     <title>
       <key>en</key>
       <value>Full in access rights</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yenile</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -9706,10 +9348,6 @@
       <key>en</key>
       <value>Open access rights object</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne özellikleri...</value>
-    </title>
     <id>14</id>
     <toolTip>
       <key>ru</key>
@@ -9738,10 +9376,6 @@
     <title>
       <key>en</key>
       <value>Fill in dependent objects</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Doldur</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -9772,10 +9406,6 @@
       <key>en</key>
       <value>Open subordinate object</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne özellikleri...</value>
-    </title>
     <id>16</id>
     <toolTip>
       <key>ru</key>
@@ -9805,10 +9435,6 @@
       <key>en</key>
       <value>Read constant</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sabiti oku</value>
-    </title>
     <id>17</id>
     <toolTip>
       <key>ru</key>
@@ -9837,10 +9463,6 @@
     <title>
       <key>en</key>
       <value>Record constant</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Yaz</value>
     </title>
     <id>18</id>
     <toolTip>

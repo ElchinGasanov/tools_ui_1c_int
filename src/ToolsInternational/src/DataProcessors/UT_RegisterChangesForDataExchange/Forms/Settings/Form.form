@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Настройки</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Settings</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Ayarlar</value>
+    <key>ru</key>
+    <value>Настройки</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>Group8</name>
@@ -70,24 +66,22 @@
           <name>RegisterRecordsAutoRecord</name>
           <id>1</id>
           <title>
-            <key>ru</key>
-            <value>Движений вместе с документами</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Register records with documents</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Kayıtları belgelerle birlikte kaydet</value>
+            <key>ru</key>
+            <value>Движений вместе с документами</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.RegisterRecordAutoRecordSetting</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.RegisterRecordAutoRecordSetting</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -126,24 +120,22 @@
           <name>SequencesAutoRecord</name>
           <id>3</id>
           <title>
-            <key>ru</key>
-            <value>Последовательностей вместе с документами</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Sequences with documents</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>İşlem sıraları belgelerle birlikte</value>
+            <key>ru</key>
+            <value>Последовательностей вместе с документами</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.SequenceAutoRecordSetting</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.SequenceAutoRecordSetting</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -213,16 +205,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Авторегистрация</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Auto register</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Otomatik kayıt</value>
+        <key>ru</key>
+        <value>Авторегистрация</value>
       </title>
       <horizontalStretch>true</horizontalStretch>
       <extendedTooltip>
@@ -261,8 +249,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.MessageNumberOptionSetting</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.MessageNumberOptionSetting</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <extendedTooltip>
@@ -299,16 +289,12 @@
           <columnsCount>1</columnsCount>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Регистрировать как не отправленные</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Register as unsent messages</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Gönderilmedi olarak kaydet</value>
+              <key>ru</key>
+              <value>Регистрировать как не отправленные</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>0</value>
@@ -316,16 +302,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Использовать номер сообщения узла обмена</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Use message numbers of the exchange node</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Değişim düğümünün mesaj numarasını kullanın</value>
+              <key>ru</key>
+              <value>Использовать номер сообщения узла обмена</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>1</value>
@@ -454,24 +436,22 @@
           <name>ExternalQueryDataProcessor</name>
           <id>9</id>
           <title>
-            <key>ru</key>
-            <value>Вспомогательная обработка для работы с результатами запроса</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Auxiliary data processor to process query results</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sorgu sonuçlarıyla çalışmak için yardımcı işlemci</value>
+            <key>ru</key>
+            <value>Вспомогательная обработка для работы с результатами запроса</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>QueryConsoleUsageOption</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>QueryConsoleUsageOption</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -587,8 +567,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.QueryExternalDataProcessorAddressSetting</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.QueryExternalDataProcessorAddressSetting</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <handlers>
@@ -703,16 +685,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Консоль запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query console</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu konsolu</value>
+      <key>ru</key>
+      <value>Консоль запросов</value>
     </title>
     <horizontalStretch>true</horizontalStretch>
     <extendedTooltip>
@@ -747,25 +725,23 @@
       <name>ObjectExportControlSetting</name>
       <id>27</id>
       <title>
-        <key>ru</key>
-        <value>Использовать при регистрации изменений объектов ограничения
-					миграции данных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Use data migration restrictions when registering object changes</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Nesne değişikliklerini kaydederken veri geçiş kısıtlamalarını kullanın</value>
+        <key>ru</key>
+        <value>Использовать при регистрации изменений объектов ограничения
+					миграции данных</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.ObjectExportControlSetting</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.ObjectExportControlSetting</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <extendedTooltip>
@@ -806,16 +782,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Библиотека стандартных подсистем</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Standard Subsystems Library</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Standard Subsystems Library</value>
+      <key>ru</key>
+      <value>Библиотека стандартных подсистем</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -860,16 +832,12 @@
       <name>FormOK</name>
       <id>18</id>
       <title>
-        <key>ru</key>
-        <value>Записать</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Write</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Yaz</value>
+        <key>ru</key>
+        <value>Записать</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -947,7 +915,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <windowOpeningMode>LockOwnerWindow</windowOpeningMode>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -957,10 +924,6 @@
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_RegisterChangesForDataExchange</types>
@@ -976,16 +939,12 @@
   <attributes>
     <name>QueryConsoleUsageOption</name>
     <title>
-      <key>ru</key>
-      <value>Вариант использования консоли запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query console usage option</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu konsolu kullanım seçeneği</value>
+      <key>ru</key>
+      <value>Вариант использования консоли запросов</value>
     </title>
     <id>5</id>
     <valueType>
@@ -1004,16 +963,12 @@
   <attributes>
     <name>QueryConsoleID</name>
     <title>
-      <key>ru</key>
-      <value>Идентификатор консоли запросов</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Query console ID</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sorgu konsolu ID</value>
+      <key>ru</key>
+      <value>Идентификатор консоли запросов</value>
     </title>
     <id>2</id>
     <valueType>
@@ -1030,16 +985,12 @@
   <formCommands>
     <name>ConfirmSelection</name>
     <title>
-      <key>ru</key>
-      <value>ОК</value>
-    </title>
-    <title>
       <key>en</key>
       <value>OK</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>OK</value>
+      <key>ru</key>
+      <value>ОК</value>
     </title>
     <id>1</id>
     <toolTip>

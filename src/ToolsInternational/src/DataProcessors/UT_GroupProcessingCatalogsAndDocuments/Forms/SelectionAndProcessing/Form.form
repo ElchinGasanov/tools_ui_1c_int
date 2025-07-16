@@ -11,8 +11,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.ObjectType</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.ObjectType</segments>
+        </paths>
       </dataPath>
       <handlers>
         <event>OnChange</event>
@@ -51,16 +53,12 @@
       <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
         <choiceList>
           <presentation>
-            <key>ru</key>
-            <value>Справочники</value>
-          </presentation>
-          <presentation>
             <key>en</key>
             <value>Catalogs</value>
           </presentation>
           <presentation>
-            <key>tr</key>
-            <value>Kataloglar</value>
+            <key>ru</key>
+            <value>Справочники</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>0</value>
@@ -68,16 +66,12 @@
         </choiceList>
         <choiceList>
           <presentation>
-            <key>ru</key>
-            <value>Документы</value>
-          </presentation>
-          <presentation>
             <key>en</key>
             <value>Documents</value>
           </presentation>
           <presentation>
-            <key>tr</key>
-            <value>Belgeler</value>
+            <key>ru</key>
+            <value>Документы</value>
           </presentation>
           <value xsi:type="core:NumberValue">
             <value>1</value>
@@ -93,8 +87,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Object.ProcessTabularParts</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Object.ProcessTabularParts</segments>
+        </paths>
       </dataPath>
       <titleLocation>Right</titleLocation>
       <handlers>
@@ -184,8 +180,10 @@
     <userVisible>
       <common>true</common>
     </userVisible>
-    <dataPath xsi:type="form:DataPath">
-      <segments>SearchObjectRepresentation</segments>
+    <dataPath xsi:type="form:MultiLanguageDataPath">
+      <paths xsi:type="form:DataPath">
+        <segments>SearchObjectRepresentation</segments>
+      </paths>
     </dataPath>
     <handlers>
       <event>OnChange</event>
@@ -259,8 +257,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>TableFieldTypesObjects.TableName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>TableFieldTypesObjects.TableName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>TableFieldTypesObjectsTableNameExtendedTooltip</name>
@@ -309,8 +309,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>TableFieldTypesObjects.PresentationTable</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>TableFieldTypesObjects.PresentationTable</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>TableFieldTypesObjectsPresentationTableExtendedTooltip</name>
@@ -471,7 +473,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>TableFieldTypesObjects</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -510,7 +511,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>TableFieldTypesObjects</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -550,7 +550,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>TableFieldTypesObjects</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -611,16 +610,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Выбор объектов</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Choise objects</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Nesneleri seçme</value>
+        <key>ru</key>
+        <value>Выбор объектов</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -671,8 +666,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FoundObjects.Choose</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FoundObjects.Choose</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -715,8 +712,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FoundObjects.Picture</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FoundObjects.Picture</segments>
+            </paths>
           </dataPath>
           <titleLocation>None</titleLocation>
           <extendedTooltip>
@@ -754,10 +753,6 @@
             <autoMaxHeight>true</autoMaxHeight>
             <horizontalStretch>true</horizontalStretch>
             <verticalStretch>true</verticalStretch>
-            <border xsi:type="core:BorderDef">
-              <style>Single</style>
-              <width>1</width>
-            </border>
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
@@ -768,8 +763,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>FoundObjects.Object</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>FoundObjects.Object</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>FoundObjectsObjectExtendedTooltip</name>
@@ -1043,7 +1040,6 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>FoundObjects</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1082,7 +1078,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>FoundObjects</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -1122,7 +1117,6 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>FoundObjects</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1173,6 +1167,7 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <placementArea>UserCmds</placementArea>
+            <toolTipRepresentation>Auto</toolTipRepresentation>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
           <visible>true</visible>
@@ -1212,16 +1207,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Найденные объекты</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Founded objects</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Bulunan nesneler</value>
+        <key>ru</key>
+        <value>Найденные объекты</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -1365,8 +1356,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>AvailableDataProcessors.Picture</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>AvailableDataProcessors.Picture</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <extendedTooltip>
@@ -1421,8 +1414,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>AvailableDataProcessors.Processing</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>AvailableDataProcessors.Processing</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>AvailableDataProcessorsProcessingExtendedTooltip</name>
@@ -1561,7 +1556,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>AvailableDataProcessors</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -1600,7 +1594,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>AvailableDataProcessors</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -1640,7 +1633,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>AvailableDataProcessors</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -1702,16 +1694,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Доступные обработки</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Available data processors</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Mevcut veri işlemcileri</value>
+            <key>ru</key>
+            <value>Доступные обработки</value>
           </title>
           <toolTip>
             <key>ru</key>
@@ -1768,8 +1756,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>SelectedDataProcessors.Choose</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>SelectedDataProcessors.Choose</segments>
+                </paths>
               </dataPath>
               <titleLocation>None</titleLocation>
               <extendedTooltip>
@@ -1812,8 +1802,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>SelectedDataProcessors.ProcessingSetting</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>SelectedDataProcessors.ProcessingSetting</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>SelectedDataProcessorsProcessingSettingExtendedTooltip</name>
@@ -1996,7 +1988,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>SelectedDataProcessors</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2035,7 +2026,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>SelectedDataProcessors</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -2075,7 +2065,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>SelectedDataProcessors</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2136,16 +2125,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Выбранные обработки (перетащить из доступных обработок)</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Selected data processors (drag and drop from available data processors)</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Seçilen işlemler (mevcut işlemcilerden sürükleyin)</value>
+            <key>ru</key>
+            <value>Выбранные обработки (перетащить из доступных обработок)</value>
           </title>
           <toolTip>
             <key>ru</key>
@@ -2219,16 +2204,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Обработки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Data processors</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İşlemciler</value>
+        <key>ru</key>
+        <value>Обработки</value>
       </title>
       <toolTip>
         <key>ru</key>
@@ -2313,7 +2294,6 @@
     <name>OnCreateAtServer</name>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -2329,10 +2309,6 @@
       <key>en</key>
       <value>Object</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_GroupProcessingCatalogsAndDocuments</types>
@@ -2344,13 +2320,13 @@
       <common>true</common>
     </edit>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ObjectType</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
       <segments>Object.ProcessTabularParts</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
       <segments>Object.SearchMode</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ObjectType</segments>
     </settingsSavedData>
     <main>true</main>
   </attributes>
@@ -2363,10 +2339,6 @@
     <title>
       <key>en</key>
       <value>Search object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Arama nesnesi</value>
     </title>
     <id>3</id>
     <valueType/>
@@ -2389,10 +2361,6 @@
     <title>
       <key>en</key>
       <value>Search object representation</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Arama nesnesi gösterimi</value>
     </title>
     <id>4</id>
     <valueType>
@@ -2419,10 +2387,6 @@
       <key>en</key>
       <value>Query text</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sorgu metni</value>
-    </title>
     <id>5</id>
     <valueType>
       <types>String</types>
@@ -2441,16 +2405,12 @@
   <attributes>
     <name>AvailableDataProcessors</name>
     <title>
-      <key>ru</key>
-      <value>Доступные обработки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Available data processors</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Geçerli veri işlemcileri</value>
+      <key>ru</key>
+      <value>Доступные обработки</value>
     </title>
     <id>8</id>
     <valueType>
@@ -2475,10 +2435,6 @@
         <key>en</key>
         <value>Processing</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Processing</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>String</types>
@@ -2500,10 +2456,6 @@
       <title>
         <key>en</key>
         <value>Form name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Form adı</value>
       </title>
       <id>2</id>
       <valueType>
@@ -2527,10 +2479,6 @@
         <key>en</key>
         <value>Setting</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Ayarlar</value>
-      </title>
       <id>4</id>
       <valueType>
         <types>ValueList</types>
@@ -2551,10 +2499,6 @@
       <title>
         <key>en</key>
         <value>Picture</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2578,10 +2522,6 @@
       <key>en</key>
       <value>Selected data processors</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Seçili veri işlemcileri</value>
-    </title>
     <id>9</id>
     <valueType>
       <types>ValueTable</types>
@@ -2601,10 +2541,6 @@
       <title>
         <key>en</key>
         <value>Processing setting</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ayarlar</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2627,10 +2563,6 @@
       <title>
         <key>en</key>
         <value>Row available data processor</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Satır mevcut veri işlemcisi</value>
       </title>
       <id>2</id>
       <valueType>
@@ -2657,10 +2589,6 @@
         <key>en</key>
         <value>Choose</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Seç</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>Boolean</types>
@@ -2681,10 +2609,6 @@
       <title>
         <key>en</key>
         <value>Setting</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ayarlar</value>
       </title>
       <id>4</id>
       <valueType>
@@ -2708,10 +2632,6 @@
       <key>en</key>
       <value>Found objects</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Bulunan nesneler</value>
-    </title>
     <id>10</id>
     <valueType>
       <types>ValueTable</types>
@@ -2732,10 +2652,6 @@
         <key>en</key>
         <value>Object</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Nesne</value>
-      </title>
       <id>1</id>
       <valueType/>
       <view>
@@ -2755,10 +2671,6 @@
         <key>en</key>
         <value>Choose</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Seç</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>Boolean</types>
@@ -2775,10 +2687,6 @@
       <title>
         <key>en</key>
         <value>Picture</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Resim</value>
       </title>
       <id>3</id>
       <valueType>
@@ -2806,10 +2714,6 @@
       <key>en</key>
       <value>Added attributes</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Eklenen nitelikler</value>
-    </title>
     <id>11</id>
     <valueType>
       <types>ValueList</types>
@@ -2833,10 +2737,6 @@
     <title>
       <key>en</key>
       <value>Added items</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Eklenen öğeler</value>
     </title>
     <id>12</id>
     <valueType>
@@ -2862,10 +2762,6 @@
       <key>en</key>
       <value>Data selection</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Veri seçimi</value>
-    </title>
     <id>2</id>
     <valueType/>
     <view>
@@ -2887,10 +2783,6 @@
     <title>
       <key>en</key>
       <value>Search string</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Arama çubuğu</value>
     </title>
     <id>6</id>
     <valueType>
@@ -2917,10 +2809,6 @@
       <key>en</key>
       <value>Query parameters</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Sorgu parametreleri</value>
-    </title>
     <id>7</id>
     <valueType>
       <types>ValueTable</types>
@@ -2944,10 +2832,6 @@
       <title>
         <key>en</key>
         <value>Parameter name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Parametre adı</value>
       </title>
       <id>1</id>
       <valueType>
@@ -2973,10 +2857,6 @@
         <key>en</key>
         <value>This expression</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Bu ifade</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>Boolean</types>
@@ -2997,10 +2877,6 @@
       <title>
         <key>en</key>
         <value>Parameter value</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Değer</value>
       </title>
       <id>6</id>
       <valueType>
@@ -3034,10 +2910,6 @@
       <key>en</key>
       <value>Arbitrary query text</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Rastgele sorgu metni</value>
-    </title>
     <id>14</id>
     <valueType>
       <types>String</types>
@@ -3063,10 +2935,6 @@
       <key>en</key>
       <value>Table field types objects</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne türleri tablo alanı</value>
-    </title>
     <id>15</id>
     <valueType>
       <types>ValueTable</types>
@@ -3090,10 +2958,6 @@
         <key>en</key>
         <value>Table name</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tablo adı</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>String</types>
@@ -3115,10 +2979,6 @@
       <title>
         <key>en</key>
         <value>Presentation table</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Tablo gösterimi</value>
       </title>
       <id>2</id>
       <valueType>
@@ -3143,10 +3003,6 @@
       <key>en</key>
       <value>In configuration yes properties</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Konfigurasyonda özellikler var</value>
-    </title>
     <id>13</id>
     <valueType>
       <types>Boolean</types>
@@ -3167,10 +3023,6 @@
     <title>
       <key>en</key>
       <value>In configuration yes categories</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Konfigurasyonda kategoriler var</value>
     </title>
     <id>16</id>
     <valueType>
@@ -3193,10 +3045,6 @@
       <key>en</key>
       <value>In configuration yes order management</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Konfigurasyon sipariş yönetimini içerir</value>
-    </title>
     <id>17</id>
     <valueType>
       <types>Boolean</types>
@@ -3217,10 +3065,6 @@
     <title>
       <key>en</key>
       <value>Restriction on strings unlimited length</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Sınırsız uzunluktaki satırlara kısıtlama</value>
     </title>
     <id>18</id>
     <valueType>
@@ -3246,10 +3090,6 @@
       <key>en</key>
       <value>Selection by categories</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kategorilere göre seçim</value>
-    </title>
     <id>19</id>
     <valueType>
       <types>Boolean</types>
@@ -3270,10 +3110,6 @@
     <title>
       <key>en</key>
       <value>Selection by properties</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Özelliklere göre seçim</value>
     </title>
     <id>20</id>
     <valueType>
@@ -3296,10 +3132,6 @@
       <key>en</key>
       <value>Table attributes</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Öznitelikler tablosu</value>
-    </title>
     <id>22</id>
     <valueType>
       <types>ValueTable</types>
@@ -3319,10 +3151,6 @@
       <title>
         <key>en</key>
         <value>Name</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Ad</value>
       </title>
       <id>1</id>
       <valueType>
@@ -3346,10 +3174,6 @@
         <key>en</key>
         <value>Presentation</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Gösterim</value>
-      </title>
       <id>2</id>
       <valueType>
         <types>String</types>
@@ -3372,10 +3196,6 @@
         <key>en</key>
         <value>Type</value>
       </title>
-      <title>
-        <key>tr</key>
-        <value>Tür</value>
-      </title>
       <id>3</id>
       <valueType>
         <types>TypeDescription</types>
@@ -3396,10 +3216,6 @@
       <title>
         <key>en</key>
         <value>This TP</value>
-      </title>
-      <title>
-        <key>tr</key>
-        <value>Bu TB</value>
       </title>
       <id>4</id>
       <valueType>
@@ -3423,10 +3239,6 @@
       <key>en</key>
       <value>M shaped mode</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>M şekilli mod</value>
-    </title>
     <id>23</id>
     <valueType/>
     <view>
@@ -3445,10 +3257,6 @@
     <title>
       <key>en</key>
       <value>View list</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Görünümler listesi</value>
     </title>
     <id>21</id>
     <valueType>
@@ -3473,10 +3281,6 @@
     <title>
       <key>en</key>
       <value>Find links</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Bağlantıları bul</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -3508,10 +3312,6 @@
       <key>en</key>
       <value>Check all</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tümünü seç</value>
-    </title>
     <id>2</id>
     <toolTip>
       <key>ru</key>
@@ -3540,10 +3340,6 @@
       <key>en</key>
       <value>Uncheck all</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tümünü seçimi iptal et</value>
-    </title>
     <id>3</id>
     <toolTip>
       <key>ru</key>
@@ -3571,10 +3367,6 @@
     <title>
       <key>en</key>
       <value>Execute processing</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>İşlemi yürüt</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -3605,10 +3397,6 @@
       <key>en</key>
       <value>Filter</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Filtre</value>
-    </title>
     <id>5</id>
     <toolTip>
       <key>ru</key>
@@ -3638,10 +3426,6 @@
       <key>en</key>
       <value>Check all data processors</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tümünü seç</value>
-    </title>
     <id>6</id>
     <toolTip>
       <key>ru</key>
@@ -3670,10 +3454,6 @@
       <key>en</key>
       <value>Uncheck all data processors</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Tümünü seçimi iptal et</value>
-    </title>
     <id>7</id>
     <toolTip>
       <key>ru</key>
@@ -3701,10 +3481,6 @@
     <title>
       <key>en</key>
       <value>Edit object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesneyi düzenle</value>
     </title>
     <id>8</id>
     <use>

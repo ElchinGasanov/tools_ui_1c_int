@@ -591,7 +591,7 @@ EndProcedure
 
 &AtClient
 Procedure CloseTool(Command)
-	ShowQueryBox(New NotifyDescription("CloseToolComplete", ThisForm), NStr("ru = 'Выйти из редактора?'; en = 'Exit editor?'; tr = 'Editörden çıkılsın mı?'"),
+	ShowQueryBox(New NotifyDescription("CloseToolComplete", ThisForm), NStr("ru = 'Выйти из редактора?'; en = 'Exit editor?'"),
 		QuestionDialogMode.YesNo);
 EndProcedure
 

@@ -18,7 +18,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 
 	If Included <> 0 Then
 		Items.StatusBar.Title = SubstituteParametersIntoTheString(
-			NStr("ru = 'Отмеченные регламентные задания выполняются на этом клиентском компьютере (%1)...'; en = 'Marked scheduled jobs are running on this client computer (%1)...'; tr = 'İşaretli zamanlanmış görevler bu istemci bilgisayarda çalışıyor (%1)...'"), Included);
+			NStr("ru = 'Отмеченные регламентные задания выполняются на этом клиентском компьютере (%1)...';en = 'Marked scheduled jobs are running on this client computer (%1)...'"), Included);
 	EndIf;
 
 	UT_Common.ToolFormOnCreateAtServer(ThisObject, Cancel, StandardProcessing);
@@ -56,10 +56,10 @@ Procedure TableOfScheduledJobsToPerformOnChange(Item)
 
 	If Included = 0 Then
 		Items.StatusBar.Title = NStr(
-			"ru = 'Отметьте регламентные задания для выполнения на клиентском компьютере...'; en = 'Mark scheduled tasks to run on the client computer...'; tr = 'Zamanlanmış görevleri istemci bilgisayarda çalıştırmak için işaretle...'");
+			"ru = 'Отметьте регламентные задания для выполнения на клиентском компьютере...';en = 'Mark scheduled tasks to run on the client computer...'");
 	Else
 		Items.StatusBar.Title = SubstituteParametersIntoTheString(
-			NStr("ru = 'Отмеченные регламентные задания выполняются на этом клиентском компьютере (%1)...'; en = 'Marked scheduled jobs run on this client computer (%1)...'; tr = 'İşaretli zamanlanmış görevler bu istemci bilgisayarda çalışıyor (%1)...'"), Included);
+			NStr("ru = 'Отмеченные регламентные задания выполняются на этом клиентском компьютере (%1)...';en = 'Marked scheduled jobs run on this client computer (%1)...'"), Included);
 	EndIf;
 
 EndProcedure
@@ -337,7 +337,7 @@ Function ExecuteScheduledJob(Val Job)
 
 	MethodName = Job.Metadata.MethodName;
 	DescriptionSheduledJob = SubstituteParametersIntoTheString(
-		?(RunManually, NStr("ru = 'Запуск вручную: %1'; en = 'Manual start: %1'; tr = 'Manuel başlatma: %1'"), NStr("ru = 'Автозапуск: %1'; en = 'Autostart: %1'; tr = 'Otomatik başlatma: %1'")),
+		?(RunManually, NStr("ru = 'Запуск вручную: %1';en = 'Manual start: %1'"), NStr("ru = 'Автозапуск: %1';en = 'Autostart: %1'")),
 		RepresentationScheduledJob(Job));
 
 	StartUpMoment = ?(TypeOf(StartUpMoment) <> Type("Date") Or Not ValueIsFilled(StartUpMoment),
@@ -538,7 +538,7 @@ Function GetSheduledJobsPropertyTable(Filter = Undefined)
 						Properties.End = CurrentSessionDate();
 						Properties.Status = BackgroundJobState.Failed;
 						Properties.DescriptionErrorInformation = NStr(
-							"ru = 'Не найден сеанс, выполняющий процедуру регламентного задания.'; en = 'A session performing the routine task procedure was not found.'; tr = 'Rutin görev prosedürünü gerçekleştiren bir oturum bulunamadı.'");
+							"ru = 'Не найден сеанс, выполняющий процедуру регламентного задания.';en = 'A session performing the routine task procedure was not found.'");
 					EndIf;
 				EndIf;
 				FillPropertyValues(Table.Add(), Properties);
@@ -643,7 +643,7 @@ Function RepresentationScheduledJob(Val Job) Export
 		EndIf
 		;
 	Else
-		Presentation = NStr("ru = '<не определено>'; en = '<undefined>'; tr = '<belirsiz>'");
+		Presentation = NStr("ru = '<не определено>';en = '<undefined>'");
 	EndIf;
 
 	Return Presentation;

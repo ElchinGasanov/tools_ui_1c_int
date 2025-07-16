@@ -34,13 +34,13 @@ Function SearchForDuplicatesAreaManager(Val DataSearchAreaName) Export
 		
 	EndIf;
 
-	Raise StrTemplate(NStr("ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Invalid metadata object type: %1.'; tr = 'Geçersiz metaveri nesne türü: %1.'"), DataSearchAreaName);
+	Raise StrTemplate(NStr("ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Invalid metadata object type: %1.'"), DataSearchAreaName);
 EndFunction
 
 // Subsystem presentation. It is used for writing to the event log and in other places.
 Function SubsystemDescription(ForUser) Export
 	LanguageCode = ?(ForUser, UT_CommonClientServer.DefaultLanguageCode(), "");
-	Return NStr("ru = 'Поиск и удаление дублей'; en = 'Duplicate object detection'; tr = 'Yinelenen nesne tespiti'", LanguageCode);
+	Return NStr("ru = 'Поиск и удаление дублей'; en = 'Duplicate object detection'", LanguageCode);
 EndFunction
 
 // Search for duplicates.
@@ -334,8 +334,9 @@ Function DuplicatesGroups(Val SearchParameters, Val SampleObject = Undefined) Ex
 			If FuzzySearch = Undefined Then
 				Result.ErrorDescription = 
 					NStr("ru = 'Не удалось подключить внешнюю компоненту FuzzyStringMatchExtension из макета ""ОбщийМакет.УИ_КомпонентаПоискаСтрок""
-																		  |Подробнее см. в журнале регистрации.'; en = 'Cannot attach add-in FuzzyStringMatchExtension from template CommonTemplate.UT_StringSearchComponent.
-																		  |For more information, see the event log.'; tr = 'CommonTemplate.UT_StringSearchComponent şablonundan FuzzyStringMatchExtension eklentisi eklenemiyor.'");
+					           |Подробнее см. в журнале регистрации.'; 
+					           |en = 'Cannot attach add-in FuzzyStringMatchExtension from template CommonTemplate.UT_StringSearchComponent.
+					           |For more information, see the event log.'");
 				Return Result;
 			EndIf;
 			For Each KeyValue In SimilarityFieldsStructure Do
@@ -396,10 +397,10 @@ Function DuplicatesGroups(Val SearchParameters, Val SampleObject = Undefined) Ex
 				DuplicatesTable.Delete(Row);
 			EndDo;
 			If Found > 0 AND DuplicatesTable.Count() = 0 Then
-				Result.ErrorDescription = NStr("ru = 'Найдено слишком много дублей одного элемента.'; en = 'Too many duplicates of the item were found.'; tr = 'Öğenin çok fazla yinelenen kaydı bulundu.'");
+				Result.ErrorDescription = NStr("ru = 'Найдено слишком много дублей одного элемента.'; en = 'Too many duplicates of the item were found.'");
 			Else
 				Result.ErrorDescription = StrTemplate(
-					NStr("ru = 'Найдено слишком много дублей. Показаны только первые %1.'; en = 'Too many duplicates were found. First %1 items are shown.'; tr = 'Çok fazla yinelenen kayıt bulundu. İlk %1 öğe görüntüleniyor.'"), ReturnedBatchSize);
+					NStr("ru = 'Найдено слишком много дублей. Показаны только первые %1.'; en = 'Too many duplicates were found. First %1 items are shown.'"), ReturnedBatchSize);
 			EndIf;
 			Break;
 		EndIf;

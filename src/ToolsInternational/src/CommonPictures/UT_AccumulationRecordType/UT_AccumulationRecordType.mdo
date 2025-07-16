@@ -2,15 +2,11 @@
 <mdclass:CommonPicture xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3318ac5c-3322-11eb-2a8b-e86a6452d1f2">
   <name>UT_AccumulationRecordType</name>
   <synonym>
-    <key>ru</key>
-    <value>U t accumulation record type</value>
-  </synonym>
-  <synonym>
     <key>en</key>
     <value>Accumulation Record Type</value>
   </synonym>
   <synonym>
-    <key>tr</key>
-    <value>Birikim Kayıt Türü</value>
+    <key>ru</key>
+    <value>U t accumulation record type</value>
   </synonym>
 </mdclass:CommonPicture>

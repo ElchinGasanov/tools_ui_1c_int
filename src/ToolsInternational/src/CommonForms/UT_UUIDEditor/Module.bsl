@@ -28,7 +28,7 @@ Procedure UUIDFinishTextInput(Item, Text, ChosenData, DataReceivingParameters, S
 			//@skip-warning
 			_ = New UUID(Text);
 		Except
-			Raise NStr("ru = 'Некорректный уникальный идентификатор!'; en = 'Invalid UUID'; tr = 'Geçersiz UUID'");
+			Raise NStr("ru = 'Некорректный уникальный идентификатор!'; en = 'Invalid UUID'");
 		EndTry;
 	EndIf;
 EndProcedure
@@ -59,7 +59,7 @@ Procedure CommandOK(Command)
 		Try
 			ChosenValue = New UUID(UUIDString);
 		Except
-			UT_CommonClientServer.MessageToUser(NStr("ru = 'Указан некорректный уникальный идентификатор'; en = 'Invalid UUID specified'; tr = 'Geçersiz UUID belirtildi'"));
+			UT_CommonClientServer.MessageToUser(NStr("ru = 'Указан некорректный уникальный идентификатор'; en = 'Invalid UUID specified'"));
 			Return;
 		EndTry;
 	EndIf;

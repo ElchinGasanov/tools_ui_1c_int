@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <title>
-    <key>ru</key>
-    <value>Отбор</value>
-  </title>
-  <title>
     <key>en</key>
     <value>Filter</value>
   </title>
   <title>
-    <key>tr</key>
-    <value>Filtre</value>
+    <key>ru</key>
+    <value>Отбор</value>
   </title>
   <items xsi:type="form:FormGroup">
     <name>Common</name>
@@ -23,8 +19,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>MetadataChoice</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>MetadataChoice</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>MetadataChoiceExtendedTooltip</name>
@@ -76,8 +74,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Description</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Description</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>DescriptionExtendedTooltip</name>
@@ -127,8 +127,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Key</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Key</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>KeyExtendedTooltip</name>
@@ -178,8 +180,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Predefined</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Predefined</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>PredefinedExtendedTooltip</name>
@@ -221,8 +225,10 @@
       <userVisible>
         <common>true</common>
       </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>Use</segments>
+      <dataPath xsi:type="form:MultiLanguageDataPath">
+        <paths xsi:type="form:DataPath">
+          <segments>Use</segments>
+        </paths>
       </dataPath>
       <extendedTooltip>
         <name>UseExtendedTooltip</name>
@@ -262,16 +268,12 @@
       <common>true</common>
     </userVisible>
     <title>
-      <key>ru</key>
-      <value>Общие</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Common</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Genel</value>
+      <key>ru</key>
+      <value>Общие</value>
     </title>
     <toolTip>
       <key>en</key>
@@ -385,7 +387,6 @@
     <event>OnCreateAtServer</event>
     <name>OnCreateAtServer</name>
   </handlers>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -399,10 +400,6 @@
     <title>
       <key>en</key>
       <value>Object</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
     </title>
     <id>1</id>
     <valueType>
@@ -419,16 +416,12 @@
   <attributes>
     <name>MetadataChoice</name>
     <title>
-      <key>ru</key>
-      <value>Метаданные выбор</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Metadata choice</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Metaveri seçimi</value>
+      <key>ru</key>
+      <value>Метаданные выбор</value>
     </title>
     <id>2</id>
     <valueType>
@@ -445,16 +438,12 @@
   <attributes>
     <name>Description</name>
     <title>
-      <key>ru</key>
-      <value>Наименование</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Description</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tanım</value>
+      <key>ru</key>
+      <value>Наименование</value>
     </title>
     <id>3</id>
     <valueType>
@@ -471,16 +460,12 @@
   <attributes>
     <name>Key</name>
     <title>
-      <key>ru</key>
-      <value>Ключ</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Key</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Anahtar</value>
+      <key>ru</key>
+      <value>Ключ</value>
     </title>
     <id>4</id>
     <valueType>
@@ -497,16 +482,12 @@
   <attributes>
     <name>Predefined</name>
     <title>
-      <key>ru</key>
-      <value>Предопределенное</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Predefined</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Önceden tanımlı</value>
+      <key>ru</key>
+      <value>Предопределенное</value>
     </title>
     <id>5</id>
     <valueType>
@@ -522,16 +503,12 @@
   <attributes>
     <name>Use</name>
     <title>
-      <key>ru</key>
-      <value>Использование</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Use</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kullanım</value>
+      <key>ru</key>
+      <value>Использование</value>
     </title>
     <id>6</id>
     <valueType>
@@ -581,5 +558,4 @@
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

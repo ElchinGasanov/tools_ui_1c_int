@@ -13,24 +13,22 @@
           <name>RulesFileName</name>
           <id>8</id>
           <title>
-            <key>ru</key>
-            <value>Имя файла правил на сервере</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Rules file name at server</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sunucudaki kurallar dosyası adı</value>
+            <key>ru</key>
+            <value>Имя файла правил на сервере</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>RulesFileName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>RulesFileName</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -89,16 +87,12 @@
           <name>FormImportRules</name>
           <id>196</id>
           <title>
-            <key>ru</key>
-            <value>Прочитать правила обмена</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Read exchange rules</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Değişim kurallarını oku</value>
+            <key>ru</key>
+            <value>Прочитать правила обмена</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -173,8 +167,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>DirectExport</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>DirectExport</segments>
+          </paths>
         </dataPath>
         <titleLocation>None</titleLocation>
         <handlers>
@@ -214,16 +210,12 @@
         <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Выгрузка в файл обмена</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Export to exchange file</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Değişim dosyasına aktarım</value>
+              <key>ru</key>
+              <value>Выгрузка в файл обмена</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>0</value>
@@ -231,16 +223,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Подключение и выгрузка данных в ИБ приемник</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Connect and export data to destination infobase</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Alıcı bilgi tabanına bağlantı ve veri aktarımı</value>
+              <key>ru</key>
+              <value>Подключение и выгрузка данных в ИБ приемник</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>1</value>
@@ -248,16 +236,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Выгрузка в файл и загрузка в приемник через вебсервис</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Export to file and import in the destination infobase via web-service</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Dosyaya dışa aktar ve hedef bilgi tabanına web servisi aracılığıyla içe aktar</value>
+              <key>ru</key>
+              <value>Выгрузка в файл и загрузка в приемник через вебсервис</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>2</value>
@@ -275,24 +259,22 @@
             <name>DataFileName</name>
             <id>16</id>
             <title>
-              <key>ru</key>
-              <value>Имя файла данных на сервере</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Data file name at server</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Sunucudaki veri dosyasının adı</value>
+              <key>ru</key>
+              <value>Имя файла данных на сервере</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>DataFileName</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>DataFileName</segments>
+              </paths>
             </dataPath>
             <handlers>
               <event>OnChange</event>
@@ -351,24 +333,22 @@
             <name>ArchiveFile</name>
             <id>18</id>
             <title>
-              <key>ru</key>
-              <value>Сжимать исходящий файл обмена данными</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Compress outgoing data exchange file</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Giden veri değişim dosyasını sıkıştır</value>
+              <key>ru</key>
+              <value>Сжимать исходящий файл обмена данными</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Object.ArchiveFile</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>Object.ArchiveFile</segments>
+              </paths>
             </dataPath>
             <titleLocation>Right</titleLocation>
             <handlers>
@@ -415,8 +395,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Object.ExchangeFileCompressionPassword</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>Object.ExchangeFileCompressionPassword</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ExchangeFileCompressionPasswordExtendedTooltip</name>
@@ -466,16 +448,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Выгрузка в файл</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Export to file</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Dosyaya aktarma</value>
+            <key>ru</key>
+            <value>Выгрузка в файл</value>
           </title>
           <extendedTooltip>
             <name>ExportToFileExtendedTooltip</name>
@@ -514,24 +492,22 @@
                   <name>ConnectedInfobaseType</name>
                   <id>22</id>
                   <title>
-                    <key>ru</key>
-                    <value>Тип информационной базы</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Infobase type</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Bilgi tabanı türü</value>
+                    <key>ru</key>
+                    <value>Тип информационной базы</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Object.ConnectedInfobaseType</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Object.ConnectedInfobaseType</segments>
+                    </paths>
                   </dataPath>
                   <handlers>
                     <event>OnChange</event>
@@ -613,24 +589,22 @@
                   <name>PlatformVersionForInfobaseConnection</name>
                   <id>24</id>
                   <title>
-                    <key>ru</key>
-                    <value>Платформа</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Platform</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Platform</value>
+                    <key>ru</key>
+                    <value>Платформа</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Object.PlatformVersionForInfobaseConnection</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Object.PlatformVersionForInfobaseConnection</segments>
+                    </paths>
                   </dataPath>
                   <handlers>
                     <event>OnChange</event>
@@ -753,8 +727,10 @@
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Object.InfobaseConnectionDirectory</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Object.InfobaseConnectionDirectory</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>InfobaseConnectionDirectoryExtendedTooltip</name>
@@ -811,16 +787,12 @@
                     <common>true</common>
                   </userVisible>
                   <title>
-                    <key>ru</key>
-                    <value>Файловая база</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>File infobase</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Dosya bilgi tabanı</value>
+                    <key>ru</key>
+                    <value>Файловая база</value>
                   </title>
                   <extendedTooltip>
                     <name>FileInfobaseExtendedTooltip</name>
@@ -850,24 +822,22 @@
                     <name>InfobaseConnectionServerName</name>
                     <id>40</id>
                     <title>
-                      <key>ru</key>
-                      <value>Имя сервера 1С:Предприятия</value>
-                    </title>
-                    <title>
                       <key>en</key>
                       <value>1C:Enterprise server name</value>
                     </title>
                     <title>
-                      <key>tr</key>
-                      <value>1C:Enterprise sunucu adı</value>
+                      <key>ru</key>
+                      <value>Имя сервера 1С:Предприятия</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Object.InfobaseConnectionServerName</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Object.InfobaseConnectionServerName</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>InfobaseConnectionServerNameExtendedTooltip</name>
@@ -912,24 +882,22 @@
                     <name>InfobaseConnectionNameAtServer</name>
                     <id>42</id>
                     <title>
-                      <key>ru</key>
-                      <value>Информационная база</value>
-                    </title>
-                    <title>
                       <key>en</key>
                       <value>Infobase</value>
                     </title>
                     <title>
-                      <key>tr</key>
-                      <value>Bilgi tabanı</value>
+                      <key>ru</key>
+                      <value>Информационная база</value>
                     </title>
                     <visible>true</visible>
                     <enabled>true</enabled>
                     <userVisible>
                       <common>true</common>
                     </userVisible>
-                    <dataPath xsi:type="form:DataPath">
-                      <segments>Object.InfobaseConnectionNameAtServer</segments>
+                    <dataPath xsi:type="form:MultiLanguageDataPath">
+                      <paths xsi:type="form:DataPath">
+                        <segments>Object.InfobaseConnectionNameAtServer</segments>
+                      </paths>
                     </dataPath>
                     <extendedTooltip>
                       <name>InfobaseConnectionNameAtServerExtendedTooltip</name>
@@ -976,16 +944,12 @@
                     <common>true</common>
                   </userVisible>
                   <title>
-                    <key>ru</key>
-                    <value>База на сервере</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Server infobase</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Sunucu bilgi tabanı</value>
+                    <key>ru</key>
+                    <value>База на сервере</value>
                   </title>
                   <extendedTooltip>
                     <name>ServerInfobaseExtendedTooltip</name>
@@ -1014,16 +978,12 @@
                   <common>true</common>
                 </userVisible>
                 <title>
-                  <key>ru</key>
-                  <value>Тип базы</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Infobase type</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Bilgi tabanı türü</value>
+                  <key>ru</key>
+                  <value>Тип базы</value>
                 </title>
                 <extendedTooltip>
                   <name>InfobaseTypeExtendedTooltip</name>
@@ -1052,24 +1012,22 @@
                   <name>InfobaseConnectionWindowsAuthentication</name>
                   <id>29</id>
                   <title>
-                    <key>ru</key>
-                    <value>Аутентификация Windows</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Windows authentification</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Windows kimlik doğrulaması</value>
+                    <key>ru</key>
+                    <value>Аутентификация Windows</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Object.InfobaseConnectionWindowsAuthentication</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Object.InfobaseConnectionWindowsAuthentication</segments>
+                    </paths>
                   </dataPath>
                   <titleLocation>Right</titleLocation>
                   <handlers>
@@ -1145,16 +1103,12 @@
                   <common>true</common>
                 </userVisible>
                 <title>
-                  <key>ru</key>
-                  <value>Тест аутентификации</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Authentication test</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Kimlik doğrulama testi</value>
+                  <key>ru</key>
+                  <value>Тест аутентификации</value>
                 </title>
                 <extendedTooltip>
                   <name>AuthenticationTestExtendedTooltip</name>
@@ -1187,24 +1141,22 @@
                   <name>InfobaseConnectionUsername</name>
                   <id>34</id>
                   <title>
-                    <key>ru</key>
-                    <value>Пользователь</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Username</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Kullanıcı adı</value>
+                    <key>ru</key>
+                    <value>Пользователь</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Object.InfobaseConnectionUsername</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Object.InfobaseConnectionUsername</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>InfobaseConnectionUsernameExtendedTooltip</name>
@@ -1250,24 +1202,22 @@
                   <name>InfobaseConnectionPassword</name>
                   <id>36</id>
                   <title>
-                    <key>ru</key>
-                    <value>Пароль</value>
-                  </title>
-                  <title>
                     <key>en</key>
                     <value>Password</value>
                   </title>
                   <title>
-                    <key>tr</key>
-                    <value>Şifre</value>
+                    <key>ru</key>
+                    <value>Пароль</value>
                   </title>
                   <visible>true</visible>
                   <enabled>true</enabled>
                   <userVisible>
                     <common>true</common>
                   </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Object.InfobaseConnectionPassword</segments>
+                  <dataPath xsi:type="form:MultiLanguageDataPath">
+                    <paths xsi:type="form:DataPath">
+                      <segments>Object.InfobaseConnectionPassword</segments>
+                    </paths>
                   </dataPath>
                   <extendedTooltip>
                     <name>InfobaseConnectionPasswordExtendedTooltip</name>
@@ -1316,16 +1266,12 @@
                   <common>true</common>
                 </userVisible>
                 <title>
-                  <key>ru</key>
-                  <value>Пользователь пароль</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Username password</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Kullanıcı adı şifre</value>
+                  <key>ru</key>
+                  <value>Пользователь пароль</value>
                 </title>
                 <extendedTooltip>
                   <name>UsernamePasswordExtendedTooltip</name>
@@ -1394,10 +1340,6 @@
                 <title>
                   <key>ru</key>
                   <value>Прямое подключение к информационной базе не поддерживается в клиенте под управлением ОС Linux.</value>
-                </title>
-                <title>
-                  <key>tr</key>
-                  <value>İstemci uygulaması Linux üzerinde çalışıyorsa, doğrudan bilgi tabanı bağlantısı desteklenmez.</value>
                 </title>
                 <visible>true</visible>
                 <enabled>true</enabled>
@@ -1476,16 +1418,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>ОС</value>
-            </title>
-            <title>
               <key>en</key>
               <value>CD</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>CD</value>
+              <key>ru</key>
+              <value>ОС</value>
             </title>
             <extendedTooltip>
               <name>CDGroupExtendedTooltip</name>
@@ -1513,16 +1451,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Выгрузка в информационную базу-приемник</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Export to destination infobase</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Alıcı bilgi tabanına yükleme</value>
+            <key>ru</key>
+            <value>Выгрузка в информационную базу-приемник</value>
           </title>
           <extendedTooltip>
             <name>ExportToDestinationIBExtendedTooltip</name>
@@ -1605,24 +1539,22 @@
               <name>UT_InfobaseWebServiceConnectionUsername</name>
               <id>425</id>
               <title>
-                <key>ru</key>
-                <value>Пользователь</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Username</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Kullanıcı adı</value>
+                <key>ru</key>
+                <value>Пользователь</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.InfobaseConnectionUsername</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.InfobaseConnectionUsername</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>UT_InfobaseWebServiceConnectionUsernameExtendedTooltip</name>
@@ -1668,24 +1600,22 @@
               <name>UT_InfobaseWebServiceConnectionPassword</name>
               <id>428</id>
               <title>
-                <key>ru</key>
-                <value>Пароль</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Password</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Şifre</value>
+                <key>ru</key>
+                <value>Пароль</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.InfobaseConnectionPassword</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.InfobaseConnectionPassword</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>UT_InfobaseWebServiceConnectionPasswordExtendedTooltip</name>
@@ -1734,16 +1664,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
+              <key>en</key>
               <value>Пользователь пароль</value>
             </title>
             <title>
-              <key>en</key>
+              <key>ru</key>
               <value>Username password</value>
-            </title>
-            <title>
-              <key>tr</key>
-              <value>Kullanıcı adı şifre</value>
             </title>
             <extendedTooltip>
               <name>UT_WebServiceUsernamePasswordExtendedTooltip</name>
@@ -1806,16 +1732,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>УТ группа выгрузка через веб сервис</value>
-          </title>
-          <title>
             <key>en</key>
             <value>UT export via web service group</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>UT web servisi üzerinden dışa aktarma grubu</value>
+            <key>ru</key>
+            <value>УТ группа выгрузка через веб сервис</value>
           </title>
           <extendedTooltip>
             <name>UT_ExportViaWebServiceGroupExtendedTooltip</name>
@@ -1844,16 +1766,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Параметры выгрузки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Export parameters</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Dışa aktarma parametreleri</value>
+          <key>ru</key>
+          <value>Параметры выгрузки</value>
         </title>
         <extendedTooltip>
           <name>ExportParametersExtendedTooltip</name>
@@ -1882,16 +1800,12 @@
           <name>FormExecuteExport</name>
           <id>191</id>
           <title>
-            <key>ru</key>
-            <value>Выгрузить данные</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Export data</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Verileri dışa aktar</value>
+            <key>ru</key>
+            <value>Выгрузить данные</value>
           </title>
           <visible>true</visible>
           <userVisible>
@@ -1930,10 +1844,6 @@
           <title>
             <key>ru</key>
             <value>Для выгрузки данных необходимо прочитать правила обмена</value>
-          </title>
-          <title>
-            <key>tr</key>
-            <value>Verileri aktarmadan önce değişim kurallarının okunması gereklidir.</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -1983,16 +1893,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Команды выгрузки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Export commands</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Dışa aktarma komutları</value>
+          <key>ru</key>
+          <value>Команды выгрузки</value>
         </title>
         <extendedTooltip>
           <name>ExportCommandGroupExtendedTooltip</name>
@@ -2035,8 +1941,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>ExportPeriod</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>ExportPeriod</segments>
+                </paths>
               </dataPath>
               <handlers>
                 <event>OnChange</event>
@@ -2087,16 +1995,12 @@
               <common>true</common>
             </userVisible>
             <title>
-              <key>ru</key>
-              <value>Период выгрузки</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Export period</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Dışa aktarım dönemi</value>
+              <key>ru</key>
+              <value>Период выгрузки</value>
             </title>
             <extendedTooltip>
               <name>ExportPeriodGroupExtendedTooltip</name>
@@ -2153,8 +2057,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>Object.ExportRulesTable.Enable</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>Object.ExportRulesTable.Enable</segments>
+                  </paths>
                 </dataPath>
                 <titleLocation>None</titleLocation>
                 <extendedTooltip>
@@ -2197,8 +2103,10 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>Object.ExportRulesTable.Description</segments>
+                <dataPath xsi:type="form:MultiLanguageDataPath">
+                  <paths xsi:type="form:DataPath">
+                    <segments>Object.ExportRulesTable.Description</segments>
+                  </paths>
                 </dataPath>
                 <extendedTooltip>
                   <name>DERExtendedTooltip</name>
@@ -2246,16 +2154,12 @@
                 <common>true</common>
               </userVisible>
               <title>
-                <key>ru</key>
-                <value>Пометки</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Checkboxes</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>İşaretler</value>
+                <key>ru</key>
+                <value>Пометки</value>
               </title>
               <extendedTooltip>
                 <name>CheckBoxGroupExtendedTooltip</name>
@@ -2282,24 +2186,22 @@
               <name>ExchangeNodeRef</name>
               <id>138</id>
               <title>
-                <key>ru</key>
-                <value>Узел обмена</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Exchange node</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Değişim Düğümü</value>
+                <key>ru</key>
+                <value>Узел обмена</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.ExportRulesTable.ExchangeNodeRef</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.ExportRulesTable.ExchangeNodeRef</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>ExchangeNodeRefExtendedTooltip</name>
@@ -2348,8 +2250,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.ExportRulesTable.IsFolder</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.ExportRulesTable.IsFolder</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>ExportRulesTableIsFolderExtendedTooltip</name>
@@ -2387,16 +2291,12 @@
               <name>ExportRulesTableUseFilter</name>
               <id>410</id>
               <title>
-                <key>ru</key>
-                <value>Отбор</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Filter</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Filtre</value>
+                <key>ru</key>
+                <value>Отбор</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2442,16 +2342,12 @@
               <name>ExportRulesTableFilter</name>
               <id>413</id>
               <title>
-                <key>ru</key>
-                <value>Условие</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Condition</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Koşul</value>
+                <key>ru</key>
+                <value>Условие</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -2644,16 +2540,12 @@
                   <common>true</common>
                 </userVisible>
                 <title>
-                  <key>ru</key>
-                  <value>Узлы обмена</value>
-                </title>
-                <title>
                   <key>en</key>
                   <value>Exchange nodes</value>
                 </title>
                 <title>
-                  <key>tr</key>
-                  <value>Değişim düğümleri</value>
+                  <key>ru</key>
+                  <value>Узлы обмена</value>
                 </title>
                 <extendedTooltip>
                   <name>ExchangeNodesExtendedTooltip</name>
@@ -2723,7 +2615,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>ExportRulesTable</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2762,7 +2653,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>ExportRulesTable</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -2802,7 +2692,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>ExportRulesTable</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -2858,16 +2747,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Выгружаемые данные</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Data to export</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Dışa aktarılacak veriler</value>
+            <key>ru</key>
+            <value>Выгружаемые данные</value>
           </title>
           <extendedTooltip>
             <name>DataToExportExtendedTooltip</name>
@@ -2897,16 +2782,12 @@
             <name>ParametersSettingsTable</name>
             <id>58</id>
             <title>
-              <key>ru</key>
-              <value>Таблица настройки параметров</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Parameters settings table</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Parametre ayarları tablosu</value>
+              <key>ru</key>
+              <value>Таблица настройки параметров</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -2925,8 +2806,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.ParametersSettingsTable.Description</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.ParametersSettingsTable.Description</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>ParametersSettingsTableDescriptionExtendedTooltip</name>
@@ -2975,8 +2858,10 @@
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.ParametersSettingsTable.Value</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.ParametersSettingsTable.Value</segments>
+                </paths>
               </dataPath>
               <extendedTooltip>
                 <name>ParametersSettingsTableValueExtendedTooltip</name>
@@ -3119,7 +3004,6 @@
                 </userVisible>
                 <autoFill>true</autoFill>
               </contextMenu>
-              <source>ParametersSettingsTable</source>
               <extInfo xsi:type="form:SearchStringAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3158,7 +3042,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>ViewStatusAddition</type>
-              <source>ParametersSettingsTable</source>
               <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
                 <horizontalLocation>Left</horizontalLocation>
@@ -3198,7 +3081,6 @@
                 <autoFill>true</autoFill>
               </contextMenu>
               <type>SearchControlAddition</type>
-              <source>ParametersSettingsTable</source>
               <extInfo xsi:type="form:SearchControlAdditionExtInfo">
                 <autoMaxWidth>true</autoMaxWidth>
               </extInfo>
@@ -3255,16 +3137,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Параметры выгрузки</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Export parameters</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Dışa aktarım parametreleri</value>
+            <key>ru</key>
+            <value>Параметры выгрузки</value>
           </title>
           <extendedTooltip>
             <name>ParametersExtendedTooltip</name>
@@ -3298,8 +3176,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Object.Comment</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>Object.Comment</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -3346,16 +3226,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Комментарий</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Comment</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Yorum</value>
+            <key>ru</key>
+            <value>Комментарий</value>
           </title>
           <extendedTooltip>
             <name>CommentBookmarkExtendedTooltip</name>
@@ -3384,16 +3260,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Панель выгрузки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Export panel</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Dışa aktarım paneli</value>
+          <key>ru</key>
+          <value>Панель выгрузки</value>
         </title>
         <extendedTooltip>
           <name>ExportPanelExtendedTooltip</name>
@@ -3425,16 +3297,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Отладка выгрузки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Export debug</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Dışa aktarım hata ayıklaması</value>
+          <key>ru</key>
+          <value>Отладка выгрузки</value>
         </title>
         <extendedTooltip>
           <name>ExportDebugExtendedTooltip</name>
@@ -3473,24 +3341,22 @@
               <name>ExportHandlersDebugModeFlag</name>
               <id>54</id>
               <title>
-                <key>ru</key>
-                <value>Режим отладки обработчиков выгрузки</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Export handlers debug mode</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Aktarım işleyicileri hata ayıklama modu</value>
+                <key>ru</key>
+                <value>Режим отладки обработчиков выгрузки</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
               <userVisible>
                 <common>true</common>
               </userVisible>
-              <dataPath xsi:type="form:DataPath">
-                <segments>Object.HandlersDebugModeFlag</segments>
+              <dataPath xsi:type="form:MultiLanguageDataPath">
+                <paths xsi:type="form:DataPath">
+                  <segments>Object.HandlersDebugModeFlag</segments>
+                </paths>
               </dataPath>
               <titleLocation>Right</titleLocation>
               <handlers>
@@ -3533,16 +3399,12 @@
               <name>ExportDebugSetup</name>
               <id>56</id>
               <title>
-                <key>ru</key>
-                <value>Настройка отладки выгрузки...</value>
-              </title>
-              <title>
                 <key>en</key>
                 <value>Export debug setup...</value>
               </title>
               <title>
-                <key>tr</key>
-                <value>Aktarım hata ayıklama ayarları...</value>
+                <key>ru</key>
+                <value>Настройка отладки выгрузки...</value>
               </title>
               <visible>true</visible>
               <enabled>true</enabled>
@@ -3615,16 +3477,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Отладка выгрузки доступна</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Export debug is available</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Dışa aktarım işleminin hata ayıklaması mevcuttur</value>
+            <key>ru</key>
+            <value>Отладка выгрузки доступна</value>
           </title>
           <extendedTooltip>
             <name>ExportDebugAvailableGroupExtendedTooltip</name>
@@ -3704,10 +3562,6 @@
               <key>ru</key>
               <value>Возможности отладки недоступны при использовании веб-клиента</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Web istemcisinde hata ayıklama araçları kullanılamaz.</value>
-            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -3756,16 +3610,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Выгрузка веб клиент</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Web client export</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Web istemcisi dışa aktarımı</value>
+            <key>ru</key>
+            <value>Выгрузка веб клиент</value>
           </title>
           <extendedTooltip>
             <name>WebClientExportGroupExtendedTooltip</name>
@@ -3793,16 +3643,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Страницы отладки выгрузки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Export debug pages</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Dışa aktarım Hata ayıklama sayfaları</value>
+          <key>ru</key>
+          <value>Страницы отладки выгрузки</value>
         </title>
         <extendedTooltip>
           <name>ExportDebugPagesExtendedTooltip</name>
@@ -3830,16 +3676,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Выгрузка данных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Data export</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Dışa aktarım</value>
+        <key>ru</key>
+        <value>Выгрузка данных</value>
       </title>
       <extendedTooltip>
         <name>ExportExtendedTooltip</name>
@@ -3869,16 +3711,12 @@
         <name>FormExecuteImport</name>
         <id>192</id>
         <title>
-          <key>ru</key>
-          <value>Загрузить данные</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Import data</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Verileri yükle</value>
+          <key>ru</key>
+          <value>Загрузить данные</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -3912,24 +3750,22 @@
         <name>ExchangeFileName</name>
         <id>68</id>
         <title>
-          <key>ru</key>
-          <value>Имя файла для загрузки на сервере</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Exchange file name at server</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Sunucudaki değişim dosyası adı</value>
+          <key>ru</key>
+          <value>Имя файла для загрузки на сервере</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>ExchangeFileName</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>ExchangeFileName</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -3988,24 +3824,22 @@
         <name>ExchangeFileUnpackPassword</name>
         <id>70</id>
         <title>
-          <key>ru</key>
-          <value>Пароль распаковки</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Unpack password</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Arşiv şifresi</value>
+          <key>ru</key>
+          <value>Пароль распаковки</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.ExchangeFileUnpackPassword</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.ExchangeFileUnpackPassword</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>ExchangeFileUnpackPasswordExtendedTooltip</name>
@@ -4057,8 +3891,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.SafeImport</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.SafeImport</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <handlers>
@@ -4149,8 +3985,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ImportRulesFileName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ImportRulesFileName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportRulesFileNameExtendedTooltip</name>
@@ -4241,8 +4079,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.UseTransactions</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.UseTransactions</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <handlers>
@@ -4285,24 +4125,22 @@
         <name>ObjectsPerTransaction</name>
         <id>74</id>
         <title>
-          <key>ru</key>
-          <value>Количество элементов в транзакции</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Amount of objects per transaction</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>İşlemdeki öğe sayısı</value>
+          <key>ru</key>
+          <value>Количество элементов в транзакции</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.ObjectsPerTransaction</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.ObjectsPerTransaction</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>ObjectsPerTransactionExtendedTooltip</name>
@@ -4351,8 +4189,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.ImportDataInExchangeMode</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.ImportDataInExchangeMode</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -4395,8 +4235,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.WriteToInfobaseOnlyChangedObjects</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.WriteToInfobaseOnlyChangedObjects</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -4439,8 +4281,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.ImportReferencedObjectsWithoutDeletionMark</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.ImportReferencedObjectsWithoutDeletionMark</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -4483,8 +4327,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.OptimizedObjectsWriting</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.OptimizedObjectsWriting</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -4527,8 +4373,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.WriteRegistersAsRecordSets</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.WriteRegistersAsRecordSets</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -4571,8 +4419,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.RemoveTrailingSpaces</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.RemoveTrailingSpaces</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -4611,24 +4461,22 @@
         <name>AutomaticDataImportSettings</name>
         <id>88</id>
         <title>
-          <key>ru</key>
-          <value>Настройки автоматической загрузки данных</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Automatic data import settings</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Otomatik veri indirme ayarları</value>
+          <key>ru</key>
+          <value>Настройки автоматической загрузки данных</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.AutomaticDataImportSettings</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.AutomaticDataImportSettings</segments>
+          </paths>
         </dataPath>
         <extendedTooltip>
           <name>AutomaticDataImportSettingsExtendedTooltip</name>
@@ -4663,16 +4511,12 @@
         <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Не использовать автоматическую загрузку при открытии</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Do not import data when opening this form</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Açılışta otomatik indirmeyi kullanma</value>
+              <key>ru</key>
+              <value>Не использовать автоматическую загрузку при открытии</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>0</value>
@@ -4680,16 +4524,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Перед автоматической загрузкой задать вопрос о выполнении операции</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Ask for confirmation</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Otomatik indirmeden önce, işlem hakkında soru sor</value>
+              <key>ru</key>
+              <value>Перед автоматической загрузкой задать вопрос о выполнении операции</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>1</value>
@@ -4697,16 +4537,12 @@
           </choiceList>
           <choiceList>
             <presentation>
-              <key>ru</key>
-              <value>Использовать автоматическую загрузку данных</value>
-            </presentation>
-            <presentation>
               <key>en</key>
               <value>Import data</value>
             </presentation>
             <presentation>
-              <key>tr</key>
-              <value>Otomatik veri yüklemeyi kullan</value>
+              <key>ru</key>
+              <value>Использовать автоматическую загрузку данных</value>
             </presentation>
             <value xsi:type="core:NumberValue">
               <value>2</value>
@@ -4728,8 +4564,10 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Object.ExchangeRulesVersion</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>Object.ExchangeRulesVersion</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>ExchangeRulesVersionExtendedTooltip</name>
@@ -4770,16 +4608,12 @@
             <name>GetExchangeFileInfo</name>
             <id>150</id>
             <title>
-              <key>ru</key>
-              <value>Подробно о файле обмена</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Exchange file details</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Dosya değişimi hakkında daha fazla bilgi</value>
+              <key>ru</key>
+              <value>Подробно о файле обмена</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -4854,8 +4688,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.DataExportDate</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.DataExportDate</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>DataExportDateExtendedTooltip</name>
@@ -4896,24 +4732,22 @@
           <name>ExportPeriodPresentation</name>
           <id>164</id>
           <title>
-            <key>ru</key>
-            <value>Период выгрузки данных</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Export period presentation</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Veri indirme süresi</value>
+            <key>ru</key>
+            <value>Период выгрузки данных</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ExportPeriodPresentation</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ExportPeriodPresentation</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ExportPeriodPresentationExtendedTooltip</name>
@@ -4959,8 +4793,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.Comment</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.Comment</segments>
+            </paths>
           </dataPath>
           <titleLocation>Left</titleLocation>
           <extendedTooltip>
@@ -5009,16 +4845,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Информация о файле обмена</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Exchange file info</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Dosya değişimi hakkında bilgi</value>
+          <key>ru</key>
+          <value>Информация о файле обмена</value>
         </title>
         <extendedTooltip>
           <name>ExchangeFileInfoExtendedTooltip</name>
@@ -5056,24 +4888,22 @@
             <name>ImportHandlersDebugModeFlag</name>
             <id>90</id>
             <title>
-              <key>ru</key>
-              <value>Режим отладки обработчиков загрузки</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Import handlers debug mode</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>İçe aktarım işleyicileri için hata ayıklama modu</value>
+              <key>ru</key>
+              <value>Режим отладки обработчиков загрузки</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>Object.HandlersDebugModeFlag</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>Object.HandlersDebugModeFlag</segments>
+              </paths>
             </dataPath>
             <titleLocation>Right</titleLocation>
             <handlers>
@@ -5116,16 +4946,12 @@
             <name>ImportDebugSetup</name>
             <id>93</id>
             <title>
-              <key>ru</key>
-              <value>Настройка отладки загрузки...</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Import debug setup...</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>İçe aktarım işleyicilerin ayarları</value>
+              <key>ru</key>
+              <value>Настройка отладки загрузки...</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -5246,10 +5072,6 @@
               <key>ru</key>
               <value>Возможности отладки недоступны при использовании веб-клиента</value>
             </title>
-            <title>
-              <key>tr</key>
-              <value>Hata ayıklama araçları web istemcisinde kullanılamaz</value>
-            </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -5293,16 +5115,12 @@
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Загрузка веб клиент</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Import web client</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Web istemcisi indirim</value>
+            <key>ru</key>
+            <value>Загрузка веб клиент</value>
           </title>
           <extendedTooltip>
             <name>WebClientImportGroupExtendedTooltip</name>
@@ -5363,16 +5181,12 @@
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Загрузка данных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Data import</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İçe aktarım</value>
+        <key>ru</key>
+        <value>Загрузка данных</value>
       </title>
       <extendedTooltip>
         <name>ImportExtendedTooltip</name>
@@ -5415,10 +5229,6 @@
             <key>ru</key>
             <value>Устанавливает или отключает безопасный режим исполнения алгоритмов правил конвертации. Рекомендуется выполнять выгрузку и загрузку данных в безопасном режиме. Более подробно о безопасном режиме см. документацию к платформе 1С:Предприятие.</value>
           </title>
-          <title>
-            <key>tr</key>
-            <value>Kurallar dönüştürme algoritmalarının güvenli çalışma modunu açar veya kapatır. Veri aktarımı ve yüklemenin güvenli modda yapılması önerilir. Güvenli mod hakkında daha fazla bilgi için 1C:Enterprise platformu dokümantasyonuna bakınız.</value>
-          </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -5457,8 +5267,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.DebugModeFlag</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.DebugModeFlag</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <handlers>
@@ -5505,8 +5317,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.DisplayInfoMessagesIntoMessageWindow</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.DisplayInfoMessagesIntoMessageWindow</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -5549,8 +5363,10 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.ProcessedObjectsCountToUpdateStatus</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.ProcessedObjectsCountToUpdateStatus</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -5602,24 +5418,22 @@
           <name>ExecuteDataExchangeInOptimizedFormat</name>
           <id>101</id>
           <title>
-            <key>ru</key>
-            <value>Использовать оптимизированный формат для обмена данными (V8 - V8, версия обработки не ниже 2.0.18)</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Use optimized data exchange format (V8–V8, data processor version 2.0.18 or later)</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Optimize edilmiş veri değişim formatını kullan (V8–V8, veri işlemci sürümü 2.0.18 veya daha yeni)</value>
+            <key>ru</key>
+            <value>Использовать оптимизированный формат для обмена данными (V8 - V8, версия обработки не ниже 2.0.18)</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.ExecuteDataExchangeInOptimizedFormat</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.ExecuteDataExchangeInOptimizedFormat</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -5662,8 +5476,10 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.UseTransactionsOnExportForExchangePlans</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.UseTransactionsOnExportForExchangePlans</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -5702,24 +5518,22 @@
           <name>TransactionItemsCountOnExportForExchangePlans</name>
           <id>105</id>
           <title>
-            <key>ru</key>
-            <value>Количество элементов в транзакции</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Amount of items in the transaction</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>İşlemdeki öğe sayısı</value>
+            <key>ru</key>
+            <value>Количество элементов в транзакции</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.TransactionItemsCountOnExportForExchangePlans</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.TransactionItemsCountOnExportForExchangePlans</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>TransactionItemsCountOnExportForExchangePlansExtendedTooltip</name>
@@ -5764,24 +5578,22 @@
           <name>ExportAllowedObjectsOnly</name>
           <id>107</id>
           <title>
-            <key>ru</key>
-            <value>Выгружать объекты на которые есть права доступа</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Export objects allowed by access rights</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Erişim izinleri olan nesneleri dışa aktar</value>
+            <key>ru</key>
+            <value>Выгружать объекты на которые есть права доступа</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.ExportAllowedObjectsOnly</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.ExportAllowedObjectsOnly</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -5820,24 +5632,22 @@
           <name>XMLWriterAdvancedMonitoring</name>
           <id>109</id>
           <title>
-            <key>ru</key>
-            <value>Автоматически удалять недопустимые символы из строк для записи в XML</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Automatically delete invalid characters when writing to XML files</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>XML dosyalarına yazarken geçersiz karakterleri otomatik olarak sil</value>
+            <key>ru</key>
+            <value>Автоматически удалять недопустимые символы из строк для записи в XML</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.XMLWriterAdvancedMonitoring</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.XMLWriterAdvancedMonitoring</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -5876,24 +5686,22 @@
           <name>ChangesRegistrationDeletionTypeForExportedExchangeNodes</name>
           <id>186</id>
           <title>
-            <key>ru</key>
-            <value>Изменения регистрации для узлов обмена после выгрузки</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Registration changes for exchange nodes after export</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Dışa aktarma sonrası değişim düğümleri için değişiklik kaydı</value>
+            <key>ru</key>
+            <value>Изменения регистрации для узлов обмена после выгрузки</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ChangesRegistrationDeletionTypeForExportedExchangeNodes</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>ChangesRegistrationDeletionTypeForExportedExchangeNodes</segments>
+            </paths>
           </dataPath>
           <handlers>
             <event>OnChange</event>
@@ -5971,16 +5779,12 @@
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Настройки выгрузки данных</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Data export settings</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Veri dışa aktarma ayarları</value>
+          <key>ru</key>
+          <value>Настройки выгрузки данных</value>
         </title>
         <extendedTooltip>
           <name>DataExportSettingsExtendedTooltip</name>
@@ -6015,24 +5819,22 @@
           <name>ExchangeLogFileName</name>
           <id>114</id>
           <title>
-            <key>ru</key>
-            <value>Имя файла протокола обмена на сервере</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Exchange log file name at server</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Sunucudaki değişim protokolü dosyası adı</value>
+            <key>ru</key>
+            <value>Имя файла протокола обмена на сервере</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.ExchangeLogFileName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.ExchangeLogFileName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ExchangeLogFileNameExtendedTooltip</name>
@@ -6087,27 +5889,24 @@
           <name>ImportExchangeLogFileName</name>
           <id>116</id>
           <title>
-            <key>ru</key>
-            <value>Протокол загрузки (для COM - соединения)
-на сервере</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Import log (for a COM connection)
 on the server</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>İçe aktarma günlüğü (COM bağlantısı için)
-sunucuda</value>
+            <key>ru</key>
+            <value>Протокол загрузки (для COM - соединения)
+на сервере</value>
           </title>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.ImportExchangeLogFileName</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.ImportExchangeLogFileName</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>ImportExchangeLogFileNameExtendedTooltip</name>
@@ -6166,8 +5965,10 @@ sunucuda</value>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.ExchangeLogFileEncoding</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.ExchangeLogFileEncoding</segments>
+            </paths>
           </dataPath>
           <extendedTooltip>
             <name>LogFileEncodingListExtendedTooltip</name>
@@ -6282,8 +6083,10 @@ sunucuda</value>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.AppendDataToExchangeLog</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.AppendDataToExchangeLog</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -6326,8 +6129,10 @@ sunucuda</value>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.WriteInfoMessagesToLog</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.WriteInfoMessagesToLog</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -6370,8 +6175,10 @@ sunucuda</value>
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Object.OpenExchangeLogAfterExecutingOperations</segments>
+          <dataPath xsi:type="form:MultiLanguageDataPath">
+            <paths xsi:type="form:DataPath">
+              <segments>Object.OpenExchangeLogAfterExecutingOperations</segments>
+            </paths>
           </dataPath>
           <titleLocation>Right</titleLocation>
           <extendedTooltip>
@@ -6412,16 +6219,12 @@ sunucuda</value>
           <common>true</common>
         </userVisible>
         <title>
-          <key>ru</key>
-          <value>Протокол обмена</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Exchange protocol</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Değişim protokolü</value>
+          <key>ru</key>
+          <value>Протокол обмена</value>
         </title>
         <extendedTooltip>
           <name>ExchangeProtocolExtendedTooltip</name>
@@ -6455,16 +6258,12 @@ sunucuda</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Дополнительные настройки</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Additional settings</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Ek ayarlar</value>
+        <key>ru</key>
+        <value>Дополнительные настройки</value>
       </title>
       <extendedTooltip>
         <name>DataExchangeSettingsExtendedTooltip</name>
@@ -6500,10 +6299,6 @@ sunucuda</value>
         <title>
           <key>ru</key>
           <value>Функционал для удаления данных предназначен для отладки переноса. Использовать удаление объектов в других целях НЕ рекомендуется.</value>
-        </title>
-        <title>
-          <key>tr</key>
-          <value>Veri silme işlevi, taşıma hatalarını ayıklamak için tasarlanmıştır. Nesneleri başka amaçlarla silmek önerilmez.</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -6546,24 +6341,22 @@ sunucuda</value>
         <name>DeleteObjectsAllowedByAccessRights</name>
         <id>126</id>
         <title>
-          <key>ru</key>
-          <value>Удалять объекты на которые есть права доступа</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Delete objects allowed by access rights</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Erişim izni olan nesneleri sil</value>
+          <key>ru</key>
+          <value>Удалять объекты на которые есть права доступа</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>Object.ExportAllowedObjectsOnly</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>Object.ExportAllowedObjectsOnly</segments>
+          </paths>
         </dataPath>
         <titleLocation>Right</titleLocation>
         <extendedTooltip>
@@ -6602,24 +6395,22 @@ sunucuda</value>
         <name>DeletionPeriod</name>
         <id>214</id>
         <title>
-          <key>ru</key>
-          <value>Период удаления</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Deletion period</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Silme dönemi</value>
+          <key>ru</key>
+          <value>Период удаления</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:DataPath">
-          <segments>ExportPeriod</segments>
+        <dataPath xsi:type="form:MultiLanguageDataPath">
+          <paths xsi:type="form:DataPath">
+            <segments>ExportPeriod</segments>
+          </paths>
         </dataPath>
         <handlers>
           <event>OnChange</event>
@@ -6668,16 +6459,12 @@ sunucuda</value>
         <name>DataToDelete</name>
         <id>201</id>
         <title>
-          <key>ru</key>
-          <value>Удаляемые данные</value>
-        </title>
-        <title>
           <key>en</key>
           <value>Data to delete</value>
         </title>
         <title>
-          <key>tr</key>
-          <value>Silinen veriler</value>
+          <key>ru</key>
+          <value>Удаляемые данные</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -6699,8 +6486,10 @@ sunucuda</value>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>DataToDelete.Check</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>DataToDelete.Check</segments>
+              </paths>
             </dataPath>
             <titleLocation>None</titleLocation>
             <extendedTooltip>
@@ -6739,24 +6528,22 @@ sunucuda</value>
             <name>MetadataToDeletePresentation</name>
             <id>209</id>
             <title>
-              <key>ru</key>
-              <value>Метаданные</value>
-            </title>
-            <title>
               <key>en</key>
               <value>Metadata</value>
             </title>
             <title>
-              <key>tr</key>
-              <value>Metaveri</value>
+              <key>ru</key>
+              <value>Метаданные</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>DataToDelete.Presentation</segments>
+            <dataPath xsi:type="form:MultiLanguageDataPath">
+              <paths xsi:type="form:DataPath">
+                <segments>DataToDelete.Presentation</segments>
+              </paths>
             </dataPath>
             <extendedTooltip>
               <name>MetadataToDeletePresentationExtendedTooltip</name>
@@ -6804,16 +6591,12 @@ sunucuda</value>
             <common>true</common>
           </userVisible>
           <title>
-            <key>ru</key>
-            <value>Метаданные</value>
-          </title>
-          <title>
             <key>en</key>
             <value>Metadata</value>
           </title>
           <title>
-            <key>tr</key>
-            <value>Metaveri</value>
+            <key>ru</key>
+            <value>Метаданные</value>
           </title>
           <extendedTooltip>
             <name>MetadataGroupExtendedTooltip</name>
@@ -6973,7 +6756,6 @@ sunucuda</value>
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
-          <source>DataToDelete</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7012,7 +6794,6 @@ sunucuda</value>
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
-          <source>DataToDelete</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -7052,7 +6833,6 @@ sunucuda</value>
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
-          <source>DataToDelete</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -7108,16 +6888,12 @@ sunucuda</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Удаление данных</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Delete data</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Veri silme</value>
+        <key>ru</key>
+        <value>Удаление данных</value>
       </title>
       <extendedTooltip>
         <name>DataDeletionSetupExtendedTooltip</name>
@@ -7206,11 +6982,11 @@ sunucuda</value>
       </extendedTooltip>
       <commandName>Form.StandardCommand.RestoreValues</commandName>
       <representation>Auto</representation>
+      <onlyInAllActions>false</onlyInAllActions>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
-      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
     </items>
     <items xsi:type="form:Button">
       <name>FormSave</name>
@@ -7237,11 +7013,11 @@ sunucuda</value>
       </extendedTooltip>
       <commandName>Form.StandardCommand.SaveValues</commandName>
       <representation>Auto</representation>
+      <onlyInAllActions>false</onlyInAllActions>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
-      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
     </items>
     <items xsi:type="form:FormGroup">
       <name>ProcessingMode</name>
@@ -7312,16 +7088,12 @@ sunucuda</value>
         <common>true</common>
       </userVisible>
       <title>
-        <key>ru</key>
-        <value>Режим работы</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Run mode</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Çalışma modu</value>
+        <key>ru</key>
+        <value>Режим работы</value>
       </title>
       <extendedTooltip>
         <name>ProcessingModeExtendedTooltip</name>
@@ -7368,11 +7140,11 @@ sunucuda</value>
       </extendedTooltip>
       <commandName>Form.StandardCommand.Help</commandName>
       <representation>Auto</representation>
+      <onlyInAllActions>false</onlyInAllActions>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
-      <locationInCommandBar>InCommandBarAndInAdditionalSubmenu</locationInCommandBar>
     </items>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -7391,7 +7163,6 @@ sunucuda</value>
   </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <saveDataInSettings>UseList</saveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
   <autoFillCheck>true</autoFillCheck>
@@ -7401,10 +7172,6 @@ sunucuda</value>
   <showCloseButton>true</showCloseButton>
   <attributes>
     <name>Object</name>
-    <title>
-      <key>tr</key>
-      <value>Nesne</value>
-    </title>
     <id>1</id>
     <valueType>
       <types>DataProcessorObject.UT_UniversalDataExchangeXML</types>
@@ -7416,163 +7183,91 @@ sunucuda</value>
       <common>true</common>
     </edit>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>Object.CleanupRulesTable</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>Object.ConversionRulesTable</segments>
-    </notDefaultUseAlwaysAttributes>
-    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
       <segments>Object.Data</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>Object.ParametersSettingsTable</segments>
     </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
       <segments>Object.ExportRulesTable</segments>
     </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>Object.HandlersDebugModeFlag</segments>
+      <segments>Object.ConversionRulesTable</segments>
     </notDefaultUseAlwaysAttributes>
     <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
-      <segments>Object.ParametersSettingsTable</segments>
+      <segments>Object.CleanupRulesTable</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>Object.HandlersDebugModeFlag</segments>
     </notDefaultUseAlwaysAttributes>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.AlgorithmDebugMode</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.AppendDataToExchangeLog</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
       <segments>Object.ArchiveFile</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.AutomaticDataImportSettings</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.Comment</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.CommentOnDataExport</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.CommentOnDataImport</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ConnectedInfobaseType</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.DebugModeFlag</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.DirectReadFromDestinationIB</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.DisplayInfoMessagesIntoMessageWindow</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.DoNotRequestDataImportConfirmationOnOpenDataProcessor</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.DoNotShowInfoMessagesToUser</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.EndDate</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.EventHandlerExternalDataProcessorFileName</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.EventHandlersFileName</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ExchangeFileCompressionPassword</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ExchangeFileName</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ExchangeFileUnpackPassword</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ExchangeLogFileName</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ExchangeMode</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ExecuteDataExchangeInOptimizedFormat</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ExportAllowedObjectsOnly</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ExportSettingsDataProcessors</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.HandlersDebugModeFlag</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ImportDataInExchangeMode</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ImportExchangeLogFileName</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ImportReferencedObjectsWithoutDeletionMark</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ImportSettingsDataProcessors</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.InfobaseConnectionDirectory</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.InfobaseConnectionNameAtServer</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.InfobaseConnectionPassword</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.InfobaseConnectionServerName</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.InfobaseConnectionUsername</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
       <segments>Object.InfobaseConnectionWindowsAuthentication</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ObjectsPerTransaction</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.OpenExchangeLogAfterExecutingOperations</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.OptimizedObjectsWriting</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.Parameters</segments>
-    </settingsSavedData>
-    <settingsSavedData xsi:type="form:DataPath">
       <segments>Object.PlatformVersionForInfobaseConnection</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ProcessedObjectsCountToUpdateStatus</segments>
+      <segments>Object.XMLWriterAdvancedMonitoring</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.ReadEventHandlersFromExchangeRulesFile</segments>
+      <segments>Object.DisplayInfoMessagesIntoMessageWindow</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.RemoveTrailingSpaces</segments>
+      <segments>Object.WriteInfoMessagesToLog</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.RequestDataImportConfirmationOnOpenDataProcessor</segments>
+      <segments>Object.WriteErrorMessagesToLog</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.SavedSettings</segments>
+      <segments>Object.ExportAllowedObjectsOnly</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ExecuteDataExchangeInOptimizedFormat</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
       <segments>Object.StartDate</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.TransactionItemsCountOnExportForExchangePlans</segments>
+      <segments>Object.EndDate</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.AppendDataToExchangeLog</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ImportDataInExchangeMode</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.RequestDataImportConfirmationOnOpenDataProcessor</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.WriteToInfobaseOnlyChangedObjects</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.WriteRegistersAsRecordSets</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.InfobaseConnectionNameAtServer</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.InfobaseConnectionServerName</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.EventHandlerExternalDataProcessorFileName</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ExchangeFileName</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.EventHandlersFileName</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ExchangeLogFileName</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ImportExchangeLogFileName</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
       <segments>Object.UseFilterByDateForAllObjects</segments>
@@ -7584,19 +7279,91 @@ sunucuda</value>
       <segments>Object.UseTransactionsOnExportForExchangePlans</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.WriteErrorMessagesToLog</segments>
+      <segments>Object.InfobaseConnectionDirectory</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.WriteInfoMessagesToLog</segments>
+      <segments>Object.ProcessedObjectsCountToUpdateStatus</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.WriteRegistersAsRecordSets</segments>
+      <segments>Object.ObjectsPerTransaction</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.WriteToInfobaseOnlyChangedObjects</segments>
+      <segments>Object.TransactionItemsCountOnExportForExchangePlans</segments>
     </settingsSavedData>
     <settingsSavedData xsi:type="form:DataPath">
-      <segments>Object.XMLWriterAdvancedMonitoring</segments>
+      <segments>Object.Comment</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.CommentOnDataExport</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.CommentOnDataImport</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.AutomaticDataImportSettings</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.DoNotShowInfoMessagesToUser</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.DoNotRequestDataImportConfirmationOnOpenDataProcessor</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.DirectReadFromDestinationIB</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ExportSettingsDataProcessors</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ImportSettingsDataProcessors</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ReadEventHandlersFromExchangeRulesFile</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.RemoveTrailingSpaces</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ImportReferencedObjectsWithoutDeletionMark</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.OptimizedObjectsWriting</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.OpenExchangeLogAfterExecutingOperations</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.Parameters</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ExchangeFileUnpackPassword</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ExchangeFileCompressionPassword</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.InfobaseConnectionPassword</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.InfobaseConnectionUsername</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ExchangeMode</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.AlgorithmDebugMode</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.SavedSettings</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.ConnectedInfobaseType</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.DebugModeFlag</segments>
+    </settingsSavedData>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>Object.HandlersDebugModeFlag</segments>
     </settingsSavedData>
     <main>true</main>
     <additionalColumns>
@@ -7821,16 +7588,12 @@ sunucuda</value>
   <attributes>
     <name>DirectExport</name>
     <title>
-      <key>ru</key>
-      <value>Прямая выгрузка</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Direct export</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Doğrudan dışa aktarma</value>
+      <key>ru</key>
+      <value>Прямая выгрузка</value>
     </title>
     <id>2</id>
     <valueType>
@@ -7852,16 +7615,12 @@ sunucuda</value>
   <attributes>
     <name>ExportPeriodPresentation</name>
     <title>
-      <key>ru</key>
-      <value>Представление периода выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export period presentation</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarma döneminin sunumu</value>
+      <key>ru</key>
+      <value>Представление периода выгрузки</value>
     </title>
     <id>4</id>
     <valueType/>
@@ -7877,10 +7636,6 @@ sunucuda</value>
     <title>
       <key>ru</key>
       <value>Data import from file</value>
-    </title>
-    <title>
-      <key>tr</key>
-      <value>Dosyadan veri aktarımı</value>
     </title>
     <id>5</id>
     <valueType>
@@ -7902,10 +7657,6 @@ sunucuda</value>
   </attributes>
   <attributes>
     <name>ExchangeRules</name>
-    <title>
-      <key>tr</key>
-      <value>DeğişimKuralları</value>
-    </title>
     <id>6</id>
     <valueType>
       <types>ValueList</types>
@@ -7930,10 +7681,6 @@ sunucuda</value>
       <key>ru</key>
       <value>Data export to file</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Veriyi dosyaya aktarımı</value>
-    </title>
     <id>7</id>
     <valueType>
       <types>ValueList</types>
@@ -7955,16 +7702,12 @@ sunucuda</value>
   <attributes>
     <name>ChangesRegistrationDeletionTypeForExportedExchangeNodes</name>
     <title>
-      <key>ru</key>
-      <value>Тип удаления регистрации изменений для узлов обмена после выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Changes registration deletion type for exported exchange nodes</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarılan değişim düğümleri için değişiklik kayıt silme türü</value>
+      <key>ru</key>
+      <value>Тип удаления регистрации изменений для узлов обмена после выгрузки</value>
     </title>
     <id>8</id>
     <valueType>
@@ -7988,10 +7731,6 @@ sunucuda</value>
       <key>ru</key>
       <value>Is client</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>İstemci</value>
-    </title>
     <id>9</id>
     <valueType>
       <types>Boolean</types>
@@ -8010,16 +7749,12 @@ sunucuda</value>
   <attributes>
     <name>ExchangeFileName</name>
     <title>
-      <key>ru</key>
-      <value>Имя файла обмена</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Exchange file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değişim dosyası adı</value>
+      <key>ru</key>
+      <value>Имя файла обмена</value>
     </title>
     <id>10</id>
     <valueType>
@@ -8039,16 +7774,12 @@ sunucuda</value>
   <attributes>
     <name>DataFileName</name>
     <title>
-      <key>ru</key>
-      <value>Имя файла данных</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Data file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Veri dosya adı</value>
+      <key>ru</key>
+      <value>Имя файла данных</value>
     </title>
     <id>11</id>
     <valueType>
@@ -8068,16 +7799,12 @@ sunucuda</value>
   <attributes>
     <name>RulesFileName</name>
     <title>
-      <key>ru</key>
-      <value>Имя файла правил</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Rules file name</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kurallar dosyasının adı</value>
+      <key>ru</key>
+      <value>Имя файла правил</value>
     </title>
     <id>12</id>
     <valueType>
@@ -8096,10 +7823,6 @@ sunucuda</value>
   </attributes>
   <attributes>
     <name>RulesAreImported</name>
-    <title>
-      <key>tr</key>
-      <value>KurallarİçeAktarıldı</value>
-    </title>
     <id>13</id>
     <valueType>
       <types>Boolean</types>
@@ -8114,16 +7837,12 @@ sunucuda</value>
   <attributes>
     <name>DataToDelete</name>
     <title>
-      <key>ru</key>
-      <value>Удаляемые данные</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Data to delete</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Silinecek veriler</value>
+      <key>ru</key>
+      <value>Удаляемые данные</value>
     </title>
     <id>14</id>
     <valueType>
@@ -8137,10 +7856,6 @@ sunucuda</value>
     </edit>
     <columns>
       <name>Metadata</name>
-      <title>
-        <key>tr</key>
-        <value>MetaVeri</value>
-      </title>
       <id>1</id>
       <valueType>
         <types>String</types>
@@ -8156,16 +7871,12 @@ sunucuda</value>
     <columns>
       <name>Check</name>
       <title>
-        <key>ru</key>
-        <value>Пометка</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Check</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>İşaret</value>
+        <key>ru</key>
+        <value>Пометка</value>
       </title>
       <id>2</id>
       <valueType>
@@ -8185,16 +7896,12 @@ sunucuda</value>
     <columns>
       <name>Presentation</name>
       <title>
-        <key>ru</key>
-        <value>Представление</value>
-      </title>
-      <title>
         <key>en</key>
         <value>Presentation</value>
       </title>
       <title>
-        <key>tr</key>
-        <value>Sunum</value>
+        <key>ru</key>
+        <value>Представление</value>
       </title>
       <id>3</id>
       <valueType>
@@ -8215,10 +7922,6 @@ sunucuda</value>
       <key>ru</key>
       <value>Rules file address in storage</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>DepolamadakiKurallarDosyasıAdresi</value>
-    </title>
     <id>3</id>
     <valueType>
       <types>String</types>
@@ -8234,16 +7937,12 @@ sunucuda</value>
   <attributes>
     <name>ExportPeriod</name>
     <title>
-      <key>ru</key>
-      <value>Период выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export period</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarma dönemi</value>
+      <key>ru</key>
+      <value>Период выгрузки</value>
     </title>
     <id>15</id>
     <valueType>
@@ -8265,10 +7964,6 @@ sunucuda</value>
       <key>ru</key>
       <value>Имя файла правил</value>
     </title>
-    <title>
-      <key>tr</key>
-      <value>Kurallar dosyası adı</value>
-    </title>
     <id>16</id>
     <valueType>
       <types>String</types>
@@ -8286,10 +7981,6 @@ sunucuda</value>
   </attributes>
   <attributes>
     <name>ImportRulesFileAddressInStorage</name>
-    <title>
-      <key>tr</key>
-      <value>DepolamadakiİçeAktarmaKurallarıDosyaAdresi</value>
-    </title>
     <id>17</id>
     <valueType>
       <types>String</types>
@@ -8305,16 +7996,12 @@ sunucuda</value>
   <formCommands>
     <name>ReadExchangeRules</name>
     <title>
-      <key>ru</key>
-      <value>Прочитать правила обмена</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Read exchange rules</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değişim kurallarını oku</value>
+      <key>ru</key>
+      <value>Прочитать правила обмена</value>
     </title>
     <id>1</id>
     <toolTip>
@@ -8338,16 +8025,12 @@ sunucuda</value>
   <formCommands>
     <name>ConnectionTest</name>
     <title>
-      <key>ru</key>
-      <value>Проверить подключение</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Test connection</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Bağlantıyı kontrol et</value>
+      <key>ru</key>
+      <value>Проверить подключение</value>
     </title>
     <id>2</id>
     <toolTip>
@@ -8372,16 +8055,12 @@ sunucuda</value>
   <formCommands>
     <name>ExportDebugSetup</name>
     <title>
-      <key>ru</key>
-      <value>Настройка отладки выгрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export debug setup</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarma hata ayıklamasının ayarlanması</value>
+      <key>ru</key>
+      <value>Настройка отладки выгрузки</value>
     </title>
     <id>3</id>
     <toolTip>
@@ -8405,16 +8084,12 @@ sunucuda</value>
   <formCommands>
     <name>RestoreParameters</name>
     <title>
-      <key>ru</key>
-      <value>Восстановить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Restore</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Geri yükle</value>
+      <key>ru</key>
+      <value>Восстановить</value>
     </title>
     <id>4</id>
     <toolTip>
@@ -8438,16 +8113,12 @@ sunucuda</value>
   <formCommands>
     <name>SaveParameters</name>
     <title>
-      <key>ru</key>
-      <value>Сохранить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Save</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Kaydet</value>
+      <key>ru</key>
+      <value>Сохранить</value>
     </title>
     <id>5</id>
     <toolTip>
@@ -8471,16 +8142,12 @@ sunucuda</value>
   <formCommands>
     <name>ImportDebugSetup</name>
     <title>
-      <key>ru</key>
-      <value>Настройка отладки загрузки</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Import debug setup</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İçe aktarma hata ayıklamasını ayarlama</value>
+      <key>ru</key>
+      <value>Настройка отладки загрузки</value>
     </title>
     <id>8</id>
     <toolTip>
@@ -8504,16 +8171,12 @@ sunucuda</value>
   <formCommands>
     <name>GetExchangeFileInfo</name>
     <title>
-      <key>ru</key>
-      <value>Получить информацию о файле обмена</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Get exchange file info</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değişim dosyası hakkında bilgi</value>
+      <key>ru</key>
+      <value>Получить информацию о файле обмена</value>
     </title>
     <id>9</id>
     <toolTip>
@@ -8537,16 +8200,12 @@ sunucuda</value>
   <formCommands>
     <name>DeletionCheckAll</name>
     <title>
-      <key>ru</key>
-      <value>Удаление отметить все</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Deletion check all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Silme tümünü işaretle</value>
+      <key>ru</key>
+      <value>Удаление отметить все</value>
     </title>
     <id>10</id>
     <toolTip>
@@ -8574,16 +8233,12 @@ sunucuda</value>
   <formCommands>
     <name>DeletionUncheckAll</name>
     <title>
-      <key>ru</key>
-      <value>Удаление отменить все</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Deletion uncheck all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Silme işaretleri kaldır</value>
+      <key>ru</key>
+      <value>Удаление отменить все</value>
     </title>
     <id>11</id>
     <toolTip>
@@ -8611,16 +8266,12 @@ sunucuda</value>
   <formCommands>
     <name>DeletionDelete</name>
     <title>
-      <key>ru</key>
-      <value>Удалить</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Delete</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sil</value>
+      <key>ru</key>
+      <value>Удалить</value>
     </title>
     <id>12</id>
     <toolTip>
@@ -8648,16 +8299,12 @@ sunucuda</value>
   <formCommands>
     <name>ExportCheckAll</name>
     <title>
-      <key>ru</key>
-      <value>Выгрузка отметить все</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export check all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarma tümünü işaretle</value>
+      <key>ru</key>
+      <value>Выгрузка отметить все</value>
     </title>
     <id>13</id>
     <toolTip>
@@ -8685,16 +8332,12 @@ sunucuda</value>
   <formCommands>
     <name>ExportUncheckAll</name>
     <title>
-      <key>ru</key>
-      <value>Выгрузка отменить все</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export uncheck all</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktarma işaretleri kaldır</value>
+      <key>ru</key>
+      <value>Выгрузка отменить все</value>
     </title>
     <id>14</id>
     <toolTip>
@@ -8722,16 +8365,12 @@ sunucuda</value>
   <formCommands>
     <name>ExportUncheckAllExchangeNodes</name>
     <title>
-      <key>ru</key>
-      <value>Очистить узлы обмена</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Uncheck exchange nodes</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Değişim düğümlerini temizle</value>
+      <key>ru</key>
+      <value>Очистить узлы обмена</value>
     </title>
     <id>15</id>
     <toolTip>
@@ -8755,16 +8394,12 @@ sunucuda</value>
   <formCommands>
     <name>ExportSetExchangeNode</name>
     <title>
-      <key>ru</key>
-      <value>Установить текущий узел обмена у всех</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Set current exchange node for all items</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Tümü için geçerli değişim düğümünü ayarla</value>
+      <key>ru</key>
+      <value>Установить текущий узел обмена у всех</value>
     </title>
     <id>16</id>
     <toolTip>
@@ -8788,16 +8423,12 @@ sunucuda</value>
   <formCommands>
     <name>ExecuteExport</name>
     <title>
-      <key>ru</key>
-      <value>Выполнить выгрузку</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Export</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Dışa aktar</value>
+      <key>ru</key>
+      <value>Выполнить выгрузку</value>
     </title>
     <id>17</id>
     <toolTip>
@@ -8825,16 +8456,12 @@ sunucuda</value>
   <formCommands>
     <name>ExecuteImport</name>
     <title>
-      <key>ru</key>
-      <value>Выполнить загрузку</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Import</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İçe aktar</value>
+      <key>ru</key>
+      <value>Выполнить загрузку</value>
     </title>
     <id>18</id>
     <toolTip>
@@ -8862,16 +8489,12 @@ sunucuda</value>
   <formCommands>
     <name>AtClient</name>
     <title>
-      <key>ru</key>
-      <value>На клиенте</value>
-    </title>
-    <title>
       <key>en</key>
       <value>At client</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>İstemcide</value>
+      <key>ru</key>
+      <value>На клиенте</value>
     </title>
     <id>7</id>
     <toolTip>
@@ -8895,16 +8518,12 @@ sunucuda</value>
   <formCommands>
     <name>AtServer</name>
     <title>
-      <key>ru</key>
-      <value>На сервере</value>
-    </title>
-    <title>
       <key>en</key>
       <value>At server</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Sunucuda</value>
+      <key>ru</key>
+      <value>На сервере</value>
     </title>
     <id>19</id>
     <toolTip>
@@ -8928,16 +8547,12 @@ sunucuda</value>
   <formCommands>
     <name>UT_WebServiceConnectionTest</name>
     <title>
-      <key>ru</key>
-      <value>Тест подключения</value>
-    </title>
-    <title>
       <key>en</key>
       <value>Connection test</value>
     </title>
     <title>
-      <key>tr</key>
-      <value>Bağlantı testi</value>
+      <key>ru</key>
+      <value>Тест подключения</value>
     </title>
     <id>20</id>
     <use>
@@ -8954,5 +8569,4 @@ sunucuda</value>
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
-  <extInfo xsi:type="form:ObjectFormExtInfo"/>
 </form:Form>

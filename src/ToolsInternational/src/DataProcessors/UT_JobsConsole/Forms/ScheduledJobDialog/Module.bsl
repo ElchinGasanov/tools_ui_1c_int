@@ -21,7 +21,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		IBUsers = InfoBaseUsers.GetUsers();
 	Except
 		Message = New UserMessage();
-		Message.Text = NStr("ru = 'Ошибка при получении списка пользователей информационной базы: '; en = 'Infobase users getting error: '; tr = 'Bilgi tabanı kullanıcı listesi alınırken hata oluştu:'") + ErrorDescription();
+		Message.Text = NStr("ru = 'Ошибка при получении списка пользователей информационной базы: '; en = 'Infobase users getting error: '") + ErrorDescription();
 		Message.Message();
 		IBUsers = Undefined;
 	EndTry;
@@ -65,7 +65,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		Schedule = New JobSchedule;
 	EndIf;
 	
-	Items.ScheduleLabel.Title = NStr("ru = 'Выполнять: '; en = 'Execute: '; tr = 'Çalıştır'") + String(Schedule);
+	Items.ScheduleLabel.Title = NStr("ru = 'Выполнять: '; en = 'Execute: '") + String(Schedule);
 
 EndProcedure
 
@@ -101,7 +101,7 @@ EndProcedure
 Procedure ScheduledJobDialogOnClose(ScheduleResult, AdditionalParameters) Export
 	If ScheduleResult <> Undefined Then
 		Schedule = ScheduleResult;
-		Items.ScheduleLabel.Title = NStr("ru = 'Выполнять: '; en = 'Execute: '; tr = 'Çalıştır'") + String(Schedule);
+		Items.ScheduleLabel.Title = NStr("ru = 'Выполнять: '; en = 'Execute: '") + String(Schedule);
 	EndIf;
 EndProcedure
 
@@ -129,7 +129,7 @@ Function WriteScheduledJob(Schedule)
 	Try
 		
 		If MetadataChioce = Undefined Or MetadataChioce = "" Then
-			Raise(NStr("ru = 'Не выбраны метаданные регламентного задания.'; en = 'Scheduled job metadata not selected.'; tr = 'Zamanlanmış görev metaverisi seçilmedi.'"));
+			Raise(NStr("ru = 'Не выбраны метаданные регламентного задания.'; en = 'Scheduled job metadata not selected.'"));
 		КонецЕсли;
 		
 		ScheduledJob = GetScheduledJobObject(ScheduledJobID);
@@ -157,7 +157,7 @@ Function WriteScheduledJob(Schedule)
 		ScheduledJob.Записать();
 	Except	
 		Message = New UserMessage();
-		Message.Текст = NStr("ru = 'Ошибка: '; en = 'Error: '; tr = 'Hata: '") + ErrorDescription();
+		Message.Текст = NStr("ru = 'Ошибка: '; en = 'Error: '") + ErrorDescription();
 		Message.Message();
 
 		Return False;
