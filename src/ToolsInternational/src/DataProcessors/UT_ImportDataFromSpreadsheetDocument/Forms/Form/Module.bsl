@@ -573,7 +573,7 @@ Function ImportDataServer()
 
 			EndDo;
 
-			QueryText = Left(QueryText, StrLen(QueryText) - 2);
+			QueryText = Left(QueryText, StrLen(QueryText) - 3);  // Note - IN Non WE Version - StrLen(QueryText) - 2
 			Query = New Query(QueryText);
 		EndIf;
 	ElsIf Object.ImportMode = 1 Then
@@ -1066,7 +1066,7 @@ Function ProcessArea(Area, Column, CurrentData, CellsTexts)
 	CurrentData.Insert(Column.AttributeName, Result);
 
 	Area.Details = Result;
-	Area.Note.Text = Note;
+	Area.Comment.Text = Note;
 
 	If Не IsBlankString(Note) Then
 		Message(NStr("ru = 'Ячейка['; en = 'Cell['") + Area.Name + "](" + Column.AttributePresentation + "): " + Note);
@@ -2268,7 +2268,7 @@ Procedure mImportSpreadsheetDocumentFromExcelCheckingFileExistenceCompletion(Exi
 	Try
 		Excel = New COMObject("Excel.Application");
 		Excel.WorkBooks.Open(FileName);
-		Message(NStr("ru = 'Обработка файла Microsoft Excel...'; Microsoft Excel file is processed..."));
+		Message(NStr("ru = 'Обработка файла Microsoft Excel...'';';en = 'Microsoft Excel file is processed...'"));
 		ExcelSheet = Excel.Sheets(ExcelSheetNumber);
 	Except
 		Message(NStr("ru = 'Ошибка. Возможно неверно указан номер листа книги Excel.'; en = 'Cannot read the sheet. Probably the sheet number is incorrect.'"));
