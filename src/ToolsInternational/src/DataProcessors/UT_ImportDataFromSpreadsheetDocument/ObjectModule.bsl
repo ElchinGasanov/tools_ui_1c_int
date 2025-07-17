@@ -28,7 +28,6 @@ EndFunction
 //
 // 		- Version - String - data processor version. Conforms to <senior number>.<junior number> format.
 //					It is used when data processor is imported to the infobase.
-//					
 // 		- SafeMode – Boolean – if True, Data processor will be started in safe mode.
 //					 See Help for further information.
 //
@@ -63,7 +62,6 @@ Function ExternalDataProcessorInfo() Export
 	RegistrationParameters.Insert("Information", NStr(
 		"ru = 'Обработка используется для загрузки данных в справочники, табличные части документов и справочников, а также в регистры сведений из табличного документа в формате Excel, MXL, DBF, txt.';
 		|en = 'The data processor is used to import data into catalogs, tabular sections of documents and catalogs, as well as into information registers from a spreadsheet document in Excel, MXL, DBF, txt format.'"));
-
 	CommandTable = GetCommandTable();
 
 	AddCommand(CommandTable, NStr("ru = 'Загрузка из табличного документа'; en = 'Import from spreadsheet document'"),
@@ -106,8 +104,9 @@ EndProcedure
 
 // Interface for starting data processor
 //
-// Parameters
-// 	- CommandID - String - Internal ID of calling command
+//Parameters:
+//TargetObjects - Array -  Refs to infobase objects that should be proceed
+//
 //
 Procedure ExecuteCommand(CommandID) Export
 EndProcedure
