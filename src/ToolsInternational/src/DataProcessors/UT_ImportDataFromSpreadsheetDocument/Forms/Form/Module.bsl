@@ -1691,7 +1691,7 @@ Procedure FillColumnSettings(Settings)
 			Column = KeyValue.Value;
 			ImportedAttribute = VT.Find(Column.AttributeName, "AttributeName");
 			If Not ImportedAttribute = Undefined Then
-				Index = VT.Index(ImportedAttribute);
+				Index = VT.IndexOf(ImportedAttribute);
 				If Index >= AppearanceColumnNumber Then
 					FillPropertyValues(ImportedAttribute, Column);
 
