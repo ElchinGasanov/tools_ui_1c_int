@@ -765,7 +765,7 @@
           <representationInContextMenu>Auto</representationInContextMenu>
         </items>
         <items xsi:type="form:Button">
-          <name>NextNote</name>
+          <name>NextComment</name>
           <id>25</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -773,7 +773,7 @@
             <common>true</common>
           </userVisible>
           <extendedTooltip>
-            <name>NextNoteExtendedTooltip</name>
+            <name>NextCommentExtendedTooltip</name>
             <id>148</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -787,7 +787,7 @@
               <horizontalAlign>Left</horizontalAlign>
             </extInfo>
           </extendedTooltip>
-          <commandName>Form.Command.NextNote</commandName>
+          <commandName>Form.Command.NextComment</commandName>
           <representation>Auto</representation>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -795,7 +795,7 @@
           <representationInContextMenu>Auto</representationInContextMenu>
         </items>
         <items xsi:type="form:Button">
-          <name>PreviousNote</name>
+          <name>PreviousComment</name>
           <id>26</id>
           <visible>true</visible>
           <enabled>true</enabled>
@@ -803,7 +803,7 @@
             <common>true</common>
           </userVisible>
           <extendedTooltip>
-            <name>PreviousNoteExtendedTooltip</name>
+            <name>PreviousCommentExtendedTooltip</name>
             <id>149</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -817,7 +817,7 @@
               <horizontalAlign>Left</horizontalAlign>
             </extInfo>
           </extendedTooltip>
-          <commandName>Form.Command.PreviousNote</commandName>
+          <commandName>Form.Command.PreviousComment</commandName>
           <representation>Auto</representation>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -2187,7 +2187,7 @@
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
-          <name>ImportedAttributesTablePossibleSearchField</name>
+          <name>ImportedAttributesTableCanBeSearchField</name>
           <id>97</id>
           <enabled>true</enabled>
           <userVisible>
@@ -2195,11 +2195,11 @@
           </userVisible>
           <dataPath xsi:type="form:MultiLanguageDataPath">
             <paths xsi:type="form:DataPath">
-              <segments>ImportedAttributesTable.PossibleSearchField</segments>
+              <segments>ImportedAttributesTable.CanBeSearchField</segments>
             </paths>
           </dataPath>
           <extendedTooltip>
-            <name>ImportedAttributesTablePossibleSearchFieldExtendedTooltip</name>
+            <name>ImportedAttributesTableCanBeSearchFieldExtendedTooltip</name>
             <id>194</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -2214,7 +2214,7 @@
             </extInfo>
           </extendedTooltip>
           <contextMenu>
-            <name>ImportedAttributesTablePossibleSearchFieldContextMenu</name>
+            <name>ImportedAttributesTableCanBeSearchFieldContextMenu</name>
             <id>98</id>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -3375,10 +3375,10 @@
       </edit>
     </columns>
     <columns>
-      <name>PossibleSearchField</name>
+      <name>CanBeSearchField</name>
       <title>
         <key>en</key>
-        <value>Possible search field</value>
+        <value>Can be search field</value>
       </title>
       <title>
         <key>ru</key>
@@ -4168,10 +4168,10 @@
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>PreviousNote</name>
+    <name>PreviousComment</name>
     <title>
       <key>en</key>
-      <value>Previous note</value>
+      <value>Previous comment</value>
     </title>
     <title>
       <key>ru</key>
@@ -4194,7 +4194,7 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>PreviousNoteCommand</name>
+        <name>PreviousCommentCommand</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
@@ -4225,10 +4225,10 @@
     <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <formCommands>
-    <name>NextNote</name>
+    <name>NextComment</name>
     <title>
       <key>en</key>
-      <value>Next note</value>
+      <value>Next comment</value>
     </title>
     <title>
       <key>ru</key>
@@ -4251,7 +4251,7 @@
     </picture>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>NextNoteCommand</name>
+        <name>NextCommentCommand</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>

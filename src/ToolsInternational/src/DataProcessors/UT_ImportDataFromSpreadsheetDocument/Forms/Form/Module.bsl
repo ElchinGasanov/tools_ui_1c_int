@@ -139,7 +139,7 @@ EndFunction // mAdjustToNumber()
 &AtServer
 Function mAdjustToDate(Presentation, AttributeType, Comment = "")
 
-	Result = AttributeType.ПривестиЗначение(Presentation);
+	Result = AttributeType.AdjustValue(Presentation);
 	If Result = '00010101' Then
 
 		FractionsArray = GetDatePresentationFractions(Presentation);
@@ -236,7 +236,7 @@ EndFunction // ()
 //  ValueType - Type - type of value to get manager.
 //
 // Return value:
-//  CatalogManager, DocumentManager, etc.
+//  Manager.
 &AtServer
 Function GetManagerByType(ValueType) Export
 
@@ -367,7 +367,7 @@ Procedure SetTabularSectionsList()
 
 EndProcedure // ()
 
-// Generates a structure of columns of imported attributes from ImportedAttributesTable table.
+// Generates a structure of columns of imported attributes from "ImportedAttributesTable" table.
 //
 // Параметры:
 //  нет
@@ -583,7 +583,7 @@ Function ImportDataServer()
 
 		RegisterDimensions = New Structure;
 		For Each Column In Columns Do
-			If Column.Value.PossibleSearchField Then
+			If Column.Value.CanBeSearchField Then
 				RegisterDimensions.Insert(Column.Key, Column.Value);
 			EndIf;
 		EndDo;
@@ -1804,7 +1804,7 @@ Procedure FillCatalogColumnSettings(VT)
 		ImportedAttribute = VT.Add();
 		ImportedAttribute.AttributeName           = "Code";
 		ImportedAttribute.AttributePresentation = "Code";
-		ImportedAttribute.PossibleSearchField   =  True;
+		ImportedAttribute.CanBeSearchField   =  True;
 
 		If SourceMetadata.CodeType = Metadata.ObjectProperties.CatalogCodeType.String Then
 			ImportedAttribute.TypeDescription = New TypeDescription("String", ,
@@ -1821,7 +1821,7 @@ Procedure FillCatalogColumnSettings(VT)
 		ImportedAttribute = VT.Add();
 		ImportedAttribute.AttributeName           = "Description";
 		ImportedAttribute.AttributePresentation = "Description";
-		ImportedAttribute.PossibleSearchField   =  True;
+		ImportedAttribute.CanBeSearchField   =  True;
 		ImportedAttribute.TypeDescription = New TypeDescription("String", ,
 			New StringQualifiers(SourceMetadata.DescriptionLength));
 
@@ -1832,7 +1832,7 @@ Procedure FillCatalogColumnSettings(VT)
 		ImportedAttribute = VT.Add();
 		ImportedAttribute.AttributeName           = "Owner";
 		ImportedAttribute.AttributePresentation = "Owner";
-		ImportedAttribute.PossibleSearchField   =  True;
+		ImportedAttribute.CanBeSearchField   =  True;
 
 		TypeDescriptionString = "";
 
@@ -1851,7 +1851,7 @@ Procedure FillCatalogColumnSettings(VT)
 		ImportedAttribute = VT.Add();
 		ImportedAttribute.AttributeName           = "Parent";
 		ImportedAttribute.AttributePresentation = "Parent";
-		ImportedAttribute.PossibleSearchField   = True;
+		ImportedAttribute.CanBeSearchField   = True;
 		ImportedAttribute.TypeDescription = New TypeDescription(StrReplace(SourceMetadata.FullName(), ".",
 			"Ref."));
 		
@@ -1859,7 +1859,7 @@ Procedure FillCatalogColumnSettings(VT)
 			ImportedAttribute = VT.Add();
 			ImportedAttribute.AttributeName           = "IsFolder";
 			ImportedAttribute.AttributePresentation = "IsFolder";
-			ImportedAttribute.PossibleSearchField   = True;
+			ImportedAttribute.CanBeSearchField   = True;
 			ImportedAttribute.TypeDescription = New TypeDescription("Boolean");
 		EndIf; 
 
@@ -1870,7 +1870,7 @@ Procedure FillCatalogColumnSettings(VT)
 			ImportedAttribute                        = VT.Add();
 			ImportedAttribute.AttributeName           = Attribute.Name;
 			ImportedAttribute.AttributePresentation = Attribute.Presentation();
-			ImportedAttribute.PossibleSearchField   = Not Attribute.Indexing
+			ImportedAttribute.CanBeSearchField   = Not Attribute.Indexing
 				= Metadata.ObjectProperties.Indexing.DontIndex;
 			ImportedAttribute.TypeDescription = SourceMetadata.Attributes[ImportedAttribute.AttributeName].Type;
 		EndIf;
@@ -1928,7 +1928,7 @@ Procedure FillInformationRegisterColumnSettings(VT)
 		ImportedAttribute = VT.Add();
 		ImportedAttribute.AttributeName           = "Period";
 		ImportedAttribute.AttributePresentation = "Period";
-		ImportedAttribute.PossibleSearchField = True;
+		ImportedAttribute.CanBeSearchField = True;
 		ImportedAttribute.SearchField           = True;
 
 		ImportedAttribute.TypeDescription = New TypeDescription("Date", , , ,
@@ -1938,7 +1938,7 @@ Procedure FillInformationRegisterColumnSettings(VT)
 
 	For Each Attribute In SourceMetadata.Dimensions Do
 		ImportedAttribute                        = VT.Add();
-		ImportedAttribute.PossibleSearchField = True;
+		ImportedAttribute.CanBeSearchField = True;
 		ImportedAttribute.AttributeName           = Attribute.Name;
 		ImportedAttribute.AttributePresentation = Attribute.Presentation();
 		ImportedAttribute.TypeDescription = SourceMetadata.Dimensions[ImportedAttribute.AttributeName].Type;
@@ -2656,7 +2656,7 @@ Procedure FillControlCommand(Command)
 EndProcedure
 
 &AtClient
-Procedure NextNoteCommand(Command)
+Procedure NextCommentCommand(Command)
 	
 	//SpreadsheetDocument = Items.SpreadsheetDocument;
 
@@ -2687,7 +2687,7 @@ Procedure NextNoteCommand(Command)
 EndProcedure
 
 &AtClient
-Procedure PreviousNoteCommand(Command)
+Procedure PreviousCommentCommand(Command)
 	
 	//SpreadsheetDocument = Items.SpreadsheetDocument;
 
