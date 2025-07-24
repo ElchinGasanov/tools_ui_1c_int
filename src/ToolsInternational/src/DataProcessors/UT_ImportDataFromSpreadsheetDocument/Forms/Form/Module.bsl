@@ -1274,21 +1274,21 @@ Function GetNamePresentationList(TypeDescription)
 			If TypeMetadata.DefaultPresentation = DefaultPresentationType.AsCode Then
 
 				If CodeExists Then
-					ChoiceList.Add("Code", "Code");
+					ChoiceList.Add("Code", NSTR("ru = 'Код';en = 'Code'""Code"));
 				EndIf;
 
 				If NameExists Then
-					ChoiceList.Add("Description", "Description");
+					ChoiceList.Add("Description", NStr("ru = 'Представление';en = 'Description'"));
 				EndIf;
 
 			Else
 
 				If NameExists Then
-					ChoiceList.Add("Description", "Description");
+					ChoiceList.Add("Description", NStr("ru = 'Представление';en = 'Description'"));
 				EndIf;
 
 				If CodeExists Then
-					ChoiceList.Add("Code", "Code");
+					ChoiceList.Add("Code", NSTR("ru = 'Код';en = 'Code'""Code"));
 				EndIf;
 
 			EndIf;
@@ -2561,7 +2561,7 @@ Procedure ImportCommand(Command)
 	If Not IsBlankString(QuestionTextStructure.Error) Then
 		ShowMessageBox( , QuestionTextStructure.Error, , NStr("ru = 'Ошибка при загрузке!'; en = 'An import error occured.'"));
 	Else
-		ShowQueryBox(New NotifyDescription("ImportCommandCompletion", ThisForm), "Import "
+		ShowQueryBox(New NotifyDescription("ImportCommandCompletion", ThisForm), NSTR("ru = 'Загрузить';en = 'Import'")
 			+ ItemCount + QuestionTextStructure.QuestionText, QuestionDialogMode.YesNo);
 	EndIf;
 
@@ -2616,7 +2616,7 @@ Procedure SaveCommand(Command)
 	FileDialog = New FileDialog(FileDialogMode.Save);
 
 	FileDialog.Title = NStr("ru = 'Сохранить табличный документ в файл'; en = 'Save a spreadsheet document to file'");
-	FileDialog.Filter    = NStr("ru = 'Табличный документ (*.mxl)|*.mxl|Лист Excel (*.xls)|*.xls|Текстовый документ (*.txt)|*.txt|'en = 'Spreadsheet document (*.mxl)|*.mxl|Excel sheet (*.xls)|*.xls|Text document (*.txt)|*.txt|'");
+	FileDialog.Filter = NSTR("ru = 'Табличный документ (*.mxl)|*.mxl|Лист Excel (*.xls)|*.xls|Текстовый документ (*.txt)|*.txt|';en = 'Spreadsheet document (*.mxl)|*.mxl|Excel sheet (*.xls)|*.xls|Text document (*.txt)|*.txt|'");
 	FileDialog.Show(New NotifyDescription("SaveCommandCompletion", ThisForm,
 		New Structure("FileDialog", FileDialog)));
 
@@ -2722,7 +2722,7 @@ Procedure RestoreValuesFromFileCommand(Command)
 
 	FileDialog = New FileDialog(FileDialogMode.Open);
 	FileDialog.Title	= NStr("ru = 'Восстановить значения из файла'; en = 'Restore values from file'");
-	FileDialog.Filter	= NStr("ru = 'Настройка загрузки в табличный документ (*.mxlz)|*.mxlz|Все файлы (*.*)|*.*|'en = 'Spreadsheet document import settings (*.mxlz)|*.mxlz|All files (*.*)|*.*|'");
+	FileDialog.Filter   = NSTR("ru = 'Настройка загрузки в табличный документ (*.mxlz)|*.mxlz|Все файлы (*.*)|*.*|';en = 'Spreadsheet document import settings (*.mxlz)|*.mxlz|All files (*.*)|*.*|'");
 
 	FileDialog.Show(New NotifyDescription("RestoreValuesFromFileCommandCompletion1", ThisForm,
 		New Structure("FileDialog", FileDialog)));
@@ -2770,7 +2770,7 @@ Procedure SaveValuesToFileCommand(Command)
 	FileDialog = New FileDialog(FileDialogMode.Save);
 
 	FileDialog.Title = NStr("ru = 'Сохранить значения настройки в файл'; en = 'Save setting values to file'");
-	FileDialog.Filter    = NStr("ru = 'Настройка загрузки в табличный документ (*.mxlz)|*.mxlz|Все файлы (*.*)|*.*|'en = 'Spreadsheet document import settings (*.mxlz)|*.mxlz|All Files (*.*)|*.*|'");
+	FileDialog.Filter    = NSTR("ru = 'Настройка загрузки в табличный документ (*.mxlz)|*.mxlz|Все файлы (*.*)|*.*|';en = 'Spreadsheet document import settings (*.mxlz)|*.mxlz|All files (*.*)|*.*|'");
 	FileDialog.Show(New NotifyDescription("SaveValuesToFileCommandCompletion", ThisForm,
 		New Structure("FileDialog, Settings", FileDialog, Settings)));
 

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns="http://v8.1c.ru/8.2/data/spreadsheet" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<languageSettings>
-		<currentLanguage>ru</currentLanguage>
+		<currentLanguage>en</currentLanguage>
 		<defaultLanguage>en</defaultLanguage>
 		<languageInfo>
 			<id>ru</id>
 			<code>Russian</code>
+			<description/>
 		</languageInfo>
 		<languageInfo>
 			<id>en</id>
 			<code>English</code>
+			<description/>
 		</languageInfo>
 	</languageSettings>
 	<columns>
@@ -114,6 +116,10 @@
 					<tl>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
+							<v8:content>1.3</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
 							<v8:content>1.3</v8:content>
 						</v8:item>
 					</tl>
@@ -1042,6 +1048,12 @@
 		</row>
 	</rowsItem>
 	<rowsItem>
+		<index>12</index>
+		<row>
+			<empty>true</empty>
+		</row>
+	</rowsItem>
+	<rowsItem>
 		<index>13</index>
 		<row>
 			<c>
@@ -1442,27 +1454,10 @@
 			</c>
 		</row>
 	</rowsItem>
-	<rowsItem>
-		<index>22</index>
-		<row>
-			<c>
-				<i>1</i>
-				<c>
-					<f>0</f>
-					<tl>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content></v8:content>
-						</v8:item>
-					</tl>
-				</c>
-			</c>
-		</row>
-	</rowsItem>
 	<templateMode>true</templateMode>
 	<defaultFormatIndex>59</defaultFormatIndex>
-	<height>23</height>
-	<vgRows>23</vgRows>
+	<height>21</height>
+	<vgRows>21</vgRows>
 	<merge>
 		<r>0</r>
 		<c>4</c>
@@ -1574,6 +1569,26 @@
 		<h>1</h>
 	</horizontalUnmerge>
 	<namedItem xsi:type="NamedItemCells">
+		<name>Events</name>
+		<area>
+			<type>Rows</type>
+			<beginRow>14</beginRow>
+			<endRow>17</endRow>
+			<beginColumn>-1</beginColumn>
+			<endColumn>-1</endColumn>
+		</area>
+	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
+		<name>EventsAfterAddRow</name>
+		<area>
+			<type>Rows</type>
+			<beginRow>19</beginRow>
+			<endRow>19</endRow>
+			<beginColumn>-1</beginColumn>
+			<endColumn>-1</endColumn>
+		</area>
+	</namedItem>
+	<namedItem xsi:type="NamedItemCells">
 		<name>Header</name>
 		<area>
 			<type>Rows</type>
@@ -1603,31 +1618,11 @@
 			<endColumn>-1</endColumn>
 		</area>
 	</namedItem>
-	<namedItem xsi:type="NamedItemCells">
-		<name>Events</name>
-		<area>
-			<type>Rows</type>
-			<beginRow>14</beginRow>
-			<endRow>17</endRow>
-			<beginColumn>-1</beginColumn>
-			<endColumn>-1</endColumn>
-		</area>
-	</namedItem>
-	<namedItem xsi:type="NamedItemCells">
-		<name>EventsAfterAddRow</name>
-		<area>
-			<type>Rows</type>
-			<beginRow>19</beginRow>
-			<endRow>19</endRow>
-			<beginColumn>-1</beginColumn>
-			<endColumn>-1</endColumn>
-		</area>
-	</namedItem>
 	<line width="1" gap="false">
 		<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
 	</line>
 	<font xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" ref="sys:DefaultGUIFont" kind="WindowsFont"/>
-	<font height="0" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+	<font faceName="" height="0" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
 	<font faceName="Arial" height="8" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
 	<format>
 		<width>58</width>
@@ -1781,8 +1776,8 @@
 	<format>
 		<font>0</font>
 		<border>0</border>
-		<borderColor>style:BorderColor</borderColor>
 		<height>42</height>
+		<borderColor>style:BorderColor</borderColor>
 		<width>275</width>
 		<horizontalAlignment>Left</horizontalAlignment>
 		<verticalAlignment>Top</verticalAlignment>
